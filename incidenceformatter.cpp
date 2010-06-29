@@ -3944,3 +3944,53 @@ QStringList IncidenceFormatter::reminderStringList( Incidence *incidence, bool s
 
   return reminderStringList;
 }
+
+QString IncidenceFormatter::secrecyName( Incidence::Secrecy secrecy )
+{
+  switch ( secrecy ) {
+  case Incidence::SecrecyPublic:
+    return i18nc( "@item incidence access if for everyone", "Public" );
+  case Incidence::SecrecyPrivate:
+    return i18nc( "@item incidence access is by owner only", "Private" );
+  case Incidence::SecrecyConfidential:
+    return i18nc( "@item incidence access is by owner and a controlled group", "Confidential" );
+  default:
+    return QString();  // to make compilers happy
+  }
+}
+
+QStringList IncidenceFormater::secrecyList()
+{
+  QStringList list;
+  list << secrecyName( Incidence::SecrecyPublic );
+  list << secrecyName( Incidence::SecrecyPrivate );
+  list << secrecyName( Incidence::SecrecyConfidential );
+
+  return list;
+}
+
+QString IncidenceFormater::statusName( Incidence::Status status )
+{
+  switch ( status ) {
+  case Incidence::StatusTentative:
+    return i18nc( "@item event is tentative", "Tentative" );
+  case Incidence::StatusConfirmed:
+    return i18nc( "@item event is definite", "Confirmed" );
+  case Incidence::StatusCompleted:
+    return i18nc( "@item to-do is complete", "Completed" );
+  case Incidence::StatusNeedsAction:
+    return i18nc( "@item to-do needs action", "Needs-Action" );
+  case Incidence::StatusCanceled:
+    return i18nc( "@item event orto-do is canceled; journal is removed", "Canceled" );
+  case Incidence::StatusInProcess:
+    return i18nc( "@item to-do is in process", "In-Process" );
+  case Incidence::StatusDraft:
+    return i18nc( "@item journal is in draft form", "Draft" );
+  case Incidence::StatusFinal:
+    return i18nc( "@item journal is in final form", "Final" );
+  case Incidence::StatusX:
+  case Incidence::StatusNone:
+  default:
+    return QString();
+  }
+}

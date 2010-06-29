@@ -326,6 +326,29 @@ namespace IncidenceFormatter
   */
   KCAL_EXPORT QString durationString( Incidence *incidence );
 
+  /**
+    Returns a list of all available #Secrecy types as a list of translated
+    strings.
+    @see secrecyName().
+  */
+  KCAL_EXPORT static QStringList secrecyList();
+
+  /**
+    Returns the translated string form of a specified #Secrecy.
+
+    @param secrecy is a #Secrecy type.
+    @see secrecyList().
+  */
+  KCAL_EXPORT static QString secrecyName( KCalCore::Incidence::Secrecy secrecy );
+
+  /**
+    Returns the translated string form of a specified #Status.
+     @param status is a #Status type.
+  */
+  KCAL_EXPORT static QString statusName( KCalCore::Incidence::Status status );
+
+
+
   class EventViewerVisitor;
   class ScheduleMessageVisitor;
   class InvitationHeaderVisitor;
