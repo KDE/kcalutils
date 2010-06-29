@@ -42,3 +42,30 @@ QStringList Attendee::statusList()
 
   return list;
 }
+
+//KDE5:
+//QString Todo::typeStr() const
+//{
+//  return i18nc( "incidence type is to-do/task", "to-do" );
+//}
+
+//KDE5:
+//QString FreeBusy::typeStr() const
+//{
+//  return i18nc( "incidence type is freebusy", "free/busy" );
+//}
+
+//KDE5:
+//QString Journal::typeStr() const
+//{
+//  return i18nc( "incidence type is journal", "journal" );
+//}
+
+//KDE5:
+//QString Event::typeStr() const
+//{
+//  return i18nc( "incidence type is event", "event" );
+//}
+
+
+
