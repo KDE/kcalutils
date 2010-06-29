@@ -1,3 +1,34 @@
+
+QString Attendee::roleName( Attendee::Role role )
+{
+  switch ( role ) {
+  case Chair:
+    return i18nc( "@item chairperson", "Chair" );
+    break;
+  default:
+  case ReqParticipant:
+    return i18nc( "@item participation is required", "Participant" );
+    break;
+  case OptParticipant:
+    return i18nc( "@item participation is optional", "Optional Participant" );
+    break;
+  case NonParticipant:
+    return i18nc( "@item non-participant copied for information", "Observer" );
+    break;
+  }
+}
+
+QStringList Attendee::roleList()
+{
+  QStringList list;
+  list << roleName( ReqParticipant );
+  list << roleName( OptParticipant );
+  list << roleName( NonParticipant );
+  list << roleName( Chair );
+
+  return list;
+}
+
 QString Attendee::statusName( Attendee::PartStat status )
 {
   switch ( status ) {
