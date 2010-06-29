@@ -3945,7 +3945,7 @@ QStringList IncidenceFormatter::reminderStringList( Incidence *incidence, bool s
   return reminderStringList;
 }
 
-QString IncidenceFormatter::secrecyName( Incidence::Secrecy secrecy )
+QString IncidenceFormatter::incidenceSecrecyName( Incidence::Secrecy secrecy )
 {
   switch ( secrecy ) {
   case Incidence::SecrecyPublic:
@@ -3959,17 +3959,17 @@ QString IncidenceFormatter::secrecyName( Incidence::Secrecy secrecy )
   }
 }
 
-QStringList IncidenceFormater::secrecyList()
+QStringList IncidenceFormater::incidenceSecrecyList()
 {
   QStringList list;
-  list << secrecyName( Incidence::SecrecyPublic );
-  list << secrecyName( Incidence::SecrecyPrivate );
-  list << secrecyName( Incidence::SecrecyConfidential );
+  list << incidenceSecrecyName( Incidence::SecrecyPublic );
+  list << incidenceSecrecyName( Incidence::SecrecyPrivate );
+  list << incidenceSecrecyName( Incidence::SecrecyConfidential );
 
   return list;
 }
 
-QString IncidenceFormater::statusName( Incidence::Status status )
+QString IncidenceFormater::incidenceStatusName( Incidence::Status status )
 {
   switch ( status ) {
   case Incidence::StatusTentative:
@@ -3995,11 +3995,11 @@ QString IncidenceFormater::statusName( Incidence::Status status )
   }
 }
 
-QString IncidenceFormater::statusStr( const Incidence::Ptr &incidence ) const
+QString IncidenceFormater::incidenceStatusStr( const Incidence::Ptr &incidence ) const
 {
   if ( incidence->status() == Incidence::StatusX ) {
     return incidence->customStatusStr();
   } else {
-    return statusName( incidence->status() );
+    return incidenceStatusName( incidence->status() );
   }
 }

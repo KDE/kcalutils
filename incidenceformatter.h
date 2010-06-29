@@ -331,7 +331,7 @@ namespace IncidenceFormatter
     strings.
     @see secrecyName().
   */
-  KCAL_EXPORT static QStringList secrecyList();
+  KCAL_EXPORT static QStringList incidenceSecrecyList();
 
   /**
     Returns the translated string form of a specified #Secrecy.
@@ -339,18 +339,18 @@ namespace IncidenceFormatter
     @param secrecy is a #Secrecy type.
     @see secrecyList().
   */
-  KCAL_EXPORT static QString secrecyName( KCalCore::Incidence::Secrecy secrecy );
+  KCAL_EXPORT static QString incidenceSecrecyName( KCalCore::Incidence::Secrecy secrecy );
 
   /**
     Returns the translated string form of a specified #Status.
      @param status is a #Status type.
   */
-  KCAL_EXPORT static QString statusName( KCalCore::Incidence::Status status );
+  KCAL_EXPORT static QString incidenceStatusName( KCalCore::Incidence::Status status );
 
   /**
      Returns a translatedstatus string for this incidence
   */
-  KCAL_EXPORT static QString statusStr( const KCalCore::Incidence::Ptr &incidence ) const
+  KCAL_EXPORT static QString incidenceStatusStr( const KCalCore::Incidence::Ptr &incidence ) const
 
 
   class EventViewerVisitor;
