@@ -347,6 +347,10 @@ namespace IncidenceFormatter
   */
   KCAL_EXPORT static QString statusName( KCalCore::Incidence::Status status );
 
+  /**
+     Returns a translatedstatus string for this incidence
+  */
+  KCAL_EXPORT static QString statusStr( const KCalCore::Incidence::Ptr &incidence ) const
 
 
   class EventViewerVisitor;

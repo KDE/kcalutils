@@ -3994,3 +3994,12 @@ QString IncidenceFormater::statusName( Incidence::Status status )
     return QString();
   }
 }
+
+QString IncidenceFormater::statusStr( const Incidence::Ptr &incidence ) const
+{
+  if ( incidence->status() == Incidence::StatusX ) {
+    return incidence->customStatusStr();
+  } else {
+    return statusName( incidence->status() );
+  }
+}
