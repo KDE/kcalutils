@@ -1,5 +1,5 @@
 /*
-  This file is part of the kcal library.
+  This file is part of the kcalutils library.
 
   Copyright (c) 2000-2003 Cornelius Schumacher <schumacher@kde.org>
   Copyright (C) 2004 Reinhold Kainhofer <reinhold@kainhofer.com>
@@ -19,10 +19,10 @@
   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   Boston, MA 02110-1301, USA.
 */
-#ifndef KCAL_HTMLEXPORT_H
-#define KCAL_HTMLEXPORT_H
+#ifndef KCALUTILS_HTMLEXPORT_H
+#define KCALUTILS_HTMLEXPORT_H
 
-#include "kcal_export.h"
+#include "kcalutils_export.h"
 
 #include <QtCore/QDateTime>
 #include <QtCore/QString>
@@ -30,7 +30,7 @@
 
 class QTextStream;
 
-namespace KCal {
+namespace KCalUtils {
 
 class HTMLExportSettings;
 class Calendar;
@@ -41,7 +41,7 @@ class Todo;
 /**
   This class provides the functions to export a calendar as a HTML page.
 */
-class KCAL_EXPORT HtmlExport
+class KCALUTILS_EXPORT HtmlExport
 {
   public:
     /**

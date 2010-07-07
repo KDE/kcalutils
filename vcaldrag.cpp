@@ -1,5 +1,5 @@
 /*
-  This file is part of the kcal library.
+  This file is part of the kcalutils library.
 
   Copyright (c) 1998 Preston Brown <pbrown@kde.org>
   Copyright (c) 2001 Cornelius Schumacher <schumacher@kde.org>
@@ -22,17 +22,20 @@
 
 #include "vcaldrag.h"
 
-#include "vcalformat.h"
+#include <kcalcore/calendar.h>
+#include <kcalcore/vcalformat.h>
+
 #include <QtCore/QMimeData>
 
-using namespace KCal;
+using namespace KCalUtils;
+using namespace VCalDrag;
 
 QString VCalDrag::mimeType()
 {
   return "text/x-vCalendar";
 }
 
-bool VCalDrag::populateMimeData( QMimeData *e, Calendar *cal )
+bool VCalDrag::populateMimeData( QMimeData *e, MemoryCalendar *cal )
 {
   VCalFormat format;
   QString calstr( format.toString( cal ) );
@@ -47,7 +50,7 @@ bool VCalDrag::canDecode( const QMimeData *me )
   return me->hasFormat( mimeType() );
 }
 
-bool VCalDrag::fromMimeData( const QMimeData *de, Calendar *cal )
+bool VCalDrag::fromMimeData( const QMimeData *de, MemoryCalendar *cal )
 {
   if ( !canDecode( de ) ) {
     return false;

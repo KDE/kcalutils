@@ -1,5 +1,5 @@
 /*
-  This file is part of the kcal library.
+  This file is part of the kcalutils library.
 
   Copyright (c) 2000,2001 Cornelius Schumacher <schumacher@kde.org>
   Copyright (C) 2004 Reinhold Kainhofer <reinhold@kainhofer.com>
@@ -42,12 +42,12 @@
 #include <QtCore/QMap>
 #include <QtGui/QApplication>
 
-using namespace KCal;
+using namespace KCalUtils;
 
 static QString cleanChars( const QString &txt );
 
 //@cond PRIVATE
-class KCal::HtmlExport::Private
+class KCalUtils::HtmlExport::Private
 {
   public:
     Private( Calendar *calendar, HTMLExportSettings *settings )

@@ -1,5 +1,5 @@
 /*
-  This file is part of the kcal library.
+  This file is part of the kcalutils library.
 
   Copyright (c) 1998 Preston Brown <pbrown@kde.org>
   Copyright (c) 2001,2002,2003 Cornelius Schumacher <schumacher@kde.org>
@@ -31,27 +31,28 @@
   @author Reinhold Kainhofer \<reinhold@kainhofer.com\>
 */
 
-#ifndef KCAL_DNDFACTORY_H
-#define KCAL_DNDFACTORY_H
+#ifndef KCALUTILS_DNDFACTORY_H
+#define KCALUTILS_DNDFACTORY_H
 
-#include "kcal_export.h"
-#include "incidence.h"
+#include "kcalutils_export.h"
+#include <kcalcore/incidence.h>
+#include <kdatetime.h>
 
-#include <KDE/KDateTime>
+namespace KCalCore {
+  class MemoryCalendar;
+  class Event;
+  class Todo;
+}
+using namespace KCalCore;
 
 class QDate;
-class QTime;
 class QDrag;
-class QWidget;
 class QDropEvent;
 class QMimeData;
+class QTime;
+class QWidget;
 
-namespace KCal {
-
-class Event;
-class Todo;
-class Incidence;
-class Calendar;
+namespace KCalUtils {
 
 /**
   @brief
@@ -60,27 +61,27 @@ class Calendar;
   This class implements functions to create Drag and Drop objects used for
   Drag-and-Drop and Copy-and-Paste.
 */
-class KCAL_EXPORT DndFactory
+class KCALUTILS_EXPORT DndFactory
 {
   public:
-    explicit DndFactory( Calendar * );
+    explicit DndFactory( MemoryCalendar *cal );
 
     ~DndFactory();
 
     /**
       Create the calendar that is contained in the drop event's data.
      */
-    Calendar *createDropCalendar( QDropEvent *de );
+    MemoryCalendar *createDropCalendar( QDropEvent *de );
 
     /**
       Create the calendar that is contained in the mime data.
      */
-    Calendar *createDropCalendar( const QMimeData *md );
+    MemoryCalendar *createDropCalendar( const QMimeData *md );
 
      /**
       Create the calendar that is contained in the mime data.
      */
-    static Calendar *createDropCalendar( const QMimeData *md, const KDateTime::Spec &timeSpec );
+    static MemoryCalendar *createDropCalendar( const QMimeData *md, const KDateTime::Spec &timeSpec );
 
     /**
       Create the mime data for the whole calendar.
@@ -162,7 +163,7 @@ class KCAL_EXPORT DndFactory
     /**
      * Pastes the event or todo and return a pointer to the new incidence pasted.
      */
-    Incidence *pasteIncidence( const QDate &, const QTime *newTime = 0 );
+    Incidence::Ptr pasteIncidence( const QDate &, const QTime *newTime = 0 );
 
   private:
     //@cond PRIVATE

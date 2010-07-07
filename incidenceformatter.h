@@ -1,5 +1,5 @@
 /*
-  This file is part of the kcal library.
+  This file is part of the kcalutils library.
 
   Copyright (c) 2001-2003 Cornelius Schumacher <schumacher@kde.org>
   Copyright (c) 2004 Reinhold Kainhofer <reinhold@kainhofer.com>
@@ -29,19 +29,26 @@
   @author Reinhold Kainhofer \<reinhold@kainhofer.com\>
   @author Allen Winter \<allen@kdab.com\>
 */
-#ifndef KCAL_INCIDENCEFORMATTER_H
-#define KCAL_INCIDENCEFORMATTER_H
+#ifndef KCALUTILS_INCIDENCEFORMATTER_H
+#define KCALUTILS_INCIDENCEFORMATTER_H
 
-#include "kcal_export.h"
-#include <KDE/KDateTime>
+#include "kcalutils_export.h"
+
+#include <kcalcore/incidence.h>
+
+#include <kdatetime.h>
+
 #include <QtCore/QString>
 
-namespace KCal {
-class Calendar;
-class Incidence;
-class IncidenceBase;
+namespace KCalCore {
+  class Calendar;
+  class IncidenceBase;
+}
+using namespace KCalCore;
 
-class KCAL_EXPORT InvitationFormatterHelper
+namespace KCalUtils {
+
+class KCALUTILS_EXPORT InvitationFormatterHelper
 {
   public:
     InvitationFormatterHelper() : d( 0 ) {}
@@ -80,11 +87,11 @@ namespace IncidenceFormatter
     will shift the Incidence times to different timezones.
     @since 4.4
   */
-  KCAL_EXPORT QString toolTipStr( Calendar *calendar,
-                                  IncidenceBase *incidence,
-                                  const QDate &date=QDate(),
-                                  bool richText=true,
-                                  KDateTime::Spec spec=KDateTime::Spec() );
+  KCALUTILS_EXPORT QString toolTipStr( Calendar *calendar,
+                                       IncidenceBase *incidence,
+                                       const QDate &date=QDate(),
+                                       bool richText=true,
+                                       KDateTime::Spec spec=KDateTime::Spec() );
 
   /**
     Create a QString representation of an Incidence in a nice format
@@ -98,35 +105,12 @@ namespace IncidenceFormatter
     will shift the Incidence times to different timezones.
     @since 4.5
   */
-  KCAL_EXPORT QString toolTipStr( const QString &sourceName,
-                                  IncidenceBase *incidence,
-                                  const QDate &date=QDate(),
-                                  bool richText=true,
-                                  KDateTime::Spec spec=KDateTime::Spec() );
+  KCALUTILS_EXPORT QString toolTipStr( const QString &sourceName,
+                                       IncidenceBase *incidence,
+                                       const QDate &date=QDate(),
+                                       bool richText=true,
+                                       KDateTime::Spec spec=KDateTime::Spec() );
 
-  /**
-    Create a QString representation of an Incidence in a nice format
-    suitable for using in a tooltip.
-    @param incidence is a pointer to the Incidence to be formatted.
-    @param richText if yes, the QString will be created as RichText.
-    @param spec is an optional time specification which, when specified,
-    will shift the Incidence times to different timezones.
-    @since 4.2
-    @deprecated use toolTipStr( Calendar *, IncidenceBase *, bool, KDateTime::Spec)
-  */
-  KCAL_EXPORT_DEPRECATED QString toolTipStr( IncidenceBase *incidence,
-                                              bool richText=true,
-                                              KDateTime::Spec spec=KDateTime::Spec() );
-
-  /**
-    Create a QString representation of an Incidence in a nice format
-    suitable for using in a tooltip.
-    @param incidence is a pointer to the Incidence to be formatted.
-    @param richText if yes, the QString will be created as RichText.
-    @deprecated use toolTipStr( Calendar *, IncidenceBase *, bool, KDateTime::Spec)
-  */
-  KCAL_EXPORT_DEPRECATED QString toolTipString( IncidenceBase *incidence,
-                                                bool richText=true );
   /**
     Create a RichText QString representation of an Incidence in a nice format
     suitable for using in a viewer widget.
@@ -138,10 +122,10 @@ namespace IncidenceFormatter
     will shift the Incidence times to different timezones.
     @since 4.4
   */
-  KCAL_EXPORT QString extensiveDisplayStr( Calendar *calendar,
-                                           IncidenceBase *incidence,
-                                           const QDate &date=QDate(),
-                                           KDateTime::Spec spec=KDateTime::Spec() );
+  KCALUTILS_EXPORT QString extensiveDisplayStr( Calendar *calendar,
+                                                IncidenceBase *incidence,
+                                                const QDate &date=QDate(),
+                                                KDateTime::Spec spec=KDateTime::Spec() );
 
   /**
     Create a RichText QString representation of an Incidence in a nice format
@@ -154,30 +138,11 @@ namespace IncidenceFormatter
     will shift the Incidence times to different timezones.
     @since 4.5
   */
-  KCAL_EXPORT QString extensiveDisplayStr( const QString &sourceName,
-                                           IncidenceBase *incidence,
-                                           const QDate &date=QDate(),
-                                           KDateTime::Spec spec=KDateTime::Spec() );
+  KCALUTILS_EXPORT QString extensiveDisplayStr( const QString &sourceName,
+                                                IncidenceBase *incidence,
+                                                const QDate &date=QDate(),
+                                                KDateTime::Spec spec=KDateTime::Spec() );
 
-  /**
-    Create a RichText QString representation of an Incidence in a nice format
-    suitable for using in a viewer widget.
-    @param incidence is a pointer to the Incidence to be formatted.
-    @param spec is an optional time specification which, when specified,
-    will shift the Incidence times to different timezones.
-    @since 4.2
-    @deprecated use extensiveDisplayStr( Calendar *, IncidenceBase *, KDateTime::Spec )
-  */
-  KCAL_EXPORT_DEPRECATED QString extensiveDisplayStr( IncidenceBase *incidence,
-                                                      KDateTime::Spec spec=KDateTime::Spec() );
-
-  /**
-    Create a RichText QString representation of an Incidence in a nice format
-    suitable for using in a viewer widget.
-    @param incidence is a pointer to the Incidence to be formatted.
-    @deprecated use extensiveDisplayStr( Calendar *, IncidenceBase *, KDateTime::Spec )
-  */
-  KCAL_EXPORT_DEPRECATED QString extensiveDisplayString( IncidenceBase *incidence );
 
   /**
     Create a QString representation of an Incidence in format suitable for
@@ -187,16 +152,9 @@ namespace IncidenceFormatter
     will shift the Incidence times to different timezones.
     @since 4.2
   */
-  KCAL_EXPORT QString mailBodyStr( IncidenceBase *incidence,
-                                   KDateTime::Spec spec=KDateTime::Spec() );
+  KCALUTILS_EXPORT QString mailBodyStr( IncidenceBase *incidence,
+                                        KDateTime::Spec spec=KDateTime::Spec() );
 
-  /**
-    Create a QString representation of an Incidence in format suitable for
-    including inside a mail message.
-    @param incidence is a pointer to the Incidence to be formatted.
-    @deprecated use mailBodyStr( IncidenceBase *, KDateTime::Spec )
-  */
-  KCAL_EXPORT_DEPRECATED QString mailBodyString( IncidenceBase *incidence );
 
   /**
     Deliver an HTML formatted string displaying an invitation.
@@ -207,24 +165,8 @@ namespace IncidenceFormatter
     @param calendar is a pointer to the Calendar that owns the invitation.
     @param helper is a pointer to an InvitationFormatterHelper.
   */
-  KCAL_EXPORT QString formatICalInvitation( QString invitation, Calendar *calendar,
-                                            InvitationFormatterHelper *helper );
-  /**
-    Deliver an HTML formatted string displaying an invitation.
-    Differs from formatICalInvitation() in that invitation details (summary, location, etc)
-    have HTML formatting cleaned.
-    Use the time zone from calendar.
-
-    @param invitation a QString containing a string representation of a calendar Event
-    which will be intrepreted as an invitation.
-    @param calendar is a pointer to the Calendar that owns the invitation.
-    @param helper is a pointer to an InvitationFormatterHelper.
-    @deprecated use formatICalInvitationNoHtml(const QString &,Calendar *,
-                                               InvitationFormatterHelper *,const QString &) instead.
-  */
-  KCAL_EXPORT QString KDE_DEPRECATED formatICalInvitationNoHtml(
-    QString invitation, Calendar *calendar, InvitationFormatterHelper *helper );
-
+  KCALUTILS_EXPORT QString formatICalInvitation( QString invitation, Calendar *calendar,
+                                                 InvitationFormatterHelper *helper );
   /**
     Deliver an HTML formatted string displaying an invitation.
     Differs from formatICalInvitation() in that invitation details (summary, location, etc)
@@ -238,22 +180,22 @@ namespace IncidenceFormatter
     @param sender is a QString containing the email address of the person sending the invitation.
     @since 4.5
   */
-  KCAL_EXPORT QString formatICalInvitationNoHtml( const QString &invitation,
-                                                  Calendar *calendar,
-                                                  InvitationFormatterHelper *helper,
-                                                  const QString &sender );
+  KCALUTILS_EXPORT QString formatICalInvitationNoHtml( const QString &invitation,
+                                                       Calendar *calendar,
+                                                       InvitationFormatterHelper *helper,
+                                                       const QString &sender );
 
   /**
     Format a TNEF attachment to an HTML mail
     @since 4.1
   */
-  KCAL_EXPORT QString formatTNEFInvitation( const QByteArray &tnef, Calendar *mCalendar,
-                                            InvitationFormatterHelper *helper );
+  KCALUTILS_EXPORT QString formatTNEFInvitation( const QByteArray &tnef, Calendar *mCalendar,
+                                                 InvitationFormatterHelper *helper );
   /**
     Transform a TNEF attachment to an iCal or vCard
     @since 4.1
   */
-  KCAL_EXPORT QString msTNEFToVPart( const QByteArray &tnef );
+  KCALUTILS_EXPORT QString msTNEFToVPart( const QByteArray &tnef );
 
   /**
     Build a pretty QString representation of an Incidence's recurrence info.
@@ -261,7 +203,7 @@ namespace IncidenceFormatter
     is to be formatted.
     @since 4.1
   */
-  KCAL_EXPORT QString recurrenceString( Incidence *incidence );
+  KCALUTILS_EXPORT QString recurrenceString( Incidence *incidence );
 
   /**
     Returns a reminder string computed for the specified Incidence.
@@ -272,7 +214,7 @@ namespace IncidenceFormatter
     else a longer version of each reminder is printed.
     @since 4.5
   */
-  KCAL_EXPORT QStringList reminderStringList( Incidence *incidence, bool shortfmt = true );
+  KCALUTILS_EXPORT QStringList reminderStringList( Incidence *incidence, bool shortfmt = true );
 
   /**
     Build a QString time representation of a KDateTime object.
@@ -282,8 +224,8 @@ namespace IncidenceFormatter
     @see dateToString(), dateTimeToString().
     @since 4.3
   */
-  KCAL_EXPORT QString timeToString( const KDateTime &date, bool shortfmt = true,
-                                    const KDateTime::Spec &spec = KDateTime::Spec() );
+  KCALUTILS_EXPORT QString timeToString( const KDateTime &date, bool shortfmt = true,
+                                         const KDateTime::Spec &spec = KDateTime::Spec() );
 
   /**
     Build a QString date representation of a KDateTime object.
@@ -293,8 +235,8 @@ namespace IncidenceFormatter
     @see dateToString(), dateTimeToString().
     @since 4.3
   */
-  KCAL_EXPORT QString dateToString( const KDateTime &date, bool shortfmt = true,
-                                    const KDateTime::Spec &spec = KDateTime::Spec() );
+  KCALUTILS_EXPORT QString dateToString( const KDateTime &date, bool shortfmt = true,
+                                         const KDateTime::Spec &spec = KDateTime::Spec() );
 
   /**
     Build a QString date/time representation of a KDateTime object.
@@ -305,10 +247,10 @@ namespace IncidenceFormatter
     @see dateToString(), timeToString().
     @since 4.3
   */
-  KCAL_EXPORT QString dateTimeToString( const KDateTime &date,
-                                        bool dateOnly = false,
-                                        bool shortfmt = true,
-                                        const KDateTime::Spec &spec = KDateTime::Spec() );
+  KCALUTILS_EXPORT QString dateTimeToString( const KDateTime &date,
+                                             bool dateOnly = false,
+                                             bool shortfmt = true,
+                                             const KDateTime::Spec &spec = KDateTime::Spec() );
 
   /**
     Returns a Calendar Resource label name for the specified Incidence.
@@ -316,7 +258,7 @@ namespace IncidenceFormatter
     @param incidence is a pointer to the Incidence.
     @since 4.4
   */
-  KCAL_EXPORT QString resourceString( Calendar *calendar, Incidence *incidence );
+  KCALUTILS_EXPORT QString resourceString( Calendar *calendar, Incidence *incidence );
 
   /**
     Returns a duration string computed for the specified Incidence.
@@ -324,14 +266,14 @@ namespace IncidenceFormatter
     @param incidence is a pointer to the Incidence.
     @since 4.5
   */
-  KCAL_EXPORT QString durationString( Incidence *incidence );
+  KCALUTILS_EXPORT QString durationString( Incidence *incidence );
 
   /**
     Returns a list of all available #Secrecy types as a list of translated
     strings.
     @see secrecyName().
   */
-  KCAL_EXPORT static QStringList incidenceSecrecyList();
+  KCALUTILS_EXPORT QStringList incidenceSecrecyList();
 
   /**
     Returns the translated string form of a specified #Secrecy.
@@ -339,19 +281,18 @@ namespace IncidenceFormatter
     @param secrecy is a #Secrecy type.
     @see secrecyList().
   */
-  KCAL_EXPORT static QString incidenceSecrecyName( KCalCore::Incidence::Secrecy secrecy );
+  KCALUTILS_EXPORT QString incidenceSecrecyName( Incidence::Secrecy secrecy );
 
   /**
     Returns the translated string form of a specified #Status.
      @param status is a #Status type.
   */
-  KCAL_EXPORT static QString incidenceStatusName( KCalCore::Incidence::Status status );
+  KCALUTILS_EXPORT QString incidenceStatusName( Incidence::Status status );
 
   /**
      Returns a translatedstatus string for this incidence
   */
-  KCAL_EXPORT static QString incidenceStatusStr( const KCalCore::Incidence::Ptr &incidence ) const
-
+  KCALUTILS_EXPORT QString incidenceStatusStr( const Incidence::Ptr &incidence );
 
   class EventViewerVisitor;
   class ScheduleMessageVisitor;

@@ -1,5 +1,5 @@
 /*
-  This file is part of the kcal library.
+  This file is part of the kcalutils library.
 
   Copyright (c) 1998 Preston Brown <pbrown@kde.org>
   Copyright (c) 2001 Cornelius Schumacher <schumacher@kde.org>
@@ -21,22 +21,21 @@
 */
 
 #include "icaldrag.h"
-#include "icalformat.h"
-#include "calendar.h"
-#include "kcal_export.h"
 
-#include <kdebug.h>
+#include <kcalcore/icalformat.h>
+#include <kcalcore/memorycalendar.h>
 
 #include <QtCore/QMimeData>
 
-using namespace KCal;
+using namespace KCalUtils;
+using namespace ICalDrag;
 
 QString ICalDrag::mimeType()
 {
   return "text/calendar";
 }
 
-bool ICalDrag::populateMimeData( QMimeData *me, Calendar *cal )
+bool ICalDrag::populateMimeData( QMimeData *me, MemoryCalendar *cal )
 {
   ICalFormat icf;
   QString scal = icf.toString( cal );
@@ -52,7 +51,7 @@ bool ICalDrag::canDecode( const QMimeData *me )
   return me->hasFormat( mimeType() );
 }
 
-bool ICalDrag::fromMimeData( const QMimeData *de, Calendar *cal )
+bool ICalDrag::fromMimeData( const QMimeData *de, MemoryCalendar *cal )
 {
   if (!canDecode( de ) ) {
     return false;

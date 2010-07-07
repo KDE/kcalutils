@@ -1,5 +1,5 @@
 /*
-  This file is part of the kcal library.
+  This file is part of the kcalutils library.
 
   Copyright (c) 1998 Preston Brown <pbrown@kde.org>
   Copyright (c) 2001-2003 Cornelius Schumacher <schumacher@kde.org>
@@ -19,18 +19,20 @@
   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   Boston, MA 02110-1301, USA.
 */
+#ifndef KCALUTILS_ICALDRAG_H
+#define KCALUTILS_ICALDRAG_H
 
-#ifndef KCAL_ICALDRAG_H
-#define KCAL_ICALDRAG_H
-
-#include "kcal_export.h"
+#include "kcalutils_export.h"
 #include <QtCore/QString>
+
+namespace KCalCore {
+  class MemoryCalendar;
+}
+using namespace KCalCore;
 
 class QMimeData;
 
-namespace KCal {
-
-class Calendar;
+namespace KCalUtils {
 
 /**
   iCalendar drag&drop class.
@@ -40,22 +42,22 @@ namespace ICalDrag
   /**
     Mime-type of iCalendar
   */
-  KCAL_EXPORT QString mimeType();
+  KCALUTILS_EXPORT QString mimeType();
 
   /**
     Sets the iCalendar representation as data of the drag object
   */
-  KCAL_EXPORT bool populateMimeData( QMimeData *e, Calendar *cal );
+  KCALUTILS_EXPORT bool populateMimeData( QMimeData *e, MemoryCalendar *cal );
 
   /**
     Return, if drag&drop object can be decode to iCalendar.
   */
-  KCAL_EXPORT bool canDecode( const QMimeData * );
+  KCALUTILS_EXPORT bool canDecode( const QMimeData * );
 
   /**
     Decode drag&drop object to iCalendar component \a cal.
   */
-  KCAL_EXPORT bool fromMimeData( const QMimeData *e, Calendar *cal );
+  KCALUTILS_EXPORT bool fromMimeData( const QMimeData *e, MemoryCalendar *cal );
 }
 
 }

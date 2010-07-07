@@ -1,5 +1,5 @@
 /*
-  This file is part of the kcal library.
+  This file is part of the kcalutils library.
 
   Copyright (c) 2001 Cornelius Schumacher <schumacher@kde.org>
   Copyright (c) 2004 Reinhold Kainhofer <reinhold@kainhofer.com>
@@ -35,6 +35,17 @@
 */
 
 #include "incidenceformatter.h"
+
+#include <kabc/phonenumber.h>
+#include <kabc/vcardconverter.h>
+#include <kabc/stdaddressbook.h>
+
+#include <kpimutils/email.h>
+
+#include <kemailsettings.h>
+#include <kiconloader.h>
+
+#if 0
 #include "attachment.h"
 #include "event.h"
 #include "todo.h"
@@ -43,18 +54,12 @@
 #include "calendarlocal.h"
 #include "icalformat.h"
 #include "freebusy.h"
-#include "calendarresources.h"
 
-#include "kpimutils/email.h"
-#include "kabc/phonenumber.h"
-#include "kabc/vcardconverter.h"
-#include "kabc/stdaddressbook.h"
 
 #include <kdatetime.h>
 #include <kemailsettings.h>
 
 #include <kglobal.h>
-#include <kiconloader.h>
 #include <klocale.h>
 #include <kcalendarsystem.h>
 #include <ksystemtimezone.h>
@@ -64,8 +69,9 @@
 #include <QtCore/QList>
 #include <QtGui/QTextDocument>
 #include <QtGui/QApplication>
+#endif
 
-using namespace KCal;
+using namespace KCalUtils;
 using namespace IncidenceFormatter;
 
 /*******************
@@ -902,7 +908,7 @@ static QString displayViewFormatFreeBusy( const QString &calStr, FreeBusy *fb,
 //@endcond
 
 //@cond PRIVATE
-class KCal::IncidenceFormatter::EventViewerVisitor
+class KCalUtils::IncidenceFormatter::EventViewerVisitor
   : public IncidenceBase::Visitor
 {
   public:
@@ -1248,7 +1254,7 @@ static QString invitationPerson( const QString &email, QString name, QString uid
 
   // Make the mailto link
   if ( !email.isEmpty() ) {
-    KCal::Person person( name, email );
+    Person person( name, email );
     KUrl mailto;
     mailto.setProtocol( "mailto" );
     mailto.setPath( person.fullName() );
@@ -1290,7 +1296,7 @@ static QString invitationsDetailsIncidence( Incidence *incidence, bool noHtmlMod
     // non-empty comments
     foreach ( const QString &c, incidence->comments() ) {
       if ( !c.isEmpty() ) {
-        // kcal doesn't know about richtext comments, so we need to guess
+        // kcalutils doesn't know about richtext comments, so we need to guess
         if ( !Qt::mightBeRichText( c ) ) {
           comments << string2HTML( c );
         } else {
@@ -2056,7 +2062,7 @@ static QString invitationAttachments( InvitationFormatterHelper *helper, Inciden
 }
 
 //@cond PRIVATE
-class KCal::IncidenceFormatter::ScheduleMessageVisitor
+class KCalUtils::IncidenceFormatter::ScheduleMessageVisitor
   : public IncidenceBase::Visitor
 {
   public:
@@ -2078,7 +2084,7 @@ class KCal::IncidenceFormatter::ScheduleMessageVisitor
     QString mSender;
 };
 
-class KCal::IncidenceFormatter::InvitationHeaderVisitor :
+class KCalUtils::IncidenceFormatter::InvitationHeaderVisitor :
       public IncidenceFormatter::ScheduleMessageVisitor
 {
   protected:
@@ -2104,7 +2110,7 @@ class KCal::IncidenceFormatter::InvitationHeaderVisitor :
     }
 };
 
-class KCal::IncidenceFormatter::InvitationBodyVisitor
+class KCalUtils::IncidenceFormatter::InvitationBodyVisitor
   : public IncidenceFormatter::ScheduleMessageVisitor
 {
   public:
@@ -2763,7 +2769,7 @@ QString IncidenceFormatter::formatICalInvitationNoHtml( const QString &invitatio
  *******************************************************************/
 
 //@cond PRIVATE
-class KCal::IncidenceFormatter::ToolTipVisitor
+class KCalUtils::IncidenceFormatter::ToolTipVisitor
   : public IncidenceBase::Visitor
 {
   public:
@@ -3235,7 +3241,7 @@ static QString mailBodyIncidence( Incidence *incidence )
 //@endcond
 
 //@cond PRIVATE
-class KCal::IncidenceFormatter::MailBodyVisitor
+class KCalUtils::IncidenceFormatter::MailBodyVisitor
   : public IncidenceBase::Visitor
 {
   public:
@@ -3551,7 +3557,7 @@ QString IncidenceFormatter::recurrenceString( Incidence *incidence )
   case Recurrence::rMonthlyPos:
   {
     if ( !recur->monthPositions().isEmpty() ) {
-      KCal::RecurrenceRule::WDayPos rule = recur->monthPositions()[0];
+      RecurrenceRule::WDayPos rule = recur->monthPositions()[0];
       if ( recur->duration() != -1 ) {
         txt = i18ncp( "Recurs every N months on the [2nd|3rd|...]"
                       " weekdayname until end-date",
@@ -3675,7 +3681,7 @@ QString IncidenceFormatter::recurrenceString( Incidence *incidence )
   case Recurrence::rYearlyPos:
   {
     if ( !recur->yearMonths().isEmpty() && !recur->yearPositions().isEmpty() ) {
-      KCal::RecurrenceRule::WDayPos rule = recur->yearPositions()[0];
+      RecurrenceRule::WDayPos rule = recur->yearPositions()[0];
       if ( recur->duration() != -1 ) {
         txt = i18ncp( "Every N years on the [2nd|3rd|...] weekdayname "
                       "of monthname until end-date",
