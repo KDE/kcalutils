@@ -1,24 +1,18 @@
 project(kcalutils)
 
-### All these lines can be removed once this library is integrated back into KDE SC
+### TODO: All these lines can be removed once this library is integrated back into KDE SC
 set (QT_MIN_VERSION "4.6.0")
 find_package(KDE4 4.4.0 REQUIRED)
 include(KDE4Defaults)
 include(MacroLibrary)
 
 add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES} /data/kde/include /data/kde/include/kcalcore )
+include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
 ### End
-
-############### search packages used by KDE ###############
-
-#set(LIBICAL_MIN_VERSION "0.42")
-#find_package(Libical)
-#macro_log_feature(LIBICAL_FOUND "libical" "Reference implementation of the iCalendar data type and serialization format" "http://sourceforge.net/projects/freeassociation" TRUE "${LIBICAL_MIN_VERSION}" "Required for the critical PIM kcalutils library.")
 
 ###########################################################
 
-#KDAB_TODO: reserve a proper debug area for this library and use it
+#TODO: reserve a proper debug area for this library and use it
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=5801)  
 
 if(KDE4_BUILD_TESTS)
@@ -26,8 +20,6 @@ if(KDE4_BUILD_TESTS)
 endif(KDE4_BUILD_TESTS)
 
 include_directories(
-  ${LIBICAL_INCLUDE_DIRS}
-  ${LIBICAL_INCLUDE_DIRS}/libical
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${KDE4_INCLUDE_DIR}
 )
@@ -49,7 +41,8 @@ set(kcalutils_LIB_SRCS
 
 kde4_add_library(kcalutils SHARED ${kcalutils_LIB_SRCS})
 
-target_link_libraries(kcalutils ${KDE4_KDECORE_LIBRARY} ${QT_QTGUI_LIBRARY} ${LIBICAL_LIBRARIES})
+#TODO: replace "kcalcore" with a KDEPIMLIBS_KCALCORE_LIBS variable
+target_link_libraries(kcalutils ${KDE4_KDECORE_LIBRARY} ${KDE4_KDEUI_LIBRARY} kcalcore ${QT_QTGUI_LIBRARY})
 set_target_properties(kcalutils PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
 install(TARGETS kcalutils ${INSTALL_TARGETS_DEFAULT_ARGS})
 
