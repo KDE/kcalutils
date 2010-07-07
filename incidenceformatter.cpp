@@ -204,23 +204,7 @@ static QString displayViewLinkPerson( const QString &email, QString name,
   // Make the search, if there is an email address to search on,
   // and either name or uid is missing
   if ( !email.isEmpty() && ( name.isEmpty() || uid.isEmpty() ) ) {
-#ifndef KDEPIM_NO_KRESOURCES
-    KABC::AddressBook *add_book = KABC::StdAddressBook::self( true );
-    KABC::Addressee::List addressList = add_book->findByEmail( email );
-    KABC::Addressee o = ( !addressList.isEmpty() ? addressList.first() : KABC::Addressee() );
-    if ( !o.isEmpty() && addressList.size() < 2 ) {
-      if ( name.isEmpty() ) {
-        // No name set, so use the one from the addressbook
-        name = o.formattedName();
-      }
-      uid = o.uid();
-    } else {
-      // Email not found in the addressbook. Don't make a link
-      uid.clear();
-    }
-#else
    uid.clear();
-#endif
   }
 
   // Show the attendee
@@ -1215,25 +1199,7 @@ static QString invitationPerson( const QString &email, QString name, QString uid
   // Make the search, if there is an email address to search on,
   // and either name or uid is missing
   if ( !email.isEmpty() && ( name.isEmpty() || uid.isEmpty() ) ) {
-#ifndef KDEPIM_NO_KRESOURCES
-    KABC::AddressBook *add_book = KABC::StdAddressBook::self( true );
-    KABC::Addressee::List addressList = add_book->findByEmail( email );
-    if ( !addressList.isEmpty() ) {
-      KABC::Addressee o = addressList.first();
-      if ( !o.isEmpty() && addressList.size() < 2 ) {
-        if ( name.isEmpty() ) {
-          // No name set, so use the one from the addressbook
-          name = o.formattedName();
-        }
-        uid = o.uid();
-      } else {
-        // Email not found in the addressbook. Don't make a link
-        uid.clear();
-      }
-    }
-#else
     uid.clear();
-#endif
   }
 
   // Show the attendee
@@ -2337,20 +2303,6 @@ QString InvitationFormatterHelper::makeLink( const QString &id, const QString &t
 // a shared calendar (Kolab-specific)
 static bool incidenceOwnedByMe( Calendar *calendar, Incidence *incidence )
 {
-#ifndef KDEPIM_NO_KRESOURCES
-  CalendarResources *cal = dynamic_cast<CalendarResources*>( calendar );
-  if ( !cal || !incidence ) {
-    return true;
-  }
-  ResourceCalendar *res = cal->resource( incidence );
-  if ( !res ) {
-    return true;
-  }
-  const QString subRes = res->subresourceIdentifier( incidence );
-  if ( !subRes.contains( "/.INBOX.directory/" ) ) {
-    return false;
-  }
-#endif
   return true;
 }
 
@@ -2983,22 +2935,6 @@ bool IncidenceFormatter::ToolTipVisitor::visit( FreeBusy *fb )
 
 static QString tooltipPerson( const QString &email, QString name )
 {
-  // Make the search, if there is an email address to search on,
-  // and name is missing
-  if ( name.isEmpty() && !email.isEmpty() ) {
-#ifndef KDEPIM_NO_KRESOURCES
-    KABC::AddressBook *add_book = KABC::StdAddressBook::self( true );
-    KABC::Addressee::List addressList = add_book->findByEmail( email );
-    if ( !addressList.isEmpty() ) {
-      KABC::Addressee o = addressList.first();
-      if ( !o.isEmpty() && addressList.size() < 2 ) {
-        // use the name from the addressbook
-        name = o.formattedName();
-      }
-    }
-#endif
-  }
-
   // Show the attendee
   QString tmpString = ( name.isEmpty() ? email : name );
 
@@ -3781,29 +3717,6 @@ QString IncidenceFormatter::dateTimeToString( const KDateTime &date,
 
 QString IncidenceFormatter::resourceString( Calendar *calendar, Incidence *incidence )
 {
-#ifndef KDEPIM_NO_KRESOURCES
-  if ( !calendar || !incidence ) {
-    return QString();
-  }
-
-  CalendarResources *calendarResource = dynamic_cast<CalendarResources*>( calendar );
-  if ( !calendarResource ) {
-    return QString();
-  }
-
-  ResourceCalendar *resourceCalendar = calendarResource->resource( incidence );
-  if ( resourceCalendar ) {
-    if ( !resourceCalendar->subresources().isEmpty() ) {
-      QString subRes = resourceCalendar->subresourceIdentifier( incidence );
-      if ( subRes.isEmpty() ) {
-        return resourceCalendar->resourceName();
-      } else {
-        return resourceCalendar->labelForSubresource( subRes );
-      }
-    }
-    return resourceCalendar->resourceName();
-  }
-#endif
   return QString();
 }
 

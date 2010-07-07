@@ -28,8 +28,7 @@ include_directories(
 
 set(kcalutils_LIB_SRCS
   dndfactory.cpp
-#KDAB_TODO: 
-#  htmlexport.cpp
+  htmlexport.cpp
   icaldrag.cpp
 #KDAB_TODO:
 #  incidenceformatter.cpp
@@ -38,6 +37,7 @@ set(kcalutils_LIB_SRCS
   vcaldrag.cpp
 )
 
+kde4_add_kcfg_files(kcalutils_LIB_SRCS htmlexportsettings.kcfgc )
 
 kde4_add_library(kcalutils SHARED ${kcalutils_LIB_SRCS})
 

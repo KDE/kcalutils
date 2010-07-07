@@ -23,12 +23,11 @@
 #include "htmlexport.h"
 #include "htmlexportsettings.h"
 #include "incidenceformatter.h"
-#include "calendar.h"
-#include "event.h"
-#include "todo.h"
-#ifndef KORG_NOKABC
- #include "kabc/stdaddressbook.h"
-#endif
+
+#include <kcalcore/memorycalendar.h>
+#include <kcalcore/event.h>
+#include <kcalcore/todo.h>
+#include <kabc/stdaddressbook.h>
 
 #include <kglobal.h>
 #include <klocale.h>
@@ -50,18 +49,18 @@ static QString cleanChars( const QString &txt );
 class KCalUtils::HtmlExport::Private
 {
   public:
-    Private( Calendar *calendar, HTMLExportSettings *settings )
+    Private( MemoryCalendar *calendar, HTMLExportSettings *settings )
       : mCalendar( calendar ),
         mSettings( settings )
     {}
 
-    Calendar *mCalendar;
+    MemoryCalendar *mCalendar;
     HTMLExportSettings *mSettings;
     QMap<QDate,QString> mHolidayMap;
 };
 //@endcond
 
-HtmlExport::HtmlExport( Calendar *calendar, HTMLExportSettings *settings )
+HtmlExport::HtmlExport( MemoryCalendar *calendar, HTMLExportSettings *settings )
   : d( new Private( calendar, settings ) )
 {
 }
@@ -306,21 +305,21 @@ void HtmlExport::createEventList( QTextStream *ts )
   *ts << "</table>" << endl;
 }
 
-void HtmlExport::createEvent ( QTextStream *ts, Event *event,
+void HtmlExport::createEvent ( QTextStream *ts, Event::Ptr event,
                                QDate date, bool withDescription )
 {
   kDebug() << event->summary();
   *ts << "  <tr>" << endl;
 
   if ( !event->allDay() ) {
-    if ( event->isMultiDay( d->mCalendar->timeSpec() ) && ( event->dtStart().date() != date ) ) {
+    if ( event->isMultiDay( &d->mCalendar->timeSpec() ) && ( event->dtStart().date() != date ) ) {
       *ts << "    <td>&nbsp;</td>" << endl;
     } else {
       *ts << "    <td valign=\"top\">"
           << IncidenceFormatter::timeToString( event->dtStart(), true, d->mCalendar->timeSpec() )
           << "</td>" << endl;
     }
-    if ( event->isMultiDay( d->mCalendar->timeSpec() ) && ( event->dtEnd().date() != date ) ) {
+    if ( event->isMultiDay( &d->mCalendar->timeSpec() ) && ( event->dtEnd().date() != date ) ) {
       *ts << "    <td>&nbsp;</td>" << endl;
     } else {
       *ts << "    <td valign=\"top\">"
@@ -365,16 +364,19 @@ void HtmlExport::createTodoList ( QTextStream *ts )
 
   int index = 0;
   while ( index < rawTodoList.count() ) {
-    Todo *ev = rawTodoList[ index ];
-    Todo *subev = ev;
+// PENDING(kdab) Review
+#ifdef KDAB_TEMPORARILY_REMOVED
+    Todo::Ptr ev = rawTodoList[ index ];
+    Todo::Ptr subev = ev;
     if ( ev->relatedTo() ) {
-      if ( ev->relatedTo()->type() == "Todo" ) {
+      if ( ev->relatedTo()->type() == Incidence::TypeTodo ) {
         if ( !rawTodoList.contains( static_cast<Todo *>( ev->relatedTo() ) ) ) {
           rawTodoList.append( static_cast<Todo *>( ev->relatedTo() ) );
         }
       }
     }
     index = rawTodoList.indexOf( subev );
+#endif
     ++index;
   }
 
@@ -422,14 +424,22 @@ void HtmlExport::createTodoList ( QTextStream *ts )
 
   // Create top-level list.
   for ( it = todoList.constBegin(); it != todoList.constEnd(); ++it ) {
+// PENDING(kdab) Review
+#ifdef KDAB_TEMPORARILY_REMOVED
     if ( !(*it)->relatedTo() ) {
       createTodo( ts, *it );
     }
+#endif
   }
 
   // Create sub-level lists
   for ( it = todoList.constBegin(); it != todoList.constEnd(); ++it ) {
+// PENDING(kdab) Review
+#ifdef KDAB_TEMPORARILY_REMOVED
     Incidence::List relations = (*it)->relations();
+#else
+    Incidence::List relations;
+#endif
     if ( relations.count() ) {
       // Generate sub-to-do list
       *ts << "  <tr>" << endl;
@@ -448,7 +458,7 @@ void HtmlExport::createTodoList ( QTextStream *ts )
       for ( int i = 1; i <= 9; ++i ) {
         Incidence::List::ConstIterator it2;
         for ( it2 = relations.constBegin(); it2 != relations.constEnd(); ++it2 ) {
-          Todo *ev3 = dynamic_cast<Todo *>( *it2 );
+          Todo::Ptr ev3 = (*it2).staticCast<Todo>();
           if ( ev3 && ev3->priority() == i ) {
             sortedList.append( ev3 );
           }
@@ -456,7 +466,7 @@ void HtmlExport::createTodoList ( QTextStream *ts )
       }
       Incidence::List::ConstIterator it2;
       for ( it2 = relations.constBegin(); it2 != relations.constEnd(); ++it2 ) {
-        Todo *ev3 = dynamic_cast<Todo *>( *it2 );
+        Todo::Ptr ev3 = (*it2).staticCast<Todo>();
         if ( ev3 && ev3->priority() == 0 ) {
           sortedList.append( ev3 );
         }
@@ -472,12 +482,17 @@ void HtmlExport::createTodoList ( QTextStream *ts )
   *ts << "</table>" << endl;
 }
 
-void HtmlExport::createTodo( QTextStream *ts, Todo *todo )
+void HtmlExport::createTodo( QTextStream *ts, Todo::Ptr todo )
 {
   kDebug();
 
   bool completed = todo->isCompleted();
+// PENDING(kdab) Review
+#ifdef KDAB_TEMPORARILY_REMOVED
   Incidence::List relations = todo->relations();
+#else
+  Incidence::List relations;
+#endif
 
   *ts << "<tr>" << endl;
 
@@ -579,7 +594,7 @@ void HtmlExport::createFreeBusyView( QTextStream *ts )
   // FIXME: Implement this!
 }
 
-bool HtmlExport::checkSecrecy( Incidence *incidence )
+bool HtmlExport::checkSecrecy( Incidence::Ptr incidence )
 {
   int secrecy = incidence->secrecy();
   if ( secrecy == Incidence::SecrecyPublic ) {
@@ -595,7 +610,7 @@ bool HtmlExport::checkSecrecy( Incidence *incidence )
   return false;
 }
 
-void HtmlExport::formatLocation( QTextStream *ts, Incidence *incidence )
+void HtmlExport::formatLocation( QTextStream *ts, Incidence::Ptr incidence )
 {
   if ( !incidence->location().isEmpty() ) {
     *ts << "    " << cleanChars( incidence->location() ) << endl;
@@ -604,7 +619,7 @@ void HtmlExport::formatLocation( QTextStream *ts, Incidence *incidence )
   }
 }
 
-void HtmlExport::formatCategories( QTextStream *ts, Incidence *incidence )
+void HtmlExport::formatCategories( QTextStream *ts, Incidence::Ptr incidence )
 {
   if ( !incidence->categoriesStr().isEmpty() ) {
     *ts << "    " << cleanChars( incidence->categoriesStr() ) << endl;
@@ -613,31 +628,16 @@ void HtmlExport::formatCategories( QTextStream *ts, Incidence *incidence )
   }
 }
 
-void HtmlExport::formatAttendees( QTextStream *ts, Incidence *incidence )
+void HtmlExport::formatAttendees( QTextStream *ts, Incidence::Ptr incidence )
 {
   Attendee::List attendees = incidence->attendees();
   if ( attendees.count() ) {
     *ts << "<em>";
-#if !defined(KORG_NOKABC) && !defined(KDEPIM_NO_KRESOURCES)
-    KABC::AddressBook *add_book = KABC::StdAddressBook::self( true );
-    KABC::Addressee::List addressList;
-    addressList = add_book->findByEmail( incidence->organizer().email() );
-    if ( !addressList.isEmpty() ) {
-      KABC::Addressee o = addressList.first();
-      if ( !o.isEmpty() && addressList.size() < 2 ) {
-        *ts << "<a href=\"mailto:" << incidence->organizer().email() << "\">";
-        *ts << cleanChars( o.formattedName() ) << "</a>" << endl;
-      } else {
-        *ts << incidence->organizer().fullName();
-      }
-    }
-#else
     *ts << incidence->organizer().fullName();
-#endif
     *ts << "</em><br />";
     Attendee::List::ConstIterator it;
     for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
-      Attendee *a = *it;
+      Attendee::Ptr a( *it );
       if ( !a->email().isEmpty() ) {
         *ts << "<a href=\"mailto:" << a->email();
         *ts << "\">" << cleanChars( a->name() ) << "</a>";
