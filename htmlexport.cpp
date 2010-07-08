@@ -27,7 +27,6 @@
 #include <kcalcore/memorycalendar.h>
 #include <kcalcore/event.h>
 #include <kcalcore/todo.h>
-#include <kabc/stdaddressbook.h>
 
 #include <kglobal.h>
 #include <klocale.h>

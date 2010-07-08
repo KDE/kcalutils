@@ -49,14 +49,11 @@
 #include <kcalcore/todo.h>
 #include <kcalcore/visitor.h>
 
-#include <kabc/phonenumber.h>
-#include <kabc/vcardconverter.h>
-#include <kabc/stdaddressbook.h>
-
 #include <kpimutils/email.h>
 
 #include <kcalendarsystem.h>
 #include <kdatetime.h>
+#include <kdebug.h>
 #include <kemailsettings.h>
 #include <kiconloader.h>
 #include <kmimetype.h>
