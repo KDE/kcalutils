@@ -61,6 +61,70 @@ QString Stringify::incidenceType( Incidence::IncidenceType type )
   }
 }
 
+QString Stringify::todoCompletedDateTime( Todo::Ptr todo, bool shortfmt )
+{
+  return KGlobal::locale()->formatDateTime( todo->completed().dateTime(),
+                                            ( shortfmt ? KLocale::ShortDate : KLocale::LongDate ) );
+}
+
+QString Stringify::incidenceSecrecy( Incidence::Secrecy secrecy )
+{
+  switch ( secrecy ) {
+  case Incidence::SecrecyPublic:
+    return i18nc( "@item incidence access if for everyone", "Public" );
+  case Incidence::SecrecyPrivate:
+    return i18nc( "@item incidence access is by owner only", "Private" );
+  case Incidence::SecrecyConfidential:
+    return i18nc( "@item incidence access is by owner and a controlled group", "Confidential" );
+  }
+}
+
+QStringList Stringify::incidenceSecrecyList()
+{
+  QStringList list;
+  list << incidenceSecrecy( Incidence::SecrecyPublic );
+  list << incidenceSecrecy( Incidence::SecrecyPrivate );
+  list << incidenceSecrecy( Incidence::SecrecyConfidential );
+
+  return list;
+}
+
+
+QString Stringify::incidenceStatus( Incidence::Status status )
+{
+  switch ( status ) {
+  case Incidence::StatusTentative:
+    return i18nc( "@item event is tentative", "Tentative" );
+  case Incidence::StatusConfirmed:
+    return i18nc( "@item event is definite", "Confirmed" );
+  case Incidence::StatusCompleted:
+    return i18nc( "@item to-do is complete", "Completed" );
+  case Incidence::StatusNeedsAction:
+    return i18nc( "@item to-do needs action", "Needs-Action" );
+  case Incidence::StatusCanceled:
+    return i18nc( "@item event orto-do is canceled; journal is removed", "Canceled" );
+  case Incidence::StatusInProcess:
+    return i18nc( "@item to-do is in process", "In-Process" );
+  case Incidence::StatusDraft:
+    return i18nc( "@item journal is in draft form", "Draft" );
+  case Incidence::StatusFinal:
+    return i18nc( "@item journal is in final form", "Final" );
+  case Incidence::StatusX:
+  case Incidence::StatusNone:
+  default:
+    return QString();
+  }
+}
+
+QString Stringify::incidenceStatus( const Incidence::Ptr &incidence )
+{
+  if ( incidence->status() == Incidence::StatusX ) {
+    return incidence->customStatus();
+  } else {
+    return incidenceStatus( incidence->status() );
+  }
+}
+
 QString Stringify::attendeeRole( Attendee::Role role )
 {
   switch ( role ) {

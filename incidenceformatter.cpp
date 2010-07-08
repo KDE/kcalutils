@@ -35,6 +35,7 @@
 */
 
 #include "incidenceformatter.h"
+#include "stringify.h"
 
 #include <kcalcore/attachment.h>
 #include <kcalcore/attendee.h>
@@ -43,7 +44,10 @@
 #include <kcalcore/freebusy.h>
 #include <kcalcore/icalformat.h>
 #include <kcalcore/journal.h>
+#include <kcalcore/memorycalendar.h>
+#include <kcalcore/schedulemessage.h>
 #include <kcalcore/todo.h>
+#include <kcalcore/visitor.h>
 
 #include <kabc/phonenumber.h>
 #include <kabc/vcardconverter.h>
@@ -225,7 +229,7 @@ static QString displayViewLinkPerson( const QString &email, QString name,
   return tmpString;
 }
 
-static QString displayViewFormatAttendeeRoleList( Incidence *incidence, Attendee::Role role )
+static QString displayViewFormatAttendeeRoleList( Incidence::Ptr incidence, Attendee::Role role )
 {
   QString tmpStr;
   Attendee::List::ConstIterator it;
@@ -258,7 +262,7 @@ static QString displayViewFormatAttendeeRoleList( Incidence *incidence, Attendee
   return tmpStr;
 }
 
-static QString displayViewFormatAttendees( Incidence *incidence )
+static QString displayViewFormatAttendees( Incidence::Ptr incidence )
 {
   QString tmpStr, str;
 
@@ -319,7 +323,7 @@ static QString displayViewFormatAttendees( Incidence *incidence )
   return tmpStr;
 }
 
-static QString displayViewFormatAttachments( Incidence *incidence )
+static QString displayViewFormatAttachments( Incidence::Ptr incidence )
 {
   QString tmpStr;
   Attachment::List as = incidence->attachments();
@@ -345,19 +349,19 @@ static QString displayViewFormatAttachments( Incidence *incidence )
   return tmpStr;
 }
 
-static QString displayViewFormatCategories( Incidence *incidence )
+static QString displayViewFormatCategories( Incidence::Ptr incidence )
 {
   // We do not use Incidence::categoriesStr() since it does not have whitespace
   return incidence->categories().join( ", " );
 }
 
-static QString displayViewFormatCreationDate( Incidence *incidence, KDateTime::Spec spec )
+static QString displayViewFormatCreationDate( Incidence::Ptr incidence, KDateTime::Spec spec )
 {
   KDateTime kdt = incidence->created().toTimeSpec( spec );
   return i18n( "Creation date: %1", dateTimeToString( incidence->created(), false, true, spec ) );
 }
 
-static QString displayViewFormatBirthday( Event *event )
+static QString displayViewFormatBirthday( Event::Ptr event )
 {
   if ( !event ) {
     return QString();
@@ -379,7 +383,7 @@ static QString displayViewFormatBirthday( Event *event )
   return tmpStr;
 }
 
-static QString displayViewFormatHeader( Incidence *incidence )
+static QString displayViewFormatHeader( Incidence::Ptr incidence )
 {
   QString tmpStr = "<table><tr>";
 
@@ -392,7 +396,7 @@ static QString displayViewFormatHeader( Incidence *incidence )
 
   if ( incidence->type() == Incidence::TypeTodo ) {
     tmpStr += "<img valign=\"top\" src=\"";
-    Todo *todo = static_cast<Todo *>( incidence );
+    Todo::Ptr todo = incidence.staticCast<Todo>();
     if ( !todo->isCompleted() ) {
       tmpStr += iconLoader->iconPath( "view-calendar-tasks", KIconLoader::Small );
     } else {
@@ -445,7 +449,7 @@ static QString displayViewFormatHeader( Incidence *incidence )
   return tmpStr;
 }
 
-static QString displayViewFormatEvent( const QString &calStr, Event *event,
+static QString displayViewFormatEvent( const QString &calStr, Event::Ptr event,
                                        const QDate &date, KDateTime::Spec spec )
 {
   if ( !event ) {
@@ -618,7 +622,7 @@ static QString displayViewFormatEvent( const QString &calStr, Event *event,
   return tmpStr;
 }
 
-static QString displayViewFormatTodo( const QString &calStr, Todo *todo,
+static QString displayViewFormatTodo( const QString &calStr, Todo::Ptr todo,
                                       const QDate &date, KDateTime::Spec spec )
 {
   if ( !todo ) {
@@ -742,7 +746,7 @@ static QString displayViewFormatTodo( const QString &calStr, Todo *todo,
   if ( todo->isCompleted() ) {
     tmpStr += "<td><b>" + i18nc( "Completed: date", "Completed:" ) + "</b></td>";
     tmpStr += "<td>";
-    tmpStr += todo->completedStr();
+    tmpStr += Stringify::todoCompletedDateTime( todo );
   } else {
     tmpStr += "<td><b>" + i18n( "Percent Done:" ) + "</b></td>";
     tmpStr += "<td>";
@@ -767,7 +771,7 @@ static QString displayViewFormatTodo( const QString &calStr, Todo *todo,
   return tmpStr;
 }
 
-static QString displayViewFormatJournal( const QString &calStr, Journal *journal,
+static QString displayViewFormatJournal( const QString &calStr, Journal::Ptr journal,
                                          KDateTime::Spec spec )
 {
   if ( !journal ) {
@@ -818,7 +822,7 @@ static QString displayViewFormatJournal( const QString &calStr, Journal *journal
   return tmpStr;
 }
 
-static QString displayViewFormatFreeBusy( const QString &calStr, FreeBusy *fb,
+static QString displayViewFormatFreeBusy( const QString &calStr, FreeBusy::Ptr fb,
                                           KDateTime::Spec spec )
 {
   Q_UNUSED( calStr );
@@ -882,14 +886,13 @@ static QString displayViewFormatFreeBusy( const QString &calStr, FreeBusy *fb,
 //@endcond
 
 //@cond PRIVATE
-class KCalUtils::IncidenceFormatter::EventViewerVisitor
-  : public IncidenceBase::Visitor
+class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
 {
   public:
     EventViewerVisitor()
       : mCalendar( 0 ), mSpec( KDateTime::Spec() ), mResult( "" ) {}
 
-    bool act( Calendar *calendar, IncidenceBase *incidence, const QDate &date,
+    bool act( Calendar *calendar, IncidenceBase::Ptr incidence, const QDate &date,
               KDateTime::Spec spec=KDateTime::Spec() )
     {
       mCalendar = calendar;
@@ -897,10 +900,10 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor
       mDate = date;
       mSpec = spec;
       mResult = "";
-      return incidence->accept( *this );
+      return incidence->accept( *this, incidence );
     }
 
-    bool act( const QString &sourceName, IncidenceBase *incidence, const QDate &date,
+    bool act( const QString &sourceName, IncidenceBase::Ptr incidence, const QDate &date,
               KDateTime::Spec spec=KDateTime::Spec() )
     {
       mCalendar = 0;
@@ -908,31 +911,31 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor
       mDate = date;
       mSpec = spec;
       mResult = "";
-      return incidence->accept( *this );
+      return incidence->accept( *this, incidence );
     }
 
     QString result() const { return mResult; }
 
   protected:
-    bool visit( Event *event )
+    bool visit( Event::Ptr event )
     {
       const QString calStr = mCalendar ? resourceString( mCalendar, event ) : mSourceName;
       mResult = displayViewFormatEvent( calStr, event, mDate, mSpec );
       return !mResult.isEmpty();
     }
-    bool visit( Todo *todo )
+    bool visit( Todo::Ptr todo )
     {
       const QString calStr = mCalendar ? resourceString( mCalendar, todo ) : mSourceName;
       mResult = displayViewFormatTodo( calStr, todo, mDate, mSpec );
       return !mResult.isEmpty();
     }
-    bool visit( Journal *journal )
+    bool visit( Journal::Ptr journal )
     {
       const QString calStr = mCalendar ? resourceString( mCalendar, journal ) : mSourceName;
       mResult = displayViewFormatJournal( calStr, journal, mSpec );
       return !mResult.isEmpty();
     }
-    bool visit( FreeBusy *fb )
+    bool visit( FreeBusy::Ptr fb )
     {
       mResult = displayViewFormatFreeBusy( mSourceName, fb, mSpec );
       return !mResult.isEmpty();
@@ -948,7 +951,7 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor
 //@endcond
 
 QString IncidenceFormatter::extensiveDisplayStr( Calendar *calendar,
-                                                 IncidenceBase *incidence,
+                                                 IncidenceBase::Ptr incidence,
                                                  const QDate &date,
                                                  KDateTime::Spec spec )
 {
@@ -965,7 +968,7 @@ QString IncidenceFormatter::extensiveDisplayStr( Calendar *calendar,
 }
 
 QString IncidenceFormatter::extensiveDisplayStr( const QString &sourceName,
-                                                 IncidenceBase *incidence,
+                                                 IncidenceBase::Ptr incidence,
                                                  const QDate &date,
                                                  KDateTime::Spec spec )
 {
@@ -1159,7 +1162,7 @@ static QString myStatusStr( Incidence::Ptr incidence )
   if ( a &&
        a->status() != Attendee::NeedsAction && a->status() != Attendee::Delegated ) {
     ret = i18n( "(<b>Note</b>: the Organizer preset your response to <b>%1</b>)",
-                Attendee::statusName( a->status() ) );
+                Stringify::attendeeStatus( a->status() ) );
   }
   return ret;
 }
@@ -1204,7 +1207,7 @@ static QString invitationPerson( const QString &email, QString name, QString uid
   return tmpString;
 }
 
-static QString invitationsDetailsIncidence( Incidence *incidence, bool noHtmlMode )
+static QString invitationsDetailsIncidence( Incidence::Ptr incidence, bool noHtmlMode )
 {
   // if description and comment -> use both
   // if description, but no comment -> use the desc as the comment (and no desc)
@@ -1290,7 +1293,7 @@ static QString invitationsDetailsIncidence( Incidence *incidence, bool noHtmlMod
   return html;
 }
 
-static QString invitationDetailsEvent( Event *event, bool noHtmlMode, KDateTime::Spec spec )
+static QString invitationDetailsEvent( Event::Ptr event, bool noHtmlMode, KDateTime::Spec spec )
 {
   // Invitation details are formatted into an HTML table
   if ( !event ) {
@@ -1374,7 +1377,7 @@ static QString invitationDetailsEvent( Event *event, bool noHtmlMode, KDateTime:
   return html;
 }
 
-static QString invitationDetailsTodo( Todo *todo, bool noHtmlMode, KDateTime::Spec spec )
+static QString invitationDetailsTodo( Todo::Ptr todo, bool noHtmlMode, KDateTime::Spec spec )
 {
   // To-do details are formatted into an HTML table
   if ( !todo ) {
@@ -1434,7 +1437,8 @@ static QString invitationDetailsTodo( Todo *todo, bool noHtmlMode, KDateTime::Sp
   return html;
 }
 
-static QString invitationDetailsJournal( Journal *journal, bool noHtmlMode, KDateTime::Spec spec )
+static QString invitationDetailsJournal( Journal::Ptr journal, bool noHtmlMode,
+                                         KDateTime::Spec spec )
 {
   if ( !journal ) {
     return QString();
@@ -1464,7 +1468,7 @@ static QString invitationDetailsJournal( Journal *journal, bool noHtmlMode, KDat
   return html;
 }
 
-static QString invitationDetailsFreeBusy( FreeBusy *fb, bool noHtmlMode, KDateTime::Spec spec )
+static QString invitationDetailsFreeBusy( FreeBusy::Ptr fb, bool noHtmlMode, KDateTime::Spec spec )
 {
   Q_UNUSED( noHtmlMode );
 
@@ -1951,7 +1955,7 @@ static QString invitationAttendees( Incidence::Ptr incidence )
           tmpStr += i18n( " (delegated to %1)", a->delegate() );
         }
         tmpStr += "</td>";
-        tmpStr += "<td>" + a->statusStr() + "</td>";
+        tmpStr += "<td>" + Stringify::attendeeStatus( a->status () ) + "</td>";
         tmpStr += "</tr>";
       }
     }
@@ -1999,18 +2003,17 @@ static QString invitationAttachments( InvitationFormatterHelper *helper, Inciden
 }
 
 //@cond PRIVATE
-class KCalUtils::IncidenceFormatter::ScheduleMessageVisitor
-  : public IncidenceBase::Visitor
+class KCalUtils::IncidenceFormatter::ScheduleMessageVisitor : public Visitor
 {
   public:
-    ScheduleMessageVisitor() : mExistingIncidence( 0 ), mMessage( 0 ) { mResult = ""; }
+    ScheduleMessageVisitor() : mMessage( 0 ) { mResult = ""; }
     bool act( IncidenceBase::Ptr incidence, Incidence::Ptr existingIncidence,
               ScheduleMessage *msg, const QString &sender )
     {
       mExistingIncidence = existingIncidence;
       mMessage = msg;
       mSender = sender;
-      return incidence->accept( *this );
+      return incidence->accept( *this, incidence );
     }
     QString result() const { return mResult; }
 
@@ -2055,22 +2058,22 @@ class KCalUtils::IncidenceFormatter::InvitationBodyVisitor
       : ScheduleMessageVisitor(), mNoHtmlMode( noHtmlMode ), mSpec( spec ) {}
 
   protected:
-    bool visit( Event *event )
+    bool visit( Event::Ptr event )
     {
       mResult = invitationDetailsEvent( event, mNoHtmlMode, mSpec );
       return !mResult.isEmpty();
     }
-    bool visit( Todo *todo )
+    bool visit( Todo::Ptr todo )
     {
       mResult = invitationDetailsTodo( todo, mNoHtmlMode, mSpec );
       return !mResult.isEmpty();
     }
-    bool visit( Journal *journal )
+    bool visit( Journal::Ptr journal )
     {
       mResult = invitationDetailsJournal( journal, mNoHtmlMode, mSpec );
       return !mResult.isEmpty();
     }
-    bool visit( FreeBusy *fb )
+    bool visit( FreeBusy::Ptr fb )
     {
       mResult = invitationDetailsFreeBusy( fb, mNoHtmlMode, mSpec );
       return !mResult.isEmpty();
@@ -2088,8 +2091,7 @@ QString InvitationFormatterHelper::generateLinkURL( const QString &id )
 }
 
 //@cond PRIVATE
-class IncidenceFormatter::IncidenceCompareVisitor
-  : public IncidenceBase::Visitor
+class IncidenceFormatter::IncidenceCompareVisitor : public Visitor
 {
   public:
     IncidenceCompareVisitor() {}
@@ -2103,7 +2105,7 @@ class IncidenceFormatter::IncidenceCompareVisitor
         return false;
       }
       mExistingIncidence = existingIncidence;
-      return incidence->accept( *this );
+      return incidence->accept( *this, incidence );
     }
 
     QString result() const
@@ -2120,13 +2122,13 @@ class IncidenceFormatter::IncidenceCompareVisitor
   protected:
     bool visit( Event::Ptr event )
     {
-      compareEvents( event, dynamic_cast<Event*>( mExistingIncidence ) );
+      compareEvents( event, mExistingIncidence.dynamicCast<Event>() );
       compareIncidences( event, mExistingIncidence );
       return !mChanges.isEmpty();
     }
     bool visit( Todo::Ptr todo )
     {
-      compareTodos( todo, dynamic_cast<Todo*>( mExistingIncidence ) );
+      compareTodos( todo, mExistingIncidence.dynamicCast<Todo>() );
       compareIncidences( todo, mExistingIncidence );
       return !mChanges.isEmpty();
     }
@@ -2236,7 +2238,7 @@ class IncidenceFormatter::IncidenceCompareVisitor
         } else {
           if ( oldAtt->status() != (*it)->status() ) {
             mChanges += i18n( "The status of attendee %1 has been changed to: %2",
-                              (*it)->fullName(), (*it)->statusStr() );
+                              (*it)->fullName(), Stringify::attendeeStatus( (*it)->status() ) );
           }
         }
       }
@@ -2274,6 +2276,8 @@ QString InvitationFormatterHelper::makeLink( const QString &id, const QString &t
 // a shared calendar (Kolab-specific)
 static bool incidenceOwnedByMe( Calendar *calendar, Incidence::Ptr incidence )
 {
+  Q_UNUSED( calendar );
+  Q_UNUSED( incidence );
   return true;
 }
 
@@ -2383,7 +2387,7 @@ Calendar *InvitationFormatterHelper::calendar() const
 }
 
 static QString formatICalInvitationHelper( QString invitation,
-                                           Calendar *mCalendar,
+                                           MemoryCalendar *mCalendar,
                                            InvitationFormatterHelper *helper,
                                            bool noHtmlMode,
                                            KDateTime::Spec spec,
@@ -2502,7 +2506,7 @@ static QString formatICalInvitationHelper( QString invitation,
   }
   if ( a ) {
     isDelegated = ( a->status() == Attendee::Delegated );
-    role = Attendee::roleName( a->role() );
+    role = Stringify::attendeeRole( a->role() );
   }
 
   // Print if RSVP needed, not-needed, or response already recorded
@@ -2512,9 +2516,11 @@ static QString formatICalInvitationHelper( QString invitation,
     html += "<i><u>";
     if ( rsvpRec && inc ) {
       if ( inc->revision() == 0 ) {
-        html += i18n( "Your <b>%1</b> response has already been recorded", ea->statusStr() );
+        html += i18n( "Your <b>%1</b> response has already been recorded",
+                      Stringify::attendeeStatus( ea->status() ) );
       } else {
-        html += i18n( "Your status for this invitation is <b>%1</b>", ea->statusStr() );
+        html += i18n( "Your status for this invitation is <b>%1</b>",
+                      Stringify::attendeeStatus( ea->status() ) );
       }
       rsvpReq = false;
     } else if ( msg->method() == iTIPCancel ) {
@@ -2663,7 +2669,7 @@ static QString formatICalInvitationHelper( QString invitation,
 //@endcond
 
 QString IncidenceFormatter::formatICalInvitation( QString invitation,
-                                                  Calendar *calendar,
+                                                  MemoryCalendar *calendar,
                                                   InvitationFormatterHelper *helper )
 {
   return formatICalInvitationHelper( invitation, calendar, helper, false,
@@ -2671,7 +2677,7 @@ QString IncidenceFormatter::formatICalInvitation( QString invitation,
 }
 
 QString IncidenceFormatter::formatICalInvitationNoHtml( const QString &invitation,
-                                                        Calendar *calendar,
+                                                        MemoryCalendar *calendar,
                                                         InvitationFormatterHelper *helper,
                                                         const QString &sender )
 {
@@ -2684,14 +2690,13 @@ QString IncidenceFormatter::formatICalInvitationNoHtml( const QString &invitatio
  *******************************************************************/
 
 //@cond PRIVATE
-class KCalUtils::IncidenceFormatter::ToolTipVisitor
-  : public IncidenceBase::Visitor
+class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
 {
   public:
     ToolTipVisitor()
       : mRichText( true ), mSpec( KDateTime::Spec() ), mResult( "" ) {}
 
-    bool act( Calendar *calendar, IncidenceBase *incidence,
+    bool act( MemoryCalendar *calendar, IncidenceBase::Ptr incidence,
               const QDate &date=QDate(), bool richText=true,
               KDateTime::Spec spec=KDateTime::Spec() )
     {
@@ -2701,10 +2706,10 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor
       mRichText = richText;
       mSpec = spec;
       mResult = "";
-      return incidence ? incidence->accept( *this ) : false;
+      return incidence ? incidence->accept( *this, incidence ) : false;
     }
 
-    bool act( const QString &location, IncidenceBase *incidence,
+    bool act( const QString &location, IncidenceBase::Ptr incidence,
               const QDate &date=QDate(), bool richText=true,
               KDateTime::Spec spec=KDateTime::Spec() )
     {
@@ -2714,26 +2719,26 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor
       mRichText = richText;
       mSpec = spec;
       mResult = "";
-      return incidence ? incidence->accept( *this ) : false;
+      return incidence ? incidence->accept( *this, incidence ) : false;
     }
 
     QString result() const { return mResult; }
 
   protected:
-    bool visit( Event *event );
-    bool visit( Todo *todo );
-    bool visit( Journal *journal );
-    bool visit( FreeBusy *fb );
+    bool visit( Event::Ptr event );
+    bool visit( Todo::Ptr todo );
+    bool visit( Journal::Ptr journal );
+    bool visit( FreeBusy::Ptr fb );
 
-    QString dateRangeText( Event *event, const QDate &date );
-    QString dateRangeText( Todo *todo, const QDate &date );
-    QString dateRangeText( Journal *journal );
-    QString dateRangeText( FreeBusy *fb );
+    QString dateRangeText( Event::Ptr event, const QDate &date );
+    QString dateRangeText( Todo::Ptr todo, const QDate &date );
+    QString dateRangeText( Journal::Ptr journal );
+    QString dateRangeText( FreeBusy::Ptr fb );
 
-    QString generateToolTip( Incidence *incidence, QString dtRangeText );
+    QString generateToolTip( Incidence::Ptr incidence, QString dtRangeText );
 
   protected:
-    Calendar *mCalendar;
+    MemoryCalendar *mCalendar;
     QString mLocation;
     QDate mDate;
     bool mRichText;
@@ -2741,7 +2746,7 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor
     QString mResult;
 };
 
-QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Event *event, const QDate &date )
+QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Event::Ptr event, const QDate &date )
 {
   //FIXME: support mRichText==false
   QString ret;
@@ -2796,7 +2801,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Event *event, const Q
   return ret.replace( ' ', "&nbsp;" );
 }
 
-QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Todo *todo, const QDate &date )
+QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Todo::Ptr todo, const QDate &date )
 {
   //FIXME: support mRichText==false
   QString ret;
@@ -2836,7 +2841,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Todo *todo, const QDa
   ret += "<br>";
   if ( todo->isCompleted() ) {
     ret += "<i>" + i18nc( "Completed: date", "Completed:" ) + "</i>" + "&nbsp;";
-    ret += todo->completedStr().replace( ' ', "&nbsp;" );
+    ret += Stringify::todoCompletedDateTime( todo ).replace( ' ', "&nbsp;" );
   } else {
     ret += "<i>" + i18n( "Percent Done:" ) + "</i>" + "&nbsp;";
     ret += i18n( "%1%", todo->percentComplete() );
@@ -2845,7 +2850,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Todo *todo, const QDa
   return ret.replace( ' ', "&nbsp;" );
 }
 
-QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Journal *journal )
+QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Journal::Ptr journal )
 {
   //FIXME: support mRichText==false
   QString ret;
@@ -2856,7 +2861,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Journal *journal )
   return ret.replace( ' ', "&nbsp;" );
 }
 
-QString IncidenceFormatter::ToolTipVisitor::dateRangeText( FreeBusy *fb )
+QString IncidenceFormatter::ToolTipVisitor::dateRangeText( FreeBusy::Ptr fb )
 {
   //FIXME: support mRichText==false
   QString ret;
@@ -2869,25 +2874,25 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( FreeBusy *fb )
   return ret.replace( ' ', "&nbsp;" );
 }
 
-bool IncidenceFormatter::ToolTipVisitor::visit( Event *event )
+bool IncidenceFormatter::ToolTipVisitor::visit( Event::Ptr event )
 {
   mResult = generateToolTip( event, dateRangeText( event, mDate ) );
   return !mResult.isEmpty();
 }
 
-bool IncidenceFormatter::ToolTipVisitor::visit( Todo *todo )
+bool IncidenceFormatter::ToolTipVisitor::visit( Todo::Ptr todo )
 {
   mResult = generateToolTip( todo, dateRangeText( todo, mDate ) );
   return !mResult.isEmpty();
 }
 
-bool IncidenceFormatter::ToolTipVisitor::visit( Journal *journal )
+bool IncidenceFormatter::ToolTipVisitor::visit( Journal::Ptr journal )
 {
   mResult = generateToolTip( journal, dateRangeText( journal ) );
   return !mResult.isEmpty();
 }
 
-bool IncidenceFormatter::ToolTipVisitor::visit( FreeBusy *fb )
+bool IncidenceFormatter::ToolTipVisitor::visit( FreeBusy::Ptr fb )
 {
   //FIXME: support mRichText==false
   mResult = "<qt><b>" + i18n( "Free/Busy information for %1", fb->organizer().fullName() ) + "</b>";
@@ -2905,7 +2910,7 @@ static QString tooltipPerson( const QString &email, QString name )
 }
 
 static QString etc = i18nc( "elipsis", "..." );
-static QString tooltipFormatAttendeeRoleList( Incidence *incidence, Attendee::Role role )
+static QString tooltipFormatAttendeeRoleList( Incidence::Ptr incidence, Attendee::Role role )
 {
   int maxNumAtts = 8; // maximum number of people to print per attendee role
   QString sep = i18nc( "separator for lists of people names", ", " );
@@ -2946,7 +2951,7 @@ static QString tooltipFormatAttendeeRoleList( Incidence *incidence, Attendee::Ro
   return tmpStr;
 }
 
-static QString tooltipFormatAttendees( Incidence *incidence )
+static QString tooltipFormatAttendees( Incidence::Ptr incidence )
 {
   QString tmpStr, str;
 
@@ -2991,7 +2996,7 @@ static QString tooltipFormatAttendees( Incidence *incidence )
   return tmpStr;
 }
 
-QString IncidenceFormatter::ToolTipVisitor::generateToolTip( Incidence *incidence,
+QString IncidenceFormatter::ToolTipVisitor::generateToolTip( Incidence::Ptr incidence,
                                                              QString dtRangeText )
 {
   int maxDescLen = 120; // maximum description chars to print (before elipsis)
@@ -3076,7 +3081,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip( Incidence *incidenc
 //@endcond
 
 QString IncidenceFormatter::toolTipStr( const QString &sourceName,
-                                        IncidenceBase *incidence,
+                                        IncidenceBase::Ptr incidence,
                                         const QDate &date,
                                         bool richText, KDateTime::Spec spec )
 {
@@ -3093,7 +3098,7 @@ QString IncidenceFormatter::toolTipStr( const QString &sourceName,
  *******************************************************************/
 
 //@cond PRIVATE
-static QString mailBodyIncidence( Incidence *incidence )
+static QString mailBodyIncidence( Incidence::Ptr incidence )
 {
   QString body;
   if ( !incidence->summary().isEmpty() ) {
@@ -3110,18 +3115,17 @@ static QString mailBodyIncidence( Incidence *incidence )
 //@endcond
 
 //@cond PRIVATE
-class KCalUtils::IncidenceFormatter::MailBodyVisitor
-  : public IncidenceBase::Visitor
+class KCalUtils::IncidenceFormatter::MailBodyVisitor : public Visitor
 {
   public:
     MailBodyVisitor()
       : mSpec( KDateTime::Spec() ), mResult( "" ) {}
 
-    bool act( IncidenceBase *incidence, KDateTime::Spec spec=KDateTime::Spec() )
+    bool act( IncidenceBase::Ptr incidence, KDateTime::Spec spec=KDateTime::Spec() )
     {
       mSpec = spec;
       mResult = "";
-      return incidence ? incidence->accept( *this ) : false;
+      return incidence ? incidence->accept( *this, incidence ) : false;
     }
     QString result() const
     {
@@ -3129,10 +3133,10 @@ class KCalUtils::IncidenceFormatter::MailBodyVisitor
     }
 
   protected:
-    bool visit( Event *event );
-    bool visit( Todo *todo );
-    bool visit( Journal *journal );
-    bool visit( FreeBusy * )
+    bool visit( Event::Ptr event );
+    bool visit( Todo::Ptr todo );
+    bool visit( Journal::Ptr journal );
+    bool visit( FreeBusy::Ptr )
     {
       mResult = i18n( "This is a Free Busy Object" );
       return !mResult.isEmpty();
@@ -3142,7 +3146,7 @@ class KCalUtils::IncidenceFormatter::MailBodyVisitor
     QString mResult;
 };
 
-bool IncidenceFormatter::MailBodyVisitor::visit( Event *event )
+bool IncidenceFormatter::MailBodyVisitor::visit( Event::Ptr event )
 {
   QString recurrence[]= {
     i18nc( "no recurrence", "None" ),
@@ -3200,7 +3204,7 @@ bool IncidenceFormatter::MailBodyVisitor::visit( Event *event )
   return !mResult.isEmpty();
 }
 
-bool IncidenceFormatter::MailBodyVisitor::visit( Todo *todo )
+bool IncidenceFormatter::MailBodyVisitor::visit( Todo::Ptr todo )
 {
   mResult = mailBodyIncidence( todo );
 
@@ -3223,7 +3227,7 @@ bool IncidenceFormatter::MailBodyVisitor::visit( Todo *todo )
   return !mResult.isEmpty();
 }
 
-bool IncidenceFormatter::MailBodyVisitor::visit( Journal *journal )
+bool IncidenceFormatter::MailBodyVisitor::visit( Journal::Ptr journal )
 {
   mResult = mailBodyIncidence( journal );
   mResult += i18n( "Date: %1\n", dateToString( journal->dtStart(), true, mSpec ) );
@@ -3237,8 +3241,7 @@ bool IncidenceFormatter::MailBodyVisitor::visit( Journal *journal )
 }
 //@endcond
 
-QString IncidenceFormatter::mailBodyStr( IncidenceBase *incidence,
-                                         KDateTime::Spec spec )
+QString IncidenceFormatter::mailBodyStr( IncidenceBase::Ptr incidence, KDateTime::Spec spec )
 {
   if ( !incidence ) {
     return QString();
@@ -3252,7 +3255,7 @@ QString IncidenceFormatter::mailBodyStr( IncidenceBase *incidence,
 }
 
 //@cond PRIVATE
-static QString recurEnd( Incidence *incidence )
+static QString recurEnd( Incidence::Ptr incidence )
 {
   QString endstr;
   if ( incidence->allDay() ) {
@@ -3268,7 +3271,7 @@ static QString recurEnd( Incidence *incidence )
  *  More static formatting functions
  ************************************/
 
-QString IncidenceFormatter::recurrenceString( Incidence *incidence )
+QString IncidenceFormatter::recurrenceString( Incidence::Ptr incidence )
 {
   if ( !incidence->recurs() ) {
     return i18n( "No recurrence" );
@@ -3643,8 +3646,10 @@ QString IncidenceFormatter::dateTimeToString( const KDateTime &date,
   }
 }
 
-QString IncidenceFormatter::resourceString( Calendar *calendar, Incidence *incidence )
+QString IncidenceFormatter::resourceString( Calendar *calendar, Incidence::Ptr incidence )
 {
+  Q_UNUSED( calendar );
+  Q_UNUSED( incidence );
   return QString();
 }
 
@@ -3670,11 +3675,11 @@ static QString secs2Duration( int secs )
   return tmp;
 }
 
-QString IncidenceFormatter::durationString( Incidence *incidence )
+QString IncidenceFormatter::durationString( Incidence::Ptr incidence )
 {
   QString tmp;
   if ( incidence->type() == Incidence::TypeEvent ) {
-    Event *event = static_cast<Event *>( incidence );
+    Event::Ptr event = incidence.staticCast<Event>();
     if ( event->hasEndDate() ) {
       if ( !event->allDay() ) {
         tmp = secs2Duration( event->dtStart().secsTo( event->dtEnd() ) );
@@ -3686,7 +3691,7 @@ QString IncidenceFormatter::durationString( Incidence *incidence )
       tmp = i18n( "forever" );
     }
   } else if ( incidence->type() == Incidence::TypeTodo ) {
-    Todo *todo = static_cast<Todo *>( incidence );
+    Todo::Ptr todo = incidence.staticCast<Todo>();
     if ( todo->hasDueDate() ) {
       if ( todo->hasStartDate() ) {
         if ( !todo->allDay() ) {
@@ -3701,7 +3706,7 @@ QString IncidenceFormatter::durationString( Incidence *incidence )
   return tmp;
 }
 
-QStringList IncidenceFormatter::reminderStringList( Incidence *incidence, bool shortfmt )
+QStringList IncidenceFormatter::reminderStringList( Incidence::Ptr incidence, bool shortfmt )
 {
   //TODO: implement shortfmt=false
   Q_UNUSED( shortfmt );
@@ -3755,12 +3760,12 @@ QStringList IncidenceFormatter::reminderStringList( Incidence *incidence, bool s
           }
         } else { //offset is 0
           if ( incidence->type() == Incidence::TypeTodo ) {
-            Todo *t = static_cast<Todo *>( incidence );
+            Todo::Ptr t = incidence.staticCast<Todo>();
             if ( t->dtDue().isValid() ) {
               atStr = KGlobal::locale()->formatDateTime( t->dtDue() );
             }
           } else {
-            Event *e = static_cast<Event *>( incidence );
+            Event::Ptr e = incidence.staticCast<Event>();
             if ( e->dtEnd().isValid() ) {
               atStr = KGlobal::locale()->formatDateTime( e->dtEnd() );
             }
@@ -3790,63 +3795,4 @@ QStringList IncidenceFormatter::reminderStringList( Incidence *incidence, bool s
   }
 
   return reminderStringList;
-}
-
-QString IncidenceFormatter::incidenceSecrecyName( Incidence::Secrecy secrecy )
-{
-  switch ( secrecy ) {
-  case Incidence::SecrecyPublic:
-    return i18nc( "@item incidence access if for everyone", "Public" );
-  case Incidence::SecrecyPrivate:
-    return i18nc( "@item incidence access is by owner only", "Private" );
-  case Incidence::SecrecyConfidential:
-    return i18nc( "@item incidence access is by owner and a controlled group", "Confidential" );
-  default:
-    return QString();  // to make compilers happy
-  }
-}
-
-QStringList IncidenceFormatter::incidenceSecrecyList()
-{
-  QStringList list;
-  list << incidenceSecrecyName( Incidence::SecrecyPublic );
-  list << incidenceSecrecyName( Incidence::SecrecyPrivate );
-  list << incidenceSecrecyName( Incidence::SecrecyConfidential );
-
-  return list;
-}
-
-QString IncidenceFormatter::incidenceStatusName( Incidence::Status status )
-{
-  switch ( status ) {
-  case Incidence::StatusTentative:
-    return i18nc( "@item event is tentative", "Tentative" );
-  case Incidence::StatusConfirmed:
-    return i18nc( "@item event is definite", "Confirmed" );
-  case Incidence::StatusCompleted:
-    return i18nc( "@item to-do is complete", "Completed" );
-  case Incidence::StatusNeedsAction:
-    return i18nc( "@item to-do needs action", "Needs-Action" );
-  case Incidence::StatusCanceled:
-    return i18nc( "@item event orto-do is canceled; journal is removed", "Canceled" );
-  case Incidence::StatusInProcess:
-    return i18nc( "@item to-do is in process", "In-Process" );
-  case Incidence::StatusDraft:
-    return i18nc( "@item journal is in draft form", "Draft" );
-  case Incidence::StatusFinal:
-    return i18nc( "@item journal is in final form", "Final" );
-  case Incidence::StatusX:
-  case Incidence::StatusNone:
-  default:
-    return QString();
-  }
-}
-
-QString IncidenceFormatter::incidenceStatusStr( const Incidence::Ptr &incidence )
-{
-  if ( incidence->status() == Incidence::StatusX ) {
-    return incidence->customStatusStr();
-  } else {
-    return incidenceStatusName( incidence->status() );
-  }
 }

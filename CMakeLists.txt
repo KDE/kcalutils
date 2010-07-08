@@ -1,5 +1,12 @@
 project(kcalutils)
 
+#TODO: run cmakelint.pl on this file
+
+#TODO: if this library goes into kdepim (instead of kdepimlibs), you should
+# 1. replace "kcalcore" with a KDEPIMLIBS_KCALCORE_LIBS variable
+# 2. replace "kpimutils" with KDEPIMLIBS_KPIMUTILS_LIBS variable
+# 3. install the headers
+
 ### TODO: All these lines can be removed once this library is integrated back into KDE SC
 set (QT_MIN_VERSION "4.6.0")
 find_package(KDE4 4.4.0 REQUIRED)
@@ -30,8 +37,7 @@ set(kcalutils_LIB_SRCS
   dndfactory.cpp
   htmlexport.cpp
   icaldrag.cpp
-#KDAB_TODO:
-#  incidenceformatter.cpp
+  incidenceformatter.cpp
   stringify.cpp
   vcaldrag.cpp
 )
@@ -40,8 +46,7 @@ kde4_add_kcfg_files(kcalutils_LIB_SRCS htmlexportsettings.kcfgc )
 
 kde4_add_library(kcalutils SHARED ${kcalutils_LIB_SRCS})
 
-#TODO: replace "kcalcore" with a KDEPIMLIBS_KCALCORE_LIBS variable
-target_link_libraries(kcalutils ${KDE4_KDECORE_LIBRARY} ${KDE4_KDEUI_LIBRARY} kcalcore ${QT_QTGUI_LIBRARY})
+target_link_libraries(kcalutils ${KDE4_KDECORE_LIBRARY} ${KDE4_KDEUI_LIBRARY} ${KDE4_KIO_LIBS} kcalcore kpimutils ${QT_QTGUI_LIBRARY})
 set_target_properties(kcalutils PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
 install(TARGETS kcalutils ${INSTALL_TARGETS_DEFAULT_ARGS})
 

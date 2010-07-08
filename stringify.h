@@ -36,6 +36,7 @@
 
 #include <kcalcore/attendee.h>
 #include <kcalcore/incidence.h>
+#include <kcalcore/todo.h>
 using namespace KCalCore;
 
 namespace KCalUtils {
@@ -46,12 +47,34 @@ namespace KCalUtils {
 */
 namespace Stringify
 {
-  QString incidenceType( Incidence::IncidenceType type );
+  KCALUTILS_EXPORT QString incidenceType( Incidence::IncidenceType type );
 
-  QString attendeeRole( Attendee::Role role );
-  QStringList attendeeRoleList();
-  QString attendeeStatus( Attendee::PartStat status );
-  QStringList attendeeStatusList();
+  /**
+    Returns the incidence Secrecy as translated string.
+    @see incidenceSecrecyList().
+  */
+  KCALUTILS_EXPORT QString incidenceSecrecy( Incidence::Secrecy secrecy );
+
+  /**
+    Returns a list of all available Secrecy types as a list of translated strings.
+    @see incidenceSecrecy().
+  */
+  KCALUTILS_EXPORT QStringList incidenceSecrecyList();
+
+  KCALUTILS_EXPORT QString incidenceStatus( Incidence::Status status );
+  KCALUTILS_EXPORT QString incidenceStatus( const Incidence::Ptr &incidence );
+
+  /**
+    Returns string containing the date/time when the to-do was completed,
+    formatted according to the user's locale settings.
+    @param shortfmt If true, use a short date format; else use a long format.
+  */
+  KCALUTILS_EXPORT QString todoCompletedDateTime( Todo::Ptr todo, bool shortfmt = false );
+
+  KCALUTILS_EXPORT QString attendeeRole( Attendee::Role role );
+  KCALUTILS_EXPORT QStringList attendeeRoleList();
+  KCALUTILS_EXPORT QString attendeeStatus( Attendee::PartStat status );
+  KCALUTILS_EXPORT QStringList attendeeStatusList();
 
   /**
     Build a QString time representation of a KDateTime object.
@@ -60,8 +83,8 @@ namespace Stringify
     @param spec Time spec to use.
     @see formatDate(), formatDateTime().
   */
-  QString formatTime( const KDateTime &dt, bool shortfmt = true,
-                      const KDateTime::Spec &spec = KDateTime::Spec() );
+  KCALUTILS_EXPORT QString formatTime( const KDateTime &dt, bool shortfmt = true,
+                                       const KDateTime::Spec &spec = KDateTime::Spec() );
 
   /**
     Build a QString date representation of a KDateTime object.
@@ -70,8 +93,8 @@ namespace Stringify
     @param spec Time spec to use.
     @see formatDate(), formatDateTime().
   */
-  QString formatDate( const KDateTime &dt, bool shortfmt = true,
-                      const KDateTime::Spec &spec = KDateTime::Spec() );
+  KCALUTILS_EXPORT QString formatDate( const KDateTime &dt, bool shortfmt = true,
+                                       const KDateTime::Spec &spec = KDateTime::Spec() );
 
   /**
     Build a QString date/time representation of a KDateTime object.
@@ -81,10 +104,10 @@ namespace Stringify
     @param spec Time spec to use.
     @see formatDate(), formatTime().
   */
-  QString formatDateTime( const KDateTime &dt,
-                          bool dateOnly = false,
-                          bool shortfmt = true,
-                          const KDateTime::Spec &spec = KDateTime::Spec() );
+  KCALUTILS_EXPORT QString formatDateTime( const KDateTime &dt,
+                                           bool dateOnly = false,
+                                           bool shortfmt = true,
+                                           const KDateTime::Spec &spec = KDateTime::Spec() );
 }
 
 }

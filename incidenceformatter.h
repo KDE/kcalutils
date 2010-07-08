@@ -43,6 +43,7 @@
 namespace KCalCore {
   class Calendar;
   class IncidenceBase;
+  class MemoryCalendar;
 }
 using namespace KCalCore;
 
@@ -88,7 +89,7 @@ namespace IncidenceFormatter
     @since 4.4
   */
   KCALUTILS_EXPORT QString toolTipStr( Calendar *calendar,
-                                       IncidenceBase *incidence,
+                                       IncidenceBase::Ptr incidence,
                                        const QDate &date=QDate(),
                                        bool richText=true,
                                        KDateTime::Spec spec=KDateTime::Spec() );
@@ -106,7 +107,7 @@ namespace IncidenceFormatter
     @since 4.5
   */
   KCALUTILS_EXPORT QString toolTipStr( const QString &sourceName,
-                                       IncidenceBase *incidence,
+                                       IncidenceBase::Ptr incidence,
                                        const QDate &date=QDate(),
                                        bool richText=true,
                                        KDateTime::Spec spec=KDateTime::Spec() );
@@ -123,7 +124,7 @@ namespace IncidenceFormatter
     @since 4.4
   */
   KCALUTILS_EXPORT QString extensiveDisplayStr( Calendar *calendar,
-                                                IncidenceBase *incidence,
+                                                IncidenceBase::Ptr incidence,
                                                 const QDate &date=QDate(),
                                                 KDateTime::Spec spec=KDateTime::Spec() );
 
@@ -139,7 +140,7 @@ namespace IncidenceFormatter
     @since 4.5
   */
   KCALUTILS_EXPORT QString extensiveDisplayStr( const QString &sourceName,
-                                                IncidenceBase *incidence,
+                                                IncidenceBase::Ptr incidence,
                                                 const QDate &date=QDate(),
                                                 KDateTime::Spec spec=KDateTime::Spec() );
 
@@ -151,7 +152,7 @@ namespace IncidenceFormatter
     will shift the Incidence times to different timezones.
     @since 4.2
   */
-  KCALUTILS_EXPORT QString mailBodyStr( IncidenceBase *incidence,
+  KCALUTILS_EXPORT QString mailBodyStr( IncidenceBase::Ptr incidence,
                                         KDateTime::Spec spec=KDateTime::Spec() );
 
   /**
@@ -163,8 +164,10 @@ namespace IncidenceFormatter
     @param calendar is a pointer to the Calendar that owns the invitation.
     @param helper is a pointer to an InvitationFormatterHelper.
   */
-  KCALUTILS_EXPORT QString formatICalInvitation( QString invitation, Calendar *calendar,
+  KCALUTILS_EXPORT QString formatICalInvitation( QString invitation,
+                                                 MemoryCalendar *calendar,
                                                  InvitationFormatterHelper *helper );
+
   /**
     Deliver an HTML formatted string displaying an invitation.
     Differs from formatICalInvitation() in that invitation details (summary, location, etc)
@@ -179,7 +182,7 @@ namespace IncidenceFormatter
     @since 4.5
   */
   KCALUTILS_EXPORT QString formatICalInvitationNoHtml( const QString &invitation,
-                                                       Calendar *calendar,
+                                                       MemoryCalendar *calendar,
                                                        InvitationFormatterHelper *helper,
                                                        const QString &sender );
 
@@ -201,7 +204,7 @@ namespace IncidenceFormatter
     is to be formatted.
     @since 4.1
   */
-  KCALUTILS_EXPORT QString recurrenceString( Incidence *incidence );
+  KCALUTILS_EXPORT QString recurrenceString( Incidence::Ptr incidence );
 
   /**
     Returns a reminder string computed for the specified Incidence.
@@ -212,7 +215,7 @@ namespace IncidenceFormatter
     else a longer version of each reminder is printed.
     @since 4.5
   */
-  KCALUTILS_EXPORT QStringList reminderStringList( Incidence *incidence, bool shortfmt = true );
+  KCALUTILS_EXPORT QStringList reminderStringList( Incidence::Ptr incidence, bool shortfmt = true );
 
   /**
     Build a QString time representation of a KDateTime object.
@@ -256,7 +259,7 @@ namespace IncidenceFormatter
     @param incidence is a pointer to the Incidence.
     @since 4.4
   */
-  KCALUTILS_EXPORT QString resourceString( Calendar *calendar, Incidence *incidence );
+  KCALUTILS_EXPORT QString resourceString( Calendar *calendar, Incidence::Ptr incidence );
 
   /**
     Returns a duration string computed for the specified Incidence.
@@ -264,22 +267,7 @@ namespace IncidenceFormatter
     @param incidence is a pointer to the Incidence.
     @since 4.5
   */
-  KCALUTILS_EXPORT QString durationString( Incidence *incidence );
-
-  /**
-    Returns a list of all available #Secrecy types as a list of translated
-    strings.
-    @see secrecyName().
-  */
-  KCALUTILS_EXPORT QStringList incidenceSecrecyList();
-
-  /**
-    Returns the translated string form of a specified #Secrecy.
-
-    @param secrecy is a #Secrecy type.
-    @see secrecyList().
-  */
-  KCALUTILS_EXPORT QString incidenceSecrecyName( Incidence::Secrecy secrecy );
+    KCALUTILS_EXPORT QString durationString( Incidence::Ptr incidence );
 
   /**
     Returns the translated string form of a specified #Status.
