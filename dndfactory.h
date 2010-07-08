@@ -81,7 +81,8 @@ class KCALUTILS_EXPORT DndFactory
      /**
       Create the calendar that is contained in the mime data.
      */
-    static MemoryCalendar *createDropCalendar( const QMimeData *md, const KDateTime::Spec &timeSpec );
+    static MemoryCalendar *createDropCalendar( const QMimeData *md,
+                                               const KDateTime::Spec &timeSpec );
 
     /**
       Create the mime data for the whole calendar.

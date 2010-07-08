@@ -143,7 +143,6 @@ namespace IncidenceFormatter
                                                 const QDate &date=QDate(),
                                                 KDateTime::Spec spec=KDateTime::Spec() );
 
-
   /**
     Create a QString representation of an Incidence in format suitable for
     including inside a mail message.
@@ -154,7 +153,6 @@ namespace IncidenceFormatter
   */
   KCALUTILS_EXPORT QString mailBodyStr( IncidenceBase *incidence,
                                         KDateTime::Spec spec=KDateTime::Spec() );
-
 
   /**
     Deliver an HTML formatted string displaying an invitation.

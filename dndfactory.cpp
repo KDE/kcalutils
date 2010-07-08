@@ -195,7 +195,8 @@ MemoryCalendar *DndFactory::createDropCalendar( const QMimeData *md )
   return createDropCalendar( md, d->mCalendar->timeSpec() );
 }
 
-MemoryCalendar *DndFactory::createDropCalendar( const QMimeData *md, const KDateTime::Spec &timeSpec )
+MemoryCalendar *DndFactory::createDropCalendar( const QMimeData *md,
+                                                const KDateTime::Spec &timeSpec )
 {
   MemoryCalendar *cal = new MemoryCalendar( timeSpec );
 

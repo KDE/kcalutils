@@ -32,8 +32,7 @@ set(kcalutils_LIB_SRCS
   icaldrag.cpp
 #KDAB_TODO:
 #  incidenceformatter.cpp
-#KDAB_TODO:
-#  stringutils.cpp
+  stringify.cpp
   vcaldrag.cpp
 )
 
