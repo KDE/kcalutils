@@ -72,10 +72,16 @@ QString Stringify::incidenceSecrecy( Incidence::Secrecy secrecy )
   switch ( secrecy ) {
   case Incidence::SecrecyPublic:
     return i18nc( "@item incidence access if for everyone", "Public" );
+    break;
   case Incidence::SecrecyPrivate:
     return i18nc( "@item incidence access is by owner only", "Private" );
+    break;
   case Incidence::SecrecyConfidential:
     return i18nc( "@item incidence access is by owner and a controlled group", "Confidential" );
+    break;
+  default: // to make compiler happy
+    return QString();
+    break;
   }
 }
 

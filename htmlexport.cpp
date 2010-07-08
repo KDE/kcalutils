@@ -312,14 +312,14 @@ void HtmlExport::createEvent ( QTextStream *ts, Event::Ptr event,
   *ts << "  <tr>" << endl;
 
   if ( !event->allDay() ) {
-    if ( event->isMultiDay( &d->mCalendar->timeSpec() ) && ( event->dtStart().date() != date ) ) {
+    if ( event->isMultiDay( d->mCalendar->timeSpec() ) && ( event->dtStart().date() != date ) ) {
       *ts << "    <td>&nbsp;</td>" << endl;
     } else {
       *ts << "    <td valign=\"top\">"
           << Stringify::formatTime( event->dtStart(), true, d->mCalendar->timeSpec() )
           << "</td>" << endl;
     }
-    if ( event->isMultiDay( &d->mCalendar->timeSpec() ) && ( event->dtEnd().date() != date ) ) {
+    if ( event->isMultiDay( d->mCalendar->timeSpec() ) && ( event->dtEnd().date() != date ) ) {
       *ts << "    <td>&nbsp;</td>" << endl;
     } else {
       *ts << "    <td valign=\"top\">"

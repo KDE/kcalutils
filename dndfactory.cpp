@@ -116,7 +116,7 @@ class KCalUtils::DndFactory::Private
           }
           anJournal->setDtStart( startDate );
         } else {
-          kDebug() << "Trying to paste unknown incidence of type" << inc->type();
+          kDebug() << "Trying to paste unknown incidence of type" << int( inc->type() );
         }
       }
 
