@@ -52,12 +52,11 @@ install(TARGETS kcalutils ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### next target ###############
 
-#TODO: let's make some nice tests
-#add_subdirectory(tests)
+add_subdirectory(tests)
 
 ########### install files ###############
 
-#TODO: do we want to install the headers?
+#TODO: install the headers if we go into kdepimlibs
 #install(FILES
 #  dndfactory.h
 #  htmlexport.h
@@ -66,6 +65,3 @@ install(TARGETS kcalutils ${INSTALL_TARGETS_DEFAULT_ARGS})
 #  kcalutils_export.h
 #  vcaldrag.h
 #  DESTINATION ${INCLUDE_INSTALL_DIR}/kcalutils COMPONENT Devel)
-
-# All done, let's display what we found...
-macro_display_feature_log()
