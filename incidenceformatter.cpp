@@ -2402,7 +2402,7 @@ static QString formatICalInvitationHelper( QString invitation,
   if( !msg ) {
     kDebug() << "Failed to parse the scheduling message";
     Q_ASSERT( format.exception() );
-    kDebug() << format.exception()->message();
+    kDebug() << Stringify::errorMessage( *format.exception() );
     return QString();
   }
 

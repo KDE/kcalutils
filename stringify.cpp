@@ -36,10 +36,13 @@
 
 #include "stringify.h"
 
+#include <kcalcore/exceptions.h>
+
 #include <kglobal.h>
 #include <klocale.h>
 #include <ksystemtimezone.h>
 
+using namespace KCalCore;
 using namespace KCalUtils;
 using namespace Stringify;
 
@@ -262,4 +265,86 @@ QString Stringify::formatDateTime( const KDateTime &dt, bool allDay,
       dt.dateTime(),
       ( shortfmt ? KLocale::ShortDate : KLocale::LongDate ) );
   }
+}
+
+QString Stringify::errorMessage( const KCalCore::Exception &exception )
+{
+  QString message = "";
+
+  switch ( exception.code() ) {
+  case Exception::LoadError:
+    message = i18n( "Load Error" );
+    break;
+  case Exception::SaveError:
+    message = i18n( "Save Error" );
+    break;
+  case Exception::ParseErrorIcal:
+    message = i18n( "Parse Error in libical" );
+    break;
+  case Exception::ParseErrorKcal:
+    message = i18n( "Parse Error in libkcal" );
+    break;
+  case Exception::NoCalendar:
+    message = i18n( "No calendar component found." );
+    break;
+  case Exception::CalVersion1:
+    message = i18n( "Expected iCalendar, got vCalendar format" );
+    break;
+  case Exception::CalVersion2:
+    message = i18n( "iCalendar Version 2.0 detected." );
+    break;
+  case Exception::CalVersionUnknown:
+    message = i18n( "Expected iCalendar, got unknown format" );
+    break;
+  case Exception::Restriction:
+    message = i18n( "Restriction violation" );
+    break;
+  case Exception::NoWritableFound:
+    message = i18n( "No writable resource found" );
+    break;
+  case Exception::SaveErrorOpenFile:
+    Q_ASSERT( exception.arguments().count() == 1 );
+    message = i18n( "Error saving to '%1'.",
+                    exception.arguments()[0] );
+    break;
+  case Exception::SaveErrorSaveFile:
+    Q_ASSERT( exception.arguments().count() == 1 );
+    message = i18n( "Could not save '%1'",
+                    exception.arguments()[0] );
+    break;
+  case Exception::LibICalError:
+    message = i18n( "libical error" );
+    break;
+  case Exception::VersionPropertyMissing:
+    message = i18n( "No VERSION property found" );
+    break;
+  case Exception::ExpectedCalVersion2:
+    message = i18n( "Expected iCalendar, got vCalendar format" );
+    break;
+  case Exception::ExpectedCalVersion2Unknown:
+    message = i18n( "Expected iCalendar, got unknown format" );
+    break;
+  case Exception::ParseErrorNotIncidence:
+    message = i18n( "object is not a freebusy, event, "
+                    "todo or journal" );
+    break;
+  case Exception::ParseErrorEmptyMessage:
+    message = i18n( "messageText is empty, unable "
+                    "to parse into a ScheduleMessage" );
+    break;
+  case Exception::ParseErrorUnableToParse:
+    message = i18n( "icalparser is unable to parse "
+                    "messageText into a ScheduleMessage" );
+    break;
+  case Exception::ParseErrorMethodProperty:
+    message = i18n( "message does not contain an "
+                    "ICAL_METHOD_PROPERTY" );
+    break;
+  case Exception::UserCancel:
+    // no real error; the user canceled the operation
+    break;
+
+  }
+
+  return message;
 }

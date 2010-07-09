@@ -39,6 +39,10 @@
 #include <kcalcore/todo.h>
 using namespace KCalCore;
 
+namespace KCalCore {
+  class Exception;
+};
+
 namespace KCalUtils {
 
 /**
@@ -108,8 +112,14 @@ namespace Stringify
                                            bool dateOnly = false,
                                            bool shortfmt = true,
                                            const KDateTime::Spec &spec = KDateTime::Spec() );
-}
 
-}
+  /**
+     Build a translated message representing an exception
+  */
+
+  KCALUTILS_EXPORT QString errorMessage( const KCalCore::Exception &exception );
+} // namespace Stringify
+
+} //namespace KCalUtils
 
 #endif
