@@ -1,3 +1,0 @@
-Layer on top of KCalCore, contains formating and i18n stuff.
-
-Doesn't need to be called kcalutils, we can rename it before merging to trunk.
