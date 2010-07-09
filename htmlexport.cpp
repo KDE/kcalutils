@@ -363,19 +363,19 @@ void HtmlExport::createTodoList ( QTextStream *ts )
 
   int index = 0;
   while ( index < rawTodoList.count() ) {
-// PENDING(kdab) Review
-#ifdef KDAB_TEMPORARILY_REMOVED
     Todo::Ptr ev = rawTodoList[ index ];
     Todo::Ptr subev = ev;
-    if ( ev->relatedTo() ) {
-      if ( ev->relatedTo()->type() == Incidence::TypeTodo ) {
-        if ( !rawTodoList.contains( static_cast<Todo *>( ev->relatedTo() ) ) ) {
-          rawTodoList.append( static_cast<Todo *>( ev->relatedTo() ) );
+    const QString uid = ev->relatedToUid();
+    if ( !uid.isEmpty() ) {
+      Incidence::Ptr inc = d->mCalendar->incidence( uid );
+      if ( inc && inc->type() == Incidence::TypeTodo ) {
+        Todo::Ptr todo = inc.staticCast<Todo>();
+        if ( !rawTodoList.contains( todo ) ) {
+          rawTodoList.append( todo );
         }
       }
     }
     index = rawTodoList.indexOf( subev );
-#endif
     ++index;
   }
 
@@ -423,22 +423,15 @@ void HtmlExport::createTodoList ( QTextStream *ts )
 
   // Create top-level list.
   for ( it = todoList.constBegin(); it != todoList.constEnd(); ++it ) {
-// PENDING(kdab) Review
-#ifdef KDAB_TEMPORARILY_REMOVED
-    if ( !(*it)->relatedTo() ) {
+    if ( (*it)->relatedToUid().isEmpty() ) {
       createTodo( ts, *it );
     }
-#endif
   }
 
   // Create sub-level lists
   for ( it = todoList.constBegin(); it != todoList.constEnd(); ++it ) {
-// PENDING(kdab) Review
-#ifdef KDAB_TEMPORARILY_REMOVED
-    Incidence::List relations = (*it)->relations();
-#else
-    Incidence::List relations;
-#endif
+    Incidence::List relations =  d->mCalendar->relations( ( *it )->uid() );
+
     if ( relations.count() ) {
       // Generate sub-to-do list
       *ts << "  <tr>" << endl;
@@ -485,13 +478,9 @@ void HtmlExport::createTodo( QTextStream *ts, Todo::Ptr todo )
 {
   kDebug();
 
-  bool completed = todo->isCompleted();
-// PENDING(kdab) Review
-#ifdef KDAB_TEMPORARILY_REMOVED
-  Incidence::List relations = todo->relations();
-#else
-  Incidence::List relations;
-#endif
+  const bool completed = todo->isCompleted();
+
+  Incidence::List relations = d->mCalendar->relations( todo->uid() );
 
   *ts << "<tr>" << endl;
 
