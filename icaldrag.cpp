@@ -29,6 +29,7 @@
 
 using namespace KCalUtils;
 using namespace ICalDrag;
+using namespace KCalCore;
 
 QString ICalDrag::mimeType()
 {

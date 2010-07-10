@@ -51,6 +51,7 @@
 #include <QtGui/QDropEvent>
 #include <QtGui/QPixmap>
 
+using namespace KCalCore;
 using namespace KCalUtils;
 
 /**

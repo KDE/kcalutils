@@ -40,6 +40,7 @@
 #include <QtCore/QMap>
 #include <QtGui/QApplication>
 
+using namespace KCalCore;
 using namespace KCalUtils;
 
 static QString cleanChars( const QString &txt );

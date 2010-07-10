@@ -29,6 +29,7 @@
 
 using namespace KCalUtils;
 using namespace VCalDrag;
+using namespace KCalCore;
 
 QString VCalDrag::mimeType()
 {

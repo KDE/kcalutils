@@ -37,7 +37,6 @@
 #include <kcalcore/attendee.h>
 #include <kcalcore/incidence.h>
 #include <kcalcore/todo.h>
-using namespace KCalCore;
 
 namespace KCalCore {
   class Exception;
@@ -51,13 +50,13 @@ namespace KCalUtils {
 */
 namespace Stringify
 {
-  KCALUTILS_EXPORT QString incidenceType( Incidence::IncidenceType type );
+  KCALUTILS_EXPORT QString incidenceType( KCalCore::Incidence::IncidenceType type );
 
   /**
     Returns the incidence Secrecy as translated string.
     @see incidenceSecrecyList().
   */
-  KCALUTILS_EXPORT QString incidenceSecrecy( Incidence::Secrecy secrecy );
+  KCALUTILS_EXPORT QString incidenceSecrecy( KCalCore::Incidence::Secrecy secrecy );
 
   /**
     Returns a list of all available Secrecy types as a list of translated strings.
@@ -65,19 +64,19 @@ namespace Stringify
   */
   KCALUTILS_EXPORT QStringList incidenceSecrecyList();
 
-  KCALUTILS_EXPORT QString incidenceStatus( Incidence::Status status );
-  KCALUTILS_EXPORT QString incidenceStatus( const Incidence::Ptr &incidence );
+  KCALUTILS_EXPORT QString incidenceStatus( KCalCore::Incidence::Status status );
+  KCALUTILS_EXPORT QString incidenceStatus( const KCalCore::Incidence::Ptr &incidence );
 
   /**
     Returns string containing the date/time when the to-do was completed,
     formatted according to the user's locale settings.
     @param shortfmt If true, use a short date format; else use a long format.
   */
-  KCALUTILS_EXPORT QString todoCompletedDateTime( Todo::Ptr todo, bool shortfmt = false );
+  KCALUTILS_EXPORT QString todoCompletedDateTime( KCalCore::Todo::Ptr todo, bool shortfmt = false );
 
-  KCALUTILS_EXPORT QString attendeeRole( Attendee::Role role );
+  KCALUTILS_EXPORT QString attendeeRole( KCalCore::Attendee::Role role );
   KCALUTILS_EXPORT QStringList attendeeRoleList();
-  KCALUTILS_EXPORT QString attendeeStatus( Attendee::PartStat status );
+  KCALUTILS_EXPORT QString attendeeStatus( KCalCore::Attendee::PartStat status );
   KCALUTILS_EXPORT QStringList attendeeStatusList();
 
   /**

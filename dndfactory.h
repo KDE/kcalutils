@@ -43,7 +43,6 @@ namespace KCalCore {
   class Event;
   class Todo;
 }
-using namespace KCalCore;
 
 class QDate;
 class QDrag;
@@ -64,25 +63,25 @@ namespace KCalUtils {
 class KCALUTILS_EXPORT DndFactory
 {
   public:
-    explicit DndFactory( MemoryCalendar *cal );
+    explicit DndFactory( KCalCore::MemoryCalendar *cal );
 
     ~DndFactory();
 
     /**
       Create the calendar that is contained in the drop event's data.
      */
-    MemoryCalendar *createDropCalendar( QDropEvent *de );
+    KCalCore::MemoryCalendar *createDropCalendar( QDropEvent *de );
 
     /**
       Create the calendar that is contained in the mime data.
      */
-    MemoryCalendar *createDropCalendar( const QMimeData *md );
+    KCalCore::MemoryCalendar *createDropCalendar( const QMimeData *md );
 
      /**
       Create the calendar that is contained in the mime data.
      */
-    static MemoryCalendar *createDropCalendar( const QMimeData *md,
-                                               const KDateTime::Spec &timeSpec );
+    static KCalCore::MemoryCalendar *createDropCalendar( const QMimeData *md,
+                                                         const KDateTime::Spec &timeSpec );
 
     /**
       Create the mime data for the whole calendar.
@@ -97,56 +96,56 @@ class KCALUTILS_EXPORT DndFactory
     /**
       Create the mime data for a single incidence.
     */
-    QMimeData *createMimeData( Incidence *incidence );
+    QMimeData *createMimeData( KCalCore::Incidence *incidence );
 
     /**
       Create a drag object for a single incidence.
     */
-    QDrag *createDrag( Incidence *incidence, QWidget *owner );
+    QDrag *createDrag( KCalCore::Incidence *incidence, QWidget *owner );
 
     /**
       Create Todo object from mime data.
     */
-    Todo *createDropTodo( const QMimeData *md );
+    KCalCore::Todo *createDropTodo( const QMimeData *md );
 
     /**
       Create Todo object from drop event.
     */
-    Todo *createDropTodo( QDropEvent *de );
+    KCalCore::Todo *createDropTodo( QDropEvent *de );
 
     /**
       Create Event object from mime data.
     */
-    Event *createDropEvent( const QMimeData *md );
+    KCalCore::Event *createDropEvent( const QMimeData *md );
 
     /**
       Create Event object from drop event.
     */
-    Event *createDropEvent( QDropEvent *de );
+    KCalCore::Event *createDropEvent( QDropEvent *de );
 
     /**
       Cut the incidence to the clipboard.
     */
-    void cutIncidence( Incidence * );
+    void cutIncidence( KCalCore::Incidence * );
 
     /**
       Copy the incidence to clipboard/
     */
-    bool copyIncidence( Incidence * );
+    bool copyIncidence( KCalCore::Incidence * );
 
     /**
      * Cuts a list of @p incidences to the clipboard.
      *
      * @since 4.5
      */
-    bool cutIncidences( const Incidence::List &incidences );
+    bool cutIncidences( const KCalCore::Incidence::List &incidences );
 
     /**
      * Copies a list of @p incidences to the clipboard.
      *
      * @since 4.5
      */
-    bool copyIncidences( const Incidence::List &incidences );
+    bool copyIncidences( const KCalCore:: Incidence::List &incidences );
 
     /**
      * Pastes and returns the incidences from the clipboard
@@ -158,13 +157,13 @@ class KCALUTILS_EXPORT DndFactory
      *
      * @since 4.5
      */
-    Incidence::List pasteIncidences( const QDate &newDate = QDate(),
-                                     const QTime *newTime = 0 );
+    KCalCore::Incidence::List pasteIncidences( const QDate &newDate = QDate(),
+                                               const QTime *newTime = 0 );
 
     /**
      * Pastes the event or todo and return a pointer to the new incidence pasted.
      */
-    Incidence::Ptr pasteIncidence( const QDate &, const QTime *newTime = 0 );
+    KCalCore::Incidence::Ptr pasteIncidence( const QDate &, const QTime *newTime = 0 );
 
   private:
     //@cond PRIVATE

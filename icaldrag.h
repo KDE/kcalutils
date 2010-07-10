@@ -28,7 +28,6 @@
 namespace KCalCore {
   class MemoryCalendar;
 }
-using namespace KCalCore;
 
 class QMimeData;
 
@@ -47,7 +46,7 @@ namespace ICalDrag
   /**
     Sets the iCalendar representation as data of the drag object
   */
-  KCALUTILS_EXPORT bool populateMimeData( QMimeData *e, MemoryCalendar *cal );
+  KCALUTILS_EXPORT bool populateMimeData( QMimeData *e, KCalCore::MemoryCalendar *cal );
 
   /**
     Return, if drag&drop object can be decode to iCalendar.
@@ -57,7 +56,7 @@ namespace ICalDrag
   /**
     Decode drag&drop object to iCalendar component \a cal.
   */
-  KCALUTILS_EXPORT bool fromMimeData( const QMimeData *e, MemoryCalendar *cal );
+  KCALUTILS_EXPORT bool fromMimeData( const QMimeData *e, KCalCore::MemoryCalendar *cal );
 }
 
 }

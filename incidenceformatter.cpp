@@ -63,6 +63,7 @@
 #include <QtGui/QApplication>
 #include <QtGui/QTextDocument>
 
+using namespace KCalCore;
 using namespace KCalUtils;
 using namespace IncidenceFormatter;
 

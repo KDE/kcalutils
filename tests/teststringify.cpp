@@ -26,6 +26,7 @@
 #include <qtest_kde.h>
 QTEST_KDEMAIN( StringifyTest, NoGUI )
 
+using namespace KCalCore;
 using namespace KCalUtils;
 
 void StringifyTest::testIncidenceStrings()

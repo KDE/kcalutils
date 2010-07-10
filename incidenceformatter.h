@@ -45,7 +45,6 @@ namespace KCalCore {
   class IncidenceBase;
   class MemoryCalendar;
 }
-using namespace KCalCore;
 
 namespace KCalUtils {
 
@@ -56,7 +55,7 @@ class KCALUTILS_EXPORT InvitationFormatterHelper
     virtual ~InvitationFormatterHelper(){}
     virtual QString generateLinkURL( const QString &id );
     virtual QString makeLink( const QString &id, const QString &text );
-    virtual Calendar *calendar() const;
+    virtual KCalCore::Calendar *calendar() const;
 
   private:
     //@cond PRIVATE
@@ -88,8 +87,8 @@ namespace IncidenceFormatter
     will shift the Incidence times to different timezones.
     @since 4.4
   */
-  KCALUTILS_EXPORT QString toolTipStr( Calendar *calendar,
-                                       IncidenceBase::Ptr incidence,
+  KCALUTILS_EXPORT QString toolTipStr( KCalCore::Calendar *calendar,
+                                       KCalCore::IncidenceBase::Ptr incidence,
                                        const QDate &date=QDate(),
                                        bool richText=true,
                                        KDateTime::Spec spec=KDateTime::Spec() );
@@ -107,7 +106,7 @@ namespace IncidenceFormatter
     @since 4.5
   */
   KCALUTILS_EXPORT QString toolTipStr( const QString &sourceName,
-                                       IncidenceBase::Ptr incidence,
+                                       KCalCore::IncidenceBase::Ptr incidence,
                                        const QDate &date=QDate(),
                                        bool richText=true,
                                        KDateTime::Spec spec=KDateTime::Spec() );
@@ -115,7 +114,7 @@ namespace IncidenceFormatter
   /**
     Create a RichText QString representation of an Incidence in a nice format
     suitable for using in a viewer widget.
-    @param calendar is a pointer to the Calendar that owns the specified Incidence.
+    @param calendar is a pointer to the KCalCore::Calendar that owns the specified Incidence.
     @param incidence is a pointer to the Incidence to be formatted.
     @param date is the QDate for which the string representation should be computed;
     used mainly for recurring incidences.
@@ -123,8 +122,8 @@ namespace IncidenceFormatter
     will shift the Incidence times to different timezones.
     @since 4.4
   */
-  KCALUTILS_EXPORT QString extensiveDisplayStr( Calendar *calendar,
-                                                IncidenceBase::Ptr incidence,
+  KCALUTILS_EXPORT QString extensiveDisplayStr( KCalCore::Calendar *calendar,
+                                                KCalCore::IncidenceBase::Ptr incidence,
                                                 const QDate &date=QDate(),
                                                 KDateTime::Spec spec=KDateTime::Spec() );
 
@@ -140,7 +139,7 @@ namespace IncidenceFormatter
     @since 4.5
   */
   KCALUTILS_EXPORT QString extensiveDisplayStr( const QString &sourceName,
-                                                IncidenceBase::Ptr incidence,
+                                                KCalCore::IncidenceBase::Ptr incidence,
                                                 const QDate &date=QDate(),
                                                 KDateTime::Spec spec=KDateTime::Spec() );
 
@@ -152,7 +151,7 @@ namespace IncidenceFormatter
     will shift the Incidence times to different timezones.
     @since 4.2
   */
-  KCALUTILS_EXPORT QString mailBodyStr( IncidenceBase::Ptr incidence,
+  KCALUTILS_EXPORT QString mailBodyStr( KCalCore::IncidenceBase::Ptr incidence,
                                         KDateTime::Spec spec=KDateTime::Spec() );
 
   /**
@@ -161,11 +160,11 @@ namespace IncidenceFormatter
 
     @param invitation a QString containing a string representation of a calendar Event
     which will be intrepreted as an invitation.
-    @param calendar is a pointer to the Calendar that owns the invitation.
+    @param calendar is a pointer to the KCalCore::Calendar that owns the invitation.
     @param helper is a pointer to an InvitationFormatterHelper.
   */
   KCALUTILS_EXPORT QString formatICalInvitation( QString invitation,
-                                                 MemoryCalendar *calendar,
+                                                 KCalCore::MemoryCalendar *calendar,
                                                  InvitationFormatterHelper *helper );
 
   /**
@@ -176,13 +175,13 @@ namespace IncidenceFormatter
 
     @param invitation a QString containing a string representation of a calendar Event
     which will be intrepreted as an invitation.
-    @param calendar is a pointer to the Calendar that owns the invitation.
+    @param calendar is a pointer to the KCalCore::Calendar that owns the invitation.
     @param helper is a pointer to an InvitationFormatterHelper.
     @param sender is a QString containing the email address of the person sending the invitation.
     @since 4.5
   */
   KCALUTILS_EXPORT QString formatICalInvitationNoHtml( const QString &invitation,
-                                                       MemoryCalendar *calendar,
+                                                       KCalCore::MemoryCalendar *calendar,
                                                        InvitationFormatterHelper *helper,
                                                        const QString &sender );
 
@@ -190,7 +189,7 @@ namespace IncidenceFormatter
     Format a TNEF attachment to an HTML mail
     @since 4.1
   */
-  KCALUTILS_EXPORT QString formatTNEFInvitation( const QByteArray &tnef, Calendar *mCalendar,
+  KCALUTILS_EXPORT QString formatTNEFInvitation( const QByteArray &tnef, KCalCore::Calendar *mCalendar,
                                                  InvitationFormatterHelper *helper );
   /**
     Transform a TNEF attachment to an iCal or vCard
@@ -204,7 +203,7 @@ namespace IncidenceFormatter
     is to be formatted.
     @since 4.1
   */
-  KCALUTILS_EXPORT QString recurrenceString( Incidence::Ptr incidence );
+  KCALUTILS_EXPORT QString recurrenceString( KCalCore::Incidence::Ptr incidence );
 
   /**
     Returns a reminder string computed for the specified Incidence.
@@ -215,7 +214,7 @@ namespace IncidenceFormatter
     else a longer version of each reminder is printed.
     @since 4.5
   */
-  KCALUTILS_EXPORT QStringList reminderStringList( Incidence::Ptr incidence, bool shortfmt = true );
+  KCALUTILS_EXPORT QStringList reminderStringList( KCalCore::Incidence::Ptr incidence, bool shortfmt = true );
 
   /**
     Build a QString time representation of a KDateTime object.
@@ -254,12 +253,12 @@ namespace IncidenceFormatter
                                              const KDateTime::Spec &spec = KDateTime::Spec() );
 
   /**
-    Returns a Calendar Resource label name for the specified Incidence.
+    Returns a KCalCore::Calendar Resource label name for the specified Incidence.
     @param calendar is a pointer to the Calendar.
     @param incidence is a pointer to the Incidence.
     @since 4.4
   */
-  KCALUTILS_EXPORT QString resourceString( Calendar *calendar, Incidence::Ptr incidence );
+  KCALUTILS_EXPORT QString resourceString( KCalCore::Calendar *calendar, KCalCore::Incidence::Ptr incidence );
 
   /**
     Returns a duration string computed for the specified Incidence.
@@ -267,18 +266,18 @@ namespace IncidenceFormatter
     @param incidence is a pointer to the Incidence.
     @since 4.5
   */
-    KCALUTILS_EXPORT QString durationString( Incidence::Ptr incidence );
+    KCALUTILS_EXPORT QString durationString( KCalCore::Incidence::Ptr incidence );
 
   /**
     Returns the translated string form of a specified #Status.
      @param status is a #Status type.
   */
-  KCALUTILS_EXPORT QString incidenceStatusName( Incidence::Status status );
+  KCALUTILS_EXPORT QString incidenceStatusName( KCalCore::Incidence::Status status );
 
   /**
      Returns a translatedstatus string for this incidence
   */
-  KCALUTILS_EXPORT QString incidenceStatusStr( const Incidence::Ptr &incidence );
+  KCALUTILS_EXPORT QString incidenceStatusStr( const KCalCore::Incidence::Ptr &incidence );
 
   class EventViewerVisitor;
   class ScheduleMessageVisitor;
