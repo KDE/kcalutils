@@ -949,7 +949,7 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
 //@endcond
 
 QString IncidenceFormatter::extensiveDisplayStr( Calendar *calendar,
-                                                 IncidenceBase::Ptr incidence,
+                                                 const IncidenceBase::Ptr &incidence,
                                                  const QDate &date,
                                                  KDateTime::Spec spec )
 {
@@ -966,7 +966,7 @@ QString IncidenceFormatter::extensiveDisplayStr( Calendar *calendar,
 }
 
 QString IncidenceFormatter::extensiveDisplayStr( const QString &sourceName,
-                                                 IncidenceBase::Ptr incidence,
+                                                 const IncidenceBase::Ptr &incidence,
                                                  const QDate &date,
                                                  KDateTime::Spec spec )
 {
@@ -1000,7 +1000,7 @@ static QString cleanHtml( const QString &html )
   return Qt::escape( body.remove( QRegExp( "<[^>]*>" ) ).trimmed() );
 }
 
-static QString eventStartTimeStr( Event::Ptr event )
+static QString eventStartTimeStr( const Event::Ptr &event )
 {
   QString tmp;
   if ( !event->allDay() ) {
@@ -1014,7 +1014,7 @@ static QString eventStartTimeStr( Event::Ptr event )
   return tmp;
 }
 
-static QString eventEndTimeStr( Event::Ptr event )
+static QString eventEndTimeStr( const Event::Ptr &event )
 {
   QString tmp;
   if ( event->hasEndDate() && event->dtEnd().isValid() ) {
@@ -1035,7 +1035,7 @@ static QString invitationRow( const QString &cell1, const QString &cell2 )
   return "<tr><td>" + cell1 + "</td><td>" + cell2 + "</td></tr>\n";
 }
 
-static Attendee::Ptr findDelegatedFromMyAttendee( Incidence::Ptr incidence )
+static Attendee::Ptr findDelegatedFromMyAttendee( const Incidence::Ptr &incidence )
 {
   // Return the first attendee that was delegated-from me
 
@@ -1064,7 +1064,7 @@ static Attendee::Ptr findDelegatedFromMyAttendee( Incidence::Ptr incidence )
   return attendee;
 }
 
-static Attendee::Ptr findMyAttendee( Incidence::Ptr incidence )
+static Attendee::Ptr findMyAttendee( const Incidence::Ptr &incidence )
 {
   // Return the attendee for the incidence that is probably me
 
@@ -1091,7 +1091,8 @@ static Attendee::Ptr findMyAttendee( Incidence::Ptr incidence )
   return attendee;
 }
 
-static Attendee::Ptr findAttendee( Incidence::Ptr incidence, const QString &email )
+static Attendee::Ptr findAttendee( const Incidence::Ptr &incidence,
+                                   const QString &email )
 {
   // Search for an attendee by email address
 
@@ -1112,7 +1113,7 @@ static Attendee::Ptr findAttendee( Incidence::Ptr incidence, const QString &emai
   return attendee;
 }
 
-static bool rsvpRequested( Incidence::Ptr incidence )
+static bool rsvpRequested( const Incidence::Ptr &incidence )
 {
   if ( !incidence ) {
     return false;
@@ -1205,7 +1206,8 @@ static QString invitationPerson( const QString &email, QString name, QString uid
   return tmpString;
 }
 
-static QString invitationsDetailsIncidence( Incidence::Ptr incidence, bool noHtmlMode )
+static QString invitationsDetailsIncidence( const Incidence::Ptr &incidence,
+                                            bool noHtmlMode )
 {
   // if description and comment -> use both
   // if description, but no comment -> use the desc as the comment (and no desc)
@@ -1291,7 +1293,9 @@ static QString invitationsDetailsIncidence( Incidence::Ptr incidence, bool noHtm
   return html;
 }
 
-static QString invitationDetailsEvent( Event::Ptr event, bool noHtmlMode, KDateTime::Spec spec )
+static QString invitationDetailsEvent( const Event::Ptr &event,
+                                       bool noHtmlMode,
+                                       KDateTime::Spec spec )
 {
   // Invitation details are formatted into an HTML table
   if ( !event ) {
@@ -1375,7 +1379,9 @@ static QString invitationDetailsEvent( Event::Ptr event, bool noHtmlMode, KDateT
   return html;
 }
 
-static QString invitationDetailsTodo( Todo::Ptr todo, bool noHtmlMode, KDateTime::Spec spec )
+static QString invitationDetailsTodo( const Todo::Ptr &todo,
+                                      bool noHtmlMode,
+                                      KDateTime::Spec spec )
 {
   // To-do details are formatted into an HTML table
   if ( !todo ) {
@@ -1435,7 +1441,8 @@ static QString invitationDetailsTodo( Todo::Ptr todo, bool noHtmlMode, KDateTime
   return html;
 }
 
-static QString invitationDetailsJournal( Journal::Ptr journal, bool noHtmlMode,
+static QString invitationDetailsJournal( const Journal::Ptr &journal,
+                                         bool noHtmlMode,
                                          KDateTime::Spec spec )
 {
   if ( !journal ) {
@@ -1466,7 +1473,9 @@ static QString invitationDetailsJournal( Journal::Ptr journal, bool noHtmlMode,
   return html;
 }
 
-static QString invitationDetailsFreeBusy( FreeBusy::Ptr fb, bool noHtmlMode, KDateTime::Spec spec )
+static QString invitationDetailsFreeBusy( const FreeBusy::Ptr &fb,
+                                          bool noHtmlMode,
+                                          KDateTime::Spec spec )
 {
   Q_UNUSED( noHtmlMode );
 
@@ -1527,7 +1536,7 @@ static QString invitationDetailsFreeBusy( FreeBusy::Ptr fb, bool noHtmlMode, KDa
   return html;
 }
 
-static bool replyMeansCounter( Incidence::Ptr incidence )
+static bool replyMeansCounter( const Incidence::Ptr &incidence )
 {
   Q_UNUSED( incidence );
   return false;
@@ -1547,7 +1556,8 @@ static bool replyMeansCounter( Incidence::Ptr incidence )
 */
 }
 
-static QString invitationHeaderEvent( Event::Ptr event, Incidence::Ptr existingIncidence,
+static QString invitationHeaderEvent( const Event::Ptr &event,
+                                      const Incidence::Ptr &existingIncidence,
                                       ScheduleMessage *msg, const QString &sender )
 {
   if ( !msg || !event ) {
@@ -1682,7 +1692,8 @@ static QString invitationHeaderEvent( Event::Ptr event, Incidence::Ptr existingI
   return QString();
 }
 
-static QString invitationHeaderTodo( Todo::Ptr todo, Incidence::Ptr existingIncidence,
+static QString invitationHeaderTodo( const Todo::Ptr &todo,
+                                     const Incidence::Ptr &existingIncidence,
                                      ScheduleMessage *msg, const QString &sender )
 {
   if ( !msg || !todo ) {
@@ -1826,7 +1837,8 @@ static QString invitationHeaderTodo( Todo::Ptr todo, Incidence::Ptr existingInci
   return QString();
 }
 
-static QString invitationHeaderJournal( Journal::Ptr journal, ScheduleMessage *msg )
+static QString invitationHeaderJournal( const Journal::Ptr &journal,
+                                        ScheduleMessage *msg )
 {
   if ( !msg || !journal ) {
     return QString();
@@ -1891,7 +1903,8 @@ static QString invitationHeaderJournal( Journal::Ptr journal, ScheduleMessage *m
   return QString();
 }
 
-static QString invitationHeaderFreeBusy( FreeBusy::Ptr fb, ScheduleMessage *msg )
+static QString invitationHeaderFreeBusy( const FreeBusy::Ptr &fb,
+                                         ScheduleMessage *msg )
 {
   if ( !msg || !fb ) {
     return QString();
@@ -1922,7 +1935,7 @@ static QString invitationHeaderFreeBusy( FreeBusy::Ptr fb, ScheduleMessage *msg 
 }
 //@endcond
 
-static QString invitationAttendees( Incidence::Ptr incidence )
+static QString invitationAttendees( const Incidence::Ptr &incidence )
 {
   QString tmpStr;
   if ( !incidence ) {
@@ -1967,7 +1980,8 @@ static QString invitationAttendees( Incidence::Ptr incidence )
   return tmpStr;
 }
 
-static QString invitationAttachments( InvitationFormatterHelper *helper, Incidence::Ptr incidence )
+static QString invitationAttachments( InvitationFormatterHelper *helper,
+                                      const Incidence::Ptr &incidence )
 {
   QString tmpStr;
   if ( !incidence ) {
@@ -2005,7 +2019,8 @@ class KCalUtils::IncidenceFormatter::ScheduleMessageVisitor : public Visitor
 {
   public:
     ScheduleMessageVisitor() : mMessage( 0 ) { mResult = ""; }
-    bool act( IncidenceBase::Ptr incidence, Incidence::Ptr existingIncidence,
+    bool act( const IncidenceBase::Ptr &incidence,
+              const Incidence::Ptr &existingIncidence,
               ScheduleMessage *msg, const QString &sender )
     {
       mExistingIncidence = existingIncidence;
@@ -2093,13 +2108,15 @@ class IncidenceFormatter::IncidenceCompareVisitor : public Visitor
 {
   public:
     IncidenceCompareVisitor() {}
-    bool act( IncidenceBase::Ptr incidence, Incidence::Ptr existingIncidence )
+    bool act( const IncidenceBase::Ptr &incidence,
+              const Incidence::Ptr &existingIncidence )
     {
       if ( !existingIncidence ) {
         return false;
       }
       Incidence::Ptr inc = incidence.staticCast<Incidence>();
-      if ( !inc || !existingIncidence || inc->revision() <= existingIncidence->revision() ) {
+      if ( !inc || !existingIncidence ||
+           inc->revision() <= existingIncidence->revision() ) {
         return false;
       }
       mExistingIncidence = existingIncidence;
@@ -2142,7 +2159,8 @@ class IncidenceFormatter::IncidenceCompareVisitor : public Visitor
     }
 
   private:
-    void compareEvents( Event::Ptr newEvent, Event::Ptr oldEvent )
+    void compareEvents( const Event::Ptr &newEvent,
+                        const Event::Ptr &oldEvent )
     {
       if ( !oldEvent || !newEvent ) {
         return;
@@ -2159,7 +2177,8 @@ class IncidenceFormatter::IncidenceCompareVisitor : public Visitor
       }
     }
 
-    void compareTodos( Todo::Ptr newTodo, Todo::Ptr oldTodo )
+    void compareTodos( const Todo::Ptr &newTodo,
+                       const Todo::Ptr &oldTodo )
     {
       if ( !oldTodo || !newTodo ) {
         return;
@@ -2205,7 +2224,8 @@ class IncidenceFormatter::IncidenceCompareVisitor : public Visitor
       }
     }
 
-    void compareIncidences( Incidence::Ptr newInc, Incidence::Ptr oldInc )
+    void compareIncidences( const Incidence::Ptr &newInc,
+                            const Incidence::Ptr &oldInc )
     {
       if ( !oldInc || !newInc ) {
         return;
@@ -2272,7 +2292,8 @@ QString InvitationFormatterHelper::makeLink( const QString &id, const QString &t
 
 // Check if the given incidence is likely one that we own instead one from
 // a shared calendar (Kolab-specific)
-static bool incidenceOwnedByMe( Calendar *calendar, Incidence::Ptr incidence )
+static bool incidenceOwnedByMe( Calendar *calendar,
+                                const Incidence::Ptr &incidence )
 {
   Q_UNUSED( calendar );
   Q_UNUSED( incidence );
@@ -2283,7 +2304,8 @@ static bool incidenceOwnedByMe( Calendar *calendar, Incidence::Ptr incidence )
 static QString tdOpen = "<td style=\"border-width:2px;border-style:outset\">";
 static QString tdClose = "</td>";
 
-static QString responseButtons( Incidence::Ptr inc, bool rsvpReq, bool rsvpRec,
+static QString responseButtons( const Incidence::Ptr &inc,
+                                bool rsvpReq, bool rsvpRec,
                                 InvitationFormatterHelper *helper )
 {
   QString html;
@@ -2352,7 +2374,7 @@ static QString responseButtons( Incidence::Ptr inc, bool rsvpReq, bool rsvpRec,
   return html;
 }
 
-static QString counterButtons( Incidence::Ptr incidence,
+static QString counterButtons( const Incidence::Ptr &incidence,
                                InvitationFormatterHelper *helper )
 {
   QString html;
@@ -2694,7 +2716,8 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
     ToolTipVisitor()
       : mRichText( true ), mSpec( KDateTime::Spec() ), mResult( "" ) {}
 
-    bool act( MemoryCalendar *calendar, IncidenceBase::Ptr incidence,
+    bool act( MemoryCalendar *calendar,
+              const IncidenceBase::Ptr &incidence,
               const QDate &date=QDate(), bool richText=true,
               KDateTime::Spec spec=KDateTime::Spec() )
     {
@@ -2707,7 +2730,7 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
       return incidence ? incidence->accept( *this, incidence ) : false;
     }
 
-    bool act( const QString &location, IncidenceBase::Ptr incidence,
+    bool act( const QString &location, const IncidenceBase::Ptr &incidence,
               const QDate &date=QDate(), bool richText=true,
               KDateTime::Spec spec=KDateTime::Spec() )
     {
@@ -2728,12 +2751,12 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
     bool visit( Journal::Ptr journal );
     bool visit( FreeBusy::Ptr fb );
 
-    QString dateRangeText( Event::Ptr event, const QDate &date );
-    QString dateRangeText( Todo::Ptr todo, const QDate &date );
-    QString dateRangeText( Journal::Ptr journal );
-    QString dateRangeText( FreeBusy::Ptr fb );
+    QString dateRangeText( const Event::Ptr &event, const QDate &date );
+    QString dateRangeText( const Todo::Ptr &todo, const QDate &date );
+    QString dateRangeText( const Journal::Ptr &journal );
+    QString dateRangeText( const FreeBusy::Ptr &fb );
 
-    QString generateToolTip( Incidence::Ptr incidence, QString dtRangeText );
+    QString generateToolTip( const Incidence::Ptr &incidence, QString dtRangeText );
 
   protected:
     MemoryCalendar *mCalendar;
@@ -2744,7 +2767,8 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
     QString mResult;
 };
 
-QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Event::Ptr event, const QDate &date )
+QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Event::Ptr &event,
+                                                           const QDate &date )
 {
   //FIXME: support mRichText==false
   QString ret;
@@ -2799,7 +2823,8 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Event::Ptr event, con
   return ret.replace( ' ', "&nbsp;" );
 }
 
-QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Todo::Ptr todo, const QDate &date )
+QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Todo::Ptr &todo,
+                                                           const QDate &date )
 {
   //FIXME: support mRichText==false
   QString ret;
@@ -2848,7 +2873,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Todo::Ptr todo, const
   return ret.replace( ' ', "&nbsp;" );
 }
 
-QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Journal::Ptr journal )
+QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Journal::Ptr &journal )
 {
   //FIXME: support mRichText==false
   QString ret;
@@ -2859,7 +2884,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( Journal::Ptr journal 
   return ret.replace( ' ', "&nbsp;" );
 }
 
-QString IncidenceFormatter::ToolTipVisitor::dateRangeText( FreeBusy::Ptr fb )
+QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const FreeBusy::Ptr &fb )
 {
   //FIXME: support mRichText==false
   QString ret;
@@ -2908,7 +2933,8 @@ static QString tooltipPerson( const QString &email, QString name )
 }
 
 static QString etc = i18nc( "elipsis", "..." );
-static QString tooltipFormatAttendeeRoleList( Incidence::Ptr incidence, Attendee::Role role )
+static QString tooltipFormatAttendeeRoleList( const Incidence::Ptr &incidence,
+                                              Attendee::Role role )
 {
   int maxNumAtts = 8; // maximum number of people to print per attendee role
   QString sep = i18nc( "separator for lists of people names", ", " );
@@ -2949,7 +2975,7 @@ static QString tooltipFormatAttendeeRoleList( Incidence::Ptr incidence, Attendee
   return tmpStr;
 }
 
-static QString tooltipFormatAttendees( Incidence::Ptr incidence )
+static QString tooltipFormatAttendees( const Incidence::Ptr &incidence )
 {
   QString tmpStr, str;
 
@@ -2994,7 +3020,7 @@ static QString tooltipFormatAttendees( Incidence::Ptr incidence )
   return tmpStr;
 }
 
-QString IncidenceFormatter::ToolTipVisitor::generateToolTip( Incidence::Ptr incidence,
+QString IncidenceFormatter::ToolTipVisitor::generateToolTip( const Incidence::Ptr &incidence,
                                                              QString dtRangeText )
 {
   int maxDescLen = 120; // maximum description chars to print (before elipsis)
@@ -3097,7 +3123,7 @@ QString IncidenceFormatter::toolTipStr( const QString &sourceName,
  *******************************************************************/
 
 //@cond PRIVATE
-static QString mailBodyIncidence( Incidence::Ptr incidence )
+static QString mailBodyIncidence( const Incidence::Ptr &incidence )
 {
   QString body;
   if ( !incidence->summary().isEmpty() ) {
@@ -3240,7 +3266,8 @@ bool IncidenceFormatter::MailBodyVisitor::visit( Journal::Ptr journal )
 }
 //@endcond
 
-QString IncidenceFormatter::mailBodyStr( IncidenceBase::Ptr incidence, KDateTime::Spec spec )
+QString IncidenceFormatter::mailBodyStr( const IncidenceBase::Ptr &incidence,
+                                         KDateTime::Spec spec )
 {
   if ( !incidence ) {
     return QString();
@@ -3254,7 +3281,7 @@ QString IncidenceFormatter::mailBodyStr( IncidenceBase::Ptr incidence, KDateTime
 }
 
 //@cond PRIVATE
-static QString recurEnd( Incidence::Ptr incidence )
+static QString recurEnd( const Incidence::Ptr &incidence )
 {
   QString endstr;
   if ( incidence->allDay() ) {
@@ -3270,7 +3297,7 @@ static QString recurEnd( Incidence::Ptr incidence )
  *  More static formatting functions
  ************************************/
 
-QString IncidenceFormatter::recurrenceString( Incidence::Ptr incidence )
+QString IncidenceFormatter::recurrenceString( const Incidence::Ptr &incidence )
 {
   if ( !incidence->recurs() ) {
     return i18n( "No recurrence" );
@@ -3645,7 +3672,8 @@ QString IncidenceFormatter::dateTimeToString( const KDateTime &date,
   }
 }
 
-QString IncidenceFormatter::resourceString( Calendar *calendar, Incidence::Ptr incidence )
+QString IncidenceFormatter::resourceString( Calendar *calendar,
+                                            const Incidence::Ptr &incidence )
 {
   Q_UNUSED( calendar );
   Q_UNUSED( incidence );
@@ -3674,7 +3702,7 @@ static QString secs2Duration( int secs )
   return tmp;
 }
 
-QString IncidenceFormatter::durationString( Incidence::Ptr incidence )
+QString IncidenceFormatter::durationString( const Incidence::Ptr &incidence )
 {
   QString tmp;
   if ( incidence->type() == Incidence::TypeEvent ) {
@@ -3705,7 +3733,8 @@ QString IncidenceFormatter::durationString( Incidence::Ptr incidence )
   return tmp;
 }
 
-QStringList IncidenceFormatter::reminderStringList( Incidence::Ptr incidence, bool shortfmt )
+QStringList IncidenceFormatter::reminderStringList( const Incidence::Ptr &incidence,
+                                                    bool shortfmt )
 {
   //TODO: implement shortfmt=false
   Q_UNUSED( shortfmt );

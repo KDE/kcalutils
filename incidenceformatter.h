@@ -123,7 +123,7 @@ namespace IncidenceFormatter
     @since 4.4
   */
   KCALUTILS_EXPORT QString extensiveDisplayStr( KCalCore::Calendar *calendar,
-                                                KCalCore::IncidenceBase::Ptr incidence,
+                                                const KCalCore::IncidenceBase::Ptr &incidence,
                                                 const QDate &date=QDate(),
                                                 KDateTime::Spec spec=KDateTime::Spec() );
 
@@ -139,7 +139,7 @@ namespace IncidenceFormatter
     @since 4.5
   */
   KCALUTILS_EXPORT QString extensiveDisplayStr( const QString &sourceName,
-                                                KCalCore::IncidenceBase::Ptr incidence,
+                                                const KCalCore::IncidenceBase::Ptr &incidence,
                                                 const QDate &date=QDate(),
                                                 KDateTime::Spec spec=KDateTime::Spec() );
 
@@ -151,7 +151,7 @@ namespace IncidenceFormatter
     will shift the Incidence times to different timezones.
     @since 4.2
   */
-  KCALUTILS_EXPORT QString mailBodyStr( KCalCore::IncidenceBase::Ptr incidence,
+  KCALUTILS_EXPORT QString mailBodyStr( const KCalCore::IncidenceBase::Ptr &incidence,
                                         KDateTime::Spec spec=KDateTime::Spec() );
 
   /**
@@ -189,7 +189,8 @@ namespace IncidenceFormatter
     Format a TNEF attachment to an HTML mail
     @since 4.1
   */
-  KCALUTILS_EXPORT QString formatTNEFInvitation( const QByteArray &tnef, KCalCore::Calendar *mCalendar,
+  KCALUTILS_EXPORT QString formatTNEFInvitation( const QByteArray &tnef,
+                                                 KCalCore::Calendar *mCalendar,
                                                  InvitationFormatterHelper *helper );
   /**
     Transform a TNEF attachment to an iCal or vCard
@@ -203,7 +204,7 @@ namespace IncidenceFormatter
     is to be formatted.
     @since 4.1
   */
-  KCALUTILS_EXPORT QString recurrenceString( KCalCore::Incidence::Ptr incidence );
+  KCALUTILS_EXPORT QString recurrenceString( const KCalCore::Incidence::Ptr &incidence );
 
   /**
     Returns a reminder string computed for the specified Incidence.
@@ -214,7 +215,8 @@ namespace IncidenceFormatter
     else a longer version of each reminder is printed.
     @since 4.5
   */
-  KCALUTILS_EXPORT QStringList reminderStringList( KCalCore::Incidence::Ptr incidence, bool shortfmt = true );
+  KCALUTILS_EXPORT QStringList reminderStringList( const KCalCore::Incidence::Ptr &incidence,
+                                                   bool shortfmt = true );
 
   /**
     Build a QString time representation of a KDateTime object.
@@ -258,7 +260,8 @@ namespace IncidenceFormatter
     @param incidence is a pointer to the Incidence.
     @since 4.4
   */
-  KCALUTILS_EXPORT QString resourceString( KCalCore::Calendar *calendar, KCalCore::Incidence::Ptr incidence );
+  KCALUTILS_EXPORT QString resourceString( KCalCore::Calendar *calendar,
+                                           const KCalCore::Incidence::Ptr &incidence );
 
   /**
     Returns a duration string computed for the specified Incidence.
@@ -266,7 +269,7 @@ namespace IncidenceFormatter
     @param incidence is a pointer to the Incidence.
     @since 4.5
   */
-    KCALUTILS_EXPORT QString durationString( KCalCore::Incidence::Ptr incidence );
+    KCALUTILS_EXPORT QString durationString( const KCalCore::Incidence::Ptr &incidence );
 
   /**
     Returns the translated string form of a specified #Status.
