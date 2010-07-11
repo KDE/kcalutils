@@ -88,7 +88,7 @@ namespace IncidenceFormatter
     @since 4.4
   */
   KCALUTILS_EXPORT QString toolTipStr( KCalCore::Calendar *calendar,
-                                       KCalCore::IncidenceBase::Ptr incidence,
+                                       const KCalCore::IncidenceBase::Ptr &incidence,
                                        const QDate &date=QDate(),
                                        bool richText=true,
                                        KDateTime::Spec spec=KDateTime::Spec() );
@@ -106,10 +106,10 @@ namespace IncidenceFormatter
     @since 4.5
   */
   KCALUTILS_EXPORT QString toolTipStr( const QString &sourceName,
-                                       KCalCore::IncidenceBase::Ptr incidence,
-                                       const QDate &date=QDate(),
-                                       bool richText=true,
-                                       KDateTime::Spec spec=KDateTime::Spec() );
+                                       const KCalCore::IncidenceBase::Ptr &incidence,
+                                       const QDate &date = QDate(),
+                                       bool richText = true,
+                                       KDateTime::Spec spec = KDateTime::Spec() );
 
   /**
     Create a RichText QString representation of an Incidence in a nice format

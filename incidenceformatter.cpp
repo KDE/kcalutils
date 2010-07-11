@@ -191,7 +191,7 @@ static QString firstAttendeeName( Incidence::Ptr incidence, const QString &defNa
  *******************************************************************/
 
 //@cond PRIVATE
-static QString displayViewLinkPerson( const QString &email, QString name,
+static QString displayViewLinkPerson( const QString &email, const QString &name,
                                       QString uid, const QString &iconPath )
 {
   // Make the search, if there is an email address to search on,
@@ -3079,9 +3079,10 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip( Incidence::Ptr inci
 //@endcond
 
 QString IncidenceFormatter::toolTipStr( const QString &sourceName,
-                                        IncidenceBase::Ptr incidence,
+                                        const IncidenceBase::Ptr &incidence,
                                         const QDate &date,
-                                        bool richText, KDateTime::Spec spec )
+                                        bool richText,
+                                        KDateTime::Spec spec )
 {
   ToolTipVisitor v;
   if ( v.act( sourceName, incidence, date, richText, spec ) ) {
