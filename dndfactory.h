@@ -34,6 +34,9 @@
 #ifndef KCALUTILS_DNDFACTORY_H
 #define KCALUTILS_DNDFACTORY_H
 
+#include <kcalcore/todo.h>
+#include <kcalcore/event.h>
+
 #include "kcalutils_export.h"
 #include <kcalcore/incidence.h>
 #include <kdatetime.h>
@@ -96,42 +99,42 @@ class KCALUTILS_EXPORT DndFactory
     /**
       Create the mime data for a single incidence.
     */
-    QMimeData *createMimeData( KCalCore::Incidence *incidence );
+    QMimeData *createMimeData( const KCalCore::Incidence::Ptr &incidence );
 
     /**
       Create a drag object for a single incidence.
     */
-    QDrag *createDrag( KCalCore::Incidence *incidence, QWidget *owner );
+    QDrag *createDrag( const KCalCore::Incidence::Ptr &incidence, QWidget *owner );
 
     /**
       Create Todo object from mime data.
     */
-    KCalCore::Todo *createDropTodo( const QMimeData *md );
+    KCalCore::Todo::Ptr createDropTodo( const QMimeData *md );
 
     /**
       Create Todo object from drop event.
     */
-    KCalCore::Todo *createDropTodo( QDropEvent *de );
+    KCalCore::Todo::Ptr createDropTodo( QDropEvent *de );
 
     /**
       Create Event object from mime data.
     */
-    KCalCore::Event *createDropEvent( const QMimeData *md );
+    KCalCore::Event::Ptr createDropEvent( const QMimeData *md );
 
     /**
       Create Event object from drop event.
     */
-    KCalCore::Event *createDropEvent( QDropEvent *de );
+    KCalCore::Event::Ptr createDropEvent( QDropEvent *de );
 
     /**
       Cut the incidence to the clipboard.
     */
-    void cutIncidence( KCalCore::Incidence * );
+    void cutIncidence( const KCalCore::Incidence::Ptr &  );
 
     /**
       Copy the incidence to clipboard/
     */
-    bool copyIncidence( KCalCore::Incidence * );
+    bool copyIncidence( const KCalCore::Incidence::Ptr & );
 
     /**
      * Cuts a list of @p incidences to the clipboard.

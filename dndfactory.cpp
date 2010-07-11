@@ -66,7 +66,7 @@ class KCalUtils::DndFactory::Private
       : mCalendar ( cal )
     {}
 
-    Incidence::Ptr pasteIncidence( Incidence::Ptr inc,
+    Incidence::Ptr pasteIncidence( const Incidence::Ptr &inc,
                                    const QDate &newDate,
                                    const QTime *newTime = 0 )
     {
@@ -156,7 +156,7 @@ QDrag *DndFactory::createDrag( QWidget *owner )
   return drag;
 }
 
-QMimeData *DndFactory::createMimeData( Incidence *incidence )
+QMimeData *DndFactory::createMimeData( const Incidence::Ptr &incidence )
 {
   MemoryCalendar cal( d->mCalendar->timeSpec() );
   Incidence *i = incidence->clone();
@@ -177,7 +177,7 @@ QMimeData *DndFactory::createMimeData( Incidence *incidence )
   return mimeData;
 }
 
-QDrag *DndFactory::createDrag( Incidence *incidence, QWidget *owner )
+QDrag *DndFactory::createDrag( const Incidence::Ptr &incidence, QWidget *owner )
 {
   QDrag *drag = new QDrag( owner );
   drag->setMimeData( createMimeData( incidence ) );
@@ -219,25 +219,25 @@ MemoryCalendar *DndFactory::createDropCalendar( QDropEvent *de )
   return 0;
 }
 
-Event *DndFactory::createDropEvent( const QMimeData *md )
+Event::Ptr DndFactory::createDropEvent( const QMimeData *md )
 {
   kDebug();
-  Event *ev = 0;
+  Event::Ptr ev;
   MemoryCalendar *cal = createDropCalendar( md );
 
   if ( cal ) {
     Event::List events = cal->events();
     if ( !events.isEmpty() ) {
-      ev = new Event( *events.first() );
+      ev = Event::Ptr( new Event( *events.first() ) );
     }
     delete cal;
   }
   return ev;
 }
 
-Event *DndFactory::createDropEvent( QDropEvent *de )
+Event::Ptr DndFactory::createDropEvent( QDropEvent *de )
 {
-  Event *ev = createDropEvent( de->mimeData() );
+  Event::Ptr ev = createDropEvent( de->mimeData() );
 
   if ( ev ) {
     de->accept();
@@ -246,16 +246,16 @@ Event *DndFactory::createDropEvent( QDropEvent *de )
   return ev;
 }
 
-Todo *DndFactory::createDropTodo( const QMimeData *md )
+Todo::Ptr DndFactory::createDropTodo( const QMimeData *md )
 {
   kDebug();
-  Todo *todo = 0;
+  Todo::Ptr todo;
   MemoryCalendar *cal = createDropCalendar( md );
 
   if ( cal ) {
     Todo::List todos = cal->todos();
     if ( !todos.isEmpty() ) {
-      todo = new Todo( *todos.first() );
+      todo = Todo::Ptr( new Todo( *todos.first() ) );
     }
     delete cal;
   }
@@ -263,9 +263,9 @@ Todo *DndFactory::createDropTodo( const QMimeData *md )
   return todo;
 }
 
-Todo *DndFactory::createDropTodo( QDropEvent *de )
+Todo::Ptr DndFactory::createDropTodo( QDropEvent *de )
 {
-  Todo *todo = createDropTodo( de->mimeData() );
+  Todo::Ptr todo = createDropTodo( de->mimeData() );
 
   if ( todo ) {
     de->accept();
@@ -274,10 +274,10 @@ Todo *DndFactory::createDropTodo( QDropEvent *de )
   return todo;
 }
 
-void DndFactory::cutIncidence( Incidence *selectedInc )
+void DndFactory::cutIncidence( const Incidence::Ptr &selectedInc )
 {
   Incidence::List list;
-  list.append( Incidence::Ptr( selectedInc ) );
+  list.append( selectedInc );
   cutIncidences( list );
 }
 
@@ -319,10 +319,10 @@ bool DndFactory::copyIncidences( const Incidence::List &incidences )
   }
 }
 
-bool DndFactory::copyIncidence( Incidence *selectedInc )
+bool DndFactory::copyIncidence( const Incidence::Ptr &selectedInc )
 {
   Incidence::List list;
-  list.append( Incidence::Ptr( selectedInc ) );
+  list.append( selectedInc );
   return copyIncidences( list );
 }
 
@@ -340,7 +340,7 @@ Incidence::List DndFactory::pasteIncidences( const QDate &newDate,
 
   // All pasted incidences get new uids, must keep track of old uids,
   // so we can update child's parents
-  QHash<QString,Incidence*> oldUidToNewInc;
+  QHash<QString, Incidence::Ptr> oldUidToNewInc;
 
   Incidence::List::ConstIterator it;
   const Incidence::List incs = cal->incidences();
@@ -349,20 +349,19 @@ Incidence::List DndFactory::pasteIncidences( const QDate &newDate,
     Incidence::Ptr inc = d->pasteIncidence( *it, newDate, newTime );
     if ( inc ) {
       list.append( inc );
-      Incidence *iq = (*it).data();
-      oldUidToNewInc[iq->uid()] = inc.data();
+      oldUidToNewInc[(*it)->uid()] = *it;
     }
   }
 
   // update relations
   for ( it = list.constBegin(); it != list.constEnd(); ++it ) {
     Incidence::Ptr inc = *it;
-    if ( oldUidToNewInc.contains( inc->relatedToUid() ) ) {
-      Incidence *parentInc = oldUidToNewInc[inc->relatedToUid()];
-      inc->setRelatedToUid( parentInc->uid() );
+    if ( oldUidToNewInc.contains( inc->relatedTo() ) ) {
+      Incidence::Ptr parentInc = oldUidToNewInc[inc->relatedTo()];
+      inc->setRelatedTo( parentInc->uid() );
     } else {
       // not related to anything in the clipboard
-      inc->setRelatedToUid( QString() );
+      inc->setRelatedTo( QString() );
     }
   }
 
