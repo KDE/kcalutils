@@ -366,7 +366,7 @@ void HtmlExport::createTodoList ( QTextStream *ts )
   while ( index < rawTodoList.count() ) {
     Todo::Ptr ev = rawTodoList[ index ];
     Todo::Ptr subev = ev;
-    const QString uid = ev->relatedToUid();
+    const QString uid = ev->relatedTo();
     if ( !uid.isEmpty() ) {
       Incidence::Ptr inc = d->mCalendar->incidence( uid );
       if ( inc && inc->type() == Incidence::TypeTodo ) {
@@ -424,7 +424,7 @@ void HtmlExport::createTodoList ( QTextStream *ts )
 
   // Create top-level list.
   for ( it = todoList.constBegin(); it != todoList.constEnd(); ++it ) {
-    if ( (*it)->relatedToUid().isEmpty() ) {
+    if ( (*it)->relatedTo().isEmpty() ) {
       createTodo( ts, *it );
     }
   }
