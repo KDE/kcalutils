@@ -305,8 +305,10 @@ void HtmlExport::createEventList( QTextStream *ts )
   *ts << "</table>" << endl;
 }
 
-void HtmlExport::createEvent ( QTextStream *ts, Event::Ptr event,
-                               QDate date, bool withDescription )
+void HtmlExport::createEvent ( QTextStream *ts,
+                               const Event::Ptr &event,
+                               const QDate &date,
+                               bool withDescription )
 {
   kDebug() << event->summary();
   *ts << "  <tr>" << endl;
@@ -475,7 +477,7 @@ void HtmlExport::createTodoList ( QTextStream *ts )
   *ts << "</table>" << endl;
 }
 
-void HtmlExport::createTodo( QTextStream *ts, Todo::Ptr todo )
+void HtmlExport::createTodo( QTextStream *ts, const Todo::Ptr &todo )
 {
   kDebug();
 
@@ -583,7 +585,7 @@ void HtmlExport::createFreeBusyView( QTextStream *ts )
   // FIXME: Implement this!
 }
 
-bool HtmlExport::checkSecrecy( Incidence::Ptr incidence )
+bool HtmlExport::checkSecrecy( const Incidence::Ptr &incidence )
 {
   int secrecy = incidence->secrecy();
   if ( secrecy == Incidence::SecrecyPublic ) {
@@ -599,7 +601,8 @@ bool HtmlExport::checkSecrecy( Incidence::Ptr incidence )
   return false;
 }
 
-void HtmlExport::formatLocation( QTextStream *ts, Incidence::Ptr incidence )
+void HtmlExport::formatLocation( QTextStream *ts,
+                                 const Incidence::Ptr &incidence )
 {
   if ( !incidence->location().isEmpty() ) {
     *ts << "    " << cleanChars( incidence->location() ) << endl;
@@ -608,7 +611,8 @@ void HtmlExport::formatLocation( QTextStream *ts, Incidence::Ptr incidence )
   }
 }
 
-void HtmlExport::formatCategories( QTextStream *ts, Incidence::Ptr incidence )
+void HtmlExport::formatCategories( QTextStream *ts,
+                                   const Incidence::Ptr &incidence )
 {
   if ( !incidence->categoriesStr().isEmpty() ) {
     *ts << "    " << cleanChars( incidence->categoriesStr() ) << endl;
@@ -617,7 +621,8 @@ void HtmlExport::formatCategories( QTextStream *ts, Incidence::Ptr incidence )
   }
 }
 
-void HtmlExport::formatAttendees( QTextStream *ts, Incidence::Ptr incidence )
+void HtmlExport::formatAttendees( QTextStream *ts,
+                                  const Incidence::Ptr &incidence )
 {
   Attendee::List attendees = incidence->attendees();
   if ( attendees.count() ) {

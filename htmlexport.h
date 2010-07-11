@@ -74,16 +74,25 @@ class KCALUTILS_EXPORT HtmlExport
     void createJournalView( QTextStream *ts );
     void createFreeBusyView( QTextStream *ts );
 
-    void createTodo( QTextStream *ts, KCalCore::Todo::Ptr todo );
-    void createEvent( QTextStream *ts, KCalCore::Event::Ptr event, QDate date,
+    void createTodo( QTextStream *ts, const KCalCore::Todo::Ptr &todo );
+
+    void createEvent( QTextStream *ts,
+                      const KCalCore::Event::Ptr &event,
+                      const QDate &date,
                       bool withDescription = true );
+
     void createFooter( QTextStream *ts );
 
-    bool checkSecrecy( KCalCore::Incidence::Ptr incidence );
+    bool checkSecrecy( const KCalCore::Incidence::Ptr &incidence );
 
-    void formatLocation( QTextStream *ts, KCalCore::Incidence::Ptr incidence );
-    void formatCategories( QTextStream *ts, KCalCore::Incidence::Ptr incidence );
-    void formatAttendees( QTextStream *ts, KCalCore::Incidence::Ptr incidence );
+    void formatLocation( QTextStream *ts,
+                         const KCalCore::Incidence::Ptr &incidence );
+
+    void formatCategories( QTextStream *ts,
+                           const KCalCore::Incidence::Ptr &incidence );
+
+    void formatAttendees( QTextStream *ts,
+                          const KCalCore::Incidence::Ptr &incidence );
 
     QString breakString( const QString &text );
 
