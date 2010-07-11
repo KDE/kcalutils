@@ -56,7 +56,8 @@ namespace VCalDrag
   /**
     Decode drag&drop object to vCalendar component \a vcal.
   */
-  KCALUTILS_EXPORT bool fromMimeData( const QMimeData *e, KCalCore::MemoryCalendar *cal );
+  KCALUTILS_EXPORT bool fromMimeData( const QMimeData *e,
+                                      KCalCore::MemoryCalendar *cal );
 }
 
 }

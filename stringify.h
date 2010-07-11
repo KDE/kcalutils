@@ -72,7 +72,8 @@ namespace Stringify
     formatted according to the user's locale settings.
     @param shortfmt If true, use a short date format; else use a long format.
   */
-  KCALUTILS_EXPORT QString todoCompletedDateTime( KCalCore::Todo::Ptr todo, bool shortfmt = false );
+  KCALUTILS_EXPORT QString todoCompletedDateTime( const KCalCore::Todo::Ptr &todo,
+                                                  bool shortfmt = false );
 
   KCALUTILS_EXPORT QString attendeeRole( KCalCore::Attendee::Role role );
   KCALUTILS_EXPORT QStringList attendeeRoleList();
@@ -115,7 +116,6 @@ namespace Stringify
   /**
      Build a translated message representing an exception
   */
-
   KCALUTILS_EXPORT QString errorMessage( const KCalCore::Exception &exception );
 } // namespace Stringify
 

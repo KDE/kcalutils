@@ -64,10 +64,12 @@ QString Stringify::incidenceType( Incidence::IncidenceType type )
   }
 }
 
-QString Stringify::todoCompletedDateTime( Todo::Ptr todo, bool shortfmt )
+QString Stringify::todoCompletedDateTime( const Todo::Ptr &todo,
+                                          bool shortfmt )
 {
   return KGlobal::locale()->formatDateTime( todo->completed().dateTime(),
-                                            ( shortfmt ? KLocale::ShortDate : KLocale::LongDate ) );
+                                            ( shortfmt ? KLocale::ShortDate :
+                                                         KLocale::LongDate ) );
 }
 
 QString Stringify::incidenceSecrecy( Incidence::Secrecy secrecy )
