@@ -20,7 +20,7 @@ include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
 ###########################################################
 
 #TODO: reserve a proper debug area for this library and use it
-add_definitions(-DKDE_DEFAULT_DEBUG_AREA=5801)  
+add_definitions(-DKDE_DEFAULT_DEBUG_AREA=5801)
 
 if(KDE4_BUILD_TESTS)
   add_definitions(-DCOMPILING_TESTS)
@@ -39,6 +39,7 @@ set(kcalutils_LIB_SRCS
   icaldrag.cpp
   incidenceformatter.cpp
   stringify.cpp
+  scheduler.cpp
   vcaldrag.cpp
 )
 
