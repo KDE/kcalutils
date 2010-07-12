@@ -62,7 +62,7 @@ using namespace KCalUtils;
 class KCalUtils::DndFactory::Private
 {
   public:
-    Private( MemoryCalendar *cal )
+    Private( Calendar *cal )
       : mCalendar ( cal )
     {}
 
@@ -124,11 +124,11 @@ class KCalUtils::DndFactory::Private
       return inc;
     }
 
-    MemoryCalendar *mCalendar;
+    Calendar *mCalendar;
 };
 //@endcond
 
-DndFactory::DndFactory( MemoryCalendar *cal )
+DndFactory::DndFactory( Calendar *cal )
   : d( new KCalUtils::DndFactory::Private ( cal ) )
 {
 }

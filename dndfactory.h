@@ -43,6 +43,7 @@
 
 namespace KCalCore {
   class MemoryCalendar;
+  class Calendar;
   class Event;
   class Todo;
 }
@@ -66,7 +67,7 @@ namespace KCalUtils {
 class KCALUTILS_EXPORT DndFactory
 {
   public:
-    explicit DndFactory( KCalCore::MemoryCalendar *cal );
+    explicit DndFactory( KCalCore::Calendar *cal );
 
     ~DndFactory();
 
