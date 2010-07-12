@@ -350,3 +350,21 @@ QString Stringify::errorMessage( const KCalCore::Exception &exception )
 
   return message;
 }
+
+QString Stringify::scheduleMessageStatus( ScheduleMessage::Status status )
+{
+  switch( status ) {
+  case ScheduleMessage::PublishNew:
+    return i18nc( "@item new message posting", "New Message Publish" );
+  case ScheduleMessage::PublishUpdate:
+    return i18nc( "@item updated message", "Updated Message Published" );
+  case ScheduleMessage::Obsolete:
+    return i18nc( "@item obsolete status", "Obsolete" );
+  case ScheduleMessage::RequestNew:
+    return i18nc( "@item request new message posting", "Request New Message" );
+  case ScheduleMessage::RequestUpdate:
+    return i18nc( "@item request updated posting", "Request Updated Message" );
+  default:
+    return i18nc( "@item unknown status", "Unknown Status: %1", int( status ) );
+  }
+}

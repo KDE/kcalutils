@@ -118,10 +118,12 @@ class KCALCORE_EXPORT Scheduler
     /**
       Returns the free/busy cache.
     */
-    FreeBusyCache *freeBusyCache() const;
+    KCalCore::FreeBusyCache *freeBusyCache() const;
 
   protected:
-    bool acceptPublish( const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status, KCalCore::iTIPMethod method );
+    bool acceptPublish( const KCalCore::IncidenceBase::Ptr &,
+                        KCalCore::ScheduleMessage::Status status,
+                        KCalCore::iTIPMethod method );
 
     bool acceptRequest( const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status,
                         const QString &email );
@@ -129,8 +131,9 @@ class KCALCORE_EXPORT Scheduler
     bool acceptAdd( const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status );
 
 
-    bool acceptCancel( const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status,
-                       const QString & attendee );
+    bool acceptCancel( const KCalCore::IncidenceBase::Ptr &,
+                       KCalCore::ScheduleMessage::Status status,
+                       const QString &attendee );
 
     bool acceptDeclineCounter( const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status );
 

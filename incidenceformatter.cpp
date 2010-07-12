@@ -136,7 +136,7 @@ static bool iamOrganizer( Incidence::Ptr incidence )
   QStringList profiles = settings.profiles();
   for ( QStringList::Iterator it=profiles.begin(); it != profiles.end(); ++it ) {
     settings.setProfile( *it );
-    if ( settings.getSetting( KEMailSettings::EmailAddress ) == incidence->organizer().email() ) {
+    if ( settings.getSetting( KEMailSettings::EmailAddress ) == incidence->organizer()->email() ) {
       iam = true;
       break;
     }
@@ -156,8 +156,8 @@ static bool senderIsOrganizer( Incidence::Ptr incidence, const QString &sender )
   QString senderName, senderEmail;
   if ( KPIMUtils::extractEmailAddressAndName( sender, senderEmail, senderName ) ) {
     // for this heuristic, we say the sender is the organizer if either the name or the email match.
-    if ( incidence->organizer().email() != senderEmail &&
-         incidence->organizer().name() != senderName ) {
+    if ( incidence->organizer()->email() != senderEmail &&
+         incidence->organizer()->name() != senderName ) {
       isorg = false;
     }
   }
@@ -241,7 +241,7 @@ static QString displayViewFormatAttendeeRoleList( Incidence::Ptr incidence, Atte
       // skip this role
       continue;
     }
-    if ( a->email() == incidence->organizer().email() ) {
+    if ( a->email() == incidence->organizer()->email() ) {
       // skip attendee that is also the organizer
       continue;
     }
@@ -271,12 +271,12 @@ static QString displayViewFormatAttendees( Incidence::Ptr incidence )
   int attendeeCount = incidence->attendees().count();
   if ( attendeeCount > 1 ||
        ( attendeeCount == 1 &&
-         incidence->organizer().email() != incidence->attendees().first()->email() ) ) {
+         incidence->organizer()->email() != incidence->attendees().first()->email() ) ) {
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Organizer:" ) + "</b></td>";
     tmpStr += "<td>" +
-              displayViewLinkPerson( incidence->organizer().email(),
-                                     incidence->organizer().name(),
+              displayViewLinkPerson( incidence->organizer()->email(),
+                                     incidence->organizer()->name(),
                                      QString(), iconPath ) +
               "</td>";
     tmpStr += "</tr>";
@@ -830,7 +830,7 @@ static QString displayViewFormatFreeBusy( const QString &calStr, FreeBusy::Ptr f
 
   QString tmpStr(
     htmlAddTag(
-      "h2", i18n( "Free/Busy information for %1", fb->organizer().fullName() ) ) );
+      "h2", i18n( "Free/Busy information for %1", fb->organizer()->fullName() ) ) );
 
   tmpStr += htmlAddTag( "h4",
                         i18n( "Busy times in date range %1 - %2:",
@@ -1484,7 +1484,7 @@ static QString invitationDetailsFreeBusy( const FreeBusy::Ptr &fb,
   }
 
   QString html( "<table border=\"0\" cellpadding=\"1\" cellspacing=\"1\">\n" );
-  html += invitationRow( i18n( "Person:" ), fb->organizer().fullName() );
+  html += invitationRow( i18n( "Person:" ), fb->organizer()->fullName() );
   html += invitationRow( i18n( "Start date:" ), dateToString( fb->dtStart(), true, spec ) );
   html += invitationRow( i18n( "End date:" ), dateToString( fb->dtEnd(), true, spec ) );
 
@@ -1570,22 +1570,22 @@ static QString invitationHeaderEvent( const Event::Ptr &event,
   case iTIPRequest:
     if ( existingIncidence && event->revision() > 0 ) {
       return i18n( "This invitation has been updated by the organizer %1",
-                   event->organizer().fullName() );
+                   event->organizer()->fullName() );
     }
     if ( iamOrganizer( event ) ) {
       return i18n( "I created this invitation" );
     } else {
       if ( senderIsOrganizer( event, sender ) ) {
-        if ( !event->organizer().fullName().isEmpty() ) {
+        if ( !event->organizer()->fullName().isEmpty() ) {
           return i18n( "You received an invitation from %1",
-                       event->organizer().fullName() );
+                       event->organizer()->fullName() );
         } else {
           return i18n( "You received an invitation" );
         }
       } else {
-        if ( !event->organizer().fullName().isEmpty() ) {
+        if ( !event->organizer()->fullName().isEmpty() ) {
           return i18n( "You received an invitation from %1 as a representative of %2",
-                       sender, event->organizer().fullName() );
+                       sender, event->organizer()->fullName() );
         } else {
           return i18n( "You received an invitation from %1 as the organizer's representative",
                        sender );
@@ -1706,21 +1706,21 @@ static QString invitationHeaderTodo( const Todo::Ptr &todo,
   case iTIPRequest:
     if ( existingIncidence && todo->revision() > 0 ) {
       return i18n( "This to-do has been updated by the organizer %1",
-                   todo->organizer().fullName() );
+                   todo->organizer()->fullName() );
     } else {
       if ( iamOrganizer( todo ) ) {
         return i18n( "I created this to-do" );
       } else {
         if ( senderIsOrganizer( todo, sender ) ) {
-          if ( !todo->organizer().fullName().isEmpty() ) {
-            return i18n( "You have been assigned this to-do by %1", todo->organizer().fullName() );
+          if ( !todo->organizer()->fullName().isEmpty() ) {
+            return i18n( "You have been assigned this to-do by %1", todo->organizer()->fullName() );
           } else {
             return i18n( "You have been assigned this to-do" );
           }
         } else {
-          if ( !todo->organizer().fullName().isEmpty() ) {
+          if ( !todo->organizer()->fullName().isEmpty() ) {
             return i18n( "You have been assigned this to-do by %1 as a representative of %2",
-                         sender, todo->organizer().fullName() );
+                         sender, todo->organizer()->fullName() );
           } else {
             return i18n( "You have been assigned this to-do by %1 as the "
                          "organizer's representative", sender );
@@ -2918,7 +2918,7 @@ bool IncidenceFormatter::ToolTipVisitor::visit( Journal::Ptr journal )
 bool IncidenceFormatter::ToolTipVisitor::visit( FreeBusy::Ptr fb )
 {
   //FIXME: support mRichText==false
-  mResult = "<qt><b>" + i18n( "Free/Busy information for %1", fb->organizer().fullName() ) + "</b>";
+  mResult = "<qt><b>" + i18n( "Free/Busy information for %1", fb->organizer()->fullName() ) + "</b>";
   mResult += dateRangeText( fb );
   mResult += "</qt>";
   return !mResult.isEmpty();
@@ -2951,7 +2951,7 @@ static QString tooltipFormatAttendeeRoleList( const Incidence::Ptr &incidence,
       // skip not this role
       continue;
     }
-    if ( a->email() == incidence->organizer().email() ) {
+    if ( a->email() == incidence->organizer()->email() ) {
       // skip attendee that is also the organizer
       continue;
     }
@@ -2983,10 +2983,10 @@ static QString tooltipFormatAttendees( const Incidence::Ptr &incidence )
   int attendeeCount = incidence->attendees().count();
   if ( attendeeCount > 1 ||
        ( attendeeCount == 1 &&
-         incidence->organizer().email() != incidence->attendees().first()->email() ) ) {
+         incidence->organizer()->email() != incidence->attendees().first()->email() ) ) {
     tmpStr += "<i>" + i18n( "Organizer:" ) + "</i>" + "&nbsp;";
-    tmpStr += tooltipPerson( incidence->organizer().email(),
-                             incidence->organizer().name() );
+    tmpStr += tooltipPerson( incidence->organizer()->email(),
+                             incidence->organizer()->name() );
   }
 
   // Add "chair"
@@ -3129,8 +3129,8 @@ static QString mailBodyIncidence( const Incidence::Ptr &incidence )
   if ( !incidence->summary().isEmpty() ) {
     body += i18n( "Summary: %1\n", incidence->richSummary() );
   }
-  if ( !incidence->organizer().isEmpty() ) {
-    body += i18n( "Organizer: %1\n", incidence->organizer().fullName() );
+  if ( !incidence->organizer()->isEmpty() ) {
+    body += i18n( "Organizer: %1\n", incidence->organizer()->fullName() );
   }
   if ( !incidence->location().isEmpty() ) {
     body += i18n( "Location: %1\n", incidence->richLocation() );

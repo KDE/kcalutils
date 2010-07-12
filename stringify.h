@@ -34,6 +34,7 @@
 
 #include "kcalutils_export.h"
 
+#include <kcalcore/schedulemessage.h>
 #include <kcalcore/attendee.h>
 #include <kcalcore/incidence.h>
 #include <kcalcore/todo.h>
@@ -66,6 +67,7 @@ namespace Stringify
 
   KCALUTILS_EXPORT QString incidenceStatus( KCalCore::Incidence::Status status );
   KCALUTILS_EXPORT QString incidenceStatus( const KCalCore::Incidence::Ptr &incidence );
+  KCALUTILS_EXPORT QString scheduleMessageStatus( KCalCore::ScheduleMessage::Status status );
 
   /**
     Returns string containing the date/time when the to-do was completed,
