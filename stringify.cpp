@@ -368,3 +368,27 @@ QString Stringify::scheduleMessageStatus( ScheduleMessage::Status status )
     return i18nc( "@item unknown status", "Unknown Status: %1", int( status ) );
   }
 }
+
+QString Stringify::secrecyName( KCalCore::Incidence::Secrecy secrecy )
+{
+  switch ( secrecy ) {
+  case Incidence::SecrecyPublic:
+    return i18nc( "@item incidence access if for everyone", "Public" );
+  case Incidence::SecrecyPrivate:
+    return i18nc( "@item incidence access is by owner only", "Private" );
+  case Incidence::SecrecyConfidential:
+    return i18nc( "@item incidence access is by owner and a controlled group", "Confidential" );
+  default:
+    return QString();  // to make compilers happy
+  }
+}
+
+QStringList Stringify::secrecyList()
+{
+  QStringList list;
+  list << secrecyName( Incidence::SecrecyPublic );
+  list << secrecyName( Incidence::SecrecyPrivate );
+  list << secrecyName( Incidence::SecrecyConfidential );
+
+  return list;
+}

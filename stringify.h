@@ -119,6 +119,11 @@ namespace Stringify
      Build a translated message representing an exception
   */
   KCALUTILS_EXPORT QString errorMessage( const KCalCore::Exception &exception );
+
+  KCALUTILS_EXPORT QString secrecyName( KCalCore::Incidence::Secrecy secrecy );
+
+  KCALUTILS_EXPORT QStringList secrecyList();
+
 } // namespace Stringify
 
 } //namespace KCalUtils
