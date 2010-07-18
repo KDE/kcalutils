@@ -25,22 +25,17 @@
 #include "stringify.h"
 
 #include <kcalcore/memorycalendar.h>
-#include <kcalcore/event.h>
-#include <kcalcore/todo.h>
 
-#include <kglobal.h>
-#include <klocale.h>
 #include <kdebug.h>
 #include <kcalendarsystem.h>
+#include <kglobal.h>
+#include <klocale.h>
 
 #include <QtCore/QFile>
-#include <QtCore/QTextStream>
-#include <QtCore/QTextCodec>
-#include <QtCore/QRegExp>
 #include <QtCore/QMap>
+#include <QtCore/QTextStream>
 #include <QtGui/QApplication>
 
-using namespace KCalCore;
 using namespace KCalUtils;
 
 static QString cleanChars( const QString &txt );
@@ -50,8 +45,7 @@ class KCalUtils::HtmlExport::Private
 {
   public:
     Private( MemoryCalendar *calendar, HTMLExportSettings *settings )
-      : mCalendar( calendar ),
-        mSettings( settings )
+      : mCalendar( calendar ), mSettings( settings )
     {}
 
     MemoryCalendar *mCalendar;

@@ -37,18 +37,19 @@ void StringifyTest::testIncidenceStrings()
   QVERIFY( Stringify::incidenceType( Incidence::TypeFreeBusy ) == i18n( "free/busy" ) );
 
   QVERIFY( Stringify::incidenceSecrecy( Incidence::SecrecyPublic ) == i18n( "Public" ) );
-  QVERIFY( Stringify::incidenceSecrecy( Incidence::SecrecyPrivate) == i18n( "Private" ) );
-  QVERIFY( Stringify::incidenceSecrecy( Incidence::SecrecyConfidential ) == i18n( "Confidential" ) );
+  QVERIFY( Stringify::incidenceSecrecy( Incidence::SecrecyPrivate ) == i18n( "Private" ) );
+  QVERIFY(
+    Stringify::incidenceSecrecy( Incidence::SecrecyConfidential ) == i18n( "Confidential" ) );
 
   QVERIFY( Stringify::incidenceStatus( Incidence::StatusTentative ) == i18n( "Tentative" ) );
-  QVERIFY( Stringify::incidenceStatus( Incidence::StatusConfirmed) == i18n( "Confirmed" ) );
+  QVERIFY( Stringify::incidenceStatus( Incidence::StatusConfirmed ) == i18n( "Confirmed" ) );
   QVERIFY( Stringify::incidenceStatus( Incidence::StatusCompleted ) == i18n( "Completed" ) );
   QVERIFY( Stringify::incidenceStatus( Incidence::StatusNeedsAction ) == i18n( "Needs-Action" ) );
   QVERIFY( Stringify::incidenceStatus( Incidence::StatusCanceled ) == i18n( "Canceled" ) );
   QVERIFY( Stringify::incidenceStatus( Incidence::StatusInProcess ) == i18n( "In-Process" ) );
   QVERIFY( Stringify::incidenceStatus( Incidence::StatusDraft ) == i18n( "Draft" ) );
   QVERIFY( Stringify::incidenceStatus( Incidence::StatusFinal ) == i18n( "Final" ) );
-  QVERIFY( Stringify::incidenceStatus( Incidence::StatusX ) == QString() );
+  QVERIFY( Stringify::incidenceStatus( Incidence::StatusX ).isEmpty() );
 }
 
 void StringifyTest::testAttendeeStrings()

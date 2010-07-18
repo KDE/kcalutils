@@ -37,25 +37,21 @@
 #include "incidenceformatter.h"
 #include "stringify.h"
 
-#include <kcalcore/attachment.h>
-#include <kcalcore/attendee.h>
-#include <kcalcore/calendar.h>
 #include <kcalcore/event.h>
 #include <kcalcore/freebusy.h>
 #include <kcalcore/icalformat.h>
 #include <kcalcore/journal.h>
 #include <kcalcore/memorycalendar.h>
-#include <kcalcore/schedulemessage.h>
 #include <kcalcore/todo.h>
 #include <kcalcore/visitor.h>
 
 #include <kpimutils/email.h>
 
 #include <kcalendarsystem.h>
-#include <kdatetime.h>
 #include <kdebug.h>
 #include <kemailsettings.h>
 #include <kiconloader.h>
+#include <klocale.h>
 #include <kmimetype.h>
 #include <ksystemtimezone.h>
 
@@ -63,7 +59,6 @@
 #include <QtGui/QApplication>
 #include <QtGui/QTextDocument>
 
-using namespace KCalCore;
 using namespace KCalUtils;
 using namespace IncidenceFormatter;
 
@@ -2098,6 +2093,16 @@ class KCalUtils::IncidenceFormatter::InvitationBodyVisitor
 };
 //@endcond
 
+
+InvitationFormatterHelper::InvitationFormatterHelper()
+  : d( 0 )
+{
+}
+
+InvitationFormatterHelper::~InvitationFormatterHelper()
+{
+}
+
 QString InvitationFormatterHelper::generateLinkURL( const QString &id )
 {
   return id;
@@ -2425,7 +2430,7 @@ static QString formatICalInvitationHelper( QString invitation,
   if( !msg ) {
     kDebug() << "Failed to parse the scheduling message";
     Q_ASSERT( format.exception() );
-    kDebug() << Stringify::errorMessage( *format.exception() );
+    kDebug() << Stringify::errorMessage( *format.exception() ); //krazy:exclude=kdebug
     return QString();
   }
 
@@ -2918,7 +2923,9 @@ bool IncidenceFormatter::ToolTipVisitor::visit( Journal::Ptr journal )
 bool IncidenceFormatter::ToolTipVisitor::visit( FreeBusy::Ptr fb )
 {
   //FIXME: support mRichText==false
-  mResult = "<qt><b>" + i18n( "Free/Busy information for %1", fb->organizer()->fullName() ) + "</b>";
+  mResult = "<qt><b>" +
+            i18n( "Free/Busy information for %1", fb->organizer()->fullName() ) +
+            "</b>";
   mResult += dateRangeText( fb );
   mResult += "</qt>";
   return !mResult.isEmpty();

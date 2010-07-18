@@ -22,14 +22,13 @@
 
 #include "vcaldrag.h"
 
-#include <kcalcore/calendar.h>
 #include <kcalcore/vcalformat.h>
 
 #include <QtCore/QMimeData>
+#include <QtCore/QString>
 
 using namespace KCalUtils;
 using namespace VCalDrag;
-using namespace KCalCore;
 
 QString VCalDrag::mimeType()
 {

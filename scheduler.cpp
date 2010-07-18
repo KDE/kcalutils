@@ -1,5 +1,5 @@
 /*
-  This file is part of the kcalcore library.
+  This file is part of the kcalutils library.
 
   Copyright (c) 2001,2004 Cornelius Schumacher <schumacher@kde.org>
   Copyright (C) 2004 Reinhold Kainhofer <reinhold@kainhofer.com>
@@ -24,24 +24,20 @@
 #include "stringify.h"
 
 #include <kcalcore/calendar.h>
-#include <kcalcore/event.h>
-#include <kcalcore/todo.h>
-#include <kcalcore/freebusy.h>
-#include <kcalcore/freebusycache.h>
 #include <kcalcore/icalformat.h>
+#include <kcalcore/freebusycache.h>
 
 #include <kdebug.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 
-using namespace KCalCore;
 using namespace KCalUtils;
 
 //@cond PRIVATE
 struct KCalUtils::Scheduler::Private
 {
-  Private()
-    : mFreeBusyCache( 0 )
+  public:
+    Private() : mFreeBusyCache( 0 )
     {
     }
     FreeBusyCache *mFreeBusyCache;
@@ -71,12 +67,10 @@ FreeBusyCache *Scheduler::freeBusyCache() const
   return d->mFreeBusyCache;
 }
 
-bool Scheduler::acceptTransaction( const IncidenceBase::Ptr &incidence,
-                                   iTIPMethod method,
-                                   ScheduleMessage::Status status,
-                                   const QString &email )
+bool Scheduler::acceptTransaction( const IncidenceBase::Ptr &incidence, iTIPMethod method,
+                                   ScheduleMessage::Status status, const QString &email )
 {
-  kDebug() << "method=" << ScheduleMessage::methodName( method );
+  kDebug() << "method=" << ScheduleMessage::methodName( method ); //krazy:exclude=kdebug
 
   switch ( method ) {
   case iTIPPublish:
@@ -102,13 +96,12 @@ bool Scheduler::acceptTransaction( const IncidenceBase::Ptr &incidence,
   return false;
 }
 
-bool Scheduler::deleteTransaction( const IncidenceBase::Ptr &  )
+bool Scheduler::deleteTransaction( const IncidenceBase::Ptr & )
 {
   return true;
 }
 
-bool Scheduler::acceptPublish( const IncidenceBase::Ptr &newIncBase,
-                               ScheduleMessage::Status status,
+bool Scheduler::acceptPublish( const IncidenceBase::Ptr &newIncBase, ScheduleMessage::Status status,
                                iTIPMethod method )
 {
   if ( newIncBase->type() == IncidenceBase::TypeFreeBusy ) {
@@ -154,8 +147,7 @@ bool Scheduler::acceptPublish( const IncidenceBase::Ptr &newIncBase,
   return res;
 }
 
-bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence,
-                               ScheduleMessage::Status status,
+bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence, ScheduleMessage::Status status,
                                const QString &email )
 {
   Incidence::Ptr inc = incidence.staticCast<Incidence>() ;
@@ -193,8 +185,8 @@ bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence,
       // This is supposed to be a new request, not an update - however we want to update
       // the existing one to handle the "clicking more than once on the invitation" case.
       // So check the attendee status of the attendee.
-      const KCalCore::Attendee::List attendees = i->attendees();
-      KCalCore::Attendee::List::ConstIterator ait;
+      const Attendee::List attendees = i->attendees();
+      Attendee::List::ConstIterator ait;
       for ( ait = attendees.begin(); ait != attendees.end(); ++ait ) {
         if( (*ait)->email() == email && (*ait)->status() == Attendee::NeedsAction ) {
           // This incidence wasn't created by me - it's probably in a shared folder
@@ -313,8 +305,8 @@ bool Scheduler::acceptCancel( const IncidenceBase::Ptr &incidence,
     // to update the existing one to handle the "clicking more than once
     // on the invitation" case. So check the attendee status of the attendee.
     bool isMine = true;
-    const KCalCore::Attendee::List attendees = i->attendees();
-    KCalCore::Attendee::List::ConstIterator ait;
+    const Attendee::List attendees = i->attendees();
+    Attendee::List::ConstIterator ait;
     for ( ait = attendees.begin(); ait != attendees.end(); ++ait ) {
       if ( (*ait)->email() == attendee &&
            (*ait)->status() == Attendee::NeedsAction ) {
@@ -362,8 +354,7 @@ bool Scheduler::acceptDeclineCounter( const IncidenceBase::Ptr &incidence,
   return false;
 }
 
-bool Scheduler::acceptReply( const IncidenceBase::Ptr &incidence,
-                             ScheduleMessage::Status status,
+bool Scheduler::acceptReply( const IncidenceBase::Ptr &incidence, ScheduleMessage::Status status,
                              iTIPMethod method )
 {
   Q_UNUSED( status );
@@ -438,7 +429,7 @@ bool Scheduler::acceptReply( const IncidenceBase::Ptr &incidence,
              0, msg, i18nc( "@title", "Uninvited attendee" ),
              KGuiItem( i18nc( "@option", "Accept Attendance" ) ),
              KGuiItem( i18nc( "@option", "Reject Attendance" ) ) ) != KMessageBox::Yes ) {
-        KCalCore::Incidence::Ptr cancel = incidence.dynamicCast<Incidence>();
+        Incidence::Ptr cancel = incidence.dynamicCast<Incidence>();
         if ( cancel ) {
           cancel->addComment(
             i18nc( "@info",
@@ -524,8 +515,7 @@ bool Scheduler::acceptReply( const IncidenceBase::Ptr &incidence,
   return ret;
 }
 
-bool Scheduler::acceptRefresh( const IncidenceBase::Ptr &incidence,
-                               ScheduleMessage::Status status )
+bool Scheduler::acceptRefresh( const IncidenceBase::Ptr &incidence, ScheduleMessage::Status status )
 {
   Q_UNUSED( status );
   // handled in korganizer's IncomingDialog
@@ -533,8 +523,7 @@ bool Scheduler::acceptRefresh( const IncidenceBase::Ptr &incidence,
   return false;
 }
 
-bool Scheduler::acceptCounter( const IncidenceBase::Ptr &incidence,
-                               ScheduleMessage::Status status )
+bool Scheduler::acceptCounter( const IncidenceBase::Ptr &incidence, ScheduleMessage::Status status )
 {
   Q_UNUSED( status );
   deleteTransaction( incidence );
@@ -544,7 +533,7 @@ bool Scheduler::acceptCounter( const IncidenceBase::Ptr &incidence,
 bool Scheduler::acceptFreeBusy( const IncidenceBase::Ptr &incidence, iTIPMethod method )
 {
   if ( !d->mFreeBusyCache ) {
-    kError() << "KCalCore::Scheduler: no FreeBusyCache.";
+    kError() << "Scheduler: no FreeBusyCache.";
     return false;
   }
 

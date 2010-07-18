@@ -38,11 +38,10 @@
 
 #include <kcalcore/exceptions.h>
 
-#include <kglobal.h>
 #include <klocale.h>
+#include <kglobal.h>
 #include <ksystemtimezone.h>
 
-using namespace KCalCore;
 using namespace KCalUtils;
 using namespace Stringify;
 
@@ -99,7 +98,6 @@ QStringList Stringify::incidenceSecrecyList()
 
   return list;
 }
-
 
 QString Stringify::incidenceStatus( Incidence::Status status )
 {
@@ -269,78 +267,72 @@ QString Stringify::formatDateTime( const KDateTime &dt, bool allDay,
   }
 }
 
-QString Stringify::errorMessage( const KCalCore::Exception &exception )
+QString Stringify::errorMessage( const Exception &exception )
 {
   QString message = "";
 
   switch ( exception.code() ) {
   case Exception::LoadError:
-    message = i18n( "Load Error" );
+    message = i18nc( "@item", "Load Error" );
     break;
   case Exception::SaveError:
-    message = i18n( "Save Error" );
+    message = i18nc( "@item", "Save Error" );
     break;
   case Exception::ParseErrorIcal:
-    message = i18n( "Parse Error in libical" );
+    message = i18nc( "@item", "Parse Error in libical" );
     break;
   case Exception::ParseErrorKcal:
-    message = i18n( "Parse Error in libkcal" );
+    message = i18nc( "@item", "Parse Error in the kcalcore library" );
     break;
   case Exception::NoCalendar:
-    message = i18n( "No calendar component found." );
+    message = i18nc( "@item", "No calendar component found." );
     break;
   case Exception::CalVersion1:
-    message = i18n( "Expected iCalendar, got vCalendar format" );
+    message = i18nc( "@item", "Expected iCalendar, got vCalendar format" );
     break;
   case Exception::CalVersion2:
-    message = i18n( "iCalendar Version 2.0 detected." );
+    message = i18nc( "@item", "iCalendar Version 2.0 detected." );
     break;
   case Exception::CalVersionUnknown:
-    message = i18n( "Expected iCalendar, got unknown format" );
+    message = i18nc( "@item", "Expected iCalendar, got unknown format" );
     break;
   case Exception::Restriction:
-    message = i18n( "Restriction violation" );
+    message = i18nc( "@item", "Restriction violation" );
     break;
   case Exception::NoWritableFound:
-    message = i18n( "No writable resource found" );
+    message = i18nc( "@item", "No writable resource found" );
     break;
   case Exception::SaveErrorOpenFile:
     Q_ASSERT( exception.arguments().count() == 1 );
-    message = i18n( "Error saving to '%1'.",
-                    exception.arguments()[0] );
+    message = i18nc( "@item", "Error saving to '%1'.", exception.arguments()[0] );
     break;
   case Exception::SaveErrorSaveFile:
     Q_ASSERT( exception.arguments().count() == 1 );
-    message = i18n( "Could not save '%1'",
-                    exception.arguments()[0] );
+    message = i18nc( "@item", "Could not save '%1'", exception.arguments()[0] );
     break;
   case Exception::LibICalError:
-    message = i18n( "libical error" );
+    message = i18nc( "@item", "libical error" );
     break;
   case Exception::VersionPropertyMissing:
-    message = i18n( "No VERSION property found" );
+    message = i18nc( "@item", "No VERSION property found" );
     break;
   case Exception::ExpectedCalVersion2:
-    message = i18n( "Expected iCalendar, got vCalendar format" );
+    message = i18nc( "@item", "Expected iCalendar, got vCalendar format" );
     break;
   case Exception::ExpectedCalVersion2Unknown:
-    message = i18n( "Expected iCalendar, got unknown format" );
+    message = i18nc( "@item", "Expected iCalendar, got unknown format" );
     break;
   case Exception::ParseErrorNotIncidence:
-    message = i18n( "object is not a freebusy, event, "
-                    "todo or journal" );
+    message = i18nc( "@item", "object is not a freebusy, event, todo or journal" );
     break;
   case Exception::ParseErrorEmptyMessage:
-    message = i18n( "messageText is empty, unable "
-                    "to parse into a ScheduleMessage" );
+    message = i18nc( "@item", "messageText is empty, unable to parse into a ScheduleMessage" );
     break;
   case Exception::ParseErrorUnableToParse:
-    message = i18n( "icalparser is unable to parse "
-                    "messageText into a ScheduleMessage" );
+    message = i18nc( "@item", "icalparser is unable to parse messageText into a ScheduleMessage" );
     break;
   case Exception::ParseErrorMethodProperty:
-    message = i18n( "message does not contain an "
-                    "ICAL_METHOD_PROPERTY" );
+    message = i18nc( "@item", "message does not contain ICAL_METHOD_PROPERTY" );
     break;
   case Exception::UserCancel:
     // no real error; the user canceled the operation
@@ -369,7 +361,7 @@ QString Stringify::scheduleMessageStatus( ScheduleMessage::Status status )
   }
 }
 
-QString Stringify::secrecyName( KCalCore::Incidence::Secrecy secrecy )
+QString Stringify::secrecyName( Incidence::Secrecy secrecy )
 {
   switch ( secrecy ) {
   case Incidence::SecrecyPublic:

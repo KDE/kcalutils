@@ -35,13 +35,12 @@
 #include "kcalutils_export.h"
 
 #include <kcalcore/schedulemessage.h>
-#include <kcalcore/attendee.h>
-#include <kcalcore/incidence.h>
 #include <kcalcore/todo.h>
 
 namespace KCalCore {
   class Exception;
 };
+using namespace KCalCore;
 
 namespace KCalUtils {
 
@@ -51,13 +50,13 @@ namespace KCalUtils {
 */
 namespace Stringify
 {
-  KCALUTILS_EXPORT QString incidenceType( KCalCore::Incidence::IncidenceType type );
+  KCALUTILS_EXPORT QString incidenceType( Incidence::IncidenceType type );
 
   /**
     Returns the incidence Secrecy as translated string.
     @see incidenceSecrecyList().
   */
-  KCALUTILS_EXPORT QString incidenceSecrecy( KCalCore::Incidence::Secrecy secrecy );
+  KCALUTILS_EXPORT QString incidenceSecrecy( Incidence::Secrecy secrecy );
 
   /**
     Returns a list of all available Secrecy types as a list of translated strings.
@@ -65,21 +64,20 @@ namespace Stringify
   */
   KCALUTILS_EXPORT QStringList incidenceSecrecyList();
 
-  KCALUTILS_EXPORT QString incidenceStatus( KCalCore::Incidence::Status status );
-  KCALUTILS_EXPORT QString incidenceStatus( const KCalCore::Incidence::Ptr &incidence );
-  KCALUTILS_EXPORT QString scheduleMessageStatus( KCalCore::ScheduleMessage::Status status );
+  KCALUTILS_EXPORT QString incidenceStatus( Incidence::Status status );
+  KCALUTILS_EXPORT QString incidenceStatus( const Incidence::Ptr &incidence );
+  KCALUTILS_EXPORT QString scheduleMessageStatus( ScheduleMessage::Status status );
 
   /**
     Returns string containing the date/time when the to-do was completed,
     formatted according to the user's locale settings.
     @param shortfmt If true, use a short date format; else use a long format.
   */
-  KCALUTILS_EXPORT QString todoCompletedDateTime( const KCalCore::Todo::Ptr &todo,
-                                                  bool shortfmt = false );
+  KCALUTILS_EXPORT QString todoCompletedDateTime( const Todo::Ptr &todo, bool shortfmt = false );
 
-  KCALUTILS_EXPORT QString attendeeRole( KCalCore::Attendee::Role role );
+  KCALUTILS_EXPORT QString attendeeRole( Attendee::Role role );
   KCALUTILS_EXPORT QStringList attendeeRoleList();
-  KCALUTILS_EXPORT QString attendeeStatus( KCalCore::Attendee::PartStat status );
+  KCALUTILS_EXPORT QString attendeeStatus( Attendee::PartStat status );
   KCALUTILS_EXPORT QStringList attendeeStatusList();
 
   /**
@@ -118,9 +116,9 @@ namespace Stringify
   /**
      Build a translated message representing an exception
   */
-  KCALUTILS_EXPORT QString errorMessage( const KCalCore::Exception &exception );
+  KCALUTILS_EXPORT QString errorMessage( const Exception &exception );
 
-  KCALUTILS_EXPORT QString secrecyName( KCalCore::Incidence::Secrecy secrecy );
+  KCALUTILS_EXPORT QString secrecyName( Incidence::Secrecy secrecy );
 
   KCALUTILS_EXPORT QStringList secrecyList();
 

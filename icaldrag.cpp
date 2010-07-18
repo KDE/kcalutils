@@ -23,13 +23,12 @@
 #include "icaldrag.h"
 
 #include <kcalcore/icalformat.h>
-#include <kcalcore/memorycalendar.h>
 
 #include <QtCore/QMimeData>
+#include <QtCore/QString>
 
 using namespace KCalUtils;
 using namespace ICalDrag;
-using namespace KCalCore;
 
 QString ICalDrag::mimeType()
 {

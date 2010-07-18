@@ -36,22 +36,22 @@
 */
 
 #include "dndfactory.h"
-#include "vcaldrag.h"
 #include "icaldrag.h"
+#include "vcaldrag.h"
 
 #include <kcalcore/memorycalendar.h>
 
-#include <kiconloader.h>
 #include <kdebug.h>
-#include <klocale.h>
+#include <kiconloader.h>  // for BarIcon
 #include <kurl.h>
 
+#include <QtCore/QMimeData>
 #include <QtGui/QApplication>
 #include <QtGui/QClipboard>
+#include <QtGui/QDrag>
 #include <QtGui/QDropEvent>
 #include <QtGui/QPixmap>
 
-using namespace KCalCore;
 using namespace KCalUtils;
 
 /**
