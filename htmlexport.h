@@ -34,7 +34,6 @@
 namespace KCalCore {
   class MemoryCalendar;
 }
-using namespace KCalCore;
 
 class QTextStream;
 
@@ -51,7 +50,7 @@ class KCALUTILS_EXPORT HtmlExport
     /**
       Create new HTML exporter for calendar.
     */
-    HtmlExport( MemoryCalendar *calendar, HTMLExportSettings *settings );
+    HtmlExport( KCalCore::MemoryCalendar *calendar, HTMLExportSettings *settings );
     virtual ~HtmlExport();
 
     /**
@@ -74,20 +73,20 @@ class KCALUTILS_EXPORT HtmlExport
     void createJournalView( QTextStream *ts );
     void createFreeBusyView( QTextStream *ts );
 
-    void createTodo( QTextStream *ts, const Todo::Ptr &todo );
+    void createTodo( QTextStream *ts, const KCalCore::Todo::Ptr &todo );
 
-    void createEvent( QTextStream *ts, const Event::Ptr &event, const QDate &date,
-                      bool withDescription = true );
+    void createEvent( QTextStream *ts, const KCalCore::Event::Ptr &event,
+                      const QDate &date, bool withDescription = true );
 
     void createFooter( QTextStream *ts );
 
-    bool checkSecrecy( const Incidence::Ptr &incidence );
+    bool checkSecrecy( const KCalCore::Incidence::Ptr &incidence );
 
-    void formatLocation( QTextStream *ts, const Incidence::Ptr &incidence );
+    void formatLocation( QTextStream *ts, const KCalCore::Incidence::Ptr &incidence );
 
-    void formatCategories( QTextStream *ts, const Incidence::Ptr &incidence );
+    void formatCategories( QTextStream *ts, const KCalCore::Incidence::Ptr &incidence );
 
-    void formatAttendees( QTextStream *ts, const Incidence::Ptr &incidence );
+    void formatAttendees( QTextStream *ts, const KCalCore::Incidence::Ptr &incidence );
 
     QString breakString( const QString &text );
 

@@ -25,6 +25,7 @@
 #include "stringify.h"
 
 #include <kcalcore/memorycalendar.h>
+using namespace KCalCore;
 
 #include <kdebug.h>
 #include <kcalendarsystem.h>

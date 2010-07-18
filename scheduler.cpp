@@ -26,6 +26,7 @@
 #include <kcalcore/calendar.h>
 #include <kcalcore/icalformat.h>
 #include <kcalcore/freebusycache.h>
+using namespace KCalCore;
 
 #include <kdebug.h>
 #include <klocale.h>

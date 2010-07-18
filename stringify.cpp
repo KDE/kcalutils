@@ -37,6 +37,7 @@
 #include "stringify.h"
 
 #include <kcalcore/exceptions.h>
+using namespace KCalCore;
 
 #include <klocale.h>
 #include <kglobal.h>

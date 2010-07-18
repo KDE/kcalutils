@@ -23,6 +23,7 @@
 #include "icaldrag.h"
 
 #include <kcalcore/icalformat.h>
+using namespace KCalCore;
 
 #include <QtCore/QMimeData>
 #include <QtCore/QString>

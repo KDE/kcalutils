@@ -40,6 +40,7 @@
 #include "vcaldrag.h"
 
 #include <kcalcore/memorycalendar.h>
+using namespace KCalCore;
 
 #include <kdebug.h>
 #include <kiconloader.h>  // for BarIcon

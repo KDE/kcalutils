@@ -44,6 +44,7 @@
 #include <kcalcore/memorycalendar.h>
 #include <kcalcore/todo.h>
 #include <kcalcore/visitor.h>
+using namespace KCalCore;
 
 #include <kpimutils/email.h>
 
@@ -2092,7 +2093,6 @@ class KCalUtils::IncidenceFormatter::InvitationBodyVisitor
     KDateTime::Spec mSpec;
 };
 //@endcond
-
 
 InvitationFormatterHelper::InvitationFormatterHelper()
   : d( 0 )

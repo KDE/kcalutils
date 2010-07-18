@@ -45,7 +45,6 @@
 namespace KCalCore {
   class MemoryCalendar;
 }
-using namespace KCalCore;
 
 class QDrag;
 class QDropEvent;
@@ -63,25 +62,25 @@ namespace KCalUtils {
 class KCALUTILS_EXPORT DndFactory
 {
   public:
-    explicit DndFactory( MemoryCalendar *cal );
+    explicit DndFactory( KCalCore::MemoryCalendar *cal );
 
     ~DndFactory();
 
     /**
       Create the calendar that is contained in the drop event's data.
      */
-    MemoryCalendar *createDropCalendar( QDropEvent *de );
+    KCalCore::MemoryCalendar *createDropCalendar( QDropEvent *de );
 
     /**
       Create the calendar that is contained in the mime data.
      */
-    MemoryCalendar *createDropCalendar( const QMimeData *md );
+    KCalCore::MemoryCalendar *createDropCalendar( const QMimeData *md );
 
      /**
       Create the calendar that is contained in the mime data.
      */
-    static MemoryCalendar *createDropCalendar( const QMimeData *md,
-                                               const KDateTime::Spec &timeSpec );
+    static KCalCore::MemoryCalendar *createDropCalendar( const QMimeData *md,
+                                                         const KDateTime::Spec &timeSpec );
 
     /**
       Create the mime data for the whole calendar.
@@ -96,67 +95,68 @@ class KCALUTILS_EXPORT DndFactory
     /**
       Create the mime data for a single incidence.
     */
-    QMimeData *createMimeData( const Incidence::Ptr &incidence );
+    QMimeData *createMimeData( const KCalCore::Incidence::Ptr &incidence );
 
     /**
       Create a drag object for a single incidence.
     */
-    QDrag *createDrag( const Incidence::Ptr &incidence, QWidget *owner );
+    QDrag *createDrag( const KCalCore::Incidence::Ptr &incidence, QWidget *owner );
 
     /**
       Create Todo object from mime data.
     */
-    Todo::Ptr createDropTodo( const QMimeData *md );
+    KCalCore::Todo::Ptr createDropTodo( const QMimeData *md );
 
     /**
       Create Todo object from drop event.
     */
-    Todo::Ptr createDropTodo( QDropEvent *de );
+    KCalCore::Todo::Ptr createDropTodo( QDropEvent *de );
 
     /**
       Create Event object from mime data.
     */
-    Event::Ptr createDropEvent( const QMimeData *md );
+    KCalCore::Event::Ptr createDropEvent( const QMimeData *md );
 
     /**
       Create Event object from drop event.
     */
-    Event::Ptr createDropEvent( QDropEvent *de );
+    KCalCore::Event::Ptr createDropEvent( QDropEvent *de );
 
     /**
       Cut the incidence to the clipboard.
     */
-    void cutIncidence( const Incidence::Ptr & );
+    void cutIncidence( const KCalCore::Incidence::Ptr & );
 
     /**
       Copy the incidence to clipboard/
     */
-    bool copyIncidence( const Incidence::Ptr & );
+    bool copyIncidence( const KCalCore::Incidence::Ptr & );
 
     /**
-     * Cuts a list of @p incidences to the clipboard.
-     */
-    bool cutIncidences( const Incidence::List &incidences );
+      Cuts a list of @p incidences to the clipboard.
+    */
+    bool cutIncidences( const KCalCore::Incidence::List &incidences );
 
     /**
-     * Copies a list of @p incidences to the clipboard.
-     */
-    bool copyIncidences( const  Incidence::List &incidences );
+      Copies a list of @p incidences to the clipboard.
+    */
+    bool copyIncidences( const KCalCore::Incidence::List &incidences );
 
     /**
-     * Pastes and returns the incidences from the clipboard
-     * If no date and time are given, the incidences will be pasted at
-     * their original date/time
-     *
-     * @param newDate The new date where the incidences shall be pasted.
-     * @param newTime The new time where the incidences shall be pasted.
-     */
-    Incidence::List pasteIncidences( const QDate &newDate = QDate(), const QTime *newTime = 0 );
+      Pastes and returns the incidences from the clipboard
+      If no date and time are given, the incidences will be pasted at
+      their original date/time
+
+      @param newDate The new date where the incidences shall be pasted.
+      @param newTime The new time where the incidences shall be pasted.
+    */
+    KCalCore::Incidence::List pasteIncidences( const QDate &newDate = QDate(),
+                                               const QTime *newTime = 0 );
 
     /**
-     * Pastes the event or todo and return a pointer to the new incidence pasted.
-     */
-    Incidence::Ptr pasteIncidence( const QDate &, const QTime *newTime = 0 );
+      Pastes the event or todo and return a pointer to the new incidence pasted.
+    */
+    KCalCore::Incidence::Ptr pasteIncidence( const QDate &, const QTime *newTime = 0 );
 
   private:
     //@cond PRIVATE
