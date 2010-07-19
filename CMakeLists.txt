@@ -44,4 +44,6 @@ install(FILES
   incidenceformatter.h
   kcalutils_export.h
   vcaldrag.h
+  scheduler.h
+  stringify.h
   DESTINATION ${INCLUDE_INSTALL_DIR}/kcalutils COMPONENT Devel)
