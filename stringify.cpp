@@ -126,7 +126,7 @@ QString Stringify::incidenceStatus( Incidence::Status status )
   }
 }
 
-QString Stringify::incidenceStatus( const Incidence::Ptr &incidence )
+QString Stringify::incidenceStatus( const Incidence::ConstPtr &incidence )
 {
   if ( incidence->status() == Incidence::StatusX ) {
     return incidence->customStatus();
