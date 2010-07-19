@@ -41,7 +41,7 @@ namespace KCalUtils {
   It is an abstract base class for inheritance by implementations of the
   iTIP scheme like iMIP or iRIP.
 */
-class KCALCORE_EXPORT Scheduler
+class KCALUTILS_EXPORT Scheduler
 {
   public:
     /**
