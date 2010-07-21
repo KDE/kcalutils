@@ -232,24 +232,26 @@ bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence, ScheduleMess
   // Move the uid to be the schedulingID and make a unique UID
   inc->setSchedulingID( inc->uid() );
   inc->setUid( CalFormat::createUniqueId() );
-  // in case this is an update and we didn't find the to-be-updated incidence,
-  // ask whether we should create a new one, or drop the update
-  if ( existingIncidences.count() > 0 || inc->revision() == 0 ||
-       KMessageBox::questionYesNo(
-         0,
-         i18nc( "@info",
-                "The event, to-do or journal to be updated could not be found. "
-                "Maybe it has already been deleted, or the calendar that "
-                "contains it is disabled. Press 'Store' to create a new "
-                "one or 'Throw away' to discard this update." ),
-         i18nc( "@title", "Discard this update?" ),
-         KGuiItem( i18nc( "@option", "Store" ) ),
-         KGuiItem( i18nc( "@option", "Throw away" ) ),
-                   "AcceptCantFindIncidence" ) == KMessageBox::Yes ) {
-    kDebug() << "Storing new incidence with scheduling uid=" << inc->schedulingID()
-             << " and uid=" << inc->uid();
-    mCalendar->addIncidence( inc );
+  // notify the user in case this is an update and we didn't find the to-be-updated incidence
+  if ( existingIncidences.count() == 0 && inc->revision() > 0 ) {
+    KMessageBox::information(
+      0,
+      i18nc( "@info",
+             "<para>You accepted an invitation update, but an earlier version of the "
+             "item could not be found in your calendar.</para>"
+             "<para>This may have occurred because:<list>"
+             "<item>the organizer did not include you in the original invitation</item>"
+             "<item>you did not accept the original invitation yet</item>"
+             "<item>you deleted the original invitation from your calendar</item>"
+             "<item>you no longer have access to the calendar containing the invitation</item>"
+             "</list></para>"
+             "<para>This is not a problem, but we thought you should know.</para>" ),
+      i18nc( "@title", "Cannot find invitation to be updated" ), "AcceptCantFindIncidence" );
   }
+  kDebug() << "Storing new incidence with scheduling uid=" << inc->schedulingID()
+           << " and uid=" << inc->uid();
+  mCalendar->addIncidence( inc );
+
   deleteTransaction( incidence );
   return true;
 }
