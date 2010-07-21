@@ -51,16 +51,14 @@ QString Stringify::incidenceType( Incidence::IncidenceType type )
   switch( type ) {
   case Incidence::TypeEvent:
     return i18nc( "@item incidence type is event", "event" );
-    break;
   case Incidence::TypeTodo:
     return i18nc( "@item incidence type is to-do/task", "to-do" );
-    break;
   case Incidence::TypeJournal:
     return i18nc( "@item incidence type is journal", "journal" );
-    break;
   case Incidence::TypeFreeBusy:
     return i18nc( "@item incidence type is freebusy", "free/busy" );
-    break;
+  default:
+    return QString();
   }
 }
 
@@ -77,16 +75,12 @@ QString Stringify::incidenceSecrecy( Incidence::Secrecy secrecy )
   switch ( secrecy ) {
   case Incidence::SecrecyPublic:
     return i18nc( "@item incidence access if for everyone", "Public" );
-    break;
   case Incidence::SecrecyPrivate:
     return i18nc( "@item incidence access is by owner only", "Private" );
-    break;
   case Incidence::SecrecyConfidential:
     return i18nc( "@item incidence access is by owner and a controlled group", "Confidential" );
-    break;
   default: // to make compiler happy
     return QString();
-    break;
   }
 }
 
