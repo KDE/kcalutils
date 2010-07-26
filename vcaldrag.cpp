@@ -23,11 +23,11 @@
 #include "vcaldrag.h"
 
 #include <kcalcore/vcalformat.h>
-using namespace KCalCore;
 
 #include <QtCore/QMimeData>
 #include <QtCore/QString>
 
+using namespace KCalCore;
 using namespace KCalUtils;
 using namespace VCalDrag;
 
@@ -36,7 +36,8 @@ QString VCalDrag::mimeType()
   return "text/x-vCalendar";
 }
 
-bool VCalDrag::populateMimeData( QMimeData *e, MemoryCalendar *cal )
+bool VCalDrag::populateMimeData( QMimeData *e,
+                                 const MemoryCalendar::Ptr &cal )
 {
   VCalFormat format;
   QString calstr( format.toString( cal ) );
@@ -51,7 +52,8 @@ bool VCalDrag::canDecode( const QMimeData *me )
   return me->hasFormat( mimeType() );
 }
 
-bool VCalDrag::fromMimeData( const QMimeData *de, MemoryCalendar *cal )
+bool VCalDrag::fromMimeData( const QMimeData *de,
+                             const MemoryCalendar::Ptr &cal )
 {
   if ( !canDecode( de ) ) {
     return false;

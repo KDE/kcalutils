@@ -34,12 +34,10 @@
 
 #include "kcalutils_export.h"
 
+#include <kcalcore/memorycalendar.h>
+
 #include <kcalcore/incidence.h>
 
-namespace KCalCore {
-  class Calendar;
-  class MemoryCalendar;
-}
 
 namespace KCalUtils {
 
@@ -50,7 +48,7 @@ class KCALUTILS_EXPORT InvitationFormatterHelper
     virtual ~InvitationFormatterHelper();
     virtual QString generateLinkURL( const QString &id );
     virtual QString makeLink( const QString &id, const QString &text );
-    virtual KCalCore::Calendar *calendar() const;
+    virtual KCalCore::Calendar::Ptr calendar() const;
 
   private:
     //@cond PRIVATE
@@ -98,7 +96,7 @@ namespace IncidenceFormatter
     @param spec is an optional time specification which, when specified,
     will shift the Incidence times to different timezones.
   */
-  KCALUTILS_EXPORT QString extensiveDisplayStr( KCalCore::Calendar *calendar,
+  KCALUTILS_EXPORT QString extensiveDisplayStr( const KCalCore::Calendar::Ptr &calendar,
                                                 const KCalCore::IncidenceBase::Ptr &incidence,
                                                 const QDate &date=QDate(),
                                                 KDateTime::Spec spec=KDateTime::Spec() );
@@ -138,7 +136,7 @@ namespace IncidenceFormatter
     @param helper is a pointer to an InvitationFormatterHelper.
   */
   KCALUTILS_EXPORT QString formatICalInvitation( QString invitation,
-                                                 KCalCore::MemoryCalendar *calendar,
+                                                 const KCalCore::MemoryCalendar::Ptr &calendar,
                                                  InvitationFormatterHelper *helper );
 
   /**
@@ -154,7 +152,7 @@ namespace IncidenceFormatter
     @param sender is a QString containing the email address of the person sending the invitation.
   */
   KCALUTILS_EXPORT QString formatICalInvitationNoHtml( const QString &invitation,
-                                                       KCalCore::MemoryCalendar *calendar,
+                                                       const KCalCore::MemoryCalendar::Ptr &calendar,
                                                        InvitationFormatterHelper *helper,
                                                        const QString &sender );
 
@@ -162,7 +160,7 @@ namespace IncidenceFormatter
     Format a TNEF attachment to an HTML mail
   */
   KCALUTILS_EXPORT QString formatTNEFInvitation( const QByteArray &tnef,
-                                                 KCalCore::Calendar *mCalendar,
+                                                 const KCalCore::Calendar::Ptr &mCalendar,
                                                  InvitationFormatterHelper *helper );
   /**
     Transform a TNEF attachment to an iCal or vCard
@@ -225,7 +223,7 @@ namespace IncidenceFormatter
     @param calendar is a pointer to the Calendar.
     @param incidence is a pointer to the Incidence.
   */
-  KCALUTILS_EXPORT QString resourceString( KCalCore::Calendar *calendar,
+  KCALUTILS_EXPORT QString resourceString( const KCalCore::Calendar::Ptr &calendar,
                                            const KCalCore::Incidence::Ptr &incidence );
 
   /**
@@ -258,3 +256,4 @@ namespace IncidenceFormatter
 }
 
 #endif
+

@@ -23,10 +23,7 @@
 #define KCALUTILS_VCALDRAG_H
 
 #include "kcalutils_export.h"
-
-namespace KCalCore {
-  class MemoryCalendar;
-}
+#include <kcalcore/memorycalendar.h>
 
 class QMimeData;
 
@@ -45,7 +42,8 @@ namespace VCalDrag
   /**
     Sets the vCalendar representation as data of the drag object
   */
-  KCALUTILS_EXPORT bool populateMimeData( QMimeData *e, KCalCore::MemoryCalendar *cal );
+  KCALUTILS_EXPORT bool populateMimeData( QMimeData *e,
+                                          const KCalCore::MemoryCalendar::Ptr &cal );
 
   /**
     Return, if drag&drop object can be decode to vCalendar.
@@ -55,7 +53,8 @@ namespace VCalDrag
   /**
     Decode drag&drop object to vCalendar component \a vcal.
   */
-  KCALUTILS_EXPORT bool fromMimeData( const QMimeData *e, KCalCore::MemoryCalendar *cal );
+  KCALUTILS_EXPORT bool fromMimeData( const QMimeData *e,
+                                      const KCalCore::MemoryCalendar::Ptr &cal );
 }
 
 }

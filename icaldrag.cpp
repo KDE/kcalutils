@@ -23,11 +23,11 @@
 #include "icaldrag.h"
 
 #include <kcalcore/icalformat.h>
-using namespace KCalCore;
 
 #include <QtCore/QMimeData>
 #include <QtCore/QString>
 
+using namespace KCalCore;
 using namespace KCalUtils;
 using namespace ICalDrag;
 
@@ -36,7 +36,7 @@ QString ICalDrag::mimeType()
   return "text/calendar";
 }
 
-bool ICalDrag::populateMimeData( QMimeData *me, MemoryCalendar *cal )
+bool ICalDrag::populateMimeData( QMimeData *me, const MemoryCalendar::Ptr &cal )
 {
   ICalFormat icf;
   QString scal = icf.toString( cal );
@@ -52,9 +52,9 @@ bool ICalDrag::canDecode( const QMimeData *me )
   return me->hasFormat( mimeType() );
 }
 
-bool ICalDrag::fromMimeData( const QMimeData *de, MemoryCalendar *cal )
+bool ICalDrag::fromMimeData( const QMimeData *de, const MemoryCalendar::Ptr &cal )
 {
-  if (!canDecode( de ) ) {
+  if ( !canDecode( de ) ) {
     return false;
   }
   bool success = false;

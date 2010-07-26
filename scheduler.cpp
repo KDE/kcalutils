@@ -23,15 +23,14 @@
 #include "scheduler.h"
 #include "stringify.h"
 
-#include <kcalcore/calendar.h>
 #include <kcalcore/icalformat.h>
 #include <kcalcore/freebusycache.h>
-using namespace KCalCore;
 
 #include <kdebug.h>
 #include <klocale.h>
 #include <kmessagebox.h>
 
+using namespace KCalCore;
 using namespace KCalUtils;
 
 //@cond PRIVATE
@@ -45,7 +44,7 @@ struct KCalUtils::Scheduler::Private
 };
 //@endcond
 
-Scheduler::Scheduler( Calendar *calendar ) : d( new KCalUtils::Scheduler::Private )
+Scheduler::Scheduler( const Calendar::Ptr &calendar ) : d( new KCalUtils::Scheduler::Private )
 {
   mCalendar = calendar;
   mFormat = new ICalFormat();

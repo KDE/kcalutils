@@ -39,12 +39,10 @@
 #include <kcalcore/event.h>
 #include <kcalcore/journal.h>
 #include <kcalcore/todo.h>
+#include <kcalcore/memorycalendar.h>
 
 #include <kdatetime.h>
 
-namespace KCalCore {
-  class MemoryCalendar;
-}
 
 class QDrag;
 class QDropEvent;
@@ -62,25 +60,25 @@ namespace KCalUtils {
 class KCALUTILS_EXPORT DndFactory
 {
   public:
-    explicit DndFactory( KCalCore::MemoryCalendar *cal );
+    explicit DndFactory( const KCalCore::MemoryCalendar::Ptr &cal );
 
     ~DndFactory();
 
     /**
       Create the calendar that is contained in the drop event's data.
      */
-    KCalCore::MemoryCalendar *createDropCalendar( QDropEvent *de );
+    KCalCore::MemoryCalendar::Ptr createDropCalendar( QDropEvent *de );
 
     /**
       Create the calendar that is contained in the mime data.
      */
-    KCalCore::MemoryCalendar *createDropCalendar( const QMimeData *md );
+    KCalCore::MemoryCalendar::Ptr createDropCalendar( const QMimeData *md );
 
      /**
       Create the calendar that is contained in the mime data.
      */
-    static KCalCore::MemoryCalendar *createDropCalendar( const QMimeData *md,
-                                                         const KDateTime::Spec &timeSpec );
+    static KCalCore::MemoryCalendar::Ptr createDropCalendar( const QMimeData *md,
+                                                             const KDateTime::Spec &timeSpec );
 
     /**
       Create the mime data for the whole calendar.

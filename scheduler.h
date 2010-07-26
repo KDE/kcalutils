@@ -25,12 +25,12 @@
 
 #include <kcalcore/schedulemessage.h>
 #include <kcalcore/incidencebase.h>
+#include <kcalcore/calendar.h>
 
 #include <QtCore/QString>
 #include <QtCore/QList>
 
 namespace KCalCore {
-  class Calendar;
   class ICalFormat;
   class FreeBusyCache;
 };
@@ -47,7 +47,7 @@ class KCALUTILS_EXPORT Scheduler
     /**
       Creates a scheduler for calendar specified as argument.
     */
-    explicit Scheduler( KCalCore::Calendar *calendar );
+    explicit Scheduler( const  KCalCore::Calendar::Ptr &calendar );
     virtual ~Scheduler();
 
     /**
@@ -147,7 +147,7 @@ class KCALUTILS_EXPORT Scheduler
 
     bool acceptFreeBusy( const KCalCore::IncidenceBase::Ptr &, KCalCore::iTIPMethod method );
 
-    KCalCore::Calendar *mCalendar;
+    KCalCore::Calendar::Ptr mCalendar;
     KCalCore::ICalFormat *mFormat;
 
   private:

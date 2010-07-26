@@ -39,9 +39,6 @@
 #include "icaldrag.h"
 #include "vcaldrag.h"
 
-#include <kcalcore/memorycalendar.h>
-using namespace KCalCore;
-
 #include <kdebug.h>
 #include <kiconloader.h>  // for BarIcon
 #include <kurl.h>
@@ -53,6 +50,7 @@ using namespace KCalCore;
 #include <QtGui/QDropEvent>
 #include <QtGui/QPixmap>
 
+using namespace KCalCore;
 using namespace KCalUtils;
 
 /**
@@ -63,7 +61,7 @@ using namespace KCalUtils;
 class KCalUtils::DndFactory::Private
 {
   public:
-    Private( MemoryCalendar *cal )
+    Private( const MemoryCalendar::Ptr &cal )
       : mCalendar ( cal )
     {}
 
@@ -125,11 +123,11 @@ class KCalUtils::DndFactory::Private
       return inc;
     }
 
-    MemoryCalendar *mCalendar;
+    MemoryCalendar::Ptr mCalendar;
 };
 //@endcond
 
-DndFactory::DndFactory( MemoryCalendar *cal )
+DndFactory::DndFactory( const MemoryCalendar::Ptr &cal )
   : d( new KCalUtils::DndFactory::Private ( cal ) )
 {
 }
@@ -159,14 +157,14 @@ QDrag *DndFactory::createDrag( QWidget *owner )
 
 QMimeData *DndFactory::createMimeData( const Incidence::Ptr &incidence )
 {
-  MemoryCalendar cal( d->mCalendar->timeSpec() );
-  Incidence *i = incidence->clone();
-  cal.addIncidence( Incidence::Ptr( i ) );
+  MemoryCalendar::Ptr cal( new MemoryCalendar( d->mCalendar->timeSpec() ) );
+  Incidence::Ptr i( incidence->clone() );
+  cal->addIncidence( i );
 
   QMimeData *mimeData = new QMimeData;
 
-  ICalDrag::populateMimeData( mimeData, &cal );
-  VCalDrag::populateMimeData( mimeData, &cal );
+  ICalDrag::populateMimeData( mimeData, cal );
+  VCalDrag::populateMimeData( mimeData, cal );
 
   KUrl uri = i->uri();
   if ( uri.isValid() ) {
@@ -192,46 +190,45 @@ QDrag *DndFactory::createDrag( const Incidence::Ptr &incidence, QWidget *owner )
   return drag;
 }
 
-MemoryCalendar *DndFactory::createDropCalendar( const QMimeData *md )
+MemoryCalendar::Ptr DndFactory::createDropCalendar( const QMimeData *md )
 {
   return createDropCalendar( md, d->mCalendar->timeSpec() );
 }
 
-MemoryCalendar *DndFactory::createDropCalendar( const QMimeData *md,
+MemoryCalendar::Ptr DndFactory::createDropCalendar( const QMimeData *md,
                                                 const KDateTime::Spec &timeSpec )
 {
-  MemoryCalendar *cal = new MemoryCalendar( timeSpec );
+  MemoryCalendar::Ptr cal( new MemoryCalendar( timeSpec ) );
 
   if ( ICalDrag::fromMimeData( md, cal ) ||
        VCalDrag::fromMimeData( md, cal ) ){
     return cal;
   }
-  delete cal;
-  return 0;
+
+  return MemoryCalendar::Ptr();
 }
 
-MemoryCalendar *DndFactory::createDropCalendar( QDropEvent *de )
+MemoryCalendar::Ptr DndFactory::createDropCalendar( QDropEvent *de )
 {
-  MemoryCalendar *cal = createDropCalendar( de->mimeData() );
+  MemoryCalendar::Ptr cal( createDropCalendar( de->mimeData() ) );
   if ( cal ) {
     de->accept();
     return cal;
   }
-  return 0;
+  return MemoryCalendar::Ptr();
 }
 
 Event::Ptr DndFactory::createDropEvent( const QMimeData *md )
 {
   kDebug();
   Event::Ptr ev;
-  MemoryCalendar *cal = createDropCalendar( md );
+  MemoryCalendar::Ptr cal( createDropCalendar( md ) );
 
   if ( cal ) {
     Event::List events = cal->events();
     if ( !events.isEmpty() ) {
       ev = Event::Ptr( new Event( *events.first() ) );
     }
-    delete cal;
   }
   return ev;
 }
@@ -251,14 +248,13 @@ Todo::Ptr DndFactory::createDropTodo( const QMimeData *md )
 {
   kDebug();
   Todo::Ptr todo;
-  MemoryCalendar *cal = createDropCalendar( md );
+  MemoryCalendar::Ptr cal( createDropCalendar( md ) );
 
   if ( cal ) {
     Todo::List todos = cal->todos();
     if ( !todos.isEmpty() ) {
       todo = Todo::Ptr( new Todo( *todos.first() ) );
     }
-    delete cal;
   }
 
   return todo;
@@ -298,21 +294,21 @@ bool DndFactory::cutIncidences( const Incidence::List &incidences )
 bool DndFactory::copyIncidences( const Incidence::List &incidences )
 {
   QClipboard *cb = QApplication::clipboard();
-  MemoryCalendar cal( d->mCalendar->timeSpec() );
+  MemoryCalendar::Ptr cal( new MemoryCalendar( d->mCalendar->timeSpec() ) );
 
   Incidence::List::ConstIterator it;
   for ( it = incidences.constBegin(); it != incidences.constEnd(); ++it ) {
     if ( *it ) {
-      cal.addIncidence( Incidence::Ptr( ( *it )->clone() ) );
+      cal->addIncidence( Incidence::Ptr( ( *it )->clone() ) );
     }
   }
 
   QMimeData *mimeData = new QMimeData;
 
-  ICalDrag::populateMimeData( mimeData, &cal );
-  VCalDrag::populateMimeData( mimeData, &cal );
+  ICalDrag::populateMimeData( mimeData, cal );
+  VCalDrag::populateMimeData( mimeData, cal );
 
-  if ( cal.incidences().isEmpty() ) {
+  if ( cal->incidences().isEmpty() ) {
     return false;
   } else {
     cb->setMimeData( mimeData );
@@ -331,7 +327,7 @@ Incidence::List DndFactory::pasteIncidences( const QDate &newDate,
                                              const QTime *newTime )
 {
   QClipboard *cb = QApplication::clipboard();
-  MemoryCalendar *cal = createDropCalendar( cb->mimeData() );
+  MemoryCalendar::Ptr cal( createDropCalendar( cb->mimeData() ) );
   Incidence::List list;
 
   if ( !cal ) {
@@ -372,7 +368,7 @@ Incidence::List DndFactory::pasteIncidences( const QDate &newDate,
 Incidence::Ptr DndFactory::pasteIncidence( const QDate &newDate, const QTime *newTime )
 {
   QClipboard *cb = QApplication::clipboard();
-  MemoryCalendar *cal = createDropCalendar( cb->mimeData() );
+  MemoryCalendar::Ptr cal( createDropCalendar( cb->mimeData() ) );
 
   if ( !cal ) {
     kDebug() << "Can't parse clipboard";

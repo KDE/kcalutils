@@ -886,7 +886,7 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
     EventViewerVisitor()
       : mCalendar( 0 ), mSpec( KDateTime::Spec() ), mResult( "" ) {}
 
-    bool act( Calendar *calendar, IncidenceBase::Ptr incidence, const QDate &date,
+    bool act( const Calendar::Ptr &calendar, IncidenceBase::Ptr incidence, const QDate &date,
               KDateTime::Spec spec=KDateTime::Spec() )
     {
       mCalendar = calendar;
@@ -900,7 +900,6 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
     bool act( const QString &sourceName, IncidenceBase::Ptr incidence, const QDate &date,
               KDateTime::Spec spec=KDateTime::Spec() )
     {
-      mCalendar = 0;
       mSourceName = sourceName;
       mDate = date;
       mSpec = spec;
@@ -936,7 +935,7 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
     }
 
   protected:
-    Calendar *mCalendar;
+    Calendar::Ptr mCalendar;
     QString mSourceName;
     QDate mDate;
     KDateTime::Spec mSpec;
@@ -944,7 +943,7 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
 };
 //@endcond
 
-QString IncidenceFormatter::extensiveDisplayStr( Calendar *calendar,
+QString IncidenceFormatter::extensiveDisplayStr( const Calendar::Ptr &calendar,
                                                  const IncidenceBase::Ptr &incidence,
                                                  const QDate &date,
                                                  KDateTime::Spec spec )
@@ -2297,7 +2296,7 @@ QString InvitationFormatterHelper::makeLink( const QString &id, const QString &t
 
 // Check if the given incidence is likely one that we own instead one from
 // a shared calendar (Kolab-specific)
-static bool incidenceOwnedByMe( Calendar *calendar,
+static bool incidenceOwnedByMe( const Calendar::Ptr &calendar,
                                 const Incidence::Ptr &incidence )
 {
   Q_UNUSED( calendar );
@@ -2406,13 +2405,13 @@ static QString counterButtons( const Incidence::Ptr &incidence,
   return html;
 }
 
-Calendar *InvitationFormatterHelper::calendar() const
+Calendar::Ptr InvitationFormatterHelper::calendar() const
 {
-  return 0;
+  return Calendar::Ptr();
 }
 
 static QString formatICalInvitationHelper( QString invitation,
-                                           MemoryCalendar *mCalendar,
+                                           const MemoryCalendar::Ptr &mCalendar,
                                            InvitationFormatterHelper *helper,
                                            bool noHtmlMode,
                                            KDateTime::Spec spec,
@@ -2694,7 +2693,7 @@ static QString formatICalInvitationHelper( QString invitation,
 //@endcond
 
 QString IncidenceFormatter::formatICalInvitation( QString invitation,
-                                                  MemoryCalendar *calendar,
+                                                  const MemoryCalendar::Ptr &calendar,
                                                   InvitationFormatterHelper *helper )
 {
   return formatICalInvitationHelper( invitation, calendar, helper, false,
@@ -2702,7 +2701,7 @@ QString IncidenceFormatter::formatICalInvitation( QString invitation,
 }
 
 QString IncidenceFormatter::formatICalInvitationNoHtml( const QString &invitation,
-                                                        MemoryCalendar *calendar,
+                                                        const MemoryCalendar::Ptr &calendar,
                                                         InvitationFormatterHelper *helper,
                                                         const QString &sender )
 {
@@ -2721,7 +2720,7 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
     ToolTipVisitor()
       : mRichText( true ), mSpec( KDateTime::Spec() ), mResult( "" ) {}
 
-    bool act( MemoryCalendar *calendar,
+    bool act( const MemoryCalendar::Ptr &calendar,
               const IncidenceBase::Ptr &incidence,
               const QDate &date=QDate(), bool richText=true,
               KDateTime::Spec spec=KDateTime::Spec() )
@@ -2739,7 +2738,6 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
               const QDate &date=QDate(), bool richText=true,
               KDateTime::Spec spec=KDateTime::Spec() )
     {
-      mCalendar = 0;
       mLocation = location;
       mDate = date;
       mRichText = richText;
@@ -2764,7 +2762,7 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
     QString generateToolTip( const Incidence::Ptr &incidence, QString dtRangeText );
 
   protected:
-    MemoryCalendar *mCalendar;
+    MemoryCalendar::Ptr mCalendar;
     QString mLocation;
     QDate mDate;
     bool mRichText;
@@ -2933,10 +2931,7 @@ bool IncidenceFormatter::ToolTipVisitor::visit( FreeBusy::Ptr fb )
 
 static QString tooltipPerson( const QString &email, QString name )
 {
-  // Show the attendee
-  QString tmpString = ( name.isEmpty() ? email : name );
-
-  return tmpString;
+  return name.isEmpty() ? email : name;
 }
 
 static QString etc = i18nc( "elipsis", "..." );
@@ -3679,7 +3674,7 @@ QString IncidenceFormatter::dateTimeToString( const KDateTime &date,
   }
 }
 
-QString IncidenceFormatter::resourceString( Calendar *calendar,
+QString IncidenceFormatter::resourceString( const Calendar::Ptr &calendar,
                                             const Incidence::Ptr &incidence )
 {
   Q_UNUSED( calendar );
