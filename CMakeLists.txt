@@ -25,7 +25,7 @@ set(kcalutils_LIB_SRCS
 
 kde4_add_kcfg_files(kcalutils_LIB_SRCS htmlexportsettings.kcfgc )
 
-kde4_add_library(kcalutils SHARED ${kcalutils_LIB_SRCS})
+kde4_add_library(kcalutils ${LIBRARY_TYPE} ${kcalutils_LIB_SRCS})
 
 target_link_libraries(kcalutils ${KDE4_KDECORE_LIBRARY} ${KDE4_KDEUI_LIBRARY} ${KDE4_KIO_LIBS} kcalcore kpimutils ${QT_QTGUI_LIBRARY})
 set_target_properties(kcalutils PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
