@@ -39,7 +39,7 @@ QString ICalDrag::mimeType()
 bool ICalDrag::populateMimeData( QMimeData *me, const MemoryCalendar::Ptr &cal )
 {
   ICalFormat icf;
-  QString scal = icf.toString( cal );
+  QString scal = icf.toString( cal, QString(), false );
 
   if ( scal.length()>0 ){
     me->setData( mimeType(), scal.toUtf8() );
