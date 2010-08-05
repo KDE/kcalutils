@@ -64,7 +64,7 @@ namespace Stringify
   KCALUTILS_EXPORT QStringList incidenceSecrecyList();
 
   KCALUTILS_EXPORT QString incidenceStatus( KCalCore::Incidence::Status status );
-  KCALUTILS_EXPORT QString incidenceStatus( const KCalCore::Incidence::ConstPtr &incidence );
+  KCALUTILS_EXPORT QString incidenceStatus( const KCalCore::Incidence::Ptr &incidence );
   KCALUTILS_EXPORT QString scheduleMessageStatus( KCalCore::ScheduleMessage::Status status );
 
   /**
