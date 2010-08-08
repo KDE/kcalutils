@@ -89,7 +89,7 @@ class KCalUtils::DndFactory::Private
           event->setDtStart( newDateTime );
 
           if ( newDateTime.isDateOnly() ) {
-            event->setDtEnd( newDateTime.addSecs( durationInDays ) );
+            event->setDtEnd( newDateTime.addDays( durationInDays ) );
           } else {
             event->setDtEnd( newDateTime.addSecs( durationInSeconds ) );
           }
