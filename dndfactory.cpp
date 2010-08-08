@@ -65,58 +65,48 @@ class KCalUtils::DndFactory::Private
       : mCalendar ( cal )
     {}
 
-    Incidence::Ptr pasteIncidence( const Incidence::Ptr &inc,
-                                   const QDate &newDate,
-                                   const QTime *newTime = 0 )
+    Incidence::Ptr pasteIncidence( const Incidence::Ptr &incidence,
+                                   const KDateTime &newDateTime,
+                                   const QFlags<PasteFlag> &pasteOptions )
     {
+
+      Incidence::Ptr inc( incidence );
+
       if ( inc ) {
-        Incidence *i = inc.data();
-        Incidence::Ptr inc( i->clone() );
+        inc = Incidence::Ptr( inc->clone() );
         inc->recreate();
       }
 
-      if ( inc && newDate.isValid() ) {
+      if ( inc && newDateTime.isValid() ) {
         if ( inc->type() == Incidence::TypeEvent ) {
 
-          Event::Ptr anEvent = inc.staticCast<Event>();
-          // Calculate length of event
-          int daysOffset = anEvent->dtStart().date().daysTo(
-            anEvent->dtEnd().date() );
-          // new end date if event starts at the same time on the new day
-          KDateTime endDate( anEvent->dtEnd() );
-          endDate.setDate( newDate.addDays( daysOffset ) );
+          Event::Ptr event = inc.staticCast<Event>();
 
-          KDateTime startDate( anEvent->dtStart() );
-          startDate.setDate( newDate );
-          if ( newTime ) {
-            // additional offset for new time of day
-            int addSecsOffset( anEvent->dtStart().time().secsTo( *newTime ) );
-            endDate=endDate.addSecs( addSecsOffset );
-            startDate.setTime( *newTime );
+          // in seconds
+          const int durationInSeconds = event->dtStart().secsTo( event->dtEnd() );
+          const int durationInDays = event->dtStart().daysTo( event->dtEnd() );
+
+          event->setDtStart( newDateTime );
+
+          if ( newDateTime.isDateOnly() ) {
+            event->setDtEnd( newDateTime.addSecs( durationInDays ) );
+          } else {
+            event->setDtEnd( newDateTime.addSecs( durationInSeconds ) );
           }
-          anEvent->setDtStart( startDate );
-          anEvent->setDtEnd( endDate );
 
         } else if ( inc->type() == Incidence::TypeTodo ) {
-          Todo::Ptr anTodo = inc.staticCast<Todo>();
-          KDateTime dueDate( anTodo->dtDue() );
-          dueDate.setDate( newDate );
-          if ( newTime ) {
-            dueDate.setTime( *newTime );
-          }
-          anTodo->setDtDue( dueDate );
-        } else if ( inc->type() == Incidence::TypeJournal ) {
-          Journal::Ptr anJournal = inc.staticCast<Journal>();
-          KDateTime startDate( anJournal->dtStart() );
-          startDate.setDate( newDate );
-          if ( newTime ) {
-            startDate.setTime( *newTime );
+          Todo::Ptr aTodo = inc.staticCast<Todo>();
+
+          if ( pasteOptions & FlagTodosPasteAtDtStart ) {
+            aTodo->setDtStart( newDateTime );
           } else {
-            startDate.setTime( QTime( 0, 0, 0 ) );
+            aTodo->setDtDue( newDateTime );
           }
-          anJournal->setDtStart( startDate );
+
+        } else if ( inc->type() == Incidence::TypeJournal ) {
+          inc->setDtStart( newDateTime );
         } else {
-          kDebug() << "Trying to paste unknown incidence of type" << int( inc->type() );
+          kDebug() << "Trying to paste unknown incidence of type" << inc->type();
         }
       }
 
@@ -323,8 +313,8 @@ bool DndFactory::copyIncidence( const Incidence::Ptr &selectedInc )
   return copyIncidences( list );
 }
 
-Incidence::List DndFactory::pasteIncidences( const QDate &newDate,
-                                             const QTime *newTime )
+Incidence::List DndFactory::pasteIncidences( const KDateTime &newDateTime,
+                                             const QFlags<PasteFlag> &pasteOptions )
 {
   QClipboard *cb = QApplication::clipboard();
   MemoryCalendar::Ptr cal( createDropCalendar( cb->mimeData() ) );
@@ -343,7 +333,7 @@ Incidence::List DndFactory::pasteIncidences( const QDate &newDate,
   const Incidence::List incs = cal->incidences();
   for ( it = incs.constBegin();
         it != incs.constEnd(); ++it ) {
-    Incidence::Ptr inc = d->pasteIncidence( *it, newDate, newTime );
+    Incidence::Ptr inc = d->pasteIncidence( *it, newDateTime, pasteOptions );
     if ( inc ) {
       list.append( inc );
       oldUidToNewInc[(*it)->uid()] = *it;
@@ -365,7 +355,8 @@ Incidence::List DndFactory::pasteIncidences( const QDate &newDate,
   return list;
 }
 
-Incidence::Ptr DndFactory::pasteIncidence( const QDate &newDate, const QTime *newTime )
+Incidence::Ptr DndFactory::pasteIncidence( const KDateTime &newDateTime,
+                                           const QFlags<PasteFlag> &pasteOptions )
 {
   QClipboard *cb = QApplication::clipboard();
   MemoryCalendar::Ptr cal( createDropCalendar( cb->mimeData() ) );
@@ -378,6 +369,5 @@ Incidence::Ptr DndFactory::pasteIncidence( const QDate &newDate, const QTime *ne
   Incidence::List incList = cal->incidences();
   Incidence::Ptr inc = incList.isEmpty() ? Incidence::Ptr() : incList.first();
 
-  Incidence::Ptr newInc = d->pasteIncidence( inc, newDate, newTime );
-  return newInc;
+  return d->pasteIncidence( inc, newDateTime, pasteOptions );
 }

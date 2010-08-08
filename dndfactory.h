@@ -60,6 +60,15 @@ namespace KCalUtils {
 class KCALUTILS_EXPORT DndFactory
 {
   public:
+
+    enum PasteFlag {
+      FlagTodosPasteAtDtStart = 1 /**< If the cloned incidence is a to-do, the date/time passed
+                                       to DndFactory::pasteIncidence() will change dtStart if this
+                                       flag is on, changes dtDue otherwise. */
+    };
+
+    Q_DECLARE_FLAGS( PasteFlags, PasteFlag );
+
     explicit DndFactory( const KCalCore::MemoryCalendar::Ptr &cal );
 
     ~DndFactory();
@@ -141,20 +150,30 @@ class KCALUTILS_EXPORT DndFactory
     bool copyIncidences( const KCalCore::Incidence::List &incidences );
 
     /**
-      Pastes and returns the incidences from the clipboard
-      If no date and time are given, the incidences will be pasted at
-      their original date/time
+      This function clones the incidences that are in the clipboard and sets the clone's
+      date/time to the specified @p newDateTime.
 
-      @param newDate The new date where the incidences shall be pasted.
-      @param newTime The new time where the incidences shall be pasted.
+       @see pasteIncidence()
     */
-    KCalCore::Incidence::List pasteIncidences( const QDate &newDate = QDate(),
-                                               const QTime *newTime = 0 );
+    KCalCore::Incidence::List pasteIncidences( const KDateTime &newDateTime = KDateTime(),
+                                               const QFlags<PasteFlag> &pasteOptions = QFlags<PasteFlag>() );
 
     /**
-      Pastes the event or todo and return a pointer to the new incidence pasted.
+      This function clones the incidence that's in the clipboard and sets the clone's
+      date/time to the specified @p newDateTime.
+
+      @param newDateTime The new date/time that the incidence will have. If it's an event
+             or journal, DTSTART will be set. If it's a to-do, DTDUE is set.
+             If you wish another behaviour, like changing DTSTART on to-dos, specify
+             @p pasteOptions. If newDateTime is invalid the original incidence's dateTime
+             will be used, regardless of @p pasteOptions.
+
+      @param pasteOptions Control how @p newDateTime changes the incidence's dates. @see PasteFlag.
+
+      @return A pointer to the cloned incidence.
     */
-    KCalCore::Incidence::Ptr pasteIncidence( const QDate &, const QTime *newTime = 0 );
+    KCalCore::Incidence::Ptr pasteIncidence( const KDateTime &newDateTime = KDateTime(),
+                                             const QFlags<PasteFlag> &pasteOptions = QFlags<PasteFlag>() );
 
   private:
     //@cond PRIVATE
