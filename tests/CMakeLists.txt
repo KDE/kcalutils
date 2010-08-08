@@ -9,4 +9,5 @@ ENDMACRO(KCALUTILS_UNIT_TESTS)
 
 KCALUTILS_UNIT_TESTS(
   teststringify
+  testdndfactory
 )
