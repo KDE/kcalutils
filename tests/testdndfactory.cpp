@@ -25,7 +25,7 @@
 
 #include "../dndfactory.h"
 
-#include <KCalCore/MemoryCalendar>
+#include <kcalcore/memorycalendar.h>
 
 #include <KDebug>
 #include <qtest_kde.h>
