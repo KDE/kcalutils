@@ -14,7 +14,6 @@ include_directories(
 ########### next target ###############
 
 set(kcalutils_LIB_SRCS
-  dndfactory.cpp
   htmlexport.cpp
   icaldrag.cpp
   incidenceformatter.cpp
@@ -22,6 +21,12 @@ set(kcalutils_LIB_SRCS
   scheduler.cpp
   vcaldrag.cpp
 )
+
+if (NOT WINCE)
+  set(kcalutils_LIB_SRCS ${kcalutils_LIB_SRCS}
+    dndfactory.cpp
+  )
+endif (NOT WINCE)
 
 kde4_add_kcfg_files(kcalutils_LIB_SRCS htmlexportsettings.kcfgc )
 
