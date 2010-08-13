@@ -417,7 +417,7 @@ static QString displayViewFormatHeader( Incidence::Ptr incidence )
               "\">";
   }
 
-  if ( incidence->isAlarmEnabled() ) {
+  if ( incidence->hasEnabledAlarms() ) {
     tmpStr += "<img valign=\"top\" src=\"" +
               iconLoader->iconPath( "preferences-desktop-notification-bell", KIconLoader::Small ) +
               "\">";
@@ -579,7 +579,7 @@ static QString displayViewFormatEvent( const QString &calStr, Event::Ptr event,
   // TODO: print comments?
 
   int reminderCount = event->alarms().count();
-  if ( reminderCount > 0 && event->isAlarmEnabled() ) {
+  if ( reminderCount > 0 && event->hasEnabledAlarms() ) {
     tmpStr += "<tr>";
     tmpStr += "<td><b>" +
               i18np( "Reminder:", "Reminders:", reminderCount ) +
@@ -706,7 +706,7 @@ static QString displayViewFormatTodo( const QString &calStr, Todo::Ptr todo,
   // TODO: print comments?
 
   int reminderCount = todo->alarms().count();
-  if ( reminderCount > 0 && todo->isAlarmEnabled() ) {
+  if ( reminderCount > 0 && todo->hasEnabledAlarms() ) {
     tmpStr += "<tr>";
     tmpStr += "<td><b>" +
               i18np( "Reminder:", "Reminders:", reminderCount ) +
@@ -3085,7 +3085,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip( const Incidence::Pt
   }
 
   int reminderCount = incidence->alarms().count();
-  if ( reminderCount > 0 && incidence->isAlarmEnabled() ) {
+  if ( reminderCount > 0 && incidence->hasEnabledAlarms() ) {
     tmp += "<br>";
     tmp += "<i>" + i18np( "Reminder:", "Reminders:", reminderCount ) + "</i>" + "&nbsp;";
     tmp += reminderStringList( incidence ).join( ", " );
