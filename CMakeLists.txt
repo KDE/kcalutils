@@ -51,4 +51,5 @@ install(FILES
   vcaldrag.h
   scheduler.h
   stringify.h
+  ${CMAKE_CURRENT_BINARY_DIR}/htmlexportsettings.h
   DESTINATION ${INCLUDE_INSTALL_DIR}/kcalutils COMPONENT Devel)
