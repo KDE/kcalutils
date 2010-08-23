@@ -837,13 +837,12 @@ static QString displayViewFormatFreeBusy( const QString &calStr, FreeBusy::Ptr f
                               dateToString( fb->dtStart(), true, spec ),
                               dateToString( fb->dtEnd(), true, spec ) ) );
 
-  QList<Period> periods = fb->busyPeriods();
-
   QString text =
     htmlAddTag( "em",
                 htmlAddTag( "b", i18nc( "tag for busy periods list", "Busy:" ) ) );
 
-  QList<Period>::iterator it;
+  Period::List periods = fb->busyPeriods();
+  Period::List::iterator it;
   for ( it = periods.begin(); it != periods.end(); ++it ) {
     Period per = *it;
     if ( per.hasDuration() ) {
@@ -1490,8 +1489,8 @@ static QString invitationDetailsFreeBusy( const FreeBusy::Ptr &fb,
   html += "<tr><td colspan=2><hr></td></tr>\n";
   html += "<tr><td colspan=2>Busy periods given in this free/busy object:</td></tr>\n";
 
-  QList<Period> periods = fb->busyPeriods();
-  QList<Period>::iterator it;
+  Period::List periods = fb->busyPeriods();
+  Period::List::iterator it;
   for ( it = periods.begin(); it != periods.end(); ++it ) {
     Period per = *it;
     if ( per.hasDuration() ) {
