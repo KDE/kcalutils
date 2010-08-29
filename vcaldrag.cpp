@@ -19,15 +19,14 @@
   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   Boston, MA 02110-1301, USA.
 */
-
 #include "vcaldrag.h"
 
 #include <kcalcore/vcalformat.h>
+using namespace KCalCore;
 
 #include <QtCore/QMimeData>
 #include <QtCore/QString>
 
-using namespace KCalCore;
 using namespace KCalUtils;
 using namespace VCalDrag;
 

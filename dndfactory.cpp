@@ -34,14 +34,13 @@
   @author Cornelius Schumacher \<schumacher@kde.org\>
   @author Reinhold Kainhofer \<reinhold@kainhofer.com\>
 */
-
 #include "dndfactory.h"
 #include "icaldrag.h"
 #include "vcaldrag.h"
 
-#include <kdebug.h>
-#include <kiconloader.h>  // for BarIcon
-#include <kurl.h>
+#include <KDebug>
+#include <KIconLoader>  // for BarIcon
+#include <KUrl>
 
 #include <QtCore/QMimeData>
 #include <QtGui/QApplication>
@@ -106,7 +105,7 @@ class KCalUtils::DndFactory::Private
         } else if ( inc->type() == Incidence::TypeJournal ) {
           inc->setDtStart( newDateTime );
         } else {
-          kDebug() << "Trying to paste unknown incidence of type" << inc->type();
+          kDebug() << "Trying to paste unknown incidence of type" << int( inc->type() );
         }
       }
 

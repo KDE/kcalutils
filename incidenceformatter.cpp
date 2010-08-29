@@ -33,7 +33,6 @@
   @author Reinhold Kainhofer \<reinhold@kainhofer.com\>
   @author Allen Winter \<allen@kdab.com\>
 */
-
 #include "incidenceformatter.h"
 #include "stringify.h"
 
@@ -48,13 +47,13 @@ using namespace KCalCore;
 
 #include <kpimutils/email.h>
 
-#include <kcalendarsystem.h>
-#include <kdebug.h>
-#include <kemailsettings.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kmimetype.h>
-#include <ksystemtimezone.h>
+#include <KCalendarSystem>
+#include <KDebug>
+#include <KEMailSettings>
+#include <KIconLoader>
+#include <KLocale>
+#include <KMimeType>
+#include <KSystemTimeZone>
 
 #include <QtCore/QBitArray>
 #include <QtGui/QApplication>

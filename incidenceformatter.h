@@ -34,10 +34,8 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalcore/memorycalendar.h>
-
 #include <kcalcore/incidence.h>
-
+#include <kcalcore/memorycalendar.h>
 
 namespace KCalUtils {
 
@@ -151,10 +149,11 @@ namespace IncidenceFormatter
     @param helper is a pointer to an InvitationFormatterHelper.
     @param sender is a QString containing the email address of the person sending the invitation.
   */
-  KCALUTILS_EXPORT QString formatICalInvitationNoHtml( const QString &invitation,
-                                                       const KCalCore::MemoryCalendar::Ptr &calendar,
-                                                       InvitationFormatterHelper *helper,
-                                                       const QString &sender );
+  KCALUTILS_EXPORT QString formatICalInvitationNoHtml(
+    const QString &invitation,
+    const KCalCore::MemoryCalendar::Ptr &calendar,
+    InvitationFormatterHelper *helper,
+    const QString &sender );
 
   /**
     Format a TNEF attachment to an HTML mail

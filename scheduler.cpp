@@ -19,18 +19,17 @@
   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   Boston, MA 02110-1301, USA.
 */
-
 #include "scheduler.h"
 #include "stringify.h"
 
 #include <kcalcore/icalformat.h>
 #include <kcalcore/freebusycache.h>
-
-#include <kdebug.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-
 using namespace KCalCore;
+
+#include <KDebug>
+#include <KLocale>
+#include <KMessageBox>
+
 using namespace KCalUtils;
 
 //@cond PRIVATE

@@ -33,15 +33,14 @@
   @author Reinhold Kainhofer \<reinhold@kainhofer.com\>
   @author Allen Winter \<allen@kdab.com\>
 */
-
 #include "stringify.h"
 
 #include <kcalcore/exceptions.h>
 using namespace KCalCore;
 
-#include <klocale.h>
-#include <kglobal.h>
-#include <ksystemtimezone.h>
+#include <KLocale>
+#include <KGlobal>
+#include <KSystemTimeZone>
 
 using namespace KCalUtils;
 using namespace Stringify;

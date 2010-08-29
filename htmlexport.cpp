@@ -19,7 +19,6 @@
   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
   Boston, MA 02110-1301, USA.
 */
-
 #include "htmlexport.h"
 #include "htmlexportsettings.h"
 #include "stringify.h"
@@ -27,10 +26,10 @@
 #include <kcalcore/memorycalendar.h>
 using namespace KCalCore;
 
-#include <kdebug.h>
-#include <kcalendarsystem.h>
-#include <kglobal.h>
-#include <klocale.h>
+#include <KDebug>
+#include <KCalendarSystem>
+#include <KGlobal>
+#include <KLocale>
 
 #include <QtCore/QFile>
 #include <QtCore/QMap>
