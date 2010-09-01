@@ -57,6 +57,7 @@ using namespace KCalCore;
 
 #include <QtCore/QBitArray>
 #include <QtGui/QApplication>
+#include <QtGui/QPalette>
 #include <QtGui/QTextDocument>
 
 using namespace KCalUtils;
@@ -997,6 +998,38 @@ static QString cleanHtml( const QString &html )
   return Qt::escape( body.remove( QRegExp( "<[^>]*>" ) ).trimmed() );
 }
 
+static QString invitationSummary( const Incidence::Ptr &incidence, bool noHtmlMode )
+{
+  QString summaryStr = i18n( "Summary unspecified" );
+  if ( !incidence->summary().isEmpty() ) {
+    if ( !incidence->summaryIsRich() ) {
+      summaryStr = Qt::escape( incidence->summary() );
+    } else {
+      summaryStr = incidence->richSummary();
+      if ( noHtmlMode ) {
+        summaryStr = cleanHtml( summaryStr );
+      }
+    }
+  }
+  return summaryStr;
+}
+
+static QString invitationLocation( const Incidence::Ptr &incidence, bool noHtmlMode )
+{
+  QString locationStr = i18n( "Location unspecified" );
+  if ( !incidence->location().isEmpty() ) {
+    if ( !incidence->locationIsRich() ) {
+      locationStr = Qt::escape( incidence->location() );
+    } else {
+      locationStr = incidence->richLocation();
+      if ( noHtmlMode ) {
+        locationStr = cleanHtml( locationStr );
+      }
+    }
+  }
+  return locationStr;
+}
+
 static QString eventStartTimeStr( const Event::Ptr &event )
 {
   QString tmp;
@@ -1027,9 +1060,58 @@ static QString eventEndTimeStr( const Event::Ptr &event )
   return tmp;
 }
 
-static QString invitationRow( const QString &cell1, const QString &cell2 )
+static QString htmlInvitationDetailsBegin()
 {
-  return "<tr><td>" + cell1 + "</td><td>" + cell2 + "</td></tr>\n";
+  QString dir = ( QApplication::isRightToLeft() ? "rtl" : "ltr" );
+  return QString( "<div dir=\"%1\">\n" ).arg( dir );
+}
+
+static QString htmlInvitationDetailsEnd()
+{
+  return "</div>\n";
+}
+
+static QString htmlInvitationDetailsTableBegin()
+{
+  return "<table cellspacing=\"4\" style=\"border-width:4px; border-style:groove\">";
+}
+
+static QString htmlInvitationDetailsTableEnd()
+{
+  return "</table>\n";
+}
+
+static QString htmlRow( const QString &title, const QString &value )
+{
+  if ( !value.isEmpty() ) {
+    return "<tr><td>" + title + "</td><td>" + value + "</td></tr>\n";
+  } else {
+    return QString();
+  }
+}
+
+static QString htmlRow( const QString &title, const QString &value, const QString &oldvalue )
+{
+  // if 'value' is empty, then print nothing
+  if ( value.isEmpty() ) {
+    return QString();
+  }
+
+  // if 'value' is new or unchanged, then print normally
+  if ( oldvalue.isEmpty() || value == oldvalue ) {
+    return htmlRow( title, value );
+  }
+
+  // if 'value' has changed, then make a special print
+  QPalette pal = qApp->palette();
+  QString color = pal.color( QPalette::Active, QPalette::Highlight ).name();
+//  QString color = "#DE8519"; // hard-coded color from Outlook2007, per request.
+  QString newtitle = "<font color=\"" + color + "\">" + title + "</font>";
+  QString newvalue = "<font color=\"" + color + "\">" + value + "</font>" +
+                     "&nbsp;" +
+                     "(<strike>" + oldvalue + "</strike>)";
+  return htmlRow( newtitle, newvalue );
+
 }
 
 static Attendee::Ptr findDelegatedFromMyAttendee( const Incidence::Ptr &incidence )
@@ -1203,8 +1285,7 @@ static QString invitationPerson( const QString &email, QString name, QString uid
   return tmpString;
 }
 
-static QString invitationsDetailsIncidence( const Incidence::Ptr &incidence,
-                                            bool noHtmlMode )
+static QString invitationDetailsIncidence( const Incidence::Ptr &incidence, bool noHtmlMode )
 {
   // if description and comment -> use both
   // if description, but no comment -> use the desc as the comment (and no desc)
@@ -1290,8 +1371,7 @@ static QString invitationsDetailsIncidence( const Incidence::Ptr &incidence,
   return html;
 }
 
-static QString invitationDetailsEvent( const Event::Ptr &event,
-                                       bool noHtmlMode,
+static QString invitationDetailsEvent( const Event::Ptr &event, bool noHtmlMode,
                                        KDateTime::Spec spec )
 {
   // Invitation details are formatted into an HTML table
@@ -1299,85 +1379,146 @@ static QString invitationDetailsEvent( const Event::Ptr &event,
     return QString();
   }
 
-  QString sSummary = i18n( "Summary unspecified" );
-  if ( !event->summary().isEmpty() ) {
-    if ( !event->summaryIsRich() ) {
-      sSummary = Qt::escape( event->summary() );
-    } else {
-      sSummary = event->richSummary();
-      if ( noHtmlMode ) {
-        sSummary = cleanHtml( sSummary );
-      }
-    }
-  }
-
-  QString sLocation = i18n( "Location unspecified" );
-  if ( !event->location().isEmpty() ) {
-    if ( !event->locationIsRich() ) {
-      sLocation = Qt::escape( event->location() );
-    } else {
-      sLocation = event->richLocation();
-      if ( noHtmlMode ) {
-        sLocation = cleanHtml( sLocation );
-      }
-    }
-  }
-
-  QString dir = ( QApplication::isRightToLeft() ? "rtl" : "ltr" );
-  QString html = QString( "<div dir=\"%1\">\n" ).arg( dir );
-  html += "<table cellspacing=\"4\" style=\"border-width:4px; border-style:groove\">";
+  QString html = htmlInvitationDetailsBegin();
+  html += htmlInvitationDetailsTableBegin();
 
   // Invitation summary & location rows
-  html += invitationRow( i18n( "What:" ), sSummary );
-  html += invitationRow( i18n( "Where:" ), sLocation );
+  html += htmlRow( i18n( "What:" ), invitationSummary( event, noHtmlMode ) );
+  html += htmlRow( i18n( "Where:" ), invitationLocation( event, noHtmlMode ) );
 
   // If a 1 day event
   if ( event->dtStart().date() == event->dtEnd().date() ) {
-    html += invitationRow( i18n( "Date:" ), dateToString( event->dtStart(), false, spec ) );
+    html += htmlRow( i18n( "Date:" ), dateToString( event->dtStart(), false, spec ) );
     if ( !event->allDay() ) {
-      html += invitationRow( i18n( "Time:" ),
-                             timeToString( event->dtStart(), true, spec ) +
-                             " - " +
-                             timeToString( event->dtEnd(), true, spec ) );
+      html += htmlRow( i18n( "Time:" ),
+                       timeToString( event->dtStart(), true, spec ) +
+                       " - " +
+                       timeToString( event->dtEnd(), true, spec ) );
     }
   } else {
-    html += invitationRow( i18nc( "starting date", "From:" ),
-                           dateToString( event->dtStart(), false, spec ) );
+    html += htmlRow( i18nc( "starting date", "From:" ),
+                     dateToString( event->dtStart(), false, spec ) );
     if ( !event->allDay() ) {
-      html += invitationRow( i18nc( "starting time", "At:" ),
-                             timeToString( event->dtStart(), true, spec ) );
+      html += htmlRow( i18nc( "starting time", "At:" ),
+                       timeToString( event->dtStart(), true, spec ) );
     }
     if ( event->hasEndDate() ) {
-      html += invitationRow( i18nc( "ending date", "To:" ),
-                             dateToString( event->dtEnd(), false, spec ) );
+      html += htmlRow( i18nc( "ending date", "To:" ),
+                       dateToString( event->dtEnd(), false, spec ) );
       if ( !event->allDay() ) {
-        html += invitationRow( i18nc( "ending time", "At:" ),
-                               timeToString( event->dtEnd(), true, spec ) );
+        html += htmlRow( i18nc( "ending time", "At:" ),
+                         timeToString( event->dtEnd(), true, spec ) );
       }
     } else {
-      html += invitationRow( i18nc( "ending date", "To:" ),
-                             i18n( "no end date specified" ) );
+      html += htmlRow( i18nc( "ending date", "To:" ), i18n( "no end date specified" ) );
     }
   }
 
   // Invitation Duration Row
-  QString durStr = durationString( event );
-  if ( !durStr.isEmpty() ) {
-    html += invitationRow( i18n( "Duration:" ), durStr );
-  }
+  html += htmlRow( i18n( "Duration:" ), durationString( event ) );
 
+  // Invitation Recurrence Row
   if ( event->recurs() ) {
-    html += invitationRow( i18n( "Recurrence:" ), recurrenceString( event ) );
+    html += htmlRow( i18n( "Recurrence:" ), recurrenceString( event ) );
   }
 
-  html += "</table></div>\n";
-  html += invitationsDetailsIncidence( event, noHtmlMode );
+  html += htmlInvitationDetailsTableEnd();
+  html += invitationDetailsIncidence( event, noHtmlMode );
+  html += htmlInvitationDetailsEnd();
 
   return html;
 }
 
-static QString invitationDetailsTodo( const Todo::Ptr &todo,
-                                      bool noHtmlMode,
+static QString invitationDetailsEvent( const Event::Ptr &event, const Event::Ptr &oldevent,
+                                       bool noHtmlMode, KDateTime::Spec spec )
+{
+  if ( !oldevent ) {
+    return invitationDetailsEvent( event, noHtmlMode, spec );
+  }
+
+  QString html = htmlInvitationDetailsBegin();
+  html += htmlInvitationDetailsTableBegin();
+
+  html += htmlRow( i18n( "What:" ),
+                   invitationSummary( event, noHtmlMode ),
+                   invitationSummary( oldevent, noHtmlMode ) );
+
+  html += htmlRow( i18n( "Where:" ),
+                   invitationLocation( event, noHtmlMode ),
+                   invitationLocation( oldevent, noHtmlMode ) );
+
+  // If a 1 day event
+  if ( event->dtStart().date() == event->dtEnd().date() ) {
+    html += htmlRow( i18n( "Date:" ),
+                     dateToString( event->dtStart(), false ),
+                     dateToString( oldevent->dtStart(), false ) );
+    QString spanStr, oldspanStr;
+    if ( !event->allDay() ) {
+      spanStr = timeToString( event->dtStart(), true ) +
+                " - " +
+                timeToString( event->dtEnd(), true );
+    }
+    if ( !oldevent->allDay() ) {
+      oldspanStr = timeToString( oldevent->dtStart(), true ) +
+                   " - " +
+                   timeToString( oldevent->dtEnd(), true );
+    }
+    html += htmlRow( i18n( "Time:" ), spanStr, oldspanStr );
+  } else {
+    html += htmlRow( i18nc( "Starting date of an event", "From:" ),
+                     dateToString( event->dtStart(), false ),
+                     dateToString( oldevent->dtStart(), false ) );
+    QString startStr, oldstartStr;
+    if ( !event->allDay() ) {
+      startStr = timeToString( event->dtStart(), true );
+    }
+    if ( !oldevent->allDay() ) {
+      oldstartStr = timeToString( oldevent->dtStart(), true );
+    }
+    html += htmlRow( i18nc( "Starting time of an event", "At:" ), startStr, oldstartStr );
+    if ( event->hasEndDate() ) {
+      html += htmlRow( i18nc( "Ending date of an event", "To:" ),
+                       dateToString( event->dtEnd(), false ),
+                       dateToString( oldevent->dtEnd(), false ) );
+      QString endStr, oldendStr;
+      if ( !event->allDay() ) {
+        endStr = timeToString( event->dtEnd(), true );
+      }
+      if ( !oldevent->allDay() ) {
+        oldendStr = timeToString( oldevent->dtEnd(), true );
+      }
+      html += htmlRow( i18nc( "Starting time of an event", "At:" ), endStr, oldendStr );
+    } else {
+      QString endStr = i18n( "no end date specified" );
+      QString oldendStr;
+      if ( !oldevent->hasEndDate() ) {
+        oldendStr = i18n( "no end date specified" );
+      } else {
+        oldendStr = dateTimeToString( oldevent->dtEnd(), oldevent->allDay(), false );
+      }
+      html += htmlRow( i18nc( "Ending date of an event", "To:" ), endStr, oldendStr );
+    }
+  }
+
+  html += htmlRow( i18n( "Duration:" ), durationString( event ), durationString( oldevent ) );
+
+  QString recurStr, oldrecurStr;
+  if ( event->recurs() ) {
+    recurStr = recurrenceString( event );
+  }
+  if ( oldevent->recurs() ) {
+    oldrecurStr = recurrenceString( oldevent );
+  }
+  html += htmlRow( i18n( "Recurrence:" ), recurStr, oldrecurStr );
+
+  html += htmlInvitationDetailsTableEnd();
+  html += invitationDetailsIncidence( event, noHtmlMode );
+  html += htmlInvitationDetailsEnd();
+
+  return html;
+}
+
+static QString invitationDetailsTodo( const Todo::Ptr &todo, bool noHtmlMode,
                                       KDateTime::Spec spec )
 {
   // To-do details are formatted into an HTML table
@@ -1385,93 +1526,163 @@ static QString invitationDetailsTodo( const Todo::Ptr &todo,
     return QString();
   }
 
-  QString sSummary = i18n( "Summary unspecified" );
-  if ( !todo->summary().isEmpty() ) {
-    if ( !todo->summaryIsRich() ) {
-      sSummary = Qt::escape( todo->summary() );
-    } else {
-      sSummary = todo->richSummary();
-      if ( noHtmlMode ) {
-        sSummary = cleanHtml( sSummary );
-      }
-    }
-  }
-
-  QString sLocation = i18n( "Location unspecified" );
-  if ( !todo->location().isEmpty() ) {
-    if ( !todo->locationIsRich() ) {
-      sLocation = Qt::escape( todo->location() );
-    } else {
-      sLocation = todo->richLocation();
-      if ( noHtmlMode ) {
-        sLocation = cleanHtml( sLocation );
-      }
-    }
-  }
-
-  QString dir = ( QApplication::isRightToLeft() ? "rtl" : "ltr" );
-  QString html = QString( "<div dir=\"%1\">\n" ).arg( dir );
-  html += "<table cellspacing=\"4\" style=\"border-width:4px; border-style:groove\">";
+  QString html = htmlInvitationDetailsBegin();
+  html += htmlInvitationDetailsTableBegin();
 
   // Invitation summary & location rows
-  html += invitationRow( i18n( "What:" ), sSummary );
-  html += invitationRow( i18n( "Where:" ), sLocation );
+  html += htmlRow( i18n( "What:" ), invitationSummary( todo, noHtmlMode ) );
+  html += htmlRow( i18n( "Where:" ), invitationLocation( todo, noHtmlMode ) );
 
   if ( todo->hasStartDate() && todo->dtStart().isValid() ) {
-    html += invitationRow( i18n( "Start Date:" ), dateToString( todo->dtStart(), false, spec ) );
+    html += htmlRow( i18n( "Start Date:" ), dateToString( todo->dtStart(), false, spec ) );
     if ( !todo->allDay() ) {
-      html += invitationRow( i18n( "Start Time:" ), timeToString( todo->dtStart(), false, spec ) );
+      html += htmlRow( i18n( "Start Time:" ), timeToString( todo->dtStart(), false, spec ) );
     }
   }
   if ( todo->hasDueDate() && todo->dtDue().isValid() ) {
-    html += invitationRow( i18n( "Due Date:" ), dateToString( todo->dtDue(), false, spec ) );
+    html += htmlRow( i18n( "Due Date:" ), dateToString( todo->dtDue(), false, spec ) );
     if ( !todo->allDay() ) {
-      html += invitationRow( i18n( "Due Time:" ), timeToString( todo->dtDue(), false, spec ) );
+      html += htmlRow( i18n( "Due Time:" ), timeToString( todo->dtDue(), false, spec ) );
     }
   } else {
-    html += invitationRow( i18n( "Due Date:" ), i18nc( "no to-do due date", "None" ) );
+    html += htmlRow( i18n( "Due Date:" ), i18nc( "Due Date: None", "None" ) );
   }
 
-  html += "</table></div>\n";
-  html += invitationsDetailsIncidence( todo, noHtmlMode );
+  // Invitation Duration Row
+  html += htmlRow( i18n( "Duration:" ), durationString( todo ) );
+
+  // Invitation Recurrence Row
+  if ( todo->recurs() ) {
+    html += htmlRow( i18n( "Recurrence:" ), recurrenceString( todo ) );
+  }
+
+  html += htmlInvitationDetailsTableEnd();
+  html += invitationDetailsIncidence( todo, noHtmlMode );
+  html += htmlInvitationDetailsEnd();
 
   return html;
 }
 
-static QString invitationDetailsJournal( const Journal::Ptr &journal,
-                                         bool noHtmlMode,
+static QString invitationDetailsTodo( const Todo::Ptr &todo, const Todo::Ptr &oldtodo,
+                                      bool noHtmlMode, KDateTime::Spec spec )
+{
+  if ( !oldtodo ) {
+    return invitationDetailsTodo( todo, noHtmlMode, spec );
+  }
+
+  QString html = htmlInvitationDetailsBegin();
+  html += htmlInvitationDetailsTableBegin();
+
+  html += htmlRow( i18n( "What:" ),
+                   invitationSummary( todo, noHtmlMode ),
+                   invitationSummary( todo, noHtmlMode ) );
+
+  html += htmlRow( i18n( "Where:" ),
+                   invitationLocation( todo, noHtmlMode ),
+                   invitationLocation( oldtodo, noHtmlMode ) );
+
+  if ( todo->hasStartDate() && todo->dtStart().isValid() ) {
+    html += htmlRow( i18n( "Start Date:" ),
+                     dateToString( todo->dtStart(), false ),
+                     dateToString( oldtodo->dtStart(), false ) );
+    QString startTimeStr, oldstartTimeStr;
+    if ( !todo->allDay() ) {
+      startTimeStr = timeToString( todo->dtStart(), false );
+    }
+    if ( !oldtodo->allDay() ) {
+      oldstartTimeStr = timeToString( oldtodo->dtStart(), false );
+    }
+    html += htmlRow( i18n( "Start Time:" ), startTimeStr, oldstartTimeStr );
+  }
+  if ( todo->hasDueDate() && todo->dtDue().isValid() ) {
+    html += htmlRow( i18n( "Due Date:" ),
+                     dateToString( todo->dtDue(), false ),
+                     dateToString( oldtodo->dtDue(), false ) );
+    QString endTimeStr, oldendTimeStr;
+    if ( !todo->allDay() ) {
+      endTimeStr = timeToString( todo->dtDue(), false );
+    }
+    if ( !oldtodo->allDay() ) {
+      oldendTimeStr = timeToString( oldtodo->dtDue(), false );
+    }
+    html += htmlRow( i18n( "Due Time:" ), endTimeStr, oldendTimeStr );
+  } else {
+    QString dueStr = i18nc( "Due Date: None", "None" );
+    QString olddueStr;
+    if ( !oldtodo->hasDueDate() || !oldtodo->dtDue().isValid() ) {
+      olddueStr = i18nc( "Due Date: None", "None" );
+   } else {
+      olddueStr = dateTimeToString( oldtodo->dtDue(), oldtodo->allDay(), false );
+    }
+    html += htmlRow( i18n( "Due Date:" ), dueStr, olddueStr );
+  }
+
+  html += htmlRow( i18n( "Duration:" ), durationString( todo ), durationString( oldtodo ) );
+
+  QString recurStr, oldrecurStr;
+  if ( todo->recurs() ) {
+    recurStr = recurrenceString( todo );
+  }
+  if ( oldtodo->recurs() ) {
+    oldrecurStr = recurrenceString( oldtodo );
+  }
+  html += htmlRow( i18n( "Recurrence:" ), recurStr, oldrecurStr );
+
+  html += htmlInvitationDetailsTableEnd();
+  html += invitationDetailsIncidence( todo, noHtmlMode );
+
+  html += htmlInvitationDetailsEnd();
+
+  return html;
+}
+
+static QString invitationDetailsJournal( const Journal::Ptr &journal, bool noHtmlMode,
                                          KDateTime::Spec spec )
 {
   if ( !journal ) {
     return QString();
   }
 
-  QString sSummary = i18n( "Summary unspecified" );
-  QString sDescr = i18n( "Description unspecified" );
-  if ( ! journal->summary().isEmpty() ) {
-    sSummary = journal->richSummary();
-    if ( noHtmlMode ) {
-      sSummary = cleanHtml( sSummary );
-    }
-  }
-  if ( ! journal->description().isEmpty() ) {
-    sDescr = journal->richDescription();
-    if ( noHtmlMode ) {
-      sDescr = cleanHtml( sDescr );
-    }
-  }
-  QString html( "<table border=\"0\" cellpadding=\"1\" cellspacing=\"1\">\n" );
-  html += invitationRow( i18n( "Summary:" ), sSummary );
-  html += invitationRow( i18n( "Date:" ), dateToString( journal->dtStart(), false, spec ) );
-  html += invitationRow( i18n( "Description:" ), sDescr );
-  html += "</table>\n";
-  html += invitationsDetailsIncidence( journal, noHtmlMode );
+  QString html = htmlInvitationDetailsBegin();
+  html += htmlInvitationDetailsTableBegin();
+
+  html += htmlRow( i18n( "Summary:" ), invitationSummary( journal, noHtmlMode ) );
+  html += htmlRow( i18n( "Date:" ), dateToString( journal->dtStart(), false, spec ) );
+
+  html += htmlInvitationDetailsTableEnd();
+  html += invitationDetailsIncidence( journal, noHtmlMode );
+  html += htmlInvitationDetailsEnd();
 
   return html;
 }
 
-static QString invitationDetailsFreeBusy( const FreeBusy::Ptr &fb,
-                                          bool noHtmlMode,
+static QString invitationDetailsJournal( const Journal::Ptr &journal,
+                                         const Journal::Ptr &oldjournal,
+                                         bool noHtmlMode, KDateTime::Spec spec )
+{
+  if ( !oldjournal ) {
+    return invitationDetailsJournal( journal, noHtmlMode, spec );
+  }
+
+  QString html = htmlInvitationDetailsBegin();
+  html += htmlInvitationDetailsTableBegin();
+
+  html += htmlRow( i18n( "What:" ),
+                   invitationSummary( journal, noHtmlMode ),
+                   invitationSummary( oldjournal, noHtmlMode ) );
+
+  html += htmlRow( i18n( "Date:" ),
+                   dateToString( journal->dtStart(), false, spec ),
+                   dateToString( oldjournal->dtStart(), false, spec ) );
+
+  html += htmlInvitationDetailsTableEnd();
+  html += invitationDetailsIncidence( journal, noHtmlMode );
+  html += htmlInvitationDetailsEnd();
+
+  return html;
+}
+
+static QString invitationDetailsFreeBusy( const FreeBusy::Ptr &fb, bool noHtmlMode,
                                           KDateTime::Spec spec )
 {
   Q_UNUSED( noHtmlMode );
@@ -1480,10 +1691,11 @@ static QString invitationDetailsFreeBusy( const FreeBusy::Ptr &fb,
     return QString();
   }
 
-  QString html( "<table border=\"0\" cellpadding=\"1\" cellspacing=\"1\">\n" );
-  html += invitationRow( i18n( "Person:" ), fb->organizer()->fullName() );
-  html += invitationRow( i18n( "Start date:" ), dateToString( fb->dtStart(), true, spec ) );
-  html += invitationRow( i18n( "End date:" ), dateToString( fb->dtEnd(), true, spec ) );
+  QString html = htmlInvitationDetailsTableBegin();
+
+  html += htmlRow( i18n( "Person:" ), fb->organizer()->fullName() );
+  html += htmlRow( i18n( "Start date:" ), dateToString( fb->dtStart(), true, spec ) );
+  html += htmlRow( i18n( "End date:" ), dateToString( fb->dtEnd(), true, spec ) );
 
   html += "<tr><td colspan=2><hr></td></tr>\n";
   html += "<tr><td colspan=2>Busy periods given in this free/busy object:</td></tr>\n";
@@ -1506,10 +1718,11 @@ static QString invitationDetailsFreeBusy( const FreeBusy::Ptr &fb,
       if ( dur > 0 ) {
         cont += i18ncp( "seconds part of duration", "1 second", "%1 seconds", dur );
       }
-      html += invitationRow(
-        QString(), i18nc( "startDate for duration", "%1 for %2",
-                          KGlobal::locale()->formatDateTime(
-                            per.start().dateTime(), KLocale::LongDate ), cont ) );
+      html += htmlRow( QString(),
+                       i18nc( "startDate for duration", "%1 for %2",
+                              KGlobal::locale()->formatDateTime(
+                                per.start().dateTime(), KLocale::LongDate ),
+                              cont ) );
     } else {
       QString cont;
       if ( per.start().date() == per.end().date() ) {
@@ -1525,12 +1738,19 @@ static QString invitationDetailsFreeBusy( const FreeBusy::Ptr &fb,
                         per.end().dateTime(), KLocale::LongDate ) );
       }
 
-      html += invitationRow( QString(), cont );
+      html += htmlRow( QString(), cont );
     }
   }
 
-  html += "</table>\n";
+  html += htmlInvitationDetailsTableEnd();
   return html;
+}
+
+static QString invitationDetailsFreeBusy( const FreeBusy::Ptr &fb, const FreeBusy::Ptr &oldfb,
+                                          bool noHtmlMode, KDateTime::Spec spec )
+{
+  Q_UNUSED( oldfb );
+  return invitationDetailsFreeBusy( fb, noHtmlMode, spec );
 }
 
 static bool replyMeansCounter( const Incidence::Ptr &incidence )
@@ -2081,22 +2301,25 @@ class KCalUtils::IncidenceFormatter::InvitationBodyVisitor
   protected:
     bool visit( Event::Ptr event )
     {
-      mResult = invitationDetailsEvent( event, mNoHtmlMode, mSpec );
+      Event::Ptr oldevent = mExistingIncidence.dynamicCast<Event>();
+      mResult = invitationDetailsEvent( event, oldevent, mNoHtmlMode, mSpec );
       return !mResult.isEmpty();
     }
     bool visit( Todo::Ptr todo )
     {
-      mResult = invitationDetailsTodo( todo, mNoHtmlMode, mSpec );
+      Todo::Ptr oldtodo = mExistingIncidence.dynamicCast<Todo>();
+      mResult = invitationDetailsTodo( todo, oldtodo, mNoHtmlMode, mSpec );
       return !mResult.isEmpty();
     }
     bool visit( Journal::Ptr journal )
     {
-      mResult = invitationDetailsJournal( journal, mNoHtmlMode, mSpec );
+      Journal::Ptr oldjournal = mExistingIncidence.dynamicCast<Journal>();
+      mResult = invitationDetailsJournal( journal, oldjournal, mNoHtmlMode, mSpec );
       return !mResult.isEmpty();
     }
     bool visit( FreeBusy::Ptr fb )
     {
-      mResult = invitationDetailsFreeBusy( fb, mNoHtmlMode, mSpec );
+      mResult = invitationDetailsFreeBusy( fb, FreeBusy::Ptr(), mNoHtmlMode, mSpec );
       return !mResult.isEmpty();
     }
 
@@ -2428,7 +2651,8 @@ static QString formatICalInvitationHelper( QString invitation,
                                            InvitationFormatterHelper *helper,
                                            bool noHtmlMode,
                                            KDateTime::Spec spec,
-                                           const QString &sender )
+                                           const QString &sender,
+                                           bool outlookCompareStyle )
 {
   if ( invitation.isEmpty() ) {
     return QString();
@@ -2479,32 +2703,48 @@ static QString formatICalInvitationHelper( QString invitation,
   }
   html += htmlAddTag( "h3", headerVisitor.result() );
 
-  IncidenceFormatter::InvitationBodyVisitor bodyVisitor( noHtmlMode, spec );
-  if ( !bodyVisitor.act( incBase, existingIncidence, msg, sender ) ) {
-    return QString();
-  }
-  html += bodyVisitor.result();
-
-  if ( msg->method() == iTIPRequest ) {
-    IncidenceFormatter::IncidenceCompareVisitor compareVisitor;
-    if ( compareVisitor.act( incBase, existingIncidence ) ) {
-      html += "<p align=\"left\">";
-      html += i18n( "The following changes have been made by the organizer:" );
-      html += "</p>";
-      html += compareVisitor.result();
-    }
-  }
-  if ( msg->method() == iTIPReply ) {
-    IncidenceCompareVisitor compareVisitor;
-    if ( compareVisitor.act( incBase, existingIncidence ) ) {
-      html += "<p align=\"left\">";
-      if ( !sender.isEmpty() ) {
-        html += i18n( "The following changes have been made by %1:", sender );
-      } else {
-        html += i18n( "The following changes have been made by an attendee:" );
+  if ( outlookCompareStyle ) {
+    // use the Outlook 2007 Comparison Style
+    IncidenceFormatter::InvitationBodyVisitor bodyVisitor( noHtmlMode, spec );
+    if ( msg->method() == iTIPRequest || msg->method() == iTIPReply ) {
+      if ( !bodyVisitor.act( incBase, existingIncidence, msg, sender ) ) {
+        return QString();
       }
-      html += "</p>";
-      html += compareVisitor.result();
+    } else {
+      if ( !bodyVisitor.act( incBase, Incidence::Ptr(), msg, sender ) ) {
+        return QString();
+      }
+    }
+    html += bodyVisitor.result();
+  } else {
+    // use our "Classic" Comparison Style
+    InvitationBodyVisitor bodyVisitor( noHtmlMode, spec );
+    if ( !bodyVisitor.act( incBase, Incidence::Ptr(), msg, sender ) ) {
+      return QString();
+    }
+    html += bodyVisitor.result();
+
+    if ( msg->method() == iTIPRequest ) {
+      IncidenceFormatter::IncidenceCompareVisitor compareVisitor;
+      if ( compareVisitor.act( incBase, existingIncidence ) ) {
+        html += "<p align=\"left\">";
+        html += i18n( "The following changes have been made by the organizer:" );
+        html += "</p>";
+        html += compareVisitor.result();
+      }
+    }
+    if ( msg->method() == iTIPReply ) {
+      IncidenceCompareVisitor compareVisitor;
+      if ( compareVisitor.act( incBase, existingIncidence ) ) {
+        html += "<p align=\"left\">";
+        if ( !sender.isEmpty() ) {
+          html += i18n( "The following changes have been made by %1:", sender );
+        } else {
+          html += i18n( "The following changes have been made by an attendee:" );
+        }
+        html += "</p>";
+        html += compareVisitor.result();
+      }
     }
   }
 
@@ -2707,19 +2947,23 @@ static QString formatICalInvitationHelper( QString invitation,
 
 QString IncidenceFormatter::formatICalInvitation( QString invitation,
                                                   const MemoryCalendar::Ptr &calendar,
-                                                  InvitationFormatterHelper *helper )
+                                                  InvitationFormatterHelper *helper,
+                                                  bool outlookCompareStyle )
 {
   return formatICalInvitationHelper( invitation, calendar, helper, false,
-                                     KSystemTimeZones::local(), QString() );
+                                     KSystemTimeZones::local(), QString(),
+                                     outlookCompareStyle );
 }
 
 QString IncidenceFormatter::formatICalInvitationNoHtml( const QString &invitation,
                                                         const MemoryCalendar::Ptr &calendar,
                                                         InvitationFormatterHelper *helper,
-                                                        const QString &sender )
+                                                        const QString &sender,
+                                                        bool outlookCompareStyle )
 {
   return formatICalInvitationHelper( invitation, calendar, helper, true,
-                                     KSystemTimeZones::local(), sender );
+                                     KSystemTimeZones::local(), sender,
+                                     outlookCompareStyle );
 }
 
 /*******************************************************************
