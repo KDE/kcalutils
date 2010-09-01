@@ -1572,17 +1572,22 @@ static QString invitationHeaderEvent( const Event::Ptr &event,
     if ( iamOrganizer( event ) ) {
       return i18n( "I created this invitation" );
     } else {
+      QString orgStr;
+      if ( !event->organizer()->fullName().isEmpty() ) {
+        orgStr = event->organizer()->fullName();
+      } else if ( !event->organizer()->email().isEmpty() ) {
+        orgStr = event->organizer()->email();
+      }
       if ( senderIsOrganizer( event, sender ) ) {
-        if ( !event->organizer()->fullName().isEmpty() ) {
-          return i18n( "You received an invitation from %1",
-                       event->organizer()->fullName() );
+        if ( !orgStr.isEmpty() ) {
+          return i18n( "You received an invitation from %1", orgStr );
         } else {
           return i18n( "You received an invitation" );
         }
       } else {
-        if ( !event->organizer()->fullName().isEmpty() ) {
+        if ( !orgStr.isEmpty() ) {
           return i18n( "You received an invitation from %1 as a representative of %2",
-                       sender, event->organizer()->fullName() );
+                       sender, orgStr );
         } else {
           return i18n( "You received an invitation from %1 as the organizer's representative",
                        sender );
@@ -1708,16 +1713,22 @@ static QString invitationHeaderTodo( const Todo::Ptr &todo,
       if ( iamOrganizer( todo ) ) {
         return i18n( "I created this to-do" );
       } else {
+        QString orgStr;
+        if ( !todo->organizer()->fullName().isEmpty() ) {
+          orgStr = todo->organizer()->fullName();
+        } else if ( !todo->organizer()->email().isEmpty() ) {
+          orgStr = todo->organizer()->email();
+        }
         if ( senderIsOrganizer( todo, sender ) ) {
-          if ( !todo->organizer()->fullName().isEmpty() ) {
-            return i18n( "You have been assigned this to-do by %1", todo->organizer()->fullName() );
+          if ( !orgStr.isEmpty() ) {
+            return i18n( "You have been assigned this to-do by %1", orgStr );
           } else {
             return i18n( "You have been assigned this to-do" );
           }
         } else {
-          if ( !todo->organizer()->fullName().isEmpty() ) {
+          if ( !orgStr.isEmpty() ) {
             return i18n( "You have been assigned this to-do by %1 as a representative of %2",
-                         sender, todo->organizer()->fullName() );
+                         sender, orgStr );
           } else {
             return i18n( "You have been assigned this to-do by %1 as the "
                          "organizer's representative", sender );
@@ -2535,7 +2546,7 @@ static QString formatICalInvitationHelper( QString invitation,
     role = Stringify::attendeeRole( a->role() );
   }
 
-  // Print if RSVP needed, not-needed, or response already recorded
+  // determine if RSVP needed, not-needed, or response already recorded
   bool rsvpReq = rsvpRequested( inc );
   if ( !myInc && a ) {
     html += "<br/>";
