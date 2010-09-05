@@ -17,6 +17,7 @@ set(kcalutils_LIB_SRCS
   htmlexport.cpp
   icaldrag.cpp
   incidenceformatter.cpp
+  recurrenceactions.cpp
   stringify.cpp
   scheduler.cpp
   vcaldrag.cpp
@@ -29,6 +30,8 @@ if (NOT WINCE)
 endif (NOT WINCE)
 
 kde4_add_kcfg_files(kcalutils_LIB_SRCS htmlexportsettings.kcfgc )
+
+kde4_add_ui_files(kcalutils_LIB_SRCS recurrenceactionsscopewidget.ui )
 
 kde4_add_library(kcalutils ${LIBRARY_TYPE} ${kcalutils_LIB_SRCS})
 

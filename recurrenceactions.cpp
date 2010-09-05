@@ -31,8 +31,9 @@
 
 #include <boost/shared_ptr.hpp>
 
+using namespace KCalUtils;
+using namespace KCalUtils::RecurrenceActions;
 using namespace KCalCore;
-using namespace KCalCore::RecurrenceActions;
 
 class ScopeWidget : public QWidget
 {
@@ -117,7 +118,8 @@ int RecurrenceActions::availableOccurrences( const Incidence::Ptr &incidence,
 {
   int result = NoOccurrence;
 
-  if ( incidence->recurrence()->recursOn( selectedOccurrence.date(), selectedOccurrence.timeSpec() ) ) {
+  if ( incidence->recurrence()->recursOn( selectedOccurrence.date(),
+                                          selectedOccurrence.timeSpec() ) ) {
     result |= SelectedOccurrence;
   }
 

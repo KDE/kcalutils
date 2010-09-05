@@ -23,7 +23,7 @@
 #ifndef RECURRENCEACTIONS_H
 #define RECURRENCEACTIONS_H
 
-#include "calendarsupport_export.h"
+#include "kcalutils_export.h"
 
 #include <KCalCore/Incidence>
 
@@ -31,7 +31,7 @@ class KDateTime;
 class KGuiItem;
 class QWidget;
 
-namespace KCalCore
+namespace KCalUtils
 {
 
 /**
@@ -91,8 +91,9 @@ namespace RecurrenceActions
 
     @return the #Scope to which actions on the given @incidence can be applied to
   */
-  CALENDARSUPPORT_EXPORT // TODO should be KCAL_EXPORT
-  int availableOccurrences( const Incidence::Ptr &incidence, const KDateTime &selectedOccurrence );
+  KCALUTILS_EXPORT
+  int availableOccurrences( const KCalCore::Incidence::Ptr &incidence,
+                            const KDateTime &selectedOccurrence );
 
   /**
     @short Presents a multiple choice scope selection dialog to the user
@@ -110,7 +111,7 @@ namespace RecurrenceActions
 
     @return the chosen #Scope options, OR'ed together
   */
-  CALENDARSUPPORT_EXPORT // TODO should be KCAL_EXPORT
+  KCALUTILS_EXPORT
   int questionMultipleChoice( const KDateTime &selectedOccurrence,
                               const QString &message, const QString &caption, const KGuiItem &action,
                               int availableChoices, int preselectedChoices, QWidget *parent );
@@ -129,7 +130,7 @@ namespace RecurrenceActions
 
     @param #NoOccurrence on cancel, #SelectedOccurrence or #AllOccurrences on the respective action
   */
-  CALENDARSUPPORT_EXPORT // TODO should be KCAL_EXPORT
+  KCALUTILS_EXPORT
   int questionSelectedAllCancel( const QString &message, const QString &caption,
                                  const KGuiItem &actionSelected, const KGuiItem &actionAll,
                                  QWidget *parent );
@@ -154,9 +155,11 @@ namespace RecurrenceActions
 
     @param #NoOccurrence on cancel, #SelectedOccurrence, #FutureOccurrences or #AllOccurrences on the respective action
   */
-  CALENDARSUPPORT_EXPORT // TODO should be KCAL_EXPORT
+  KCALUTILS_EXPORT
   int questionSelectedFutureAllCancel( const QString &message, const QString &caption,
-                                       const KGuiItem &actionSelected, const KGuiItem &actionFuture, const KGuiItem &actionAll,
+                                       const KGuiItem &actionSelected,
+                                       const KGuiItem &actionFuture,
+                                       const KGuiItem &actionAll,
                                        QWidget *parent );
 }
 
