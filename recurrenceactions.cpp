@@ -24,7 +24,6 @@
 
 #include "ui_recurrenceactionsscopewidget.h"
 
-#include <KCalCore/Recurrence>
 #include <KDialog>
 #include <KLocale>
 #include <KMessageBox>
