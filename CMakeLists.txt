@@ -52,6 +52,7 @@ install(FILES
   incidenceformatter.h
   kcalutils_export.h
   vcaldrag.h
+  recurrenceactions.h
   scheduler.h
   stringify.h
   ${CMAKE_CURRENT_BINARY_DIR}/htmlexportsettings.h
