@@ -46,7 +46,8 @@ class ScopeWidget : public QWidget
         mUi.checkBoxPast->hide();
       } else {
         mUi.checkBoxPast->setText( i18nc( "@option:check calendar items before a certain date",
-                                          "Items before %1", KGlobal::locale()->formatDateTime( dateTime ) ) );
+                                          "Items before %1",
+                                          KGlobal::locale()->formatDateTime( dateTime ) ) );
       }
       if ( ( mAvailableChoices & SelectedOccurrence ) == 0 ) {
         mUi.checkBoxSelected->hide();
@@ -58,7 +59,8 @@ class ScopeWidget : public QWidget
         mUi.checkBoxFuture->hide();
       } else {
         mUi.checkBoxFuture->setText( i18nc( "@option:check calendar items after a certain date",
-                                            "Items after %1", KGlobal::locale()->formatDateTime( dateTime ) ) );
+                                            "Items after %1",
+                                            KGlobal::locale()->formatDateTime( dateTime ) ) );
       }
     }
 
@@ -82,7 +84,8 @@ void ScopeWidget::setIcon( const QIcon &icon )
 {
   QStyleOption option;
   option.initFrom( this );
-  mUi.iconLabel->setPixmap( icon.pixmap( style()->pixelMetric( QStyle::PM_MessageBoxIconSize, &option, this ) ) );
+  mUi.iconLabel->setPixmap(
+    icon.pixmap( style()->pixelMetric( QStyle::PM_MessageBoxIconSize, &option, this ) ) );
 }
 
 void ScopeWidget::setCheckedChoices( int choices )
@@ -134,8 +137,9 @@ int RecurrenceActions::availableOccurrences( const Incidence::Ptr &incidence,
 }
 
 int RecurrenceActions::questionMultipleChoice( const KDateTime &selectedOccurrence,
-                                               const QString &message, const QString &caption, const KGuiItem &action,
-                                               int availableChoices, int preselectedChoices, QWidget *parent )
+                                               const QString &message, const QString &caption,
+                                               const KGuiItem &action, int availableChoices,
+                                               int preselectedChoices, QWidget *parent )
 {
   KDialog *dialog = new KDialog( parent );
   dialog->setCaption( caption );
@@ -161,8 +165,8 @@ int RecurrenceActions::questionMultipleChoice( const KDateTime &selectedOccurren
 }
 
 int RecurrenceActions::questionSelectedAllCancel( const QString &message, const QString &caption,
-                                                  const KGuiItem &actionSelected, const KGuiItem &actionAll,
-                                                  QWidget *parent )
+                                                  const KGuiItem &actionSelected,
+                                                  const KGuiItem &actionAll, QWidget *parent )
 {
   KDialog *dialog = new KDialog( parent );
   dialog->setCaption( caption );
@@ -174,7 +178,13 @@ int RecurrenceActions::questionSelectedAllCancel( const QString &message, const 
 
   bool checkboxResult = false;
   int result = KMessageBox::createKMessageBox(
-    dialog, QMessageBox::Question, message, QStringList(), QString(), &checkboxResult, KMessageBox::Notify );
+    dialog,
+    QMessageBox::Question,
+    message,
+    QStringList(),
+    QString(),
+    &checkboxResult,
+    KMessageBox::Notify );
 
   switch (result) {
     case KDialog::Yes:
@@ -189,9 +199,12 @@ int RecurrenceActions::questionSelectedAllCancel( const QString &message, const 
   return NoOccurrence;
 }
 
-int RecurrenceActions::questionSelectedFutureAllCancel( const QString &message, const QString &caption,
-                                     const KGuiItem &actionSelected, const KGuiItem &actionFuture, const KGuiItem &actionAll,
-                                     QWidget *parent )
+int RecurrenceActions::questionSelectedFutureAllCancel( const QString &message,
+                                                        const QString &caption,
+                                                        const KGuiItem &actionSelected,
+                                                        const KGuiItem &actionFuture,
+                                                        const KGuiItem &actionAll,
+                                                        QWidget *parent )
 {
   KDialog *dialog = new KDialog( parent );
   dialog->setCaption( caption );
@@ -204,7 +217,13 @@ int RecurrenceActions::questionSelectedFutureAllCancel( const QString &message, 
 
   bool checkboxResult = false;
   int result = KMessageBox::createKMessageBox(
-    dialog, QMessageBox::Question, message, QStringList(), QString(), &checkboxResult, KMessageBox::Notify );
+    dialog,
+    QMessageBox::Question,
+    message,
+    QStringList(),
+    QString(),
+    &checkboxResult,
+    KMessageBox::Notify );
 
   switch (result) {
     case KDialog::Yes:

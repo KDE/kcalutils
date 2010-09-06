@@ -37,7 +37,7 @@ namespace KCalUtils
 /**
   @short Utility functions for dealing with recurrences
 
-  Incidences with recurrencies need to be treated differently than single independend ones.
+  Incidences with recurrencies need to be treated differently than single independent ones.
   For example the user might be given the choice to not only modify a selected occurrence
   of an incidence but also all that follow that one, etc.
 
@@ -51,8 +51,7 @@ namespace RecurrenceActions
 
     Flags can be OR'ed together to get a combined scope.
   */
-  enum Scope
-  {
+  enum Scope {
     /**
      Scope does not apply to any occurrence
     */
@@ -85,9 +84,9 @@ namespace RecurrenceActions
     Checks whether the incidence is occurring on the given date and whether there
     are occurrences in the past and future.
 
-    @param incidence the incidence of which to check recurrences
-    @param selectedOccurrence the date (including timespec) to use as the base occurence,
-           i.e., from which to check for past and future occurrences
+    @param incidence the incidence of which to check recurrences.
+    @param selectedOccurrence the date (including timespec) to use as the base occurrence,
+    i.e., from which to check for past and future occurrences.
 
     @return the #Scope to which actions on the given @incidence can be applied to
   */
@@ -101,20 +100,22 @@ namespace RecurrenceActions
     Shows a message box style question dialog with checkboxes for occurrence scope flags
     so the user can be asked specifically which occurrences to apply actions to.
 
-    @param selectedOccurrence the date to use for telling the user which occurrence is the selected one
-    @param message the message which explains the change and selection options
-    @param caption the dialog's caption
-    @param action the GUI item to use for the "OK" button
-    @param availableChoices combined #Scope values to select which options should be present
-    @param preselectedChoices combined #Scope values to optionally preselect some of the options specified with @p availableChoices
-    @param parent QWidget parent for the dialog
+    @param selectedOccurrence the date to use for telling the user which occurrence
+    is the selected one.
+    @param message the message which explains the change and selection options.
+    @param caption the dialog's caption.
+    @param action the GUI item to use for the "OK" button.
+    @param availableChoices combined #Scope values to select which options should be present.
+    @param preselectedChoices combined #Scope values to optionally preselect some of the options
+    specified with @p availableChoices.
+    @param parent QWidget parent for the dialog.
 
     @return the chosen #Scope options, OR'ed together
   */
-  KCALUTILS_EXPORT
-  int questionMultipleChoice( const KDateTime &selectedOccurrence,
-                              const QString &message, const QString &caption, const KGuiItem &action,
-                              int availableChoices, int preselectedChoices, QWidget *parent );
+  KCALUTILS_EXPORT int questionMultipleChoice( const KDateTime &selectedOccurrence,
+                                               const QString &message, const QString &caption,
+                                               const KGuiItem &action, int availableChoices,
+                                               int preselectedChoices, QWidget *parent );
 
   /**
     @short Presents a message box with two action choices and cancel to the user
@@ -122,13 +123,14 @@ namespace RecurrenceActions
     Shows a message box style question dialog with two action scope buttons and cancel.
     This is for quick decisions like whether to only modify a single occurrence or all occurrences.
 
-    @param message the message which explains the change and available options
-    @param caption the dialog's caption
-    @param actionSelected the GUI item to use for the button representing the #SelectedOccurrence scope
-    @param actionAll the GUI item to use for the button representing the #AllOccurrences scope
-    @param parent QWidget parent for the dialog
+    @param message the message which explains the change and available options.
+    @param caption the dialog's caption.
+    @param actionSelected the GUI item to use for the button representing the
+    #SelectedOccurrence scope.
+    @param actionAll the GUI item to use for the button representing the #AllOccurrences scope.
+    @param parent QWidget parent for the dialog.
 
-    @param #NoOccurrence on cancel, #SelectedOccurrence or #AllOccurrences on the respective action
+    @param #NoOccurrence on cancel, #SelectedOccurrence or #AllOccurrences on the respective action.
   */
   KCALUTILS_EXPORT
   int questionSelectedAllCancel( const QString &message, const QString &caption,
@@ -139,21 +141,25 @@ namespace RecurrenceActions
     @short Presents a message box with three action choices and cancel to the user
 
     Shows a message box style question dialog with three action scope buttons and cancel.
-    This is for quick decisions like whether to only modify a single occurrence, to include future or all occurrences.
+    This is for quick decisions like whether to only modify a single occurrence, to include
+    future or all occurrences.
 
     @note The calling application code can of course decide to word the future action text
           in a way that it includes the selected occurrence, e.g. "Also Future Items".
           The returned value will still just be #FutureOccurrences so the calling code
           has to include #SelectedOccurrence itself if it passes the value further on
 
-    @param message the message which explains the change and available options
-    @param caption the dialog's caption
-    @param actionSelected the GUI item to use for the button representing the #SelectedOccurrence scope
-    @param actionSelected the GUI item to use for the button representing the #FutureOccurrences scope
-    @param actionAll the GUI item to use for the button representing the #AllOccurrences scope
-    @param parent QWidget parent for the dialog
+    @param message the message which explains the change and available options.
+    @param caption the dialog's caption.
+    @param actionSelected the GUI item to use for the button representing the
+    #SelectedOccurrence scope.
+    @param actionSelected the GUI item to use for the button representing the
+    #FutureOccurrences scope.
+    @param actionAll the GUI item to use for the button representing the #AllOccurrences scope.
+    @param parent QWidget parent for the dialog.
 
-    @param #NoOccurrence on cancel, #SelectedOccurrence, #FutureOccurrences or #AllOccurrences on the respective action
+    @param #NoOccurrence on cancel, #SelectedOccurrence, #FutureOccurrences or #AllOccurrences
+    on the respective action.
   */
   KCALUTILS_EXPORT
   int questionSelectedFutureAllCancel( const QString &message, const QString &caption,
