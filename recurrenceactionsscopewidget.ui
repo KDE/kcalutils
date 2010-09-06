@@ -66,6 +66,12 @@
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="toolTip">
+          <string>Select calendar items before the specified date</string>
+         </property>
+         <property name="whatsThis">
+          <string>Check this box if you want to select calendar items that occur before the specified date.</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -79,6 +85,12 @@
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="toolTip">
+          <string>Choose the currently selected calendar item</string>
+         </property>
+         <property name="whatsThis">
+          <string>Check this box if you want to select calendar items that occur on the specified date.</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -91,6 +103,12 @@
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="toolTip">
+          <string>Select calendar items after the specified date</string>
+         </property>
+         <property name="whatsThis">
+          <string>Check this box if you want to select calendar items that occur after the specified date.</string>
          </property>
          <property name="text">
           <string/>
