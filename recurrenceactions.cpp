@@ -151,7 +151,7 @@ int RecurrenceActions::questionMultipleChoice( const KDateTime &selectedOccurren
   dialog->setMainWidget( widget );
 
   widget->setMessage( message );
-  widget->setIcon( QMessageBox::standardIcon( QMessageBox::Question ) );
+  widget->setIcon( widget->style()->standardIcon( QStyle::SP_MessageBoxQuestion ) );
   widget->setCheckedChoices( preselectedChoices );
 
   int result = dialog->exec();
