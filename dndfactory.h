@@ -65,7 +65,7 @@ class KCALUTILS_EXPORT DndFactory
                                        flag is on, changes dtDue otherwise. */
     };
 
-    Q_DECLARE_FLAGS( PasteFlags, PasteFlag );
+    Q_DECLARE_FLAGS( PasteFlags, PasteFlag )
 
     explicit DndFactory( const KCalCore::MemoryCalendar::Ptr &cal );
 
