@@ -28,6 +28,8 @@
 #include <KLocale>
 #include <KMessageBox>
 
+#include <QPointer>
+
 #include <boost/shared_ptr.hpp>
 
 using namespace KCalUtils;
@@ -141,7 +143,7 @@ int RecurrenceActions::questionMultipleChoice( const KDateTime &selectedOccurren
                                                const KGuiItem &action, int availableChoices,
                                                int preselectedChoices, QWidget *parent )
 {
-  KDialog *dialog = new KDialog( parent );
+  QPointer<KDialog> dialog = new KDialog( parent );
   dialog->setCaption( caption );
   dialog->setButtons( KDialog::Ok | KDialog::Cancel );
   dialog->setDefaultButton( KDialog::Ok );
@@ -154,8 +156,9 @@ int RecurrenceActions::questionMultipleChoice( const KDateTime &selectedOccurren
   widget->setIcon( widget->style()->standardIcon( QStyle::SP_MessageBoxQuestion ) );
   widget->setCheckedChoices( preselectedChoices );
 
-  int result = dialog->exec();
-  dialog->deleteLater();
+  const int result = dialog->exec();
+  if ( dialog )
+    dialog->deleteLater();
 
   if ( result == QDialog::Rejected ) {
     return NoOccurrence;
