@@ -1775,7 +1775,7 @@ static bool replyMeansCounter( const Incidence::Ptr &incidence )
 
 static QString invitationHeaderEvent( const Event::Ptr &event,
                                       const Incidence::Ptr &existingIncidence,
-                                      ScheduleMessage *msg, const QString &sender )
+                                      ScheduleMessage::Ptr msg, const QString &sender )
 {
   if ( !msg || !event ) {
     return QString();
@@ -1916,7 +1916,7 @@ static QString invitationHeaderEvent( const Event::Ptr &event,
 
 static QString invitationHeaderTodo( const Todo::Ptr &todo,
                                      const Incidence::Ptr &existingIncidence,
-                                     ScheduleMessage *msg, const QString &sender )
+                                     ScheduleMessage::Ptr msg, const QString &sender )
 {
   if ( !msg || !todo ) {
     return QString();
@@ -2066,7 +2066,7 @@ static QString invitationHeaderTodo( const Todo::Ptr &todo,
 }
 
 static QString invitationHeaderJournal( const Journal::Ptr &journal,
-                                        ScheduleMessage *msg )
+                                        ScheduleMessage::Ptr msg )
 {
   if ( !msg || !journal ) {
     return QString();
@@ -2132,7 +2132,7 @@ static QString invitationHeaderJournal( const Journal::Ptr &journal,
 }
 
 static QString invitationHeaderFreeBusy( const FreeBusy::Ptr &fb,
-                                         ScheduleMessage *msg )
+                                         ScheduleMessage::Ptr msg )
 {
   if ( !msg || !fb ) {
     return QString();
@@ -2249,7 +2249,7 @@ class KCalUtils::IncidenceFormatter::ScheduleMessageVisitor : public Visitor
     ScheduleMessageVisitor() : mMessage( 0 ) { mResult = ""; }
     bool act( const IncidenceBase::Ptr &incidence,
               const Incidence::Ptr &existingIncidence,
-              ScheduleMessage *msg, const QString &sender )
+              ScheduleMessage::Ptr msg, const QString &sender )
     {
       mExistingIncidence = existingIncidence;
       mMessage = msg;
@@ -2261,7 +2261,7 @@ class KCalUtils::IncidenceFormatter::ScheduleMessageVisitor : public Visitor
   protected:
     QString mResult;
     Incidence::Ptr mExistingIncidence;
-    ScheduleMessage *mMessage;
+    ScheduleMessage::Ptr mMessage;
     QString mSender;
 };
 
@@ -2661,7 +2661,7 @@ static QString formatICalInvitationHelper( QString invitation,
   ICalFormat format;
   // parseScheduleMessage takes the tz from the calendar,
   // no need to set it manually here for the format!
-  ScheduleMessage *msg = format.parseScheduleMessage( mCalendar, invitation );
+  ScheduleMessage::Ptr msg = format.parseScheduleMessage( mCalendar, invitation );
 
   if( !msg ) {
     kDebug() << "Failed to parse the scheduling message";
