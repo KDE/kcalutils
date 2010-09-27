@@ -2163,7 +2163,7 @@ static QString invitationHeaderFreeBusy( const FreeBusy::Ptr &fb,
 }
 //@endcond
 
-static QString invitationAttendees( const Incidence::Ptr &incidence )
+static QString invitationAttendees( const Incidence::Ptr &incidence, const Attendee::Ptr sender )
 {
   QString tmpStr;
   if ( !incidence ) {
@@ -2176,10 +2176,19 @@ static QString invitationAttendees( const Incidence::Ptr &incidence )
   Attendee::List attendees = incidence->attendees();
   if ( !attendees.isEmpty() ) {
 
+    QString statusStr;
     Attendee::List::ConstIterator it;
     for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
       Attendee::Ptr a = *it;
       if ( !iamAttendee( a ) ) {
+        if ( sender && a->email() == sender->email() ) {
+          // use the attendee taken from the response incidence,
+          // rather than the attendee from the calendar incidence.
+          a = sender;
+          statusStr = i18n( "%1 (<i>unrecorded</i>)", Stringify::attendeeStatus( a->status () ) );
+        } else {
+          statusStr = Stringify::attendeeStatus( a->status () );
+        }
         count++;
         if ( count == 1 ) {
           tmpStr += "<table border=\"1\" cellpadding=\"1\" cellspacing=\"0\">";
@@ -2194,7 +2203,7 @@ static QString invitationAttendees( const Incidence::Ptr &incidence )
           tmpStr += i18n( " (delegated to %1)", a->delegate() );
         }
         tmpStr += "</td>";
-        tmpStr += "<td>" + Stringify::attendeeStatus( a->status () ) + "</td>";
+        tmpStr += "<td>" + statusStr + "</td>";
         tmpStr += "</tr>";
       }
     }
@@ -2932,7 +2941,7 @@ static QString formatICalInvitationHelper( QString invitation,
 
   // Add the attendee list if I am the organizer
   if ( myInc && helper->calendar() ) {
-    html += invitationAttendees( helper->calendar()->incidence( inc->uid() ) );
+    html += invitationAttendees( helper->calendar()->incidence( inc->uid() ), a );
   }
 
   // close the top-level
