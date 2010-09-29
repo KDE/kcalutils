@@ -2176,18 +2176,19 @@ static QString invitationAttendees( const Incidence::Ptr &incidence, const Atten
   Attendee::List attendees = incidence->attendees();
   if ( !attendees.isEmpty() ) {
 
-    QString statusStr;
     Attendee::List::ConstIterator it;
     for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
       Attendee::Ptr a = *it;
       if ( !iamAttendee( a ) ) {
+        QString statusStr = Stringify::attendeeStatus( a->status () );
         if ( sender && a->email() == sender->email() ) {
           // use the attendee taken from the response incidence,
           // rather than the attendee from the calendar incidence.
+          if ( a->status() != sender->status() ) {
+            statusStr = i18n( "%1 (<i>unrecorded</i>)",
+                              Stringify::attendeeStatus( sender->status() ) );
+          }
           a = sender;
-          statusStr = i18n( "%1 (<i>unrecorded</i>)", Stringify::attendeeStatus( a->status () ) );
-        } else {
-          statusStr = Stringify::attendeeStatus( a->status () );
         }
         count++;
         if ( count == 1 ) {
@@ -2802,7 +2803,7 @@ static QString formatICalInvitationHelper( QString invitation,
     html += "<i><u>";
     if ( rsvpRec && inc ) {
       if ( inc->revision() == 0 ) {
-        html += i18n( "Your <b>%1</b> response has already been recorded",
+        html += i18n( "Your <b>%1</b> response has been recorded",
                       Stringify::attendeeStatus( ea->status() ) );
       } else {
         html += i18n( "Your status for this invitation is <b>%1</b>",
@@ -2810,7 +2811,7 @@ static QString formatICalInvitationHelper( QString invitation,
       }
       rsvpReq = false;
     } else if ( msg->method() == iTIPCancel ) {
-      html += i18n( "This invitation was declined" );
+      html += i18n( "This invitation was canceled" );
     } else if ( msg->method() == iTIPAdd ) {
       html += i18n( "This invitation was accepted" );
     } else {
@@ -2912,7 +2913,8 @@ static QString formatICalInvitationHelper( QString invitation,
       }
       if ( ea && ( ea->status() != Attendee::NeedsAction ) && ( ea->status() == a->status() ) ) {
         html += tdOpen;
-        html += htmlAddTag( "i", i18n( "The response has already been recorded" ) );
+        html += htmlAddTag( "i", i18n( "The <b>%1</b> response has been recorded",
+                                       Stringify::attendeeStatus( ea->status() ) ) );
         html += tdClose;
       } else {
         if ( inc ) {
