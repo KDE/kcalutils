@@ -271,16 +271,13 @@ static QString attendeeStatusIconPath( Attendee::PartStat status )
  *******************************************************************/
 
 //@cond PRIVATE
-static QString displayViewLinkPerson( const QString &email, const QString &name,
-                                      const QString &uid, Attendee::PartStat status )
+static QString displayViewFormatPerson( const QString &email, const QString &name,
+                                        const QString &uid, const QString &iconPath )
 {
   // Search for new print name or uid, if needed.
   QPair<QString, QString> s = searchNameAndUid( email, name, uid );
   const QString printName = s.first;
   const QString printUid = s.second;
-
-  // Get the icon corresponding to the attendee participation status.
-  const QString iconPath = attendeeStatusIconPath( status );
 
   QString personString;
   if ( !iconPath.isEmpty() ) {
@@ -303,34 +300,10 @@ static QString displayViewLinkPerson( const QString &email, const QString &name,
   return personString;
 }
 
-static QString displayViewFormatOrganizer( const QString &email, const QString &name )
+static QString displayViewFormatPerson( const QString &email, const QString &name,
+                                        const QString &uid, Attendee::PartStat status )
 {
-  // Search for new print name or uid, if needed.
-  QPair<QString, QString> s = searchNameAndUid( email, name, QString() );
-  const QString printName = s.first;
-  const QString printUid = s.second;
-
-  // Get the icon for organizer
-  const QString iconPath =
-    KIconLoader::global()->iconPath( "meeting-organizer", KIconLoader::Small );
-
-  QString personString;
-  personString += "<img valign=\"top\" src=\"" + iconPath + "\">" + "&nbsp;";
-
-  // Make the uid link
-  if ( !printUid.isEmpty() ) {
-    personString += htmlAddUidLink( email, printName, printUid );
-  } else {
-    // No UID, just show some text
-    personString += ( printName.isEmpty() ? email : printName );
-  }
-
-  // Make the mailto link
-  if ( !email.isEmpty() ) {
-    personString += "&nbsp;" + htmlAddMailtoLink( email, printName );
-  }
-
-  return personString;
+  return displayViewFormatPerson( email, name, uid, attendeeStatusIconPath( status ) );
 }
 
 static QString displayViewFormatAttendeeRoleList( Incidence::Ptr incidence, Attendee::Role role )
@@ -349,7 +322,7 @@ static QString displayViewFormatAttendeeRoleList( Incidence::Ptr incidence, Atte
       // skip attendee that is also the organizer
       continue;
     }
-    tmpStr += displayViewLinkPerson( a->email(), a->name(), a->uid(), a->status() );
+    tmpStr += displayViewFormatPerson( a->email(), a->name(), a->uid(), a->status() );
     if ( !a->delegator().isEmpty() ) {
       tmpStr += i18n( " (delegated by %1)", a->delegator() );
     }
@@ -373,11 +346,15 @@ static QString displayViewFormatAttendees( Incidence::Ptr incidence )
   if ( attendeeCount > 1 ||
        ( attendeeCount == 1 &&
          incidence->organizer()->email() != incidence->attendees().first()->email() ) ) {
+
+    QPair<QString, QString> s = searchNameAndUid( incidence->organizer()->email(),
+                                                  incidence->organizer()->name(),
+                                                  QString() );
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Organizer:" ) + "</b></td>";
-    tmpStr += "<td>" +
-              displayViewFormatOrganizer( incidence->organizer()->email(),
-                                          incidence->organizer()->name() ) +
+    const QString iconPath = KIconLoader::global()->iconPath( "organizer", KIconLoader::Small );
+    tmpStr += "<td>" + displayViewFormatPerson( incidence->organizer()->email(),
+                                                s.first, s.second, iconPath ) +
               "</td>";
     tmpStr += "</tr>";
   }
@@ -477,9 +454,7 @@ static QString displayViewFormatBirthday( Event::Ptr event )
   QString name_1 = event->customProperty( "KABC", "NAME-1" );
   QString email_1= event->customProperty( "KABC", "EMAIL-1" );
 
-  //TODO: add a birthday cake icon. Make a displayViewLinkBirthdayPerson(email,name,uid)
-  QString tmpStr = displayViewLinkPerson( email_1, name_1, uid_1, Attendee::None );
-
+  QString tmpStr = displayViewFormatPerson( email_1, name_1, uid_1, QString() );
   return tmpStr;
 }
 
