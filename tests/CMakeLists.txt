@@ -8,6 +8,7 @@ MACRO(KCALUTILS_UNIT_TESTS)
 ENDMACRO(KCALUTILS_UNIT_TESTS)
 
 KCALUTILS_UNIT_TESTS(
-  teststringify
   testdndfactory
+  testincidenceformatter
+  teststringify
 )
