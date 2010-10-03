@@ -26,6 +26,7 @@
 #include <kcalcore/event.h>
 
 #include <KDateTime>
+#include <KLocale>
 
 #include <QDebug>
 #include <qtest_kde.h>
@@ -42,14 +43,14 @@ void IncidenceFormatterTest::testRecurrenceString()
   QTime tim( 12, 0, 0 );
   KDateTime kdt( day,  tim,  KDateTime::UTC );
   e->setDtStart( kdt );
-  e->setDtEnd( kdt.addSecs( 60 * 60 ) );
+  e->setDtEnd( kdt.addSecs( 60 * 60 ) );  // 1hr event
 
   QVERIFY( IncidenceFormatter::recurrenceString( e ) == i18n( "No recurrence" ) );
 
   Recurrence *r = e->recurrence();
 
   r->setDaily( 1 );
-  r->setEndDateTime( kdt.addSecs( 60 * 60 * 24 * 5 ) ); // ends 5 days from now
+  r->setEndDateTime( kdt.addDays( 5 ) ); // ends 5 days from now
   QVERIFY( IncidenceFormatter::recurrenceString( e ) ==
            i18n( "Recurs daily until 2010-10-08 12:00" ) );
 
@@ -58,6 +59,13 @@ void IncidenceFormatterTest::testRecurrenceString()
   QVERIFY( IncidenceFormatter::recurrenceString( e ) ==
            i18n( "Recurs every 2 days until 2010-10-08 12:00" ) );
 
-//  qDebug() << "recurrenceString=" << IncidenceFormatter::recurrenceString( e );
+  r->addExDateTime( kdt.addDays( 1 ) );
+  QVERIFY( IncidenceFormatter::recurrenceString( e ) ==
+           i18n( "Recurs every 2 days until 2010-10-08 12:00 (excluding 2010-10-04)" ) );
 
+  r->addExDateTime( kdt.addDays( 3 ) );
+  QVERIFY( IncidenceFormatter::recurrenceString( e ) ==
+           i18n( "Recurs every 2 days until 2010-10-08 12:00 (excluding 2010-10-04,2010-10-06)" ) );
+
+  //qDebug() << "recurrenceString=" << IncidenceFormatter::recurrenceString( e );
 }
