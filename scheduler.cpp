@@ -129,16 +129,7 @@ bool Scheduler::acceptPublish( const IncidenceBase::Ptr &newIncBase, ScheduleMes
             IncidenceBase *ci = calInc.data();
             IncidenceBase *ni = newInc.data();
             *ci = *ni;
-
-            {
-              // issue4579: DON'T change this order. setUid() emits incidenceUpdated().
-              // setSchedulingID() doesn't. If you change the order, kolab resource will
-              // catch the signal and think there isn't any schedulingId.
-              // Possible kcal improvement: create a setUids( schedulingId, uid )
-              // that changes both members and emits incidenceuIpdated() at the end.
-              calInc->setSchedulingID( newInc->uid() );
-              calInc->setUid( oldUid );
-            }
+            calInc->setSchedulingID( newInc->uid(), oldUid );
             res = true;
           }
         }
@@ -221,15 +212,7 @@ bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence, ScheduleMess
           IncidenceBase *ii = i.data();
           IncidenceBase *inci = inc.data();
           *ii = *inci;
-          {
-            // issue4579: DON'T change this order. setUid() emits incidenceUpdated().
-            // setSchedulingID() doesn't. If you change the order, kolab resource will
-            // catch the signal and think there isn't any schedulingId.
-            // Possible kcal improvement: create a setUids( schedulingId, uid )
-            // that changes both members and emits incidenceuIpdated() at the end.
-            i->setSchedulingID( inc->uid() );
-            i->setUid( oldUid );
-          }
+          i->setSchedulingID( inc->uid(), oldUid );
         }
         deleteTransaction( incidence );
         return res;
@@ -243,8 +226,7 @@ bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence, ScheduleMess
   }
 
   // Move the uid to be the schedulingID and make a unique UID
-  inc->setSchedulingID( inc->uid() );
-  inc->setUid( CalFormat::createUniqueId() );
+  inc->setSchedulingID( inc->uid(), CalFormat::createUniqueId() );
   // notify the user in case this is an update and we didn't find the to-be-updated incidence
   if ( existingIncidences.count() == 0 && inc->revision() > 0 ) {
     KMessageBox::information(
