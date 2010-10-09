@@ -129,8 +129,16 @@ bool Scheduler::acceptPublish( const IncidenceBase::Ptr &newIncBase, ScheduleMes
             IncidenceBase *ci = calInc.data();
             IncidenceBase *ni = newInc.data();
             *ci = *ni;
-            calInc->setUid( oldUid );
-            calInc->setSchedulingID( newInc->uid() );
+
+            {
+              // issue4579: DON'T change this order. setUid() emits incidenceUpdated().
+              // setSchedulingID() doesn't. If you change the order, kolab resource will
+              // catch the signal and think there isn't any schedulingId.
+              // Possible kcal improvement: create a setUids( schedulingId, uid )
+              // that changes both members and emits incidenceuIpdated() at the end.
+              calInc->setSchedulingID( newInc->uid() );
+              calInc->setUid( oldUid );
+            }
             res = true;
           }
         }
@@ -213,8 +221,15 @@ bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence, ScheduleMess
           IncidenceBase *ii = i.data();
           IncidenceBase *inci = inc.data();
           *ii = *inci;
-          i->setUid( oldUid );
-          i->setSchedulingID( inc->uid() );
+          {
+            // issue4579: DON'T change this order. setUid() emits incidenceUpdated().
+            // setSchedulingID() doesn't. If you change the order, kolab resource will
+            // catch the signal and think there isn't any schedulingId.
+            // Possible kcal improvement: create a setUids( schedulingId, uid )
+            // that changes both members and emits incidenceuIpdated() at the end.
+            i->setSchedulingID( inc->uid() );
+            i->setUid( oldUid );
+          }
         }
         deleteTransaction( incidence );
         return res;
