@@ -213,7 +213,17 @@ static bool senderIsOrganizer( Incidence::Ptr incidence, const QString &sender )
   return isorg;
 }
 
-static QString firstAttendeeName( Incidence::Ptr incidence, const QString &defName )
+static bool attendeeIsOrganizer( const Incidence::Ptr &incidence, const Attendee::Ptr &attendee )
+{
+  if ( incidence && attendee &&
+       ( incidence->organizer()->email() == attendee->email() ) ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+static QString firstAttendeeName( const Incidence::Ptr &incidence, const QString &defName )
 {
   QString name;
   if ( !incidence ) {
@@ -234,7 +244,7 @@ static QString firstAttendeeName( Incidence::Ptr incidence, const QString &defNa
   return name;
 }
 
-static QString attendeeStatusIconPath( Attendee::PartStat status )
+static QString rsvpStatusIconPath( Attendee::PartStat status )
 {
   QString iconPath;
   switch ( status ) {
@@ -303,7 +313,7 @@ static QString displayViewFormatPerson( const QString &email, const QString &nam
 static QString displayViewFormatPerson( const QString &email, const QString &name,
                                         const QString &uid, Attendee::PartStat status )
 {
-  return displayViewFormatPerson( email, name, uid, attendeeStatusIconPath( status ) );
+  return displayViewFormatPerson( email, name, uid, rsvpStatusIconPath( status ) );
 }
 
 static QString displayViewFormatAttendeeRoleList( Incidence::Ptr incidence, Attendee::Role role )
@@ -312,17 +322,19 @@ static QString displayViewFormatAttendeeRoleList( Incidence::Ptr incidence, Atte
   Attendee::List::ConstIterator it;
   Attendee::List attendees = incidence->attendees();
 
+  bool iamOrg = iamOrganizer( incidence );
   for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
     Attendee::Ptr a = *it;
     if ( a->role() != role ) {
       // skip this role
       continue;
     }
-    if ( a->email() == incidence->organizer()->email() ) {
+    if ( attendeeIsOrganizer( incidence, a ) ) {
       // skip attendee that is also the organizer
       continue;
     }
-    tmpStr += displayViewFormatPerson( a->email(), a->name(), a->uid(), a->status() );
+    tmpStr += displayViewFormatPerson( a->email(), a->name(), a->uid(),
+                                        iamOrg ? a->status() : Attendee::None );
     if ( !a->delegator().isEmpty() ) {
       tmpStr += i18n( " (delegated by %1)", a->delegator() );
     }
@@ -345,7 +357,7 @@ static QString displayViewFormatAttendees( Incidence::Ptr incidence )
   int attendeeCount = incidence->attendees().count();
   if ( attendeeCount > 1 ||
        ( attendeeCount == 1 &&
-         incidence->organizer()->email() != incidence->attendees().first()->email() ) ) {
+         !attendeeIsOrganizer( incidence, incidence->attendees().first() ) ) ) {
 
     QPair<QString, QString> s = searchNameAndUid( incidence->organizer()->email(),
                                                   incidence->organizer()->name(),
@@ -2234,14 +2246,17 @@ static QString invitationHeaderFreeBusy( const FreeBusy::Ptr &fb,
 }
 //@endcond
 
-static QString invitationAttendees( const Incidence::Ptr &incidence, const Attendee::Ptr sender )
+static QString invitationAttendeeList( const Incidence::Ptr &incidence )
 {
   QString tmpStr;
   if ( !incidence ) {
     return tmpStr;
   }
-
-  tmpStr += i18n( "Invitation List" );
+  if ( incidence->type() == Incidence::TypeTodo ) {
+    tmpStr += i18n( "Assignees" );
+  } else {
+    tmpStr += i18n( "Invitation List" );
+  }
 
   int count=0;
   Attendee::List attendees = incidence->attendees();
@@ -2250,7 +2265,54 @@ static QString invitationAttendees( const Incidence::Ptr &incidence, const Atten
     Attendee::List::ConstIterator it;
     for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
       Attendee::Ptr a = *it;
-      if ( !iamAttendee( a ) ) {
+      if ( !iamAttendee( a ) && !attendeeIsOrganizer( incidence, a ) ) {
+        count++;
+        if ( count == 1 ) {
+          tmpStr += "<table border=\"1\" cellpadding=\"1\" cellspacing=\"0\">";
+        }
+        tmpStr += "<tr>";
+        tmpStr += "<td>";
+        tmpStr += invitationPerson( a->email(), a->name(), QString() );
+        if ( !a->delegator().isEmpty() ) {
+          tmpStr += i18n( " (delegated by %1)", a->delegator() );
+        }
+        if ( !a->delegate().isEmpty() ) {
+          tmpStr += i18n( " (delegated to %1)", a->delegate() );
+        }
+        tmpStr += "</td>";
+        tmpStr += "</tr>";
+      }
+    }
+  }
+  if ( count ) {
+    tmpStr += "</table>";
+  } else {
+    tmpStr += "<i>" + i18nc( "no attendees", "None" ) + "</i>";
+  }
+
+  return tmpStr;
+}
+
+static QString invitationRsvpList( const Incidence::Ptr &incidence, const Attendee::Ptr &sender )
+{
+  QString tmpStr;
+  if ( !incidence ) {
+    return tmpStr;
+  }
+  if ( incidence->type() == Incidence::TypeTodo ) {
+    tmpStr += i18n( "Assignees" );
+  } else {
+    tmpStr += i18n( "Invitation List" );
+  }
+
+  int count=0;
+  Attendee::List attendees = incidence->attendees();
+  if ( !attendees.isEmpty() ) {
+
+    Attendee::List::ConstIterator it;
+    for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
+      Attendee::Ptr a = *it;
+      if ( !iamAttendee( a ) && !attendeeIsOrganizer( incidence, a ) ) {
         QString statusStr = Stringify::attendeeStatus( a->status () );
         if ( sender && a->email() == sender->email() ) {
           // use the attendee taken from the response incidence,
@@ -2584,9 +2646,11 @@ class IncidenceFormatter::IncidenceCompareVisitor : public Visitor
 
       for ( Attendee::List::ConstIterator it = oldAttendees.constBegin();
             it != oldAttendees.constEnd(); ++it ) {
-        Attendee::Ptr newAtt = newInc->attendeeByMail( (*it)->email() );
-        if ( !newAtt ) {
-          mChanges += i18n( "Attendee %1 has been removed", (*it)->fullName() );
+        if ( !attendeeIsOrganizer( oldInc, (*it) ) ) {
+          Attendee::Ptr newAtt = newInc->attendeeByMail( (*it)->email() );
+          if ( !newAtt ) {
+            mChanges += i18n( "Attendee %1 has been removed", (*it)->fullName() );
+          }
         }
       }
     }
@@ -3012,9 +3076,14 @@ static QString formatICalInvitationHelper( QString invitation,
   // close the groupware table
   html += "</tr></table>";
 
-  // Add the attendee list if I am the organizer
-  if ( myInc && helper->calendar() ) {
-    html += invitationAttendees( helper->calendar()->incidence( inc->uid() ), a );
+  // Add the attendee list
+  if ( helper->calendar() ) {
+    if ( myInc ) {
+      // if I am the organizer
+      html += invitationRsvpList( helper->calendar()->incidence( inc->uid() ), a );
+    } else {
+      html += invitationAttendeeList( helper->calendar()->incidence( inc->uid() ) );
+    }
   }
 
   // close the top-level
@@ -3274,16 +3343,20 @@ static QString tooltipPerson( const QString &email, const QString &name, Attende
   const QString printName = searchName( email, name );
 
   // Get the icon corresponding to the attendee participation status.
-  const QString iconPath = attendeeStatusIconPath( status );
+  const QString iconPath = rsvpStatusIconPath( status );
 
   // Make the return string.
   QString personString;
   if ( !iconPath.isEmpty() ) {
     personString += "<img valign=\"top\" src=\"" + iconPath + "\">" + "&nbsp;";
   }
-  personString += i18nc( "attendee name (attendee status)", "%1 (%2)",
-                         printName.isEmpty() ? email : printName,
-                         Stringify::attendeeStatus( status ) );
+  if ( status != Attendee::None ) {
+    personString += i18nc( "attendee name (attendee status)", "%1 (%2)",
+                           printName.isEmpty() ? email : printName,
+                           Stringify::attendeeStatus( status ) );
+  } else {
+    personString += i18n( "%1", printName.isEmpty() ? email : printName );
+  }
   return personString;
 }
 
@@ -3314,13 +3387,14 @@ static QString tooltipFormatAttendeeRoleList( const Incidence::Ptr &incidence,
   Attendee::List::ConstIterator it;
   Attendee::List attendees = incidence->attendees();
 
+  bool iamOrg = iamOrganizer( incidence );
   for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
     Attendee::Ptr a = *it;
     if ( a->role() != role ) {
       // skip not this role
       continue;
     }
-    if ( a->email() == incidence->organizer()->email() ) {
+    if ( attendeeIsOrganizer( incidence, a ) ) {
       // skip attendee that is also the organizer
       continue;
     }
@@ -3328,7 +3402,8 @@ static QString tooltipFormatAttendeeRoleList( const Incidence::Ptr &incidence,
       tmpStr += "&nbsp;&nbsp;" + etc;
       break;
     }
-    tmpStr += "&nbsp;&nbsp;" + tooltipPerson( a->email(), a->name(), a->status() );
+    tmpStr += "&nbsp;&nbsp;" + tooltipPerson( a->email(), a->name(),
+                                               iamOrg ? a->status() : Attendee::None );
     if ( !a->delegator().isEmpty() ) {
       tmpStr += i18n( " (delegated by %1)", a->delegator() );
     }
@@ -3352,7 +3427,7 @@ static QString tooltipFormatAttendees( const Incidence::Ptr &incidence )
   int attendeeCount = incidence->attendees().count();
   if ( attendeeCount > 1 ||
        ( attendeeCount == 1 &&
-         incidence->organizer()->email() != incidence->attendees().first()->email() ) ) {
+         !attendeeIsOrganizer( incidence, incidence->attendees().first() ) ) ) {
     tmpStr += "<i>" + i18n( "Organizer:" ) + "</i>" + "<br>";
     tmpStr += "&nbsp;&nbsp;" + tooltipFormatOrganizer( incidence->organizer()->email(),
                                                        incidence->organizer()->name() );
