@@ -1880,7 +1880,11 @@ static QString invitationHeaderEvent( const Event::Ptr &event,
   case iTIPRefresh:
     return i18n( "This invitation was refreshed" );
   case iTIPCancel:
-    return i18n( "This invitation has been canceled" );
+    if ( iamOrganizer( event ) ) {
+      return i18n( "This invitation has been canceled" );
+    } else {
+      return i18n( "The organizer has removed you from the invitation" );
+    }
   case iTIPAdd:
     return i18n( "Addition to the invitation" );
   case iTIPReply:
@@ -2022,7 +2026,11 @@ static QString invitationHeaderTodo( const Todo::Ptr &todo,
   case iTIPRefresh:
     return i18n( "This to-do was refreshed" );
   case iTIPCancel:
-    return i18n( "This to-do was canceled" );
+    if ( iamOrganizer( todo ) ) {
+      return i18n( "This to-do was canceled" );
+    } else {
+      return i18n( "The organizer has removed you from this to-do" );
+    }
   case iTIPAdd:
     return i18n( "Addition to the to-do" );
   case iTIPReply:
