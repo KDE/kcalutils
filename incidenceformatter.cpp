@@ -316,13 +316,23 @@ static QString displayViewFormatPerson( const QString &email, const QString &nam
   return displayViewFormatPerson( email, name, uid, rsvpStatusIconPath( status ) );
 }
 
-static QString displayViewFormatAttendeeRoleList( Incidence::Ptr incidence, Attendee::Role role )
+static bool incOrganizerOwnsCalendar( const Calendar::Ptr &calendar,
+                                      const Incidence::Ptr &incidence )
+{
+  //PORTME!  Look at e35's CalHelper::incOrganizerOwnsCalendar
+
+  // For now, use iamOrganizer() which is only part of the check
+  Q_UNUSED( calendar );
+  return iamOrganizer( incidence );
+}
+
+static QString displayViewFormatAttendeeRoleList( Incidence::Ptr incidence, Attendee::Role role,
+                                                  bool showStatus )
 {
   QString tmpStr;
   Attendee::List::ConstIterator it;
   Attendee::List attendees = incidence->attendees();
 
-  bool iamOrg = iamOrganizer( incidence );
   for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
     Attendee::Ptr a = *it;
     if ( a->role() != role ) {
@@ -334,7 +344,7 @@ static QString displayViewFormatAttendeeRoleList( Incidence::Ptr incidence, Atte
       continue;
     }
     tmpStr += displayViewFormatPerson( a->email(), a->name(), a->uid(),
-                                        iamOrg ? a->status() : Attendee::None );
+                                       showStatus ? a->status() : Attendee::None );
     if ( !a->delegator().isEmpty() ) {
       tmpStr += i18n( " (delegated by %1)", a->delegator() );
     }
@@ -349,7 +359,7 @@ static QString displayViewFormatAttendeeRoleList( Incidence::Ptr incidence, Atte
   return tmpStr;
 }
 
-static QString displayViewFormatAttendees( Incidence::Ptr incidence )
+static QString displayViewFormatAttendees( Calendar::Ptr calendar, Incidence::Ptr incidence )
 {
   QString tmpStr, str;
 
@@ -371,8 +381,12 @@ static QString displayViewFormatAttendees( Incidence::Ptr incidence )
     tmpStr += "</tr>";
   }
 
+  // Show the attendee status if the incidence's organizer owns the resource calendar,
+  // which means they are running the show and have all the up-to-date response info.
+  bool showStatus = incOrganizerOwnsCalendar( calendar, incidence );
+
   // Add "chair"
-  str = displayViewFormatAttendeeRoleList( incidence, Attendee::Chair );
+  str = displayViewFormatAttendeeRoleList( incidence, Attendee::Chair, showStatus );
   if ( !str.isEmpty() ) {
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Chair:" ) + "</b></td>";
@@ -381,7 +395,7 @@ static QString displayViewFormatAttendees( Incidence::Ptr incidence )
   }
 
   // Add required participants
-  str = displayViewFormatAttendeeRoleList( incidence, Attendee::ReqParticipant );
+  str = displayViewFormatAttendeeRoleList( incidence, Attendee::ReqParticipant, showStatus );
   if ( !str.isEmpty() ) {
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Required Participants:" ) + "</b></td>";
@@ -390,7 +404,7 @@ static QString displayViewFormatAttendees( Incidence::Ptr incidence )
   }
 
   // Add optional participants
-  str = displayViewFormatAttendeeRoleList( incidence, Attendee::OptParticipant );
+  str = displayViewFormatAttendeeRoleList( incidence, Attendee::OptParticipant, showStatus );
   if ( !str.isEmpty() ) {
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Optional Participants:" ) + "</b></td>";
@@ -399,7 +413,7 @@ static QString displayViewFormatAttendees( Incidence::Ptr incidence )
   }
 
   // Add observers
-  str = displayViewFormatAttendeeRoleList( incidence, Attendee::NonParticipant );
+  str = displayViewFormatAttendeeRoleList( incidence, Attendee::NonParticipant, showStatus );
   if ( !str.isEmpty() ) {
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Observers:" ) + "</b></td>";
@@ -536,7 +550,8 @@ static QString displayViewFormatHeader( Incidence::Ptr incidence )
   return tmpStr;
 }
 
-static QString displayViewFormatEvent( const QString &calStr, Event::Ptr event,
+static QString displayViewFormatEvent( const Calendar::Ptr calendar, const QString &sourceName,
+                                       const Event::Ptr &event,
                                        const QDate &date, KDateTime::Spec spec )
 {
   if ( !event ) {
@@ -549,6 +564,7 @@ static QString displayViewFormatEvent( const QString &calStr, Event::Ptr event,
   tmpStr += "<col width=\"25%\"/>";
   tmpStr += "<col width=\"75%\"/>";
 
+  const QString calStr = calendar ? resourceString( calendar, event ) : sourceName;
   if ( !calStr.isEmpty() ) {
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Calendar:" ) + "</b></td>";
@@ -681,7 +697,7 @@ static QString displayViewFormatEvent( const QString &calStr, Event::Ptr event,
     tmpStr += "</tr>";
   }
 
-  tmpStr += displayViewFormatAttendees( event );
+  tmpStr += displayViewFormatAttendees( calendar, event );
 
   int categoryCount = event->categories().count();
   if ( categoryCount > 0 ) {
@@ -709,7 +725,8 @@ static QString displayViewFormatEvent( const QString &calStr, Event::Ptr event,
   return tmpStr;
 }
 
-static QString displayViewFormatTodo( const QString &calStr, Todo::Ptr todo,
+static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QString &sourceName,
+                                      const Todo::Ptr &todo,
                                       const QDate &date, KDateTime::Spec spec )
 {
   if ( !todo ) {
@@ -722,6 +739,7 @@ static QString displayViewFormatTodo( const QString &calStr, Todo::Ptr todo,
   tmpStr += "<col width=\"25%\"/>";
   tmpStr += "<col width=\"75%\"/>";
 
+  const QString calStr = calendar ? resourceString( calendar, todo ) : sourceName;
   if ( !calStr.isEmpty() ) {
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Calendar:" ) + "</b></td>";
@@ -808,7 +826,7 @@ static QString displayViewFormatTodo( const QString &calStr, Todo::Ptr todo,
     tmpStr += "</tr>";
   }
 
-  tmpStr += displayViewFormatAttendees( todo );
+  tmpStr += displayViewFormatAttendees( calendar, todo );
 
   int categoryCount = todo->categories().count();
   if ( categoryCount > 0 ) {
@@ -858,8 +876,8 @@ static QString displayViewFormatTodo( const QString &calStr, Todo::Ptr todo,
   return tmpStr;
 }
 
-static QString displayViewFormatJournal( const QString &calStr, Journal::Ptr journal,
-                                         KDateTime::Spec spec )
+static QString displayViewFormatJournal( const Calendar::Ptr &calendar, const QString &sourceName,
+                                         const Journal::Ptr &journal, KDateTime::Spec spec )
 {
   if ( !journal ) {
     return QString();
@@ -871,6 +889,7 @@ static QString displayViewFormatJournal( const QString &calStr, Journal::Ptr jou
   tmpStr += "<col width=\"25%\"/>";
   tmpStr += "<col width=\"75%\"/>";
 
+  const QString calStr = calendar ? resourceString( calendar, journal ) : sourceName;
   if ( !calStr.isEmpty() ) {
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Calendar:" ) + "</b></td>";
@@ -909,10 +928,11 @@ static QString displayViewFormatJournal( const QString &calStr, Journal::Ptr jou
   return tmpStr;
 }
 
-static QString displayViewFormatFreeBusy( const QString &calStr, FreeBusy::Ptr fb,
-                                          KDateTime::Spec spec )
+static QString displayViewFormatFreeBusy( const Calendar::Ptr &calendar, const QString &sourceName,
+                                          const FreeBusy::Ptr &fb, KDateTime::Spec spec )
 {
-  Q_UNUSED( calStr );
+  Q_UNUSED( calendar );
+  Q_UNUSED( sourceName );
   if ( !fb ) {
     return QString();
   }
@@ -1004,25 +1024,22 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
   protected:
     bool visit( Event::Ptr event )
     {
-      const QString calStr = mCalendar ? resourceString( mCalendar, event ) : mSourceName;
-      mResult = displayViewFormatEvent( calStr, event, mDate, mSpec );
+      mResult = displayViewFormatEvent( mCalendar, mSourceName, event, mDate, mSpec );
       return !mResult.isEmpty();
     }
     bool visit( Todo::Ptr todo )
     {
-      const QString calStr = mCalendar ? resourceString( mCalendar, todo ) : mSourceName;
-      mResult = displayViewFormatTodo( calStr, todo, mDate, mSpec );
+      mResult = displayViewFormatTodo( mCalendar, mSourceName, todo, mDate, mSpec );
       return !mResult.isEmpty();
     }
     bool visit( Journal::Ptr journal )
     {
-      const QString calStr = mCalendar ? resourceString( mCalendar, journal ) : mSourceName;
-      mResult = displayViewFormatJournal( calStr, journal, mSpec );
+      mResult = displayViewFormatJournal( mCalendar, mSourceName, journal, mSpec );
       return !mResult.isEmpty();
     }
     bool visit( FreeBusy::Ptr fb )
     {
-      mResult = displayViewFormatFreeBusy( mSourceName, fb, mSpec );
+      mResult = displayViewFormatFreeBusy( mCalendar, mSourceName, fb, mSpec );
       return !mResult.isEmpty();
     }
 
@@ -3377,7 +3394,7 @@ static QString tooltipFormatOrganizer( const QString &email, const QString &name
 }
 
 static QString tooltipFormatAttendeeRoleList( const Incidence::Ptr &incidence,
-                                              Attendee::Role role )
+                                              Attendee::Role role, bool showStatus )
 {
   int maxNumAtts = 8; // maximum number of people to print per attendee role
   const QString etc = i18nc( "elipsis", "..." );
@@ -3387,7 +3404,6 @@ static QString tooltipFormatAttendeeRoleList( const Incidence::Ptr &incidence,
   Attendee::List::ConstIterator it;
   Attendee::List attendees = incidence->attendees();
 
-  bool iamOrg = iamOrganizer( incidence );
   for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
     Attendee::Ptr a = *it;
     if ( a->role() != role ) {
@@ -3403,7 +3419,7 @@ static QString tooltipFormatAttendeeRoleList( const Incidence::Ptr &incidence,
       break;
     }
     tmpStr += "&nbsp;&nbsp;" + tooltipPerson( a->email(), a->name(),
-                                               iamOrg ? a->status() : Attendee::None );
+                                              showStatus ? a->status() : Attendee::None );
     if ( !a->delegator().isEmpty() ) {
       tmpStr += i18n( " (delegated by %1)", a->delegator() );
     }
@@ -3419,7 +3435,8 @@ static QString tooltipFormatAttendeeRoleList( const Incidence::Ptr &incidence,
   return tmpStr;
 }
 
-static QString tooltipFormatAttendees( const Incidence::Ptr &incidence )
+static QString tooltipFormatAttendees( const Calendar::Ptr &calendar,
+                                       const Incidence::Ptr &incidence )
 {
   QString tmpStr, str;
 
@@ -3433,29 +3450,33 @@ static QString tooltipFormatAttendees( const Incidence::Ptr &incidence )
                                                        incidence->organizer()->name() );
   }
 
+  // Show the attendee status if the incidence's organizer owns the resource calendar,
+  // which means they are running the show and have all the up-to-date response info.
+  bool showStatus = incOrganizerOwnsCalendar( calendar, incidence );
+
   // Add "chair"
-  str = tooltipFormatAttendeeRoleList( incidence, Attendee::Chair );
+  str = tooltipFormatAttendeeRoleList( incidence, Attendee::Chair, showStatus );
   if ( !str.isEmpty() ) {
     tmpStr += "<br><i>" + i18n( "Chair:" ) + "</i>" + "<br>";
     tmpStr += str;
   }
 
   // Add required participants
-  str = tooltipFormatAttendeeRoleList( incidence, Attendee::ReqParticipant );
+  str = tooltipFormatAttendeeRoleList( incidence, Attendee::ReqParticipant, showStatus );
   if ( !str.isEmpty() ) {
     tmpStr += "<br><i>" + i18n( "Required Participants:" ) + "</i>" + "<br>";
     tmpStr += str;
   }
 
   // Add optional participants
-  str = tooltipFormatAttendeeRoleList( incidence, Attendee::OptParticipant );
+  str = tooltipFormatAttendeeRoleList( incidence, Attendee::OptParticipant, showStatus );
   if ( !str.isEmpty() ) {
     tmpStr += "<br><i>" + i18n( "Optional Participants:" ) + "</i>" + "<br>";
     tmpStr += str;
   }
 
   // Add observers
-  str = tooltipFormatAttendeeRoleList( incidence, Attendee::NonParticipant );
+  str = tooltipFormatAttendeeRoleList( incidence, Attendee::NonParticipant, showStatus );
   if ( !str.isEmpty() ) {
     tmpStr += "<br><i>" + i18n( "Observers:" ) + "</i>" + "<br>";
     tmpStr += str;
@@ -3534,7 +3555,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip( const Incidence::Pt
   }
 
   tmp += "<br>";
-  tmp += tooltipFormatAttendees( incidence );
+  tmp += tooltipFormatAttendees( mCalendar, incidence );
 
   int categoryCount = incidence->categories().count();
   if ( categoryCount > 0 ) {
