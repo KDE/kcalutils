@@ -492,37 +492,15 @@ static QString displayViewFormatHeader( Incidence::Ptr incidence )
   KIconLoader *iconLoader = KIconLoader::global();
   tmpStr += "<td>";
 
-  // TODO: KDE5. Make the function QString Incidence::getPixmap() so we don't
-  // need downcasting.
-
-  if ( incidence->type() == Incidence::TypeTodo ) {
-    tmpStr += "<img valign=\"top\" src=\"";
-    Todo::Ptr todo = incidence.staticCast<Todo>();
-    if ( !todo->isCompleted() ) {
-      tmpStr += iconLoader->iconPath( "view-calendar-tasks", KIconLoader::Small );
-    } else {
-      tmpStr += iconLoader->iconPath( "task-complete", KIconLoader::Small );
-    }
-    tmpStr += "\">";
+  QString iconPath;
+  if ( incidence->customProperty( "KABC", "BIRTHDAY" ) == "YES" ) {
+    iconPath = iconLoader->iconPath( "view-calendar-birthday", KIconLoader::Small );
+  } else if ( incidence->customProperty( "KABC", "ANNIVERSARY" ) == "YES" ) {
+    iconPath = iconLoader->iconPath( "view-calendar-wedding-anniversary", KIconLoader::Small );
+  } else {
+    iconPath = iconLoader->iconPath( incidence->iconName(), KIconLoader::Small );
   }
-
-  if ( incidence->type() == Incidence::TypeEvent ) {
-    QString iconPath;
-    if ( incidence->customProperty( "KABC", "BIRTHDAY" ) == "YES" ) {
-      iconPath = iconLoader->iconPath( "view-calendar-birthday", KIconLoader::Small );
-    } else if ( incidence->customProperty( "KABC", "ANNIVERSARY" ) == "YES" ) {
-      iconPath = iconLoader->iconPath( "view-calendar-wedding-anniversary", KIconLoader::Small );
-    } else {
-      iconPath = iconLoader->iconPath( "view-calendar-day", KIconLoader::Small );
-    }
-    tmpStr += "<img valign=\"top\" src=\"" + iconPath + "\">";
-  }
-
-  if ( incidence->type() == Incidence::TypeJournal ) {
-    tmpStr += "<img valign=\"top\" src=\"" +
-              iconLoader->iconPath( "view-pim-journal", KIconLoader::Small ) +
-              "\">";
-  }
+  tmpStr += "<img valign=\"top\" src=\"" + iconPath + "\">";
 
   if ( incidence->hasEnabledAlarms() ) {
     tmpStr += "<img valign=\"top\" src=\"" +

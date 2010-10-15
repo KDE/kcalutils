@@ -169,12 +169,7 @@ QDrag *DndFactory::createDrag( const Incidence::Ptr &incidence, QWidget *owner )
 {
   QDrag *drag = new QDrag( owner );
   drag->setMimeData( createMimeData( incidence ) );
-
-  if ( incidence->type() == Incidence::TypeEvent ) {
-    drag->setPixmap( BarIcon( "view-calendar-day" ) );
-  } else if ( incidence->type() == Incidence::TypeTodo ) {
-    drag->setPixmap( BarIcon( "view-calendar-tasks" ) );
-  }
+  drag->setPixmap( BarIcon( incidence->iconName() ) );
 
   return drag;
 }
