@@ -1659,11 +1659,11 @@ static QString invitationDetailsTodo( const Todo::Ptr &todo, const Todo::Ptr &ol
                      dateToString( todo->dtStart(), false ),
                      dateToString( oldtodo->dtStart(), false ) );
     QString startTimeStr, oldstartTimeStr;
-    if ( !todo->allDay() ) {
-      startTimeStr = timeToString( todo->dtStart(), false );
-    }
-    if ( !oldtodo->allDay() ) {
-      oldstartTimeStr = timeToString( oldtodo->dtStart(), false );
+    if ( !todo->allDay() || !oldtodo->allDay() ) {
+      startTimeStr = todo->allDay() ?
+                     i18n( "All day" ) : timeToString( todo->dtStart(), false );
+      oldstartTimeStr = oldtodo->allDay() ?
+                        i18n( "All day" ) : timeToString( oldtodo->dtStart(), false );
     }
     html += htmlRow( i18n( "Start Time:" ), startTimeStr, oldstartTimeStr );
   }
@@ -1672,11 +1672,11 @@ static QString invitationDetailsTodo( const Todo::Ptr &todo, const Todo::Ptr &ol
                      dateToString( todo->dtDue(), false ),
                      dateToString( oldtodo->dtDue(), false ) );
     QString endTimeStr, oldendTimeStr;
-    if ( !todo->allDay() ) {
-      endTimeStr = timeToString( todo->dtDue(), false );
-    }
-    if ( !oldtodo->allDay() ) {
-      oldendTimeStr = timeToString( oldtodo->dtDue(), false );
+    if ( !todo->allDay() || !oldtodo->allDay() ) {
+      endTimeStr = todo->allDay() ?
+                   i18n( "All day" ) : timeToString( todo->dtDue(), false );
+      oldendTimeStr = oldtodo->allDay() ?
+                      i18n( "All day" ) : timeToString( oldtodo->dtDue(), false );
     }
     html += htmlRow( i18n( "Due Time:" ), endTimeStr, oldendTimeStr );
   } else {
