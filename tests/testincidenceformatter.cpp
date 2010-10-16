@@ -37,35 +37,86 @@ using namespace KCalUtils;
 
 void IncidenceFormatterTest::testRecurrenceString()
 {
-  Event::Ptr e = Event::Ptr( new Event() );
+  // TEST: A daily recurrence with date exclusions //
+  Event::Ptr e1 = Event::Ptr( new Event() );
 
   QDate day( 2010, 10, 3 );
   QTime tim( 12, 0, 0 );
-  KDateTime kdt( day,  tim,  KDateTime::UTC );
-  e->setDtStart( kdt );
-  e->setDtEnd( kdt.addSecs( 60 * 60 ) );  // 1hr event
+  KDateTime kdt( day, tim, KDateTime::UTC );
+  e1->setDtStart( kdt );
+  e1->setDtEnd( kdt.addSecs( 60 * 60 ) );  // 1hr event
 
-  QVERIFY( IncidenceFormatter::recurrenceString( e ) == i18n( "No recurrence" ) );
+  QVERIFY( IncidenceFormatter::recurrenceString( e1 ) == i18n( "No recurrence" ) );
 
-  Recurrence *r = e->recurrence();
+  Recurrence *r1 = e1->recurrence();
 
-  r->setDaily( 1 );
-  r->setEndDateTime( kdt.addDays( 5 ) ); // ends 5 days from now
-  QVERIFY( IncidenceFormatter::recurrenceString( e ) ==
+  r1->setDaily( 1 );
+  r1->setEndDateTime( kdt.addDays( 5 ) ); // ends 5 days from now
+  QVERIFY( IncidenceFormatter::recurrenceString( e1 ) ==
            i18n( "Recurs daily until 2010-10-08 12:00" ) );
 
-  r->setFrequency( 2 );
+  r1->setFrequency( 2 );
 
-  QVERIFY( IncidenceFormatter::recurrenceString( e ) ==
+  QVERIFY( IncidenceFormatter::recurrenceString( e1 ) ==
            i18n( "Recurs every 2 days until 2010-10-08 12:00" ) );
 
-  r->addExDateTime( kdt.addDays( 1 ) );
-  QVERIFY( IncidenceFormatter::recurrenceString( e ) ==
+  r1->addExDate( kdt.addDays( 1 ).date() );
+  QVERIFY( IncidenceFormatter::recurrenceString( e1 ) ==
            i18n( "Recurs every 2 days until 2010-10-08 12:00 (excluding 2010-10-04)" ) );
 
-  r->addExDateTime( kdt.addDays( 3 ) );
-  QVERIFY( IncidenceFormatter::recurrenceString( e ) ==
+  r1->addExDate( kdt.addDays( 3 ).date() );
+  QVERIFY( IncidenceFormatter::recurrenceString( e1 ) ==
            i18n( "Recurs every 2 days until 2010-10-08 12:00 (excluding 2010-10-04,2010-10-06)" ) );
 
-  //qDebug() << "recurrenceString=" << IncidenceFormatter::recurrenceString( e );
+  // TEST: An daily recurrence, with datetime exclusions //
+  Event::Ptr e2 = Event::Ptr( new Event() );
+  e2->setDtStart( kdt );
+  e2->setDtEnd( kdt.addSecs( 60 * 60 ) );  // 1hr event
+
+  Recurrence *r2 = e2->recurrence();
+
+  r2->setDaily( 1 );
+  r2->setEndDate( kdt.addDays( 5 ).date() ); // ends 5 days from now
+  QVERIFY( IncidenceFormatter::recurrenceString( e2 ) ==
+           i18n( "Recurs daily until 2010-10-08 12:00" ) );
+
+  r2->setFrequency( 2 );
+
+  QVERIFY( IncidenceFormatter::recurrenceString( e2 ) ==
+           i18n( "Recurs every 2 days until 2010-10-08 12:00" ) );
+
+  r2->addExDateTime( kdt.addDays( 1 ) );
+  QVERIFY( IncidenceFormatter::recurrenceString( e2 ) ==
+           i18n( "Recurs every 2 days until 2010-10-08 12:00 (excluding 2010-10-04)" ) );
+
+  r2->addExDate( kdt.addDays( 3 ).date() );
+  QVERIFY( IncidenceFormatter::recurrenceString( e2 ) ==
+           i18n( "Recurs every 2 days until 2010-10-08 12:00 (excluding 2010-10-04,2010-10-06)" ) );
+
+  // TEST: An hourly recurrence, with exclusions //
+  Event::Ptr e3 = Event::Ptr( new Event() );
+  e3->setDtStart( kdt );
+  e3->setDtEnd( kdt.addSecs( 60 * 60 ) );  // 1hr event
+
+  Recurrence *r3 = e3->recurrence();
+
+  r3->setHourly( 1 );
+  r3->setEndDateTime( kdt.addSecs( 5 * 60 * 60 ) ); // ends 5 hrs from now
+  QVERIFY( IncidenceFormatter::recurrenceString( e3 ) ==
+           i18n( "Recurs hourly until 2010-10-03 17:00" ) );
+
+  r3->setFrequency( 2 );
+
+  QVERIFY( IncidenceFormatter::recurrenceString( e3 ) ==
+           i18n( "Recurs every 2 hours until 2010-10-03 17:00" ) );
+
+  r3->addExDateTime( kdt.addSecs( 1 * 60 * 60 ) );
+  QVERIFY( IncidenceFormatter::recurrenceString( e3 ) ==
+           i18n( "Recurs every 2 hours until 2010-10-03 17:00 (excluding 13:00)" ) );
+
+  r3->addExDateTime( kdt.addSecs( 3 * 60 * 60 ) );
+  QVERIFY( IncidenceFormatter::recurrenceString( e3 ) ==
+           i18n( "Recurs every 2 hours until 2010-10-03 17:00 (excluding 13:00,15:00)" ) );
+
+//  qDebug() << "recurrenceString=" << IncidenceFormatter::recurrenceString( e3 );
 }

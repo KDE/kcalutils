@@ -4072,7 +4072,7 @@ QString IncidenceFormatter::recurrenceString( const Incidence::Ptr &incidence )
     recurStr = i18n( "Incidence recurs" );
   }
 
-  // Now, append the EXDATES
+  // Now, append the EXDATEs
   DateTimeList l = recur->exDateTimes();
   DateTimeList::ConstIterator il;
   QStringList exStr;
@@ -4104,6 +4104,34 @@ QString IncidenceFormatter::recurrenceString( const Incidence::Ptr &incidence )
       break;
     case Recurrence::rYearlyPos:
       exStr << KGlobal::locale()->formatDate( (*il).date(), KLocale::ShortDate );
+      break;
+    }
+  }
+
+  DateList d = recur->exDates();
+  DateList::ConstIterator dl;
+  for ( dl = d.constBegin(); dl != d.constEnd(); ++dl ) {
+    switch ( recur->recurrenceType() ) {
+    case Recurrence::rDaily:
+      exStr << KGlobal::locale()->formatDate( (*dl), KLocale::ShortDate );
+      break;
+    case Recurrence::rWeekly:
+      exStr << calSys->weekDayName( (*dl), KCalendarSystem::ShortDayName );
+      break;
+    case Recurrence::rMonthlyPos:
+      exStr << KGlobal::locale()->formatDate( (*dl), KLocale::ShortDate );
+      break;
+    case Recurrence::rMonthlyDay:
+      exStr << KGlobal::locale()->formatDate( (*dl), KLocale::ShortDate );
+      break;
+    case Recurrence::rYearlyMonth:
+      exStr << calSys->monthName( (*dl), KCalendarSystem::LongName );
+      break;
+    case Recurrence::rYearlyDay:
+      exStr << KGlobal::locale()->formatDate( (*dl), KLocale::ShortDate );
+      break;
+    case Recurrence::rYearlyPos:
+      exStr << KGlobal::locale()->formatDate( (*dl), KLocale::ShortDate );
       break;
     }
   }
