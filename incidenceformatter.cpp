@@ -2960,6 +2960,9 @@ static QString formatICalInvitationHelper( QString invitation,
       html += i18n( "This invitation was canceled" );
     } else if ( msg->method() == iTIPAdd ) {
       html += i18n( "This invitation was accepted" );
+    } else if ( msg->method() == iTIPDeclineCounter ) {
+      rsvpReq = true;
+      html += rsvpRequestedStr( rsvpReq, role );
     } else {
       if ( !isDelegated ) {
         html += rsvpRequestedStr( rsvpReq, role );
@@ -3080,6 +3083,9 @@ static QString formatICalInvitationHelper( QString invitation,
       break;
 
     case iTIPDeclineCounter:
+      html += responseButtons( inc, rsvpReq, rsvpRec, helper );
+      break;
+
     case iTIPNoMethod:
       break;
   }
