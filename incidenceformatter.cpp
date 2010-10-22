@@ -401,7 +401,8 @@ static QString displayViewFormatAttendees( Calendar::Ptr calendar, Incidence::Pt
                                                   QString() );
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Organizer:" ) + "</b></td>";
-    const QString iconPath = KIconLoader::global()->iconPath( "meeting-organizer", KIconLoader::Small );
+    const QString iconPath =
+      KIconLoader::global()->iconPath( "meeting-organizer", KIconLoader::Small );
     tmpStr += "<td>" + displayViewFormatPerson( incidence->organizer()->email(),
                                                 s.first, s.second, iconPath ) +
               "</td>";
@@ -1356,20 +1357,23 @@ static QString myStatusStr( Incidence::Ptr incidence )
   return ret;
 }
 
-static QString invitationPerson( const QString &email, const QString &name, const QString &uid )
+static QString invitationPerson( const QString &email, const QString &name, const QString &uid,
+                                 const QString &comment )
 {
   QPair<QString, QString> s = searchNameAndUid( email, name, uid );
   const QString printName = s.first;
   const QString printUid = s.second;
 
   QString personString;
-
   // Make the uid link
   if ( !printUid.isEmpty() ) {
-    personString += htmlAddUidLink( email, printName, printUid );
+    personString = htmlAddUidLink( email, printName, printUid );
   } else {
     // No UID, just show some text
-    personString += ( printName.isEmpty() ? email : printName );
+    personString = ( printName.isEmpty() ? email : printName );
+  }
+  if ( !comment.isEmpty() ) {
+    personString = i18nc( "name (comment)", "%1 (%2)", personString, comment );
   }
   personString += '\n';
 
@@ -2272,24 +2276,28 @@ static QString invitationAttendeeList( const Incidence::Ptr &incidence )
   int count=0;
   Attendee::List attendees = incidence->attendees();
   if ( !attendees.isEmpty() ) {
-
+    QStringList comments;
     Attendee::List::ConstIterator it;
     for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
       Attendee::Ptr a = *it;
-      if ( !iamAttendee( a ) && !attendeeIsOrganizer( incidence, a ) ) {
+      if ( !iamAttendee( a ) ) {
         count++;
         if ( count == 1 ) {
           tmpStr += "<table border=\"1\" cellpadding=\"1\" cellspacing=\"0\">";
         }
         tmpStr += "<tr>";
         tmpStr += "<td>";
-        tmpStr += invitationPerson( a->email(), a->name(), QString() );
+        comments.clear();
+        if ( attendeeIsOrganizer( incidence, a ) ) {
+          comments << i18n( "organizer" );
+        }
         if ( !a->delegator().isEmpty() ) {
-          tmpStr += i18n( " (delegated by %1)", a->delegator() );
+          comments << i18n( " (delegated by %1)", a->delegator() );
         }
         if ( !a->delegate().isEmpty() ) {
-          tmpStr += i18n( " (delegated to %1)", a->delegate() );
+          comments << i18n( " (delegated to %1)", a->delegate() );
         }
+        tmpStr += invitationPerson( a->email(), a->name(), QString(), comments.join( "," ) );
         tmpStr += "</td>";
         tmpStr += "</tr>";
       }
@@ -2319,13 +2327,13 @@ static QString invitationRsvpList( const Incidence::Ptr &incidence, const Attend
   int count=0;
   Attendee::List attendees = incidence->attendees();
   if ( !attendees.isEmpty() ) {
-
+    QStringList comments;
     Attendee::List::ConstIterator it;
     for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
       Attendee::Ptr a = *it;
-      if ( !iamAttendee( a ) && !attendeeIsOrganizer( incidence, a ) ) {
+      if ( !attendeeIsOrganizer( incidence, a ) ) {
         QString statusStr = Stringify::attendeeStatus( a->status () );
-        if ( sender && a->email() == sender->email() ) {
+        if ( sender && ( a->email() == sender->email() ) ) {
           // use the attendee taken from the response incidence,
           // rather than the attendee from the calendar incidence.
           if ( a->status() != sender->status() ) {
@@ -2340,13 +2348,17 @@ static QString invitationRsvpList( const Incidence::Ptr &incidence, const Attend
         }
         tmpStr += "<tr>";
         tmpStr += "<td>";
-        tmpStr += invitationPerson( a->email(), a->name(), QString() );
+        comments.clear();
+        if ( iamAttendee( a ) ) {
+          comments << i18n( "myself" );
+        }
         if ( !a->delegator().isEmpty() ) {
-          tmpStr += i18n( " (delegated by %1)", a->delegator() );
+          comments << i18n( " (delegated by %1)", a->delegator() );
         }
         if ( !a->delegate().isEmpty() ) {
-          tmpStr += i18n( " (delegated to %1)", a->delegate() );
+          comments << i18n( " (delegated to %1)", a->delegate() );
         }
+        tmpStr += invitationPerson( a->email(), a->name(), QString(), comments.join( "," ) );
         tmpStr += "</td>";
         tmpStr += "<td>" + statusStr + "</td>";
         tmpStr += "</tr>";
@@ -3094,16 +3106,13 @@ static QString formatICalInvitationHelper( QString invitation,
   html += "</tr></table>";
 
   // Add the attendee list
-  if ( helper->calendar() ) {
-    if ( myInc ) {
-      // if I am the organizer
-      html += invitationRsvpList( helper->calendar()->incidence( inc->uid() ), a );
-    } else {
-      html += invitationAttendeeList( helper->calendar()->incidence( inc->uid() ) );
-    }
+  if ( myInc ) {
+    html += invitationRsvpList( existingIncidence, a );
+  } else {
+    html += invitationAttendeeList( inc );
   }
 
-  // close the top-level
+  // close the top-level table
   html += "</div>";
 
   // Add the attachment list
