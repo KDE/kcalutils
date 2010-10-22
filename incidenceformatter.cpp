@@ -401,7 +401,7 @@ static QString displayViewFormatAttendees( Calendar::Ptr calendar, Incidence::Pt
                                                   QString() );
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Organizer:" ) + "</b></td>";
-    const QString iconPath = KIconLoader::global()->iconPath( "organizer", KIconLoader::Small );
+    const QString iconPath = KIconLoader::global()->iconPath( "meeting-organizer", KIconLoader::Small );
     tmpStr += "<td>" + displayViewFormatPerson( incidence->organizer()->email(),
                                                 s.first, s.second, iconPath ) +
               "</td>";
