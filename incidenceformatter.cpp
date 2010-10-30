@@ -1193,6 +1193,20 @@ static QString htmlInvitationDetailsTableEnd()
   return "</table>\n";
 }
 
+static QString diffColor()
+{
+  // Color for printing comparison differences inside invitations.
+
+//  return  "#DE8519"; // hard-coded color from Outlook2007
+  return QColor( Qt::red ).name();  //krazy:exclude=qenums TODO make configurable
+}
+
+static QString noteColor()
+{
+  // Color for printing notes inside invitations.
+  return qApp->palette().color( QPalette::Active, QPalette::Highlight ).name();
+}
+
 static QString htmlRow( const QString &title, const QString &value )
 {
   if ( !value.isEmpty() ) {
@@ -1215,9 +1229,7 @@ static QString htmlRow( const QString &title, const QString &value, const QStrin
   }
 
   // if 'value' has changed, then make a special print
-  QPalette pal = qApp->palette();
-  QString color = pal.color( QPalette::Active, QPalette::Highlight ).name();
-//  QString color = "#DE8519"; // hard-coded color from Outlook2007, per request.
+  QString color = diffColor();
   QString newtitle = "<font color=\"" + color + "\">" + title + "</font>";
   QString newvalue = "<font color=\"" + color + "\">" + value + "</font>" +
                      "&nbsp;" +
@@ -1570,10 +1582,9 @@ static QString invitationDetailsEvent( const Event::Ptr &event, const Event::Ptr
   // Print extra info typically dependent on the iTIP
   if ( message->method() == iTIPDeclineCounter ) {
     html += "<br>";
-    QString color = qApp->palette().color( QPalette::Active, QPalette::Highlight ).name();
     html += invitationNote( QString(),
                             i18n( "Please respond again to the original proposal." ),
-                            QString(), color );
+                            QString(), noteColor() );
   }
 
   html += htmlInvitationDetailsBegin();
@@ -1719,10 +1730,9 @@ static QString invitationDetailsTodo( const Todo::Ptr &todo, const Todo::Ptr &ol
   // Print extra info typically dependent on the iTIP
   if ( message->method() == iTIPDeclineCounter ) {
     html += "<br>";
-    QString color = qApp->palette().color( QPalette::Active, QPalette::Highlight ).name();
     html += invitationNote( QString(),
                             i18n( "Please respond again to the original proposal." ),
-                            QString(), color );
+                            QString(), noteColor() );
   }
 
   html += htmlInvitationDetailsBegin();
