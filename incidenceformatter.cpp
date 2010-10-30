@@ -2091,7 +2091,8 @@ static QString invitationHeaderTodo( const Todo::Ptr &todo,
       if ( senderIsOrganizer( todo, sender ) ) {
         return i18n( "This to-do has been updated by the organizer %1", orgStr );
       } else {
-        return i18n( "This to-do has been updated by %1 on behalf of %1", sender, orgStr );
+        return i18n( "This to-do has been updated by %1 as a representative of %2",
+                     sender, orgStr );
       }
     } else {
       if ( iamOrganizer( todo ) ) {
