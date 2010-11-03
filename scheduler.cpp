@@ -145,11 +145,13 @@ bool Scheduler::acceptPublish( const IncidenceBase::Ptr &newIncBase, ScheduleMes
   return res;
 }
 
-bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence, ScheduleMessage::Status status,
+bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence,
+                               ScheduleMessage::Status status,
                                const QString &email )
 {
   Incidence::Ptr inc = incidence.staticCast<Incidence>() ;
   if ( !inc ) {
+    kWarning() << "Accept what?";
     return false;
   }
   if ( inc->type() == IncidenceBase::TypeFreeBusy ) {

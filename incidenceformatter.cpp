@@ -2910,12 +2910,14 @@ static QString formatICalInvitationHelper( QString invitation,
   }
 
   IncidenceBase::Ptr incBase = msg->event();
+
   incBase->shiftTimes( mCalendar->timeSpec(), KDateTime::Spec::LocalZone() );
 
   // Determine if this incidence is in my calendar (and owned by me)
   Incidence::Ptr existingIncidence;
   if ( incBase && helper->calendar() ) {
     existingIncidence = helper->calendar()->incidence( incBase->uid() );
+
     if ( !incidenceOwnedByMe( helper->calendar(), existingIncidence ) ) {
       existingIncidence.clear();
     }
