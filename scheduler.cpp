@@ -160,7 +160,7 @@ bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence, ScheduleMess
   const Incidence::List existingIncidences = mCalendar->incidencesFromSchedulingID( inc->uid() );
   kDebug() << "status=" << Stringify::scheduleMessageStatus( status ) //krazy:exclude=kdebug
            << ": found " << existingIncidences.count()
-           << " incidences with schedulingID " << inc->schedulingID();
+           << " incidences with schedulingID " << inc->schedulingID() << "; uid was = " << inc->uid();
   Incidence::List::ConstIterator incit = existingIncidences.begin();
   for ( ; incit != existingIncidences.end() ; ++incit ) {
     Incidence::Ptr i = *incit;
