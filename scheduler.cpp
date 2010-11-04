@@ -166,15 +166,15 @@ bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence,
            << "; uid was = " << inc->uid();
   Incidence::List::ConstIterator incit = existingIncidences.begin();
   for ( ; incit != existingIncidences.end() ; ++incit ) {
-    Incidence::Ptr i = *incit;
+    Incidence::Ptr existingIncidence = *incit;
     kDebug() << "Considering this found event ("
-             << ( i->isReadOnly() ? "readonly" : "readwrite" )
-             << ") :" << mFormat->toString( i );
+             << ( existingIncidence->isReadOnly() ? "readonly" : "readwrite" )
+             << ") :" << mFormat->toString( existingIncidence );
     // If it's readonly, we can't possible update it.
-    if ( i->isReadOnly() ) {
+    if ( existingIncidence->isReadOnly() ) {
       continue;
     }
-    if ( i->revision() <= inc->revision() ) {
+    if ( existingIncidence->revision() <= inc->revision() ) {
       // The new incidence might be an update for the found one
       bool isUpdate = true;
       // Code for new invitations:
@@ -182,40 +182,40 @@ bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence,
       // It comes from a similar check inside libical, where the event is compared to
       // other events in the calendar. But if we have another version of the event around
       // (e.g. shared folder for a group), the status could be RequestNew, Obsolete or Updated.
-      kDebug() << "looking in " << i->uid() << "'s attendees";
+      kDebug() << "looking in " << existingIncidence->uid() << "'s attendees";
       // This is supposed to be a new request, not an update - however we want to update
       // the existing one to handle the "clicking more than once on the invitation" case.
       // So check the attendee status of the attendee.
-      const Attendee::List attendees = i->attendees();
+      const Attendee::List attendees = existingIncidence->attendees();
       Attendee::List::ConstIterator ait;
       for ( ait = attendees.begin(); ait != attendees.end(); ++ait ) {
         if( (*ait)->email() == email && (*ait)->status() == Attendee::NeedsAction ) {
           // This incidence wasn't created by me - it's probably in a shared folder
           // and meant for someone else, ignore it.
-          kDebug() << "ignoring " << i->uid() << " since I'm still NeedsAction there";
+          kDebug() << "ignoring " << existingIncidence->uid() << " since I'm still NeedsAction there";
           isUpdate = false;
           break;
         }
       }
       if ( isUpdate ) {
-        if ( i->revision() == inc->revision() &&
-             i->lastModified() > inc->lastModified() ) {
+        if ( existingIncidence->revision() == inc->revision() &&
+             existingIncidence->lastModified() > inc->lastModified() ) {
           // This isn't an update - the found incidence was modified more recently
           kDebug() << "This isn't an update - the found incidence was modified more recently";
-          deleteTransaction( i );
+          deleteTransaction( existingIncidence );
           return false;
         }
-        kDebug() << "replacing existing incidence " << i->uid();
+        kDebug() << "replacing existing incidence " << existingIncidence->uid();
         bool res = true;
-        const QString oldUid = i->uid();
-        if ( i->type() != inc->type() ) {
+        const QString oldUid = existingIncidence->uid();
+        if ( existingIncidence->type() != inc->type() ) {
           kError() << "assigning different incidence types";
           res = false;
         } else {
-          IncidenceBase *ii = i.data();
-          IncidenceBase *inci = inc.data();
-          *ii = *inci;
-          i->setSchedulingID( inc->uid(), oldUid );
+          IncidenceBase *existingIncidenceBase = existingIncidence.data();
+          IncidenceBase *incBase = inc.data();
+          *existingIncidenceBase = *incBase;
+          existingIncidence->setSchedulingID( inc->uid(), oldUid );
         }
         deleteTransaction( incidence );
         return res;
