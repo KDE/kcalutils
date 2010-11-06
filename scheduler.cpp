@@ -164,6 +164,13 @@ bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence,
            << ": found " << existingIncidences.count()
            << " incidences with schedulingID " << inc->schedulingID()
            << "; uid was = " << inc->uid();
+
+  if ( existingIncidences.isEmpty() ) {
+    // Perfectly normal if the incidence doesn't exist. This is probably
+    // a new invitation.
+    kDebug() << "incidence not found; calendar = " << mCalendar.data()
+             << "; incidence count = " << mCalendar->incidences().count();
+  }
   Incidence::List::ConstIterator incit = existingIncidences.begin();
   for ( ; incit != existingIncidences.end() ; ++incit ) {
     Incidence::Ptr existingIncidence = *incit;
