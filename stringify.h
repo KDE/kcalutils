@@ -39,7 +39,7 @@
 
 namespace KCalCore {
   class Exception;
-};
+}
 
 namespace KCalUtils {
 
