@@ -33,7 +33,7 @@
 namespace KCalCore {
   class ICalFormat;
   class FreeBusyCache;
-};
+}
 
 namespace KCalUtils {
 /**
