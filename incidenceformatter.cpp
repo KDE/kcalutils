@@ -736,6 +736,7 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
                                       const QDate &date, KDateTime::Spec spec )
 {
   if ( !todo ) {
+    kDebug() << "IncidenceFormatter::displayViewFormatTodo was called without to-do, quiting";
     return QString();
   }
 
@@ -760,11 +761,26 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
     tmpStr += "</tr>";
   }
 
-  if ( todo->hasStartDate() && todo->dtStart().isValid() ) {
-    KDateTime startDt = todo->dtStart();
+  const bool hastStartDate = todo->hasStartDate() && todo->dtStart().isValid();
+  const bool hasDueDate = todo->hasDueDate() && todo->dtDue().isValid();
+
+  if ( hastStartDate ) {
+    KDateTime startDt = todo->dtStart( true /**first*/ );
     if ( todo->recurs() ) {
       if ( date.isValid() ) {
-        startDt.setDate( date );
+        if ( hasDueDate ) {
+          // In kdepim all recuring to-dos have due date.
+          const int length = startDt.daysTo( todo->dtDue( true /**first*/ ) );
+          if ( length >= 0 ) {
+            startDt.setDate( date.addDays( -length ) );
+          } else {
+            kError() << "DTSTART is bigger than DTDUE, todo->uid() is " << todo->uid();
+            startDt.setDate( date );
+          }
+        } else {
+          kError() << "To-do is recurring but has no DTDUE set, todo->uid() is " << todo->uid();
+          startDt.setDate( date );
+        }
       }
     }
     tmpStr += "<tr>";
@@ -777,7 +793,7 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
     tmpStr += "</tr>";
   }
 
-  if ( todo->hasDueDate() && todo->dtDue().isValid() ) {
+  if ( hasDueDate ) {
     KDateTime dueDt = todo->dtDue();
     if ( todo->recurs() ) {
       if ( date.isValid() ) {
