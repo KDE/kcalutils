@@ -73,7 +73,8 @@ namespace IncidenceFormatter
     @param sourceName where the incidence is from (e.g. resource name)
     @param incidence is a pointer to the Incidence to be formatted.
     @param date is the QDate for which the toolTip should be computed; used
-    mainly for recurring incidences.
+    mainly for recurring incidences. Note: For to-dos, this is the due date of
+    the occurrence, not the start date.
     @param richText if yes, the QString will be created as RichText.
     @param spec is an optional time specification which, when specified,
     will shift the Incidence times to different timezones.
