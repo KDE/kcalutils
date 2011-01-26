@@ -1997,7 +1997,7 @@ static QString invitationHeaderEvent( const Event::Ptr &event,
     if ( iamOrganizer( event ) ) {
       return i18n( "This invitation has been canceled" );
     } else {
-      return i18n( "The organizer has removed you from the invitation" );
+      return i18n( "The organizer has revoked the invitation" );
     }
   case iTIPAdd:
     return i18n( "Addition to the invitation" );
@@ -2139,7 +2139,7 @@ static QString invitationHeaderTodo( const Todo::Ptr &todo,
     if ( iamOrganizer( todo ) ) {
       return i18n( "This to-do was canceled" );
     } else {
-      return i18n( "The organizer has removed you from this to-do" );
+      return i18n( "The organizer has revoked this to-do" );
     }
   case iTIPAdd:
     return i18n( "Addition to the to-do" );
