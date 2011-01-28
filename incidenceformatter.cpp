@@ -329,10 +329,12 @@ static QString displayViewFormatPerson( const QString &email, const QString &nam
     personString += ( printName.isEmpty() ? email : printName );
   }
 
+#ifndef KDEPIM_MOBILE_UI
   // Make the mailto link
   if ( !email.isEmpty() ) {
     personString += "&nbsp;" + htmlAddMailtoLink( email, printName );
   }
+#endif
 
   return personString;
 }
