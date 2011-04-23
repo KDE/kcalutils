@@ -3564,7 +3564,7 @@ static QString tooltipFormatAttendees( const Calendar::Ptr &calendar,
 
   // Show the attendee status if the incidence's organizer owns the resource calendar,
   // which means they are running the show and have all the up-to-date response info.
-  bool showStatus = incOrganizerOwnsCalendar( calendar, incidence );
+  const bool showStatus = attendeeCount > 0 && incOrganizerOwnsCalendar( calendar, incidence );
 
   // Add "chair"
   str = tooltipFormatAttendeeRoleList( incidence, Attendee::Chair, showStatus );
