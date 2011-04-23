@@ -3881,72 +3881,74 @@ QString IncidenceFormatter::recurrenceString( const Incidence::Ptr &incidence )
   if ( !incidence->recurs() ) {
     return i18n( "No recurrence" );
   }
-  QStringList dayList;
-  dayList.append( i18n( "31st Last" ) );
-  dayList.append( i18n( "30th Last" ) );
-  dayList.append( i18n( "29th Last" ) );
-  dayList.append( i18n( "28th Last" ) );
-  dayList.append( i18n( "27th Last" ) );
-  dayList.append( i18n( "26th Last" ) );
-  dayList.append( i18n( "25th Last" ) );
-  dayList.append( i18n( "24th Last" ) );
-  dayList.append( i18n( "23rd Last" ) );
-  dayList.append( i18n( "22nd Last" ) );
-  dayList.append( i18n( "21st Last" ) );
-  dayList.append( i18n( "20th Last" ) );
-  dayList.append( i18n( "19th Last" ) );
-  dayList.append( i18n( "18th Last" ) );
-  dayList.append( i18n( "17th Last" ) );
-  dayList.append( i18n( "16th Last" ) );
-  dayList.append( i18n( "15th Last" ) );
-  dayList.append( i18n( "14th Last" ) );
-  dayList.append( i18n( "13th Last" ) );
-  dayList.append( i18n( "12th Last" ) );
-  dayList.append( i18n( "11th Last" ) );
-  dayList.append( i18n( "10th Last" ) );
-  dayList.append( i18n( "9th Last" ) );
-  dayList.append( i18n( "8th Last" ) );
-  dayList.append( i18n( "7th Last" ) );
-  dayList.append( i18n( "6th Last" ) );
-  dayList.append( i18n( "5th Last" ) );
-  dayList.append( i18n( "4th Last" ) );
-  dayList.append( i18n( "3rd Last" ) );
-  dayList.append( i18n( "2nd Last" ) );
-  dayList.append( i18nc( "last day of the month", "Last" ) );
-  dayList.append( i18nc( "unknown day of the month", "unknown" ) ); //#31 - zero offset from UI
-  dayList.append( i18n( "1st" ) );
-  dayList.append( i18n( "2nd" ) );
-  dayList.append( i18n( "3rd" ) );
-  dayList.append( i18n( "4th" ) );
-  dayList.append( i18n( "5th" ) );
-  dayList.append( i18n( "6th" ) );
-  dayList.append( i18n( "7th" ) );
-  dayList.append( i18n( "8th" ) );
-  dayList.append( i18n( "9th" ) );
-  dayList.append( i18n( "10th" ) );
-  dayList.append( i18n( "11th" ) );
-  dayList.append( i18n( "12th" ) );
-  dayList.append( i18n( "13th" ) );
-  dayList.append( i18n( "14th" ) );
-  dayList.append( i18n( "15th" ) );
-  dayList.append( i18n( "16th" ) );
-  dayList.append( i18n( "17th" ) );
-  dayList.append( i18n( "18th" ) );
-  dayList.append( i18n( "19th" ) );
-  dayList.append( i18n( "20th" ) );
-  dayList.append( i18n( "21st" ) );
-  dayList.append( i18n( "22nd" ) );
-  dayList.append( i18n( "23rd" ) );
-  dayList.append( i18n( "24th" ) );
-  dayList.append( i18n( "25th" ) );
-  dayList.append( i18n( "26th" ) );
-  dayList.append( i18n( "27th" ) );
-  dayList.append( i18n( "28th" ) );
-  dayList.append( i18n( "29th" ) );
-  dayList.append( i18n( "30th" ) );
-  dayList.append( i18n( "31st" ) );
+  static QStringList dayList;
+  if ( dayList.isEmpty() ) {
+    dayList.append( i18n( "31st Last" ) );
+    dayList.append( i18n( "30th Last" ) );
+    dayList.append( i18n( "29th Last" ) );
+    dayList.append( i18n( "28th Last" ) );
+    dayList.append( i18n( "27th Last" ) );
+    dayList.append( i18n( "26th Last" ) );
+    dayList.append( i18n( "25th Last" ) );
+    dayList.append( i18n( "24th Last" ) );
+    dayList.append( i18n( "23rd Last" ) );
+    dayList.append( i18n( "22nd Last" ) );
+    dayList.append( i18n( "21st Last" ) );
+    dayList.append( i18n( "20th Last" ) );
+    dayList.append( i18n( "19th Last" ) );
+    dayList.append( i18n( "18th Last" ) );
+    dayList.append( i18n( "17th Last" ) );
+    dayList.append( i18n( "16th Last" ) );
+    dayList.append( i18n( "15th Last" ) );
+    dayList.append( i18n( "14th Last" ) );
+    dayList.append( i18n( "13th Last" ) );
+    dayList.append( i18n( "12th Last" ) );
+    dayList.append( i18n( "11th Last" ) );
+    dayList.append( i18n( "10th Last" ) );
+    dayList.append( i18n( "9th Last" ) );
+    dayList.append( i18n( "8th Last" ) );
+    dayList.append( i18n( "7th Last" ) );
+    dayList.append( i18n( "6th Last" ) );
+    dayList.append( i18n( "5th Last" ) );
+    dayList.append( i18n( "4th Last" ) );
+    dayList.append( i18n( "3rd Last" ) );
+    dayList.append( i18n( "2nd Last" ) );
+    dayList.append( i18nc( "last day of the month", "Last" ) );
+    dayList.append( i18nc( "unknown day of the month", "unknown" ) ); //#31 - zero offset from UI
+    dayList.append( i18n( "1st" ) );
+    dayList.append( i18n( "2nd" ) );
+    dayList.append( i18n( "3rd" ) );
+    dayList.append( i18n( "4th" ) );
+    dayList.append( i18n( "5th" ) );
+    dayList.append( i18n( "6th" ) );
+    dayList.append( i18n( "7th" ) );
+    dayList.append( i18n( "8th" ) );
+    dayList.append( i18n( "9th" ) );
+    dayList.append( i18n( "10th" ) );
+    dayList.append( i18n( "11th" ) );
+    dayList.append( i18n( "12th" ) );
+    dayList.append( i18n( "13th" ) );
+    dayList.append( i18n( "14th" ) );
+    dayList.append( i18n( "15th" ) );
+    dayList.append( i18n( "16th" ) );
+    dayList.append( i18n( "17th" ) );
+    dayList.append( i18n( "18th" ) );
+    dayList.append( i18n( "19th" ) );
+    dayList.append( i18n( "20th" ) );
+    dayList.append( i18n( "21st" ) );
+    dayList.append( i18n( "22nd" ) );
+    dayList.append( i18n( "23rd" ) );
+    dayList.append( i18n( "24th" ) );
+    dayList.append( i18n( "25th" ) );
+    dayList.append( i18n( "26th" ) );
+    dayList.append( i18n( "27th" ) );
+    dayList.append( i18n( "28th" ) );
+    dayList.append( i18n( "29th" ) );
+    dayList.append( i18n( "30th" ) );
+    dayList.append( i18n( "31st" ) );
+  }
 
-  int weekStart = KGlobal::locale()->weekStartDay();
+  const int weekStart = KGlobal::locale()->weekStartDay();
   QString dayNames;
   const KCalendarSystem *calSys = KGlobal::locale()->calendar();
 
@@ -3955,7 +3957,8 @@ QString IncidenceFormatter::recurrenceString( const Incidence::Ptr &incidence )
   QString txt, recurStr;
   switch ( recur->recurrenceType() ) {
   case Recurrence::rNone:
-    return i18n( "No recurrence" );
+    static QString noRecurrence = i18n( "No recurrence" );
+    return noRecurrence;
 
   case Recurrence::rMinutely:
     if ( recur->duration() != -1 ) {
