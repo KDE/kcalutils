@@ -4247,7 +4247,10 @@ QString IncidenceFormatter::recurrenceString( const Incidence::Ptr &incidence )
       exStr << KGlobal::locale()->formatDate( (*dl), KLocale::ShortDate );
       break;
     case Recurrence::rWeekly:
-      exStr << calSys->weekDayName( (*dl), KCalendarSystem::ShortDayName );
+      // exStr << calSys->weekDayName( (*dl), KCalendarSystem::ShortDayName );
+      // kolab/issue4735, should be ( excluding 3 days ), instead of excluding( Fr,Fr,Fr )
+      if ( exStr.isEmpty() )
+        exStr << i18np( "1 day", "%1 days", recur->exDates().count() );
       break;
     case Recurrence::rMonthlyPos:
       exStr << KGlobal::locale()->formatDate( (*dl), KLocale::ShortDate );
