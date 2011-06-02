@@ -3953,9 +3953,9 @@ QString IncidenceFormatter::recurrenceString( const Incidence::Ptr &incidence )
   Recurrence *recur = incidence->recurrence();
 
   QString txt, recurStr;
+  static QString noRecurrence = i18n( "No recurrence" );
   switch ( recur->recurrenceType() ) {
   case Recurrence::rNone:
-    static QString noRecurrence = i18n( "No recurrence" );
     return noRecurrence;
 
   case Recurrence::rMinutely:
