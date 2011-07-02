@@ -475,7 +475,7 @@ static QString displayViewFormatAttachments( Incidence::Ptr incidence )
       }
       tmpStr += htmlAddLink( (*it)->uri(), name );
     } else {
-      tmpStr += (*it)->label();
+      tmpStr += htmlAddLink( QString::fromLatin1("ATTACH:%1").arg( QString::fromUtf8( (*it)->label().toUtf8().toBase64() ) ), (*it)->label() );
     }
     if ( count < as.count() ) {
       tmpStr += "<br>";
@@ -2488,7 +2488,7 @@ static QString invitationAttachments( InvitationFormatterHelper *helper,
       if ( !iconPath.isEmpty() ) {
         tmpStr += "<img valign=\"top\" src=\"" + iconPath + "\">";
       }
-      tmpStr += helper->makeLink( "ATTACH:" + a->label(), a->label() );
+      tmpStr += helper->makeLink( "ATTACH:" + a->label().toUtf8().toBase64(), a->label() );
       tmpStr += "</li>";
     }
     tmpStr += "</ol>";
