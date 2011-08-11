@@ -157,8 +157,9 @@ int RecurrenceActions::questionMultipleChoice( const KDateTime &selectedOccurren
   widget->setCheckedChoices( preselectedChoices );
 
   const int result = dialog->exec();
-  if ( dialog )
+  if ( dialog ) {
     dialog->deleteLater();
+  }
 
   if ( result == QDialog::Rejected ) {
     return NoOccurrence;

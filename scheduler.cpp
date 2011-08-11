@@ -199,7 +199,8 @@ bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence,
         if( (*ait)->email() == email && (*ait)->status() == Attendee::NeedsAction ) {
           // This incidence wasn't created by me - it's probably in a shared folder
           // and meant for someone else, ignore it.
-          kDebug() << "ignoring " << existingIncidence->uid() << " since I'm still NeedsAction there";
+          kDebug() << "ignoring " << existingIncidence->uid()
+                   << " since I'm still NeedsAction there";
           isUpdate = false;
           break;
         }

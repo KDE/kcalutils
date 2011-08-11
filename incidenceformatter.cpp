@@ -475,7 +475,9 @@ static QString displayViewFormatAttachments( Incidence::Ptr incidence )
       }
       tmpStr += htmlAddLink( (*it)->uri(), name );
     } else {
-      tmpStr += htmlAddLink( QString::fromLatin1("ATTACH:%1").arg( QString::fromUtf8( (*it)->label().toUtf8().toBase64() ) ), (*it)->label() );
+      tmpStr += htmlAddLink( QString::fromLatin1( "ATTACH:%1" ).
+                             arg( QString::fromUtf8( (*it)->label().toUtf8().toBase64() ) ),
+                             (*it)->label() );
     }
     if ( count < as.count() ) {
       tmpStr += "<br>";
@@ -738,7 +740,7 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
                                       const QDate &date, KDateTime::Spec spec )
 {
   if ( !todo ) {
-    kDebug() << "IncidenceFormatter::displayViewFormatTodo was called without to-do, quiting";
+    kDebug() << "IncidenceFormatter::displayViewFormatTodo was called without to-do, quitting";
     return QString();
   }
 
@@ -4249,8 +4251,9 @@ QString IncidenceFormatter::recurrenceString( const Incidence::Ptr &incidence )
     case Recurrence::rWeekly:
       // exStr << calSys->weekDayName( (*dl), KCalendarSystem::ShortDayName );
       // kolab/issue4735, should be ( excluding 3 days ), instead of excluding( Fr,Fr,Fr )
-      if ( exStr.isEmpty() )
+      if ( exStr.isEmpty() ) {
         exStr << i18np( "1 day", "%1 days", recur->exDates().count() );
+      }
       break;
     case Recurrence::rMonthlyPos:
       exStr << KGlobal::locale()->formatDate( (*dl), KLocale::ShortDate );
