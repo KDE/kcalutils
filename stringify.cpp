@@ -341,7 +341,7 @@ QString Stringify::scheduleMessageStatus( ScheduleMessage::Status status )
 {
   switch( status ) {
   case ScheduleMessage::PublishNew:
-    return i18nc( "@item new message posting", "New Message Publish" );
+    return i18nc( "@item new message posting", "New Message Published" );
   case ScheduleMessage::PublishUpdate:
     return i18nc( "@item updated message", "Updated Message Published" );
   case ScheduleMessage::Obsolete:
