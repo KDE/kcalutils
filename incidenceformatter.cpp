@@ -769,12 +769,12 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
   const bool hasDueDate = todo->hasDueDate() && todo->dtDue().isValid();
 
   if ( hastStartDate ) {
-    KDateTime startDt = todo->dtStart( true /**first*/ );
+    KDateTime startDt = todo->dtStart( true /**first*/);
     if ( todo->recurs() ) {
       if ( date.isValid() ) {
         if ( hasDueDate ) {
           // In kdepim all recuring to-dos have due date.
-          const int length = startDt.daysTo( todo->dtDue( true /**first*/ ) );
+          const int length = startDt.daysTo( todo->dtDue( true /**first*/) );
           if ( length >= 0 ) {
             startDt.setDate( date.addDays( -length ) );
           } else {
