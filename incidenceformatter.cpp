@@ -84,9 +84,13 @@ static QString htmlAddMailtoLink( const QString &email, const QString &name )
 
   if ( !email.isEmpty() ) {
     Person person( name, email );
+    QString path = person.fullName().simplified();
+    if ( path.isEmpty() || path.startsWith( '"' ) ) {
+      path = email;
+    }
     KUrl mailto;
     mailto.setProtocol( "mailto" );
-    mailto.setPath( person.fullName() );
+    mailto.setPath( path );
     const QString iconPath =
       KIconLoader::global()->iconPath( "mail-message-new", KIconLoader::Small );
     str = htmlAddLink( mailto.url(), "<img valign=\"top\" src=\"" + iconPath + "\">" );
