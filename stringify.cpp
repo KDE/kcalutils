@@ -341,15 +341,19 @@ QString Stringify::scheduleMessageStatus( ScheduleMessage::Status status )
 {
   switch( status ) {
   case ScheduleMessage::PublishNew:
-    return i18nc( "@item new message posting", "New Message Published" );
+    return i18nc( "@item this is a new scheduling message",
+                  "New Scheduling Message" );
   case ScheduleMessage::PublishUpdate:
-    return i18nc( "@item updated message", "Updated Message Published" );
+    return i18nc( "@item this is an update to an existing scheduling message",
+                  "Updated Scheduling Message" );
   case ScheduleMessage::Obsolete:
     return i18nc( "@item obsolete status", "Obsolete" );
   case ScheduleMessage::RequestNew:
-    return i18nc( "@item request new message posting", "Request New Message" );
+    return i18nc( "@item this is a request for a new scheduling message",
+                  "New Scheduling Message Request" );
   case ScheduleMessage::RequestUpdate:
-    return i18nc( "@item request updated posting", "Request Updated Message" );
+    return i18nc( "@item this is a request for an update to an existing scheduling message",
+                  "Updated Scheduling Message Request" );
   default:
     return i18nc( "@item unknown status", "Unknown Status: %1", int( status ) );
   }
