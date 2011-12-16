@@ -164,17 +164,6 @@ namespace IncidenceFormatter
     bool outlookCompareStyle );
 
   /**
-    Format a TNEF attachment to an HTML mail
-  */
-  KCALUTILS_EXPORT QString formatTNEFInvitation( const QByteArray &tnef,
-                                                 const KCalCore::Calendar::Ptr &mCalendar,
-                                                 InvitationFormatterHelper *helper );
-  /**
-    Transform a TNEF attachment to an iCal or vCard
-  */
-  KCALUTILS_EXPORT QString msTNEFToVPart( const QByteArray &tnef );
-
-  /**
     Build a pretty QString representation of an Incidence's recurrence info.
     @param incidence is a pointer to the Incidence whose recurrence info
     is to be formatted.
