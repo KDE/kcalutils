@@ -1462,10 +1462,15 @@ static QString invitationDetailsIncidence( const Incidence::Ptr &incidence, bool
   if ( incidence->comments().isEmpty() ) {
     if ( !incidence->description().isEmpty() ) {
       // use description as comments
-      if ( !incidence->descriptionIsRich() ) {
+      if ( !incidence->descriptionIsRich() &&
+           !incidence->description().startsWith( QLatin1String( "<!DOCTYPE HTML" ) ) ) {
         comments << string2HTML( incidence->description() );
       } else {
-        comments << incidence->richDescription();
+        if ( !incidence->description().startsWith( QLatin1String( "<!DOCTYPE HTML" ) ) ) {
+          comments << incidence->richDescription();
+        } else {
+          comments << incidence->description();
+        }
         if ( noHtmlMode ) {
           comments[0] = cleanHtml( comments[0] );
         }
@@ -1491,10 +1496,15 @@ static QString invitationDetailsIncidence( const Incidence::Ptr &incidence, bool
     }
     if ( !incidence->description().isEmpty() ) {
       // use description too
-      if ( !incidence->descriptionIsRich() ) {
+      if ( !incidence->descriptionIsRich() &&
+           !incidence->description().startsWith( QLatin1String( "<!DOCTYPE HTML" ) ) ) {
         descr = string2HTML( incidence->description() );
       } else {
-        descr = incidence->richDescription();
+        if ( !incidence->description().startsWith( QLatin1String( "<!DOCTYPE HTML" ) ) ) {
+          descr = incidence->richDescription();
+        } else {
+          descr = incidence->description();
+        }
         if ( noHtmlMode ) {
           descr = cleanHtml( descr );
         }
