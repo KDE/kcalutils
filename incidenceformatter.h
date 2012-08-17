@@ -65,8 +65,8 @@ class KCALUTILS_EXPORT InvitationFormatterHelper
   for tool tips, or a representation for a viewer widget.
 
 */
-namespace IncidenceFormatter
-{
+namespace IncidenceFormatter {
+
   /**
     Create a QString representation of an Incidence in a nice format
     suitable for using in a tooltip.

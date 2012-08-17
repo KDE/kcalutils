@@ -32,8 +32,7 @@ namespace KCalUtils {
 /**
   vCalendar drag&drop class.
 */
-namespace VCalDrag
-{
+namespace VCalDrag {
   /**
     Mime-type of iCalendar
   */

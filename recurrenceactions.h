@@ -31,8 +31,7 @@ class KDateTime;
 class KGuiItem;
 class QWidget;
 
-namespace KCalUtils
-{
+namespace KCalUtils {
 
 /**
   @short Utility functions for dealing with recurrences
@@ -44,8 +43,7 @@ namespace KCalUtils
   @author Kevin Krammer, krake@kdab.com
   @since 4.6
 */
-namespace RecurrenceActions
-{
+namespace RecurrenceActions {
   /**
     @short Flags for indicating on which occurrences to work on
 

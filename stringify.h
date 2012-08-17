@@ -47,8 +47,8 @@ namespace KCalUtils {
   @brief
   Provides methods to format Incidence properties in various ways for display purposes.
 */
-namespace Stringify
-{
+namespace Stringify {
+
   KCALUTILS_EXPORT QString incidenceType( KCalCore::Incidence::IncidenceType type );
 
   /**
