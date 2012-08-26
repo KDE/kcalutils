@@ -256,10 +256,10 @@ bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence,
   }
   kDebug() << "Storing new incidence with scheduling uid=" << inc->schedulingID()
            << " and uid=" << inc->uid();
-  mCalendar->addIncidence( inc );
+  const bool result = mCalendar->addIncidence( inc );
 
   deleteTransaction( incidence );
-  return true;
+  return result;
 }
 
 bool Scheduler::acceptAdd( const IncidenceBase::Ptr &incidence,
