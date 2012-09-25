@@ -56,9 +56,9 @@ using namespace KCalCore;
 #include <KSystemTimeZone>
 
 #include <QtCore/QBitArray>
-#include <QtGui/QApplication>
-#include <QtGui/QPalette>
-#include <QtGui/QTextDocument>
+#include <QApplication>
+#include <QPalette>
+#include <QTextDocument>
 
 using namespace KCalUtils;
 using namespace IncidenceFormatter;

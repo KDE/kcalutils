@@ -34,7 +34,7 @@ using namespace KCalCore;
 #include <QtCore/QFile>
 #include <QtCore/QMap>
 #include <QtCore/QTextStream>
-#include <QtGui/QApplication>
+#include <QApplication>
 
 using namespace KCalUtils;
 

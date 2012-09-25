@@ -43,11 +43,11 @@
 #include <KUrl>
 
 #include <QtCore/QMimeData>
-#include <QtGui/QApplication>
-#include <QtGui/QClipboard>
-#include <QtGui/QDrag>
-#include <QtGui/QDropEvent>
-#include <QtGui/QPixmap>
+#include <QApplication>
+#include <QClipboard>
+#include <QDrag>
+#include <QDropEvent>
+#include <QPixmap>
 
 using namespace KCalCore;
 using namespace KCalUtils;
