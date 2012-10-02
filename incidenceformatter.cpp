@@ -2473,7 +2473,7 @@ static QString invitationRsvpList( const Incidence::Ptr &incidence, const Attend
   if ( count ) {
     tmpStr += "</table>";
   } else {
-    tmpStr += "<i>" + i18nc( "no attendees", "None" ) + "</i>";
+    tmpStr += "<i> " + i18nc( "no attendees", "None" ) + "</i>";
   }
 
   return tmpStr;
