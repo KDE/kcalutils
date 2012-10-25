@@ -20,7 +20,7 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include "teststringify.h"
+#include "testdndfactory.h"
 
 #include "../dndfactory.h"
 
