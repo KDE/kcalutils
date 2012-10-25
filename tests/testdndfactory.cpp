@@ -21,7 +21,6 @@
 */
 
 #include "teststringify.h"
-#include "testdndfactory.moc"
 
 #include "../dndfactory.h"
 

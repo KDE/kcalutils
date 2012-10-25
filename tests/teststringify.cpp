@@ -20,7 +20,6 @@
 */
 
 #include "teststringify.h"
-#include "teststringify.moc"
 #include "../stringify.h"
 
 #include <qtest_kde.h>
