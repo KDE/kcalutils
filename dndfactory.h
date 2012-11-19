@@ -60,9 +60,11 @@ class KCALUTILS_EXPORT DndFactory
   public:
 
     enum PasteFlag {
-      FlagTodosPasteAtDtStart = 1 /**< If the cloned incidence is a to-do, the date/time passed
-                                       to DndFactory::pasteIncidence() will change dtStart if this
-                                       flag is on, changes dtDue otherwise. */
+      FlagTodosPasteAtDtStart = 1, /**< If the cloned incidence is a to-do, the date/time passed
+                                        to DndFactory::pasteIncidence() will change dtStart if this
+                                        flag is on, changes dtDue otherwise. */
+      FlagPasteAtOriginalTime = 2 /**< If set, incidences will be pasted at the specified date
+                                       but will preserve their original time */
     };
 
     Q_DECLARE_FLAGS( PasteFlags, PasteFlag )

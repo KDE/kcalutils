@@ -65,10 +65,9 @@ class KCalUtils::DndFactory::Private
     {}
 
     Incidence::Ptr pasteIncidence( const Incidence::Ptr &incidence,
-                                   const KDateTime &newDateTime,
+                                   KDateTime newDateTime,
                                    const QFlags<PasteFlag> &pasteOptions )
     {
-
       Incidence::Ptr inc( incidence );
 
       if ( inc ) {
@@ -78,8 +77,13 @@ class KCalUtils::DndFactory::Private
 
       if ( inc && newDateTime.isValid() ) {
         if ( inc->type() == Incidence::TypeEvent ) {
-
           Event::Ptr event = inc.staticCast<Event>();
+          if ( pasteOptions & FlagPasteAtOriginalTime ) {
+            // Set date and preserve time and timezone stuff
+            const QDate date = newDateTime.date();
+            newDateTime = event->dtStart();
+            newDateTime.setDate( date );
+          }
 
           // in seconds
           const int durationInSeconds = event->dtStart().secsTo( event->dtEnd() );
@@ -95,14 +99,26 @@ class KCalUtils::DndFactory::Private
 
         } else if ( inc->type() == Incidence::TypeTodo ) {
           Todo::Ptr aTodo = inc.staticCast<Todo>();
-
-          if ( pasteOptions & FlagTodosPasteAtDtStart ) {
+          const bool pasteAtDtStart = ( pasteOptions & FlagTodosPasteAtDtStart );
+          if ( pasteOptions & FlagPasteAtOriginalTime ) {
+            // Set date and preserve time and timezone stuff
+            const QDate date = newDateTime.date();
+            newDateTime = pasteAtDtStart ? aTodo->dtStart() : aTodo->dtDue();
+            newDateTime.setDate( date );
+          }
+          if ( pasteAtDtStart ) {
             aTodo->setDtStart( newDateTime );
           } else {
             aTodo->setDtDue( newDateTime );
           }
 
         } else if ( inc->type() == Incidence::TypeJournal ) {
+          if ( pasteOptions & FlagPasteAtOriginalTime ) {
+            // Set date and preserve time and timezone stuff
+            const QDate date = newDateTime.date();
+            newDateTime = inc->dtStart();
+            newDateTime.setDate( date );
+          }
           inc->setDtStart( newDateTime );
         } else {
           kDebug() << "Trying to paste unknown incidence of type" << int( inc->type() );
