@@ -220,7 +220,7 @@ MemoryCalendar::Ptr DndFactory::createDropCalendar( QDropEvent *dropEvent )
 
 Event::Ptr DndFactory::createDropEvent( const QMimeData *mimeData )
 {
-  kDebug();
+  //kDebug();
   Event::Ptr event;
   MemoryCalendar::Ptr calendar( createDropCalendar( mimeData ) );
 
@@ -246,7 +246,7 @@ Event::Ptr DndFactory::createDropEvent( QDropEvent *dropEvent )
 
 Todo::Ptr DndFactory::createDropTodo( const QMimeData *mimeData )
 {
-  kDebug();
+  //kDebug();
   Todo::Ptr todo;
   MemoryCalendar::Ptr calendar( createDropCalendar( mimeData ) );
 
