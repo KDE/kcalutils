@@ -3141,8 +3141,12 @@ static QString formatICalInvitationHelper( QString invitation,
         }
       }
 
-      if ( !myInc && a ) {
-        html += responseButtons( inc, rsvpReq, rsvpRec, helper );
+      if ( !myInc ) {
+        if ( a ) {
+          html += responseButtons( inc, rsvpReq, rsvpRec, helper );
+        } else {
+          html += responseButtons( inc, false, false, helper );
+        }
       }
       break;
     }
