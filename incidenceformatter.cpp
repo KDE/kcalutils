@@ -1212,7 +1212,7 @@ static QString htmlInvitationDetailsEnd()
 
 static QString htmlInvitationDetailsTableBegin()
 {
-  return "<table cellspacing=\"4\" style=\"border-width:4px; border-style:groove\">";
+  return "<table cellspacing=\"4\" style=\"background-color:#ddd;border-width:4px; border-style:groove\">";
 }
 
 static QString htmlInvitationDetailsTableEnd()
@@ -2394,7 +2394,7 @@ static QString invitationAttendeeList( const Incidence::Ptr &incidence )
           tmpStr += "<table border=\"1\" cellpadding=\"1\" cellspacing=\"0\">";
         }
         tmpStr += "<tr>";
-        tmpStr += "<td>";
+        tmpStr += "<td style=\"background-color:#ddd\">";
         comments.clear();
         if ( attendeeIsOrganizer( incidence, a ) ) {
           comments << i18n( "organizer" );
@@ -2795,7 +2795,7 @@ class IncidenceFormatter::IncidenceCompareVisitor : public Visitor
 QString InvitationFormatterHelper::makeLink( const QString &id, const QString &text )
 {
   if ( !id.startsWith( QLatin1String( "ATTACH:" ) ) ) {
-    QString res = QString( "<a href=\"%1\"><b>%2</b></a>" ).
+    QString res = QString( "<a href=\"%1\"><font size=\"-1\"><b>%2</b></font></a>" ).
                   arg( generateLinkURL( id ), text );
     return res;
   } else {
@@ -2817,7 +2817,7 @@ static bool incidenceOwnedByMe( const Calendar::Ptr &calendar,
 }
 
 // The open & close table cell tags for the invitation buttons
-static QString tdOpen = "<td style=\"border-width:2px;border-style:outset\">";
+static QString tdOpen = "<td style=\"background-color:#eee;border-width:4px;border-style:outset\">";
 static QString tdClose = "</td>";
 
 static QString responseButtons( const Incidence::Ptr &inc,
@@ -2832,12 +2832,12 @@ static QString responseButtons( const Incidence::Ptr &inc,
   if ( !rsvpReq && ( inc && inc->revision() == 0 ) ) {
     // Record only
     html += tdOpen;
-    html += helper->makeLink( "record", i18n( "[Record]" ) );
+    html += helper->makeLink( "record", i18n( "Record" ) );
     html += tdClose;
 
     // Move to trash
     html += tdOpen;
-    html += helper->makeLink( "delete", i18n( "[Move to Trash]" ) );
+    html += helper->makeLink( "delete", i18n( "Move to Trash" ) );
     html += tdClose;
 
   } else {
@@ -2900,18 +2900,18 @@ static QString counterButtons( const Incidence::Ptr &incidence,
 
   // Accept proposal
   html += tdOpen;
-  html += helper->makeLink( "accept_counter", i18n( "[Accept]" ) );
+  html += helper->makeLink( "accept_counter", i18n( "Accept" ) );
   html += tdClose;
 
   // Decline proposal
   html += tdOpen;
-  html += helper->makeLink( "decline_counter", i18n( "[Decline]" ) );
+  html += helper->makeLink( "decline_counter", i18n( "Decline" ) );
   html += tdClose;
 
   // Check calendar
   if ( incidence && incidence->type() == Incidence::TypeEvent ) {
     html += tdOpen;
-    html += helper->makeLink( "check_calendar", i18n( "[Check my calendar] " ) );
+    html += helper->makeLink( "check_calendar", i18n( "Check my calendar] " ) );
     html += tdClose;
   }
   return html;
@@ -2974,7 +2974,7 @@ static QString formatICalInvitationHelper( QString invitation,
 
   // First make the text of the message
   QString html;
-  html += "<div align=\"center\" style=\"border:solid 1px;\">";
+  html += "<div align=\"center\" style=\"background-color:#ccc;border:solid 1px;\">";
 
   IncidenceFormatter::InvitationHeaderVisitor headerVisitor;
   // The InvitationHeaderVisitor returns false if the incidence is somehow invalid, or not handled
@@ -3135,9 +3135,9 @@ static QString formatICalInvitationHelper( QString invitation,
     {
       if ( inc && inc->revision() > 0 && ( existingIncidence || !helper->calendar() ) ) {
         if ( inc->type() == Incidence::TypeTodo ) {
-          html += helper->makeLink( "reply", i18n( "[Record invitation in my to-do list]" ) );
+          html += helper->makeLink( "reply", i18n( "Record invitation in my to-do list" ) );
         } else {
-          html += helper->makeLink( "reply", i18n( "[Record invitation in my calendar]" ) );
+          html += helper->makeLink( "reply", i18n( "Record invitation in my calendar" ) );
         }
       }
 
@@ -3208,9 +3208,9 @@ static QString formatICalInvitationHelper( QString invitation,
       } else {
         if ( inc ) {
           if ( inc->type() == Incidence::TypeTodo ) {
-            html += helper->makeLink( "reply", i18n( "[Record response in my to-do list]" ) );
+            html += helper->makeLink( "reply", i18n( "Record response in my to-do list" ) );
           } else {
-            html += helper->makeLink( "reply", i18n( "[Record response in my calendar]" ) );
+            html += helper->makeLink( "reply", i18n( "Record response in my calendar" ) );
           }
         }
       }
