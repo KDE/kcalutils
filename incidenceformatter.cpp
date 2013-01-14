@@ -2916,7 +2916,7 @@ static QString counterButtons( const Incidence::Ptr &incidence,
   // Check calendar
   if ( incidence && incidence->type() == Incidence::TypeEvent ) {
     html += tdOpen;
-    html += helper->makeLink( "check_calendar", i18n( "Check my calendar] " ) );
+    html += helper->makeLink( "check_calendar", i18n( "Check my calendar" ) );
     html += tdClose;
   }
   return html;
