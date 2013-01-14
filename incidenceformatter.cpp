@@ -2487,6 +2487,11 @@ static QString invitationAttachments( InvitationFormatterHelper *helper,
     return tmpStr;
   }
 
+  if ( incidence->type() == Incidence::TypeFreeBusy ) {
+    // A FreeBusy does not have a valid attachment due to the static-cast from IncidenceBase
+    return tmpStr;
+  }
+
   Attachment::List attachments = incidence->attachments();
   if ( !attachments.isEmpty() ) {
     tmpStr += i18n( "Attached Documents:" ) + "<ol>";
@@ -2969,6 +2974,13 @@ static QString formatICalInvitationHelper( QString invitation,
 
   Incidence::Ptr inc = incBase.staticCast<Incidence>();  // the incidence in the invitation email
 
+  // If the IncidenceBase is a FreeBusy, then we cannot access the revision number in
+  // the static-casted Incidence; so for sake of nothing better use 0 as the revision.
+  int incRevision = 0;
+  if ( inc && inc->type() != Incidence::TypeFreeBusy ) {
+    incRevision = inc->revision();
+  }
+
   // First make the text of the message
   QString html;
   html += "<div align=\"center\" style=\"border:solid 1px;\">";
@@ -2988,7 +3000,7 @@ static QString formatICalInvitationHelper( QString invitation,
     if ( msg->method() == iTIPRequest || msg->method() == iTIPReply ||
          msg->method() == iTIPDeclineCounter ) {
       if ( inc && existingIncidence &&
-           inc->revision() < existingIncidence->revision() ) {
+           incRevision < existingIncidence->revision() ) {
         bodyOk = bodyVisitor.act( existingIncidence, inc, msg, sender );
       } else {
         bodyOk = bodyVisitor.act( inc, existingIncidence, msg, sender );
@@ -3047,7 +3059,7 @@ static QString formatICalInvitationHelper( QString invitation,
   Attendee::Ptr ea;
   if ( !myInc ) {
     Incidence::Ptr rsvpIncidence = existingIncidence;
-    if ( !rsvpIncidence && inc && inc->revision() > 0 ) {
+    if ( !rsvpIncidence && inc && incRevision > 0 ) {
       rsvpIncidence = inc;
     }
     if ( rsvpIncidence ) {
@@ -3081,7 +3093,7 @@ static QString formatICalInvitationHelper( QString invitation,
     html += "<br/>";
     html += "<i><u>";
     if ( rsvpRec && inc ) {
-      if ( inc->revision() == 0 ) {
+      if ( incRevision == 0 ) {
         html += i18n( "Your <b>%1</b> response has been recorded",
                       Stringify::attendeeStatus( ea->status() ) );
       } else {
@@ -3108,7 +3120,7 @@ static QString formatICalInvitationHelper( QString invitation,
 
   // Print if the organizer gave you a preset status
   if ( !myInc ) {
-    if ( inc && inc->revision() == 0 ) {
+    if ( inc && incRevision == 0 ) {
       QString statStr = myStatusStr( inc );
       if ( !statStr.isEmpty() ) {
         html += "<br/>";
@@ -3130,7 +3142,7 @@ static QString formatICalInvitationHelper( QString invitation,
     case iTIPRefresh:
     case iTIPAdd:
     {
-      if ( inc && inc->revision() > 0 && ( existingIncidence || !helper->calendar() ) ) {
+      if ( inc && incRevision > 0 && ( existingIncidence || !helper->calendar() ) ) {
         if ( inc->type() == Incidence::TypeTodo ) {
           html += helper->makeLink( "reply", i18n( "[Record invitation in my to-do list]" ) );
         } else {
