@@ -1212,7 +1212,9 @@ static QString htmlInvitationDetailsEnd()
 
 static QString htmlInvitationDetailsTableBegin()
 {
-  return "<table cellspacing=\"4\" style=\"background-color:#ddd;border-width:4px; border-style:groove\">";
+
+  return "<table cellspacing=\"4\" style=\"border-width:4px; border-style:groove\">";
+
 }
 
 static QString htmlInvitationDetailsTableEnd()
@@ -2394,7 +2396,7 @@ static QString invitationAttendeeList( const Incidence::Ptr &incidence )
           tmpStr += "<table border=\"1\" cellpadding=\"1\" cellspacing=\"0\">";
         }
         tmpStr += "<tr>";
-        tmpStr += "<td style=\"background-color:#ddd\">";
+        tmpStr += "<td>";
         comments.clear();
         if ( attendeeIsOrganizer( incidence, a ) ) {
           comments << i18n( "organizer" );
@@ -2822,7 +2824,7 @@ static bool incidenceOwnedByMe( const Calendar::Ptr &calendar,
 }
 
 // The open & close table cell tags for the invitation buttons
-static QString tdOpen = "<td style=\"background-color:#eee;border-width:4px;border-style:outset\">";
+static QString tdOpen = "<td style=\"border-width:2px;border-style:outset\">";
 static QString tdClose = "</td>";
 
 static QString responseButtons( const Incidence::Ptr &inc,
@@ -2986,7 +2988,7 @@ static QString formatICalInvitationHelper( QString invitation,
 
   // First make the text of the message
   QString html;
-  html += "<div align=\"center\" style=\"background-color:#ccc;border:solid 1px;\">";
+  html += "<div align=\"center\" style=\"border:solid 1px;\">";
 
   IncidenceFormatter::InvitationHeaderVisitor headerVisitor;
   // The InvitationHeaderVisitor returns false if the incidence is somehow invalid, or not handled
