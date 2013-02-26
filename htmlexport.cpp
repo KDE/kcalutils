@@ -29,7 +29,7 @@ using namespace KCalCore;
 #include <KDebug>
 #include <KCalendarSystem>
 #include <KGlobal>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include <QtCore/QFile>
 #include <QtCore/QMap>

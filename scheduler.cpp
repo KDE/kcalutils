@@ -27,7 +27,7 @@
 using namespace KCalCore;
 
 #include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 using namespace KCalUtils;

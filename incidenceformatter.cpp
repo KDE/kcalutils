@@ -52,7 +52,7 @@ using namespace KCalCore;
 #include <KDebug>
 #include <KEMailSettings>
 #include <KIconLoader>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMimeType>
 #include <KSystemTimeZone>
 

@@ -26,6 +26,7 @@
 
 #include <KDialog>
 #include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include <QPointer>

@@ -25,7 +25,7 @@
 #include <kcalcore/event.h>
 
 #include <KDateTime>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include <QDebug>
 #include <qtest_kde.h>

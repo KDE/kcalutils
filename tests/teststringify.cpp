@@ -22,6 +22,8 @@
 #include "teststringify.h"
 #include "../stringify.h"
 
+#include <KLocalizedString>
+
 #include <qtest_kde.h>
 QTEST_KDEMAIN( StringifyTest, NoGUI )
 
