@@ -182,25 +182,26 @@ int RecurrenceActions::questionSelectedAllCancel( const QString &message, const 
   dialog->setButtonGuiItem( KDialog::Yes, actionSelected );
   dialog->setButtonGuiItem( KDialog::Ok, actionAll );
 
-  bool checkboxResult = false;
-  int result = KMessageBox::createKMessageBox(
-    dialog,
-    QMessageBox::Question,
-    message,
-    QStringList(),
-    QString(),
-    &checkboxResult,
-    KMessageBox::Notify );
-
-  switch (result) {
-    case KDialog::Yes:
-      return SelectedOccurrence;
-    case QDialog::Accepted:
-      // See kdialog.h, 'Ok' doesn't return KDialog:Ok
-      return AllOccurrences;
-    default:
-      return NoOccurrence;
-  }
+  // Qt5: Port
+//   bool checkboxResult = false;
+//   int result = KMessageBox::createKMessageBox(
+//     dialog,
+//     QMessageBox::Question,
+//     message,
+//     QStringList(),
+//     QString(),
+//     &checkboxResult,
+//     KMessageBox::Notify );
+//
+//   switch (result) {
+//     case KDialog::Yes:
+//       return SelectedOccurrence;
+//     case QDialog::Accepted:
+//       // See kdialog.h, 'Ok' doesn't return KDialog:Ok
+//       return AllOccurrences;
+//     default:
+//       return NoOccurrence;
+//   }
 
   return NoOccurrence;
 }
@@ -221,26 +222,27 @@ int RecurrenceActions::questionSelectedFutureAllCancel( const QString &message,
   dialog->setButtonGuiItem( KDialog::No, actionFuture );
   dialog->setButtonGuiItem( KDialog::Ok, actionAll );
 
-  bool checkboxResult = false;
-  int result = KMessageBox::createKMessageBox(
-    dialog,
-    QMessageBox::Question,
-    message,
-    QStringList(),
-    QString(),
-    &checkboxResult,
-    KMessageBox::Notify );
-
-  switch (result) {
-    case KDialog::Yes:
-      return SelectedOccurrence;
-    case KDialog::No:
-      return FutureOccurrences;
-    case QDialog::Accepted:
-      return AllOccurrences;
-    default:
-      return NoOccurrence;
-  }
+  // Qt5: Port
+//   bool checkboxResult = false;
+//   int result = KMessageBox::createKMessageBox(
+//     dialog,
+//     QMessageBox::Question,
+//     message,
+//     QStringList(),
+//     QString(),
+//     &checkboxResult,
+//     KMessageBox::Notify );
+//
+//   switch (result) {
+//     case KDialog::Yes:
+//       return SelectedOccurrence;
+//     case KDialog::No:
+//       return FutureOccurrences;
+//     case QDialog::Accepted:
+//       return AllOccurrences;
+//     default:
+//       return NoOccurrence;
+//   }
 
   return NoOccurrence;
 }

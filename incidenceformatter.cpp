@@ -2520,6 +2520,7 @@ static QString invitationAttachments( InvitationFormatterHelper *helper,
       tmpStr += "<li>";
       // Attachment icon
       KMimeType::Ptr mimeType = KMimeType::mimeType( a->mimeType() );
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
       const QString iconStr = ( mimeType ?
                                 mimeType->iconName( a->uri() ) :
                                 QString( "application-octet-stream" ) );
@@ -2527,6 +2528,9 @@ static QString invitationAttachments( InvitationFormatterHelper *helper,
       if ( !iconPath.isEmpty() ) {
         tmpStr += "<img valign=\"top\" src=\"" + iconPath + "\">";
       }
+#else
+#pragma message("TODO: PORT TO KFileItem")
+#endif
       tmpStr += helper->makeLink( "ATTACH:" + a->label().toUtf8().toBase64(), a->label() );
       tmpStr += "</li>";
     }
