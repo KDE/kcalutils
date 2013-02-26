@@ -41,6 +41,7 @@ target_link_libraries(kcalutils
   kcalcore
   kpimutils
   ${QT_QTGUI_LIBRARY}
+  ${KDE4_KDE4SUPPORT_LIBS}
 )
 set_target_properties(kcalutils PROPERTIES
   VERSION ${GENERIC_LIB_VERSION}
