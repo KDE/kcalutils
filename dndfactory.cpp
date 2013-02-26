@@ -46,6 +46,8 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QDrag>
+#include <QDate>
+#include <QWidget>
 #include <QDropEvent>
 #include <QPixmap>
 

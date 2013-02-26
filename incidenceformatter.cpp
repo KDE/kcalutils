@@ -53,6 +53,7 @@ using namespace KCalCore;
 #include <KEMailSettings>
 #include <KIconLoader>
 #include <KLocalizedString>
+#include <KGlobal>
 #include <KMimeType>
 #include <KSystemTimeZone>
 

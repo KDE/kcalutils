@@ -37,6 +37,8 @@
 #include <kcalcore/incidence.h>
 #include <kcalcore/memorycalendar.h>
 
+#include <QDate>
+
 namespace KCalUtils {
 
 class KCALUTILS_EXPORT InvitationFormatterHelper
