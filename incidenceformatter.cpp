@@ -70,6 +70,13 @@ using namespace IncidenceFormatter;
  *******************/
 
 //@cond PRIVATE
+static QString string2HTML( const QString &str )
+{
+//  return Qt::convertFromPlainText( str, Qt::WhiteSpaceNormal );
+  // use convertToHtml so we get clickable links and other goodies
+  return KPIMUtils::LinkLocator::convertToHtml( str );
+}
+
 static QString htmlAddLink( const QString &ref, const QString &text,
                             bool newline = true )
 {
@@ -695,9 +702,21 @@ static QString displayViewFormatEvent( const Calendar::Ptr calendar, const QStri
   }
 
   if ( !event->description().isEmpty() ) {
+    QString descStr;
+    if ( !event->descriptionIsRich() &&
+         !event->description().startsWith( QLatin1String( "<!DOCTYPE HTML" ) ) )
+    {
+      descStr = string2HTML( event->description() );
+    } else {
+      if ( !event->description().startsWith( QLatin1String( "<!DOCTYPE HTML" ) ) ) {
+        descStr = event->richDescription();
+      } else {
+        descStr = event->description();
+      }
+    }
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Description:" ) + "</b></td>";
-    tmpStr += "<td>" + event->richDescription() + "</td>";
+    tmpStr += "<td>" + descStr + "</td>";
     tmpStr += "</tr>";
   }
 
@@ -1122,13 +1141,6 @@ QString IncidenceFormatter::extensiveDisplayStr( const QString &sourceName,
  ***********************************************************************/
 
 //@cond PRIVATE
-static QString string2HTML( const QString &str )
-{
-//  return Qt::convertFromPlainText( str, Qt::WhiteSpaceNormal );
-  // use convertToHtml so we get clickable links and other goodies
-  return KPIMUtils::LinkLocator::convertToHtml( str );
-}
-
 static QString cleanHtml( const QString &html )
 {
   QRegExp rx( "<body[^>]*>(.*)</body>", Qt::CaseInsensitive );
