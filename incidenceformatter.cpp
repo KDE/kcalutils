@@ -3741,6 +3741,12 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip( const Incidence::Pt
     tmp += recurrenceString( incidence );
   }
 
+  if ( incidence->hasRecurrenceId() ) {
+    tmp += "<br>";
+    tmp += "<i>" + i18n( "Recurrence:" ) + "</i>" + "&nbsp;";
+    tmp += i18n( "Exception" );
+  }
+
   if ( !incidence->description().isEmpty() ) {
     QString desc( incidence->description() );
     if ( !incidence->descriptionIsRich() ) {
