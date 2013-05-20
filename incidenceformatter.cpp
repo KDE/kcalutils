@@ -676,11 +676,18 @@ static QString displayViewFormatEvent( const Calendar::Ptr calendar, const QStri
     tmpStr += "</tr>";
   }
 
-  if ( event->recurs() ) {
+  if ( event->recurs() || event->hasRecurrenceId() ) {
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Recurrence:" ) + "</b></td>";
-    tmpStr += "<td>" +
-              recurrenceString( event ) +
+
+    QString str;
+    if ( event->hasRecurrenceId() ) {
+      str = i18n("Exception");
+    } else {
+      str = recurrenceString( event );
+    }
+
+    tmpStr += "<td>" + str +
               "</td>";
     tmpStr += "</tr>";
   }
@@ -849,11 +856,17 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
     tmpStr += "</tr>";
   }
 
-  if ( todo->recurs() ) {
+  if ( todo->recurs() || todo->hasRecurrenceId() ) {
     tmpStr += "<tr>";
     tmpStr += "<td><b>" + i18n( "Recurrence:" ) + "</b></td>";
+    QString str;
+    if ( todo->hasRecurrenceId() ) {
+      str = i18n("Exception");
+    } else {
+      str = recurrenceString( todo );
+    }
     tmpStr += "<td>" +
-              recurrenceString( todo ) +
+              str +
               "</td>";
     tmpStr += "</tr>";
   }
