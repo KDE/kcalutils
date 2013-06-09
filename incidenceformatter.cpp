@@ -682,7 +682,7 @@ static QString displayViewFormatEvent( const Calendar::Ptr calendar, const QStri
 
     QString str;
     if ( event->hasRecurrenceId() ) {
-      str = i18n("Exception");
+      str = i18n( "Exception" );
     } else {
       str = recurrenceString( event );
     }
@@ -861,7 +861,7 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
     tmpStr += "<td><b>" + i18n( "Recurrence:" ) + "</b></td>";
     QString str;
     if ( todo->hasRecurrenceId() ) {
-      str = i18n("Exception");
+      str = i18n( "Exception" );
     } else {
       str = recurrenceString( todo );
     }
