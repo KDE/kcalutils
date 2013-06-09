@@ -602,8 +602,8 @@ static QString displayViewFormatEvent( const Calendar::Ptr calendar, const QStri
     tmpStr += "</tr>";
   }
 
-  KDateTime startDt = event->dtStart();
-  KDateTime endDt = event->dtEnd();
+  KDateTime startDt = event->dateTime( Incidence::RoleInstanceStart );
+  KDateTime endDt = event->dateTime( Incidence::RoleInstanceEnd );
   if ( event->recurs() ) {
     if ( date.isValid() ) {
       KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
