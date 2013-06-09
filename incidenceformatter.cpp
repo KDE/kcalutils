@@ -602,8 +602,8 @@ static QString displayViewFormatEvent( const Calendar::Ptr calendar, const QStri
     tmpStr += "</tr>";
   }
 
-  KDateTime startDt = event->dateTime( Incidence::RoleInstanceStart );
-  KDateTime endDt = event->dateTime( Incidence::RoleInstanceEnd );
+  KDateTime startDt = event->dtStart();
+  KDateTime endDt = event->dtEnd();
   if ( event->recurs() ) {
     if ( date.isValid() ) {
       KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
@@ -3425,8 +3425,8 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Event::Ptr &eve
   QString ret;
   QString tmp;
 
-  KDateTime startDt = event->dateTime( Incidence::RoleInstanceStart );
-  KDateTime endDt = event->dateTime( Incidence::RoleInstanceEnd );
+  KDateTime startDt = event->dtStart();
+  KDateTime endDt = event->dtEnd();
   if ( event->recurs() ) {
     if ( date.isValid() ) {
       KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
