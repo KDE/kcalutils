@@ -3425,8 +3425,8 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Event::Ptr &eve
   QString ret;
   QString tmp;
 
-  KDateTime startDt = event->dtStart();
-  KDateTime endDt = event->dtEnd();
+  KDateTime startDt = event->dateTime( Incidence::RoleInstanceStart );
+  KDateTime endDt = event->dateTime( Incidence::RoleInstanceEnd );
   if ( event->recurs() ) {
     if ( date.isValid() ) {
       KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
