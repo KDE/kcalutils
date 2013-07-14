@@ -166,6 +166,8 @@ QMimeData *DndFactory::createMimeData( const Incidence::Ptr &incidence )
 {
   MemoryCalendar::Ptr cal( new MemoryCalendar( d->mCalendar->timeSpec() ) );
   Incidence::Ptr i( incidence->clone() );
+  //strip recurrence id's, We don't want to drag the exception but the occurrence.
+  i->setRecurrenceId( KDateTime() );
   cal->addIncidence( i );
 
   QMimeData *mimeData = new QMimeData;
