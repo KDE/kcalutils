@@ -3805,7 +3805,7 @@ QString IncidenceFormatter::toolTipStr( const QString &sourceName,
                                         KDateTime::Spec spec )
 {
   ToolTipVisitor v;
-  if ( v.act( sourceName, incidence, date, richText, spec ) ) {
+  if ( incidence && v.act( sourceName, incidence, date, richText, spec ) ) {
     return v.result();
   } else {
     return QString();
