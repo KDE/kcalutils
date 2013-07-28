@@ -29,7 +29,6 @@
 #include <KDebug>
 #include <qtest_kde.h>
 
-
 QTEST_KDEMAIN( DndFactoryTest, GUI ) // clipboard() needs GUI
 
 using namespace KCalCore;
@@ -158,4 +157,3 @@ void DndFactoryTest::testPasteTodo()
   QVERIFY( pastedTodo->summary() == todo->summary() );
 
 }
-

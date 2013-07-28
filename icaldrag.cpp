@@ -68,4 +68,3 @@ bool ICalDrag::fromMimeData( const QMimeData *de, const MemoryCalendar::Ptr &cal
 
   return success;
 }
-

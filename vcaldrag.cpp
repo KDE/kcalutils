@@ -69,4 +69,3 @@ bool VCalDrag::fromMimeData( const QMimeData *de,
 
   return success;
 }
-
