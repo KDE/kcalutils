@@ -210,7 +210,7 @@ QString Stringify::formatTime( const KDateTime &dt, bool shortfmt, const KDateTi
 
     QString timeZone;
     if ( spec.timeZone() != KSystemTimeZones::local() ) {
-      timeZone = ' ' + spec.timeZone().name();
+      timeZone = QLatin1Char(' ') + spec.timeZone().name();
     }
 
     return KGlobal::locale()->formatTime( dt.toTimeSpec( spec ).time(), !shortfmt ) + timeZone;
@@ -264,7 +264,7 @@ QString Stringify::formatDateTime( const KDateTime &dt, bool allDay,
 
 QString Stringify::errorMessage( const Exception &exception )
 {
-  QString message = "";
+  QString message;
 
   switch ( exception.code() ) {
   case Exception::LoadError:

@@ -80,9 +80,9 @@ static QString string2HTML( const QString &str )
 static QString htmlAddLink( const QString &ref, const QString &text,
                             bool newline = true )
 {
-  QString tmpStr( "<a href=\"" + ref + "\">" + text + "</a>" );
+  QString tmpStr( QLatin1String("<a href=\"") + ref + QLatin1String("\">") + text + QLatin1String("</a>") );
   if ( newline ) {
-    tmpStr += '\n';
+    tmpStr += QLatin1Char('\n');
   }
   return tmpStr;
 }
@@ -94,15 +94,15 @@ static QString htmlAddMailtoLink( const QString &email, const QString &name )
   if ( !email.isEmpty() ) {
     Person person( name, email );
     QString path = person.fullName().simplified();
-    if ( path.isEmpty() || path.startsWith( '"' ) ) {
+    if ( path.isEmpty() || path.startsWith( QLatin1Char('"') ) ) {
       path = email;
     }
     KUrl mailto;
-    mailto.setProtocol( "mailto" );
+    mailto.setProtocol( QLatin1String("mailto") );
     mailto.setPath( path );
     const QString iconPath =
-      KIconLoader::global()->iconPath( "mail-message-new", KIconLoader::Small );
-    str = htmlAddLink( mailto.url(), "<img valign=\"top\" src=\"" + iconPath + "\">" );
+      KIconLoader::global()->iconPath( QLatin1String("mail-message-new"), KIconLoader::Small );
+    str = htmlAddLink( mailto.url(), QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">") );
   }
   return str;
 }
@@ -115,9 +115,9 @@ static QString htmlAddUidLink( const QString &email, const QString &name, const 
     // There is a UID, so make a link to the addressbook
     if ( name.isEmpty() ) {
       // Use the email address for text
-      str += htmlAddLink( "uid:" + uid, email );
+      str += htmlAddLink( QLatin1String("uid:") + uid, email );
     } else {
-      str += htmlAddLink( "uid:" + uid, name );
+      str += htmlAddLink( QLatin1String("uid:") + uid, name );
     }
   }
   return str;
@@ -125,8 +125,8 @@ static QString htmlAddUidLink( const QString &email, const QString &name, const 
 
 static QString htmlAddTag( const QString &tag, const QString &text )
 {
-  int numLineBreaks = text.count( "\n" );
-  QString str = '<' + tag + '>';
+  int numLineBreaks = text.count( QLatin1String("\n") );
+  QString str = QLatin1Char('<') + tag + QLatin1Char('>');
   QString tmpText = text;
   QString tmpStr = str;
   if( numLineBreaks >= 0 ) {
@@ -134,16 +134,16 @@ static QString htmlAddTag( const QString &tag, const QString &text )
       int pos = 0;
       QString tmp;
       for ( int i = 0; i <= numLineBreaks; ++i ) {
-        pos = tmpText.indexOf( "\n" );
+        pos = tmpText.indexOf( QLatin1String("\n") );
         tmp = tmpText.left( pos );
         tmpText = tmpText.right( tmpText.length() - pos - 1 );
-        tmpStr += tmp + "<br>";
+        tmpStr += tmp + QLatin1String("<br>");
       }
     } else {
       tmpStr += tmpText;
     }
   }
-  tmpStr += "</" + tag + '>';
+  tmpStr += QLatin1String("</") + tag + QLatin1Char('>');
   return tmpStr;
 }
 
@@ -289,25 +289,25 @@ static QString rsvpStatusIconPath( Attendee::PartStat status )
   QString iconPath;
   switch ( status ) {
   case Attendee::Accepted:
-    iconPath = KIconLoader::global()->iconPath( "dialog-ok-apply", KIconLoader::Small );
+    iconPath = KIconLoader::global()->iconPath( QLatin1String("dialog-ok-apply"), KIconLoader::Small );
     break;
   case Attendee::Declined:
-    iconPath = KIconLoader::global()->iconPath( "dialog-cancel", KIconLoader::Small );
+    iconPath = KIconLoader::global()->iconPath( QLatin1String("dialog-cancel"), KIconLoader::Small );
     break;
   case Attendee::NeedsAction:
-    iconPath = KIconLoader::global()->iconPath( "help-about", KIconLoader::Small );
+    iconPath = KIconLoader::global()->iconPath( QLatin1String("help-about"), KIconLoader::Small );
     break;
   case Attendee::InProcess:
-    iconPath = KIconLoader::global()->iconPath( "help-about", KIconLoader::Small );
+    iconPath = KIconLoader::global()->iconPath( QLatin1String("help-about"), KIconLoader::Small );
     break;
   case Attendee::Tentative:
-    iconPath = KIconLoader::global()->iconPath( "dialog-ok", KIconLoader::Small );
+    iconPath = KIconLoader::global()->iconPath( QLatin1String("dialog-ok"), KIconLoader::Small );
     break;
   case Attendee::Delegated:
-    iconPath = KIconLoader::global()->iconPath( "mail-forward", KIconLoader::Small );
+    iconPath = KIconLoader::global()->iconPath( QLatin1String("mail-forward"), KIconLoader::Small );
     break;
   case Attendee::Completed:
-    iconPath = KIconLoader::global()->iconPath( "mail-mark-read", KIconLoader::Small );
+    iconPath = KIconLoader::global()->iconPath( QLatin1String("mail-mark-read"), KIconLoader::Small );
   default:
     break;
   }
@@ -331,7 +331,7 @@ static QString displayViewFormatPerson( const QString &email, const QString &nam
 
   QString personString;
   if ( !iconPath.isEmpty() ) {
-    personString += "<img valign=\"top\" src=\"" + iconPath + "\">" + "&nbsp;";
+    personString += QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">") + QLatin1String("&nbsp;");
   }
 
   // Make the uid link
@@ -393,7 +393,7 @@ static QString displayViewFormatAttendeeRoleList( Incidence::Ptr incidence, Atte
     if ( !a->delegate().isEmpty() ) {
       tmpStr += i18n( " (delegated to %1)", a->delegate() );
     }
-    tmpStr += "<br>";
+    tmpStr += QLatin1String("<br>");
   }
   if ( tmpStr.endsWith( QLatin1String( "<br>" ) ) ) {
     tmpStr.chop( 4 );
@@ -414,14 +414,14 @@ static QString displayViewFormatAttendees( Calendar::Ptr calendar, Incidence::Pt
     QPair<QString, QString> s = searchNameAndUid( incidence->organizer()->email(),
                                                   incidence->organizer()->name(),
                                                   QString() );
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Organizer:" ) + "</b></td>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Organizer:" ) + QLatin1String("</b></td>");
     const QString iconPath =
-      KIconLoader::global()->iconPath( "meeting-organizer", KIconLoader::Small );
-    tmpStr += "<td>" + displayViewFormatPerson( incidence->organizer()->email(),
+      KIconLoader::global()->iconPath( QLatin1String("meeting-organizer"), KIconLoader::Small );
+    tmpStr += QLatin1String("<td>") + displayViewFormatPerson( incidence->organizer()->email(),
                                                 s.first, s.second, iconPath ) +
-              "</td>";
-    tmpStr += "</tr>";
+              QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   // Show the attendee status if the incidence's organizer owns the resource calendar,
@@ -431,37 +431,37 @@ static QString displayViewFormatAttendees( Calendar::Ptr calendar, Incidence::Pt
   // Add "chair"
   str = displayViewFormatAttendeeRoleList( incidence, Attendee::Chair, showStatus );
   if ( !str.isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Chair:" ) + "</b></td>";
-    tmpStr += "<td>" + str + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Chair:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + str + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   // Add required participants
   str = displayViewFormatAttendeeRoleList( incidence, Attendee::ReqParticipant, showStatus );
   if ( !str.isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Required Participants:" ) + "</b></td>";
-    tmpStr += "<td>" + str + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Required Participants:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + str + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   // Add optional participants
   str = displayViewFormatAttendeeRoleList( incidence, Attendee::OptParticipant, showStatus );
   if ( !str.isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Optional Participants:" ) + "</b></td>";
-    tmpStr += "<td>" + str + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Optional Participants:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + str + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   // Add observers
   str = displayViewFormatAttendeeRoleList( incidence, Attendee::NonParticipant, showStatus );
   if ( !str.isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Observers:" ) + "</b></td>";
-    tmpStr += "<td>" + str + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Observers:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + str + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   return tmpStr;
@@ -502,7 +502,7 @@ static QString displayViewFormatAttachments( Incidence::Ptr incidence )
 static QString displayViewFormatCategories( Incidence::Ptr incidence )
 {
   // We do not use Incidence::categoriesStr() since it does not have whitespace
-  return incidence->categories().join( ", " );
+  return incidence->categories().join( QLatin1String(", ") );
 }
 
 static QString displayViewFormatCreationDate( Incidence::Ptr incidence, KDateTime::Spec spec )
@@ -516,8 +516,8 @@ static QString displayViewFormatBirthday( Event::Ptr event )
   if ( !event ) {
     return QString();
   }
-  if ( event->customProperty( "KABC", "BIRTHDAY" ) != "YES" &&
-       event->customProperty( "KABC", "ANNIVERSARY" ) != "YES" ) {
+  if ( event->customProperty( "KABC", "BIRTHDAY" ) != QLatin1String("YES") &&
+       event->customProperty( "KABC", "ANNIVERSARY" ) != QLatin1String("YES") ) {
     return QString();
   }
 
@@ -531,44 +531,44 @@ static QString displayViewFormatBirthday( Event::Ptr event )
 
 static QString displayViewFormatHeader( Incidence::Ptr incidence )
 {
-  QString tmpStr = "<table><tr>";
+  QString tmpStr =QLatin1String( "<table><tr>");
 
   // show icons
   KIconLoader *iconLoader = KIconLoader::global();
-  tmpStr += "<td>";
+  tmpStr += QLatin1String("<td>");
 
   QString iconPath;
-  if ( incidence->customProperty( "KABC", "BIRTHDAY" ) == "YES" ) {
+  if ( incidence->customProperty( "KABC", "BIRTHDAY" ) == QLatin1String("YES") ) {
     iconPath = iconLoader->iconPath( "view-calendar-birthday", KIconLoader::Small );
-  } else if ( incidence->customProperty( "KABC", "ANNIVERSARY" ) == "YES" ) {
+  } else if ( incidence->customProperty( "KABC", "ANNIVERSARY" ) == QLatin1String("YES") ) {
     iconPath = iconLoader->iconPath( "view-calendar-wedding-anniversary", KIconLoader::Small );
   } else {
     iconPath = iconLoader->iconPath( incidence->iconName(), KIconLoader::Small );
   }
-  tmpStr += "<img valign=\"top\" src=\"" + iconPath + "\">";
+  tmpStr += QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">");
 
   if ( incidence->hasEnabledAlarms() ) {
-    tmpStr += "<img valign=\"top\" src=\"" +
-              iconLoader->iconPath( "preferences-desktop-notification-bell", KIconLoader::Small ) +
-              "\">";
+    tmpStr += QLatin1String("<img valign=\"top\" src=\"") +
+              iconLoader->iconPath( QLatin1String("preferences-desktop-notification-bell"), KIconLoader::Small ) +
+              QLatin1String("\">");
   }
   if ( incidence->recurs() ) {
-    tmpStr += "<img valign=\"top\" src=\"" +
-              iconLoader->iconPath( "edit-redo", KIconLoader::Small ) +
-              "\">";
+    tmpStr += QLatin1String("<img valign=\"top\" src=\"") +
+              iconLoader->iconPath( QLatin1String("edit-redo"), KIconLoader::Small ) +
+              QLatin1String("\">");
   }
   if ( incidence->isReadOnly() ) {
-    tmpStr += "<img valign=\"top\" src=\"" +
-              iconLoader->iconPath( "object-locked", KIconLoader::Small ) +
-              "\">";
+    tmpStr += QLatin1String("<img valign=\"top\" src=\"") +
+              iconLoader->iconPath( QLatin1String("object-locked"), KIconLoader::Small ) +
+              QLatin1String("\">");
   }
-  tmpStr += "</td>";
+  tmpStr += QLatin1String("</td>");
 
-  tmpStr += "<td>";
-  tmpStr += "<b><u>" + incidence->richSummary() + "</u></b>";
-  tmpStr += "</td>";
+  tmpStr += QLatin1String("<td>");
+  tmpStr += QLatin1String("<b><u>") + incidence->richSummary() + QLatin1String("</u></b>");
+  tmpStr += QLatin1String("</td>");
 
-  tmpStr += "</tr></table>";
+  tmpStr += QLatin1String("</tr></table>");
 
   return tmpStr;
 }
@@ -1429,10 +1429,10 @@ static QString invitationNote( const QString &title, const QString &note,
 {
   QString noteStr;
   if ( !note.isEmpty() ) {
-    noteStr += "<table border=\"0\" style=\"margin-top:4px;\">";
-    noteStr += "<tr><center><td>";
+    noteStr += QLatin1String("<table border=\"0\" style=\"margin-top:4px;\">");
+    noteStr += QLatin1String("<tr><center><td>");
     if ( !color.isEmpty() ) {
-      noteStr += "<font color=\"" + color + "\">";
+      noteStr += QLatin1String("<font color=\"") + color + QLatin1String("\">");
     }
     if ( !title.isEmpty() ) {
       if ( !tag.isEmpty() ) {
@@ -1441,12 +1441,12 @@ static QString invitationNote( const QString &title, const QString &note,
         noteStr += title;
       }
     }
-    noteStr += "&nbsp;" + note;
+    noteStr += QLatin1String("&nbsp;)") + note;
     if ( !color.isEmpty() ) {
-      noteStr += "</font>";
+      noteStr += QLatin1String("</font>");
     }
-    noteStr += "</td></center></tr>";
-    noteStr += "</table>";
+    noteStr += QLatin1String("</td></center></tr>");
+    noteStr += QLatin1String("</table>");
   }
   return noteStr;
 }
@@ -1469,13 +1469,13 @@ static QString invitationPerson( const QString &email, const QString &name, cons
   if ( !comment.isEmpty() ) {
     personString = i18nc( "name (comment)", "%1 (%2)", personString, comment );
   }
-  personString += '\n';
+  personString += QLatin1Char('\n');
 
   // Make the mailto link
   if ( !email.isEmpty() ) {
-    personString += "&nbsp;" + htmlAddMailtoLink( email, printName );
+    personString += QLatin1String("&nbsp;") + htmlAddMailtoLink( email, printName );
   }
-  personString += '\n';
+  personString += QLatin1Char('\n');
 
   return personString;
 }
@@ -1505,7 +1505,7 @@ static QString invitationDetailsIncidence( const Incidence::Ptr &incidence, bool
         if ( noHtmlMode ) {
           comments[0] = cleanHtml( comments[0] );
         }
-        comments[0] = htmlAddTag( "p", comments[0] );
+        comments[0] = htmlAddTag( QLatin1String("p"), comments[0] );
       }
     }
     //else desc and comments are empty
@@ -1518,7 +1518,7 @@ static QString invitationDetailsIncidence( const Incidence::Ptr &incidence, bool
           comments << string2HTML( c );
         } else {
           if ( noHtmlMode ) {
-            comments << cleanHtml( cleanHtml( "<body>" + c + "</body>" ) );
+            comments << cleanHtml( cleanHtml( QLatin1String("<body>") + c +QLatin1String( "</body>") ) );
           } else {
             comments << c;
           }
@@ -1545,33 +1545,33 @@ static QString invitationDetailsIncidence( const Incidence::Ptr &incidence, bool
   }
 
   if( !descr.isEmpty() ) {
-    html += "<p>";
-    html += "<table border=\"0\" style=\"margin-top:4px;\">";
-    html += "<tr><td><center>" +
-            htmlAddTag( "u", i18n( "Description:" ) ) +
-            "</center></td></tr>";
-    html += "<tr><td>" + descr + "</td></tr>";
-    html += "</table>";
+    html += QLatin1String("<p>");
+    html += QLatin1String("<table border=\"0\" style=\"margin-top:4px;\">");
+    html += QLatin1String("<tr><td><center>") +
+            htmlAddTag( QLatin1String("u"), i18n( "Description:" ) ) +
+            QLatin1String("</center></td></tr>");
+    html += QLatin1String("<tr><td>") + descr + QLatin1String("</td></tr>");
+    html += QLatin1String("</table>");
   }
 
   if ( !comments.isEmpty() ) {
-    html += "<p>";
-    html += "<table border=\"0\" style=\"margin-top:4px;\">";
-    html += "<tr><td><center>" +
-            htmlAddTag( "u", i18n( "Comments:" ) ) +
-            "</center></td></tr>";
-    html += "<tr><td>";
+    html += QLatin1String("<p>");
+    html += QLatin1String("<table border=\"0\" style=\"margin-top:4px;\">");
+    html += QLatin1String("<tr><td><center>") +
+            htmlAddTag( QLatin1String("u"), i18n( "Comments:" ) ) +
+            QLatin1String("</center></td></tr>");
+    html += QLatin1String("<tr><td>");
     if ( comments.count() > 1 ) {
-      html += "<ul>";
+      html += QLatin1String("<ul>");
       for ( int i=0; i < comments.count(); ++i ) {
-        html += "<li>" + comments[i] + "</li>";
+        html += QLatin1String("<li>") + comments[i] + QLatin1String("</li>");
       }
-      html += "</ul>";
+      html += QLatin1String("</ul>");
     } else {
       html += comments[0];
     }
-    html += "</td></tr>";
-    html += "</table>";
+    html += QLatin1String("</td></tr>");
+    html += QLatin1String("</table>");
   }
   return html;
 }
@@ -1932,8 +1932,8 @@ static QString invitationDetailsFreeBusy( const FreeBusy::Ptr &fb, bool noHtmlMo
   html += htmlRow( i18n( "Start date:" ), dateToString( fb->dtStart(), true, spec ) );
   html += htmlRow( i18n( "End date:" ), dateToString( fb->dtEnd(), true, spec ) );
 
-  html += "<tr><td colspan=2><hr></td></tr>\n";
-  html += "<tr><td colspan=2>Busy periods given in this free/busy object:</td></tr>\n";
+  html += QLatin1String("<tr><td colspan=2><hr></td></tr>\n");
+  html += QLatin1String("<tr><td colspan=2>Busy periods given in this free/busy object:</td></tr>\n");
 
   Period::List periods = fb->busyPeriods();
   Period::List::iterator it;
@@ -2419,10 +2419,10 @@ static QString invitationAttendeeList( const Incidence::Ptr &incidence )
       if ( !iamAttendee( a ) ) {
         count++;
         if ( count == 1 ) {
-          tmpStr += "<table border=\"1\" cellpadding=\"1\" cellspacing=\"0\">";
+          tmpStr += QLatin1String("<table border=\"1\" cellpadding=\"1\" cellspacing=\"0\">");
         }
-        tmpStr += "<tr>";
-        tmpStr += "<td>";
+        tmpStr += QLatin1String("<tr>");
+        tmpStr += QLatin1String("<td>");
         comments.clear();
         if ( attendeeIsOrganizer( incidence, a ) ) {
           comments << i18n( "organizer" );
@@ -2433,14 +2433,14 @@ static QString invitationAttendeeList( const Incidence::Ptr &incidence )
         if ( !a->delegate().isEmpty() ) {
           comments << i18n( " (delegated to %1)", a->delegate() );
         }
-        tmpStr += invitationPerson( a->email(), a->name(), QString(), comments.join( "," ) );
-        tmpStr += "</td>";
-        tmpStr += "</tr>";
+        tmpStr += invitationPerson( a->email(), a->name(), QString(), comments.join( QLatin1String(",") ) );
+        tmpStr += QLatin1String("</td>");
+        tmpStr += QLatin1String("</tr>");
       }
     }
   }
   if ( count ) {
-    tmpStr += "</table>";
+    tmpStr += QLatin1String("</table>");
   } else {
     tmpStr.clear();
   }
@@ -2480,10 +2480,10 @@ static QString invitationRsvpList( const Incidence::Ptr &incidence, const Attend
         }
         count++;
         if ( count == 1 ) {
-          tmpStr += "<table border=\"1\" cellpadding=\"1\" cellspacing=\"0\">";
+          tmpStr += QLatin1String("<table border=\"1\" cellpadding=\"1\" cellspacing=\"0\">");
         }
-        tmpStr += "<tr>";
-        tmpStr += "<td>";
+        tmpStr += QLatin1String("<tr>");
+        tmpStr += QLatin1String("<td>");
         comments.clear();
         if ( iamAttendee( a ) ) {
           comments << i18n( "myself" );
@@ -2494,17 +2494,17 @@ static QString invitationRsvpList( const Incidence::Ptr &incidence, const Attend
         if ( !a->delegate().isEmpty() ) {
           comments << i18n( " (delegated to %1)", a->delegate() );
         }
-        tmpStr += invitationPerson( a->email(), a->name(), QString(), comments.join( "," ) );
-        tmpStr += "</td>";
-        tmpStr += "<td>" + statusStr + "</td>";
-        tmpStr += "</tr>";
+        tmpStr += invitationPerson( a->email(), a->name(), QString(), comments.join( QLatin1String(",")) );
+        tmpStr += QLatin1String("</td>");
+        tmpStr += QLatin1String("<td>" )+ statusStr + QLatin1String("</td>");
+        tmpStr += QLatin1String("</tr>");
       }
     }
   }
   if ( count ) {
-    tmpStr += "</table>";
+    tmpStr += QLatin1String("</table>");
   } else {
-    tmpStr += "<i> " + i18nc( "no attendees", "None" ) + "</i>";
+    tmpStr += QLatin1String("<i> ") + i18nc( "no attendees", "None" ) + QLatin1String("</i>");
   }
 
   return tmpStr;
@@ -2525,25 +2525,25 @@ static QString invitationAttachments( InvitationFormatterHelper *helper,
 
   Attachment::List attachments = incidence->attachments();
   if ( !attachments.isEmpty() ) {
-    tmpStr += i18n( "Attached Documents:" ) + "<ol>";
+    tmpStr += i18n( "Attached Documents:" ) + QLatin1String("<ol>");
 
     Attachment::List::ConstIterator it;
     for ( it = attachments.constBegin(); it != attachments.constEnd(); ++it ) {
       Attachment::Ptr a = *it;
-      tmpStr += "<li>";
+      tmpStr += QLatin1String("<li>");
       // Attachment icon
       KMimeType::Ptr mimeType = KMimeType::mimeType( a->mimeType() );
       const QString iconStr = ( mimeType ?
                                 mimeType->iconName( a->uri() ) :
-                                QString( "application-octet-stream" ) );
+                                QLatin1String( "application-octet-stream" ) );
       const QString iconPath = KIconLoader::global()->iconPath( iconStr, KIconLoader::Small );
       if ( !iconPath.isEmpty() ) {
-        tmpStr += "<img valign=\"top\" src=\"" + iconPath + "\">";
+        tmpStr += QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">");
       }
-      tmpStr += helper->makeLink( "ATTACH:" + a->label().toUtf8().toBase64(), a->label() );
-      tmpStr += "</li>";
+      tmpStr += helper->makeLink( QLatin1String("ATTACH:") + a->label().toUtf8().toBase64(), a->label() );
+      tmpStr += QLatin1String("</li>");
     }
-    tmpStr += "</ol>";
+    tmpStr += QLatin1String("</ol>");
   }
 
   return tmpStr;
@@ -2675,9 +2675,9 @@ class IncidenceFormatter::IncidenceCompareVisitor : public Visitor
       if ( mChanges.isEmpty() ) {
         return QString();
       }
-      QString html = "<div align=\"left\"><ul><li>";
-      html += mChanges.join( "</li><li>" );
-      html += "</li><ul></div>";
+      QString html = QLatin1String("<div align=\"left\"><ul><li>");
+      html += mChanges.join( QLatin1String("</li><li>") );
+      html += QLatin1String("</li><ul></div>");
       return html;
     }
 
@@ -2828,12 +2828,12 @@ class IncidenceFormatter::IncidenceCompareVisitor : public Visitor
 QString InvitationFormatterHelper::makeLink( const QString &id, const QString &text )
 {
   if ( !id.startsWith( QLatin1String( "ATTACH:" ) ) ) {
-    QString res = QString( "<a href=\"%1\"><font size=\"-1\"><b>%2</b></font></a>" ).
+    QString res = QString::fromLatin1( "<a href=\"%1\"><font size=\"-1\"><b>%2</b></font></a>" ).
                   arg( generateLinkURL( id ), text );
     return res;
   } else {
     // draw the attachment links in non-bold face
-    QString res = QString( "<a href=\"%1\">%2</a>" ).
+    QString res = QString::fromLatin1( "<a href=\"%1\">%2</a>" ).
                   arg( generateLinkURL( id ), text );
     return res;
   }
@@ -2857,13 +2857,13 @@ static QString inviteButton( InvitationFormatterHelper *helper,
     return html;
   }
 
-  html += "<td style=\"border-width:2px;border-style:outset\">";
+  html += QLatin1String("<td style=\"border-width:2px;border-style:outset\">");
   if ( !id.isEmpty() ) {
     html += helper->makeLink( id, text );
   } else {
     html += text;
   }
-  html += "</td>";
+  html += QLatin1String("</td>");
   return html;
 }
 
@@ -2891,41 +2891,41 @@ static QString responseButtons( const Incidence::Ptr &incidence,
 
   if ( !rsvpReq && ( incidence && incidence->revision() == 0 ) ) {
     // Record only
-    html += inviteButton( helper, "record", i18n( "Record" ) );
+    html += inviteButton( helper, QLatin1String("record"), i18n( "Record" ) );
 
     // Move to trash
-    html += inviteButton( helper, "delete", i18n( "Move to Trash" ) );
+    html += inviteButton( helper, QLatin1String("delete"), i18n( "Move to Trash" ) );
 
   } else {
 
     // Accept
-    html += inviteButton( helper, "accept",
+    html += inviteButton( helper, QLatin1String("accept"),
                           i18nc( "accept invitation", "Accept" ) );
 
     // Tentative
-    html += inviteButton( helper, "accept_conditionally",
+    html += inviteButton( helper, QLatin1String("accept_conditionally"),
                           i18nc( "Accept invitation conditionally", "Accept cond." ) );
 
     // Counter proposal
-    html += inviteButton( helper, "counter",
+    html += inviteButton( helper, QLatin1String("counter"),
                           i18nc( "invitation counter proposal", "Counter proposal" ) );
 
     // Decline
-    html += inviteButton( helper, "decline",
+    html += inviteButton( helper, QLatin1String("decline"),
                           i18nc( "decline invitation", "Decline" ) );
   }
 
   if ( !rsvpRec || ( incidence && incidence->revision() > 0 ) ) {
     // Delegate
-    html += inviteButton( helper, "delegate",
+    html += inviteButton( helper, QLatin1String("delegate"),
                           i18nc( "delegate inviation to another", "Delegate" ) );
 
     // Forward
-    html += inviteButton( helper, "forward", i18nc( "forward request to another", "Forward" ) );
+    html += inviteButton( helper, QLatin1String("forward"), i18nc( "forward request to another", "Forward" ) );
 
     // Check calendar
     if ( incidence && incidence->type() == Incidence::TypeEvent ) {
-      html += inviteButton( helper, "check_calendar",
+      html += inviteButton( helper, QLatin1String("check_calendar"),
                             i18nc( "look for scheduling conflicts", "Check my calendar" ) );
     }
   }
@@ -2941,17 +2941,17 @@ static QString counterButtons( const Incidence::Ptr &incidence,
   }
 
   // Accept proposal
-  html += inviteButton( helper, "accept_counter", i18n( "Accept" ) );
+  html += inviteButton( helper, QLatin1String("accept_counter"), i18n( "Accept" ) );
 
   // Decline proposal
-  html += inviteButton( helper, "decline_counter", i18n( "Decline" ) );
+  html += inviteButton( helper, QLatin1String("decline_counter"), i18n( "Decline" ) );
 
   // Check calendar
   if ( incidence ) {
     if ( incidence->type() == Incidence::TypeTodo ) {
-      html += inviteButton( helper, "check_calendar", i18n( "Check my to-do list" ) );
+      html += inviteButton( helper, QLatin1String("check_calendar"), i18n( "Check my to-do list" ) );
     } else {
-      html += inviteButton( helper, "check_calendar", i18n( "Check my calendar" ) );
+      html += inviteButton( helper, QLatin1String("check_calendar"), i18n( "Check my calendar" ) );
     }
   }
   return html;
@@ -2967,10 +2967,10 @@ static QString recordButtons( const Incidence::Ptr &incidence,
 
   if ( incidence ) {
     if ( incidence->type() == Incidence::TypeTodo ) {
-      html += inviteLink( helper, "reply",
+      html += inviteLink( helper, QLatin1String("reply"),
                           i18n( "Record invitation in my to-do list" ) );
     } else {
-      html += inviteLink( helper, "reply",
+      html += inviteLink( helper, QLatin1String("reply"),
                           i18n( "Record invitation in my calendar" ) );
     }
   }
@@ -2987,10 +2987,10 @@ static QString recordResponseButtons( const Incidence::Ptr &incidence,
 
   if ( incidence ) {
     if ( incidence->type() == Incidence::TypeTodo ) {
-      html += inviteLink( helper, "reply",
+      html += inviteLink( helper, QLatin1String("reply"),
                           i18n( "Record response in my to-do list" ) );
     } else {
-      html += inviteLink( helper, "reply",
+      html += inviteLink( helper, QLatin1String("reply"),
                           i18n( "Record response in my calendar" ) );
     }
   }
@@ -3008,10 +3008,10 @@ static QString cancelButtons( const Incidence::Ptr &incidence,
   // Remove invitation
   if ( incidence ) {
     if ( incidence->type() == Incidence::TypeTodo ) {
-      html += inviteButton( helper, "cancel",
+      html += inviteButton( helper, QLatin1String("cancel"),
                             i18n( "Remove invitation from my to-do list" ) );
     } else {
-      html += inviteButton( helper, "cancel",
+      html += inviteButton( helper, QLatin1String("cancel"),
                             i18n( "Remove invitation from my calendar" ) );
     }
   }
@@ -3081,15 +3081,14 @@ static QString formatICalInvitationHelper( QString invitation,
   }
 
   // First make the text of the message
-  QString html;
-  html += "<div align=\"center\" style=\"border:solid 1px;\">";
+  QString html = QLatin1String("<div align=\"center\" style=\"border:solid 1px;\">");
 
   IncidenceFormatter::InvitationHeaderVisitor headerVisitor;
   // The InvitationHeaderVisitor returns false if the incidence is somehow invalid, or not handled
   if ( !headerVisitor.act( inc, existingIncidence, msg, sender ) ) {
     return QString();
   }
-  html += htmlAddTag( "h3", headerVisitor.result() );
+  html += htmlAddTag( QLatin1String("h3"), headerVisitor.result() );
 
   if ( outlookCompareStyle ||
        msg->method() == iTIPDeclineCounter ) { //use Outlook style for decline
@@ -3123,7 +3122,7 @@ static QString formatICalInvitationHelper( QString invitation,
     if ( msg->method() == iTIPRequest ) {
       IncidenceFormatter::IncidenceCompareVisitor compareVisitor;
       if ( compareVisitor.act( inc, existingIncidence ) ) {
-        html += "<p align=\"left\">";
+        html += QLatin1String("<p align=\"left\">");
         if ( senderIsOrganizer( inc, sender ) ) {
           html += i18n( "The following changes have been made by the organizer:" );
         } else if ( !sender.isEmpty() ) {
@@ -3131,20 +3130,20 @@ static QString formatICalInvitationHelper( QString invitation,
         } else {
           html += i18n( "The following changes have been made:" );
         }
-        html += "</p>";
+        html += QLatin1String("</p>");
         html += compareVisitor.result();
       }
     }
     if ( msg->method() == iTIPReply ) {
       IncidenceCompareVisitor compareVisitor;
       if ( compareVisitor.act( inc, existingIncidence ) ) {
-        html += "<p align=\"left\">";
+        html += QLatin1String("<p align=\"left\">");
         if ( !sender.isEmpty() ) {
           html += i18n( "The following changes have been made by %1:", sender );
         } else {
           html += i18n( "The following changes have been made by an attendee:" );
         }
-        html += "</p>";
+        html += QLatin1String("</p>");
         html += compareVisitor.result();
       }
     }
@@ -3213,8 +3212,8 @@ static QString formatICalInvitationHelper( QString invitation,
         tStr = i18n( "Awaiting delegation response" );
       }
     }
-    html += "<br>";
-    html += "<i><u>" + tStr + "</u></i>";
+    html += QLatin1String("<br>");
+    html += QLatin1String("<i><u>") + tStr + QLatin1String("</u></i>");
   }
 
   // Print if the organizer gave you a preset status
@@ -3222,16 +3221,16 @@ static QString formatICalInvitationHelper( QString invitation,
     if ( inc && incRevision == 0 ) {
       QString statStr = myStatusStr( inc );
       if ( !statStr.isEmpty() ) {
-        html += "<br>";
-        html += "<i>" + statStr + "</i>";
+        html += QLatin1String("<br>");
+        html += QLatin1String("<i>") + statStr + QLatin1String("</i>");
       }
     }
   }
 
   // Add groupware links
 
-  html += "<p>";
-  html += "<table border=\"0\" align=\"center\" cellspacing=\"4\"><tr>";
+  html += QLatin1String("<p>");
+  html += QLatin1String("<table border=\"0\" align=\"center\" cellspacing=\"4\"><tr>");
 
   switch ( msg->method() ) {
     case iTIPPublish:
@@ -3265,7 +3264,7 @@ static QString formatICalInvitationHelper( QString invitation,
       if ( inc ) {
         // First, determine if this reply is really a counter in disguise.
         if ( replyMeansCounter( inc ) ) {
-          html += "<tr>" + counterButtons( inc, helper ) + "</tr>";
+          html += QLatin1String("<tr>") + counterButtons( inc, helper ) + QLatin1String("</tr>");
           break;
         }
 
@@ -3317,7 +3316,7 @@ static QString formatICalInvitationHelper( QString invitation,
   }
 
   // close the groupware table
-  html += "</tr></table>";
+  html += QLatin1String("</tr></table>");
 
   // Add the attendee list
   if ( myInc ) {
@@ -3327,7 +3326,7 @@ static QString formatICalInvitationHelper( QString invitation,
   }
 
   // close the top-level table
-  html += "</div>";
+  html += QLatin1String("</div>");
 
   // Add the attachment list
   html += invitationAttachments( helper, inc );
@@ -3445,25 +3444,25 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Event::Ptr &eve
 
   if ( event->isMultiDay() ) {
     tmp = dateToString( startDt, true, mSpec );
-    ret += "<br>" + i18nc( "Event start", "<i>From:</i> %1", tmp );
+    ret += QLatin1String("<br>") + i18nc( "Event start", "<i>From:</i> %1", tmp );
 
     tmp = dateToString( endDt, true, mSpec );
-    ret += "<br>" + i18nc( "Event end","<i>To:</i> %1", tmp );
+    ret += QLatin1String("<br>") + i18nc( "Event end","<i>To:</i> %1", tmp );
 
   } else {
 
-    ret += "<br>" +
+    ret += QLatin1String("<br>") +
            i18n( "<i>Date:</i> %1", dateToString( startDt, false, mSpec ) );
     if ( !event->allDay() ) {
       const QString dtStartTime = timeToString( startDt, true, mSpec );
       const QString dtEndTime = timeToString( endDt, true, mSpec );
       if ( dtStartTime == dtEndTime ) {
         // to prevent 'Time: 17:00 - 17:00'
-        tmp = "<br>" +
+        tmp = QLatin1String("<br>") +
               i18nc( "time for event", "<i>Time:</i> %1",
                      dtStartTime );
       } else {
-        tmp = "<br>" +
+        tmp = QLatin1String("<br>") +
               i18nc( "time range for event",
                      "<i>Time:</i> %1 - %2",
                      dtStartTime, dtEndTime );
@@ -3471,7 +3470,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Event::Ptr &eve
       ret += tmp;
     }
   }
-  return ret.replace( ' ', "&nbsp;" );
+  return ret.replace( QLatin1Char(' '), QLatin1String("&nbsp;") );
 }
 
 QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Todo::Ptr &todo,
@@ -3486,7 +3485,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Todo::Ptr &todo
         startDt.setDate( date );
       }
     }
-    ret += "<br>" +
+    ret += QLatin1String("<br>") +
            i18n( "<i>Start:</i> %1", dateToString( startDt, false, mSpec ) );
   }
 
@@ -3499,7 +3498,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Todo::Ptr &todo
         dueDt.setDate( todo->recurrence()->getNextDateTime( kdt ).date() );
       }
     }
-    ret += "<br>" +
+    ret += QLatin1String("<br>") +
            i18n( "<i>Due:</i> %1",
                  dateTimeToString( dueDt, todo->allDay(), false, mSpec ) );
   }
@@ -3507,17 +3506,17 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Todo::Ptr &todo
   // Print priority and completed info here, for lack of a better place
 
   if ( todo->priority() > 0 ) {
-    ret += "<br>";
-    ret += "<i>" + i18n( "Priority:" ) + "</i>" + "&nbsp;";
+    ret += QLatin1String("<br>");
+    ret += QLatin1String("<i>") + i18n( "Priority:" ) + QLatin1String("</i>") + QLatin1String("&nbsp;");
     ret += QString::number( todo->priority() );
   }
 
-  ret += "<br>";
+  ret += QLatin1String("<br>");
   if ( todo->isCompleted() ) {
-    ret += "<i>" + i18nc( "Completed: date", "Completed:" ) + "</i>" + "&nbsp;";
-    ret += Stringify::todoCompletedDateTime( todo ).replace( ' ', "&nbsp;" );
+    ret += QLatin1String("<i>") + i18nc( "Completed: date", "Completed:" ) + QLatin1String("</i>") + QLatin1String("&nbsp;");
+    ret += Stringify::todoCompletedDateTime( todo ).replace( QLatin1Char(' '), QLatin1String("&nbsp;") );
   } else {
-    ret += "<i>" + i18n( "Percent Done:" ) + "</i>" + "&nbsp;";
+    ret += QLatin1String("<i>" )+ i18n( "Percent Done:" ) + QLatin1String("</i>") + QLatin1String("&nbsp;");
     ret += i18n( "%1%", todo->percentComplete() );
   }
 
@@ -3529,23 +3528,23 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Journal::Ptr &j
   //FIXME: support mRichText==false
   QString ret;
   if ( journal->dtStart().isValid() ) {
-    ret += "<br>" +
+    ret += QLatin1String("<br>") +
            i18n( "<i>Date:</i> %1", dateToString( journal->dtStart(), false, mSpec ) );
   }
-  return ret.replace( ' ', "&nbsp;" );
+  return ret.replace( QLatin1Char(' '), QLatin1String("&nbsp;") );
 }
 
 QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const FreeBusy::Ptr &fb )
 {
   //FIXME: support mRichText==false
   QString ret;
-  ret = "<br>" +
+  ret = QLatin1String("<br>") +
         i18n( "<i>Period start:</i> %1",
               KGlobal::locale()->formatDateTime( fb->dtStart().dateTime() ) );
-  ret += "<br>" +
+  ret += QLatin1String("<br>") +
          i18n( "<i>Period start:</i> %1",
                KGlobal::locale()->formatDateTime( fb->dtEnd().dateTime() ) );
-  return ret.replace( ' ', "&nbsp;" );
+  return ret.replace( QLatin1Char(' '), QLatin1String("&nbsp;") );
 }
 
 bool IncidenceFormatter::ToolTipVisitor::visit( Event::Ptr event )
@@ -3569,11 +3568,11 @@ bool IncidenceFormatter::ToolTipVisitor::visit( Journal::Ptr journal )
 bool IncidenceFormatter::ToolTipVisitor::visit( FreeBusy::Ptr fb )
 {
   //FIXME: support mRichText==false
-  mResult = "<qt><b>" +
+  mResult = QLatin1String("<qt><b>") +
             i18n( "Free/Busy information for %1", fb->organizer()->fullName() ) +
-            "</b>";
+            QLatin1String("</b>");
   mResult += dateRangeText( fb );
-  mResult += "</qt>";
+  mResult += QLatin1String("</qt>");
   return !mResult.isEmpty();
 }
 
@@ -3588,7 +3587,7 @@ static QString tooltipPerson( const QString &email, const QString &name, Attende
   // Make the return string.
   QString personString;
   if ( !iconPath.isEmpty() ) {
-    personString += "<img valign=\"top\" src=\"" + iconPath + "\">" + "&nbsp;";
+    personString += QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">") + QLatin1String("&nbsp;");
   }
   if ( status != Attendee::None ) {
     personString += i18nc( "attendee name (attendee status)", "%1 (%2)",
@@ -3611,7 +3610,7 @@ static QString tooltipFormatOrganizer( const QString &email, const QString &name
 
   // Make the return string.
   QString personString;
-  personString += "<img valign=\"top\" src=\"" + iconPath + "\">" + "&nbsp;";
+  personString += QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">") + QLatin1String("&nbsp;");
   personString += ( printName.isEmpty() ? email : printName );
   return personString;
 }
@@ -3638,10 +3637,10 @@ static QString tooltipFormatAttendeeRoleList( const Incidence::Ptr &incidence,
       continue;
     }
     if ( i == maxNumAtts ) {
-      tmpStr += "&nbsp;&nbsp;" + etc;
+      tmpStr += QLatin1String("&nbsp;&nbsp;") + etc;
       break;
     }
-    tmpStr += "&nbsp;&nbsp;" + tooltipPerson( a->email(), a->name(),
+    tmpStr += QLatin1String("&nbsp;&nbsp;") + tooltipPerson( a->email(), a->name(),
                                               showStatus ? a->status() : Attendee::None );
     if ( !a->delegator().isEmpty() ) {
       tmpStr += i18n( " (delegated by %1)", a->delegator() );
@@ -3649,7 +3648,7 @@ static QString tooltipFormatAttendeeRoleList( const Incidence::Ptr &incidence,
     if ( !a->delegate().isEmpty() ) {
       tmpStr += i18n( " (delegated to %1)", a->delegate() );
     }
-    tmpStr += "<br>";
+    tmpStr += QLatin1String("<br>");
     i++;
   }
   if ( tmpStr.endsWith( QLatin1String( "<br>" ) ) ) {
@@ -3668,8 +3667,8 @@ static QString tooltipFormatAttendees( const Calendar::Ptr &calendar,
   if ( attendeeCount > 1 ||
        ( attendeeCount == 1 &&
          !attendeeIsOrganizer( incidence, incidence->attendees().first() ) ) ) {
-    tmpStr += "<i>" + i18n( "Organizer:" ) + "</i>" + "<br>";
-    tmpStr += "&nbsp;&nbsp;" + tooltipFormatOrganizer( incidence->organizer()->email(),
+    tmpStr += QLatin1String("<i>") + i18n( "Organizer:" ) + QLatin1String("</i>") + QLatin1String("<br>");
+    tmpStr += QLatin1String("&nbsp;&nbsp;") + tooltipFormatOrganizer( incidence->organizer()->email(),
                                                        incidence->organizer()->name() );
   }
 
@@ -3680,28 +3679,28 @@ static QString tooltipFormatAttendees( const Calendar::Ptr &calendar,
   // Add "chair"
   str = tooltipFormatAttendeeRoleList( incidence, Attendee::Chair, showStatus );
   if ( !str.isEmpty() ) {
-    tmpStr += "<br><i>" + i18n( "Chair:" ) + "</i>" + "<br>";
+    tmpStr += QLatin1String("<br><i>") + i18n( "Chair:" ) + QLatin1String("</i>") + QLatin1String("<br>");
     tmpStr += str;
   }
 
   // Add required participants
   str = tooltipFormatAttendeeRoleList( incidence, Attendee::ReqParticipant, showStatus );
   if ( !str.isEmpty() ) {
-    tmpStr += "<br><i>" + i18n( "Required Participants:" ) + "</i>" + "<br>";
+    tmpStr += QLatin1String("<br><i>") + i18n( "Required Participants:" ) + QLatin1String("</i>") + QLatin1String("<br>");
     tmpStr += str;
   }
 
   // Add optional participants
   str = tooltipFormatAttendeeRoleList( incidence, Attendee::OptParticipant, showStatus );
   if ( !str.isEmpty() ) {
-    tmpStr += "<br><i>" + i18n( "Optional Participants:" ) + "</i>" + "<br>";
+    tmpStr += QLatin1String("<br><i>") + i18n( "Optional Participants:" ) + QLatin1String("</i>") + QLatin1String("<br>");
     tmpStr += str;
   }
 
   // Add observers
   str = tooltipFormatAttendeeRoleList( incidence, Attendee::NonParticipant, showStatus );
   if ( !str.isEmpty() ) {
-    tmpStr += "<br><i>" + i18n( "Observers:" ) + "</i>" + "<br>";
+    tmpStr += QLatin1String("<br><i>") + i18n( "Observers:" ) + QLatin1String("</i>") + QLatin1String("<br>");
     tmpStr += str;
   }
 
@@ -3718,45 +3717,45 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip( const Incidence::Pt
     return QString();
   }
 
-  QString tmp = "<qt>";
+  QString tmp = QLatin1String("<qt>");
 
   // header
-  tmp += "<b>" + incidence->richSummary() + "</b>";
-  tmp += "<hr>";
+  tmp += QLatin1String("<b>") + incidence->richSummary() + QLatin1String("</b>");
+  tmp += QLatin1String("<hr>");
 
   QString calStr = mLocation;
   if ( mCalendar ) {
     calStr = resourceString( mCalendar, incidence );
   }
   if ( !calStr.isEmpty() ) {
-    tmp += "<i>" + i18n( "Calendar:" ) + "</i>" + "&nbsp;";
+    tmp += QLatin1String("<i>") + i18n( "Calendar:" ) + QLatin1String("</i>") + QLatin1String("&nbsp;");
     tmp += calStr;
   }
 
   tmp += dtRangeText;
 
   if ( !incidence->location().isEmpty() ) {
-    tmp += "<br>";
-    tmp += "<i>" + i18n( "Location:" ) + "</i>" + "&nbsp;";
+    tmp += QLatin1String("<br>");
+    tmp += QLatin1String("<i>") + i18n( "Location:" ) + QLatin1String("</i>") + QLatin1String("&nbsp;");
     tmp += incidence->richLocation();
   }
 
   QString durStr = durationString( incidence );
   if ( !durStr.isEmpty() ) {
-    tmp += "<br>";
-    tmp += "<i>" + i18n( "Duration:" ) + "</i>" + "&nbsp;";
+    tmp += QLatin1String("<br>");
+    tmp += QLatin1String("<i>") + i18n( "Duration:" ) + QLatin1String("</i>") + QLatin1String("&nbsp;");
     tmp += durStr;
   }
 
   if ( incidence->recurs() ) {
-    tmp += "<br>";
-    tmp += "<i>" + i18n( "Recurrence:" ) + "</i>" + "&nbsp;";
+    tmp += QLatin1String("<br>");
+    tmp += QLatin1String("<i>") + i18n( "Recurrence:" ) + QLatin1String("</i>") + QLatin1String("&nbsp;");
     tmp += recurrenceString( incidence );
   }
 
   if ( incidence->hasRecurrenceId() ) {
-    tmp += "<br>";
-    tmp += "<i>" + i18n( "Recurrence:" ) + "</i>" + "&nbsp;";
+    tmp += QLatin1String("<br>");
+    tmp += QLatin1String("<i>") + i18n( "Recurrence:" ) + QLatin1String("</i>") + QLatin1String("&nbsp;");
     tmp += i18n( "Exception" );
   }
 
@@ -3766,21 +3765,21 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip( const Incidence::Pt
       if ( desc.length() > maxDescLen ) {
         desc = desc.left( maxDescLen ) + i18nc( "elipsis", "..." );
       }
-      desc = Qt::escape( desc ).replace( '\n', "<br>" );
+      desc = Qt::escape( desc ).replace( '\n', QLatin1String("<br>") );
     } else {
       // TODO: truncate the description when it's rich text
     }
-    tmp += "<hr>";
-    tmp += "<i>" + i18n( "Description:" ) + "</i>" + "<br>";
+    tmp += QLatin1String("<hr>");
+    tmp += QLatin1String("<i>") + i18n( "Description:" ) + QLatin1String("</i>") + QLatin1String("<br>");
     tmp += desc;
-    tmp += "<hr>";
+    tmp += QLatin1String("<hr>");
   }
 
   int reminderCount = incidence->alarms().count();
   if ( reminderCount > 0 && incidence->hasEnabledAlarms() ) {
-    tmp += "<br>";
-    tmp += "<i>" + i18np( "Reminder:", "Reminders:", reminderCount ) + "</i>" + "&nbsp;";
-    tmp += reminderStringList( incidence ).join( ", " );
+    tmp += QLatin1String("<br>");
+    tmp += QLatin1String("<i>") + i18np( "Reminder:", "Reminders:", reminderCount ) + QLatin1String("</i>") + QLatin1String("&nbsp;");
+    tmp += reminderStringList( incidence ).join( QLatin1String(", ") );
   }
 
   tmp += "<br>";
@@ -3788,12 +3787,12 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip( const Incidence::Pt
 
   int categoryCount = incidence->categories().count();
   if ( categoryCount > 0 ) {
-    tmp += "<br>";
-    tmp += "<i>" + i18np( "Category:", "Categories:", categoryCount ) + "</i>" + "&nbsp;";
-    tmp += incidence->categories().join( ", " );
+    tmp += QLatin1String("<br>");
+    tmp += QLatin1String("<i>") + i18np( "Category:", "Categories:", categoryCount ) + QLatin1String("</i>") +QLatin1String( "&nbsp;");
+    tmp += incidence->categories().join( QLatin1String(", ") );
   }
 
-  tmp += "</qt>";
+  tmp += QLatin1String("</qt>");
   return tmp;
 }
 //@endcond
@@ -4600,7 +4599,7 @@ QStringList IncidenceFormatter::reminderStringList( const Incidence::Ptr &incide
                                      secs2Duration( alarm->snoozeTime().asSeconds() ) );
         QString repeatStr = i18nc( "(repeat string, interval string)",
                                    "(%1, %2)", countStr, intervalStr );
-        remStr = remStr + ' ' + repeatStr;
+        remStr = remStr + QLatin1Char(' ') + repeatStr;
 
       }
       reminderStringList << remStr;
