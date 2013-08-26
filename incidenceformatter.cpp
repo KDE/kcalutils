@@ -345,7 +345,7 @@ static QString displayViewFormatPerson( const QString &email, const QString &nam
 #ifndef KDEPIM_MOBILE_UI
   // Make the mailto link
   if ( !email.isEmpty() ) {
-    personString += "&nbsp;" + htmlAddMailtoLink( email, printName );
+    personString += QLatin1String("&nbsp;") + htmlAddMailtoLink( email, printName );
   }
 #endif
 
@@ -493,7 +493,7 @@ static QString displayViewFormatAttachments( Incidence::Ptr incidence )
                              (*it)->label() );
     }
     if ( count < as.count() ) {
-      tmpStr += "<br>";
+      tmpStr += QLatin1String("<br>");
     }
   }
   return tmpStr;
@@ -539,9 +539,9 @@ static QString displayViewFormatHeader( Incidence::Ptr incidence )
 
   QString iconPath;
   if ( incidence->customProperty( "KABC", "BIRTHDAY" ) == QLatin1String("YES") ) {
-    iconPath = iconLoader->iconPath( "view-calendar-birthday", KIconLoader::Small );
+    iconPath = iconLoader->iconPath( QLatin1String("view-calendar-birthday"), KIconLoader::Small );
   } else if ( incidence->customProperty( "KABC", "ANNIVERSARY" ) == QLatin1String("YES") ) {
-    iconPath = iconLoader->iconPath( "view-calendar-wedding-anniversary", KIconLoader::Small );
+    iconPath = iconLoader->iconPath( QLatin1String("view-calendar-wedding-anniversary"), KIconLoader::Small );
   } else {
     iconPath = iconLoader->iconPath( incidence->iconName(), KIconLoader::Small );
   }
@@ -583,23 +583,23 @@ static QString displayViewFormatEvent( const Calendar::Ptr calendar, const QStri
 
   QString tmpStr = displayViewFormatHeader( event );
 
-  tmpStr += "<table>";
-  tmpStr += "<col width=\"25%\"/>";
-  tmpStr += "<col width=\"75%\"/>";
+  tmpStr += QLatin1String("<table>");
+  tmpStr += QLatin1String("<col width=\"25%\"/>");
+  tmpStr += QLatin1String("<col width=\"75%\"/>");
 
   const QString calStr = calendar ? resourceString( calendar, event ) : sourceName;
   if ( !calStr.isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Calendar:" ) + "</b></td>";
-    tmpStr += "<td>" + calStr + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Calendar:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + calStr + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   if ( !event->location().isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Location:" ) + "</b></td>";
-    tmpStr += "<td>" + event->richLocation() + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Location:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + event->richLocation() + QLatin1String("</td>");
+    tmpStr +=QLatin1String( "</tr>");
   }
 
   KDateTime startDt = event->dtStart();
@@ -620,65 +620,65 @@ static QString displayViewFormatEvent( const Calendar::Ptr calendar, const QStri
     }
   }
 
-  tmpStr += "<tr>";
+  tmpStr += QLatin1String("<tr>");
   if ( event->allDay() ) {
     if ( event->isMultiDay() ) {
-      tmpStr += "<td><b>" + i18n( "Date:" ) + "</b></td>";
-      tmpStr += "<td>" +
+      tmpStr += QLatin1String("<td><b>") + i18n( "Date:" ) + QLatin1String("</b></td>");
+      tmpStr += QLatin1String("<td>") +
                 i18nc( "<beginTime> - <endTime>","%1 - %2",
                        dateToString( startDt, false, spec ),
                        dateToString( endDt, false, spec ) ) +
-                "</td>";
+                QLatin1String("</td>");
     } else {
-      tmpStr += "<td><b>" + i18n( "Date:" ) + "</b></td>";
-      tmpStr += "<td>" +
+      tmpStr += QLatin1String("<td><b>") + i18n( "Date:" ) + QLatin1String("</b></td>");
+      tmpStr += QLatin1String("<td>") +
                 i18nc( "date as string","%1",
                        dateToString( startDt, false, spec ) ) +
-                "</td>";
+                QLatin1String("</td>");
     }
   } else {
     if ( event->isMultiDay() ) {
-      tmpStr += "<td><b>" + i18n( "Date:" ) + "</b></td>";
-      tmpStr += "<td>" +
+      tmpStr += QLatin1String("<td><b>") + i18n( "Date:" ) + QLatin1String("</b></td>");
+      tmpStr += QLatin1String("<td>") +
                 i18nc( "<beginTime> - <endTime>","%1 - %2",
                        dateToString( startDt, false, spec ),
                        dateToString( endDt, false, spec ) ) +
-                "</td>";
+                QLatin1String("</td>");
     } else {
-      tmpStr += "<td><b>" + i18n( "Date:" ) + "</b></td>";
-      tmpStr += "<td>" +
+      tmpStr += QLatin1String("<td><b>") + i18n( "Date:" ) + QLatin1String("</b></td>");
+      tmpStr += QLatin1String("<td>") +
                 i18nc( "date as string", "%1",
                        dateToString( startDt, false, spec ) ) +
-                "</td>";
+                QLatin1String("</td>");
 
-      tmpStr += "</tr><tr>";
-      tmpStr += "<td><b>" + i18n( "Time:" ) + "</b></td>";
+      tmpStr += QLatin1String("</tr><tr>");
+      tmpStr += QLatin1String("<td><b>") + i18n( "Time:" ) + QLatin1String("</b></td>");
       if ( event->hasEndDate() && startDt != endDt ) {
-        tmpStr += "<td>" +
+        tmpStr += QLatin1String("<td>") +
                   i18nc( "<beginTime> - <endTime>","%1 - %2",
                          timeToString( startDt, true, spec ),
                          timeToString( endDt, true, spec ) ) +
-                  "</td>";
+                  QLatin1String("</td>");
       } else {
-        tmpStr += "<td>" +
+        tmpStr += QLatin1String("<td>") +
                   timeToString( startDt, true, spec ) +
-                  "</td>";
+                  QLatin1String("</td>");
       }
     }
   }
-  tmpStr += "</tr>";
+  tmpStr += QLatin1String("</tr>");
 
   QString durStr = durationString( event );
   if ( !durStr.isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Duration:" ) + "</b></td>";
-    tmpStr += "<td>" + durStr + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Duration:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + durStr + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   if ( event->recurs() || event->hasRecurrenceId() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Recurrence:" ) + "</b></td>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Recurrence:" ) + QLatin1String("</b></td>");
 
     QString str;
     if ( event->hasRecurrenceId() ) {
@@ -687,24 +687,24 @@ static QString displayViewFormatEvent( const Calendar::Ptr calendar, const QStri
       str = recurrenceString( event );
     }
 
-    tmpStr += "<td>" + str +
-              "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<td>") + str +
+              QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
-  const bool isBirthday = event->customProperty( "KABC", "BIRTHDAY" ) == "YES";
-  const bool isAnniversary = event->customProperty( "KABC", "ANNIVERSARY" ) == "YES";
+  const bool isBirthday = event->customProperty( "KABC", "BIRTHDAY" ) == QLatin1String("YES");
+  const bool isAnniversary = event->customProperty( "KABC", "ANNIVERSARY" ) == QLatin1String("YES");
 
   if ( isBirthday || isAnniversary ) {
-    tmpStr += "<tr>";
+    tmpStr += QLatin1String("<tr>");
     if ( isAnniversary ) {
-      tmpStr += "<td><b>" + i18n( "Anniversary:" ) + "</b></td>";
+      tmpStr += QLatin1String("<td><b>") + i18n( "Anniversary:" ) + QLatin1String("</b></td>");
     } else {
-      tmpStr += "<td><b>" + i18n( "Birthday:" ) + "</b></td>";
+      tmpStr += QLatin1String("<td><b>") + i18n( "Birthday:" ) + QLatin1String("</b></td>");
     }
-    tmpStr += "<td>" + displayViewFormatBirthday( event ) + "</td>";
-    tmpStr += "</tr>";
-    tmpStr += "</table>";
+    tmpStr += QLatin1String("<td>") + displayViewFormatBirthday( event ) + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
+    tmpStr += QLatin1String("</table>");
     return tmpStr;
   }
 
@@ -721,48 +721,48 @@ static QString displayViewFormatEvent( const Calendar::Ptr calendar, const QStri
         descStr = event->description();
       }
     }
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Description:" ) + "</b></td>";
-    tmpStr += "<td>" + descStr + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Description:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + descStr + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   // TODO: print comments?
 
   int reminderCount = event->alarms().count();
   if ( reminderCount > 0 && event->hasEnabledAlarms() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" +
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") +
               i18np( "Reminder:", "Reminders:", reminderCount ) +
-              "</b></td>";
-    tmpStr += "<td>" + reminderStringList( event ).join( "<br>" ) + "</td>";
-    tmpStr += "</tr>";
+              QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + reminderStringList( event ).join( QLatin1String("<br>") ) + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   tmpStr += displayViewFormatAttendees( calendar, event );
 
   int categoryCount = event->categories().count();
   if ( categoryCount > 0 ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>");
     tmpStr += i18np( "Category:", "Categories:", categoryCount ) +
-              "</b></td>";
-    tmpStr += "<td>" + displayViewFormatCategories( event ) + "</td>";
-    tmpStr += "</tr>";
+              QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + displayViewFormatCategories( event ) + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   int attachmentCount = event->attachments().count();
   if ( attachmentCount > 0 ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" +
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") +
               i18np( "Attachment:", "Attachments:", attachmentCount ) +
-              "</b></td>";
-    tmpStr += "<td>" + displayViewFormatAttachments( event ) + "</td>";
-    tmpStr += "</tr>";
+              QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + displayViewFormatAttachments( event ) + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
-  tmpStr += "</table>";
+  tmpStr += QLatin1String("</table>");
 
-  tmpStr += "<p><em>" + displayViewFormatCreationDate( event, spec ) + "</em>";
+  tmpStr += QLatin1String("<p><em>") + displayViewFormatCreationDate( event, spec ) + QLatin1String("</em>");
 
   return tmpStr;
 }
@@ -778,23 +778,23 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
 
   QString tmpStr = displayViewFormatHeader( todo );
 
-  tmpStr += "<table>";
-  tmpStr += "<col width=\"25%\"/>";
-  tmpStr += "<col width=\"75%\"/>";
+  tmpStr += QLatin1String("<table>");
+  tmpStr += QLatin1String("<col width=\"25%\"/>");
+  tmpStr += QLatin1String("<col width=\"75%\"/>");
 
   const QString calStr = calendar ? resourceString( calendar, todo ) : sourceName;
   if ( !calStr.isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Calendar:" ) + "</b></td>";
-    tmpStr += "<td>" + calStr + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Calendar:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + calStr + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   if ( !todo->location().isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Location:" ) + "</b></td>";
-    tmpStr += "<td>" + todo->richLocation() + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Location:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + todo->richLocation() + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   const bool hastStartDate = todo->hasStartDate() && todo->dtStart().isValid();
@@ -819,14 +819,14 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
         }
       }
     }
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" +
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") +
               i18nc( "to-do start date/time", "Start:" ) +
-              "</b></td>";
-    tmpStr += "<td>" +
+              QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") +
               dateTimeToString( startDt, todo->allDay(), false, spec ) +
-              "</td>";
-    tmpStr += "</tr>";
+              QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   if ( hasDueDate ) {
@@ -838,104 +838,104 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
         dueDt.setDate( todo->recurrence()->getNextDateTime( kdt ).date() );
       }
     }
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" +
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") +
               i18nc( "to-do due date/time", "Due:" ) +
-              "</b></td>";
-    tmpStr += "<td>" +
+              QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") +
               dateTimeToString( dueDt, todo->allDay(), false, spec ) +
-              "</td>";
-    tmpStr += "</tr>";
+              QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   QString durStr = durationString( todo );
   if ( !durStr.isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Duration:" ) + "</b></td>";
-    tmpStr += "<td>" + durStr + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Duration:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + durStr + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   if ( todo->recurs() || todo->hasRecurrenceId() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Recurrence:" ) + "</b></td>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>" )+ i18n( "Recurrence:" ) + QLatin1String("</b></td>");
     QString str;
     if ( todo->hasRecurrenceId() ) {
       str = i18n( "Exception" );
     } else {
       str = recurrenceString( todo );
     }
-    tmpStr += "<td>" +
+    tmpStr += QLatin1String("<td>") +
               str +
-              "</td>";
-    tmpStr += "</tr>";
+              QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   if ( !todo->description().isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Description:" ) + "</b></td>";
-    tmpStr += "<td>" + todo->richDescription() + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Description:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + todo->richDescription() + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   // TODO: print comments?
 
   int reminderCount = todo->alarms().count();
   if ( reminderCount > 0 && todo->hasEnabledAlarms() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" +
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") +
               i18np( "Reminder:", "Reminders:", reminderCount ) +
-              "</b></td>";
-    tmpStr += "<td>" + reminderStringList( todo ).join( "<br>" ) + "</td>";
-    tmpStr += "</tr>";
+              QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + reminderStringList( todo ).join( QLatin1String("<br>") ) + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   tmpStr += displayViewFormatAttendees( calendar, todo );
 
   int categoryCount = todo->categories().count();
   if ( categoryCount > 0 ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" +
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") +
               i18np( "Category:", "Categories:", categoryCount ) +
-              "</b></td>";
-    tmpStr += "<td>" + displayViewFormatCategories( todo ) + "</td>";
-    tmpStr += "</tr>";
+              QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + displayViewFormatCategories( todo ) + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   if ( todo->priority() > 0 ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Priority:" ) + "</b></td>";
-    tmpStr += "<td>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Priority:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>");
     tmpStr += QString::number( todo->priority() );
-    tmpStr += "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
-  tmpStr += "<tr>";
+  tmpStr += QLatin1String("<tr>");
   if ( todo->isCompleted() ) {
-    tmpStr += "<td><b>" + i18nc( "Completed: date", "Completed:" ) + "</b></td>";
-    tmpStr += "<td>";
+    tmpStr += QLatin1String("<td><b>") + i18nc( "Completed: date", "Completed:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>");
     tmpStr += Stringify::todoCompletedDateTime( todo );
   } else {
-    tmpStr += "<td><b>" + i18n( "Percent Done:" ) + "</b></td>";
-    tmpStr += "<td>";
+    tmpStr += QLatin1String("<td><b>") + i18n( "Percent Done:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>");
     tmpStr += i18n( "%1%", todo->percentComplete() );
   }
-  tmpStr += "</td>";
-  tmpStr += "</tr>";
+  tmpStr += QLatin1String("</td>");
+  tmpStr += QLatin1String("</tr>");
 
   int attachmentCount = todo->attachments().count();
   if ( attachmentCount > 0 ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" +
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") +
               i18np( "Attachment:", "Attachments:", attachmentCount ) +
-              "</b></td>";
-    tmpStr += "<td>" + displayViewFormatAttachments( todo ) + "</td>";
-    tmpStr += "</tr>";
+              QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + displayViewFormatAttachments( todo ) + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
-  tmpStr += "</table>";
+  tmpStr += QLatin1String("</table>");
 
-  tmpStr += "<p><em>" + displayViewFormatCreationDate( todo, spec ) + "</em>";
+  tmpStr += QLatin1String("<p><em>")+ displayViewFormatCreationDate( todo, spec ) + QLatin1String("</em>");
 
   return tmpStr;
 }
@@ -949,45 +949,45 @@ static QString displayViewFormatJournal( const Calendar::Ptr &calendar, const QS
 
   QString tmpStr = displayViewFormatHeader( journal );
 
-  tmpStr += "<table>";
-  tmpStr += "<col width=\"25%\"/>";
-  tmpStr += "<col width=\"75%\"/>";
+  tmpStr += QLatin1String("<table>");
+  tmpStr += QLatin1String("<col width=\"25%\"/>");
+  tmpStr += QLatin1String("<col width=\"75%\"/>");
 
   const QString calStr = calendar ? resourceString( calendar, journal ) : sourceName;
   if ( !calStr.isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Calendar:" ) + "</b></td>";
-    tmpStr += "<td>" + calStr + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Calendar:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + calStr + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
-  tmpStr += "<tr>";
-  tmpStr += "<td><b>" + i18n( "Date:" ) + "</b></td>";
-  tmpStr += "<td>" +
+  tmpStr += QLatin1String("<tr>");
+  tmpStr += QLatin1String("<td><b>") + i18n( "Date:" ) + QLatin1String("</b></td>");
+  tmpStr += QLatin1String("<td>") +
             dateToString( journal->dtStart(), false, spec ) +
-            "</td>";
-  tmpStr += "</tr>";
+            QLatin1String("</td>");
+  tmpStr += QLatin1String("</tr>");
 
   if ( !journal->description().isEmpty() ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" + i18n( "Description:" ) + "</b></td>";
-    tmpStr += "<td>" + journal->richDescription() + "</td>";
-    tmpStr += "</tr>";
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") + i18n( "Description:" ) + QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + journal->richDescription() + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
   int categoryCount = journal->categories().count();
   if ( categoryCount > 0 ) {
-    tmpStr += "<tr>";
-    tmpStr += "<td><b>" +
+    tmpStr += QLatin1String("<tr>");
+    tmpStr += QLatin1String("<td><b>") +
               i18np( "Category:", "Categories:", categoryCount ) +
-              "</b></td>";
-    tmpStr += "<td>" + displayViewFormatCategories( journal ) + "</td>";
-    tmpStr += "</tr>";
+              QLatin1String("</b></td>");
+    tmpStr += QLatin1String("<td>") + displayViewFormatCategories( journal ) + QLatin1String("</td>");
+    tmpStr += QLatin1String("</tr>");
   }
 
-  tmpStr += "</table>";
+  tmpStr += QLatin1String("</table>");
 
-  tmpStr += "<p><em>" + displayViewFormatCreationDate( journal, spec ) + "</em>";
+  tmpStr += QLatin1String("<p><em>") + displayViewFormatCreationDate( journal, spec ) + QLatin1String("</em>");
 
   return tmpStr;
 }
@@ -1003,16 +1003,16 @@ static QString displayViewFormatFreeBusy( const Calendar::Ptr &calendar, const Q
 
   QString tmpStr(
     htmlAddTag(
-      "h2", i18n( "Free/Busy information for %1", fb->organizer()->fullName() ) ) );
+      QLatin1String("h2"), i18n( "Free/Busy information for %1", fb->organizer()->fullName() ) ) );
 
-  tmpStr += htmlAddTag( "h4",
+  tmpStr += htmlAddTag( QLatin1String("h4"),
                         i18n( "Busy times in date range %1 - %2:",
                               dateToString( fb->dtStart(), true, spec ),
                               dateToString( fb->dtEnd(), true, spec ) ) );
 
   QString text =
-    htmlAddTag( "em",
-                htmlAddTag( "b", i18nc( "tag for busy periods list", "Busy:" ) ) );
+    htmlAddTag( QLatin1String("em"),
+                htmlAddTag( QLatin1String("b"), i18nc( "tag for busy periods list", "Busy:" ) ) );
 
   Period::List periods = fb->busyPeriods();
   Period::List::iterator it;
@@ -1035,7 +1035,7 @@ static QString displayViewFormatFreeBusy( const Calendar::Ptr &calendar, const Q
       text += i18nc( "startDate for duration", "%1 for %2",
                      dateTimeToString( per.start(), false, true, spec ),
                      cont );
-      text += "<br>";
+      text += QLatin1String("<br>");
     } else {
       if ( per.start().date() == per.end().date() ) {
         text += i18nc( "date, fromTime - toTime ", "%1, %2 - %3",
@@ -1047,10 +1047,10 @@ static QString displayViewFormatFreeBusy( const Calendar::Ptr &calendar, const Q
                        dateTimeToString( per.start(), false, true, spec ),
                        dateTimeToString( per.end(), false, true, spec ) );
       }
-      text += "<br>";
+      text += QLatin1String("<br>");
     }
   }
-  tmpStr += htmlAddTag( "p", text );
+  tmpStr += htmlAddTag( QLatin1String("p"), text );
   return tmpStr;
 }
 //@endcond
@@ -1060,7 +1060,7 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
 {
   public:
     EventViewerVisitor()
-      : mCalendar( 0 ), mSpec( KDateTime::Spec() ), mResult( "" ) {}
+      : mCalendar( 0 ), mSpec( KDateTime::Spec() ), mResult( QLatin1String("") ) {}
 
     bool act( const Calendar::Ptr &calendar, IncidenceBase::Ptr incidence, const QDate &date,
               KDateTime::Spec spec=KDateTime::Spec() )
@@ -1069,7 +1069,7 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
       mSourceName.clear();
       mDate = date;
       mSpec = spec;
-      mResult = "";
+      mResult = QLatin1String("");
       return incidence->accept( *this, incidence );
     }
 
@@ -1079,7 +1079,7 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
       mSourceName = sourceName;
       mDate = date;
       mSpec = spec;
-      mResult = "";
+      mResult = QLatin1String("");
       return incidence->accept( *this, incidence );
     }
 
@@ -1156,11 +1156,11 @@ QString IncidenceFormatter::extensiveDisplayStr( const QString &sourceName,
 //@cond PRIVATE
 static QString cleanHtml( const QString &html )
 {
-  QRegExp rx( "<body[^>]*>(.*)</body>", Qt::CaseInsensitive );
+  QRegExp rx( QLatin1String("<body[^>]*>(.*)</body>"), Qt::CaseInsensitive );
   rx.indexIn( html );
   QString body = rx.cap( 1 );
 
-  return Qt::escape( body.remove( QRegExp( "<[^>]*>" ) ).trimmed() );
+  return Qt::escape( body.remove( QRegExp( QLatin1String("<[^>]*>") ) ).trimmed() );
 }
 
 static QString invitationSummary( const Incidence::Ptr &incidence, bool noHtmlMode )
@@ -1227,25 +1227,25 @@ static QString eventEndTimeStr( const Event::Ptr &event )
 
 static QString htmlInvitationDetailsBegin()
 {
-  QString dir = ( QApplication::isRightToLeft() ? "rtl" : "ltr" );
-  return QString( "<div dir=\"%1\">\n" ).arg( dir );
+  QString dir = ( QApplication::isRightToLeft() ? QLatin1String("rtl") : QLatin1String("ltr" ));
+  return QString::fromLatin1( "<div dir=\"%1\">\n" ).arg( dir );
 }
 
 static QString htmlInvitationDetailsEnd()
 {
-  return "</div>\n";
+  return QLatin1String("</div>\n");
 }
 
 static QString htmlInvitationDetailsTableBegin()
 {
 
-  return "<table cellspacing=\"4\" style=\"border-width:4px; border-style:groove\">";
+  return QLatin1String("<table cellspacing=\"4\" style=\"border-width:4px; border-style:groove\">");
 
 }
 
 static QString htmlInvitationDetailsTableEnd()
 {
-  return "</table>\n";
+  return QLatin1String("</table>\n");
 }
 
 static QString diffColor()
@@ -1265,7 +1265,7 @@ static QString noteColor()
 static QString htmlRow( const QString &title, const QString &value )
 {
   if ( !value.isEmpty() ) {
-    return "<tr><td>" + title + "</td><td>" + value + "</td></tr>\n";
+    return QLatin1String("<tr><td>") + title + QLatin1String("</td><td>") + value + QLatin1String("</td></tr>\n");
   } else {
     return QString();
   }
@@ -1285,10 +1285,10 @@ static QString htmlRow( const QString &title, const QString &value, const QStrin
 
   // if 'value' has changed, then make a special print
   QString color = diffColor();
-  QString newtitle = "<font color=\"" + color + "\">" + title + "</font>";
-  QString newvalue = "<font color=\"" + color + "\">" + value + "</font>" +
-                     "&nbsp;" +
-                     "(<strike>" + oldvalue + "</strike>)";
+  QString newtitle = QLatin1String("<font color=\"") + color + QLatin1String("\">") + title + QLatin1String("</font>");
+  QString newvalue = QLatin1String("<font color=\"") + color + QLatin1String("\">") + value + QLatin1String("</font>") +
+                     QLatin1String("&nbsp;" )+
+                     QLatin1String("(<strike>") + oldvalue + QLatin1String("</strike>");
   return htmlRow( newtitle, newvalue );
 
 }
@@ -1539,7 +1539,7 @@ static QString invitationDetailsIncidence( const Incidence::Ptr &incidence, bool
         if ( noHtmlMode ) {
           descr = cleanHtml( descr );
         }
-        descr = htmlAddTag( "p", descr );
+        descr = htmlAddTag( QLatin1String("p"), descr );
       }
     }
   }
@@ -1597,7 +1597,7 @@ static QString invitationDetailsEvent( const Event::Ptr &event, bool noHtmlMode,
     if ( !event->allDay() ) {
       html += htmlRow( i18n( "Time:" ),
                        timeToString( event->dtStart(), true, spec ) +
-                       " - " +
+                       QLatin1String(" - ") +
                        timeToString( event->dtEnd(), true, spec ) );
     }
   } else {
@@ -1646,7 +1646,7 @@ static QString invitationDetailsEvent( const Event::Ptr &event, const Event::Ptr
 
   // Print extra info typically dependent on the iTIP
   if ( message->method() == iTIPDeclineCounter ) {
-    html += "<br>";
+    html += QLatin1String("<br>");
     html += invitationNote( QString(),
                             i18n( "Please respond again to the original proposal." ),
                             QString(), noteColor() );
@@ -1671,12 +1671,12 @@ static QString invitationDetailsEvent( const Event::Ptr &event, const Event::Ptr
     QString spanStr, oldspanStr;
     if ( !event->allDay() ) {
       spanStr = timeToString( event->dtStart(), true, spec ) +
-                " - " +
+                QLatin1String(" - ") +
                 timeToString( event->dtEnd(), true, spec );
     }
     if ( !oldevent->allDay() ) {
       oldspanStr = timeToString( oldevent->dtStart(), true, spec ) +
-                   " - " +
+                   QLatin1String(" - ") +
                    timeToString( oldevent->dtEnd(), true, spec );
     }
     html += htmlRow( i18n( "Time:" ), spanStr, oldspanStr );
@@ -1794,7 +1794,7 @@ static QString invitationDetailsTodo( const Todo::Ptr &todo, const Todo::Ptr &ol
 
   // Print extra info typically dependent on the iTIP
   if ( message->method() == iTIPDeclineCounter ) {
-    html += "<br>";
+    html += QLatin1String("<br>");
     html += invitationNote( QString(),
                             i18n( "Please respond again to the original proposal." ),
                             QString(), noteColor() );
@@ -2540,7 +2540,7 @@ static QString invitationAttachments( InvitationFormatterHelper *helper,
       if ( !iconPath.isEmpty() ) {
         tmpStr += QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">");
       }
-      tmpStr += helper->makeLink( QLatin1String("ATTACH:") + a->label().toUtf8().toBase64(), a->label() );
+      tmpStr += helper->makeLink( QLatin1String("ATTACH:") + QLatin1String(a->label().toUtf8().toBase64()), a->label() );
       tmpStr += QLatin1String("</li>");
     }
     tmpStr += QLatin1String("</ol>");
@@ -2553,7 +2553,7 @@ static QString invitationAttachments( InvitationFormatterHelper *helper,
 class KCalUtils::IncidenceFormatter::ScheduleMessageVisitor : public Visitor
 {
   public:
-    ScheduleMessageVisitor() : mMessage( 0 ) { mResult = ""; }
+    ScheduleMessageVisitor() : mMessage( 0 ) { mResult = QLatin1String(""); }
     bool act( const IncidenceBase::Ptr &incidence,
               const Incidence::Ptr &existingIncidence,
               ScheduleMessage::Ptr msg, const QString &sender )
@@ -3293,7 +3293,7 @@ static QString formatICalInvitationHelper( QString invitation,
       if ( ea && ( ea->status() != Attendee::NeedsAction ) && ( ea->status() == a->status() ) ) {
         const QString tStr = i18n( "The <b>%1</b> response has been recorded",
                                    Stringify::attendeeStatus( ea->status() ) );
-        html += inviteButton( helper, QString(), htmlAddTag( "i", tStr ) );
+        html += inviteButton( helper, QString(), htmlAddTag( QLatin1String("i"), tStr ) );
       } else {
         if ( inc ) {
           html += recordResponseButtons( inc, helper );
@@ -3365,7 +3365,7 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
 {
   public:
     ToolTipVisitor()
-      : mRichText( true ), mSpec( KDateTime::Spec() ), mResult( "" ) {}
+      : mRichText( true ), mSpec( KDateTime::Spec() ), mResult( QLatin1String("") ) {}
 
     bool act( const MemoryCalendar::Ptr &calendar,
               const IncidenceBase::Ptr &incidence,
@@ -3377,7 +3377,7 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
       mDate = date;
       mRichText = richText;
       mSpec = spec;
-      mResult = "";
+      mResult = QLatin1String("");
       return incidence ? incidence->accept( *this, incidence ) : false;
     }
 
@@ -3389,7 +3389,7 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
       mDate = date;
       mRichText = richText;
       mSpec = spec;
-      mResult = "";
+      mResult = QLatin1String("");
       return incidence ? incidence->accept( *this, incidence ) : false;
     }
 
@@ -3520,7 +3520,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Todo::Ptr &todo
     ret += i18n( "%1%", todo->percentComplete() );
   }
 
-  return ret.replace( ' ', "&nbsp;" );
+  return ret.replace( QLatin1Char(' '), QLatin1String("&nbsp;") );
 }
 
 QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Journal::Ptr &journal )
@@ -3606,7 +3606,7 @@ static QString tooltipFormatOrganizer( const QString &email, const QString &name
 
   // Get the icon for organizer
   const QString iconPath =
-    KIconLoader::global()->iconPath( "meeting-organizer", KIconLoader::Small );
+    KIconLoader::global()->iconPath( QLatin1String("meeting-organizer"), KIconLoader::Small );
 
   // Make the return string.
   QString personString;
@@ -3765,7 +3765,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip( const Incidence::Pt
       if ( desc.length() > maxDescLen ) {
         desc = desc.left( maxDescLen ) + i18nc( "elipsis", "..." );
       }
-      desc = Qt::escape( desc ).replace( '\n', QLatin1String("<br>") );
+      desc = Qt::escape( desc ).replace( QLatin1Char('\n'), QLatin1String("<br>") );
     } else {
       // TODO: truncate the description when it's rich text
     }
@@ -3782,7 +3782,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip( const Incidence::Pt
     tmp += reminderStringList( incidence ).join( QLatin1String(", ") );
   }
 
-  tmp += "<br>";
+  tmp += QLatin1String("<br>");
   tmp += tooltipFormatAttendees( mCalendar, incidence );
 
   int categoryCount = incidence->categories().count();
@@ -3837,12 +3837,12 @@ class KCalUtils::IncidenceFormatter::MailBodyVisitor : public Visitor
 {
   public:
     MailBodyVisitor()
-      : mSpec( KDateTime::Spec() ), mResult( "" ) {}
+      : mSpec( KDateTime::Spec() ), mResult( QLatin1String("") ) {}
 
     bool act( IncidenceBase::Ptr incidence, KDateTime::Spec spec=KDateTime::Spec() )
     {
       mSpec = spec;
-      mResult = "";
+      mResult = QLatin1String("");
       return incidence ? incidence->accept( *this, incidence ) : false;
     }
     QString result() const
@@ -3898,7 +3898,7 @@ bool IncidenceFormatter::MailBodyVisitor::visit( Event::Ptr event )
 
     if ( recur->duration() > 0 ) {
       mResult += i18np( "Repeats once", "Repeats %1 times", recur->duration() );
-      mResult += '\n';
+      mResult += QLatin1Char('\n');
     } else {
       if ( recur->duration() != -1 ) {
 // TODO_Recurrence: What to do with all-day
@@ -4386,7 +4386,7 @@ QString IncidenceFormatter::recurrenceString( const Incidence::Ptr &incidence )
   }
 
   if ( !exStr.isEmpty() ) {
-    recurStr = i18n( "%1 (excluding %2)", recurStr, exStr.join( "," ) );
+    recurStr = i18n( "%1 (excluding %2)", recurStr, exStr.join( QLatin1String(",") ) );
   }
 
   return recurStr;
@@ -4400,7 +4400,7 @@ QString IncidenceFormatter::timeToString( const KDateTime &date,
 
     QString timeZone;
     if ( spec.timeZone() != KSystemTimeZones::local() ) {
-      timeZone = ' ' + spec.timeZone().name();
+      timeZone = QLatin1Char(' ') + spec.timeZone().name();
     }
 
     return KGlobal::locale()->formatTime( date.toTimeSpec( spec ).time(), !shortfmt ) + timeZone;
@@ -4417,7 +4417,7 @@ QString IncidenceFormatter::dateToString( const KDateTime &date,
 
     QString timeZone;
     if ( spec.timeZone() != KSystemTimeZones::local() ) {
-      timeZone = ' ' + spec.timeZone().name();
+      timeZone = QLatin1Char(' ') + spec.timeZone().name();
     }
 
     return
@@ -4443,7 +4443,7 @@ QString IncidenceFormatter::dateTimeToString( const KDateTime &date,
   if ( spec.isValid() ) {
     QString timeZone;
     if ( spec.timeZone() != KSystemTimeZones::local() ) {
-      timeZone = ' ' + spec.timeZone().name();
+      timeZone = QLatin1Char(' ') + spec.timeZone().name();
     }
 
     return KGlobal::locale()->formatDateTime(
@@ -4470,13 +4470,13 @@ static QString secs2Duration( int secs )
   int days = secs / 86400;
   if ( days > 0 ) {
     tmp += i18np( "1 day", "%1 days", days );
-    tmp += ' ';
+    tmp += QLatin1Char(' ');
     secs -= ( days * 86400 );
   }
   int hours = secs / 3600;
   if ( hours > 0 ) {
     tmp += i18np( "1 hour", "%1 hours", hours );
-    tmp += ' ';
+    tmp += QLatin1Char(' ');
     secs -= ( hours * 3600 );
   }
   int mins = secs / 60;

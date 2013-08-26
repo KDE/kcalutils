@@ -225,7 +225,7 @@ QString Stringify::formatDate( const KDateTime &dt, bool shortfmt, const KDateTi
 
     QString timeZone;
     if ( spec.timeZone() != KSystemTimeZones::local() ) {
-      timeZone = ' ' + spec.timeZone().name();
+      timeZone = QLatin1Char(' ') + spec.timeZone().name();
     }
 
     return
@@ -249,7 +249,7 @@ QString Stringify::formatDateTime( const KDateTime &dt, bool allDay,
   if ( spec.isValid() ) {
     QString timeZone;
     if ( spec.timeZone() != KSystemTimeZones::local() ) {
-      timeZone = ' ' + spec.timeZone().name();
+      timeZone = QLatin1Char(' ') + spec.timeZone().name();
     }
 
     return KGlobal::locale()->formatDateTime(
