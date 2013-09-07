@@ -802,21 +802,19 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
 
   if ( hastStartDate ) {
     KDateTime startDt = todo->dtStart( true /**first*/);
-    if ( todo->recurs() ) {
-      if ( date.isValid() ) {
-        if ( hasDueDate ) {
-          // In kdepim all recuring to-dos have due date.
-          const int length = startDt.daysTo( todo->dtDue( true /**first*/) );
-          if ( length >= 0 ) {
-            startDt.setDate( date.addDays( -length ) );
-          } else {
-            kError() << "DTSTART is bigger than DTDUE, todo->uid() is " << todo->uid();
-            startDt.setDate( date );
-          }
+    if ( todo->recurs() && date.isValid() ) {
+      if ( hasDueDate ) {
+        // In kdepim all recuring to-dos have due date.
+        const int length = startDt.daysTo( todo->dtDue( true /**first*/) );
+        if ( length >= 0 ) {
+          startDt.setDate( date.addDays( -length ) );
         } else {
-          kError() << "To-do is recurring but has no DTDUE set, todo->uid() is " << todo->uid();
+          kError() << "DTSTART is bigger than DTDUE, todo->uid() is " << todo->uid();
           startDt.setDate( date );
         }
+      } else {
+        kError() << "To-do is recurring but has no DTDUE set, todo->uid() is " << todo->uid();
+        startDt.setDate( date );
       }
     }
     tmpStr += QLatin1String("<tr>");
