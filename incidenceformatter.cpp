@@ -769,7 +769,7 @@ static QString displayViewFormatEvent( const Calendar::Ptr calendar, const QStri
 
 static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QString &sourceName,
                                       const Todo::Ptr &todo,
-                                      const QDate &date, KDateTime::Spec spec )
+                                      const QDate &ocurrenceDueDate, KDateTime::Spec spec )
 {
   if ( !todo ) {
     kDebug() << "IncidenceFormatter::displayViewFormatTodo was called without to-do, quitting";
@@ -802,19 +802,19 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
 
   if ( hastStartDate ) {
     KDateTime startDt = todo->dtStart( true /**first*/);
-    if ( todo->recurs() && date.isValid() ) {
+    if ( todo->recurs() && ocurrenceDueDate.isValid() ) {
       if ( hasDueDate ) {
         // In kdepim all recuring to-dos have due date.
         const int length = startDt.daysTo( todo->dtDue( true /**first*/) );
         if ( length >= 0 ) {
-          startDt.setDate( date.addDays( -length ) );
+          startDt.setDate( ocurrenceDueDate.addDays( -length ) );
         } else {
           kError() << "DTSTART is bigger than DTDUE, todo->uid() is " << todo->uid();
-          startDt.setDate( date );
+          startDt.setDate( ocurrenceDueDate );
         }
       } else {
         kError() << "To-do is recurring but has no DTDUE set, todo->uid() is " << todo->uid();
-        startDt.setDate( date );
+        startDt.setDate( ocurrenceDueDate );
       }
     }
     tmpStr += QLatin1String("<tr>");
@@ -830,8 +830,8 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
   if ( hasDueDate ) {
     KDateTime dueDt = todo->dtDue();
     if ( todo->recurs() ) {
-      if ( date.isValid() ) {
-        KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
+      if ( ocurrenceDueDate.isValid() ) {
+        KDateTime kdt( ocurrenceDueDate, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
         kdt = kdt.addSecs( -1 );
         dueDt.setDate( todo->recurrence()->getNextDateTime( kdt ).date() );
       }
