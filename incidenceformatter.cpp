@@ -797,8 +797,8 @@ static QString displayViewFormatTodo( const Calendar::Ptr &calendar, const QStri
     tmpStr += QLatin1String("</tr>");
   }
 
-  const bool hastStartDate = todo->hasStartDate() && todo->dtStart().isValid();
-  const bool hasDueDate = todo->hasDueDate() && todo->dtDue().isValid();
+  const bool hastStartDate = todo->hasStartDate();
+  const bool hasDueDate = todo->hasDueDate();
 
   if ( hastStartDate ) {
     KDateTime startDt = todo->dtStart( true /**first*/);
@@ -1747,13 +1747,13 @@ static QString invitationDetailsTodo( const Todo::Ptr &todo, bool noHtmlMode,
   html += htmlRow( i18n( "What:" ), invitationSummary( todo, noHtmlMode ) );
   html += htmlRow( i18n( "Where:" ), invitationLocation( todo, noHtmlMode ) );
 
-  if ( todo->hasStartDate() && todo->dtStart().isValid() ) {
+  if ( todo->hasStartDate() ) {
     html += htmlRow( i18n( "Start Date:" ), dateToString( todo->dtStart(), false, spec ) );
     if ( !todo->allDay() ) {
       html += htmlRow( i18n( "Start Time:" ), timeToString( todo->dtStart(), false, spec ) );
     }
   }
-  if ( todo->hasDueDate() && todo->dtDue().isValid() ) {
+  if ( todo->hasDueDate() ) {
     html += htmlRow( i18n( "Due Date:" ), dateToString( todo->dtDue(), false, spec ) );
     if ( !todo->allDay() ) {
       html += htmlRow( i18n( "Due Time:" ), timeToString( todo->dtDue(), false, spec ) );
@@ -1811,7 +1811,7 @@ static QString invitationDetailsTodo( const Todo::Ptr &todo, const Todo::Ptr &ol
                    invitationLocation( todo, noHtmlMode ),
                    invitationLocation( oldtodo, noHtmlMode ) );
 
-  if ( todo->hasStartDate() && todo->dtStart().isValid() ) {
+  if ( todo->hasStartDate() ) {
     html += htmlRow( i18n( "Start Date:" ),
                      dateToString( todo->dtStart(), false, spec ),
                      dateToString( oldtodo->dtStart(), false, spec ) );
@@ -1824,7 +1824,7 @@ static QString invitationDetailsTodo( const Todo::Ptr &todo, const Todo::Ptr &ol
     }
     html += htmlRow( i18n( "Start Time:" ), startTimeStr, oldstartTimeStr );
   }
-  if ( todo->hasDueDate() && todo->dtDue().isValid() ) {
+  if ( todo->hasDueDate() ) {
     html += htmlRow( i18n( "Due Date:" ),
                      dateToString( todo->dtDue(), false, spec ),
                      dateToString( oldtodo->dtDue(), false, spec ) );
@@ -1839,7 +1839,7 @@ static QString invitationDetailsTodo( const Todo::Ptr &todo, const Todo::Ptr &ol
   } else {
     QString dueStr = i18nc( "Due Date: None", "None" );
     QString olddueStr;
-    if ( !oldtodo->hasDueDate() || !oldtodo->dtDue().isValid() ) {
+    if ( !oldtodo->hasDueDate() ) {
       olddueStr = i18nc( "Due Date: None", "None" );
    } else {
       olddueStr = dateTimeToString( oldtodo->dtDue(), oldtodo->allDay(), false );
@@ -3478,25 +3478,21 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText( const Todo::Ptr &todo
 {
   //FIXME: support mRichText==false
   QString ret;
-  if ( todo->hasStartDate() && todo->dtStart().isValid() ) {
+  if ( todo->hasStartDate() ) {
     KDateTime startDt = todo->dtStart();
-    if ( todo->recurs() ) {
-      if ( date.isValid() ) {
-        startDt.setDate( date );
-      }
+    if ( todo->recurs() && date.isValid() ) {
+      startDt.setDate( date );
     }
     ret += QLatin1String("<br>") +
            i18n( "<i>Start:</i> %1", dateToString( startDt, false, mSpec ) );
   }
 
-  if ( todo->hasDueDate() && todo->dtDue().isValid() ) {
+  if ( todo->hasDueDate() ) {
     KDateTime dueDt = todo->dtDue();
-    if ( todo->recurs() ) {
-      if ( date.isValid() ) {
-        KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
-        kdt = kdt.addSecs( -1 );
-        dueDt.setDate( todo->recurrence()->getNextDateTime( kdt ).date() );
-      }
+    if ( todo->recurs() && date.isValid() ) {
+      KDateTime kdt( date, QTime( 0, 0, 0 ), KSystemTimeZones::local() );
+      kdt = kdt.addSecs( -1 );
+      dueDt.setDate( todo->recurrence()->getNextDateTime( kdt ).date() );
     }
     ret += QLatin1String("<br>") +
            i18n( "<i>Due:</i> %1",
