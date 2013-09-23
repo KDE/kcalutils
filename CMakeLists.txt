@@ -4,13 +4,12 @@ add_definitions(-DKDE_DEFAULT_DEBUG_AREA=5820)
 add_definitions( -DQT_NO_CAST_FROM_ASCII )
 add_definitions( -DQT_NO_CAST_TO_ASCII )
 
-if(KDE4_BUILD_TESTS)
-  add_definitions(-DCOMPILING_TESTS)
-endif()
-
 include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${KDE4_INCLUDE_DIR}
+  ${CMAKE_BINARY_DIR}/kcalcore
+  ${CMAKE_BINARY_DIR}/kpimidentities
+  ${CMAKE_BINARY_DIR}/kpimutils
 )
 
 ########### next target ###############
@@ -34,6 +33,7 @@ kde4_add_kcfg_files(kcalutils_LIB_SRCS htmlexportsettings.kcfgc)
 kde4_add_ui_files(kcalutils_LIB_SRCS recurrenceactionsscopewidget.ui)
 
 kde4_add_library(kcalutils ${LIBRARY_TYPE} ${kcalutils_LIB_SRCS})
+generate_export_header(kcalutils)
 
 target_link_libraries(kcalutils
   ${KDE4_KDECORE_LIBRARY}
@@ -61,7 +61,7 @@ install(FILES
   htmlexport.h
   icaldrag.h
   incidenceformatter.h
-  kcalutils_export.h
+  ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h
   vcaldrag.h
   recurrenceactions.h
   scheduler.h
