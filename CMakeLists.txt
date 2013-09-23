@@ -32,7 +32,7 @@ kde4_add_kcfg_files(kcalutils_LIB_SRCS htmlexportsettings.kcfgc)
 
 kde4_add_ui_files(kcalutils_LIB_SRCS recurrenceactionsscopewidget.ui)
 
-kde4_add_library(kcalutils ${LIBRARY_TYPE} ${kcalutils_LIB_SRCS})
+add_library(kcalutils ${LIBRARY_TYPE} ${kcalutils_LIB_SRCS})
 generate_export_header(kcalutils)
 
 target_link_libraries(kcalutils
