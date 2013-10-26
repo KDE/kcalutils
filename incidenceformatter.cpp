@@ -77,6 +77,40 @@ static QString string2HTML( const QString &str )
   return KPIMUtils::LinkLocator::convertToHtml( str );
 }
 
+static bool iamAttendee( Attendee::Ptr attendee )
+{
+  // Check if I'm this attendee
+
+  bool iam = false;
+  KEMailSettings settings;
+  QStringList profiles = settings.profiles();
+  for ( QStringList::Iterator it=profiles.begin(); it != profiles.end(); ++it ) {
+    settings.setProfile( *it );
+    if ( settings.getSetting( KEMailSettings::EmailAddress ) == attendee->email() ) {
+      iam = true;
+      break;
+    }
+  }
+  return iam;
+}
+
+static bool iamPerson( const Person &person )
+{
+  // Check if I'm this person by testing email only
+
+  bool iam = false;
+  KEMailSettings settings;
+  QStringList profiles = settings.profiles();
+  for ( QStringList::Iterator it=profiles.begin(); it != profiles.end(); ++it ) {
+    settings.setProfile( *it );
+    if ( settings.getSetting( KEMailSettings::EmailAddress ) == person.email() ) {
+      iam = true;
+      break;
+    }
+  }
+  return iam;
+}
+
 static QString htmlAddLink( const QString &ref, const QString &text,
                             bool newline = true )
 {
@@ -93,16 +127,18 @@ static QString htmlAddMailtoLink( const QString &email, const QString &name )
 
   if ( !email.isEmpty() ) {
     Person person( name, email );
-    QString path = person.fullName().simplified();
-    if ( path.isEmpty() || path.startsWith( QLatin1Char('"') ) ) {
-      path = email;
+    if ( !iamPerson( person ) ) { // do not add a link for the user's email
+      QString path = person.fullName().simplified();
+      if ( path.isEmpty() || path.startsWith( QLatin1Char('"') ) ) {
+        path = email;
+      }
+      KUrl mailto;
+      mailto.setProtocol( QLatin1String("mailto") );
+      mailto.setPath( path );
+      const QString iconPath =
+        KIconLoader::global()->iconPath( QLatin1String("mail-message-new"), KIconLoader::Small );
+      str = htmlAddLink( mailto.url(), QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">") );
     }
-    KUrl mailto;
-    mailto.setProtocol( QLatin1String("mailto") );
-    mailto.setPath( path );
-    const QString iconPath =
-      KIconLoader::global()->iconPath( QLatin1String("mail-message-new"), KIconLoader::Small );
-    str = htmlAddLink( mailto.url(), QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">") );
   }
   return str;
 }
@@ -166,23 +202,6 @@ static QString searchName( const QString &email, const QString &name )
 {
   const QString printName = name.isEmpty() ? email : name;
   return printName;
-}
-
-static bool iamAttendee( Attendee::Ptr attendee )
-{
-  // Check if I'm this attendee
-
-  bool iam = false;
-  KEMailSettings settings;
-  QStringList profiles = settings.profiles();
-  for ( QStringList::Iterator it=profiles.begin(); it != profiles.end(); ++it ) {
-    settings.setProfile( *it );
-    if ( settings.getSetting( KEMailSettings::EmailAddress ) == attendee->email() ) {
-      iam = true;
-      break;
-    }
-  }
-  return iam;
 }
 
 static bool iamOrganizer( Incidence::Ptr incidence )
@@ -531,7 +550,7 @@ static QString displayViewFormatBirthday( Event::Ptr event )
 
 static QString displayViewFormatHeader( Incidence::Ptr incidence )
 {
-  QString tmpStr =QLatin1String( "<table><tr>");
+  QString tmpStr = QLatin1String( "<table><tr>" );
 
   // show icons
   KIconLoader *iconLoader = KIconLoader::global();
