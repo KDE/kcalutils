@@ -4005,6 +4005,10 @@ static QString recurEnd( const Incidence::Ptr &incidence )
 
 QString IncidenceFormatter::recurrenceString( const Incidence::Ptr &incidence )
 {
+  if ( incidence->hasRecurrenceId() ) {
+    return QLatin1String( "Recurrence exception" );
+  }
+
   if ( !incidence->recurs() ) {
     return i18n( "No recurrence" );
   }
