@@ -1,8 +1,8 @@
 project(kcalutils)
 
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=5820)
-add_definitions( -DQT_NO_CAST_FROM_ASCII )
-add_definitions( -DQT_NO_CAST_TO_ASCII )
+add_definitions(-DQT_NO_CAST_FROM_ASCII)
+add_definitions(-DQT_NO_CAST_TO_ASCII)
 
 include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}
@@ -39,8 +39,8 @@ generate_export_header(kcalutils)
 target_link_libraries(kcalutils
   ${KDE4_KDECORE_LIBRARY}
   ${KDE4_KDEUI_LIBRARY}
-  ${KDE4_KIO_LIBS}
   kcalcore
+  kpimidentities
   kpimutils
   ${QT_QTGUI_LIBRARY}
 )

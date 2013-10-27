@@ -45,12 +45,13 @@
 #include <kcalcore/visitor.h>
 using namespace KCalCore;
 
+#include <kpimidentities/identitymanager.h>
+
 #include <kpimutils/email.h>
 #include <kpimutils/linklocator.h>
 
 #include <KCalendarSystem>
 #include <KDebug>
-#include <KEMailSettings>
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KGlobal>
@@ -77,38 +78,21 @@ static QString string2HTML( const QString &str )
   return KPIMUtils::LinkLocator::convertToHtml( str );
 }
 
+static bool thatIsMe( const QString &email )
+{
+  return KPIMIdentities::IdentityManager( true ).thatIsMe( email );
+}
+
 static bool iamAttendee( Attendee::Ptr attendee )
 {
-  // Check if I'm this attendee
-
-  bool iam = false;
-  KEMailSettings settings;
-  QStringList profiles = settings.profiles();
-  for ( QStringList::Iterator it=profiles.begin(); it != profiles.end(); ++it ) {
-    settings.setProfile( *it );
-    if ( settings.getSetting( KEMailSettings::EmailAddress ) == attendee->email() ) {
-      iam = true;
-      break;
-    }
-  }
-  return iam;
+  // Check if this attendee is the user
+  return thatIsMe( attendee->email() );
 }
 
 static bool iamPerson( const Person &person )
 {
-  // Check if I'm this person by testing email only
-
-  bool iam = false;
-  KEMailSettings settings;
-  QStringList profiles = settings.profiles();
-  for ( QStringList::Iterator it=profiles.begin(); it != profiles.end(); ++it ) {
-    settings.setProfile( *it );
-    if ( settings.getSetting( KEMailSettings::EmailAddress ) == person.email() ) {
-      iam = true;
-      break;
-    }
-  }
-  return iam;
+  // Check if this person is the user. test email only
+  return thatIsMe( person.email() );
 }
 
 static QString htmlAddLink( const QString &ref, const QString &text,
@@ -206,23 +190,13 @@ static QString searchName( const QString &email, const QString &name )
 
 static bool iamOrganizer( Incidence::Ptr incidence )
 {
-  // Check if I'm the organizer for this incidence
+  // Check if the user is the organizer for this incidence
 
   if ( !incidence ) {
     return false;
   }
 
-  bool iam = false;
-  KEMailSettings settings;
-  QStringList profiles = settings.profiles();
-  for ( QStringList::Iterator it=profiles.begin(); it != profiles.end(); ++it ) {
-    settings.setProfile( *it );
-    if ( settings.getSetting( KEMailSettings::EmailAddress ) == incidence->organizer()->email() ) {
-      iam = true;
-      break;
-    }
-  }
-  return iam;
+  return thatIsMe( incidence->organizer()->email() );
 }
 
 static bool senderIsOrganizer( Incidence::Ptr incidence, const QString &sender )
@@ -1312,57 +1286,47 @@ static QString htmlRow( const QString &title, const QString &value, const QStrin
 
 static Attendee::Ptr findDelegatedFromMyAttendee( const Incidence::Ptr &incidence )
 {
-  // Return the first attendee that was delegated-from me
+  // Return the first attendee that was delegated-from the user
 
   Attendee::Ptr attendee;
   if ( !incidence ) {
     return attendee;
   }
 
-  KEMailSettings settings;
-  QStringList profiles = settings.profiles();
-  for ( QStringList::Iterator it=profiles.begin(); it != profiles.end(); ++it ) {
-    settings.setProfile( *it );
-
-    QString delegatorName, delegatorEmail;
-    Attendee::List attendees = incidence->attendees();
-    Attendee::List::ConstIterator it2;
-    for ( it2 = attendees.constBegin(); it2 != attendees.constEnd(); ++it2 ) {
-      Attendee::Ptr a = *it2;
-      KPIMUtils::extractEmailAddressAndName( a->delegator(), delegatorEmail, delegatorName );
-      if ( settings.getSetting( KEMailSettings::EmailAddress ) == delegatorEmail ) {
-        attendee = a;
-        break;
-      }
+  QString delegatorName, delegatorEmail;
+  Attendee::List attendees = incidence->attendees();
+  Attendee::List::ConstIterator it;
+  for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
+    Attendee::Ptr a = *it;
+    KPIMUtils::extractEmailAddressAndName( a->delegator(), delegatorEmail, delegatorName );
+    if ( thatIsMe( delegatorEmail ) ) {
+      attendee = a;
+      break;
     }
   }
+
   return attendee;
 }
 
 static Attendee::Ptr findMyAttendee( const Incidence::Ptr &incidence )
 {
-  // Return the attendee for the incidence that is probably me
+  // Return the attendee for the incidence that is probably the user
 
   Attendee::Ptr attendee;
   if ( !incidence ) {
     return attendee;
   }
 
-  KEMailSettings settings;
-  QStringList profiles = settings.profiles();
-  for ( QStringList::Iterator it=profiles.begin(); it != profiles.end(); ++it ) {
-    settings.setProfile( *it );
-
-    Attendee::List attendees = incidence->attendees();
-    Attendee::List::ConstIterator it2;
-    for ( it2 = attendees.constBegin(); it2 != attendees.constEnd(); ++it2 ) {
-      Attendee::Ptr a = *it2;
-      if ( settings.getSetting( KEMailSettings::EmailAddress ) == a->email() ) {
-        attendee = a;
-        break;
-      }
+  Attendee::List attendees = incidence->attendees();
+  Attendee::List::ConstIterator it;
+  for ( it = attendees.constBegin(); it != attendees.constEnd(); ++it ) {
+    Attendee::Ptr a = *it;
+    if ( thatIsMe( a->email() ) ) {
+      attendee = a;
+      break;
     }
   }
+
   return attendee;
 }
 
