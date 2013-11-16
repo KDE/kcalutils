@@ -37,8 +37,8 @@ add_library(kcalutils ${LIBRARY_TYPE} ${kcalutils_LIB_SRCS})
 generate_export_header(kcalutils)
 
 target_link_libraries(kcalutils
-  ${KDE4_KDECORE_LIBRARY}
-  ${KDE4_KDEUI_LIBRARY}
+  ${KDE4_KDECORE_LIBS}
+  ${KDE4_KDEUI_LIBS}
   kcalcore
   kpimidentities
   kpimutils
