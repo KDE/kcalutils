@@ -23,11 +23,8 @@ set(kcalutils_LIB_SRCS
   stringify.cpp
   scheduler.cpp
   vcaldrag.cpp
+  dndfactory.cpp
 )
-
-if(NOT WINCE)
-  set(kcalutils_LIB_SRCS ${kcalutils_LIB_SRCS} dndfactory.cpp)
-endif()
 
 kde4_add_kcfg_files(kcalutils_LIB_SRCS htmlexportsettings.kcfgc)
 
