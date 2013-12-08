@@ -3892,9 +3892,18 @@ bool IncidenceFormatter::MailBodyVisitor::visit( Event::Ptr event )
     }
   }
 
-  QString details = event->richDescription();
-  if ( !details.isEmpty() ) {
-    mResult += i18n( "Details:\n%1\n", details );
+  if ( !event->description().isEmpty() ) {
+    QString descStr;
+    if ( event->descriptionIsRich() ||
+         event->description().startsWith( QLatin1String( "<!DOCTYPE HTML" ) ) )
+    {
+      descStr = cleanHtml( event->description() );
+    } else {
+      descStr = event->description();
+    }
+    if ( !descStr.isEmpty() ) {
+      mResult += i18n( "Details:\n%1\n", descStr );
+    }
   }
   return !mResult.isEmpty();
 }
