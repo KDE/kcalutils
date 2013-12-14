@@ -1,5 +1,7 @@
 project(kcalutils)
 
+find_package(Qt5 NO_MODULE REQUIRED COMPONENTS Widgets)
+find_package(KF5 NO_MODULE REQUIRED COMPONENTS CoreAddons ItemViews KDE4Support)
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=5820)
 
 if(KDE4_BUILD_TESTS)
@@ -35,13 +37,13 @@ kde4_add_ui_files(kcalutils_LIB_SRCS recurrenceactionsscopewidget.ui)
 kde4_add_library(kcalutils ${LIBRARY_TYPE} ${kcalutils_LIB_SRCS})
 
 target_link_libraries(kcalutils
-  ${KDE4_KDECORE_LIBRARY}
-  ${KDE4_KDEUI_LIBRARY}
-  ${KDE4_KIO_LIBS}
-  kcalcore
+  Qt5::Widgets
+  KF5::CoreAddons
+  KF5::ItemViews
+  KF5::KIOCore
+  KF5::KDE4Support
   kpimutils
-  ${QT_QTGUI_LIBRARY}
-  ${KDE4_KDE4SUPPORT_LIBS}
+  kcalcore
 )
 set_target_properties(kcalutils PROPERTIES
   VERSION ${GENERIC_LIB_VERSION}
