@@ -35,7 +35,6 @@ class DndFactoryTest : public QObject
         the copied incidence */
     void testPasteAllDayEvent();
 
-
     /** Pastes an event without time component (all day). We specify a new date/time to
         DndFactory::pasteIncidences(), so dates of the pasted incidence should be different than
         the copied incidence */

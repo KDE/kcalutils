@@ -252,7 +252,7 @@ bool Scheduler::acceptRequest( const IncidenceBase::Ptr &incidence,
              "<item>you no longer have access to the calendar containing the invitation</item>"
              "</list></para>"
              "<para>This is not a problem, but we thought you should know.</para>" ),
-      i18nc( "@title", "Cannot find invitation to be updated" ), "AcceptCantFindIncidence" );
+      i18nc( "@title", "Cannot find invitation to be updated" ), QLatin1String("AcceptCantFindIncidence") );
   }
   kDebug() << "Storing new incidence with scheduling uid=" << inc->schedulingID()
            << " and uid=" << inc->uid();

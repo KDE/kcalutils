@@ -254,4 +254,3 @@ namespace IncidenceFormatter {
 }
 
 #endif
-

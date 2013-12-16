@@ -177,7 +177,7 @@ int RecurrenceActions::questionSelectedAllCancel( const QString &message, const 
   KDialog *dialog = new KDialog( parent );
   dialog->setCaption( caption );
   dialog->setButtons( KDialog::Yes | KDialog::Ok | KDialog::Cancel );
-  dialog->setObjectName( "RecurrenceActions::questionSelectedAllCancel" );
+  dialog->setObjectName( QLatin1String("RecurrenceActions::questionSelectedAllCancel") );
   dialog->setDefaultButton( KDialog::Yes );
   dialog->setButtonGuiItem( KDialog::Yes, actionSelected );
   dialog->setButtonGuiItem( KDialog::Ok, actionAll );
@@ -216,7 +216,7 @@ int RecurrenceActions::questionSelectedFutureAllCancel( const QString &message,
   KDialog *dialog = new KDialog( parent );
   dialog->setCaption( caption );
   dialog->setButtons( KDialog::Yes | KDialog::No | KDialog::Ok | KDialog::Cancel );
-  dialog->setObjectName( "RecurrenceActions::questionSelectedFutureAllCancel" );
+  dialog->setObjectName( QLatin1String("RecurrenceActions::questionSelectedFutureAllCancel") );
   dialog->setDefaultButton( KDialog::Yes );
   dialog->setButtonGuiItem( KDialog::Yes, actionSelected );
   dialog->setButtonGuiItem( KDialog::No, actionFuture );

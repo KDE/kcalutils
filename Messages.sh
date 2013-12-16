@@ -1,3 +1,3 @@
 #! /bin/sh
-$EXTRACTRC *.kcfg >> rc.cpp
+$EXTRACTRC *.kcfg *.ui >> rc.cpp
 $XGETTEXT *.cpp -o $podir/libkcalutils.pot
