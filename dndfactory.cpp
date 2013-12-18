@@ -49,7 +49,6 @@
 #include <QDate>
 #include <QWidget>
 #include <QDropEvent>
-#include <QPixmap>
 
 using namespace KCalCore;
 using namespace KCalUtils;
