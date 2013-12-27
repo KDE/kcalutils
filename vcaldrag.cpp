@@ -32,40 +32,40 @@ using namespace VCalDrag;
 
 QString VCalDrag::mimeType()
 {
-  return QLatin1String("text/x-vCalendar");
+    return QLatin1String("text/x-vCalendar");
 }
 
-bool VCalDrag::populateMimeData( QMimeData *e,
-                                 const MemoryCalendar::Ptr &cal )
+bool VCalDrag::populateMimeData(QMimeData *e,
+                                const MemoryCalendar::Ptr &cal)
 {
-  VCalFormat format;
-  QString calstr( format.toString( cal ) );
-  if ( calstr.length() > 0 ) {
-    e->setData( mimeType(), calstr.toUtf8() );
-  }
-  return canDecode( e );
-}
-
-bool VCalDrag::canDecode( const QMimeData *me )
-{
-  return me->hasFormat( mimeType() );
-}
-
-bool VCalDrag::fromMimeData( const QMimeData *de,
-                             const MemoryCalendar::Ptr &cal )
-{
-  if ( !canDecode( de ) ) {
-    return false;
-  }
-
-  bool success = false;
-  QByteArray payload = de->data( mimeType() );
-  if ( payload.size() ) {
-    QString txt = QString::fromUtf8( payload.data() );
-
     VCalFormat format;
-    success = format.fromString( cal, txt );
-  }
+    QString calstr(format.toString(cal));
+    if (calstr.length() > 0) {
+        e->setData(mimeType(), calstr.toUtf8());
+    }
+    return canDecode(e);
+}
 
-  return success;
+bool VCalDrag::canDecode(const QMimeData *me)
+{
+    return me->hasFormat(mimeType());
+}
+
+bool VCalDrag::fromMimeData(const QMimeData *de,
+                            const MemoryCalendar::Ptr &cal)
+{
+    if (!canDecode(de)) {
+        return false;
+    }
+
+    bool success = false;
+    QByteArray payload = de->data(mimeType());
+    if (payload.size()) {
+        QString txt = QString::fromUtf8(payload.data());
+
+        VCalFormat format;
+        success = format.fromString(cal, txt);
+    }
+
+    return success;
 }
