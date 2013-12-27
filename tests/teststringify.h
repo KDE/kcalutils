@@ -26,8 +26,8 @@
 
 class StringifyTest : public QObject
 {
-  Q_OBJECT
-  private Q_SLOTS:
+    Q_OBJECT
+private Q_SLOTS:
     void testIncidenceStrings();
     void testAttendeeStrings();
     void testDateTimeStrings();

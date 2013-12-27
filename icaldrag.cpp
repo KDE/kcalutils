@@ -32,39 +32,39 @@ using namespace ICalDrag;
 
 QString ICalDrag::mimeType()
 {
-  return QLatin1String("text/calendar");
+    return QLatin1String("text/calendar");
 }
 
-bool ICalDrag::populateMimeData( QMimeData *me, const MemoryCalendar::Ptr &cal )
+bool ICalDrag::populateMimeData(QMimeData *me, const MemoryCalendar::Ptr &cal)
 {
-  ICalFormat icf;
-  QString scal = icf.toString( cal, QString(), false );
-
-  if ( scal.length()>0 ){
-    me->setData( mimeType(), scal.toUtf8() );
-  }
-  return canDecode( me );
-}
-
-bool ICalDrag::canDecode( const QMimeData *me )
-{
-  return me->hasFormat( mimeType() );
-}
-
-bool ICalDrag::fromMimeData( const QMimeData *de, const MemoryCalendar::Ptr &cal )
-{
-  if ( !canDecode( de ) ) {
-    return false;
-  }
-  bool success = false;
-
-  QByteArray payload = de->data( mimeType() );
-  if ( payload.size() ) {
-    QString txt = QString::fromUtf8( payload.data() );
-
     ICalFormat icf;
-    success = icf.fromString( cal, txt );
-  }
+    QString scal = icf.toString(cal, QString(), false);
 
-  return success;
+    if (scal.length()>0) {
+        me->setData(mimeType(), scal.toUtf8());
+    }
+    return canDecode(me);
+}
+
+bool ICalDrag::canDecode(const QMimeData *me)
+{
+    return me->hasFormat(mimeType());
+}
+
+bool ICalDrag::fromMimeData(const QMimeData *de, const MemoryCalendar::Ptr &cal)
+{
+    if (!canDecode(de)) {
+        return false;
+    }
+    bool success = false;
+
+    QByteArray payload = de->data(mimeType());
+    if (payload.size()) {
+        QString txt = QString::fromUtf8(payload.data());
+
+        ICalFormat icf;
+        success = icf.fromString(cal, txt);
+    }
+
+    return success;
 }
