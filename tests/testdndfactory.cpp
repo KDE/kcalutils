@@ -30,7 +30,7 @@
 #include <qtest_kde.h>
 
 
-QTEST_KDEMAIN( DndFactoryTest, GUI ) // clipboard() needs GUI
+QTEST_KDEMAIN(DndFactoryTest, GUI)   // clipboard() needs GUI
 
 using namespace KCalCore;
 using namespace KCalUtils;
@@ -38,124 +38,124 @@ using namespace KCalUtils;
 void DndFactoryTest::testPasteAllDayEvent()
 {
 
-  MemoryCalendar::Ptr calendar( new MemoryCalendar( QString() ) );
+    MemoryCalendar::Ptr calendar(new MemoryCalendar(QString()));
 
-  DndFactory factory( calendar );
+    DndFactory factory(calendar);
 
-  Event::Ptr allDayEvent( new Event() );
-  allDayEvent->setSummary( QLatin1String( "Summary 1" ) );
-  allDayEvent->setDtStart( KDateTime( QDate( 2010, 8, 8 ) ) );
-  allDayEvent->setDtEnd( KDateTime( QDate( 2010, 8, 9 ) ) );
-  const QString originalUid = allDayEvent->uid();
-  const bool originalIsAllDay = allDayEvent->allDay();
+    Event::Ptr allDayEvent(new Event());
+    allDayEvent->setSummary(QLatin1String("Summary 1"));
+    allDayEvent->setDtStart(KDateTime(QDate(2010, 8, 8)));
+    allDayEvent->setDtEnd(KDateTime(QDate(2010, 8, 9)));
+    const QString originalUid = allDayEvent->uid();
+    const bool originalIsAllDay = allDayEvent->allDay();
 
-  Incidence::List incidencesToPaste;
-  incidencesToPaste.append( allDayEvent );
+    Incidence::List incidencesToPaste;
+    incidencesToPaste.append(allDayEvent);
 
-  QVERIFY( factory.copyIncidences( incidencesToPaste ) );
+    QVERIFY(factory.copyIncidences(incidencesToPaste));
 
-  Incidence::List pastedIncidences = factory.pasteIncidences();
-  QVERIFY( pastedIncidences.size() == 1 );
+    Incidence::List pastedIncidences = factory.pasteIncidences();
+    QVERIFY(pastedIncidences.size() == 1);
 
-  Incidence::Ptr incidence = pastedIncidences.first();
+    Incidence::Ptr incidence = pastedIncidences.first();
 
-  QVERIFY( incidence->type() == Incidence::TypeEvent );
+    QVERIFY(incidence->type() == Incidence::TypeEvent);
 
-  // check if a new uid was generated.
-  QVERIFY( incidence->uid() != originalUid );
+    // check if a new uid was generated.
+    QVERIFY(incidence->uid() != originalUid);
 
-  // we passed an invalid KDateTime to pasteIncidences() so dates don't change.
-  QVERIFY( incidence->allDay() == originalIsAllDay );
+    // we passed an invalid KDateTime to pasteIncidences() so dates don't change.
+    QVERIFY(incidence->allDay() == originalIsAllDay);
 
-  Event::Ptr pastedEvent = incidence.staticCast<Event>();
+    Event::Ptr pastedEvent = incidence.staticCast<Event>();
 
-  QVERIFY( pastedEvent->dtStart() == allDayEvent->dtStart() );
-  QVERIFY( pastedEvent->dtEnd() == allDayEvent->dtEnd() );
-  QVERIFY( pastedEvent->summary() == allDayEvent->summary() );
+    QVERIFY(pastedEvent->dtStart() == allDayEvent->dtStart());
+    QVERIFY(pastedEvent->dtEnd() == allDayEvent->dtEnd());
+    QVERIFY(pastedEvent->summary() == allDayEvent->summary());
 }
 
 void DndFactoryTest::testPasteAllDayEvent2()
 {
 
-  MemoryCalendar::Ptr calendar( new MemoryCalendar( QString() ) );
+    MemoryCalendar::Ptr calendar(new MemoryCalendar(QString()));
 
-  DndFactory factory( calendar );
+    DndFactory factory(calendar);
 
-  Event::Ptr allDayEvent( new Event() );
-  allDayEvent->setSummary( QLatin1String( "Summary 2" ) );
-  allDayEvent->setDtStart( KDateTime( QDate( 2010, 8, 8 ) ) );
-  allDayEvent->setDtEnd( KDateTime( QDate( 2010, 8, 9 ) ) );
-  const QString originalUid = allDayEvent->uid();
+    Event::Ptr allDayEvent(new Event());
+    allDayEvent->setSummary(QLatin1String("Summary 2"));
+    allDayEvent->setDtStart(KDateTime(QDate(2010, 8, 8)));
+    allDayEvent->setDtEnd(KDateTime(QDate(2010, 8, 9)));
+    const QString originalUid = allDayEvent->uid();
 
-  Incidence::List incidencesToPaste;
-  incidencesToPaste.append( allDayEvent );
+    Incidence::List incidencesToPaste;
+    incidencesToPaste.append(allDayEvent);
 
-  QVERIFY( factory.copyIncidences( incidencesToPaste ) );
+    QVERIFY(factory.copyIncidences(incidencesToPaste));
 
-  const KDateTime newDateTime( QDate( 2011, 1, 1 ) );
-  const uint originalLength = allDayEvent->dtStart().secsTo( allDayEvent->dtEnd() );
+    const KDateTime newDateTime(QDate(2011, 1, 1));
+    const uint originalLength = allDayEvent->dtStart().secsTo(allDayEvent->dtEnd());
 
-  // paste at the new time
-  Incidence::List pastedIncidences = factory.pasteIncidences( newDateTime );
+    // paste at the new time
+    Incidence::List pastedIncidences = factory.pasteIncidences(newDateTime);
 
-  // we only copied one incidence
-  QVERIFY( pastedIncidences.size() == 1 );
+    // we only copied one incidence
+    QVERIFY(pastedIncidences.size() == 1);
 
-  Incidence::Ptr incidence = pastedIncidences.first();
+    Incidence::Ptr incidence = pastedIncidences.first();
 
-  QVERIFY( incidence->type() == Incidence::TypeEvent );
+    QVERIFY(incidence->type() == Incidence::TypeEvent);
 
-  // check if a new uid was generated.
-  QVERIFY( incidence->uid() != originalUid );
+    // check if a new uid was generated.
+    QVERIFY(incidence->uid() != originalUid);
 
-  // the new dateTime didn't have time component
-  QVERIFY( incidence->allDay() );
+    // the new dateTime didn't have time component
+    QVERIFY(incidence->allDay());
 
-  Event::Ptr pastedEvent = incidence.staticCast<Event>();
-  const uint newLength = pastedEvent->dtStart().secsTo( pastedEvent->dtEnd() );
+    Event::Ptr pastedEvent = incidence.staticCast<Event>();
+    const uint newLength = pastedEvent->dtStart().secsTo(pastedEvent->dtEnd());
 
-  kDebug() << "originalLength was " << originalLength << "; and newLength is "
-           << newLength << "; old dtStart was " << allDayEvent->dtStart()
-           << " and old dtEnd was " << allDayEvent->dtEnd() << endl
-           << "; new dtStart is " << pastedEvent->dtStart()
-           << " and new dtEnd is " << pastedEvent->dtEnd();
+    kDebug() << "originalLength was " << originalLength << "; and newLength is "
+             << newLength << "; old dtStart was " << allDayEvent->dtStart()
+             << " and old dtEnd was " << allDayEvent->dtEnd() << endl
+             << "; new dtStart is " << pastedEvent->dtStart()
+             << " and new dtEnd is " << pastedEvent->dtEnd();
 
-  QVERIFY( originalLength == newLength );
-  QVERIFY( pastedEvent->dtStart() == newDateTime );
-  QVERIFY( pastedEvent->summary() == allDayEvent->summary() );
+    QVERIFY(originalLength == newLength);
+    QVERIFY(pastedEvent->dtStart() == newDateTime);
+    QVERIFY(pastedEvent->summary() == allDayEvent->summary());
 }
 
 void DndFactoryTest::testPasteTodo()
 {
-  MemoryCalendar::Ptr calendar( new MemoryCalendar( QString() ) );
+    MemoryCalendar::Ptr calendar(new MemoryCalendar(QString()));
 
-  DndFactory factory( calendar );
+    DndFactory factory(calendar);
 
-  Todo::Ptr todo( new Todo() );
-  todo->setSummary( QLatin1String( "Summary 1" ) );
-  todo->setDtDue( KDateTime( QDate( 2010, 8, 9 ) ) );
+    Todo::Ptr todo(new Todo());
+    todo->setSummary(QLatin1String("Summary 1"));
+    todo->setDtDue(KDateTime(QDate(2010, 8, 9)));
 
-  Incidence::List incidencesToPaste;
-  incidencesToPaste.append( todo );
+    Incidence::List incidencesToPaste;
+    incidencesToPaste.append(todo);
 
-  QVERIFY( factory.copyIncidences( incidencesToPaste ) );
+    QVERIFY(factory.copyIncidences(incidencesToPaste));
 
-  const KDateTime newDateTime( QDate( 2011, 1, 1 ), QTime( 10, 10 ) );
+    const KDateTime newDateTime(QDate(2011, 1, 1), QTime(10, 10));
 
-  Incidence::List pastedIncidences = factory.pasteIncidences( newDateTime );
-  QVERIFY( pastedIncidences.size() == 1 );
+    Incidence::List pastedIncidences = factory.pasteIncidences(newDateTime);
+    QVERIFY(pastedIncidences.size() == 1);
 
-  Incidence::Ptr incidence = pastedIncidences.first();
+    Incidence::Ptr incidence = pastedIncidences.first();
 
-  QVERIFY( incidence->type() == Incidence::TypeTodo );
+    QVERIFY(incidence->type() == Incidence::TypeTodo);
 
-  // check if a new uid was generated.
-  QVERIFY( incidence->uid() != todo->uid() );
+    // check if a new uid was generated.
+    QVERIFY(incidence->uid() != todo->uid());
 
-  Todo::Ptr pastedTodo = incidence.staticCast<Todo>();
+    Todo::Ptr pastedTodo = incidence.staticCast<Todo>();
 
-  QVERIFY( pastedTodo->dtDue() == newDateTime );
-  QVERIFY( pastedTodo->summary() == todo->summary() );
+    QVERIFY(pastedTodo->dtDue() == newDateTime);
+    QVERIFY(pastedTodo->summary() == todo->summary());
 
 }
 

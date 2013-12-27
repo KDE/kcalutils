@@ -38,7 +38,7 @@
 #include <kcalcore/todo.h>
 
 namespace KCalCore {
-  class Exception;
+class Exception;
 }
 
 namespace KCalUtils {
@@ -49,78 +49,78 @@ namespace KCalUtils {
 */
 namespace Stringify {
 
-  KCALUTILS_EXPORT QString incidenceType( KCalCore::Incidence::IncidenceType type );
+KCALUTILS_EXPORT QString incidenceType(KCalCore::Incidence::IncidenceType type);
 
-  /**
-    Returns the incidence Secrecy as translated string.
-    @see incidenceSecrecyList().
-  */
-  KCALUTILS_EXPORT QString incidenceSecrecy( KCalCore::Incidence::Secrecy secrecy );
+/**
+  Returns the incidence Secrecy as translated string.
+  @see incidenceSecrecyList().
+*/
+KCALUTILS_EXPORT QString incidenceSecrecy(KCalCore::Incidence::Secrecy secrecy);
 
-  /**
-    Returns a list of all available Secrecy types as a list of translated strings.
-    @see incidenceSecrecy().
-  */
-  KCALUTILS_EXPORT QStringList incidenceSecrecyList();
+/**
+  Returns a list of all available Secrecy types as a list of translated strings.
+  @see incidenceSecrecy().
+*/
+KCALUTILS_EXPORT QStringList incidenceSecrecyList();
 
-  KCALUTILS_EXPORT QString incidenceStatus( KCalCore::Incidence::Status status );
-  KCALUTILS_EXPORT QString incidenceStatus( const KCalCore::Incidence::Ptr &incidence );
-  KCALUTILS_EXPORT QString scheduleMessageStatus( KCalCore::ScheduleMessage::Status status );
+KCALUTILS_EXPORT QString incidenceStatus(KCalCore::Incidence::Status status);
+KCALUTILS_EXPORT QString incidenceStatus(const KCalCore::Incidence::Ptr &incidence);
+KCALUTILS_EXPORT QString scheduleMessageStatus(KCalCore::ScheduleMessage::Status status);
 
-  /**
-    Returns string containing the date/time when the to-do was completed,
-    formatted according to the user's locale settings.
-    @param shortfmt If true, use a short date format; else use a long format.
-  */
-  KCALUTILS_EXPORT QString todoCompletedDateTime( const KCalCore::Todo::Ptr &todo,
-                                                  bool shortfmt = false );
+/**
+  Returns string containing the date/time when the to-do was completed,
+  formatted according to the user's locale settings.
+  @param shortfmt If true, use a short date format; else use a long format.
+*/
+KCALUTILS_EXPORT QString todoCompletedDateTime(const KCalCore::Todo::Ptr &todo,
+        bool shortfmt = false);
 
-  KCALUTILS_EXPORT QString attendeeRole( KCalCore::Attendee::Role role );
-  KCALUTILS_EXPORT QStringList attendeeRoleList();
-  KCALUTILS_EXPORT QString attendeeStatus( KCalCore::Attendee::PartStat status );
-  KCALUTILS_EXPORT QStringList attendeeStatusList();
+KCALUTILS_EXPORT QString attendeeRole(KCalCore::Attendee::Role role);
+KCALUTILS_EXPORT QStringList attendeeRoleList();
+KCALUTILS_EXPORT QString attendeeStatus(KCalCore::Attendee::PartStat status);
+KCALUTILS_EXPORT QStringList attendeeStatusList();
 
-  /**
-    Build a QString time representation of a KDateTime object.
-    @param date The date to be formatted.
-    @param shortfmt If true, display info in short format.
-    @param spec Time spec to use.
-    @see formatDate(), formatDateTime().
-  */
-  KCALUTILS_EXPORT QString formatTime( const KDateTime &dt, bool shortfmt = true,
-                                       const KDateTime::Spec &spec = KDateTime::Spec() );
+/**
+  Build a QString time representation of a KDateTime object.
+  @param date The date to be formatted.
+  @param shortfmt If true, display info in short format.
+  @param spec Time spec to use.
+  @see formatDate(), formatDateTime().
+*/
+KCALUTILS_EXPORT QString formatTime(const KDateTime &dt, bool shortfmt = true,
+                                    const KDateTime::Spec &spec = KDateTime::Spec());
 
-  /**
-    Build a QString date representation of a KDateTime object.
-    @param date The date to be formatted.
-    @param shortfmt If true, display info in short format.
-    @param spec Time spec to use.
-    @see formatDate(), formatDateTime().
-  */
-  KCALUTILS_EXPORT QString formatDate( const KDateTime &dt, bool shortfmt = true,
-                                       const KDateTime::Spec &spec = KDateTime::Spec() );
+/**
+  Build a QString date representation of a KDateTime object.
+  @param date The date to be formatted.
+  @param shortfmt If true, display info in short format.
+  @param spec Time spec to use.
+  @see formatDate(), formatDateTime().
+*/
+KCALUTILS_EXPORT QString formatDate(const KDateTime &dt, bool shortfmt = true,
+                                    const KDateTime::Spec &spec = KDateTime::Spec());
 
-  /**
-    Build a QString date/time representation of a KDateTime object.
-    @param date The date to be formatted.
-    @param dateOnly If true, don't print the time fields; print the date fields only.
-    @param shortfmt If true, display info in short format.
-    @param spec Time spec to use.
-    @see formatDate(), formatTime().
-  */
-  KCALUTILS_EXPORT QString formatDateTime( const KDateTime &dt,
-                                           bool dateOnly = false,
-                                           bool shortfmt = true,
-                                           const KDateTime::Spec &spec = KDateTime::Spec() );
+/**
+  Build a QString date/time representation of a KDateTime object.
+  @param date The date to be formatted.
+  @param dateOnly If true, don't print the time fields; print the date fields only.
+  @param shortfmt If true, display info in short format.
+  @param spec Time spec to use.
+  @see formatDate(), formatTime().
+*/
+KCALUTILS_EXPORT QString formatDateTime(const KDateTime &dt,
+                                        bool dateOnly = false,
+                                        bool shortfmt = true,
+                                        const KDateTime::Spec &spec = KDateTime::Spec());
 
-  /**
-     Build a translated message representing an exception
-  */
-  KCALUTILS_EXPORT QString errorMessage( const KCalCore::Exception &exception );
+/**
+   Build a translated message representing an exception
+*/
+KCALUTILS_EXPORT QString errorMessage(const KCalCore::Exception &exception);
 
-  KCALUTILS_EXPORT QString secrecyName( KCalCore::Incidence::Secrecy secrecy );
+KCALUTILS_EXPORT QString secrecyName(KCalCore::Incidence::Secrecy secrecy);
 
-  KCALUTILS_EXPORT QStringList secrecyList();
+KCALUTILS_EXPORT QStringList secrecyList();
 
 } // namespace Stringify
 

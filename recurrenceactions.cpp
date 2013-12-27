@@ -40,209 +40,209 @@ using namespace KCalCore;
 
 class ScopeWidget : public QWidget
 {
-  public:
-    ScopeWidget( int availableChoices, const KDateTime &dateTime, QWidget *parent )
-      : QWidget( parent ), mAvailableChoices( availableChoices )
+public:
+    ScopeWidget(int availableChoices, const KDateTime &dateTime, QWidget *parent)
+        : QWidget(parent), mAvailableChoices(availableChoices)
     {
-      mUi.setupUi( this );
+        mUi.setupUi(this);
 
-      if ( ( mAvailableChoices & PastOccurrences ) == 0 ) {
-        mUi.checkBoxPast->hide();
-      } else {
-        mUi.checkBoxPast->setText( i18nc( "@option:check calendar items before a certain date",
-                                          "Items before %1",
-                                          KGlobal::locale()->formatDateTime( dateTime ) ) );
-      }
-      if ( ( mAvailableChoices & SelectedOccurrence ) == 0 ) {
-        mUi.checkBoxSelected->hide();
-      } else {
-        mUi.checkBoxSelected->setText( i18nc( "@option:check currently selected calendar item",
-                                              "Selected item" ) );
-      }
-      if ( ( mAvailableChoices & FutureOccurrences ) == 0 ) {
-        mUi.checkBoxFuture->hide();
-      } else {
-        mUi.checkBoxFuture->setText( i18nc( "@option:check calendar items after a certain date",
-                                            "Items after %1",
-                                            KGlobal::locale()->formatDateTime( dateTime ) ) );
-      }
+        if ((mAvailableChoices & PastOccurrences) == 0) {
+            mUi.checkBoxPast->hide();
+        } else {
+            mUi.checkBoxPast->setText(i18nc("@option:check calendar items before a certain date",
+                                            "Items before %1",
+                                            KGlobal::locale()->formatDateTime(dateTime)));
+        }
+        if ((mAvailableChoices & SelectedOccurrence) == 0) {
+            mUi.checkBoxSelected->hide();
+        } else {
+            mUi.checkBoxSelected->setText(i18nc("@option:check currently selected calendar item",
+                                                "Selected item"));
+        }
+        if ((mAvailableChoices & FutureOccurrences) == 0) {
+            mUi.checkBoxFuture->hide();
+        } else {
+            mUi.checkBoxFuture->setText(i18nc("@option:check calendar items after a certain date",
+                                              "Items after %1",
+                                              KGlobal::locale()->formatDateTime(dateTime)));
+        }
     }
 
-    void setMessage( const QString &message );
-    void setIcon( const QIcon &icon );
+    void setMessage(const QString &message);
+    void setIcon(const QIcon &icon);
 
-    void setCheckedChoices( int choices );
+    void setCheckedChoices(int choices);
     int checkedChoices() const;
 
-  private:
+private:
     const int mAvailableChoices;
     Ui_RecurrenceActionsScopeWidget mUi;
 };
 
-void ScopeWidget::setMessage( const QString &message )
+void ScopeWidget::setMessage(const QString &message)
 {
-  mUi.messageLabel->setText( message );
+    mUi.messageLabel->setText(message);
 }
 
-void ScopeWidget::setIcon( const QIcon &icon )
+void ScopeWidget::setIcon(const QIcon &icon)
 {
-  QStyleOption option;
-  option.initFrom( this );
-  mUi.iconLabel->setPixmap(
-    icon.pixmap( style()->pixelMetric( QStyle::PM_MessageBoxIconSize, &option, this ) ) );
+    QStyleOption option;
+    option.initFrom(this);
+    mUi.iconLabel->setPixmap(
+        icon.pixmap(style()->pixelMetric(QStyle::PM_MessageBoxIconSize, &option, this)));
 }
 
-void ScopeWidget::setCheckedChoices( int choices )
+void ScopeWidget::setCheckedChoices(int choices)
 {
-  // mask with available ones
-  choices &= mAvailableChoices;
+    // mask with available ones
+    choices &= mAvailableChoices;
 
-  mUi.checkBoxPast->setChecked( ( choices & PastOccurrences ) != 0 );
-  mUi.checkBoxSelected->setChecked( ( choices & SelectedOccurrence ) != 0 );
-  mUi.checkBoxFuture->setChecked( ( choices & FutureOccurrences ) != 0 );
+    mUi.checkBoxPast->setChecked((choices & PastOccurrences) != 0);
+    mUi.checkBoxSelected->setChecked((choices & SelectedOccurrence) != 0);
+    mUi.checkBoxFuture->setChecked((choices & FutureOccurrences) != 0);
 }
 
 int ScopeWidget::checkedChoices() const
 {
-  int result = NoOccurrence;
+    int result = NoOccurrence;
 
-  if ( mUi.checkBoxPast->isChecked() ) {
-    result |= PastOccurrences;
-  }
-  if ( mUi.checkBoxSelected->isChecked() ) {
-    result |= SelectedOccurrence;
-  }
-  if ( mUi.checkBoxFuture->isChecked() ) {
-    result |= FutureOccurrences;
-  }
+    if (mUi.checkBoxPast->isChecked()) {
+        result |= PastOccurrences;
+    }
+    if (mUi.checkBoxSelected->isChecked()) {
+        result |= SelectedOccurrence;
+    }
+    if (mUi.checkBoxFuture->isChecked()) {
+        result |= FutureOccurrences;
+    }
 
-  return result;
+    return result;
 }
 
-int RecurrenceActions::availableOccurrences( const Incidence::Ptr &incidence,
-                                             const KDateTime &selectedOccurrence )
+int RecurrenceActions::availableOccurrences(const Incidence::Ptr &incidence,
+        const KDateTime &selectedOccurrence)
 {
-  int result = NoOccurrence;
+    int result = NoOccurrence;
 
-  if ( incidence->recurrence()->recursOn( selectedOccurrence.date(),
-                                          selectedOccurrence.timeSpec() ) ) {
-    result |= SelectedOccurrence;
-  }
+    if (incidence->recurrence()->recursOn(selectedOccurrence.date(),
+                                          selectedOccurrence.timeSpec())) {
+        result |= SelectedOccurrence;
+    }
 
-  if ( incidence->recurrence()->getPreviousDateTime( selectedOccurrence ).isValid() ) {
-    result |= PastOccurrences;
-  }
+    if (incidence->recurrence()->getPreviousDateTime(selectedOccurrence).isValid()) {
+        result |= PastOccurrences;
+    }
 
-  if ( incidence->recurrence()->getNextDateTime( selectedOccurrence ).isValid() ) {
-    result |= FutureOccurrences;
-  }
+    if (incidence->recurrence()->getNextDateTime(selectedOccurrence).isValid()) {
+        result |= FutureOccurrences;
+    }
 
-  return result;
+    return result;
 }
 
-int RecurrenceActions::questionMultipleChoice( const KDateTime &selectedOccurrence,
-                                               const QString &message, const QString &caption,
-                                               const KGuiItem &action, int availableChoices,
-                                               int preselectedChoices, QWidget *parent )
+int RecurrenceActions::questionMultipleChoice(const KDateTime &selectedOccurrence,
+        const QString &message, const QString &caption,
+        const KGuiItem &action, int availableChoices,
+        int preselectedChoices, QWidget *parent)
 {
-  QPointer<KDialog> dialog = new KDialog( parent );
-  dialog->setCaption( caption );
-  dialog->setButtons( KDialog::Ok | KDialog::Cancel );
-  dialog->setDefaultButton( KDialog::Ok );
-  dialog->setButtonGuiItem( KDialog::Ok, action );
+    QPointer<KDialog> dialog = new KDialog(parent);
+    dialog->setCaption(caption);
+    dialog->setButtons(KDialog::Ok | KDialog::Cancel);
+    dialog->setDefaultButton(KDialog::Ok);
+    dialog->setButtonGuiItem(KDialog::Ok, action);
 
-  ScopeWidget *widget = new ScopeWidget( availableChoices, selectedOccurrence, dialog );
-  dialog->setMainWidget( widget );
+    ScopeWidget *widget = new ScopeWidget(availableChoices, selectedOccurrence, dialog);
+    dialog->setMainWidget(widget);
 
-  widget->setMessage( message );
-  widget->setIcon( widget->style()->standardIcon( QStyle::SP_MessageBoxQuestion ) );
-  widget->setCheckedChoices( preselectedChoices );
+    widget->setMessage(message);
+    widget->setIcon(widget->style()->standardIcon(QStyle::SP_MessageBoxQuestion));
+    widget->setCheckedChoices(preselectedChoices);
 
-  const int result = dialog->exec();
-  if ( dialog ) {
-    dialog->deleteLater();
-  }
+    const int result = dialog->exec();
+    if (dialog) {
+        dialog->deleteLater();
+    }
 
-  if ( result == QDialog::Rejected ) {
+    if (result == QDialog::Rejected) {
+        return NoOccurrence;
+    }
+
+    return widget->checkedChoices();
+}
+
+int RecurrenceActions::questionSelectedAllCancel(const QString &message, const QString &caption,
+        const KGuiItem &actionSelected,
+        const KGuiItem &actionAll, QWidget *parent)
+{
+    KDialog *dialog = new KDialog(parent);
+    dialog->setCaption(caption);
+    dialog->setButtons(KDialog::Yes | KDialog::Ok | KDialog::Cancel);
+    dialog->setObjectName("RecurrenceActions::questionSelectedAllCancel");
+    dialog->setDefaultButton(KDialog::Yes);
+    dialog->setButtonGuiItem(KDialog::Yes, actionSelected);
+    dialog->setButtonGuiItem(KDialog::Ok, actionAll);
+
+    bool checkboxResult = false;
+    int result = KMessageBox::createKMessageBox(
+                     dialog,
+                     QMessageBox::Question,
+                     message,
+                     QStringList(),
+                     QString(),
+                     &checkboxResult,
+                     KMessageBox::Notify);
+
+    switch (result) {
+    case KDialog::Yes:
+        return SelectedOccurrence;
+    case QDialog::Accepted:
+        // See kdialog.h, 'Ok' doesn't return KDialog:Ok
+        return AllOccurrences;
+    default:
+        return NoOccurrence;
+    }
+
     return NoOccurrence;
-  }
-
-  return widget->checkedChoices();
 }
 
-int RecurrenceActions::questionSelectedAllCancel( const QString &message, const QString &caption,
-                                                  const KGuiItem &actionSelected,
-                                                  const KGuiItem &actionAll, QWidget *parent )
+int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message,
+        const QString &caption,
+        const KGuiItem &actionSelected,
+        const KGuiItem &actionFuture,
+        const KGuiItem &actionAll,
+        QWidget *parent)
 {
-  KDialog *dialog = new KDialog( parent );
-  dialog->setCaption( caption );
-  dialog->setButtons( KDialog::Yes | KDialog::Ok | KDialog::Cancel );
-  dialog->setObjectName( "RecurrenceActions::questionSelectedAllCancel" );
-  dialog->setDefaultButton( KDialog::Yes );
-  dialog->setButtonGuiItem( KDialog::Yes, actionSelected );
-  dialog->setButtonGuiItem( KDialog::Ok, actionAll );
+    KDialog *dialog = new KDialog(parent);
+    dialog->setCaption(caption);
+    dialog->setButtons(KDialog::Yes | KDialog::No | KDialog::Ok | KDialog::Cancel);
+    dialog->setObjectName("RecurrenceActions::questionSelectedFutureAllCancel");
+    dialog->setDefaultButton(KDialog::Yes);
+    dialog->setButtonGuiItem(KDialog::Yes, actionSelected);
+    dialog->setButtonGuiItem(KDialog::No, actionFuture);
+    dialog->setButtonGuiItem(KDialog::Ok, actionAll);
 
-  bool checkboxResult = false;
-  int result = KMessageBox::createKMessageBox(
-    dialog,
-    QMessageBox::Question,
-    message,
-    QStringList(),
-    QString(),
-    &checkboxResult,
-    KMessageBox::Notify );
+    bool checkboxResult = false;
+    int result = KMessageBox::createKMessageBox(
+                     dialog,
+                     QMessageBox::Question,
+                     message,
+                     QStringList(),
+                     QString(),
+                     &checkboxResult,
+                     KMessageBox::Notify);
 
-  switch (result) {
+    switch (result) {
     case KDialog::Yes:
-      return SelectedOccurrence;
-    case QDialog::Accepted:
-      // See kdialog.h, 'Ok' doesn't return KDialog:Ok
-      return AllOccurrences;
-    default:
-      return NoOccurrence;
-  }
-
-  return NoOccurrence;
-}
-
-int RecurrenceActions::questionSelectedFutureAllCancel( const QString &message,
-                                                        const QString &caption,
-                                                        const KGuiItem &actionSelected,
-                                                        const KGuiItem &actionFuture,
-                                                        const KGuiItem &actionAll,
-                                                        QWidget *parent )
-{
-  KDialog *dialog = new KDialog( parent );
-  dialog->setCaption( caption );
-  dialog->setButtons( KDialog::Yes | KDialog::No | KDialog::Ok | KDialog::Cancel );
-  dialog->setObjectName( "RecurrenceActions::questionSelectedFutureAllCancel" );
-  dialog->setDefaultButton( KDialog::Yes );
-  dialog->setButtonGuiItem( KDialog::Yes, actionSelected );
-  dialog->setButtonGuiItem( KDialog::No, actionFuture );
-  dialog->setButtonGuiItem( KDialog::Ok, actionAll );
-
-  bool checkboxResult = false;
-  int result = KMessageBox::createKMessageBox(
-    dialog,
-    QMessageBox::Question,
-    message,
-    QStringList(),
-    QString(),
-    &checkboxResult,
-    KMessageBox::Notify );
-
-  switch (result) {
-    case KDialog::Yes:
-      return SelectedOccurrence;
+        return SelectedOccurrence;
     case KDialog::No:
-      return FutureOccurrences;
+        return FutureOccurrences;
     case QDialog::Accepted:
-      return AllOccurrences;
+        return AllOccurrences;
     default:
-      return NoOccurrence;
-  }
+        return NoOccurrence;
+    }
 
-  return NoOccurrence;
+    return NoOccurrence;
 }
 
 // kate: space-indent on; indent-width 2; replace-tabs on;
