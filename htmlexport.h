@@ -32,7 +32,7 @@
 #include <QtCore/QString>
 
 namespace KCalCore {
-  class MemoryCalendar;
+class MemoryCalendar;
 }
 
 class QTextStream;
@@ -46,57 +46,57 @@ class HTMLExportSettings;
 */
 class KCALUTILS_EXPORT HtmlExport
 {
-  public:
+public:
     /**
       Create new HTML exporter for calendar.
     */
-    HtmlExport( KCalCore::MemoryCalendar *calendar, HTMLExportSettings *settings );
+    HtmlExport(KCalCore::MemoryCalendar *calendar, HTMLExportSettings *settings);
     virtual ~HtmlExport();
 
     /**
       Writes out the calendar in HTML format.
     */
-    bool save( const QString &fileName = QString() );
+    bool save(const QString &fileName = QString());
 
     /**
       Writes out calendar to text stream.
     */
-    bool save( QTextStream *ts );
+    bool save(QTextStream *ts);
 
-    void addHoliday( const QDate &date, const QString &name );
+    void addHoliday(const QDate &date, const QString &name);
 
-  protected:
-    void createWeekView( QTextStream *ts );
-    void createMonthView( QTextStream *ts );
-    void createEventList( QTextStream *ts );
-    void createTodoList( QTextStream *ts );
-    void createJournalView( QTextStream *ts );
-    void createFreeBusyView( QTextStream *ts );
+protected:
+    void createWeekView(QTextStream *ts);
+    void createMonthView(QTextStream *ts);
+    void createEventList(QTextStream *ts);
+    void createTodoList(QTextStream *ts);
+    void createJournalView(QTextStream *ts);
+    void createFreeBusyView(QTextStream *ts);
 
-    void createTodo( QTextStream *ts, const KCalCore::Todo::Ptr &todo );
+    void createTodo(QTextStream *ts, const KCalCore::Todo::Ptr &todo);
 
-    void createEvent( QTextStream *ts, const KCalCore::Event::Ptr &event,
-                      const QDate &date, bool withDescription = true );
+    void createEvent(QTextStream *ts, const KCalCore::Event::Ptr &event,
+                     const QDate &date, bool withDescription = true);
 
-    void createFooter( QTextStream *ts );
+    void createFooter(QTextStream *ts);
 
-    bool checkSecrecy( const KCalCore::Incidence::Ptr &incidence );
+    bool checkSecrecy(const KCalCore::Incidence::Ptr &incidence);
 
-    void formatLocation( QTextStream *ts, const KCalCore::Incidence::Ptr &incidence );
+    void formatLocation(QTextStream *ts, const KCalCore::Incidence::Ptr &incidence);
 
-    void formatCategories( QTextStream *ts, const KCalCore::Incidence::Ptr &incidence );
+    void formatCategories(QTextStream *ts, const KCalCore::Incidence::Ptr &incidence);
 
-    void formatAttendees( QTextStream *ts, const KCalCore::Incidence::Ptr &incidence );
+    void formatAttendees(QTextStream *ts, const KCalCore::Incidence::Ptr &incidence);
 
-    QString breakString( const QString &text );
+    QString breakString(const QString &text);
 
     QDate fromDate() const;
     QDate toDate() const;
     QString styleSheet() const;
 
-  private:
+private:
     //@cond PRIVATE
-    Q_DISABLE_COPY( HtmlExport )
+    Q_DISABLE_COPY(HtmlExport)
     class Private;
     Private *const d;
     //@endcond

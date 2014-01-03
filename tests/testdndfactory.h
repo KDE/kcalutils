@@ -27,8 +27,8 @@
 
 class DndFactoryTest : public QObject
 {
-  Q_OBJECT
-  private Q_SLOTS:
+    Q_OBJECT
+private Q_SLOTS:
 
     /** Pastes an event without time component (all day). We don't specify a new date/time to
         DndFactory::pasteIncidences(), so dates of the pasted incidence should be the same as
