@@ -1,2 +1,2 @@
 SKIP /tests/
-EXTRA style,kdebug,tipsandthis,defines,qenums,null
+EXTRA kdebug,tipsandthis,defines,qenums,null
