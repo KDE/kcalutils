@@ -20,7 +20,7 @@
 */
 
 #include "teststringify.h"
-#include "../stringify.h"
+#include "stringify.h"
 
 #include <KLocalizedString>
 

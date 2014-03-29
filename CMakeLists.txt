@@ -1,71 +1,70 @@
-project(kcalutils)
+cmake_minimum_required(VERSION 2.8.12)
 
-find_package(Qt5 NO_MODULE REQUIRED COMPONENTS Widgets)
-find_package(KF5 NO_MODULE REQUIRED COMPONENTS CoreAddons ItemViews KDE4Support)
-add_definitions(-DKDE_DEFAULT_DEBUG_AREA=5820)
-add_definitions(-DQT_NO_CAST_FROM_ASCII)
-add_definitions(-DQT_NO_CAST_TO_ASCII)
+project(KCalUtils)
 
-include_directories(
-  ${CMAKE_CURRENT_SOURCE_DIR}
-  ${CMAKE_CURRENT_BINARY_DIR}
-  ${KDE4_INCLUDE_DIR}
-  ${kcalcore_BINARY_DIR}
-  ${CMAKE_BINARY_DIR}/kpimidentities
-  ${CMAKE_BINARY_DIR}/kpimutils
+# ECM setup
+find_package(ECM 0.0.11 CONFIG REQUIRED)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+
+include(ECMGenerateHeaders)
+include(ECMGeneratePriFile)
+include(ECMPackageConfigHelpers)
+include(ECMSetupVersion)
+include(FeatureSummary)
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDEFrameworkCompilerSettings)
+
+
+set(KF5_VERSION "4.97.0")
+
+ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KCALUTILS
+                        VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h"
+                        PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfigVersion.cmake"
+                        SOVERSION 5
 )
 
-########### next target ###############
+########### Find packages ###########
+find_package(KF5 ${KF5_VERSION} CONFIG REQUIRED COMPONENTS CoreAddons Config ItemViews I18n KDE4Support)
 
-set(kcalutils_LIB_SRCS
-  htmlexport.cpp
-  icaldrag.cpp
-  incidenceformatter.cpp
-  recurrenceactions.cpp
-  stringify.cpp
-  scheduler.cpp
-  vcaldrag.cpp
-  dndfactory.cpp
+# FIXME: remove this if/endif when KCalCore is split.
+if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
+  find_package(KF5CalendarCore ${KF5_VERSION} CONFIG REQUIRED)
+  find_package(KF5PimIdentities ${KF5_VERSION} CONFIG REQUIRED)
+endif()
+
+########### Targets ###########
+add_subdirectory(src)
+add_subdirectory(autotests)
+
+########### CMake Config Files ###########
+set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5CalendarUtils")
+
+ecm_configure_package_config_file(
+  "${CMAKE_CURRENT_SOURCE_DIR}/KF5CalendarUtilsConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfig.cmake"
+  INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
 )
-
-kde4_add_kcfg_files(kcalutils_LIB_SRCS htmlexportsettings.kcfgc)
-
-kde4_add_ui_files(kcalutils_LIB_SRCS recurrenceactionsscopewidget.ui)
-
-add_library(kcalutils ${LIBRARY_TYPE} ${kcalutils_LIB_SRCS})
-generate_export_header(kcalutils)
-
-target_link_libraries(kcalutils
-  Qt5::Widgets
-  KF5::CoreAddons
-  KF5::ItemViews
-  KF5::KIOCore
-  KF5::KDE4Support
-  kpimutils
-  kcalcore
-)
-set_target_properties(kcalutils PROPERTIES
-  VERSION ${GENERIC_LIB_VERSION}
-  SOVERSION ${GENERIC_LIB_SOVERSION}
-)
-
-install(TARGETS kcalutils EXPORT kdepimlibsLibraryTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
-
-########### next target ###############
-
-add_subdirectory(tests)
-
-########### install files ###############
 
 install(FILES
-  dndfactory.h
-  htmlexport.h
-  icaldrag.h
-  incidenceformatter.h
-  ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h
-  vcaldrag.h
-  recurrenceactions.h
-  scheduler.h
-  stringify.h
-  ${CMAKE_CURRENT_BINARY_DIR}/htmlexportsettings.h
-  DESTINATION ${INCLUDE_INSTALL_DIR}/kcalutils COMPONENT Devel)
+  "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfigVersion.cmake"
+  DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+  COMPONENT Devel
+)
+
+install(EXPORT KF5CalendarUtilsTargets
+    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+    FILE KF5CalendarUtilsTargets.cmake
+    NAMESPACE KF5::
+)
+
+install(FILES
+   ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h
+   DESTINATION ${INCLUDE_INSTALL_DIR}
+   COMPONENT Devel
+)
+
+if ("${CMAKE_BINARY_DIR}" STREQUAL "${KCalUtils_BINARY_DIR}")
+  feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+endif()

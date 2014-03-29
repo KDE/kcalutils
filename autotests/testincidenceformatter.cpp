@@ -20,7 +20,7 @@
 */
 
 #include "testincidenceformatter.h"
-#include "../incidenceformatter.h"
+#include "incidenceformatter.h"
 
 #include <kcalcore/event.h>
 

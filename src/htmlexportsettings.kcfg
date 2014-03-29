@@ -32,7 +32,7 @@
     </entry>
     <entry type="String" key="Page Title">
       <label>Page Title</label>
-      <default code="true">i18n("Calendar")</default>
+      <default code="true">QLatin1String("Calendar")</default>
       <tooltip>The title of the exported page</tooltip>
       <whatsthis>Enter a title for the HTML page.</whatsthis>
     </entry>
@@ -96,7 +96,7 @@
     </entry>
     <entry type="String" name="EventTitle" key="Title">
       <label>Title of the calendar</label>
-      <default code="true">i18n("Calendar")</default>
+      <default code="true">QLatin1String("Calendar")</default>
       <tooltip>Title for the event calendar</tooltip>
       <whatsthis>Enter a string to use for the title of the event calendar.</whatsthis>
     </entry>
@@ -131,7 +131,7 @@
     </entry>
     <entry type="String" key="TodoList Title">
       <label>Title of the to-do list</label>
-      <default code="true">i18n("To-do List")</default>
+      <default code="true">QLatin1String("To-do List")</default>
       <tooltip>Title for the to-do list</tooltip>
       <whatsthis>Enter a string to use for the title of the to-do list.</whatsthis>
     </entry>
@@ -172,7 +172,7 @@
     </entry>
     <entry type="String" key="Journal Title">
       <label>Title of the journal list</label>
-      <default code="true">i18n("Journals")</default>
+      <default code="true">QLatin1String("Journals")</default>
       <tooltip>Title for the journal list</tooltip>
       <whatsthis>Enter a title for the Journal list, if Journals are exported.</whatsthis>
     </entry>
@@ -187,7 +187,7 @@
     </entry>
     <entry type="String" name="FreeBusyTitle" key="Free/Busy Title">
       <label>Title of the free/busy list</label>
-      <default code="true">i18n("Busy times")</default>
+      <default code="true">QLatin1String("Busy times")</default>
       <tooltip>Title for the free/busy list</tooltip>
       <whatsthis>Enter a title for the free/busy list, if free/busy times are exported.</whatsthis>
     </entry>

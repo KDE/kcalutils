@@ -1,14 +1,21 @@
-set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
+remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
 
-MACRO(KCALUTILS_UNIT_TESTS)
-  FOREACH(_testname ${ARGN})
-    kde4_add_unit_test(${_testname} NOGUI ${_testname}.cpp)
-    target_link_libraries(${_testname} ${KDE4_KDECORE_LIBS} kcalutils kcalcore ${QT_QTTEST_LIBRARY} ${QT_QTGUI_LIBRARY})
-  ENDFOREACH(_testname)
-ENDMACRO(KCALUTILS_UNIT_TESTS)
+include(ECMMarkAsTest)
 
-KCALUTILS_UNIT_TESTS(
-  testdndfactory
+set(QT_REQUIRED_VERSION "5.2.0")
+find_package(Qt5 ${QT_REQUIRED_VERSION} CONFIG REQUIRED COMPONENTS Test)
+
+macro(kcalutils_unit_tests)
+  foreach(_testname ${ARGN})
+    add_executable(${_testname} ${_testname}.cpp)
+    add_test(${_testname} ${_testname})
+    ecm_mark_as_test(${_testname})
+    target_link_libraries(${_testname} KF5CalendarUtils Qt5::Test)
+  endforeach()
+endmacro()
+
+kcalutils_unit_tests(
+  #testdndfactory FIXME: Doesn't build
   testincidenceformatter
   teststringify
 )

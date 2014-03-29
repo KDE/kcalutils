@@ -22,7 +22,7 @@
 
 #include "testdndfactory.h"
 
-#include "../dndfactory.h"
+#include "dndfactory.h"
 
 #include <kcalcore/memorycalendar.h>
 
