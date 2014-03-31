@@ -78,9 +78,12 @@ static QString string2HTML(const QString &str)
     return KPIMUtils::LinkLocator::convertToHtml(str);
 }
 
+static KPIMIdentities::IdentityManager *s_identityManager = 0;
+
 static bool thatIsMe(const QString &email)
 {
-    return KPIMIdentities::IdentityManager(true).thatIsMe(email);
+    return s_identityManager ? s_identityManager->thatIsMe(email)
+                             : KPIMIdentities::IdentityManager(true).thatIsMe(email);
 }
 
 static bool iamAttendee(Attendee::Ptr attendee)
@@ -119,7 +122,9 @@ static QString htmlAddMailtoLink(const QString &email, const QString &name)
             KUrl mailto;
             mailto.setProtocol(QLatin1String("mailto"));
             mailto.setPath(path);
-            const QString iconPath =
+
+            // static for performance
+            static const QString iconPath =
                 KIconLoader::global()->iconPath(QLatin1String("mail-message-new"), KIconLoader::Small);
             str = htmlAddLink(mailto.url(), QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">"));
         }
@@ -2382,6 +2387,26 @@ static QString invitationHeaderFreeBusy(const FreeBusy::Ptr &fb,
 
 static QString invitationAttendeeList(const Incidence::Ptr &incidence)
 {
+    // Performance optimization so we only create one IdentityManager instead of 1 per attendee.
+    // Using RAII to protect against future return statements in the middle of this function.
+    struct RAIIHelper {
+        RAIIHelper()
+        {
+            //t.start();
+            s_identityManager = new KPIMIdentities::IdentityManager(true);
+        }
+
+        ~RAIIHelper()
+        {
+            delete s_identityManager;
+            s_identityManager = 0;
+            //qDebug() << "Elapsed time: " << t.elapsed();
+        }
+        //QElapsedTimer t;
+
+    } raiiHelper;
+
+
     QString tmpStr;
     if (!incidence) {
         return tmpStr;
