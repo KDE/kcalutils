@@ -765,7 +765,7 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
                                      const QDate &ocurrenceDueDate, KDateTime::Spec spec)
 {
     if (!todo) {
-        kDebug() << "IncidenceFormatter::displayViewFormatTodo was called without to-do, quitting";
+        qDebug() << "IncidenceFormatter::displayViewFormatTodo was called without to-do, quitting";
         return QString();
     }
 
@@ -802,11 +802,11 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
                 if (length >= 0) {
                     startDt.setDate(ocurrenceDueDate.addDays(-length));
                 } else {
-                    kError() << "DTSTART is bigger than DTDUE, todo->uid() is " << todo->uid();
+                    qCritical() << "DTSTART is bigger than DTDUE, todo->uid() is " << todo->uid();
                     startDt.setDate(ocurrenceDueDate);
                 }
             } else {
-                kError() << "To-do is recurring but has no DTDUE set, todo->uid() is " << todo->uid();
+                qCritical() << "To-do is recurring but has no DTDUE set, todo->uid() is " << todo->uid();
                 startDt.setDate(ocurrenceDueDate);
             }
         }
@@ -2041,11 +2041,11 @@ static QString invitationHeaderEvent(const Event::Ptr &event,
 
         Attendee::List attendees = event->attendees();
         if (attendees.count() == 0) {
-            kDebug() << "No attendees in the iCal reply!";
+            qDebug() << "No attendees in the iCal reply!";
             return QString();
         }
         if (attendees.count() != 1) {
-            kDebug() << "Warning: attendeecount in the reply should be 1"
+            qDebug() << "Warning: attendeecount in the reply should be 1"
                      << "but is" << attendees.count();
         }
         QString attendeeName = firstAttendeeName(event, sender);
@@ -2128,7 +2128,7 @@ static QString invitationHeaderEvent(const Event::Ptr &event,
     case iTIPNoMethod:
         return i18n("Error: Event iTIP message with unknown method");
     }
-    kError() << "encountered an iTIP method that we do not support";
+    qCritical() << "encountered an iTIP method that we do not support";
     return QString();
 }
 
@@ -2183,11 +2183,11 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo,
 
         Attendee::List attendees = todo->attendees();
         if (attendees.count() == 0) {
-            kDebug() << "No attendees in the iCal reply!";
+            qDebug() << "No attendees in the iCal reply!";
             return QString();
         }
         if (attendees.count() != 1) {
-            kDebug() << "Warning: attendeecount in the reply should be 1"
+            qDebug() << "Warning: attendeecount in the reply should be 1"
                      << "but is" << attendees.count();
         }
         QString attendeeName = firstAttendeeName(todo, sender);
@@ -2278,7 +2278,7 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo,
     case iTIPNoMethod:
         return i18n("Error: To-do iTIP message with unknown method");
     }
-    kError() << "encountered an iTIP method that we do not support";
+    qCritical() << "encountered an iTIP method that we do not support";
     return QString();
 }
 
@@ -2308,11 +2308,11 @@ static QString invitationHeaderJournal(const Journal::Ptr &journal,
 
         Attendee::List attendees = journal->attendees();
         if (attendees.count() == 0) {
-            kDebug() << "No attendees in the iCal reply!";
+            qDebug() << "No attendees in the iCal reply!";
             return QString();
         }
         if (attendees.count() != 1) {
-            kDebug() << "Warning: attendeecount in the reply should be 1 "
+            qDebug() << "Warning: attendeecount in the reply should be 1 "
                      << "but is " << attendees.count();
         }
         Attendee::Ptr attendee = *attendees.begin();
@@ -2344,7 +2344,7 @@ static QString invitationHeaderJournal(const Journal::Ptr &journal,
     case iTIPNoMethod:
         return i18n("Error: Journal iTIP message with unknown method");
     }
-    kError() << "encountered an iTIP method that we do not support";
+    qCritical() << "encountered an iTIP method that we do not support";
     return QString();
 }
 
@@ -2375,7 +2375,7 @@ static QString invitationHeaderFreeBusy(const FreeBusy::Ptr &fb,
     case iTIPNoMethod:
         return i18n("Error: Free/Busy iTIP message with unknown method");
     }
-    kError() << "encountered an iTIP method that we do not support";
+    qCritical() << "encountered an iTIP method that we do not support";
     return QString();
 }
 //@endcond
@@ -3030,9 +3030,9 @@ static QString formatICalInvitationHelper(QString invitation,
     ScheduleMessage::Ptr msg = format.parseScheduleMessage(mCalendar, invitation);
 
     if (!msg) {
-        kDebug() << "Failed to parse the scheduling message";
+        qDebug() << "Failed to parse the scheduling message";
         Q_ASSERT(format.exception());
-        kDebug() << Stringify::errorMessage(*format.exception());   //krazy:exclude=kdebug
+        qDebug() << Stringify::errorMessage(*format.exception());   //krazy:exclude=kdebug
         return QString();
     }
 

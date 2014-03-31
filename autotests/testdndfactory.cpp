@@ -113,7 +113,7 @@ void DndFactoryTest::testPasteAllDayEvent2()
     Event::Ptr pastedEvent = incidence.staticCast<Event>();
     const uint newLength = pastedEvent->dtStart().secsTo(pastedEvent->dtEnd());
 
-    kDebug() << "originalLength was " << originalLength << "; and newLength is "
+    qDebug() << "originalLength was " << originalLength << "; and newLength is "
              << newLength << "; old dtStart was " << allDayEvent->dtStart()
              << " and old dtEnd was " << allDayEvent->dtEnd() << endl
              << "; new dtStart is " << pastedEvent->dtStart()

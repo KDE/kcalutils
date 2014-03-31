@@ -277,7 +277,7 @@ void HtmlExport::createEventList(QTextStream *ts)
     *ts << "  </tr>" << endl;
 
     for (QDate dt = fromDate(); dt <= toDate(); dt = dt.addDays(1)) {
-        kDebug() << "Getting events for" << dt.toString();
+        qDebug() << "Getting events for" << dt.toString();
         Event::List events = d->mCalendar->events(dt, d->mCalendar->timeSpec(),
                              EventSortStartDate,
                              SortDirectionAscending);
@@ -304,7 +304,7 @@ void HtmlExport::createEvent(QTextStream *ts,
                              const QDate &date,
                              bool withDescription)
 {
-    kDebug() << event->summary();
+    qDebug() << event->summary();
     *ts << "  <tr>" << endl;
 
     if (!event->allDay()) {
@@ -473,7 +473,7 @@ void HtmlExport::createTodoList(QTextStream *ts)
 
 void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
 {
-    kDebug();
+    qDebug();
 
     const bool completed = todo->isCompleted();
 

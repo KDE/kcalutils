@@ -122,7 +122,7 @@ public:
                 }
                 inc->setDtStart(newDateTime);
             } else {
-                kDebug() << "Trying to paste unknown incidence of type" << int(inc->type());
+                qDebug() << "Trying to paste unknown incidence of type" << int(inc->type());
             }
         }
 
@@ -223,7 +223,7 @@ MemoryCalendar::Ptr DndFactory::createDropCalendar(QDropEvent *dropEvent)
 
 Event::Ptr DndFactory::createDropEvent(const QMimeData *mimeData)
 {
-    //kDebug();
+    //qDebug();
     Event::Ptr event;
     MemoryCalendar::Ptr calendar(createDropCalendar(mimeData));
 
@@ -249,7 +249,7 @@ Event::Ptr DndFactory::createDropEvent(QDropEvent *dropEvent)
 
 Todo::Ptr DndFactory::createDropTodo(const QMimeData *mimeData)
 {
-    //kDebug();
+    //qDebug();
     Todo::Ptr todo;
     MemoryCalendar::Ptr calendar(createDropCalendar(mimeData));
 
@@ -336,7 +336,7 @@ Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime,
     Incidence::List list;
 
     if (!calendar) {
-        kDebug() << "Can't parse clipboard";
+        qDebug() << "Can't parse clipboard";
         return list;
     }
 
@@ -377,7 +377,7 @@ Incidence::Ptr DndFactory::pasteIncidence(const KDateTime &newDateTime,
     MemoryCalendar::Ptr calendar(createDropCalendar(clipboard->mimeData()));
 
     if (!calendar) {
-        kDebug() << "Can't parse clipboard";
+        qDebug() << "Can't parse clipboard";
         return Incidence::Ptr();
     }
 
