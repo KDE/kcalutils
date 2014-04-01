@@ -80,6 +80,24 @@ static QString string2HTML(const QString &str)
 
 static KPIMIdentities::IdentityManager *s_identityManager = 0;
 
+// Performance optimization so we only create one IdentityManager instead of 1 per attendee.
+// Using RAII to protect against future return statements in the middle of code
+struct RAIIIdentityManager{
+    RAIIIdentityManager()
+    {
+        //t.start();
+        s_identityManager = new KPIMIdentities::IdentityManager(true);
+    }
+
+    ~RAIIIdentityManager()
+    {
+        delete s_identityManager;
+        s_identityManager = 0;
+        //qDebug() << "Elapsed time: " << t.elapsed();
+    }
+    //QElapsedTimer t;
+};
+
 static bool thatIsMe(const QString &email)
 {
     return s_identityManager ? s_identityManager->thatIsMe(email)
@@ -1300,6 +1318,7 @@ static Attendee::Ptr findDelegatedFromMyAttendee(const Incidence::Ptr &incidence
         return attendee;
     }
 
+    RAIIIdentityManager raiiHelper;
     QString delegatorName, delegatorEmail;
     Attendee::List attendees = incidence->attendees();
     Attendee::List::ConstIterator it;
@@ -1324,6 +1343,7 @@ static Attendee::Ptr findMyAttendee(const Incidence::Ptr &incidence)
         return attendee;
     }
 
+    RAIIIdentityManager raiiHelper;
     Attendee::List attendees = incidence->attendees();
     Attendee::List::ConstIterator it;
     for (it = attendees.constBegin(); it != attendees.constEnd(); ++it) {
@@ -1347,6 +1367,7 @@ static Attendee::Ptr findAttendee(const Incidence::Ptr &incidence,
         return attendee;
     }
 
+    RAIIIdentityManager raiiHelper;
     Attendee::List attendees = incidence->attendees();
     Attendee::List::ConstIterator it;
     for (it = attendees.constBegin(); it != attendees.constEnd(); ++it) {
@@ -2387,25 +2408,7 @@ static QString invitationHeaderFreeBusy(const FreeBusy::Ptr &fb,
 
 static QString invitationAttendeeList(const Incidence::Ptr &incidence)
 {
-    // Performance optimization so we only create one IdentityManager instead of 1 per attendee.
-    // Using RAII to protect against future return statements in the middle of this function.
-    struct RAIIHelper {
-        RAIIHelper()
-        {
-            //t.start();
-            s_identityManager = new KPIMIdentities::IdentityManager(true);
-        }
-
-        ~RAIIHelper()
-        {
-            delete s_identityManager;
-            s_identityManager = 0;
-            //qDebug() << "Elapsed time: " << t.elapsed();
-        }
-        //QElapsedTimer t;
-
-    } raiiHelper;
-
+    RAIIIdentityManager raiiHelper;
 
     QString tmpStr;
     if (!incidence) {
