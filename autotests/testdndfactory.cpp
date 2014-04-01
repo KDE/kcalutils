@@ -115,7 +115,7 @@ void DndFactoryTest::testPasteAllDayEvent2()
 
     qDebug() << "originalLength was " << originalLength << "; and newLength is "
              << newLength << "; old dtStart was " << allDayEvent->dtStart()
-             << " and old dtEnd was " << allDayEvent->dtEnd() << endl
+             << " and old dtEnd was " << allDayEvent->dtEnd() 
              << "; new dtStart is " << pastedEvent->dtStart()
              << " and new dtEnd is " << pastedEvent->dtEnd();
 
