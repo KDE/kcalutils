@@ -78,9 +78,30 @@ static QString string2HTML(const QString &str)
     return KPIMUtils::LinkLocator::convertToHtml(str);
 }
 
+static KPIMIdentities::IdentityManager *s_identityManager = 0;
+
+// Performance optimization so we only create one IdentityManager instead of 1 per attendee.
+// Using RAII to protect against future return statements in the middle of code
+struct RAIIIdentityManager{
+    RAIIIdentityManager()
+    {
+        //t.start();
+        s_identityManager = new KPIMIdentities::IdentityManager(true);
+    }
+
+    ~RAIIIdentityManager()
+    {
+        delete s_identityManager;
+        s_identityManager = 0;
+        //qDebug() << "Elapsed time: " << t.elapsed();
+    }
+    //QElapsedTimer t;
+};
+
 static bool thatIsMe(const QString &email)
 {
-    return KPIMIdentities::IdentityManager(true).thatIsMe(email);
+    return s_identityManager ? s_identityManager->thatIsMe(email)
+                             : KPIMIdentities::IdentityManager(true).thatIsMe(email);
 }
 
 static bool iamAttendee(Attendee::Ptr attendee)
@@ -119,7 +140,9 @@ static QString htmlAddMailtoLink(const QString &email, const QString &name)
             KUrl mailto;
             mailto.setProtocol(QLatin1String("mailto"));
             mailto.setPath(path);
-            const QString iconPath =
+
+            // static for performance
+            static const QString iconPath =
                 KIconLoader::global()->iconPath(QLatin1String("mail-message-new"), KIconLoader::Small);
             str = htmlAddLink(mailto.url(), QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">"));
         }
@@ -1295,6 +1318,7 @@ static Attendee::Ptr findDelegatedFromMyAttendee(const Incidence::Ptr &incidence
         return attendee;
     }
 
+    RAIIIdentityManager raiiHelper;
     QString delegatorName, delegatorEmail;
     Attendee::List attendees = incidence->attendees();
     Attendee::List::ConstIterator it;
@@ -1319,6 +1343,7 @@ static Attendee::Ptr findMyAttendee(const Incidence::Ptr &incidence)
         return attendee;
     }
 
+    RAIIIdentityManager raiiHelper;
     Attendee::List attendees = incidence->attendees();
     Attendee::List::ConstIterator it;
     for (it = attendees.constBegin(); it != attendees.constEnd(); ++it) {
@@ -1342,6 +1367,7 @@ static Attendee::Ptr findAttendee(const Incidence::Ptr &incidence,
         return attendee;
     }
 
+    RAIIIdentityManager raiiHelper;
     Attendee::List attendees = incidence->attendees();
     Attendee::List::ConstIterator it;
     for (it = attendees.constBegin(); it != attendees.constEnd(); ++it) {
@@ -2382,6 +2408,8 @@ static QString invitationHeaderFreeBusy(const FreeBusy::Ptr &fb,
 
 static QString invitationAttendeeList(const Incidence::Ptr &incidence)
 {
+    RAIIIdentityManager raiiHelper;
+
     QString tmpStr;
     if (!incidence) {
         return tmpStr;
