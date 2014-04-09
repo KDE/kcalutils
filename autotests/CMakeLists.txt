@@ -15,7 +15,7 @@ macro(kcalutils_unit_tests)
 endmacro()
 
 kcalutils_unit_tests(
-  #testdndfactory FIXME: Doesn't build
+  testdndfactory 
   testincidenceformatter
   teststringify
 )
