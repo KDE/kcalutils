@@ -26,7 +26,7 @@ target_link_libraries(KF5CalendarUtils
   KF5::CalendarCore
   KF5::CoreAddons
   KF5::ItemViews
-  KF5::KDE4Support
+  KF5::KDELibs4Support
   KF5::PimIdentities
   KF5::I18n
 )
