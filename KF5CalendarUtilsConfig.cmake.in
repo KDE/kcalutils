@@ -6,7 +6,7 @@ find_dependency(KF5CoreAddons "@KF5_VERSION@")
 find_dependency(KF5Config "@KF5_VERSION@")
 find_dependency(KF5ItemViews "@KF5_VERSION@")
 find_dependency(KF5I18n "@KF5_VERSION@")
-find_dependency(KF5KDE4Support "@KF5_VERSION@")
+find_dependency(KF5KDELibs4Support "@KF5_VERSION@")
 find_dependency(KF5CalendarCore "@KF5_VERSION@")
 find_dependency(KF5PimIdentities "@KF5_VERSION@")
 
