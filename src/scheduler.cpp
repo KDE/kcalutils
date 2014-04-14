@@ -26,7 +26,7 @@
 #include <kcalcore/freebusycache.h>
 using namespace KCalCore;
 
-#include <KDebug>
+#include <QDebug>
 #include <KLocalizedString>
 #include <KMessageBox>
 

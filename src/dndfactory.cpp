@@ -38,7 +38,7 @@
 #include "icaldrag.h"
 #include "vcaldrag.h"
 
-#include <KDebug>
+#include <QDebug>
 #include <KIconLoader>  // for BarIcon
 #include <KUrl>
 

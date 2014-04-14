@@ -51,7 +51,7 @@ using namespace KCalCore;
 #include <kpimutils/linklocator.h>
 
 #include <KCalendarSystem>
-#include <KDebug>
+#include <QDebug>
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KGlobal>

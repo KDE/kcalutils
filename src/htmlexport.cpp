@@ -26,7 +26,7 @@
 #include <kcalcore/memorycalendar.h>
 using namespace KCalCore;
 
-#include <KDebug>
+#include <QDebug>
 #include <KCalendarSystem>
 #include <KGlobal>
 #include <KLocalizedString>
