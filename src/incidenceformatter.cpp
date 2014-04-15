@@ -137,8 +137,8 @@ static QString htmlAddMailtoLink(const QString &email, const QString &name)
             if (path.isEmpty() || path.startsWith(QLatin1Char('"'))) {
                 path = email;
             }
-            KUrl mailto;
-            mailto.setProtocol(QLatin1String("mailto"));
+            QUrl mailto;
+            mailto.setScheme(QLatin1String("mailto"));
             mailto.setPath(path);
 
             // static for performance
