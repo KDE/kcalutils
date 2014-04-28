@@ -45,10 +45,10 @@
 #include <kcalcore/visitor.h>
 using namespace KCalCore;
 
-#include <kpimidentities/identitymanager.h>
+#include <identitymanager.h>
 
-#include <kpimutils/email.h>
-#include <kpimutils/linklocator.h>
+#include <email.h>
+#include <linklocator.h>
 
 #include <KCalendarSystem>
 #include <QDebug>
