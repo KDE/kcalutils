@@ -34,8 +34,8 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalcore/incidence.h>
-#include <kcalcore/memorycalendar.h>
+#include <incidence.h>
+#include <memorycalendar.h>
 
 #include <QDate>
 

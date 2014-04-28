@@ -24,7 +24,7 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalcore/memorycalendar.h>
+#include <memorycalendar.h>
 
 class QMimeData;
 

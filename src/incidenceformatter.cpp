@@ -36,13 +36,13 @@
 #include "incidenceformatter.h"
 #include "stringify.h"
 
-#include <kcalcore/event.h>
-#include <kcalcore/freebusy.h>
-#include <kcalcore/icalformat.h>
-#include <kcalcore/journal.h>
-#include <kcalcore/memorycalendar.h>
-#include <kcalcore/todo.h>
-#include <kcalcore/visitor.h>
+#include <event.h>
+#include <freebusy.h>
+#include <icalformat.h>
+#include <journal.h>
+#include <memorycalendar.h>
+#include <todo.h>
+#include <visitor.h>
 using namespace KCalCore;
 
 #include <identitymanager.h>

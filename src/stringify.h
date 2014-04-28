@@ -34,8 +34,8 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalcore/schedulemessage.h>
-#include <kcalcore/todo.h>
+#include <schedulemessage.h>
+#include <todo.h>
 
 namespace KCalCore {
 class Exception;
