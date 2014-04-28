@@ -52,7 +52,6 @@ ecm_generate_headers(KCalUtils_CamelCase_HEADERS
   VCalDrag
 
   REQUIRED_HEADERS KCalUtils_HEADERS
-  PREFIX KCalUtils
 )
 
 ########### install files ###############
