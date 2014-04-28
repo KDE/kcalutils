@@ -19,7 +19,7 @@ generate_export_header(KF5CalendarUtils BASE_NAME kcalutils)
 
 add_library(KF5::CalendarUtils ALIAS KF5CalendarUtils)
 
-target_include_directories(KF5CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/kcalutils>")
+target_include_directories(KF5CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KCalUtils>")
 target_include_directories(KF5CalendarUtils PUBLIC "$<BUILD_INTERFACE:${KCalUtils_SOURCE_DIR}/src;${KCalUtils_BINARY_DIR}/src>")
 
 target_link_libraries(KF5CalendarUtils
@@ -58,17 +58,12 @@ ecm_generate_headers(KCalUtils_CamelCase_HEADERS
 ########### install files ###############
 
 install(FILES
-    ${KCalUtils_CamelCase_HEADERS}
-    ${CMAKE_CURRENT_SOURCE_DIR}/includes/HTMLExportSettings
-    DESTINATION ${INCLUDE_INSTALL_DIR}/KCalUtils
-    COMPONENT Devel
-)
-
-install(FILES
+  ${KCalUtils_CamelCase_HEADERS}
+  ${CMAKE_CURRENT_SOURCE_DIR}/includes/HTMLExportSettings
   ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h
   ${CMAKE_CURRENT_BINARY_DIR}/htmlexportsettings.h
   ${KCalUtils_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/kcalutils
+  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KCalUtils
   COMPONENT Devel
 )
 
