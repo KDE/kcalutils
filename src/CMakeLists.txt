@@ -37,7 +37,7 @@ set_target_properties(KF5CalendarUtils PROPERTIES
     EXPORT_NAME CalendarUtils
 )
 
-install(TARGETS KF5CalendarUtils EXPORT KF5CalendarUtilsTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF5CalendarUtils EXPORT KF5CalendarUtilsTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### Generate Headers ###############
 ecm_generate_headers(KCalUtils_CamelCase_HEADERS
