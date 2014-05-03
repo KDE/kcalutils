@@ -28,6 +28,7 @@ target_link_libraries(KF5CalendarUtils
   KF5::ItemViews
   KF5::KDELibs4Support
   KF5::PimIdentities
+  KF5::PimUtils
   KF5::I18n
 )
 

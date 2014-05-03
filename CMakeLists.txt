@@ -35,6 +35,7 @@ find_package(KF5KDELibs4Support ${KF5_VERSION} CONFIG REQUIRED)
 if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
   find_package(KF5CalendarCore ${KF5_VERSION} CONFIG REQUIRED)
   find_package(KF5PimIdentities ${KF5_VERSION} CONFIG REQUIRED)
+  find_package(KF5PimUtils ${KF5_VERSION} CONFIG REQUIRED)
 endif()
 
 ########### Targets ###########
