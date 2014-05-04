@@ -23,13 +23,15 @@ target_include_directories(KF5CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${KF5
 target_include_directories(KF5CalendarUtils PUBLIC "$<BUILD_INTERFACE:${KCalUtils_SOURCE_DIR}/src;${KCalUtils_BINARY_DIR}/src>")
 
 target_link_libraries(KF5CalendarUtils
+PUBLIC
   KF5::CalendarCore
   KF5::CoreAddons
   KF5::ItemViews
   KF5::KDELibs4Support
   KF5::PimIdentities
-  KF5::PimUtils
   KF5::I18n
+PRIVATE
+  KF5::PimUtils
 )
 
 set_target_properties(KF5CalendarUtils PROPERTIES
