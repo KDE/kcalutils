@@ -19,7 +19,7 @@ generate_export_header(KF5CalendarUtils BASE_NAME kcalutils)
 
 add_library(KF5::CalendarUtils ALIAS KF5CalendarUtils)
 
-target_include_directories(KF5CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KCalUtils>")
+target_include_directories(KF5CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KCalUtils;${KF5_INCLUDE_INSTALL_DIR}/KCalUtils/kcalutils>")
 target_include_directories(KF5CalendarUtils PUBLIC "$<BUILD_INTERFACE:${KCalUtils_SOURCE_DIR}/src;${KCalUtils_BINARY_DIR}/src>")
 
 target_link_libraries(KF5CalendarUtils

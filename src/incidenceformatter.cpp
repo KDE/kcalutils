@@ -47,8 +47,8 @@ using namespace KCalCore;
 
 #include <identitymanager.h>
 
-#include <email.h>
-#include <linklocator.h>
+#include <kpimutils/email.h>
+#include <kpimutils/linklocator.h>
 
 #include <KCalendarSystem>
 #include <QDebug>

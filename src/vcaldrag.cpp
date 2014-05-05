@@ -21,7 +21,7 @@
 */
 #include "vcaldrag.h"
 
-#include <vcalformat.h>
+#include <kcalcore/vcalformat.h>
 using namespace KCalCore;
 
 #include <QtCore/QMimeData>

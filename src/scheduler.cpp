@@ -22,8 +22,8 @@
 #include "scheduler.h"
 #include "stringify.h"
 
-#include <icalformat.h>
-#include <freebusycache.h>
+#include <kcalcore/icalformat.h>
+#include <kcalcore/freebusycache.h>
 using namespace KCalCore;
 
 #include <QDebug>
