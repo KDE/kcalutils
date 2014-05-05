@@ -35,10 +35,10 @@
 
 #include "kcalutils_export.h"
 
-#include <event.h>
-#include <journal.h>
-#include <todo.h>
-#include <memorycalendar.h>
+#include <kcalcore/event.h>
+#include <kcalcore/journal.h>
+#include <kcalcore/todo.h>
+#include <kcalcore/memorycalendar.h>
 
 #include <KDE/KDateTime>
 

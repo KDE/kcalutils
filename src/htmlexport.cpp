@@ -23,7 +23,7 @@
 #include "htmlexportsettings.h"
 #include "stringify.h"
 
-#include <memorycalendar.h>
+#include <kcalcore/memorycalendar.h>
 using namespace KCalCore;
 
 #include <QDebug>

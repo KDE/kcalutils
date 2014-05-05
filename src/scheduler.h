@@ -23,9 +23,9 @@
 
 #include "kcalutils_export.h"
 
-#include <schedulemessage.h>
-#include <incidencebase.h>
-#include <calendar.h>
+#include <kcalcore/schedulemessage.h>
+#include <kcalcore/incidencebase.h>
+#include <kcalcore/calendar.h>
 
 #include <QtCore/QString>
 #include <QtCore/QList>

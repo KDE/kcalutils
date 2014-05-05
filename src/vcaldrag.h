@@ -23,7 +23,7 @@
 #define KCALUTILS_VCALDRAG_H
 
 #include "kcalutils_export.h"
-#include <memorycalendar.h>
+#include <kcalcore/memorycalendar.h>
 
 class QMimeData;
 

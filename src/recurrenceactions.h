@@ -25,7 +25,7 @@
 
 #include "kcalutils_export.h"
 
-#include <incidence.h>
+#include <kcalcore/incidence.h>
 
 class KDateTime;
 class KGuiItem;

@@ -24,9 +24,9 @@
 
 #include "kcalutils_export.h"
 
-#include <event.h>
-#include <incidence.h>
-#include <todo.h>
+#include <kcalcore/event.h>
+#include <kcalcore/incidence.h>
+#include <kcalcore/todo.h>
 
 #include <QtCore/QDateTime>
 #include <QtCore/QString>
