@@ -60,7 +60,6 @@ ecm_generate_headers(KCalUtils_CamelCase_HEADERS
 ########### install files ###############
 
 install(FILES
-  ${KCalUtils_CamelCase_HEADERS}
   ${CMAKE_CURRENT_SOURCE_DIR}/includes/HTMLExportSettings
   ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h
   ${CMAKE_CURRENT_BINARY_DIR}/htmlexportsettings.h
@@ -68,6 +67,13 @@ install(FILES
   DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KCalUtils/kcalutils
   COMPONENT Devel
 )
+
+install(FILES
+  ${KCalUtils_CamelCase_HEADERS}
+  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KCalUtils/KCalUtils/
+  COMPONENT Devel
+)
+
 
 ecm_generate_pri_file(BASE_NAME KCalUtils LIB_NAME KF5CalendarUtils DEPS "CalendarCore CoreAddons ItemViews KDELibs4Support" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KF5_INCLUDE_INSTALL_DIR}/KCalUtils)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
