@@ -53,7 +53,7 @@ ecm_generate_headers(KCalUtils_CamelCase_HEADERS
   Scheduler
   Stringify
   VCalDrag
-
+  PREFIX KCalUtils
   REQUIRED_HEADERS KCalUtils_HEADERS
 )
 
@@ -65,7 +65,7 @@ install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h
   ${CMAKE_CURRENT_BINARY_DIR}/htmlexportsettings.h
   ${KCalUtils_HEADERS}
-  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KCalUtils
+  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KCalUtils/kcalutils
   COMPONENT Devel
 )
 
