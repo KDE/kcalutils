@@ -28,9 +28,9 @@ PUBLIC
   KF5::CoreAddons
   KF5::ItemViews
   KF5::KDELibs4Support
-  KF5::PimIdentities
   KF5::I18n
 PRIVATE
+  KF5::PimIdentities
   KF5::PimUtils
 )
 
