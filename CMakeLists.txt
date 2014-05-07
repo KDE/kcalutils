@@ -38,6 +38,8 @@ if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
   find_package(KF5PimUtils ${KF5_VERSION} CONFIG REQUIRED)
 endif()
 
+add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils\")
+
 ########### Targets ###########
 add_subdirectory(src)
 add_subdirectory(autotests)
