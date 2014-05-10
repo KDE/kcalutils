@@ -35,6 +35,7 @@ using namespace KCalCore;
 #include <QtCore/QMap>
 #include <QtCore/QTextStream>
 #include <QApplication>
+#include <KLocale>
 
 using namespace KCalUtils;
 
@@ -176,7 +177,7 @@ void HtmlExport::createMonthView(QTextStream *ts)
         *ts << "<h2>"
             << i18nc("@title month and year", "%1 %2", hMon, hYear)
             << "</h2>" << endl;
-        if (KGlobal::locale()->weekStartDay() == 1) {
+        if (KLocale::global()->weekStartDay() == 1) {
             start = start.addDays(1 - start.dayOfWeek());
         } else {
             if (start.dayOfWeek() != 7) {
@@ -188,7 +189,7 @@ void HtmlExport::createMonthView(QTextStream *ts)
         // Write table header
         *ts << "  <tr>";
         for (int i=0; i < 7; ++i) {
-            *ts << "<th>" << KGlobal::locale()->calendar()->weekDayName(start.addDays(i)) << "</th>";
+            *ts << "<th>" << KLocale::global()->calendar()->weekDayName(start.addDays(i)) << "</th>";
         }
         *ts << "</tr>" << endl;
 
@@ -284,7 +285,7 @@ void HtmlExport::createEventList(QTextStream *ts)
         if (events.count()) {
             *ts << "  <tr><td colspan=\"" << QString::number(columns)
                 << "\" class=\"datehead\"><i>"
-                << KGlobal::locale()->formatDate(dt)
+                << KLocale::global()->formatDate(dt)
                 << "</i></td></tr>" << endl;
 
             Event::List::ConstIterator it;

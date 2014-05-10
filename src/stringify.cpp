@@ -65,7 +65,7 @@ QString Stringify::incidenceType(Incidence::IncidenceType type)
 QString Stringify::todoCompletedDateTime(const Todo::Ptr &todo,
         bool shortfmt)
 {
-    return KGlobal::locale()->formatDateTime(todo->completed().dateTime(),
+    return KLocale::global()->formatDateTime(todo->completed().dateTime(),
             (shortfmt ? KLocale::ShortDate :
              KLocale::LongDate));
 }
@@ -213,9 +213,9 @@ QString Stringify::formatTime(const KDateTime &dt, bool shortfmt, const KDateTim
             timeZone = QLatin1Char(' ') + spec.timeZone().name();
         }
 
-        return KGlobal::locale()->formatTime(dt.toTimeSpec(spec).time(), !shortfmt) + timeZone;
+        return KLocale::global()->formatTime(dt.toTimeSpec(spec).time(), !shortfmt) + timeZone;
     } else {
-        return KGlobal::locale()->formatTime(dt.time(), !shortfmt);
+        return KLocale::global()->formatTime(dt.time(), !shortfmt);
     }
 }
 
@@ -229,12 +229,12 @@ QString Stringify::formatDate(const KDateTime &dt, bool shortfmt, const KDateTim
         }
 
         return
-            KGlobal::locale()->formatDate(dt.toTimeSpec(spec).date(),
+            KLocale::global()->formatDate(dt.toTimeSpec(spec).date(),
                                           (shortfmt ? KLocale::ShortDate : KLocale::LongDate)) +
             timeZone;
     } else {
         return
-            KGlobal::locale()->formatDate(dt.date(),
+            KLocale::global()->formatDate(dt.date(),
                                           (shortfmt ? KLocale::ShortDate : KLocale::LongDate));
     }
 }
@@ -252,11 +252,11 @@ QString Stringify::formatDateTime(const KDateTime &dt, bool allDay,
             timeZone = QLatin1Char(' ') + spec.timeZone().name();
         }
 
-        return KGlobal::locale()->formatDateTime(
+        return KLocale::global()->formatDateTime(
                    dt.toTimeSpec(spec).dateTime(),
                    (shortfmt ? KLocale::ShortDate : KLocale::LongDate)) + timeZone;
     } else {
-        return  KGlobal::locale()->formatDateTime(
+        return  KLocale::global()->formatDateTime(
                     dt.dateTime(),
                     (shortfmt ? KLocale::ShortDate : KLocale::LongDate));
     }

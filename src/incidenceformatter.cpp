@@ -62,6 +62,7 @@ using namespace KCalCore;
 #include <QApplication>
 #include <QPalette>
 #include <QTextDocument>
+#include <KLocale>
 
 using namespace KCalUtils;
 using namespace IncidenceFormatter;
@@ -1964,21 +1965,21 @@ static QString invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHtmlMod
             }
             html += htmlRow(QString(),
                             i18nc("startDate for duration", "%1 for %2",
-                                  KGlobal::locale()->formatDateTime(
+                                  KLocale::global()->formatDateTime(
                                       per.start().dateTime(), KLocale::LongDate),
                                   cont));
         } else {
             QString cont;
             if (per.start().date() == per.end().date()) {
                 cont = i18nc("date, fromTime - toTime ", "%1, %2 - %3",
-                             KGlobal::locale()->formatDate(per.start().date()),
-                             KGlobal::locale()->formatTime(per.start().time()),
-                             KGlobal::locale()->formatTime(per.end().time()));
+                             KLocale::global()->formatDate(per.start().date()),
+                             KLocale::global()->formatTime(per.start().time()),
+                             KLocale::global()->formatTime(per.end().time()));
             } else {
                 cont = i18nc("fromDateTime - toDateTime", "%1 - %2",
-                             KGlobal::locale()->formatDateTime(
+                             KLocale::global()->formatDateTime(
                                  per.start().dateTime(), KLocale::LongDate),
-                             KGlobal::locale()->formatDateTime(
+                             KLocale::global()->formatDateTime(
                                  per.end().dateTime(), KLocale::LongDate));
             }
 
@@ -3555,10 +3556,10 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const FreeBusy::Ptr &f
     QString ret;
     ret = QLatin1String("<br>") +
           i18n("<i>Period start:</i> %1",
-               KGlobal::locale()->formatDateTime(fb->dtStart().dateTime()));
+               KLocale::global()->formatDateTime(fb->dtStart().dateTime()));
     ret += QLatin1String("<br>") +
            i18n("<i>Period start:</i> %1",
-                KGlobal::locale()->formatDateTime(fb->dtEnd().dateTime()));
+                KLocale::global()->formatDateTime(fb->dtEnd().dateTime()));
     return ret.replace(QLatin1Char(' '), QLatin1String("&nbsp;"));
 }
 
@@ -3919,9 +3920,9 @@ bool IncidenceFormatter::MailBodyVisitor::visit(Event::Ptr event)
 // TODO_Recurrence: What to do with all-day
                 QString endstr;
                 if (event->allDay()) {
-                    endstr = KGlobal::locale()->formatDate(recur->endDate());
+                    endstr = KLocale::global()->formatDate(recur->endDate());
                 } else {
-                    endstr = KGlobal::locale()->formatDateTime(recur->endDateTime().dateTime());
+                    endstr = KLocale::global()->formatDateTime(recur->endDateTime().dateTime());
                 }
                 mResult += i18n("Repeat until: %1\n", endstr);
             } else {
@@ -4002,9 +4003,9 @@ static QString recurEnd(const Incidence::Ptr &incidence)
 {
     QString endstr;
     if (incidence->allDay()) {
-        endstr = KGlobal::locale()->formatDate(incidence->recurrence()->endDate());
+        endstr = KLocale::global()->formatDate(incidence->recurrence()->endDate());
     } else {
-        endstr = KGlobal::locale()->formatDateTime(incidence->recurrence()->endDateTime());
+        endstr = KLocale::global()->formatDateTime(incidence->recurrence()->endDateTime());
     }
     return endstr;
 }
@@ -4090,9 +4091,9 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         dayList.append(i18n("31st"));
     }
 
-    const int weekStart = KGlobal::locale()->weekStartDay();
+    const int weekStart = KLocale::global()->weekStartDay();
     QString dayNames;
-    const KCalendarSystem *calSys = KGlobal::locale()->calendar();
+    const KCalendarSystem *calSys = KLocale::global()->calendar();
 
     Recurrence *recur = incidence->recurrence();
 
@@ -4355,28 +4356,28 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
             exStr << i18n("minute %1", (*il).time().minute());
             break;
         case Recurrence::rHourly:
-            exStr << KGlobal::locale()->formatTime((*il).time());
+            exStr << KLocale::global()->formatTime((*il).time());
             break;
         case Recurrence::rDaily:
-            exStr << KGlobal::locale()->formatDate((*il).date(), KLocale::ShortDate);
+            exStr << KLocale::global()->formatDate((*il).date(), KLocale::ShortDate);
             break;
         case Recurrence::rWeekly:
             exStr << calSys->weekDayName((*il).date(), KCalendarSystem::ShortDayName);
             break;
         case Recurrence::rMonthlyPos:
-            exStr << KGlobal::locale()->formatDate((*il).date(), KLocale::ShortDate);
+            exStr << KLocale::global()->formatDate((*il).date(), KLocale::ShortDate);
             break;
         case Recurrence::rMonthlyDay:
-            exStr << KGlobal::locale()->formatDate((*il).date(), KLocale::ShortDate);
+            exStr << KLocale::global()->formatDate((*il).date(), KLocale::ShortDate);
             break;
         case Recurrence::rYearlyMonth:
             exStr << calSys->monthName((*il).date(), KCalendarSystem::LongName);
             break;
         case Recurrence::rYearlyDay:
-            exStr << KGlobal::locale()->formatDate((*il).date(), KLocale::ShortDate);
+            exStr << KLocale::global()->formatDate((*il).date(), KLocale::ShortDate);
             break;
         case Recurrence::rYearlyPos:
-            exStr << KGlobal::locale()->formatDate((*il).date(), KLocale::ShortDate);
+            exStr << KLocale::global()->formatDate((*il).date(), KLocale::ShortDate);
             break;
         }
     }
@@ -4386,7 +4387,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
     for (dl = d.constBegin(); dl != d.constEnd(); ++dl) {
         switch (recur->recurrenceType()) {
         case Recurrence::rDaily:
-            exStr << KGlobal::locale()->formatDate((*dl), KLocale::ShortDate);
+            exStr << KLocale::global()->formatDate((*dl), KLocale::ShortDate);
             break;
         case Recurrence::rWeekly:
             // exStr << calSys->weekDayName( (*dl), KCalendarSystem::ShortDayName );
@@ -4396,19 +4397,19 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
             }
             break;
         case Recurrence::rMonthlyPos:
-            exStr << KGlobal::locale()->formatDate((*dl), KLocale::ShortDate);
+            exStr << KLocale::global()->formatDate((*dl), KLocale::ShortDate);
             break;
         case Recurrence::rMonthlyDay:
-            exStr << KGlobal::locale()->formatDate((*dl), KLocale::ShortDate);
+            exStr << KLocale::global()->formatDate((*dl), KLocale::ShortDate);
             break;
         case Recurrence::rYearlyMonth:
             exStr << calSys->monthName((*dl), KCalendarSystem::LongName);
             break;
         case Recurrence::rYearlyDay:
-            exStr << KGlobal::locale()->formatDate((*dl), KLocale::ShortDate);
+            exStr << KLocale::global()->formatDate((*dl), KLocale::ShortDate);
             break;
         case Recurrence::rYearlyPos:
-            exStr << KGlobal::locale()->formatDate((*dl), KLocale::ShortDate);
+            exStr << KLocale::global()->formatDate((*dl), KLocale::ShortDate);
             break;
         }
     }
@@ -4431,9 +4432,9 @@ QString IncidenceFormatter::timeToString(const KDateTime &date,
             timeZone = QLatin1Char(' ') + spec.timeZone().name();
         }
 
-        return KGlobal::locale()->formatTime(date.toTimeSpec(spec).time(), !shortfmt) + timeZone;
+        return KLocale::global()->formatTime(date.toTimeSpec(spec).time(), !shortfmt) + timeZone;
     } else {
-        return KGlobal::locale()->formatTime(date.time(), !shortfmt);
+        return KLocale::global()->formatTime(date.time(), !shortfmt);
     }
 }
 
@@ -4449,12 +4450,12 @@ QString IncidenceFormatter::dateToString(const KDateTime &date,
         }
 
         return
-            KGlobal::locale()->formatDate(date.toTimeSpec(spec).date(),
+            KLocale::global()->formatDate(date.toTimeSpec(spec).date(),
                                           (shortfmt ? KLocale::ShortDate : KLocale::LongDate)) +
             timeZone;
     } else {
         return
-            KGlobal::locale()->formatDate(date.date(),
+            KLocale::global()->formatDate(date.date(),
                                           (shortfmt ? KLocale::ShortDate : KLocale::LongDate));
     }
 }
@@ -4474,11 +4475,11 @@ QString IncidenceFormatter::dateTimeToString(const KDateTime &date,
             timeZone = QLatin1Char(' ') + spec.timeZone().name();
         }
 
-        return KGlobal::locale()->formatDateTime(
+        return KLocale::global()->formatDateTime(
                    date.toTimeSpec(spec).dateTime(),
                    (shortfmt ? KLocale::ShortDate : KLocale::LongDate)) + timeZone;
     } else {
-        return  KGlobal::locale()->formatDateTime(
+        return  KLocale::global()->formatDateTime(
                     date.dateTime(),
                     (shortfmt ? KLocale::ShortDate : KLocale::LongDate));
     }
@@ -4563,7 +4564,7 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
             if (alarm->hasTime()) {
                 offset = 0;
                 if (alarm->time().isValid()) {
-                    atStr = KGlobal::locale()->formatDateTime(alarm->time());
+                    atStr = KLocale::global()->formatDateTime(alarm->time());
                 }
             } else if (alarm->hasStartOffset()) {
                 offset = alarm->startOffset().asSeconds();
@@ -4576,7 +4577,7 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
                                       "%1 after the start", secs2Duration(offset));
                 } else { //offset is 0
                     if (incidence->dtStart().isValid()) {
-                        atStr = KGlobal::locale()->formatDateTime(incidence->dtStart());
+                        atStr = KLocale::global()->formatDateTime(incidence->dtStart());
                     }
                 }
             } else if (alarm->hasEndOffset()) {
@@ -4602,12 +4603,12 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
                     if (incidence->type() == Incidence::TypeTodo) {
                         Todo::Ptr t = incidence.staticCast<Todo>();
                         if (t->dtDue().isValid()) {
-                            atStr = KGlobal::locale()->formatDateTime(t->dtDue());
+                            atStr = KLocale::global()->formatDateTime(t->dtDue());
                         }
                     } else {
                         Event::Ptr e = incidence.staticCast<Event>();
                         if (e->dtEnd().isValid()) {
-                            atStr = KGlobal::locale()->formatDateTime(e->dtEnd());
+                            atStr = KLocale::global()->formatDateTime(e->dtEnd());
                         }
                     }
                 }

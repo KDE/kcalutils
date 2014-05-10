@@ -51,7 +51,7 @@ public:
         } else {
             mUi.checkBoxPast->setText(i18nc("@option:check calendar items before a certain date",
                                             "Items before %1",
-                                            KGlobal::locale()->formatDateTime(dateTime)));
+                                            KLocale::global()->formatDateTime(dateTime)));
         }
         if ((mAvailableChoices & SelectedOccurrence) == 0) {
             mUi.checkBoxSelected->hide();
@@ -64,7 +64,7 @@ public:
         } else {
             mUi.checkBoxFuture->setText(i18nc("@option:check calendar items after a certain date",
                                               "Items after %1",
-                                              KGlobal::locale()->formatDateTime(dateTime)));
+                                              KLocale::global()->formatDateTime(dateTime)));
         }
     }
 
