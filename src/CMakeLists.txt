@@ -11,7 +11,7 @@ set(kcalutils_SRCS
 
 kconfig_add_kcfg_files(kcalutils_SRCS htmlexportsettings.kcfgc)
 
-qt5_wrap_ui(kcalutils_SRCS recurrenceactionsscopewidget.ui)
+ki18n_wrap_ui(kcalutils_SRCS recurrenceactionsscopewidget.ui)
 
 add_library(KF5CalendarUtils ${kcalutils_SRCS})
 
