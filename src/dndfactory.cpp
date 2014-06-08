@@ -177,7 +177,7 @@ QMimeData *DndFactory::createMimeData(const Incidence::Ptr &incidence)
     KUrl uri = i->uri();
     if (uri.isValid()) {
         QMap<QString, QString> metadata;
-        metadata[QLatin1String("labels")] = QLatin1String(KUrl::toPercentEncoding(i->summary()));
+        metadata[QLatin1String("labels")] = QLatin1String(QUrl::toPercentEncoding(i->summary()));
         uri.populateMimeData(mimeData, metadata);
     }
 
