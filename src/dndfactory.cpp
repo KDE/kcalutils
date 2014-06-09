@@ -40,7 +40,8 @@
 
 #include <QDebug>
 #include <KIconLoader>  // for BarIcon
-#include <KUrl>
+#include <KUrlMimeData>
+#include <QUrl>
 
 #include <QtCore/QMimeData>
 #include <QApplication>
@@ -174,11 +175,12 @@ QMimeData *DndFactory::createMimeData(const Incidence::Ptr &incidence)
     ICalDrag::populateMimeData(mimeData, cal);
     VCalDrag::populateMimeData(mimeData, cal);
 
-    KUrl uri = i->uri();
+    QUrl uri = i->uri();
     if (uri.isValid()) {
         QMap<QString, QString> metadata;
         metadata[QLatin1String("labels")] = QLatin1String(QUrl::toPercentEncoding(i->summary()));
-        uri.populateMimeData(mimeData, metadata);
+        mimeData->setUrls(QList<QUrl>() << uri);
+        KUrlMimeData::setMetaData(metadata, mimeData); 
     }
 
     return mimeData;

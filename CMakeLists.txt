@@ -27,7 +27,6 @@ ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KCALUTILS
 ########### Find packages ###########
 find_package(KF5CoreAddons ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5Config ${KF5_VERSION} CONFIG REQUIRED)
-find_package(KF5ItemViews ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5I18n ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5KDELibs4Support ${KF5_VERSION} CONFIG REQUIRED)
 

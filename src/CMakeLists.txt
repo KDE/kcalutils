@@ -26,7 +26,6 @@ target_link_libraries(KF5CalendarUtils
 PUBLIC
   KF5::CalendarCore
   KF5::CoreAddons
-  KF5::KDELibs4Support
 PRIVATE
   KF5::I18n
   KF5::PimIdentities
@@ -74,5 +73,5 @@ install(FILES
 )
 
 
-ecm_generate_pri_file(BASE_NAME KCalUtils LIB_NAME KF5CalendarUtils DEPS "CalendarCore CoreAddons KDELibs4Support" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KF5_INCLUDE_INSTALL_DIR}/KCalUtils)
+ecm_generate_pri_file(BASE_NAME KCalUtils LIB_NAME KF5CalendarUtils DEPS "CalendarCore CoreAddons" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KF5_INCLUDE_INSTALL_DIR}/KCalUtils)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
