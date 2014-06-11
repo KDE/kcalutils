@@ -54,7 +54,7 @@ using namespace KCalCore;
 #include <QDebug>
 #include <KIconLoader>
 #include <KLocalizedString>
-#include <KGlobal>
+
 #include <KMimeType>
 #include <KSystemTimeZone>
 

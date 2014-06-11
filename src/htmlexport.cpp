@@ -28,7 +28,7 @@ using namespace KCalCore;
 
 #include <QDebug>
 #include <KCalendarSystem>
-#include <KGlobal>
+
 #include <KLocalizedString>
 
 #include <QtCore/QFile>

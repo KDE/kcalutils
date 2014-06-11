@@ -28,7 +28,7 @@
 #include <KLocale>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KGlobal>
+
 
 #include <QPointer>
 
