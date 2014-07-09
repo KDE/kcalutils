@@ -24,8 +24,8 @@
 
 #include <KLocalizedString>
 
-#include <qtest_kde.h>
-QTEST_KDEMAIN(StringifyTest, NoGUI)
+#include <qtest.h>
+QTEST_MAIN(StringifyTest)
 
 using namespace KCalCore;
 using namespace KCalUtils;

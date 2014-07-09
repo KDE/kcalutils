@@ -26,10 +26,9 @@
 
 #include <kcalcore/memorycalendar.h>
 
-#include <KDebug>
-#include <qtest_kde.h>
+#include <qtest.h>
 
-QTEST_KDEMAIN(DndFactoryTest, GUI)   // clipboard() needs GUI
+QTEST_MAIN(DndFactoryTest)   // clipboard() needs GUI
 
 using namespace KCalCore;
 using namespace KCalUtils;

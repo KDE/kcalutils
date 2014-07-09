@@ -28,8 +28,8 @@
 #include <KLocalizedString>
 
 #include <QDebug>
-#include <qtest_kde.h>
-QTEST_KDEMAIN(IncidenceFormatterTest, NoGUI)
+#include <qtest.h>
+QTEST_MAIN(IncidenceFormatterTest)
 
 using namespace KCalCore;
 using namespace KCalUtils;
