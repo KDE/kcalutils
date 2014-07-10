@@ -40,7 +40,7 @@
 #include <kcalcore/todo.h>
 #include <kcalcore/memorycalendar.h>
 
-#include <KDE/KDateTime>
+#include <KDateTime>
 
 class QDrag;
 class QDropEvent;
