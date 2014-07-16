@@ -4109,9 +4109,9 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                              "Recurs every %1 minutes until %2",
                              recur->frequency(), recurEnd(incidence));
             if (recur->duration() >  0) {
-                recurStr += xi18nc("number of occurrences",
-                                  " (<numid>%1</numid> occurrences)",
-                                  recur->duration());
+                recurStr += i18nc("number of occurrences",
+                                  " (%1 occurrences)",
+                                  QString::number(recur->duration()));
             }
         } else {
             recurStr = i18np("Recurs every minute",
@@ -4125,9 +4125,9 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                              "Recurs every %1 hours until %2",
                              recur->frequency(), recurEnd(incidence));
             if (recur->duration() >  0) {
-                recurStr += xi18nc("number of occurrences",
-                                  " (<numid>%1</numid> occurrences)",
-                                  recur->duration());
+                recurStr += i18nc("number of occurrences",
+                                  " (%1 occurrences)",
+                                  QString::number(recur->duration()));
             }
         } else {
             recurStr = i18np("Recurs hourly", "Recurs every %1 hours", recur->frequency());
@@ -4140,9 +4140,9 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                              "Recurs every %1 days until %2",
                              recur->frequency(), recurEnd(incidence));
             if (recur->duration() >  0) {
-                recurStr += xi18nc("number of occurrences",
-                                  " (<numid>%1</numid> occurrences)",
-                                  recur->duration());
+                recurStr += i18nc("number of occurrences",
+                                  " (%1 occurrences)",
+                                  QString::number(recur->duration()));
             }
         } else {
             recurStr = i18np("Recurs daily", "Recurs every %1 days", recur->frequency());
@@ -4166,20 +4166,20 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
             dayNames = i18nc("Recurs weekly on no days", "no days");
         }
         if (recur->duration() != -1) {
-            recurStr = xi18ncp("Recurs weekly on [list of days] until end-date",
+            recurStr = i18ncp("Recurs weekly on [list of days] until end-date",
                               "Recurs weekly on %2 until %3",
-                              "Recurs every <numid>%1</numid> weeks on %2 until %3",
-                              recur->frequency(), dayNames, recurEnd(incidence));
+                              "Recurs every %1 weeks on %2 until %3",
+                              QString::number(recur->frequency()), dayNames, recurEnd(incidence));
             if (recur->duration() >  0) {
-                recurStr += xi18nc("number of occurrences",
-                                  " (<numid>%1</numid> occurrences)",
-                                  recur->duration());
+                recurStr += i18nc("number of occurrences",
+                                  " (%1 occurrences)",
+                                  QString::number(recur->duration()));
             }
         } else {
-            recurStr = xi18ncp("Recurs weekly on [list of days]",
+            recurStr = i18ncp("Recurs weekly on [list of days]",
                               "Recurs weekly on %2",
-                              "Recurs every <numid>%1</numid> weeks on %2",
-                              recur->frequency(), dayNames);
+                              "Recurs every %1 weeks on %2",
+                              QString::number(recur->frequency()), dayNames);
         }
         break;
     }
@@ -4188,17 +4188,17 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         if (!recur->monthPositions().isEmpty()) {
             RecurrenceRule::WDayPos rule = recur->monthPositions()[0];
             if (recur->duration() != -1) {
-                recurStr = xi18ncp("Recurs every N months on the [2nd|3rd|...]"
+                recurStr = i18ncp("Recurs every N months on the [2nd|3rd|...]"
                                   " weekdayname until end-date",
                                   "Recurs every month on the %2 %3 until %4",
-                                  "Recurs every <numid>%1</numid> months on the %2 %3 until %4",
-                                  recur->frequency(),
+                                  "Recurs every %1 months on the %2 %3 until %4",
+                                  QString::number(recur->frequency()),
                                   dayList[rule.pos() + 31],
                                   calSys->weekDayName(rule.day(), KCalendarSystem::LongDayName),
                                   recurEnd(incidence));
                 if (recur->duration() >  0) {
                     recurStr += xi18nc("number of occurrences",
-                                      " (<numid>%1</numid> occurrences)",
+                                      " (%1 occurrences)",
                                       recur->duration());
                 }
             } else {
@@ -4225,14 +4225,14 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                                   recurEnd(incidence));
                 if (recur->duration() >  0) {
                     recurStr += xi18nc("number of occurrences",
-                                      " (<numid>%1</numid> occurrences)",
-                                      recur->duration());
+                                      " (%1 occurrences)",
+                                      QString::number(recur->duration()));
                 }
             } else {
-                recurStr = xi18ncp("Recurs monthly on the [1st|2nd|...] day",
+                recurStr = i18ncp("Recurs monthly on the [1st|2nd|...] day",
                                   "Recurs monthly on the %2 day",
-                                  "Recurs every <numid>%1</numid> month on the %2 day",
-                                  recur->frequency(),
+                                  "Recurs every %1 month on the %2 day",
+                                  QString::number(recur->frequency()),
                                   dayList[days + 31]);
             }
         }
@@ -4251,9 +4251,9 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                                   dayList[ recur->yearDates()[0] + 31 ],
                                   recurEnd(incidence));
                 if (recur->duration() >  0) {
-                    recurStr += xi18nc("number of occurrences",
-                                      " (<numid>%1</numid> occurrences)",
-                                      recur->duration());
+                    recurStr += i18nc("number of occurrences",
+                                      " (%1 occurrences)",
+                                      QString::number(recur->duration()));
                 }
             }
         } else {
@@ -4286,24 +4286,24 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
     case Recurrence::rYearlyDay:
         if (!recur->yearDays().isEmpty()) {
             if (recur->duration() != -1) {
-                recurStr = xi18ncp("Recurs every N years on day N until end-date",
-                                  "Recurs every year on day <numid>%2</numid> until %3",
-                                  "Recurs every <numid>%1</numid> years"
-                                  " on day <numid>%2</numid> until %3",
-                                  recur->frequency(),
-                                  recur->yearDays()[0],
+                recurStr = i18ncp("Recurs every N years on day N until end-date",
+                                  "Recurs every year on day %2 until %3",
+                                  "Recurs every %1 years"
+                                  " on day %2 until %3",
+                                  QString::number(recur->frequency()),
+                                  QString::number(recur->yearDays()[0]),
                                   recurEnd(incidence));
                 if (recur->duration() >  0) {
-                    recurStr += xi18nc("number of occurrences",
-                                      " (<numid>%1</numid> occurrences)",
-                                      recur->duration());
+                    recurStr += i18nc("number of occurrences",
+                                      " (%1 occurrences)",
+                                      QString::number(recur->duration()));
                 }
             } else {
-                recurStr = xi18ncp("Recurs every N YEAR[S] on day N",
-                                  "Recurs every year on day <numid>%2</numid>",
-                                  "Recurs every <numid>%1</numid> years"
-                                  " on day <numid>%2</numid>",
-                                  recur->frequency(), recur->yearDays()[0]);
+                recurStr = i18ncp("Recurs every N YEAR[S] on day N",
+                                  "Recurs every year on day %2",
+                                  "Recurs every %1 years"
+                                  " on day %2",
+                                  QString::number(recur->frequency()), QString::number(recur->yearDays()[0]));
             }
         }
         break;
@@ -4312,27 +4312,27 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         if (!recur->yearMonths().isEmpty() && !recur->yearPositions().isEmpty()) {
             RecurrenceRule::WDayPos rule = recur->yearPositions()[0];
             if (recur->duration() != -1) {
-                recurStr = xi18ncp("Every N years on the [2nd|3rd|...] weekdayname "
+                recurStr = i18ncp("Every N years on the [2nd|3rd|...] weekdayname "
                                   "of monthname until end-date",
                                   "Every year on the %2 %3 of %4 until %5",
-                                  "Every <numid>%1</numid> years on the %2 %3 of %4"
+                                  "Every %1 years on the %2 %3 of %4"
                                   " until %5",
-                                  recur->frequency(),
+                                  QString::number(recur->frequency()),
                                   dayList[rule.pos() + 31],
                                   calSys->weekDayName(rule.day(), KCalendarSystem::LongDayName),
                                   calSys->monthName(recur->yearMonths()[0], recur->startDate().year()),
                                   recurEnd(incidence));
                 if (recur->duration() >  0) {
-                    recurStr += xi18nc("number of occurrences",
-                                      " (<numid>%1</numid> occurrences)",
-                                      recur->duration());
+                    recurStr += i18nc("number of occurrences",
+                                      " (%1 occurrences)",
+                                      QString::number(recur->duration()));
                 }
             } else {
                 recurStr = xi18ncp("Every N years on the [2nd|3rd|...] weekdayname "
                                   "of monthname",
                                   "Every year on the %2 %3 of %4",
-                                  "Every <numid>%1</numid> years on the %2 %3 of %4",
-                                  recur->frequency(),
+                                  "Every %1 years on the %2 %3 of %4",
+                                  QString::number(recur->frequency()),
                                   dayList[rule.pos() + 31],
                                   calSys->weekDayName(rule.day(), KCalendarSystem::LongDayName),
                                   calSys->monthName(recur->yearMonths()[0], recur->startDate().year()));

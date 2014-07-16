@@ -39,6 +39,7 @@ if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
 endif()
 
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
+add_definitions("-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII")
 
 ########### Targets ###########
 add_subdirectory(src)
