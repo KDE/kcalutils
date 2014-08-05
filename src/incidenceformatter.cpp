@@ -1177,7 +1177,7 @@ static QString cleanHtml(const QString &html)
     rx.indexIn(html);
     QString body = rx.cap(1);
 
-    return Qt::escape(body.remove(QRegExp(QLatin1String("<[^>]*>"))).trimmed());
+    return body.remove(QRegExp(QLatin1String("<[^>]*>"))).trimmed().toHtmlEscaped();
 }
 
 static QString invitationSummary(const Incidence::Ptr &incidence, bool noHtmlMode)
@@ -1185,7 +1185,7 @@ static QString invitationSummary(const Incidence::Ptr &incidence, bool noHtmlMod
     QString summaryStr = i18n("Summary unspecified");
     if (!incidence->summary().isEmpty()) {
         if (!incidence->summaryIsRich()) {
-            summaryStr = Qt::escape(incidence->summary());
+            summaryStr = incidence->summary().toHtmlEscaped();
         } else {
             summaryStr = incidence->richSummary();
             if (noHtmlMode) {
@@ -1201,7 +1201,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
     QString locationStr = i18n("Location unspecified");
     if (!incidence->location().isEmpty()) {
         if (!incidence->locationIsRich()) {
-            locationStr = Qt::escape(incidence->location());
+            locationStr = incidence->location().toHtmlEscaped();
         } else {
             locationStr = incidence->richLocation();
             if (noHtmlMode) {
@@ -3781,7 +3781,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
             if (desc.length() > maxDescLen) {
                 desc = desc.left(maxDescLen) + i18nc("elipsis", "...");
             }
-            desc = Qt::escape(desc).replace(QLatin1Char('\n'), QLatin1String("<br>"));
+            desc = desc.toHtmlEscaped().replace(QLatin1Char('\n'), QLatin1String("<br>"));
         } else {
             // TODO: truncate the description when it's rich text
         }
