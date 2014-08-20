@@ -42,6 +42,7 @@ using namespace KCalCore;
 #include <KLocalizedString>
 
 #include <KSystemTimeZone>
+#include <QLocale>
 
 using namespace KCalUtils;
 using namespace Stringify;
@@ -229,13 +230,13 @@ QString Stringify::formatDate(const KDateTime &dt, bool shortfmt, const KDateTim
         }
 
         return
-            KLocale::global()->formatDate(dt.toTimeSpec(spec).date(),
-                                          (shortfmt ? KLocale::ShortDate : KLocale::LongDate)) +
+            QLocale().toString(dt.toTimeSpec(spec).date(),
+                                          (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat)) +
             timeZone;
     } else {
         return
-            KLocale::global()->formatDate(dt.date(),
-                                          (shortfmt ? KLocale::ShortDate : KLocale::LongDate));
+            QLocale().toString(dt.date(),
+                                          (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
     }
 }
 
