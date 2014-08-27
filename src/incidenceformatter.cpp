@@ -80,7 +80,7 @@ static QString string2HTML(const QString &str)
     return KPIMUtils::LinkLocator::convertToHtml(str);
 }
 
-static KPIMIdentities::IdentityManager *s_identityManager = 0;
+static KIdentityManagement::IdentityManager *s_identityManager = 0;
 
 // Performance optimization so we only create one IdentityManager instead of 1 per attendee.
 // Using RAII to protect against future return statements in the middle of code
@@ -88,7 +88,7 @@ struct RAIIIdentityManager{
     RAIIIdentityManager()
     {
         //t.start();
-        s_identityManager = new KPIMIdentities::IdentityManager(true);
+        s_identityManager = new KIdentityManagement::IdentityManager(true);
     }
 
     ~RAIIIdentityManager()
@@ -103,7 +103,7 @@ struct RAIIIdentityManager{
 static bool thatIsMe(const QString &email)
 {
     return s_identityManager ? s_identityManager->thatIsMe(email)
-                             : KPIMIdentities::IdentityManager(true).thatIsMe(email);
+                             : KIdentityManagement::IdentityManager(true).thatIsMe(email);
 }
 
 static bool iamAttendee(Attendee::Ptr attendee)

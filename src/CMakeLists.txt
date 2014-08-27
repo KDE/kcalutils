@@ -28,7 +28,7 @@ PUBLIC
   KF5::CoreAddons
 PRIVATE
   KF5::I18n
-  KF5::PimIdentities
+  KF5::IdentityManagement
   KF5::PimUtils
 )
 
