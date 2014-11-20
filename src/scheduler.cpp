@@ -69,7 +69,7 @@ FreeBusyCache *Scheduler::freeBusyCache() const
 bool Scheduler::acceptTransaction(const IncidenceBase::Ptr &incidence, iTIPMethod method,
                                   ScheduleMessage::Status status, const QString &email)
 {
-    qDebug() << "method=" << ScheduleMessage::methodName(method);   //krazy:exclude=kdebug
+    qDebug() << "method=" << ScheduleMessage::methodName(method);  
 
     switch (method) {
     case iTIPPublish:
@@ -109,7 +109,7 @@ bool Scheduler::acceptPublish(const IncidenceBase::Ptr &newIncBase, ScheduleMess
 
     bool res = false;
 
-    qDebug() << "status=" << Stringify::scheduleMessageStatus(status);   //krazy:exclude=kdebug
+    qDebug() << "status=" << Stringify::scheduleMessageStatus(status);  
 
     Incidence::Ptr newInc = newIncBase.staticCast<Incidence>() ;
     Incidence::Ptr calInc = mCalendar->incidence(newIncBase->uid());
@@ -160,7 +160,7 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
     }
 
     const Incidence::List existingIncidences = mCalendar->incidencesFromSchedulingID(inc->uid());
-    qDebug() << "status=" << Stringify::scheduleMessageStatus(status)   //krazy:exclude=kdebug
+    qDebug() << "status=" << Stringify::scheduleMessageStatus(status)  
              << ": found " << existingIncidences.count()
              << " incidences with schedulingID " << inc->schedulingID()
              << "; uid was = " << inc->uid();
