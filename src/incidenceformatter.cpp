@@ -47,8 +47,8 @@ using namespace KCalCore;
 
 #include <identitymanager.h>
 
-#include <kpimutils/email.h>
-#include <kpimutils/linklocator.h>
+#include <kemailaddress.h>
+#include <ktexttohtml.h>
 
 #include <KCalendarSystem>
 #include <QDebug>
@@ -77,7 +77,7 @@ static QString string2HTML(const QString &str)
 {
 //  return Qt::convertFromPlainText( str, Qt::WhiteSpaceNormal );
     // use convertToHtml so we get clickable links and other goodies
-    return KPIMUtils::LinkLocator::convertToHtml(str);
+    return KTextToHTML::convertToHtml(str, KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys);
 }
 
 static KIdentityManagement::IdentityManager *s_identityManager = 0;
@@ -234,7 +234,7 @@ static bool senderIsOrganizer(Incidence::Ptr incidence, const QString &sender)
 
     bool isorg = true;
     QString senderName, senderEmail;
-    if (KPIMUtils::extractEmailAddressAndName(sender, senderEmail, senderName)) {
+    if (KEmailAddress::extractEmailAddressAndName(sender, senderEmail, senderName)) {
         // for this heuristic, we say the sender is the organizer if either the name or the email match.
         if (incidence->organizer()->email() != senderEmail &&
                 incidence->organizer()->name() != senderName) {
@@ -1326,7 +1326,7 @@ static Attendee::Ptr findDelegatedFromMyAttendee(const Incidence::Ptr &incidence
     Attendee::List::ConstIterator it;
     for (it = attendees.constBegin(); it != attendees.constEnd(); ++it) {
         Attendee::Ptr a = *it;
-        KPIMUtils::extractEmailAddressAndName(a->delegator(), delegatorEmail, delegatorName);
+        KEmailAddress::extractEmailAddressAndName(a->delegator(), delegatorEmail, delegatorName);
         if (thatIsMe(delegatorEmail)) {
             attendee = a;
             break;
@@ -2080,7 +2080,7 @@ static QString invitationHeaderEvent(const Event::Ptr &event,
 
         QString delegatorName, dummy;
         Attendee::Ptr attendee = *attendees.begin();
-        KPIMUtils::extractEmailAddressAndName(attendee->delegator(), dummy, delegatorName);
+        KEmailAddress::extractEmailAddressAndName(attendee->delegator(), dummy, delegatorName);
         if (delegatorName.isEmpty()) {
             delegatorName = attendee->delegator();
         }
@@ -2120,7 +2120,7 @@ static QString invitationHeaderEvent(const Event::Ptr &event,
         case Attendee::Delegated:
         {
             QString delegate, dummy;
-            KPIMUtils::extractEmailAddressAndName(attendee->delegate(), dummy, delegate);
+            KEmailAddress::extractEmailAddressAndName(attendee->delegate(), dummy, delegate);
             if (delegate.isEmpty()) {
                 delegate = attendee->delegate();
             }
@@ -2222,7 +2222,7 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo,
 
         QString delegatorName, dummy;
         Attendee::Ptr attendee = *attendees.begin();
-        KPIMUtils::extractEmailAddressAndName(attendee->delegate(), dummy, delegatorName);
+        KEmailAddress::extractEmailAddressAndName(attendee->delegate(), dummy, delegatorName);
         if (delegatorName.isEmpty()) {
             delegatorName = attendee->delegator();
         }
@@ -2271,7 +2271,7 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo,
         case Attendee::Delegated:
         {
             QString delegate, dummy;
-            KPIMUtils::extractEmailAddressAndName(attendee->delegate(), dummy, delegate);
+            KEmailAddress::extractEmailAddressAndName(attendee->delegate(), dummy, delegate);
             if (delegate.isEmpty()) {
                 delegate = attendee->delegate();
             }

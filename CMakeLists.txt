@@ -30,12 +30,12 @@ find_package(KF5CoreAddons ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5Config ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5I18n ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5KDELibs4Support ${KF5_VERSION} CONFIG REQUIRED)
+find_package(KF5Codecs ${KF5_VERSION} CONFIG REQUIRED)
 
 # FIXME: remove this if/endif when KCalCore is split.
 if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
   find_package(KF5CalendarCore ${KDEPIMLIBS_VERSION} CONFIG REQUIRED)
   find_package(KF5IdentityManagement ${KDEPIMLIBS_VERSION} CONFIG REQUIRED)
-  find_package(KF5PimUtils ${KDEPIMLIBS_VERSION} CONFIG REQUIRED)
 endif()
 
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
