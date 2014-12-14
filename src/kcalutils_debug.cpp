@@ -20,4 +20,3 @@
 #include "kcalutils_debug.h"
 Q_LOGGING_CATEGORY(KCALUTILS_LOG, "log_kcalutils")
 
-

@@ -180,7 +180,7 @@ QMimeData *DndFactory::createMimeData(const Incidence::Ptr &incidence)
         QMap<QString, QString> metadata;
         metadata[QLatin1String("labels")] = QLatin1String(QUrl::toPercentEncoding(i->summary()));
         mimeData->setUrls(QList<QUrl>() << uri);
-        KUrlMimeData::setMetaData(metadata, mimeData); 
+        KUrlMimeData::setMetaData(metadata, mimeData);
     }
 
     return mimeData;

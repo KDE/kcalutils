@@ -52,7 +52,7 @@ public:
 
     MemoryCalendar *mCalendar;
     HTMLExportSettings *mSettings;
-    QMap<QDate,QString> mHolidayMap;
+    QMap<QDate, QString> mHolidayMap;
 };
 //@endcond
 
@@ -189,7 +189,7 @@ void HtmlExport::createMonthView(QTextStream *ts)
 
         // Write table header
         *ts << "  <tr>";
-        for (int i=0; i < 7; ++i) {
+        for (int i = 0; i < 7; ++i) {
             *ts << "<th>" << KLocale::global()->calendar()->weekDayName(start.addDays(i)) << "</th>";
         }
         *ts << "</tr>" << endl;
@@ -197,7 +197,7 @@ void HtmlExport::createMonthView(QTextStream *ts)
         // Write days
         while (start <= end) {
             *ts << "  <tr>" << endl;
-            for (int i=0; i < 7; ++i) {
+            for (int i = 0; i < 7; ++i) {
                 *ts << "    <td valign=\"top\"><table border=\"0\">";
 
                 *ts << "<tr><td ";
@@ -484,7 +484,9 @@ void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
     *ts << "<tr>" << endl;
 
     *ts << "  <td class=\"sum";
-    if (completed) *ts << "done";
+    if (completed) {
+        *ts << "done";
+    }
     *ts << "\">" << endl;
     *ts << "    <a name=\"" << todo->uid() << "\"></a>" << endl;
     *ts << "    <b>" << cleanChars(todo->summary()) << "</b>" << endl;
@@ -673,12 +675,12 @@ void HtmlExport::createFooter(QTextStream *ts)
     if (!d->mSettings->eMail().isEmpty()) {
         if (!d->mSettings->name().isEmpty()) {
             trailer += xi18nc("@info/plain page creator email link with name",
-                             "by <link url='mailto:%1'>%2</link> ",
-                             d->mSettings->eMail(), d->mSettings->name());
+                              "by <link url='mailto:%1'>%2</link> ",
+                              d->mSettings->eMail(), d->mSettings->name());
         } else {
             trailer += xi18nc("@info/plain page creator email link",
-                             "by <link url='mailto:%1'>%2</link> ",
-                             d->mSettings->eMail(), d->mSettings->eMail());
+                              "by <link url='mailto:%1'>%2</link> ",
+                              d->mSettings->eMail(), d->mSettings->eMail());
         }
     } else {
         if (!d->mSettings->name().isEmpty()) {
@@ -689,8 +691,8 @@ void HtmlExport::createFooter(QTextStream *ts)
     if (!d->mSettings->creditName().isEmpty()) {
         if (!d->mSettings->creditURL().isEmpty()) {
             trailer += xi18nc("@info/plain page credit with name and link",
-                             "with <link url='%1'>%2</link>",
-                             d->mSettings->creditURL(), d->mSettings->creditName());
+                              "with <link url='%1'>%2</link>",
+                              d->mSettings->creditURL(), d->mSettings->creditName());
         } else {
             trailer += i18nc("@info page credit name only",
                              "with %1", d->mSettings->creditName());

@@ -30,12 +30,14 @@
 #include <QtCore/QString>
 #include <QtCore/QList>
 
-namespace KCalCore {
+namespace KCalCore
+{
 class ICalFormat;
 class FreeBusyCache;
 }
 
-namespace KCalUtils {
+namespace KCalUtils
+{
 /**
   This class provides an encapsulation of iTIP transactions (RFC 2446).
   It is an abstract base class for inheritance by implementations of the
@@ -80,7 +82,7 @@ public:
       Retrieves incoming iTIP transactions.
     */
     //KDAB_TODO PTR
-    virtual QList<KCalCore::ScheduleMessage*> retrieveTransactions() = 0;
+    virtual QList<KCalCore::ScheduleMessage *> retrieveTransactions() = 0;
 
     /**
       Accepts the transaction. The incidence argument specifies the iCal

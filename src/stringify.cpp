@@ -231,12 +231,12 @@ QString Stringify::formatDate(const KDateTime &dt, bool shortfmt, const KDateTim
 
         return
             QLocale().toString(dt.toTimeSpec(spec).date(),
-                                          (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat)) +
+                               (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat)) +
             timeZone;
     } else {
         return
             QLocale().toString(dt.date(),
-                                          (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
+                               (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
     }
 }
 

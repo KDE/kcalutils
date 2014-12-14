@@ -39,7 +39,8 @@
 
 #include <QDate>
 
-namespace KCalUtils {
+namespace KCalUtils
+{
 
 class KCALUTILS_EXPORT InvitationFormatterHelper
 {
@@ -67,7 +68,8 @@ private:
   for tool tips, or a representation for a viewer widget.
 
 */
-namespace IncidenceFormatter {
+namespace IncidenceFormatter
+{
 
 /**
   Create a QString representation of an Incidence in a nice format
@@ -99,8 +101,8 @@ KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName,
 */
 KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalCore::Calendar::Ptr &calendar,
         const KCalCore::IncidenceBase::Ptr &incidence,
-        const QDate &date=QDate(),
-        KDateTime::Spec spec=KDateTime::Spec());
+        const QDate &date = QDate(),
+        KDateTime::Spec spec = KDateTime::Spec());
 
 /**
   Create a RichText QString representation of an Incidence in a nice format
@@ -114,8 +116,8 @@ KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalCore::Calendar::Ptr &cale
 */
 KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName,
         const KCalCore::IncidenceBase::Ptr &incidence,
-        const QDate &date=QDate(),
-        KDateTime::Spec spec=KDateTime::Spec());
+        const QDate &date = QDate(),
+        KDateTime::Spec spec = KDateTime::Spec());
 
 /**
   Create a QString representation of an Incidence in format suitable for
@@ -125,7 +127,7 @@ KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName,
   will shift the Incidence times to different timezones.
 */
 KCALUTILS_EXPORT QString mailBodyStr(const KCalCore::IncidenceBase::Ptr &incidence,
-                                     KDateTime::Spec spec=KDateTime::Spec());
+                                     KDateTime::Spec spec = KDateTime::Spec());
 
 /**
   Deliver an HTML formatted string displaying an invitation.

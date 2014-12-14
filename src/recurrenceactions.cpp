@@ -29,7 +29,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-
 #include <QPointer>
 
 #include <boost/shared_ptr.hpp>
@@ -182,7 +181,7 @@ int RecurrenceActions::questionSelectedAllCancel(const QString &message, const Q
     dialog->setButtonGuiItem(KDialog::Yes, actionSelected);
     dialog->setButtonGuiItem(KDialog::Ok, actionAll);
 
-  // Qt5: Port
+    // Qt5: Port
 //   bool checkboxResult = false;
 //   int result = KMessageBox::createKMessageBox(
 //     dialog,
@@ -222,7 +221,7 @@ int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message,
     dialog->setButtonGuiItem(KDialog::No, actionFuture);
     dialog->setButtonGuiItem(KDialog::Ok, actionAll);
 
-  // Qt5: Port
+    // Qt5: Port
 //   bool checkboxResult = false;
 //   int result = KMessageBox::createKMessageBox(
 //     dialog,
@@ -247,4 +246,3 @@ int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message,
     return NoOccurrence;
 }
 
-// kate: space-indent on; indent-width 2; replace-tabs on;

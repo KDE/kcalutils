@@ -46,7 +46,8 @@ class QDrag;
 class QDropEvent;
 class QMimeData;
 
-namespace KCalUtils {
+namespace KCalUtils
+{
 
 /**
   @brief

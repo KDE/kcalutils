@@ -31,13 +31,15 @@
 #include <QtCore/QDateTime>
 #include <QtCore/QString>
 
-namespace KCalCore {
+namespace KCalCore
+{
 class MemoryCalendar;
 }
 
 class QTextStream;
 
-namespace KCalUtils {
+namespace KCalUtils
+{
 
 class HTMLExportSettings;
 

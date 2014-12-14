@@ -33,8 +33,7 @@ using namespace KCalCore;
 using namespace KCalUtils;
 
 //@cond PRIVATE
-struct KCalUtils::Scheduler::Private
-{
+struct KCalUtils::Scheduler::Private {
 public:
     Private() : mFreeBusyCache(0)
     {
@@ -69,7 +68,7 @@ FreeBusyCache *Scheduler::freeBusyCache() const
 bool Scheduler::acceptTransaction(const IncidenceBase::Ptr &incidence, iTIPMethod method,
                                   ScheduleMessage::Status status, const QString &email)
 {
-    qCDebug(KCALUTILS_LOG) << "method=" << ScheduleMessage::methodName(method);  
+    qCDebug(KCALUTILS_LOG) << "method=" << ScheduleMessage::methodName(method);
 
     switch (method) {
     case iTIPPublish:
@@ -109,7 +108,7 @@ bool Scheduler::acceptPublish(const IncidenceBase::Ptr &newIncBase, ScheduleMess
 
     bool res = false;
 
-    qCDebug(KCALUTILS_LOG) << "status=" << Stringify::scheduleMessageStatus(status);  
+    qCDebug(KCALUTILS_LOG) << "status=" << Stringify::scheduleMessageStatus(status);
 
     Incidence::Ptr newInc = newIncBase.staticCast<Incidence>() ;
     Incidence::Ptr calInc = mCalendar->incidence(newIncBase->uid());
@@ -160,23 +159,23 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
     }
 
     const Incidence::List existingIncidences = mCalendar->incidencesFromSchedulingID(inc->uid());
-    qCDebug(KCALUTILS_LOG) << "status=" << Stringify::scheduleMessageStatus(status)  
-             << ": found " << existingIncidences.count()
-             << " incidences with schedulingID " << inc->schedulingID()
-             << "; uid was = " << inc->uid();
+    qCDebug(KCALUTILS_LOG) << "status=" << Stringify::scheduleMessageStatus(status)
+                           << ": found " << existingIncidences.count()
+                           << " incidences with schedulingID " << inc->schedulingID()
+                           << "; uid was = " << inc->uid();
 
     if (existingIncidences.isEmpty()) {
         // Perfectly normal if the incidence doesn't exist. This is probably
         // a new invitation.
         qCDebug(KCALUTILS_LOG) << "incidence not found; calendar = " << mCalendar.data()
-                 << "; incidence count = " << mCalendar->incidences().count();
+                               << "; incidence count = " << mCalendar->incidences().count();
     }
     Incidence::List::ConstIterator incit = existingIncidences.begin();
     for (; incit != existingIncidences.end() ; ++incit) {
         Incidence::Ptr existingIncidence = *incit;
         qCDebug(KCALUTILS_LOG) << "Considering this found event ("
-                 << (existingIncidence->isReadOnly() ? "readonly" : "readwrite")
-                 << ") :" << mFormat->toString(existingIncidence);
+                               << (existingIncidence->isReadOnly() ? "readonly" : "readwrite")
+                               << ") :" << mFormat->toString(existingIncidence);
         // If it's readonly, we can't possible update it.
         if (existingIncidence->isReadOnly()) {
             continue;
@@ -200,7 +199,7 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
                     // This incidence wasn't created by me - it's probably in a shared folder
                     // and meant for someone else, ignore it.
                     qCDebug(KCALUTILS_LOG) << "ignoring " << existingIncidence->uid()
-                             << " since I'm still NeedsAction there";
+                                           << " since I'm still NeedsAction there";
                     isUpdate = false;
                     break;
                 }
@@ -243,19 +242,19 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
         KMessageBox::information(
             0,
             xi18nc("@info",
-                  "<para>You accepted an invitation update, but an earlier version of the "
-                  "item could not be found in your calendar.</para>"
-                  "<para>This may have occurred because:<list>"
-                  "<item>the organizer did not include you in the original invitation</item>"
-                  "<item>you did not accept the original invitation yet</item>"
-                  "<item>you deleted the original invitation from your calendar</item>"
-                  "<item>you no longer have access to the calendar containing the invitation</item>"
-                  "</list></para>"
-                  "<para>This is not a problem, but we thought you should know.</para>"),
+                   "<para>You accepted an invitation update, but an earlier version of the "
+                   "item could not be found in your calendar.</para>"
+                   "<para>This may have occurred because:<list>"
+                   "<item>the organizer did not include you in the original invitation</item>"
+                   "<item>you did not accept the original invitation yet</item>"
+                   "<item>you deleted the original invitation from your calendar</item>"
+                   "<item>you no longer have access to the calendar containing the invitation</item>"
+                   "</list></para>"
+                   "<para>This is not a problem, but we thought you should know.</para>"),
             i18nc("@title", "Cannot find invitation to be updated"), QLatin1String("AcceptCantFindIncidence"));
     }
     qCDebug(KCALUTILS_LOG) << "Storing new incidence with scheduling uid=" << inc->schedulingID()
-             << " and uid=" << inc->uid();
+                           << " and uid=" << inc->uid();
     const bool result = mCalendar->addIncidence(inc);
 
     deleteTransaction(incidence);
@@ -285,17 +284,17 @@ bool Scheduler::acceptCancel(const IncidenceBase::Ptr &incidence,
 
     const Incidence::List existingIncidences = mCalendar->incidencesFromSchedulingID(inc->uid());
     qCDebug(KCALUTILS_LOG) << "Scheduler::acceptCancel="
-             << Stringify::scheduleMessageStatus(status)   //krazy2:exclude=kdebug
-             << ": found " << existingIncidences.count()
-             << " incidences with schedulingID " << inc->schedulingID();
+                           << Stringify::scheduleMessageStatus(status)   //krazy2:exclude=kdebug
+                           << ": found " << existingIncidences.count()
+                           << " incidences with schedulingID " << inc->schedulingID();
 
     bool ret = false;
     Incidence::List::ConstIterator incit = existingIncidences.begin();
     for (; incit != existingIncidences.end() ; ++incit) {
         Incidence::Ptr i = *incit;
         qCDebug(KCALUTILS_LOG) << "Considering this found event ("
-                 << (i->isReadOnly() ? "readonly" : "readwrite")
-                 << ") :" << mFormat->toString(i);
+                               << (i->isReadOnly() ? "readonly" : "readwrite")
+                               << ") :" << mFormat->toString(i);
 
         // If it's readonly, we can't possible remove it.
         if (i->isReadOnly()) {
@@ -322,7 +321,7 @@ bool Scheduler::acceptCancel(const IncidenceBase::Ptr &incidence,
                 // This incidence wasn't created by me - it's probably in a shared
                 // folder and meant for someone else, ignore it.
                 qCDebug(KCALUTILS_LOG) << "ignoring " << i->uid()
-                         << " since I'm still NeedsAction there";
+                                       << " since I'm still NeedsAction there";
                 isMine = false;
                 break;
             }
@@ -377,7 +376,7 @@ bool Scheduler::acceptReply(const IncidenceBase::Ptr &incidence, ScheduleMessage
     // try harder to find the correct incidence
     if (!ev && !to) {
         const Incidence::List list = mCalendar->incidences();
-        for (Incidence::List::ConstIterator it=list.constBegin(), end=list.constEnd();
+        for (Incidence::List::ConstIterator it = list.constBegin(), end = list.constEnd();
                 it != end; ++it) {
             if ((*it)->schedulingID() == incidence->uid()) {
                 ev = (*it).dynamicCast<Event>();
