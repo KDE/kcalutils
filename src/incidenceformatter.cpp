@@ -51,7 +51,7 @@ using namespace KCalCore;
 #include <ktexttohtml.h>
 
 #include <KCalendarSystem>
-#include <QDebug>
+#include "kcalutils_debug.h"
 #include <KIconLoader>
 #include <KLocalizedString>
 
@@ -95,7 +95,7 @@ struct RAIIIdentityManager{
     {
         delete s_identityManager;
         s_identityManager = 0;
-        //qDebug() << "Elapsed time: " << t.elapsed();
+        //qCDebug(KCALUTILS_LOG) << "Elapsed time: " << t.elapsed();
     }
     //QElapsedTimer t;
 };
@@ -790,7 +790,7 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
                                      const QDate &ocurrenceDueDate, KDateTime::Spec spec)
 {
     if (!todo) {
-        qDebug() << "IncidenceFormatter::displayViewFormatTodo was called without to-do, quitting";
+        qCDebug(KCALUTILS_LOG) << "IncidenceFormatter::displayViewFormatTodo was called without to-do, quitting";
         return QString();
     }
 
@@ -2069,11 +2069,11 @@ static QString invitationHeaderEvent(const Event::Ptr &event,
 
         Attendee::List attendees = event->attendees();
         if (attendees.count() == 0) {
-            qDebug() << "No attendees in the iCal reply!";
+            qCDebug(KCALUTILS_LOG) << "No attendees in the iCal reply!";
             return QString();
         }
         if (attendees.count() != 1) {
-            qDebug() << "Warning: attendeecount in the reply should be 1"
+            qCDebug(KCALUTILS_LOG) << "Warning: attendeecount in the reply should be 1"
                      << "but is" << attendees.count();
         }
         QString attendeeName = firstAttendeeName(event, sender);
@@ -2211,11 +2211,11 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo,
 
         Attendee::List attendees = todo->attendees();
         if (attendees.count() == 0) {
-            qDebug() << "No attendees in the iCal reply!";
+            qCDebug(KCALUTILS_LOG) << "No attendees in the iCal reply!";
             return QString();
         }
         if (attendees.count() != 1) {
-            qDebug() << "Warning: attendeecount in the reply should be 1"
+            qCDebug(KCALUTILS_LOG) << "Warning: attendeecount in the reply should be 1"
                      << "but is" << attendees.count();
         }
         QString attendeeName = firstAttendeeName(todo, sender);
@@ -2336,11 +2336,11 @@ static QString invitationHeaderJournal(const Journal::Ptr &journal,
 
         Attendee::List attendees = journal->attendees();
         if (attendees.count() == 0) {
-            qDebug() << "No attendees in the iCal reply!";
+            qCDebug(KCALUTILS_LOG) << "No attendees in the iCal reply!";
             return QString();
         }
         if (attendees.count() != 1) {
-            qDebug() << "Warning: attendeecount in the reply should be 1 "
+            qCDebug(KCALUTILS_LOG) << "Warning: attendeecount in the reply should be 1 "
                      << "but is " << attendees.count();
         }
         Attendee::Ptr attendee = *attendees.begin();
@@ -3060,9 +3060,9 @@ static QString formatICalInvitationHelper(QString invitation,
     ScheduleMessage::Ptr msg = format.parseScheduleMessage(mCalendar, invitation);
 
     if (!msg) {
-        qDebug() << "Failed to parse the scheduling message";
+        qCDebug(KCALUTILS_LOG) << "Failed to parse the scheduling message";
         Q_ASSERT(format.exception());
-        qDebug() << Stringify::errorMessage(*format.exception());  
+        qCDebug(KCALUTILS_LOG) << Stringify::errorMessage(*format.exception());  
         return QString();
     }
 

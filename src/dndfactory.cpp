@@ -38,7 +38,7 @@
 #include "icaldrag.h"
 #include "vcaldrag.h"
 
-#include <QDebug>
+#include "kcalutils_debug.h"
 #include <KIconLoader>  // for BarIcon
 #include <KUrlMimeData>
 #include <QUrl>
@@ -123,7 +123,7 @@ public:
                 }
                 inc->setDtStart(newDateTime);
             } else {
-                qDebug() << "Trying to paste unknown incidence of type" << int(inc->type());
+                qCDebug(KCALUTILS_LOG) << "Trying to paste unknown incidence of type" << int(inc->type());
             }
         }
 
@@ -225,7 +225,7 @@ MemoryCalendar::Ptr DndFactory::createDropCalendar(QDropEvent *dropEvent)
 
 Event::Ptr DndFactory::createDropEvent(const QMimeData *mimeData)
 {
-    //qDebug();
+    //qCDebug(KCALUTILS_LOG);
     Event::Ptr event;
     MemoryCalendar::Ptr calendar(createDropCalendar(mimeData));
 
@@ -251,7 +251,7 @@ Event::Ptr DndFactory::createDropEvent(QDropEvent *dropEvent)
 
 Todo::Ptr DndFactory::createDropTodo(const QMimeData *mimeData)
 {
-    //qDebug();
+    //qCDebug(KCALUTILS_LOG);
     Todo::Ptr todo;
     MemoryCalendar::Ptr calendar(createDropCalendar(mimeData));
 
@@ -338,7 +338,7 @@ Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime,
     Incidence::List list;
 
     if (!calendar) {
-        qDebug() << "Can't parse clipboard";
+        qCDebug(KCALUTILS_LOG) << "Can't parse clipboard";
         return list;
     }
 
@@ -379,7 +379,7 @@ Incidence::Ptr DndFactory::pasteIncidence(const KDateTime &newDateTime,
     MemoryCalendar::Ptr calendar(createDropCalendar(clipboard->mimeData()));
 
     if (!calendar) {
-        qDebug() << "Can't parse clipboard";
+        qCDebug(KCALUTILS_LOG) << "Can't parse clipboard";
         return Incidence::Ptr();
     }
 

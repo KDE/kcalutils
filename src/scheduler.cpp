@@ -26,7 +26,7 @@
 #include <kcalcore/freebusycache.h>
 using namespace KCalCore;
 
-#include <QDebug>
+#include "kcalutils_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 
@@ -69,7 +69,7 @@ FreeBusyCache *Scheduler::freeBusyCache() const
 bool Scheduler::acceptTransaction(const IncidenceBase::Ptr &incidence, iTIPMethod method,
                                   ScheduleMessage::Status status, const QString &email)
 {
-    qDebug() << "method=" << ScheduleMessage::methodName(method);  
+    qCDebug(KCALUTILS_LOG) << "method=" << ScheduleMessage::methodName(method);  
 
     switch (method) {
     case iTIPPublish:
@@ -109,7 +109,7 @@ bool Scheduler::acceptPublish(const IncidenceBase::Ptr &newIncBase, ScheduleMess
 
     bool res = false;
 
-    qDebug() << "status=" << Stringify::scheduleMessageStatus(status);  
+    qCDebug(KCALUTILS_LOG) << "status=" << Stringify::scheduleMessageStatus(status);  
 
     Incidence::Ptr newInc = newIncBase.staticCast<Incidence>() ;
     Incidence::Ptr calInc = mCalendar->incidence(newIncBase->uid());
@@ -151,7 +151,7 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
 {
     Incidence::Ptr inc = incidence.staticCast<Incidence>() ;
     if (!inc) {
-        qWarning() << "Accept what?";
+        qCWarning(KCALUTILS_LOG) << "Accept what?";
         return false;
     }
     if (inc->type() == IncidenceBase::TypeFreeBusy) {
@@ -160,7 +160,7 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
     }
 
     const Incidence::List existingIncidences = mCalendar->incidencesFromSchedulingID(inc->uid());
-    qDebug() << "status=" << Stringify::scheduleMessageStatus(status)  
+    qCDebug(KCALUTILS_LOG) << "status=" << Stringify::scheduleMessageStatus(status)  
              << ": found " << existingIncidences.count()
              << " incidences with schedulingID " << inc->schedulingID()
              << "; uid was = " << inc->uid();
@@ -168,13 +168,13 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
     if (existingIncidences.isEmpty()) {
         // Perfectly normal if the incidence doesn't exist. This is probably
         // a new invitation.
-        qDebug() << "incidence not found; calendar = " << mCalendar.data()
+        qCDebug(KCALUTILS_LOG) << "incidence not found; calendar = " << mCalendar.data()
                  << "; incidence count = " << mCalendar->incidences().count();
     }
     Incidence::List::ConstIterator incit = existingIncidences.begin();
     for (; incit != existingIncidences.end() ; ++incit) {
         Incidence::Ptr existingIncidence = *incit;
-        qDebug() << "Considering this found event ("
+        qCDebug(KCALUTILS_LOG) << "Considering this found event ("
                  << (existingIncidence->isReadOnly() ? "readonly" : "readwrite")
                  << ") :" << mFormat->toString(existingIncidence);
         // If it's readonly, we can't possible update it.
@@ -189,7 +189,7 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
             // It comes from a similar check inside libical, where the event is compared to
             // other events in the calendar. But if we have another version of the event around
             // (e.g. shared folder for a group), the status could be RequestNew, Obsolete or Updated.
-            qDebug() << "looking in " << existingIncidence->uid() << "'s attendees";
+            qCDebug(KCALUTILS_LOG) << "looking in " << existingIncidence->uid() << "'s attendees";
             // This is supposed to be a new request, not an update - however we want to update
             // the existing one to handle the "clicking more than once on the invitation" case.
             // So check the attendee status of the attendee.
@@ -199,7 +199,7 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
                 if ((*ait)->email() == email && (*ait)->status() == Attendee::NeedsAction) {
                     // This incidence wasn't created by me - it's probably in a shared folder
                     // and meant for someone else, ignore it.
-                    qDebug() << "ignoring " << existingIncidence->uid()
+                    qCDebug(KCALUTILS_LOG) << "ignoring " << existingIncidence->uid()
                              << " since I'm still NeedsAction there";
                     isUpdate = false;
                     break;
@@ -209,11 +209,11 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
                 if (existingIncidence->revision() == inc->revision() &&
                         existingIncidence->lastModified() > inc->lastModified()) {
                     // This isn't an update - the found incidence was modified more recently
-                    qDebug() << "This isn't an update - the found incidence was modified more recently";
+                    qCDebug(KCALUTILS_LOG) << "This isn't an update - the found incidence was modified more recently";
                     deleteTransaction(existingIncidence);
                     return false;
                 }
-                qDebug() << "replacing existing incidence " << existingIncidence->uid();
+                qCDebug(KCALUTILS_LOG) << "replacing existing incidence " << existingIncidence->uid();
                 bool res = true;
                 const QString oldUid = existingIncidence->uid();
                 if (existingIncidence->type() != inc->type()) {
@@ -230,7 +230,7 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
             }
         } else {
             // This isn't an update - the found incidence has a bigger revision number
-            qDebug() << "This isn't an update - the found incidence has a bigger revision number";
+            qCDebug(KCALUTILS_LOG) << "This isn't an update - the found incidence has a bigger revision number";
             deleteTransaction(incidence);
             return false;
         }
@@ -254,7 +254,7 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
                   "<para>This is not a problem, but we thought you should know.</para>"),
             i18nc("@title", "Cannot find invitation to be updated"), QLatin1String("AcceptCantFindIncidence"));
     }
-    qDebug() << "Storing new incidence with scheduling uid=" << inc->schedulingID()
+    qCDebug(KCALUTILS_LOG) << "Storing new incidence with scheduling uid=" << inc->schedulingID()
              << " and uid=" << inc->uid();
     const bool result = mCalendar->addIncidence(inc);
 
@@ -284,7 +284,7 @@ bool Scheduler::acceptCancel(const IncidenceBase::Ptr &incidence,
     }
 
     const Incidence::List existingIncidences = mCalendar->incidencesFromSchedulingID(inc->uid());
-    qDebug() << "Scheduler::acceptCancel="
+    qCDebug(KCALUTILS_LOG) << "Scheduler::acceptCancel="
              << Stringify::scheduleMessageStatus(status)   //krazy2:exclude=kdebug
              << ": found " << existingIncidences.count()
              << " incidences with schedulingID " << inc->schedulingID();
@@ -293,7 +293,7 @@ bool Scheduler::acceptCancel(const IncidenceBase::Ptr &incidence,
     Incidence::List::ConstIterator incit = existingIncidences.begin();
     for (; incit != existingIncidences.end() ; ++incit) {
         Incidence::Ptr i = *incit;
-        qDebug() << "Considering this found event ("
+        qCDebug(KCALUTILS_LOG) << "Considering this found event ("
                  << (i->isReadOnly() ? "readonly" : "readwrite")
                  << ") :" << mFormat->toString(i);
 
@@ -308,7 +308,7 @@ bool Scheduler::acceptCancel(const IncidenceBase::Ptr &incidence,
         // is compared to other events in the calendar. But if we have another
         // version of the event around (e.g. shared folder for a group), the
         // status could be RequestNew, Obsolete or Updated.
-        qDebug() << "looking in " << i->uid() << "'s attendees";
+        qCDebug(KCALUTILS_LOG) << "looking in " << i->uid() << "'s attendees";
 
         // This is supposed to be a new request, not an update - however we want
         // to update the existing one to handle the "clicking more than once
@@ -321,7 +321,7 @@ bool Scheduler::acceptCancel(const IncidenceBase::Ptr &incidence,
                     (*ait)->status() == Attendee::NeedsAction) {
                 // This incidence wasn't created by me - it's probably in a shared
                 // folder and meant for someone else, ignore it.
-                qDebug() << "ignoring " << i->uid()
+                qCDebug(KCALUTILS_LOG) << "ignoring " << i->uid()
                          << " since I'm still NeedsAction there";
                 isMine = false;
                 break;
@@ -329,7 +329,7 @@ bool Scheduler::acceptCancel(const IncidenceBase::Ptr &incidence,
         }
 
         if (isMine) {
-            qDebug() << "removing existing incidence " << i->uid();
+            qCDebug(KCALUTILS_LOG) << "removing existing incidence " << i->uid();
             if (i->type() == IncidenceBase::TypeEvent) {
                 Event::Ptr event = mCalendar->event(i->uid());
                 ret = (event && mCalendar->deleteEvent(event));
@@ -389,7 +389,7 @@ bool Scheduler::acceptReply(const IncidenceBase::Ptr &incidence, ScheduleMessage
 
     if (ev || to) {
         //get matching attendee in calendar
-        qDebug() << "match found!";
+        qCDebug(KCALUTILS_LOG) << "match found!";
         Attendee::List attendeesIn = incidence->attendees();
         Attendee::List attendeesEv;
         Attendee::List attendeesNew;
@@ -408,7 +408,7 @@ bool Scheduler::acceptReply(const IncidenceBase::Ptr &incidence, ScheduleMessage
                 Attendee::Ptr attEv = *evIt;
                 if (attIn->email().toLower() == attEv->email().toLower()) {
                     //update attendee-info
-                    qDebug() << "update attendee";
+                    qCDebug(KCALUTILS_LOG) << "update attendee";
                     attEv->setStatus(attIn->status());
                     attEv->setDelegate(attIn->delegate());
                     attEv->setDelegator(attIn->delegator());
@@ -548,7 +548,7 @@ bool Scheduler::acceptFreeBusy(const IncidenceBase::Ptr &incidence, iTIPMethod m
 
     FreeBusy::Ptr freebusy = incidence.staticCast<FreeBusy>();
 
-    qDebug() << "freeBusyDirName:" << freeBusyDir();
+    qCDebug(KCALUTILS_LOG) << "freeBusyDirName:" << freeBusyDir();
 
     Person::Ptr from;
     if (method == iTIPPublish) {

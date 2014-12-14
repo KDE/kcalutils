@@ -7,6 +7,7 @@ set(kcalutils_SRCS
   scheduler.cpp
   vcaldrag.cpp
   dndfactory.cpp
+  kcalutils_debug.cpp
 )
 
 kconfig_add_kcfg_files(kcalutils_SRCS htmlexportsettings.kcfgc)

@@ -26,7 +26,7 @@
 #include <kcalcore/memorycalendar.h>
 using namespace KCalCore;
 
-#include <QDebug>
+#include "kcalutils_debug.h"
 #include <KCalendarSystem>
 
 #include <KLocalizedString>
@@ -279,7 +279,7 @@ void HtmlExport::createEventList(QTextStream *ts)
     *ts << "  </tr>" << endl;
 
     for (QDate dt = fromDate(); dt <= toDate(); dt = dt.addDays(1)) {
-        qDebug() << "Getting events for" << dt.toString();
+        qCDebug(KCALUTILS_LOG) << "Getting events for" << dt.toString();
         Event::List events = d->mCalendar->events(dt, d->mCalendar->timeSpec(),
                              EventSortStartDate,
                              SortDirectionAscending);
@@ -306,7 +306,7 @@ void HtmlExport::createEvent(QTextStream *ts,
                              const QDate &date,
                              bool withDescription)
 {
-    qDebug() << event->summary();
+    qCDebug(KCALUTILS_LOG) << event->summary();
     *ts << "  <tr>" << endl;
 
     if (!event->allDay()) {
@@ -475,7 +475,7 @@ void HtmlExport::createTodoList(QTextStream *ts)
 
 void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
 {
-    qDebug();
+    qCDebug(KCALUTILS_LOG);
 
     const bool completed = todo->isCompleted();
 
