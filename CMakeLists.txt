@@ -17,9 +17,10 @@ include(KDEFrameworkCompilerSettings)
 
 
 set(KF5_VERSION "5.5.0")
-set(KDEPIMLIBS_VERSION "4.79.0")
-
-ecm_setup_version(${KDEPIMLIBS_VERSION} VARIABLE_PREFIX KCALUTILS
+set(CALENDARUTILS_LIB_VERSION "4.79.0")
+set(CALENDARCORE_LIB_VERSION "4.79.0")
+set(IDENTITYMANAGER_LIB_VERSION "4.79.0")
+ecm_setup_version(${CALENDARUTILS_LIB_VERSION} VARIABLE_PREFIX KCALUTILS
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfigVersion.cmake"
                         SOVERSION 5
@@ -32,8 +33,8 @@ find_package(KF5I18n ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5KDELibs4Support ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5Codecs ${KF5_VERSION} CONFIG REQUIRED)
 
-find_package(KF5CalendarCore ${KDEPIMLIBS_VERSION} CONFIG REQUIRED)
-find_package(KF5IdentityManagement ${KDEPIMLIBS_VERSION} CONFIG REQUIRED)
+find_package(KF5CalendarCore ${CALENDARCORE_LIB_VERSION} CONFIG REQUIRED)
+find_package(KF5IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRED)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 add_definitions("-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII")
