@@ -20,7 +20,7 @@ generate_export_header(KF5CalendarUtils BASE_NAME kcalutils)
 
 add_library(KF5::CalendarUtils ALIAS KF5CalendarUtils)
 
-target_include_directories(KF5CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KCalUtils;${KF5_INCLUDE_INSTALL_DIR}/KCalUtils/kcalutils>")
+target_include_directories(KF5CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KCalUtils;${KF5_INCLUDE_INSTALL_DIR}/KCalUtils/kcalutils>")
 target_include_directories(KF5CalendarUtils PUBLIC "$<BUILD_INTERFACE:${KCalUtils_SOURCE_DIR}/src;${KCalUtils_BINARY_DIR}/src>")
 
 target_link_libraries(KF5CalendarUtils
@@ -63,16 +63,16 @@ install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h
   ${CMAKE_CURRENT_BINARY_DIR}/htmlexportsettings.h
   ${KCalUtils_HEADERS}
-  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KCalUtils/kcalutils
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KCalUtils/kcalutils
   COMPONENT Devel
 )
 
 install(FILES
   ${KCalUtils_CamelCase_HEADERS}
-  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KCalUtils/KCalUtils/
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KCalUtils/KCalUtils/
   COMPONENT Devel
 )
 
 
-ecm_generate_pri_file(BASE_NAME KCalUtils LIB_NAME KF5CalendarUtils DEPS "CalendarCore CoreAddons" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KF5_INCLUDE_INSTALL_DIR}/KCalUtils)
+ecm_generate_pri_file(BASE_NAME KCalUtils LIB_NAME KF5CalendarUtils DEPS "CalendarCore CoreAddons" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KCalUtils)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
