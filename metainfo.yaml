@@ -1,0 +1,14 @@
+maintainer:
+description: The KDE calendar utility library 
+tier: 3
+type: functional
+platforms:
+    - name: All
+portingAid: false
+deprecated: false
+release: false
+libraries:
+ - qmake: KCalUtils
+   cmake: "KF5::CalendarUtils"
+cmakename: KF5CalendarUtils
+
