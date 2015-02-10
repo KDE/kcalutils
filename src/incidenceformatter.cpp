@@ -80,7 +80,7 @@ static QString string2HTML(const QString &str)
     return KTextToHTML::convertToHtml(str, KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys);
 }
 
-static KIdentityManagement::IdentityManager *s_identityManager = 0;
+static KIdentityManagement::IdentityManager *s_identityManager = Q_NULLPTR;
 
 // Performance optimization so we only create one IdentityManager instead of 1 per attendee.
 // Using RAII to protect against future return statements in the middle of code
@@ -94,7 +94,7 @@ struct RAIIIdentityManager {
     ~RAIIIdentityManager()
     {
         delete s_identityManager;
-        s_identityManager = 0;
+        s_identityManager = Q_NULLPTR;
         //qCDebug(KCALUTILS_LOG) << "Elapsed time: " << t.elapsed();
     }
     //QElapsedTimer t;
@@ -1075,7 +1075,7 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
 {
 public:
     EventViewerVisitor()
-        : mCalendar(0), mSpec(KDateTime::Spec()), mResult(QLatin1String("")) {}
+        : mCalendar(Q_NULLPTR), mSpec(KDateTime::Spec()), mResult(QLatin1String("")) {}
 
     bool act(const Calendar::Ptr &calendar, IncidenceBase::Ptr incidence, const QDate &date,
              KDateTime::Spec spec = KDateTime::Spec())
@@ -1104,22 +1104,22 @@ public:
     }
 
 protected:
-    bool visit(Event::Ptr event)
+    bool visit(Event::Ptr event) Q_DECL_OVERRIDE
     {
         mResult = displayViewFormatEvent(mCalendar, mSourceName, event, mDate, mSpec);
         return !mResult.isEmpty();
     }
-    bool visit(Todo::Ptr todo)
+    bool visit(Todo::Ptr todo) Q_DECL_OVERRIDE
     {
         mResult = displayViewFormatTodo(mCalendar, mSourceName, todo, mDate, mSpec);
         return !mResult.isEmpty();
     }
-    bool visit(Journal::Ptr journal)
+    bool visit(Journal::Ptr journal) Q_DECL_OVERRIDE
     {
         mResult = displayViewFormatJournal(mCalendar, mSourceName, journal, mSpec);
         return !mResult.isEmpty();
     }
-    bool visit(FreeBusy::Ptr fb)
+    bool visit(FreeBusy::Ptr fb) Q_DECL_OVERRIDE
     {
         mResult = displayViewFormatFreeBusy(mCalendar, mSourceName, fb, mSpec);
         return !mResult.isEmpty();
@@ -2561,7 +2561,7 @@ static QString invitationAttachments(InvitationFormatterHelper *helper,
 class KCalUtils::IncidenceFormatter::ScheduleMessageVisitor : public Visitor
 {
 public:
-    ScheduleMessageVisitor() : mMessage(0)
+    ScheduleMessageVisitor() : mMessage(Q_NULLPTR)
     {
         mResult = QLatin1String("");
     }
@@ -2590,22 +2590,22 @@ class KCalUtils::IncidenceFormatter::InvitationHeaderVisitor :
     public IncidenceFormatter::ScheduleMessageVisitor
 {
 protected:
-    bool visit(Event::Ptr event)
+    bool visit(Event::Ptr event) Q_DECL_OVERRIDE
     {
         mResult = invitationHeaderEvent(event, mExistingIncidence, mMessage, mSender);
         return !mResult.isEmpty();
     }
-    bool visit(Todo::Ptr todo)
+    bool visit(Todo::Ptr todo) Q_DECL_OVERRIDE
     {
         mResult = invitationHeaderTodo(todo, mExistingIncidence, mMessage, mSender);
         return !mResult.isEmpty();
     }
-    bool visit(Journal::Ptr journal)
+    bool visit(Journal::Ptr journal) Q_DECL_OVERRIDE
     {
         mResult = invitationHeaderJournal(journal, mMessage);
         return !mResult.isEmpty();
     }
-    bool visit(FreeBusy::Ptr fb)
+    bool visit(FreeBusy::Ptr fb) Q_DECL_OVERRIDE
     {
         mResult = invitationHeaderFreeBusy(fb, mMessage);
         return !mResult.isEmpty();
@@ -2620,25 +2620,25 @@ public:
         : ScheduleMessageVisitor(), mNoHtmlMode(noHtmlMode), mSpec(spec) {}
 
 protected:
-    bool visit(Event::Ptr event)
+    bool visit(Event::Ptr event) Q_DECL_OVERRIDE
     {
         Event::Ptr oldevent = mExistingIncidence.dynamicCast<Event>();
         mResult = invitationDetailsEvent(event, oldevent, mMessage, mNoHtmlMode, mSpec);
         return !mResult.isEmpty();
     }
-    bool visit(Todo::Ptr todo)
+    bool visit(Todo::Ptr todo) Q_DECL_OVERRIDE
     {
         Todo::Ptr oldtodo = mExistingIncidence.dynamicCast<Todo>();
         mResult = invitationDetailsTodo(todo, oldtodo, mMessage, mNoHtmlMode, mSpec);
         return !mResult.isEmpty();
     }
-    bool visit(Journal::Ptr journal)
+    bool visit(Journal::Ptr journal) Q_DECL_OVERRIDE
     {
         Journal::Ptr oldjournal = mExistingIncidence.dynamicCast<Journal>();
         mResult = invitationDetailsJournal(journal, oldjournal, mNoHtmlMode, mSpec);
         return !mResult.isEmpty();
     }
-    bool visit(FreeBusy::Ptr fb)
+    bool visit(FreeBusy::Ptr fb) Q_DECL_OVERRIDE
     {
         mResult = invitationDetailsFreeBusy(fb, FreeBusy::Ptr(), mNoHtmlMode, mSpec);
         return !mResult.isEmpty();
@@ -2651,7 +2651,7 @@ private:
 //@endcond
 
 InvitationFormatterHelper::InvitationFormatterHelper()
-    : d(0)
+    : d(Q_NULLPTR)
 {
 }
 
@@ -2696,24 +2696,24 @@ public:
     }
 
 protected:
-    bool visit(Event::Ptr event)
+    bool visit(Event::Ptr event) Q_DECL_OVERRIDE
     {
         compareEvents(event, mExistingIncidence.dynamicCast<Event>());
         compareIncidences(event, mExistingIncidence);
         return !mChanges.isEmpty();
     }
-    bool visit(Todo::Ptr todo)
+    bool visit(Todo::Ptr todo) Q_DECL_OVERRIDE
     {
         compareTodos(todo, mExistingIncidence.dynamicCast<Todo>());
         compareIncidences(todo, mExistingIncidence);
         return !mChanges.isEmpty();
     }
-    bool visit(Journal::Ptr journal)
+    bool visit(Journal::Ptr journal) Q_DECL_OVERRIDE
     {
         compareIncidences(journal, mExistingIncidence);
         return !mChanges.isEmpty();
     }
-    bool visit(FreeBusy::Ptr fb)
+    bool visit(FreeBusy::Ptr fb) Q_DECL_OVERRIDE
     {
         Q_UNUSED(fb);
         return !mChanges.isEmpty();
@@ -3411,10 +3411,10 @@ public:
     }
 
 protected:
-    bool visit(Event::Ptr event);
-    bool visit(Todo::Ptr todo);
-    bool visit(Journal::Ptr journal);
-    bool visit(FreeBusy::Ptr fb);
+    bool visit(Event::Ptr event) Q_DECL_OVERRIDE;
+    bool visit(Todo::Ptr todo) Q_DECL_OVERRIDE;
+    bool visit(Journal::Ptr journal) Q_DECL_OVERRIDE;
+    bool visit(FreeBusy::Ptr fb) Q_DECL_OVERRIDE;
 
     QString dateRangeText(const Event::Ptr &event, const QDate &date);
     QString dateRangeText(const Todo::Ptr &todo, const QDate &date);
@@ -3862,10 +3862,10 @@ public:
     }
 
 protected:
-    bool visit(Event::Ptr event);
-    bool visit(Todo::Ptr todo);
-    bool visit(Journal::Ptr journal);
-    bool visit(FreeBusy::Ptr)
+    bool visit(Event::Ptr event) Q_DECL_OVERRIDE;
+    bool visit(Todo::Ptr todo) Q_DECL_OVERRIDE;
+    bool visit(Journal::Ptr journal) Q_DECL_OVERRIDE;
+    bool visit(FreeBusy::Ptr) Q_DECL_OVERRIDE
     {
         mResult = i18n("This is a Free Busy Object");
         return !mResult.isEmpty();

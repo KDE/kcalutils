@@ -35,7 +35,7 @@ using namespace KCalUtils;
 //@cond PRIVATE
 struct KCalUtils::Scheduler::Private {
 public:
-    Private() : mFreeBusyCache(0)
+    Private() : mFreeBusyCache(Q_NULLPTR)
     {
     }
     FreeBusyCache *mFreeBusyCache;
@@ -240,7 +240,7 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
     // notify the user in case this is an update and we didn't find the to-be-updated incidence
     if (existingIncidences.count() == 0 && inc->revision() > 0) {
         KMessageBox::information(
-            0,
+            Q_NULLPTR,
             xi18nc("@info",
                    "<para>You accepted an invitation update, but an earlier version of the "
                    "item could not be found in your calendar.</para>"
@@ -344,7 +344,7 @@ bool Scheduler::acceptCancel(const IncidenceBase::Ptr &incidence,
     // in case we didn't find the to-be-removed incidence
     if (existingIncidences.count() > 0 && inc->revision() > 0) {
         KMessageBox::error(
-            0,
+            Q_NULLPTR,
             i18nc("@info",
                   "The event or task could not be removed from your calendar. "
                   "Maybe it has already been deleted or is not owned by you. "
@@ -434,7 +434,7 @@ bool Scheduler::acceptReply(const IncidenceBase::Ptr &incidence, ScheduleMessage
                             (ev ? ev->summary() : to->summary()), attNew->delegator());
             }
             if (KMessageBox::questionYesNo(
-                        0, msg, i18nc("@title", "Uninvited attendee"),
+                        Q_NULLPTR, msg, i18nc("@title", "Uninvited attendee"),
                         KGuiItem(i18nc("@option", "Accept Attendance")),
                         KGuiItem(i18nc("@option", "Reject Attendance"))) != KMessageBox::Yes) {
                 Incidence::Ptr cancel = incidence.dynamicCast<Incidence>();
@@ -469,7 +469,7 @@ bool Scheduler::acceptReply(const IncidenceBase::Ptr &incidence, ScheduleMessage
             bool sendMail = false;
             if (ev || to) {
                 if (KMessageBox::questionYesNo(
-                            0,
+                            Q_NULLPTR,
                             i18nc("@info",
                                   "An attendee was added to the incidence. "
                                   "Do you want to email the attendees an update message?"),
