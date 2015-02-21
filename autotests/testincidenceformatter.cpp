@@ -26,6 +26,7 @@
 
 #include <KDateTime>
 #include <KLocalizedString>
+#include <KLocale>
 
 #include <QDebug>
 #include <qtest.h>
@@ -41,6 +42,7 @@ void IncidenceFormatterTest::testRecurrenceString()
 
     QDate day(2010, 10, 3);
     QTime tim(12, 0, 0);
+    QDateTime dateTime(day, tim);
     KDateTime kdt(day, tim, KDateTime::UTC);
     e1->setDtStart(kdt);
     e1->setDtEnd(kdt.addSecs(60 * 60));      // 1hr event
@@ -51,21 +53,24 @@ void IncidenceFormatterTest::testRecurrenceString()
 
     r1->setDaily(1);
     r1->setEndDateTime(kdt.addDays(5));     // ends 5 days from now
+    QString endDateStr = KLocale::global()->formatDateTime(kdt.addDays(5));
     QCOMPARE(IncidenceFormatter::recurrenceString(e1),
-             i18n("Recurs daily until 2010-10-08 12:00"));
+             i18n("Recurs daily until %1", endDateStr));
 
     r1->setFrequency(2);
 
     QCOMPARE(IncidenceFormatter::recurrenceString(e1),
-             i18n("Recurs every 2 days until 2010-10-08 12:00"));
+             i18n("Recurs every 2 days until %1", endDateStr));
 
     r1->addExDate(kdt.addDays(1).date());
+    QString exDateStr = QLocale().toString(kdt.addDays(1).date(), QLocale::ShortFormat);
     QCOMPARE(IncidenceFormatter::recurrenceString(e1),
-             i18n("Recurs every 2 days until 2010-10-08 12:00 (excluding 2010-10-04)"));
+             i18n("Recurs every 2 days until %1 (excluding %2)", endDateStr, exDateStr));
 
     r1->addExDate(kdt.addDays(3).date());
+    QString exDateStr2 = QLocale().toString(kdt.addDays(3).date(), QLocale::ShortFormat);
     QCOMPARE(IncidenceFormatter::recurrenceString(e1),
-             i18n("Recurs every 2 days until 2010-10-08 12:00 (excluding 2010-10-04,2010-10-06)"));
+             i18n("Recurs every 2 days until %1 (excluding %2,%3)", endDateStr, exDateStr, exDateStr2));
 
     // TEST: An daily recurrence, with datetime exclusions //
     Event::Ptr e2 = Event::Ptr(new Event());
@@ -77,20 +82,20 @@ void IncidenceFormatterTest::testRecurrenceString()
     r2->setDaily(1);
     r2->setEndDate(kdt.addDays(5).date());     // ends 5 days from now
     QCOMPARE(IncidenceFormatter::recurrenceString(e2),
-             i18n("Recurs daily until 2010-10-08 12:00"));
+             i18n("Recurs daily until %1", endDateStr));
 
     r2->setFrequency(2);
 
     QCOMPARE(IncidenceFormatter::recurrenceString(e2),
-             i18n("Recurs every 2 days until 2010-10-08 12:00"));
+             i18n("Recurs every 2 days until %1", endDateStr));
 
     r2->addExDateTime(kdt.addDays(1));
     QCOMPARE(IncidenceFormatter::recurrenceString(e2),
-             i18n("Recurs every 2 days until 2010-10-08 12:00 (excluding 2010-10-04)"));
+             i18n("Recurs every 2 days until %1 (excluding %2)", endDateStr, exDateStr));
 
     r2->addExDate(kdt.addDays(3).date());
     QCOMPARE(IncidenceFormatter::recurrenceString(e2),
-             i18n("Recurs every 2 days until 2010-10-08 12:00 (excluding 2010-10-04,2010-10-06)"));
+             i18n("Recurs every 2 days until %1 (excluding %2,%3)", endDateStr, exDateStr, exDateStr2));
 
     // TEST: An hourly recurrence, with exclusions //
     Event::Ptr e3 = Event::Ptr(new Event());
@@ -101,21 +106,24 @@ void IncidenceFormatterTest::testRecurrenceString()
 
     r3->setHourly(1);
     r3->setEndDateTime(kdt.addSecs(5 * 60 * 60));     // ends 5 hrs from now
+    endDateStr = KLocale::global()->formatDateTime(r3->endDateTime());
     QCOMPARE(IncidenceFormatter::recurrenceString(e3),
-             i18n("Recurs hourly until 2010-10-03 17:00"));
+             i18n("Recurs hourly until %1", endDateStr));
 
     r3->setFrequency(2);
 
     QCOMPARE(IncidenceFormatter::recurrenceString(e3),
-             i18n("Recurs every 2 hours until 2010-10-03 17:00"));
+             i18n("Recurs every 2 hours until %1", endDateStr));
 
     r3->addExDateTime(kdt.addSecs(1 * 60 * 60));
+    QString hourStr = KLocale::global()->formatTime(QTime(13, 0));
     QCOMPARE(IncidenceFormatter::recurrenceString(e3),
-             i18n("Recurs every 2 hours until 2010-10-03 17:00 (excluding 13:00)"));
+             i18n("Recurs every 2 hours until %1 (excluding %2)", endDateStr, hourStr));
 
     r3->addExDateTime(kdt.addSecs(3 * 60 * 60));
+    QString hourStr2 = KLocale::global()->formatTime(QTime(15, 0));
     QCOMPARE(IncidenceFormatter::recurrenceString(e3),
-             i18n("Recurs every 2 hours until 2010-10-03 17:00 (excluding 13:00,15:00)"));
+             i18n("Recurs every 2 hours until %1 (excluding %2,%3)", endDateStr, hourStr, hourStr2));
 
 //  qDebug() << "recurrenceString=" << IncidenceFormatter::recurrenceString( e3 );
 }
