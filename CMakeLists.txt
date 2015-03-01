@@ -16,7 +16,7 @@ include(KDECMakeSettings)
 include(KDEFrameworkCompilerSettings)
 
 
-set(KF5_VERSION "5.6.0")
+set(KF5_VERSION "5.7.0")
 set(CALENDARUTILS_LIB_VERSION "4.79.0")
 set(CALENDARCORE_LIB_VERSION "4.79.0")
 set(IDENTITYMANAGER_LIB_VERSION "4.79.0")
