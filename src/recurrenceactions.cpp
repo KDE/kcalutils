@@ -38,8 +38,6 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-#include <boost/shared_ptr.hpp>
-
 using namespace KCalUtils;
 using namespace KCalUtils::RecurrenceActions;
 using namespace KCalCore;
