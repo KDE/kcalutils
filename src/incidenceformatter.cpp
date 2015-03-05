@@ -3172,6 +3172,9 @@ static QString formatICalInvitationHelper(QString invitation,
 
     // determine if RSVP needed, not-needed, or response already recorded
     bool rsvpReq = rsvpRequested(inc);
+    if (!rsvpReq && a && a->status() == Attendee::NeedsAction) {
+        rsvpReq = true;
+    }
     if (!myInc && a) {
         QString tStr;
         if (rsvpRec && inc) {
