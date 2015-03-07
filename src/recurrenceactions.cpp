@@ -144,29 +144,42 @@ int RecurrenceActions::availableOccurrences(const Incidence::Ptr &incidence,
     return result;
 }
 
+static QDialog* createDialog(QDialogButtonBox::StandardButtons buttons,
+                             const QString &caption, QWidget *mainWidget,
+                             QDialogButtonBox **buttonBox, QWidget *parent)
+{
+    QPointer<QDialog> dialog = new QDialog(parent);
+    dialog->setWindowTitle(caption);
+    QVBoxLayout *mainLayout = new QVBoxLayout();
+    dialog->setLayout(mainLayout);
+
+    *buttonBox = new QDialogButtonBox(buttons);
+    QPushButton *okButton = (*buttonBox)->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    QObject::connect(*buttonBox, &QDialogButtonBox::accepted, dialog, &QDialog::accept);
+    QObject::connect(*buttonBox, &QDialogButtonBox::rejected, dialog, &QDialog::reject);
+    (*buttonBox)->button(QDialogButtonBox::Ok)->setDefault(true);
+
+    if (mainWidget)
+        mainLayout->addWidget(mainWidget);
+
+    mainLayout->addWidget(*buttonBox);
+
+    return dialog;
+}
+
 int RecurrenceActions::questionMultipleChoice(const KDateTime &selectedOccurrence,
         const QString &message, const QString &caption,
         const KGuiItem &action, int availableChoices,
         int preselectedChoices, QWidget *parent)
 {
-    QPointer<QDialog> dialog = new QDialog(parent);
-    dialog->setWindowTitle(caption);
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    QWidget *mainWidget = new QWidget(dialog);
-    QVBoxLayout *mainLayout = new QVBoxLayout();
-    dialog->setLayout(mainLayout);
-    mainLayout->addWidget(mainWidget);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    QObject::connect(buttonBox, &QDialogButtonBox::accepted, dialog, &QDialog::accept);
-    QObject::connect(buttonBox, &QDialogButtonBox::rejected, dialog, &QDialog::reject);
-    buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
-    KGuiItem::assign(okButton, action);
+    QDialogButtonBox::StandardButtons buttons = QDialogButtonBox::Ok | QDialogButtonBox::Cancel;
+    ScopeWidget *widget = new ScopeWidget(availableChoices, selectedOccurrence, 0);
+    QDialogButtonBox *buttonBox = 0;
+    auto dialog = createDialog(buttons, caption, widget, &buttonBox, parent);
 
-    ScopeWidget *widget = new ScopeWidget(availableChoices, selectedOccurrence, dialog);
-    mainLayout->addWidget(widget);
-    mainLayout->addWidget(buttonBox);
+    KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), action);
 
     widget->setMessage(message);
     widget->setIcon(widget->style()->standardIcon(QStyle::SP_MessageBoxQuestion));
@@ -188,42 +201,33 @@ int RecurrenceActions::questionSelectedAllCancel(const QString &message, const Q
         const KGuiItem &actionSelected,
         const KGuiItem &actionAll, QWidget *parent)
 {
-    QDialog *dialog = new QDialog(parent);
-    QVBoxLayout *mainLayout = new QVBoxLayout();
-    dialog->setLayout(mainLayout);
-    dialog->setWindowTitle(caption);
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::No | QDialogButtonBox::Yes);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    QObject::connect(buttonBox, &QDialogButtonBox::accepted, dialog, &QDialog::accept);
-    QObject::connect(buttonBox, &QDialogButtonBox::rejected, dialog, &QDialog::reject);
-    mainLayout->addWidget(buttonBox);
+    QDialogButtonBox::StandardButtons buttons = QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::No | QDialogButtonBox::Yes;
+    QDialogButtonBox *buttonBox = 0;
+    auto dialog = createDialog(buttons, caption, Q_NULLPTR, &buttonBox, parent);
     dialog->setObjectName(QLatin1String("RecurrenceActions::questionSelectedAllCancel"));
-    buttonBox->button(QDialogButtonBox::Yes)->setDefault(true);
-    KGuiItem::assign(buttonBox->button(QDialogButtonBox::Yes), actionSelected);
-    KGuiItem::assign(okButton, actionAll);
 
-    // Qt5: Port
-//   bool checkboxResult = false;
-//   int result = KMessageBox::createKMessageBox(
-//     dialog,
-//     QMessageBox::Question,
-//     message,
-//     QStringList(),
-//     QString(),
-//     &checkboxResult,
-//     KMessageBox::Notify );
-//
-//   switch (result) {
-//     case QDialog::Yes:
-//       return SelectedOccurrence;
-//     case QDialog::Accepted:
-//       // See kdialog.h, 'Ok' doesn't return QDialog:Ok
-//       return AllOccurrences;
-//     default:
-//       return NoOccurrence;
-//   }
+    KGuiItem::assign(buttonBox->button(QDialogButtonBox::Yes), actionSelected);
+    KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), actionAll);
+
+   bool checkboxResult = false;
+   int result = KMessageBox::createKMessageBox(
+     dialog,
+     buttonBox,
+     QMessageBox::Question,
+     message,
+     QStringList(),
+     QString(),
+     &checkboxResult,
+     KMessageBox::Notify );
+
+   switch (result) {
+     case QDialogButtonBox::Yes:
+       return SelectedOccurrence;
+     case QDialogButtonBox::Ok:
+       return AllOccurrences;
+     default:
+       return NoOccurrence;
+   }
 
     return NoOccurrence;
 }
@@ -235,44 +239,36 @@ int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message,
         const KGuiItem &actionAll,
         QWidget *parent)
 {
-    QDialog *dialog = new QDialog(parent);
-    QVBoxLayout *mainLayout = new QVBoxLayout();
-    dialog->setLayout(mainLayout);
-    dialog->setWindowTitle(caption);
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::No | QDialogButtonBox::Yes);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    QObject::connect(buttonBox, &QDialogButtonBox::accepted, dialog, &QDialog::accept);
-    QObject::connect(buttonBox, &QDialogButtonBox::rejected, dialog, &QDialog::reject);
-    mainLayout->addWidget(buttonBox);
+    QDialogButtonBox::StandardButtons buttons = QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::No | QDialogButtonBox::Yes;
+    QDialogButtonBox *buttonBox = 0;
+    auto dialog = createDialog(buttons, caption, Q_NULLPTR, &buttonBox, parent);
+
     dialog->setObjectName(QLatin1String("RecurrenceActions::questionSelectedFutureAllCancel"));
-    buttonBox->button(QDialogButtonBox::Yes)->setDefault(true);
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Yes), actionSelected);
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::No), actionFuture);
-    KGuiItem::assign(okButton, actionAll);
+    KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), actionAll);
 
-    // Qt5: Port
-//   bool checkboxResult = false;
-//   int result = KMessageBox::createKMessageBox(
-//     dialog,
-//     QMessageBox::Question,
-//     message,
-//     QStringList(),
-//     QString(),
-//     &checkboxResult,
-//     KMessageBox::Notify );
-//
-//   switch (result) {
-//     case QDialog::Yes:
-//       return SelectedOccurrence;
-//     case QDialog::No:
-//       return FutureOccurrences;
-//     case QDialog::Accepted:
-//       return AllOccurrences;
-//     default:
-//       return NoOccurrence;
-//   }
+   bool checkboxResult = false;
+   int result = KMessageBox::createKMessageBox(
+     dialog,
+     buttonBox,
+     QMessageBox::Question,
+     message,
+     QStringList(),
+     QString(),
+     &checkboxResult,
+     KMessageBox::Notify );
+
+   switch (result) {
+     case QDialogButtonBox::Yes:
+       return SelectedOccurrence;
+     case QDialogButtonBox::No:
+       return FutureOccurrences;
+     case QDialogButtonBox::Ok:
+       return AllOccurrences;
+     default:
+       return NoOccurrence;
+   }
 
     return NoOccurrence;
 }
