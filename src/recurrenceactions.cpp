@@ -157,8 +157,8 @@ static QDialog* createDialog(QDialogButtonBox::StandardButtons buttons,
     QPushButton *okButton = (*buttonBox)->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    QObject::connect(*buttonBox, &QDialogButtonBox::accepted, dialog, &QDialog::accept);
-    QObject::connect(*buttonBox, &QDialogButtonBox::rejected, dialog, &QDialog::reject);
+    QObject::connect(*buttonBox, &QDialogButtonBox::accepted, dialog.data(), &QDialog::accept);
+    QObject::connect(*buttonBox, &QDialogButtonBox::rejected, dialog.data(), &QDialog::reject);
     (*buttonBox)->button(QDialogButtonBox::Ok)->setDefault(true);
 
     if (mainWidget)
