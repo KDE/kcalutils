@@ -2927,6 +2927,10 @@ static QString responseButtons(const Incidence::Ptr &incidence,
         // Decline
         html += inviteButton(helper, QLatin1String("decline"),
                              i18nc("decline invitation", "Decline"));
+
+        // Postpone
+        html += inviteButton(helper, QLatin1String("postpone"),
+                             i18nc("postpone invitation", "Postpone"));
     }
 
     if (!rsvpRec || (incidence && incidence->revision() > 0)) {
