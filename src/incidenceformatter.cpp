@@ -1049,6 +1049,8 @@ public:
     EventViewerVisitor()
         : mCalendar(Q_NULLPTR), mSpec(KDateTime::Spec()), mResult(QLatin1String("")) {}
 
+    ~EventViewerVisitor();
+
     bool act(const Calendar::Ptr &calendar, IncidenceBase::Ptr incidence, const QDate &date,
              KDateTime::Spec spec = KDateTime::Spec())
     {
@@ -1105,6 +1107,8 @@ protected:
     QString mResult;
 };
 //@endcond
+
+EventViewerVisitor::~EventViewerVisitor() {}
 
 QString IncidenceFormatter::extensiveDisplayStr(const Calendar::Ptr &calendar,
         const IncidenceBase::Ptr &incidence,
@@ -2532,6 +2536,9 @@ public:
     {
         mResult = QLatin1String("");
     }
+
+    ~ScheduleMessageVisitor();
+
     bool act(const IncidenceBase::Ptr &incidence,
              const Incidence::Ptr &existingIncidence,
              ScheduleMessage::Ptr msg, const QString &sender)
@@ -2553,9 +2560,14 @@ protected:
     QString mSender;
 };
 
+ScheduleMessageVisitor::~ScheduleMessageVisitor() {}
+
 class KCalUtils::IncidenceFormatter::InvitationHeaderVisitor :
     public IncidenceFormatter::ScheduleMessageVisitor
 {
+public:
+    ~InvitationHeaderVisitor();
+
 protected:
     bool visit(Event::Ptr event) Q_DECL_OVERRIDE
     {
@@ -2579,12 +2591,16 @@ protected:
     }
 };
 
+KCalUtils::IncidenceFormatter::InvitationHeaderVisitor::~InvitationHeaderVisitor() {}
+
 class KCalUtils::IncidenceFormatter::InvitationBodyVisitor
     : public IncidenceFormatter::ScheduleMessageVisitor
 {
 public:
     InvitationBodyVisitor(bool noHtmlMode, KDateTime::Spec spec)
         : ScheduleMessageVisitor(), mNoHtmlMode(noHtmlMode), mSpec(spec) {}
+
+    ~InvitationBodyVisitor();
 
 protected:
     bool visit(Event::Ptr event) Q_DECL_OVERRIDE
@@ -2617,6 +2633,8 @@ private:
 };
 //@endcond
 
+InvitationBodyVisitor::~InvitationBodyVisitor() {}
+
 InvitationFormatterHelper::InvitationFormatterHelper()
     : d(Q_NULLPTR)
 {
@@ -2636,6 +2654,8 @@ class IncidenceFormatter::IncidenceCompareVisitor : public Visitor
 {
 public:
     IncidenceCompareVisitor() {}
+    ~IncidenceCompareVisitor();
+
     bool act(const IncidenceBase::Ptr &incidence,
              const Incidence::Ptr &existingIncidence)
     {
@@ -2805,6 +2825,8 @@ private:
     QStringList mChanges;
 };
 //@endcond
+
+IncidenceCompareVisitor::~IncidenceCompareVisitor() {}
 
 QString InvitationFormatterHelper::makeLink(const QString &id, const QString &text)
 {

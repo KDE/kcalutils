@@ -72,6 +72,8 @@ public:
         }
     }
 
+    ~ScopeWidget();
+
     void setMessage(const QString &message);
     void setIcon(const QIcon &icon);
 
@@ -82,6 +84,8 @@ private:
     const int mAvailableChoices;
     Ui_RecurrenceActionsScopeWidget mUi;
 };
+
+ScopeWidget::~ScopeWidget() {}
 
 void ScopeWidget::setMessage(const QString &message)
 {
