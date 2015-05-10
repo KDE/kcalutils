@@ -399,7 +399,7 @@ static QString displayViewFormatAttendees(Calendar::Ptr calendar, Incidence::Ptr
     int attendeeCount = incidence->attendees().count();
     if (attendeeCount > 1 ||
             (attendeeCount == 1 &&
-             !attendeeIsOrganizer(incidence, incidence->attendees().first()))) {
+             !attendeeIsOrganizer(incidence, incidence->attendees().at(0)))) {
 
         QPair<QString, QString> s = searchNameAndUid(incidence->organizer()->email(),
                                     incidence->organizer()->name(),
@@ -3184,7 +3184,7 @@ static QString formatICalInvitationHelper(QString invitation,
     Attendee::Ptr a = findMyAttendee(inc);
     if (!a && inc) {
         if (!inc->attendees().isEmpty()) {
-            a = inc->attendees().first();
+            a = inc->attendees().at(0);
         }
     }
     if (a) {
@@ -3292,7 +3292,7 @@ static QString formatICalInvitationHelper(QString invitation,
 
             // Finally, simply allow a Record of the reply
             if (!inc->attendees().isEmpty()) {
-                a = inc->attendees().first();
+                a = inc->attendees().at(0);
             }
             if (a && helper->calendar()) {
                 ea = findAttendee(existingIncidence, a->email());
@@ -3673,7 +3673,7 @@ static QString tooltipFormatAttendees(const Calendar::Ptr &calendar,
     int attendeeCount = incidence->attendees().count();
     if (attendeeCount > 1 ||
             (attendeeCount == 1 &&
-             !attendeeIsOrganizer(incidence, incidence->attendees().first()))) {
+             !attendeeIsOrganizer(incidence, incidence->attendees().at(0)))) {
         tmpStr += QLatin1String("<i>") + i18n("Organizer:") + QLatin1String("</i>") + QLatin1String("<br>");
         tmpStr += QLatin1String("&nbsp;&nbsp;") + tooltipFormatOrganizer(incidence->organizer()->email(),
                   incidence->organizer()->name());
