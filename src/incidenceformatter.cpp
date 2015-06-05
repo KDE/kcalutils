@@ -2777,7 +2777,7 @@ static QString formatICalInvitationHelper(const QString &invitation,
     // Determine if this incidence is in my calendar (and owned by me)
     Incidence::Ptr existingIncidence;
     if (incBase && helper->calendar()) {
-        existingIncidence = helper->calendar()->incidence(incBase->uid());
+        existingIncidence = helper->calendar()->incidence(incBase->uid(), incBase->recurrenceId());
 
         if (!incidenceOwnedByMe(helper->calendar(), existingIncidence)) {
             existingIncidence.clear();
