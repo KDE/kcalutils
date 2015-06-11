@@ -45,8 +45,8 @@
 #include <kcalcore/visitor.h>
 using namespace KCalCore;
 
-#include <identitymanager.h>
-#include <utils.h>
+#include <kidentitymanagement/identitymanager.h>
+#include <kidentitymanagement/utils.h>
 
 #include <kemailaddress.h>
 #include <ktexttohtml.h>
