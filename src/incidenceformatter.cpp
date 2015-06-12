@@ -2786,7 +2786,8 @@ static QString formatICalInvitationHelper(const QString &invitation,
             const Incidence::List list = helper->calendar()->incidences();
             for (Incidence::List::ConstIterator it = list.begin(), end = list.end(); it != end; ++it) {
                 if ((*it)->schedulingID() == incBase->uid() &&
-                        incidenceOwnedByMe(helper->calendar(), *it)) {
+                        incidenceOwnedByMe(helper->calendar(), *it) &&
+                    (*it)->recurrenceId() == incBase->recurrenceId()) {
                     existingIncidence = *it;
                     break;
                 }
