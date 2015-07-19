@@ -87,7 +87,7 @@ KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName,
                                     const KCalCore::IncidenceBase::Ptr &incidence,
                                     const QDate &date = QDate(),
                                     bool richText = true,
-                                    KDateTime::Spec spec = KDateTime::Spec());
+                                    const KDateTime::Spec &spec = KDateTime::Spec());
 
 /**
   Create a RichText QString representation of an Incidence in a nice format
@@ -102,7 +102,7 @@ KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName,
 KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalCore::Calendar::Ptr &calendar,
         const KCalCore::IncidenceBase::Ptr &incidence,
         const QDate &date = QDate(),
-        KDateTime::Spec spec = KDateTime::Spec());
+        const KDateTime::Spec &spec = KDateTime::Spec());
 
 /**
   Create a RichText QString representation of an Incidence in a nice format
@@ -117,7 +117,7 @@ KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalCore::Calendar::Ptr &cale
 KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName,
         const KCalCore::IncidenceBase::Ptr &incidence,
         const QDate &date = QDate(),
-        KDateTime::Spec spec = KDateTime::Spec());
+        const KDateTime::Spec &spec = KDateTime::Spec());
 
 /**
   Create a QString representation of an Incidence in format suitable for
@@ -127,7 +127,7 @@ KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName,
   will shift the Incidence times to different timezones.
 */
 KCALUTILS_EXPORT QString mailBodyStr(const KCalCore::IncidenceBase::Ptr &incidence,
-                                     KDateTime::Spec spec = KDateTime::Spec());
+                                     const KDateTime::Spec &spec = KDateTime::Spec());
 
 /**
   Deliver an HTML formatted string displaying an invitation.
@@ -141,7 +141,7 @@ KCALUTILS_EXPORT QString mailBodyStr(const KCalCore::IncidenceBase::Ptr &inciden
   of Microsoft Outlook (tm); else use our own "classic" style.
 */
 KCALUTILS_EXPORT QString formatICalInvitation(
-    QString invitation,
+    const QString &invitation,
     const KCalCore::MemoryCalendar::Ptr &calendar,
     InvitationFormatterHelper *helper,
     bool outlookCompareStyle);

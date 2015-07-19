@@ -185,7 +185,7 @@ static QString searchName(const QString &email, const QString &name)
     return printName;
 }
 
-static bool iamOrganizer(Incidence::Ptr incidence)
+static bool iamOrganizer(const Incidence::Ptr &incidence)
 {
     // Check if the user is the organizer for this incidence
 
@@ -196,7 +196,7 @@ static bool iamOrganizer(Incidence::Ptr incidence)
     return thatIsMe(incidence->organizer()->email());
 }
 
-static bool senderIsOrganizer(Incidence::Ptr incidence, const QString &sender)
+static bool senderIsOrganizer(const Incidence::Ptr &incidence, const QString &sender)
 {
     // Check if the specified sender is the organizer
 
@@ -226,7 +226,7 @@ static bool attendeeIsOrganizer(const Incidence::Ptr &incidence, const Attendee:
     }
 }
 
-static QString organizerName(const Incidence::Ptr incidence, const QString &defName)
+static QString organizerName(const Incidence::Ptr &incidence, const QString &defName)
 {
     QString tName;
     if (!defName.isEmpty()) {
@@ -358,7 +358,7 @@ static bool incOrganizerOwnsCalendar(const Calendar::Ptr &calendar,
     return iamOrganizer(incidence);
 }
 
-static QString displayViewFormatAttendeeRoleList(Incidence::Ptr incidence, Attendee::Role role,
+static QString displayViewFormatAttendeeRoleList(const Incidence::Ptr &incidence, Attendee::Role role,
         bool showStatus)
 {
     QString tmpStr;
@@ -391,7 +391,7 @@ static QString displayViewFormatAttendeeRoleList(Incidence::Ptr incidence, Atten
     return tmpStr;
 }
 
-static QString displayViewFormatAttendees(Calendar::Ptr calendar, Incidence::Ptr incidence)
+static QString displayViewFormatAttendees(const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
 {
     QString tmpStr, str;
 
@@ -457,7 +457,7 @@ static QString displayViewFormatAttendees(Calendar::Ptr calendar, Incidence::Ptr
     return tmpStr;
 }
 
-static QString displayViewFormatAttachments(Incidence::Ptr incidence)
+static QString displayViewFormatAttachments(const Incidence::Ptr &incidence)
 {
     QString tmpStr;
     Attachment::List as = incidence->attachments();
@@ -489,19 +489,19 @@ static QString displayViewFormatAttachments(Incidence::Ptr incidence)
     return tmpStr;
 }
 
-static QString displayViewFormatCategories(Incidence::Ptr incidence)
+static QString displayViewFormatCategories(const Incidence::Ptr &incidence)
 {
     // We do not use Incidence::categoriesStr() since it does not have whitespace
     return incidence->categories().join(QLatin1String(", "));
 }
 
-static QString displayViewFormatCreationDate(Incidence::Ptr incidence, KDateTime::Spec spec)
+static QString displayViewFormatCreationDate(const Incidence::Ptr &incidence, const KDateTime::Spec &spec)
 {
     KDateTime kdt = incidence->created().toTimeSpec(spec);
     return i18n("Creation date: %1", dateTimeToString(incidence->created(), false, true, spec));
 }
 
-static QString displayViewFormatBirthday(Event::Ptr event)
+static QString displayViewFormatBirthday(const Event::Ptr &event)
 {
     if (!event) {
         return QString();
@@ -519,7 +519,7 @@ static QString displayViewFormatBirthday(Event::Ptr event)
     return tmpStr;
 }
 
-static QString displayViewFormatHeader(Incidence::Ptr incidence)
+static QString displayViewFormatHeader(const Incidence::Ptr &incidence)
 {
     QString tmpStr = QLatin1String("<table><tr>");
 
@@ -563,9 +563,9 @@ static QString displayViewFormatHeader(Incidence::Ptr incidence)
     return tmpStr;
 }
 
-static QString displayViewFormatEvent(const Calendar::Ptr calendar, const QString &sourceName,
+static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QString &sourceName,
                                       const Event::Ptr &event,
-                                      const QDate &date, KDateTime::Spec spec)
+                                      const QDate &date, const KDateTime::Spec &spec)
 {
     if (!event) {
         return QString();
@@ -758,7 +758,7 @@ static QString displayViewFormatEvent(const Calendar::Ptr calendar, const QStrin
 
 static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QString &sourceName,
                                      const Todo::Ptr &todo,
-                                     const QDate &ocurrenceDueDate, KDateTime::Spec spec)
+                                     const QDate &ocurrenceDueDate, const KDateTime::Spec &spec)
 {
     if (!todo) {
         qCDebug(KCALUTILS_LOG) << "IncidenceFormatter::displayViewFormatTodo was called without to-do, quitting";
@@ -928,7 +928,7 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
 }
 
 static QString displayViewFormatJournal(const Calendar::Ptr &calendar, const QString &sourceName,
-                                        const Journal::Ptr &journal, KDateTime::Spec spec)
+                                        const Journal::Ptr &journal, const KDateTime::Spec &spec)
 {
     if (!journal) {
         return QString();
@@ -980,7 +980,7 @@ static QString displayViewFormatJournal(const Calendar::Ptr &calendar, const QSt
 }
 
 static QString displayViewFormatFreeBusy(const Calendar::Ptr &calendar, const QString &sourceName,
-        const FreeBusy::Ptr &fb, KDateTime::Spec spec)
+        const FreeBusy::Ptr &fb, const KDateTime::Spec &spec)
 {
     Q_UNUSED(calendar);
     Q_UNUSED(sourceName);
@@ -1051,8 +1051,8 @@ public:
 
     ~EventViewerVisitor();
 
-    bool act(const Calendar::Ptr &calendar, IncidenceBase::Ptr incidence, const QDate &date,
-             KDateTime::Spec spec = KDateTime::Spec())
+    bool act(const Calendar::Ptr &calendar, const IncidenceBase::Ptr &incidence, const QDate &date,
+             const KDateTime::Spec &spec = KDateTime::Spec())
     {
         mCalendar = calendar;
         mSourceName.clear();
@@ -1062,8 +1062,8 @@ public:
         return incidence->accept(*this, incidence);
     }
 
-    bool act(const QString &sourceName, IncidenceBase::Ptr incidence, const QDate &date,
-             KDateTime::Spec spec = KDateTime::Spec())
+    bool act(const QString &sourceName, const IncidenceBase::Ptr &incidence, const QDate &date,
+             const KDateTime::Spec &spec = KDateTime::Spec())
     {
         mSourceName = sourceName;
         mDate = date;
@@ -1113,7 +1113,7 @@ EventViewerVisitor::~EventViewerVisitor() {}
 QString IncidenceFormatter::extensiveDisplayStr(const Calendar::Ptr &calendar,
         const IncidenceBase::Ptr &incidence,
         const QDate &date,
-        KDateTime::Spec spec)
+        const KDateTime::Spec &spec)
 {
     if (!incidence) {
         return QString();
@@ -1130,7 +1130,7 @@ QString IncidenceFormatter::extensiveDisplayStr(const Calendar::Ptr &calendar,
 QString IncidenceFormatter::extensiveDisplayStr(const QString &sourceName,
         const IncidenceBase::Ptr &incidence,
         const QDate &date,
-        KDateTime::Spec spec)
+        const KDateTime::Spec &spec)
 {
     if (!incidence) {
         return QString();
@@ -1396,7 +1396,7 @@ static QString rsvpRequestedStr(bool rsvpRequested, const QString &role)
     }
 }
 
-static QString myStatusStr(Incidence::Ptr incidence)
+static QString myStatusStr(const Incidence::Ptr &incidence)
 {
     QString ret;
     Attendee::Ptr a = findMyAttendee(incidence);
@@ -1561,7 +1561,7 @@ static QString invitationDetailsIncidence(const Incidence::Ptr &incidence, bool 
 }
 
 static QString invitationDetailsEvent(const Event::Ptr &event, bool noHtmlMode,
-                                      KDateTime::Spec spec)
+                                      const KDateTime::Spec &spec)
 {
     // Invitation details are formatted into an HTML table
     if (!event) {
@@ -1619,8 +1619,8 @@ static QString invitationDetailsEvent(const Event::Ptr &event, bool noHtmlMode,
 }
 
 static QString invitationDetailsEvent(const Event::Ptr &event, const Event::Ptr &oldevent,
-                                      const ScheduleMessage::Ptr message, bool noHtmlMode,
-                                      KDateTime::Spec spec)
+                                      const ScheduleMessage::Ptr &message, bool noHtmlMode,
+                                      const KDateTime::Spec &spec)
 {
     if (!oldevent) {
         return invitationDetailsEvent(event, noHtmlMode, spec);
@@ -1717,7 +1717,7 @@ static QString invitationDetailsEvent(const Event::Ptr &event, const Event::Ptr 
 }
 
 static QString invitationDetailsTodo(const Todo::Ptr &todo, bool noHtmlMode,
-                                     KDateTime::Spec spec)
+                                     const KDateTime::Spec &spec)
 {
     // To-do details are formatted into an HTML table
     if (!todo) {
@@ -1767,8 +1767,8 @@ static QString invitationDetailsTodo(const Todo::Ptr &todo, bool noHtmlMode,
 }
 
 static QString invitationDetailsTodo(const Todo::Ptr &todo, const Todo::Ptr &oldtodo,
-                                     const ScheduleMessage::Ptr message, bool noHtmlMode,
-                                     KDateTime::Spec spec)
+                                     const ScheduleMessage::Ptr &message, bool noHtmlMode,
+                                     const KDateTime::Spec &spec)
 {
     if (!oldtodo) {
         return invitationDetailsTodo(todo, noHtmlMode, spec);
@@ -1856,7 +1856,7 @@ static QString invitationDetailsTodo(const Todo::Ptr &todo, const Todo::Ptr &old
 }
 
 static QString invitationDetailsJournal(const Journal::Ptr &journal, bool noHtmlMode,
-                                        KDateTime::Spec spec)
+                                        const KDateTime::Spec &spec)
 {
     if (!journal) {
         return QString();
@@ -1877,7 +1877,7 @@ static QString invitationDetailsJournal(const Journal::Ptr &journal, bool noHtml
 
 static QString invitationDetailsJournal(const Journal::Ptr &journal,
                                         const Journal::Ptr &oldjournal,
-                                        bool noHtmlMode, KDateTime::Spec spec)
+                                        bool noHtmlMode, const KDateTime::Spec &spec)
 {
     if (!oldjournal) {
         return invitationDetailsJournal(journal, noHtmlMode, spec);
@@ -1902,7 +1902,7 @@ static QString invitationDetailsJournal(const Journal::Ptr &journal,
 }
 
 static QString invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHtmlMode,
-        KDateTime::Spec spec)
+                                         const KDateTime::Spec &spec)
 {
     Q_UNUSED(noHtmlMode);
 
@@ -1966,7 +1966,7 @@ static QString invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHtmlMod
 }
 
 static QString invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, const FreeBusy::Ptr &oldfb,
-        bool noHtmlMode, KDateTime::Spec spec)
+        bool noHtmlMode, const KDateTime::Spec &spec)
 {
     Q_UNUSED(oldfb);
     return invitationDetailsFreeBusy(fb, noHtmlMode, spec);
@@ -1994,7 +1994,7 @@ static bool replyMeansCounter(const Incidence::Ptr &incidence)
 
 static QString invitationHeaderEvent(const Event::Ptr &event,
                                      const Incidence::Ptr &existingIncidence,
-                                     ScheduleMessage::Ptr msg, const QString &sender)
+                                     const ScheduleMessage::Ptr &msg, const QString &sender)
 {
     if (!msg || !event) {
         return QString();
@@ -2132,7 +2132,7 @@ static QString invitationHeaderEvent(const Event::Ptr &event,
 
 static QString invitationHeaderTodo(const Todo::Ptr &todo,
                                     const Incidence::Ptr &existingIncidence,
-                                    ScheduleMessage::Ptr msg, const QString &sender)
+                                    const ScheduleMessage::Ptr &msg, const QString &sender)
 {
     if (!msg || !todo) {
         return QString();
@@ -2278,7 +2278,7 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo,
 }
 
 static QString invitationHeaderJournal(const Journal::Ptr &journal,
-                                       ScheduleMessage::Ptr msg)
+                                       const ScheduleMessage::Ptr &msg)
 {
     if (!msg || !journal) {
         return QString();
@@ -2343,7 +2343,7 @@ static QString invitationHeaderJournal(const Journal::Ptr &journal,
 }
 
 static QString invitationHeaderFreeBusy(const FreeBusy::Ptr &fb,
-                                        ScheduleMessage::Ptr msg)
+                                        const ScheduleMessage::Ptr &msg)
 {
     if (!msg || !fb) {
         return QString();
@@ -2541,7 +2541,7 @@ public:
 
     bool act(const IncidenceBase::Ptr &incidence,
              const Incidence::Ptr &existingIncidence,
-             ScheduleMessage::Ptr msg, const QString &sender)
+             const ScheduleMessage::Ptr &msg, const QString &sender)
     {
         mExistingIncidence = existingIncidence;
         mMessage = msg;
@@ -2597,7 +2597,7 @@ class KCalUtils::IncidenceFormatter::InvitationBodyVisitor
     : public IncidenceFormatter::ScheduleMessageVisitor
 {
 public:
-    InvitationBodyVisitor(bool noHtmlMode, KDateTime::Spec spec)
+    InvitationBodyVisitor(bool noHtmlMode, const KDateTime::Spec &spec)
         : ScheduleMessageVisitor(), mNoHtmlMode(noHtmlMode), mSpec(spec) {}
 
     ~InvitationBodyVisitor();
@@ -3030,11 +3030,11 @@ Calendar::Ptr InvitationFormatterHelper::calendar() const
     return Calendar::Ptr();
 }
 
-static QString formatICalInvitationHelper(QString invitation,
+static QString formatICalInvitationHelper(const QString &invitation,
         const MemoryCalendar::Ptr &mCalendar,
         InvitationFormatterHelper *helper,
         bool noHtmlMode,
-        KDateTime::Spec spec,
+        const KDateTime::Spec &spec,
         const QString &sender,
         bool outlookCompareStyle)
 {
@@ -3343,7 +3343,7 @@ static QString formatICalInvitationHelper(QString invitation,
 }
 //@endcond
 
-QString IncidenceFormatter::formatICalInvitation(QString invitation,
+QString IncidenceFormatter::formatICalInvitation(const QString &invitation,
         const MemoryCalendar::Ptr &calendar,
         InvitationFormatterHelper *helper,
         bool outlookCompareStyle)
@@ -3378,7 +3378,7 @@ public:
     bool act(const MemoryCalendar::Ptr &calendar,
              const IncidenceBase::Ptr &incidence,
              const QDate &date = QDate(), bool richText = true,
-             KDateTime::Spec spec = KDateTime::Spec())
+             const KDateTime::Spec &spec = KDateTime::Spec())
     {
         mCalendar = calendar;
         mLocation.clear();
@@ -3391,7 +3391,7 @@ public:
 
     bool act(const QString &location, const IncidenceBase::Ptr &incidence,
              const QDate &date = QDate(), bool richText = true,
-             KDateTime::Spec spec = KDateTime::Spec())
+             const KDateTime::Spec &spec = KDateTime::Spec())
     {
         mLocation = location;
         mDate = date;
@@ -3417,7 +3417,7 @@ protected:
     QString dateRangeText(const Journal::Ptr &journal);
     QString dateRangeText(const FreeBusy::Ptr &fb);
 
-    QString generateToolTip(const Incidence::Ptr &incidence, QString dtRangeText);
+    QString generateToolTip(const Incidence::Ptr &incidence, const QString &dtRangeText);
 
 protected:
     MemoryCalendar::Ptr mCalendar;
@@ -3715,7 +3715,7 @@ static QString tooltipFormatAttendees(const Calendar::Ptr &calendar,
 }
 
 QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr &incidence,
-        QString dtRangeText)
+                                                            const QString &dtRangeText)
 {
     int maxDescLen = 120; // maximum description chars to print (before elipsis)
 
@@ -3808,7 +3808,7 @@ QString IncidenceFormatter::toolTipStr(const QString &sourceName,
                                        const IncidenceBase::Ptr &incidence,
                                        const QDate &date,
                                        bool richText,
-                                       KDateTime::Spec spec)
+                                       const KDateTime::Spec &spec)
 {
     ToolTipVisitor v;
     if (incidence && v.act(sourceName, incidence, date, richText, spec)) {
@@ -3844,9 +3844,9 @@ class KCalUtils::IncidenceFormatter::MailBodyVisitor : public Visitor
 {
 public:
     MailBodyVisitor()
-        : mSpec(KDateTime::Spec()), mResult(QLatin1String("")) {}
+        : mSpec(KDateTime::Spec()) {}
 
-    bool act(IncidenceBase::Ptr incidence, KDateTime::Spec spec = KDateTime::Spec())
+    bool act(const IncidenceBase::Ptr &incidence, const KDateTime::Spec &spec = KDateTime::Spec())
     {
         mSpec = spec;
         mResult = QLatin1String("");
@@ -3975,7 +3975,7 @@ bool IncidenceFormatter::MailBodyVisitor::visit(const Journal::Ptr &journal)
 //@endcond
 
 QString IncidenceFormatter::mailBodyStr(const IncidenceBase::Ptr &incidence,
-                                        KDateTime::Spec spec)
+                                        const KDateTime::Spec &spec)
 {
     if (!incidence) {
         return QString();
