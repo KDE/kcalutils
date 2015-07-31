@@ -2485,8 +2485,7 @@ static QString invitationRsvpList(const Incidence::Ptr &incidence, const Attende
     return tmpStr;
 }
 
-static QString invitationAttachments(InvitationFormatterHelper *helper,
-                                     const Incidence::Ptr &incidence)
+static QString invitationAttachments(const Incidence::Ptr &incidence)
 {
     QString tmpStr;
     if (!incidence) {
@@ -3335,7 +3334,7 @@ static QString formatICalInvitationHelper(const QString &invitation,
     html += QLatin1String("</div>");
 
     // Add the attachment list
-    html += invitationAttachments(helper, inc);
+    html += invitationAttachments(inc);
 
     return html;
 }
