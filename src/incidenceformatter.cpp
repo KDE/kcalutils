@@ -476,7 +476,7 @@ static QString displayViewFormatAttachments(const Incidence::Ptr &incidence)
             }
             tmpStr += htmlAddLink((*it)->uri(), name);
         } else {
-            tmpStr += htmlAddLink(QString::fromLatin1("ATTACH:%1").
+            tmpStr += htmlAddLink(QStringLiteral("ATTACH:%1").
                                   arg(QString::fromUtf8((*it)->label().toUtf8().toBase64())),
                                   (*it)->label());
         }
@@ -1220,7 +1220,7 @@ static QString eventEndTimeStr(const Event::Ptr &event)
 static QString htmlInvitationDetailsBegin()
 {
     QString dir = (QApplication::isRightToLeft() ? QLatin1String("rtl") : QLatin1String("ltr"));
-    return QString::fromLatin1("<div dir=\"%1\">\n").arg(dir);
+    return QStringLiteral("<div dir=\"%1\">\n").arg(dir);
 }
 
 static QString htmlInvitationDetailsEnd()
@@ -2828,12 +2828,12 @@ IncidenceCompareVisitor::~IncidenceCompareVisitor() {}
 QString InvitationFormatterHelper::makeLink(const QString &id, const QString &text)
 {
     if (!id.startsWith(QLatin1String("ATTACH:"))) {
-        QString res = QString::fromLatin1("<a href=\"%1\"><font size=\"-1\"><b>%2</b></font></a>").
+        QString res = QStringLiteral("<a href=\"%1\"><font size=\"-1\"><b>%2</b></font></a>").
                       arg(generateLinkURL(id), text);
         return res;
     } else {
         // draw the attachment links in non-bold face
-        QString res = QString::fromLatin1("<a href=\"%1\">%2</a>").
+        QString res = QStringLiteral("<a href=\"%1\">%2</a>").
                       arg(generateLinkURL(id), text);
         return res;
     }
