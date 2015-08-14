@@ -173,8 +173,8 @@ void HtmlExport::createMonthView(QTextStream *ts)
     while (start < toDate()) {
         // Write header
         QDate hDate(start.year(), start.month(), 1);
-        QString hMon = hDate.toString(QLatin1String("MMMM"));
-        QString hYear = hDate.toString(QLatin1String("yyyy"));
+        QString hMon = hDate.toString(QStringLiteral("MMMM"));
+        QString hYear = hDate.toString(QStringLiteral("yyyy"));
         *ts << "<h2>"
             << i18nc("@title month and year", "%1 %2", hMon, hYear)
             << "</h2>" << endl;
@@ -645,7 +645,7 @@ void HtmlExport::formatAttendees(QTextStream *ts,
 
 QString HtmlExport::breakString(const QString &text)
 {
-    int number = text.count(QLatin1String("\n"));
+    int number = text.count(QStringLiteral("\n"));
     if (number <= 0) {
         return text;
     } else {

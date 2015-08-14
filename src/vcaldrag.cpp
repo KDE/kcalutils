@@ -32,7 +32,7 @@ using namespace VCalDrag;
 
 QString VCalDrag::mimeType()
 {
-    return QLatin1String("text/x-vCalendar");
+    return QStringLiteral("text/x-vCalendar");
 }
 
 bool VCalDrag::populateMimeData(QMimeData *e,

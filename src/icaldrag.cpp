@@ -32,7 +32,7 @@ using namespace ICalDrag;
 
 QString ICalDrag::mimeType()
 {
-    return QLatin1String("text/calendar");
+    return QStringLiteral("text/calendar");
 }
 
 bool ICalDrag::populateMimeData(QMimeData *me, const MemoryCalendar::Ptr &cal)
