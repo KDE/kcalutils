@@ -55,20 +55,20 @@ using namespace KCalCore;
 using namespace KCalUtils;
 
 /**
-  Private class that helps to provide binary compatibility between releases.
+  DndFactoryPrivate class that helps to provide binary compatibility between releases.
   @internal
 */
 //@cond PRIVATE
-class KCalUtils::DndFactory::Private
+class KCalUtils::DndFactoryPrivate
 {
 public:
-    Private(const MemoryCalendar::Ptr &calendar)
+    DndFactoryPrivate(const MemoryCalendar::Ptr &calendar)
         : mCalendar(calendar)
     {}
 
     Incidence::Ptr pasteIncidence(const Incidence::Ptr &incidence,
                                   KDateTime newDateTime,
-                                  const QFlags<PasteFlag> &pasteOptions)
+                                  const QFlags<DndFactory::PasteFlag> &pasteOptions)
     {
         Incidence::Ptr inc(incidence);
 
@@ -80,7 +80,7 @@ public:
         if (inc && newDateTime.isValid()) {
             if (inc->type() == Incidence::TypeEvent) {
                 Event::Ptr event = inc.staticCast<Event>();
-                if (pasteOptions & FlagPasteAtOriginalTime) {
+                if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
                     // Set date and preserve time and timezone stuff
                     const QDate date = newDateTime.date();
                     newDateTime = event->dtStart();
@@ -101,8 +101,8 @@ public:
 
             } else if (inc->type() == Incidence::TypeTodo) {
                 Todo::Ptr aTodo = inc.staticCast<Todo>();
-                const bool pasteAtDtStart = (pasteOptions & FlagTodosPasteAtDtStart);
-                if (pasteOptions & FlagPasteAtOriginalTime) {
+                const bool pasteAtDtStart = (pasteOptions & DndFactory::FlagTodosPasteAtDtStart);
+                if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
                     // Set date and preserve time and timezone stuff
                     const QDate date = newDateTime.date();
                     newDateTime = pasteAtDtStart ? aTodo->dtStart() : aTodo->dtDue();
@@ -115,7 +115,7 @@ public:
                 }
 
             } else if (inc->type() == Incidence::TypeJournal) {
-                if (pasteOptions & FlagPasteAtOriginalTime) {
+                if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
                     // Set date and preserve time and timezone stuff
                     const QDate date = newDateTime.date();
                     newDateTime = inc->dtStart();
@@ -135,7 +135,7 @@ public:
 //@endcond
 
 DndFactory::DndFactory(const MemoryCalendar::Ptr &calendar)
-    : d(new KCalUtils::DndFactory::Private(calendar))
+    : d(new KCalUtils::DndFactoryPrivate(calendar))
 {
 }
 

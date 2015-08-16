@@ -38,6 +38,7 @@
 #include <kcalcore/memorycalendar.h>
 
 #include <QDate>
+class InvitationFormatterHelperPrivate;
 
 namespace KCalUtils
 {
@@ -54,8 +55,7 @@ public:
 private:
     //@cond PRIVATE
     Q_DISABLE_COPY(InvitationFormatterHelper)
-    class Private;
-    Private *const d;
+    InvitationFormatterHelperPrivate *const d;
     //@endcond
 };
 

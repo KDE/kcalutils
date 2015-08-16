@@ -33,16 +33,16 @@ using namespace KCalCore;
 using namespace KCalUtils;
 
 //@cond PRIVATE
-struct KCalUtils::Scheduler::Private {
+struct KCalUtils::SchedulerPrivate {
 public:
-    Private() : mFreeBusyCache(Q_NULLPTR)
+    SchedulerPrivate() : mFreeBusyCache(Q_NULLPTR)
     {
     }
     FreeBusyCache *mFreeBusyCache;
 };
 //@endcond
 
-Scheduler::Scheduler(const Calendar::Ptr &calendar) : d(new KCalUtils::Scheduler::Private)
+Scheduler::Scheduler(const Calendar::Ptr &calendar) : d(new KCalUtils::SchedulerPrivate)
 {
     mCalendar = calendar;
     mFormat = new ICalFormat();

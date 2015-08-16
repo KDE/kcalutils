@@ -48,7 +48,7 @@ class QMimeData;
 
 namespace KCalUtils
 {
-
+class DndFactoryPrivate;
 /**
   @brief
   vCalendar/iCalendar Drag-and-Drop object factory.
@@ -181,8 +181,7 @@ public:
 private:
     //@cond PRIVATE
     Q_DISABLE_COPY(DndFactory)
-    class Private;
-    Private *const d;
+    DndFactoryPrivate *const d;
     //@endcond
 };
 

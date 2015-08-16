@@ -42,7 +42,7 @@ namespace KCalUtils
 {
 
 class HTMLExportSettings;
-
+class HtmlExportPrivate;
 /**
   This class provides the functions to export a calendar as a HTML page.
 */
@@ -99,8 +99,7 @@ protected:
 private:
     //@cond PRIVATE
     Q_DISABLE_COPY(HtmlExport)
-    class Private;
-    Private *const d;
+    HtmlExportPrivate *const d;
     //@endcond
 };
 

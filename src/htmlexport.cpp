@@ -43,10 +43,10 @@ using namespace KCalUtils;
 static QString cleanChars(const QString &txt);
 
 //@cond PRIVATE
-class KCalUtils::HtmlExport::Private
+class KCalUtils::HtmlExportPrivate
 {
 public:
-    Private(MemoryCalendar *calendar, HTMLExportSettings *settings)
+    HtmlExportPrivate(MemoryCalendar *calendar, HTMLExportSettings *settings)
         : mCalendar(calendar), mSettings(settings)
     {}
 
@@ -57,7 +57,7 @@ public:
 //@endcond
 
 HtmlExport::HtmlExport(MemoryCalendar *calendar, HTMLExportSettings *settings)
-    : d(new Private(calendar, settings))
+    : d(new HtmlExportPrivate(calendar, settings))
 {
 }
 

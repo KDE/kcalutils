@@ -38,6 +38,7 @@ class FreeBusyCache;
 
 namespace KCalUtils
 {
+struct SchedulerPrivate;
 /**
   This class provides an encapsulation of iTIP transactions (RFC 2446).
   It is an abstract base class for inheritance by implementations of the
@@ -154,8 +155,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(Scheduler)
-    struct Private;
-    Private *const d;
+    SchedulerPrivate *const d;
 };
 
 }
