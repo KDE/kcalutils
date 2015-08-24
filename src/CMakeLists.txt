@@ -7,8 +7,8 @@ set(kcalutils_SRCS
   scheduler.cpp
   vcaldrag.cpp
   dndfactory.cpp
-  kcalutils_debug.cpp
 )
+ecm_qt_declare_logging_category(kcalutils_SRCS HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME log_kcalutils)
 
 kconfig_add_kcfg_files(kcalutils_SRCS htmlexportsettings.kcfgc)
 
