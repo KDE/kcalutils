@@ -56,15 +56,15 @@ using namespace KCalCore;
 #include <KIconLoader>
 #include <KLocalizedString>
 
-#include <KMimeType>
+#include <KLocale>
 #include <KSystemTimeZone>
 
 #include <QtCore/QBitArray>
 #include <QApplication>
 #include <QPalette>
 #include <QTextDocument>
-#include <KLocale>
 #include <QLocale>
+#include <QMimeDatabase>
 
 using namespace KCalUtils;
 using namespace IncidenceFormatter;
@@ -2506,18 +2506,15 @@ static QString invitationAttachments(const Incidence::Ptr &incidence)
             Attachment::Ptr a = *it;
             tmpStr += QLatin1String("<li>");
             // Attachment icon
-            KMimeType::Ptr mimeType = KMimeType::mimeType(a->mimeType());
-#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
-            const QString iconStr = (mimeType ?
-                                     mimeType->iconName(a->uri()) :
+            QMimeDatabase mimeDb;
+            auto mimeType = mimeDb.mimeTypeForName(a->mimeType());
+            const QString iconStr = (mimeType.isValid() ?
+                                     mimeType.iconName() :
                                      QLatin1String("application-octet-stream"));
             const QString iconPath = KIconLoader::global()->iconPath(iconStr, KIconLoader::Small);
             if (!iconPath.isEmpty()) {
                 tmpStr += QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">");
             }
-#else
-#pragma message("TODO: PORT TO KFileItem")
-#endif
         }
         tmpStr += QLatin1String("</ol>");
     }
