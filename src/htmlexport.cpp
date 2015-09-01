@@ -35,7 +35,6 @@ using namespace KCalCore;
 #include <QtCore/QMap>
 #include <QtCore/QTextStream>
 #include <QApplication>
-#include <KLocale>
 #include <QLocale>
 
 using namespace KCalUtils;
@@ -190,7 +189,7 @@ void HtmlExport::createMonthView(QTextStream *ts)
         // Write table header
         *ts << "  <tr>";
         for (int i = 0; i < 7; ++i) {
-            *ts << "<th>" << KLocale::global()->calendar()->weekDayName(start.addDays(i)) << "</th>";
+            *ts << "<th>" << QLocale::system().dayName(start.addDays(i).dayOfWeek()) << "</th>";
         }
         *ts << "</tr>" << endl;
 

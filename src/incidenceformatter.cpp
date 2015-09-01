@@ -1945,8 +1945,8 @@ static QString invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHtmlMod
             if (per.start().date() == per.end().date()) {
                 cont = i18nc("date, fromTime - toTime ", "%1, %2 - %3",
                              QLocale().toString(per.start().date()),
-                             KLocale::global()->formatTime(per.start().time()),
-                             KLocale::global()->formatTime(per.end().time()));
+                             QLocale::system().toString(per.start().time(), QLocale::ShortFormat),
+                             QLocale::system().toString(per.end().time(), QLocale::ShortFormat));
             } else {
                 cont = i18nc("fromDateTime - toDateTime", "%1 - %2",
                              KLocale::global()->formatDateTime(
@@ -4140,8 +4140,8 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                 if (addSpace) {
                     dayNames.append(i18nc("separator for list of days", ", "));
                 }
-                dayNames.append(calSys->weekDayName(((i + weekStart + 6) % 7) + 1,
-                                                    KCalendarSystem::ShortDayName));
+                dayNames.append(QLocale::system().dayName(((i + weekStart + 6) % 7) + 1,
+                                                    QLocale::ShortFormat));
                 addSpace = true;
             }
         }
@@ -4176,7 +4176,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                                   "Recurs every %1 months on the %2 %3 until %4",
                                   recur->frequency(),
                                   dayList[rule.pos() + 31],
-                                  calSys->weekDayName(rule.day(), KCalendarSystem::LongDayName),
+                                  QLocale::system().dayName(rule.day(), QLocale::LongFormat),
                                   recurEnd(incidence));
                 if (recur->duration() >  0) {
                     recurStr += xi18nc("number of occurrences",
@@ -4189,7 +4189,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                                   "Recurs every %1 months on the %2 %3",
                                   recur->frequency(),
                                   dayList[rule.pos() + 31],
-                                  calSys->weekDayName(rule.day(), KCalendarSystem::LongDayName));
+                                  QLocale::system().dayName(rule.day(), QLocale::LongFormat));
             }
         }
         break;
@@ -4298,7 +4298,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                                   " until %5",
                                   recur->frequency(),
                                   dayList[rule.pos() + 31],
-                                  calSys->weekDayName(rule.day(), KCalendarSystem::LongDayName),
+                                  QLocale::system().dayName(rule.day(), QLocale::LongFormat),
                                   calSys->monthName(recur->yearMonths()[0], recur->startDate().year()),
                                   recurEnd(incidence));
                 if (recur->duration() >  0) {
@@ -4313,7 +4313,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                                    "Every %1 years on the %2 %3 of %4",
                                    recur->frequency(),
                                    dayList[rule.pos() + 31],
-                                   calSys->weekDayName(rule.day(), KCalendarSystem::LongDayName),
+                                   QLocale::system().dayName(rule.day(), QLocale::LongFormat),
                                    calSys->monthName(recur->yearMonths()[0], recur->startDate().year()));
             }
         }
@@ -4335,13 +4335,13 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
             exStr << i18n("minute %1", (*il).time().minute());
             break;
         case Recurrence::rHourly:
-            exStr << KLocale::global()->formatTime((*il).time());
+            exStr << QLocale::system().toString((*il).time(), QLocale::ShortFormat);
             break;
         case Recurrence::rDaily:
             exStr << QLocale().toString((*il).date(), QLocale::ShortFormat);
             break;
         case Recurrence::rWeekly:
-            exStr << calSys->weekDayName((*il).date(), KCalendarSystem::ShortDayName);
+            exStr << QLocale::system().dayName((*il).date().dayOfWeek(), QLocale::ShortFormat);
             break;
         case Recurrence::rMonthlyPos:
             exStr << QLocale().toString((*il).date(), QLocale::ShortFormat);
@@ -4350,7 +4350,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
             exStr << QLocale().toString((*il).date(), QLocale::ShortFormat);
             break;
         case Recurrence::rYearlyMonth:
-            exStr << calSys->monthName((*il).date(), KCalendarSystem::LongName);
+            exStr << QLocale::system().monthName((*il).date().month(), QLocale::LongFormat);
             break;
         case Recurrence::rYearlyDay:
             exStr << QLocale().toString((*il).date(), QLocale::ShortFormat);
@@ -4382,7 +4382,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
             exStr << QLocale().toString((*dl), QLocale::ShortFormat);
             break;
         case Recurrence::rYearlyMonth:
-            exStr << calSys->monthName((*dl), KCalendarSystem::LongName);
+            exStr << QLocale::system().monthName((*dl).month(), QLocale::LongFormat);
             break;
         case Recurrence::rYearlyDay:
             exStr << QLocale().toString((*dl), QLocale::ShortFormat);
@@ -4411,9 +4411,9 @@ QString IncidenceFormatter::timeToString(const KDateTime &date,
             timeZone = QLatin1Char(' ') + spec.timeZone().name();
         }
 
-        return KLocale::global()->formatTime(date.toTimeSpec(spec).time(), !shortfmt) + timeZone;
+        return QLocale::system().toString(date.toTimeSpec(spec).time(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat) + timeZone;
     } else {
-        return KLocale::global()->formatTime(date.time(), !shortfmt);
+        return QLocale::system().toString(date.time(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
     }
 }
 
@@ -4453,13 +4453,13 @@ QString IncidenceFormatter::dateTimeToString(const KDateTime &date,
             timeZone = QLatin1Char(' ') + spec.timeZone().name();
         }
 
-        return KLocale::global()->formatDateTime(
+        return QLocale::system().toString(
                    date.toTimeSpec(spec).dateTime(),
-                   (shortfmt ? KLocale::ShortDate : KLocale::LongDate)) + timeZone;
+                   (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat)) + timeZone;
     } else {
-        return  KLocale::global()->formatDateTime(
+        return  QLocale::system().toString(
                     date.dateTime(),
-                    (shortfmt ? KLocale::ShortDate : KLocale::LongDate));
+                    (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
     }
 }
 
