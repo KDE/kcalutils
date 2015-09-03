@@ -1937,8 +1937,8 @@ static QString invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHtmlMod
             }
             html += htmlRow(QString(),
                             i18nc("startDate for duration", "%1 for %2",
-                                  KLocale::global()->formatDateTime(
-                                      per.start().dateTime(), KLocale::LongDate),
+                                  QLocale::system().toString(
+                                      per.start().dateTime(), QLocale::LongFormat),
                                   cont));
         } else {
             QString cont;
@@ -1949,10 +1949,10 @@ static QString invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHtmlMod
                              QLocale::system().toString(per.end().time(), QLocale::ShortFormat));
             } else {
                 cont = i18nc("fromDateTime - toDateTime", "%1 - %2",
-                             KLocale::global()->formatDateTime(
-                                 per.start().dateTime(), KLocale::LongDate),
-                             KLocale::global()->formatDateTime(
-                                 per.end().dateTime(), KLocale::LongDate));
+                             QLocale::system().toString(
+                                 per.start().dateTime(), QLocale::LongFormat),
+                             QLocale::system().toString(
+                                 per.end().dateTime(), QLocale::LongFormat));
             }
 
             html += htmlRow(QString(), cont);
@@ -3541,10 +3541,10 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const FreeBusy::Ptr &f
     QString ret;
     ret = QLatin1String("<br>") +
           i18n("<i>Period start:</i> %1",
-               KLocale::global()->formatDateTime(fb->dtStart().dateTime()));
+               QLocale::system().toString(fb->dtStart().dateTime(), QLocale::ShortFormat));
     ret += QLatin1String("<br>") +
            i18n("<i>Period start:</i> %1",
-                KLocale::global()->formatDateTime(fb->dtEnd().dateTime()));
+                QLocale::system().toString(fb->dtEnd().dateTime(), QLocale::ShortFormat));
     return ret.replace(QLatin1Char(' '), QLatin1String("&nbsp;"));
 }
 
@@ -3907,7 +3907,7 @@ bool IncidenceFormatter::MailBodyVisitor::visit(const Event::Ptr &event)
                 if (event->allDay()) {
                     endstr = QLocale().toString(recur->endDate());
                 } else {
-                    endstr = KLocale::global()->formatDateTime(recur->endDateTime().dateTime());
+                    endstr = QLocale::system().toString(recur->endDateTime().dateTime(), QLocale::ShortFormat);
                 }
                 mResult += i18n("Repeat until: %1\n", endstr);
             } else {
@@ -4075,7 +4075,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         dayList.append(i18n("31st"));
     }
 
-    const int weekStart = KLocale::global()->weekStartDay();
+    const int weekStart = QLocale::system().firstDayOfWeek();
     QString dayNames;
     const KCalendarSystem *calSys = KLocale::global()->calendar();
 

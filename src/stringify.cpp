@@ -38,7 +38,6 @@
 #include <kcalcore/exceptions.h>
 using namespace KCalCore;
 
-#include <KLocale>
 #include <KLocalizedString>
 
 #include <KSystemTimeZone>
@@ -66,9 +65,8 @@ QString Stringify::incidenceType(Incidence::IncidenceType type)
 QString Stringify::todoCompletedDateTime(const Todo::Ptr &todo,
         bool shortfmt)
 {
-    return KLocale::global()->formatDateTime(todo->completed().dateTime(),
-            (shortfmt ? KLocale::ShortDate :
-             KLocale::LongDate));
+    return QLocale::system().toString(todo->completed().dateTime(),
+            (shortfmt ? QLocale::ShortFormat: QLocale::LongFormat));
 }
 
 QString Stringify::incidenceSecrecy(Incidence::Secrecy secrecy)
@@ -214,9 +212,9 @@ QString Stringify::formatTime(const KDateTime &dt, bool shortfmt, const KDateTim
             timeZone = QLatin1Char(' ') + spec.timeZone().name();
         }
 
-        return KLocale::global()->formatTime(dt.toTimeSpec(spec).time(), !shortfmt) + timeZone;
+        return QLocale::system().toString(dt.toTimeSpec(spec).time(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat) + timeZone;
     } else {
-        return KLocale::global()->formatTime(dt.time(), !shortfmt);
+        return QLocale::system().toString(dt.time(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
     }
 }
 
@@ -253,13 +251,13 @@ QString Stringify::formatDateTime(const KDateTime &dt, bool allDay,
             timeZone = QLatin1Char(' ') + spec.timeZone().name();
         }
 
-        return KLocale::global()->formatDateTime(
+        return QLocale::system().toString(
                    dt.toTimeSpec(spec).dateTime(),
-                   (shortfmt ? KLocale::ShortDate : KLocale::LongDate)) + timeZone;
+                   (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat)) + timeZone;
     } else {
-        return  KLocale::global()->formatDateTime(
+        return  QLocale::system().toString(
                     dt.dateTime(),
-                    (shortfmt ? KLocale::ShortDate : KLocale::LongDate));
+                    (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
     }
 }
 
