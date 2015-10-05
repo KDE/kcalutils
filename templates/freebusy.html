@@ -1,0 +1,28 @@
+{% extends "template_base.html" %}
+
+{% block body %}
+
+<h2>{% i18n "Free/Busy information for %1" incidence.organizer %}</h2>
+<h4>{% i18n "Busy times in date range %1 - %2:" incidence.start|kdate:"short" incidence.end|kdate:"short" %}</h4>
+
+<p>
+<em><b>{% i18nc "tag for busy period list" "Busy:" %}</b></em>
+
+{% for period in incidence.periods %}
+    {% if period.duration %}
+        {% i18nc "startDate for duration" "%1 for %2" period.dtStart|kdate:"short" period.duration %}
+    {% else %}
+        {% if period.date %}
+            {% i18nc "date, fromTime - toTime" "%1, %2 - %3" period.date|kdate:"short" period.start|ktime:"short" period.end|ktime:"short" %}
+        {% else %}
+            {% i18nc "fromDateTime - endDateTime" "%1 - %2" period.start|kdatetime:"short" period.end|kdatetime:"short" %}
+        {% endif %}
+    {% endif %}
+    {% if not forloop.last %}
+        <br/>
+    {% endif %}
+{% endfor %}
+</p>
+
+{% endblock body %}
+

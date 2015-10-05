@@ -1,0 +1,48 @@
+{% extends "template_base.html" %}
+
+
+{% block body %}
+{% with _("Journal") as type %}
+{% include "incidence_header.html" %}
+{% endwith %}
+
+<table>
+
+    <!-- Calendar -->
+    {% if incidence.calendar %}
+    <tr>
+        <th>{% i18n "Calendar:" %}</th>
+        <td>{{ incidence.calendar }}</td>
+    </tr>
+    {% endif %}
+
+    <!-- Date -->
+    {% if incidence.date %}
+    <tr>
+        <th>{% i18n "Date:" %}</th>
+        <td>{{ incidence.date|kdate }}</td>
+    </tr>
+    {% endif %}
+
+    <!-- Description -->
+    {% if incidence.description %}
+    <tr>
+        <th>{% i18n "Description:" %}</th>
+        <td>{{ incidence.description|safe }}</td>
+    </tr>
+    {% endif %}
+
+    <!-- Categories -->
+    {% if incidence.categories %}
+    <tr>
+        <th>{% i18np "Category:" "Categories:" incidence.categories|length %}</th>
+        <td>{{ incidence.categories|join:", " }}</td>
+    </tr>
+    {% endif %}
+
+</table>
+
+<!-- Creation date -->
+<p><em>{% i18n "Creation date: %1" incidence.creationDate|kdatetime %}</em></p>
+
+{% endblock body %}

@@ -1,0 +1,22 @@
+<style type="text/css">
+{# The Qt CSS parser is rather dumb and does not handle more complex #}
+{# selectors like "table.main th" (despite what documentation says) #}
+th {
+    text-align: left;
+    width: 25%;
+    white-space: nowrap;
+    font-weight: bold;
+}
+td {
+    padding-left: 5px;
+}
+
+{% block style %}
+{# Custom style extension provided by subtemplates #}
+{% endblock %}
+</style>
+
+
+{% block body %}
+{# Actual content of the subtemplate #}
+{% endblock %}

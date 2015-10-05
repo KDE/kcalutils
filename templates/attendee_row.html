@@ -1,0 +1,28 @@
+{% if attendee.icon %}
+    {% icon attendee.icon small attendee.status %}
+{% endif %}
+
+{% if attendee.uid %}
+    <a href="uid:{{ attendee.uid }}">
+    {% if attendee.name %}
+        {{ attendee.name }}
+    {% else %}
+        {{ attendee.email }}
+    {% endif %}
+    </a>
+{% else %}
+    {% if attendee.name %}
+        {{ attendee.name }}
+    {% else %}
+        {{ attendee.email }}
+    {% endif %}
+{% endif %}
+{% if attendee.delegator %}
+    {% i18n "(delegated by %1)" attendee.delegator %}
+{% endif %}
+{% if attendee.delegate %}
+    {% i18n "(delegated to %1)" attendee.delegate %}\
+{% endif %}
+{% if attendee.mailto %}
+    <a href="{{ attendee.mailto }}">{% icon "mail-message-new" small _("Send email") %}</a>
+{% endif %}

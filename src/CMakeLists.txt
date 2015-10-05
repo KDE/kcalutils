@@ -1,3 +1,5 @@
+add_subdirectory(grantlee_plugin)
+
 set(kcalutils_SRCS
   htmlexport.cpp
   icaldrag.cpp
@@ -7,6 +9,8 @@ set(kcalutils_SRCS
   scheduler.cpp
   vcaldrag.cpp
   dndfactory.cpp
+  grantleeki18nlocalizer.cpp
+  grantleetemplatemanager.cpp
 )
 ecm_qt_declare_logging_category(kcalutils_SRCS HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME log_kcalutils)
 
@@ -31,6 +35,7 @@ PRIVATE
   KF5::I18n
   KF5::IdentityManagement
   KF5::Codecs
+  Grantlee5::Templates
 )
 
 set_target_properties(KF5CalendarUtils PROPERTIES

@@ -1,0 +1,198 @@
+{% extends "template_base.html" %}
+
+
+{% block body %}
+{% with _("Event") as type %}
+{% include "incidence_header.html" %}
+{% endwith %}
+
+<table>
+    <!-- Calendar name -->
+    {% if incidence.calendar %}
+    <tr>
+        <th>{% i18n "Calendar:" %}</th>
+        <td>{{ incidence.calendar }}</td>
+    </tr>
+    {% endif %}
+
+    <!-- Location -->
+    {% if incidence.location %}
+    <tr>
+        <th>{% i18n "Location:" %}</th>
+        <td>{{ incidence.location|safe }}</td>
+    </tr>
+    {% endif %}
+
+    <!-- Start/end -->
+    {% if incidence.isAllDay %}
+    <tr>
+        {% if incidence.isMultiDay %}
+        <th>{% i18n "Date:" %}</th>
+        <td>{% i18nc "<beginDate> - <endDate>" "%1 - %2" incidence.startDate|kdate incidence.endDate|kdate %}</td>
+        {% else %}
+        <th>{% i18n "Date:" %}</th>
+        <td>{% i18nc "Date as string" "%1" incidence.startDate|kdate %}</td>
+        {% endif %}
+    </tr>
+    {% else %}
+    <tr>
+        {% if incidence.isMultiDay %}
+        <th>{% i18n "Date:" %}</th>
+        <td>{% i18nc "<beginDate> - <endDate>" "%1 - %2" incidence.startDate|kdate incidence.endDate|kdate %}</td>
+        {% else %}
+        <th>{% i18n "Date:" %}</th>
+        <td>{% i18nc "Date as string" "%1" incidence.startDate|kdate %}</td>
+        </tr>
+        <tr>
+            <th>{% i18n "Time:" %}</th>
+            {% if incidence.hasEnd and incidence.overnight %}
+            <td>{% i18nc "<beginTime> - <endTime>" "%1 - %2" incidence.startTime|ktime:"short" incidence.endTime|ktime:"short" %}</td>
+            {% else %}
+            <td>{% i18nc "Time as string" "%1" incidence.startTime|ktime:"short" %}</td>
+            {% endif %}
+        {% endif %}
+    </tr>
+    {% endif %}
+
+    <!-- Duration -->
+    {% if incidence.duration %}
+    <tr>
+        <th>{% i18n "Duration:" %}</th>
+        <td>{{ incidence.duration }}</td>
+    </tr>
+    {% endif %}
+
+    <!-- Recurrence -->
+    {% if incidence.recurs or incidence.isException %}
+    <tr>
+        <th>{% i18n "Recurrence:" %}</th>
+        {% if incidence.isException %}
+        <td>{% i18nc "Exception in event recurrence" "Exception" %}</td>
+        {% else %}
+        <td>{{ incidence.recurrence }}</td>
+        {% endif %}
+    </tr>
+    {% endif %}
+
+    <!-- Birthday -->
+    {% if incidence.birthday %}
+    <tr>
+        <th>{% i18n "Birthday:" %}</th>
+        <td>{{ incidence.birthday }}</td>
+    </tr>
+    {% endif %}
+
+    <!-- Anniversary -->
+    {% if incidence.anniversary %}
+    <tr>
+        <th>{% i18n "Anniversary:" %}</th>
+        <td>{{ incidence.anniversary }}</td>
+    </tr>
+    {% endif %}
+
+    <!-- Description -->
+    {% if incidence.description %}
+    <tr>
+        <th>{% i18n "Description:" %}</th>
+        <td>{{ incidence.description|safe }}</td>
+    </tr>
+    {% endif %}
+
+    <!-- Alarms -->
+    {% if incidence.reminders %}
+    <tr>
+        <th>{% i18np "Reminder:" "Reminders:" incidence.reminders|length %}</th>
+        <td>{{ incidence.reminders|join:"<br/>" }}</td>
+    </tr>
+    {% endif %}
+
+    <!-- Organizer -->
+    {% if incidence.organizer %}
+    <tr>
+        <th>{% i18n "Organizer:" %}</th>
+        <td>
+        {% with incidence.organizer as attendee %}
+        {% include "attendee_row.html" %}
+        {% endwith %}
+        </td>
+    </tr>
+    {% endif %}
+
+    <!-- Attendees - Chair -->
+    {% if incidence.chairs %}
+    <tr>
+        <th>{% i18n "Chair:" %}</th>
+        <td>
+        {% for attendee in incidence.chair %}
+            {% include "attendee_row.html" %}
+            {% if not forloop.last %}<br/>{% endif %}
+        {% endfor %}
+        </td>
+    </tr>
+    {% endif %}
+
+    <!-- Attendees - Required Participants -->
+    {% if incidence.requiredParticipants %}
+    <tr>
+        <th>{% i18n "Required Participants:" %}</th>
+        <td>
+        {% for attendee in incidence.requiredParticipants %}
+            {% include "attendee_row.html" %}
+            {% if not forloop.last %}<br/>{% endif %}
+        {% endfor %}
+        </td>
+    </tr>
+    {% endif %}
+
+    <!-- Attendees - Optional Participants -->
+    {% if incidence.optionalParticipants %}
+    <tr>
+        <th>{% i18n "Optional participants:" %}</th>
+        <td>
+        {% for attendee in incidence.optionalParticipants %}
+            {% include "attendee_row.html" %}
+            {% if not forloop.last %}<br/>{% endif %}
+        {% endfor %}
+        </td>
+    </tr>
+    {% endif %}
+
+    <!-- Attendees - Observers -->
+    {% if incidence.observers %}
+    <tr>
+        <th>{% i18n "Observers:" %}</th>
+        <td>
+        {% for attendee in incidence.chair %}
+            {% include "attendee_row.html" %}
+            {% if not forloop.last %}<br/>{% endif %}
+        {% endfor %}
+        </td>
+    </tr>
+    {% endif %}
+
+    <!-- Categories -->
+    {% if incidence.categories %}
+    <tr>
+        <th>{% i18np "Category:" "Categories:" incidence.categories|length %}</th>
+        <td>{{ incidence.categories|join:", " }}</td>
+    </tr>
+    {% endif %}
+
+    <!-- Attachments -->
+    {% if incidence.attachments %}
+    <tr>
+        <th>{% i18np "Attachment:" "Attachments:" incidence.attachments|length %}</th>
+        <td>{% for attachment in incidence.attachments %}
+            <a href="{{ attachment.uri }}">{{ attachment.label }}</a>
+            {% if not forloop.last %}<br/>{% endif %}
+            {% endfor %}
+        </td>
+    </tr>
+    {% endif %}
+
+</table>
+
+<!-- Creation -->
+<p><em>{% i18n "Creation date: %1" incidence.creationDate|kdatetime %}</em></p>
+
+{% endblock body %}

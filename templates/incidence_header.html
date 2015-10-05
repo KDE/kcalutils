@@ -1,0 +1,24 @@
+<table class="header">
+    <tr>
+        <td>
+            {% if incidence.icon %}
+            {% icon incidence.icon small type %}
+            {% endif %}
+
+            {% if incidence.hasEnabledAlarms %}
+            {% icon "preferences-desktop-notification-bell" small _("Incidence with a reminder") %}
+            {% endif %}
+
+            {% if incidence.recurs %}
+            {% icon "edit-redo" small _("Recurring incidence") %}
+            {% endif %}
+
+            {% if incidence.isReadOnly %}
+            {% icon "object-locked" small _("Incidence is read only") %}
+            {% endif %}
+        </td>
+        <td>
+            <b><u>{{ incidence.summary }}</u></b>
+        </td>
+    </tr>
+</table>
