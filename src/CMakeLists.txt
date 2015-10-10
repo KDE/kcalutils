@@ -1,5 +1,7 @@
 add_subdirectory(grantlee_plugin)
 
+configure_file(config-kcalutils.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutils.h)
+
 set(kcalutils_SRCS
   htmlexport.cpp
   icaldrag.cpp

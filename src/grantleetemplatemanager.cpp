@@ -17,6 +17,8 @@
  *
  */
 
+#include "config-kcalutils.h"
+
 #include "grantleetemplatemanager_p.h"
 #include "grantleeki18nlocalizer_p.h"
 
@@ -46,6 +48,7 @@ GrantleeTemplateManager::GrantleeTemplateManager()
     mLoader->setTemplateDirs({ path });
     mLoader->setTheme(QStringLiteral("default"));
     mEngine->addTemplateLoader(mLoader);
+    mEngine->addPluginPath(QStringLiteral(GRANTLEE_PLUGIN_INSTALL_DIR));
     mEngine->addDefaultLibrary(QStringLiteral("grantlee_i18ntags"));
     mEngine->addDefaultLibrary(QStringLiteral("kcalendar_grantlee_plugin"));
     mEngine->setSmartTrimEnabled(true);
