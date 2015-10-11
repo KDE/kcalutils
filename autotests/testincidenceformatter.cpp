@@ -47,6 +47,7 @@ using namespace KCalUtils;
 
 void IncidenceFormatterTest::initTestCase()
 {
+    QStandardPaths::setTestModeEnabled(true);
     GrantleeTemplateManager::instance()->setTemplatePath(QStringLiteral(TEST_TEMPLATE_PATH));
     GrantleeTemplateManager::instance()->setPluginPath(QStringLiteral(TEST_PLUGIN_PATH));
 }
