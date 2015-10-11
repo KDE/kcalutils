@@ -208,6 +208,8 @@ bool IncidenceFormatterTest::compareHtml(const QString &name)
         QString content = QString::fromUtf8(f.readAll());
         f.close();
         content.replace(QRegExp(QLatin1String("\"file:[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("\"file:\\1\""));
+        // emoticons give us absolute paths without file:
+        content.replace(QRegExp(QLatin1String("src=\"/[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("src=\"\\1\""));
         if (!f.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
             return false;
         }
