@@ -67,9 +67,9 @@ void DndFactoryTest::testPasteAllDayEvent()
 
     Event::Ptr pastedEvent = incidence.staticCast<Event>();
 
-    QVERIFY(pastedEvent->dtStart() == allDayEvent->dtStart());
-    QVERIFY(pastedEvent->dtEnd() == allDayEvent->dtEnd());
-    QVERIFY(pastedEvent->summary() == allDayEvent->summary());
+    QCOMPARE(pastedEvent->dtStart(), allDayEvent->dtStart());
+    QCOMPARE(pastedEvent->dtEnd(), allDayEvent->dtEnd());
+    QCOMPARE(pastedEvent->summary(), allDayEvent->summary());
 }
 
 void DndFactoryTest::testPasteAllDayEvent2()
