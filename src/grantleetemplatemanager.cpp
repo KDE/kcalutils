@@ -96,9 +96,7 @@ QString GrantleeTemplateManager::errorTemplate(const QString &reason,
         QStringLiteral("<h1>{{ error }}</h1>\n"
                        "<b>%1:</b> {{ templateName }}<br>\n"
                        "<b>%2:</b> {{ errorMessage }}")
-            .arg(i18n("Template"))
-            .arg(i18n("Error message")),
-        QStringLiteral("TemplateError"));
+            .arg(i18n("Template"), i18n("Error message")), QStringLiteral("TemplateError"));
 
     Grantlee::Context ctx = createContext();
     ctx.insert(QStringLiteral("error"), reason);

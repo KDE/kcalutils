@@ -138,7 +138,6 @@ void IconNode::render(Grantlee::OutputStream *stream, Grantlee::Context *c) cons
                             .arg(mSizeOrGroup < KIconLoader::LastGroup ?
                                     IconSize(static_cast<KIconLoader::Group>(mSizeOrGroup))
                                     : mSizeOrGroup)
-                            .arg(altText.isEmpty() ? iconName : altText)
-                            .arg(altText); // title is intentionally blank if no alt is provided
+                            .arg(altText.isEmpty() ? iconName : altText, altText); // title is intentionally blank if no alt is provided
     (*stream) << Grantlee::SafeString(html, Grantlee::SafeString::IsSafe);
 }
