@@ -298,11 +298,11 @@ QString Stringify::errorMessage(const Exception &exception)
         break;
     case Exception::SaveErrorOpenFile:
         Q_ASSERT(exception.arguments().count() == 1);
-        message = i18nc("@item", "Error saving to '%1'.", exception.arguments()[0]);
+        message = i18nc("@item", "Error saving to '%1'.", exception.arguments().at(0));
         break;
     case Exception::SaveErrorSaveFile:
         Q_ASSERT(exception.arguments().count() == 1);
-        message = i18nc("@item", "Could not save '%1'", exception.arguments()[0]);
+        message = i18nc("@item", "Could not save '%1'", exception.arguments().at(0));
         break;
     case Exception::LibICalError:
         message = i18nc("@item", "libical error");
