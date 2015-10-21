@@ -16,7 +16,7 @@ include(KDECMakeSettings)
 include(KDEFrameworkCompilerSettings)
 include(ECMQtDeclareLoggingCategory)
 
-set(KF5_VERSION "5.12.0")
+set(KF5_VERSION "5.14.0")
 set(CALENDARUTILS_LIB_VERSION "4.80.0")
 set(CALENDARCORE_LIB_VERSION "4.81.0")
 set(IDENTITYMANAGER_LIB_VERSION "4.80.0")
