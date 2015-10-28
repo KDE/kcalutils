@@ -2232,7 +2232,7 @@ static QString invitationAttachments(const Incidence::Ptr &incidence)
             auto mimeType = mimeDb.mimeTypeForName(a->mimeType());
             const QString iconStr = (mimeType.isValid() ?
                                      mimeType.iconName() :
-                                     QLatin1String("application-octet-stream"));
+                                     QStringLiteral("application-octet-stream"));
             const QString iconPath = KIconLoader::global()->iconPath(iconStr, KIconLoader::Small);
             if (!iconPath.isEmpty()) {
                 tmpStr += QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">");

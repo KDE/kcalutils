@@ -41,7 +41,7 @@ void DndFactoryTest::testPasteAllDayEvent()
     DndFactory factory(calendar);
 
     Event::Ptr allDayEvent(new Event());
-    allDayEvent->setSummary(QLatin1String("Summary 1"));
+    allDayEvent->setSummary(QStringLiteral("Summary 1"));
     allDayEvent->setDtStart(KDateTime(QDate(2010, 8, 8)));
     allDayEvent->setDtEnd(KDateTime(QDate(2010, 8, 9)));
     const QString originalUid = allDayEvent->uid();
@@ -80,7 +80,7 @@ void DndFactoryTest::testPasteAllDayEvent2()
     DndFactory factory(calendar);
 
     Event::Ptr allDayEvent(new Event());
-    allDayEvent->setSummary(QLatin1String("Summary 2"));
+    allDayEvent->setSummary(QStringLiteral("Summary 2"));
     allDayEvent->setDtStart(KDateTime(QDate(2010, 8, 8)));
     allDayEvent->setDtEnd(KDateTime(QDate(2010, 8, 9)));
     const QString originalUid = allDayEvent->uid();
@@ -130,7 +130,7 @@ void DndFactoryTest::testPasteTodo()
     DndFactory factory(calendar);
 
     Todo::Ptr todo(new Todo());
-    todo->setSummary(QLatin1String("Summary 1"));
+    todo->setSummary(QStringLiteral("Summary 1"));
     todo->setDtDue(KDateTime(QDate(2010, 8, 9)));
 
     Incidence::List incidencesToPaste;

@@ -190,7 +190,7 @@ bool IncidenceFormatterTest::validateHtml(const QString &name, const QString &_h
         outFileName
     };
 
-    const int result = QProcess::execute(QLatin1String("xmllint"), args);
+    const int result = QProcess::execute(QStringLiteral("xmllint"), args);
     return result == 0;
 }
 
@@ -207,9 +207,9 @@ bool IncidenceFormatterTest::compareHtml(const QString &name)
         }
         QString content = QString::fromUtf8(f.readAll());
         f.close();
-        content.replace(QRegExp(QLatin1String("\"file:[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("\"file:\\1\""));
+        content.replace(QRegExp(QStringLiteral("\"file:[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("\"file:\\1\""));
         // emoticons give us absolute paths without file:
-        content.replace(QRegExp(QLatin1String("src=\"/[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("src=\"\\1\""));
+        content.replace(QRegExp(QStringLiteral("src=\"/[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("src=\"\\1\""));
         if (!f.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
             return false;
         }
@@ -226,7 +226,7 @@ bool IncidenceFormatterTest::compareHtml(const QString &name)
 
     QProcess proc;
     proc.setProcessChannelMode(QProcess::ForwardedChannels);
-    proc.start(QLatin1String("diff"), args);
+    proc.start(QStringLiteral("diff"), args);
     if (!proc.waitForFinished()) {
         return false;
     }
