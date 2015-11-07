@@ -46,6 +46,7 @@ public:
     QString render(const QString &templateName, const QVariantHash &data) const;
 
 private:
+    Q_DISABLE_COPY(GrantleeTemplateManager)
     GrantleeTemplateManager();
 
     QString errorTemplate(const QString &reason,
