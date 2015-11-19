@@ -527,7 +527,7 @@ static QVariantHash incidenceTemplateHeader(const Incidence::Ptr &incidence)
 
 static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QString &sourceName,
                                       const Event::Ptr &event,
-                                      const QDate &date, const KDateTime::Spec &spec)
+                                      QDate date, const KDateTime::Spec &spec)
 {
     if (!event) {
         return QString();
@@ -602,7 +602,7 @@ static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QStri
 
 static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QString &sourceName,
                                      const Todo::Ptr &todo,
-                                     const QDate &ocurrenceDueDate, const KDateTime::Spec &spec)
+                                     QDate ocurrenceDueDate, const KDateTime::Spec &spec)
 {
     if (!todo) {
         qCDebug(KCALUTILS_LOG) << "IncidenceFormatter::displayViewFormatTodo was called without to-do, quitting";
@@ -771,7 +771,7 @@ public:
 
     ~EventViewerVisitor();
 
-    bool act(const Calendar::Ptr &calendar, const IncidenceBase::Ptr &incidence, const QDate &date,
+    bool act(const Calendar::Ptr &calendar, const IncidenceBase::Ptr &incidence, QDate date,
              const KDateTime::Spec &spec = KDateTime::Spec())
     {
         mCalendar = calendar;
@@ -782,7 +782,7 @@ public:
         return incidence->accept(*this, incidence);
     }
 
-    bool act(const QString &sourceName, const IncidenceBase::Ptr &incidence, const QDate &date,
+    bool act(const QString &sourceName, const IncidenceBase::Ptr &incidence, QDate date,
              const KDateTime::Spec &spec = KDateTime::Spec())
     {
         mSourceName = sourceName;
@@ -832,7 +832,7 @@ EventViewerVisitor::~EventViewerVisitor() {}
 
 QString IncidenceFormatter::extensiveDisplayStr(const Calendar::Ptr &calendar,
         const IncidenceBase::Ptr &incidence,
-        const QDate &date,
+        QDate date,
         const KDateTime::Spec &spec)
 {
     if (!incidence) {
@@ -849,7 +849,7 @@ QString IncidenceFormatter::extensiveDisplayStr(const Calendar::Ptr &calendar,
 
 QString IncidenceFormatter::extensiveDisplayStr(const QString &sourceName,
         const IncidenceBase::Ptr &incidence,
-        const QDate &date,
+        QDate date,
         const KDateTime::Spec &spec)
 {
     if (!incidence) {
@@ -3093,7 +3093,7 @@ public:
 
     bool act(const MemoryCalendar::Ptr &calendar,
              const IncidenceBase::Ptr &incidence,
-             const QDate &date = QDate(), bool richText = true,
+             QDate date = QDate(), bool richText = true,
              const KDateTime::Spec &spec = KDateTime::Spec())
     {
         mCalendar = calendar;
@@ -3106,7 +3106,7 @@ public:
     }
 
     bool act(const QString &location, const IncidenceBase::Ptr &incidence,
-             const QDate &date = QDate(), bool richText = true,
+             QDate date = QDate(), bool richText = true,
              const KDateTime::Spec &spec = KDateTime::Spec())
     {
         mLocation = location;
@@ -3128,8 +3128,8 @@ protected:
     bool visit(const Journal::Ptr &journal) Q_DECL_OVERRIDE;
     bool visit(const FreeBusy::Ptr &fb) Q_DECL_OVERRIDE;
 
-    QString dateRangeText(const Event::Ptr &event, const QDate &date);
-    QString dateRangeText(const Todo::Ptr &todo, const QDate &date);
+    QString dateRangeText(const Event::Ptr &event, QDate date);
+    QString dateRangeText(const Todo::Ptr &todo, QDate date);
     QString dateRangeText(const Journal::Ptr &journal);
     QString dateRangeText(const FreeBusy::Ptr &fb);
 
@@ -3145,7 +3145,7 @@ protected:
 };
 
 QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &event,
-        const QDate &date)
+        QDate date)
 {
     //FIXME: support mRichText==false
     QString ret;
@@ -3201,7 +3201,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
 }
 
 QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo,
-        const QDate &date)
+        QDate date)
 {
     //FIXME: support mRichText==false
     QString ret;
@@ -3522,7 +3522,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
 
 QString IncidenceFormatter::toolTipStr(const QString &sourceName,
                                        const IncidenceBase::Ptr &incidence,
-                                       const QDate &date,
+                                       QDate date,
                                        bool richText,
                                        const KDateTime::Spec &spec)
 {

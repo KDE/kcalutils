@@ -65,7 +65,7 @@ public:
     */
     bool save(QTextStream *ts);
 
-    void addHoliday(const QDate &date, const QString &name);
+    void addHoliday(QDate date, const QString &name);
 
 protected:
     void createWeekView(QTextStream *ts);
@@ -78,7 +78,7 @@ protected:
     void createTodo(QTextStream *ts, const KCalCore::Todo::Ptr &todo);
 
     void createEvent(QTextStream *ts, const KCalCore::Event::Ptr &event,
-                     const QDate &date, bool withDescription = true);
+                     QDate date, bool withDescription = true);
 
     void createFooter(QTextStream *ts);
 

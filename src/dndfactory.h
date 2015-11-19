@@ -158,7 +158,7 @@ public:
     */
     KCalCore::Incidence::List pasteIncidences(
         const KDateTime &newDateTime = KDateTime(),
-        const QFlags<PasteFlag> &pasteOptions = QFlags<PasteFlag>());
+        QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions = QFlags<PasteFlag>());
 
     /**
       This function clones the incidence that's in the clipboard and sets the clone's
@@ -176,7 +176,7 @@ public:
     */
     KCalCore::Incidence::Ptr pasteIncidence(
         const KDateTime &newDateTime = KDateTime(),
-        const QFlags<PasteFlag> &pasteOptions = QFlags<PasteFlag>());
+        QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions = QFlags<PasteFlag>());
 
 private:
     //@cond PRIVATE

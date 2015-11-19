@@ -302,7 +302,7 @@ void HtmlExport::createEventList(QTextStream *ts)
 
 void HtmlExport::createEvent(QTextStream *ts,
                              const Event::Ptr &event,
-                             const QDate &date,
+                             QDate date,
                              bool withDescription)
 {
     qCDebug(KCALUTILS_LOG) << event->summary();
@@ -755,7 +755,7 @@ QString HtmlExport::styleSheet() const
     return css;
 }
 
-void HtmlExport::addHoliday(const QDate &date, const QString &name)
+void HtmlExport::addHoliday(QDate date, const QString &name)
 {
     if (d->mHolidayMap[date].isEmpty()) {
         d->mHolidayMap[date] = name;

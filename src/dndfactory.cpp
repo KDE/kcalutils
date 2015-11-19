@@ -68,7 +68,7 @@ public:
 
     Incidence::Ptr pasteIncidence(const Incidence::Ptr &incidence,
                                   KDateTime newDateTime,
-                                  const QFlags<DndFactory::PasteFlag> &pasteOptions)
+                                  QFlags<DndFactory::PasteFlag> pasteOptions)
     {
         Incidence::Ptr inc(incidence);
 
@@ -330,7 +330,7 @@ bool DndFactory::copyIncidence(const Incidence::Ptr &selectedInc)
 }
 
 Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime,
-        const QFlags<PasteFlag> &pasteOptions)
+        QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions)
 {
     QClipboard *clipboard = QApplication::clipboard();
     Q_ASSERT(clipboard);
@@ -373,7 +373,7 @@ Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime,
 }
 
 Incidence::Ptr DndFactory::pasteIncidence(const KDateTime &newDateTime,
-        const QFlags<PasteFlag> &pasteOptions)
+        QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions)
 {
     QClipboard *clipboard = QApplication::clipboard();
     MemoryCalendar::Ptr calendar(createDropCalendar(clipboard->mimeData()));
