@@ -44,6 +44,7 @@ using namespace KCalCore;
 
 class ScopeWidget : public QWidget
 {
+    Q_OBJECT
 public:
     ScopeWidget(int availableChoices, const KDateTime &dateTime, QWidget *parent)
         : QWidget(parent), mAvailableChoices(availableChoices)
@@ -277,3 +278,4 @@ int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message,
     return NoOccurrence;
 }
 
+#include "recurrenceactions.moc"

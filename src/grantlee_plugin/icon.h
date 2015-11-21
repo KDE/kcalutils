@@ -52,6 +52,7 @@
 
 class IconTag : public Grantlee::AbstractNodeFactory
 {
+    Q_OBJECT
 public:
     explicit IconTag(QObject *parent = Q_NULLPTR);
     ~IconTag();
