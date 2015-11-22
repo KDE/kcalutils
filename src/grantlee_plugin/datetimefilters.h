@@ -31,6 +31,8 @@ public:
     QVariant doFilter(const QVariant &input, const QVariant &argument = QVariant(),
                       bool autoescape = false) const Q_DECL_OVERRIDE;
     bool isSafe() const Q_DECL_OVERRIDE;
+private:
+    Q_DISABLE_COPY(KDateFilter)
 };
 
 class KTimeFilter : public Grantlee::Filter
@@ -42,6 +44,8 @@ public:
     QVariant doFilter(const QVariant &input, const QVariant &argument = QVariant(),
                       bool autoescape = false) const Q_DECL_OVERRIDE;
     bool isSafe() const Q_DECL_OVERRIDE;
+private:
+    Q_DISABLE_COPY(KTimeFilter)
 };
 
 class KDateTimeFilter : public Grantlee::Filter
@@ -53,6 +57,8 @@ public:
     QVariant doFilter(const QVariant &input, const QVariant &argument = QVariant(),
                       bool autoescape = false) const Q_DECL_OVERRIDE;
     bool isSafe() const Q_DECL_OVERRIDE;
+private:
+    Q_DISABLE_COPY(KDateTimeFilter)
 };
 
 #endif // DATETIMEFILTERS_H
