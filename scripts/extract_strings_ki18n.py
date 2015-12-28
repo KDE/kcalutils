@@ -19,8 +19,10 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 ##
 
+import sys
+sys.dont_write_bytecode = True
 
-import os, sys, glob, operator
+import os, glob, operator
 from grantlee_strings_extractor import TranslationOutputter
 
 class KI18nExtractStrings(TranslationOutputter):
