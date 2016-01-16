@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8.12)
 project(KCalUtils)
 
 # ECM setup
-find_package(ECM 5.14.0 CONFIG REQUIRED)
+find_package(ECM 5.17.0 CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(ECMGenerateHeaders)
@@ -16,10 +16,10 @@ include(KDECMakeSettings)
 include(KDEFrameworkCompilerSettings)
 include(ECMQtDeclareLoggingCategory)
 
-set(KF5_VERSION "5.14.0")
-set(CALENDARUTILS_LIB_VERSION "4.81.0")
-set(CALENDARCORE_LIB_VERSION "4.81.0")
-set(IDENTITYMANAGER_LIB_VERSION "4.80.0")
+set(KF5_VERSION "5.17.0")
+set(CALENDARUTILS_LIB_VERSION "5.1.40")
+set(CALENDARCORE_LIB_VERSION "5.1.40")
+set(IDENTITYMANAGER_LIB_VERSION "5.1.40")
 ecm_setup_version(${CALENDARUTILS_LIB_VERSION} VARIABLE_PREFIX KCALUTILS
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfigVersion.cmake"
