@@ -66,7 +66,7 @@ QString Stringify::todoCompletedDateTime(const Todo::Ptr &todo,
         bool shortfmt)
 {
     return QLocale::system().toString(todo->completed().dateTime(),
-            (shortfmt ? QLocale::ShortFormat: QLocale::LongFormat));
+                                      (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
 }
 
 QString Stringify::incidenceSecrecy(Incidence::Secrecy secrecy)

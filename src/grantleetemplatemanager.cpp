@@ -40,7 +40,7 @@ GrantleeTemplateManager::GrantleeTemplateManager()
     , mLocalizer(new GrantleeKi18nLocalizer)
 {
     const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kcalendar/templates"),
-                                                QStandardPaths::LocateDirectory);
+                         QStandardPaths::LocateDirectory);
     if (path.isEmpty()) {
         qFatal("Cannot find KCalendarUtils templates, check your instalation");
     }
@@ -59,7 +59,7 @@ GrantleeTemplateManager::~GrantleeTemplateManager()
     delete mEngine;
 }
 
-GrantleeTemplateManager * GrantleeTemplateManager::instance()
+GrantleeTemplateManager *GrantleeTemplateManager::instance()
 {
     if (!sInstance) {
         sInstance = new GrantleeTemplateManager;
@@ -89,14 +89,14 @@ Grantlee::Context GrantleeTemplateManager::createContext(const QVariantHash &has
 }
 
 QString GrantleeTemplateManager::errorTemplate(const QString &reason,
-                                       const QString &origTemplateName,
-                                       const Grantlee::Template &failedTemplate) const
+        const QString &origTemplateName,
+        const Grantlee::Template &failedTemplate) const
 {
     Grantlee::Template tpl = mEngine->newTemplate(
-        QStringLiteral("<h1>{{ error }}</h1>\n"
-                       "<b>%1:</b> {{ templateName }}<br>\n"
-                       "<b>%2:</b> {{ errorMessage }}")
-            .arg(i18n("Template"), i18n("Error message")), QStringLiteral("TemplateError"));
+                                 QStringLiteral("<h1>{{ error }}</h1>\n"
+                                         "<b>%1:</b> {{ templateName }}<br>\n"
+                                         "<b>%2:</b> {{ errorMessage }}")
+                                 .arg(i18n("Template"), i18n("Error message")), QStringLiteral("TemplateError"));
 
     Grantlee::Context ctx = createContext();
     ctx.insert(QStringLiteral("error"), reason);

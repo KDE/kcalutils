@@ -22,7 +22,8 @@
 
 #include <QSharedPointer>
 
-namespace Grantlee {
+namespace Grantlee
+{
 class Engine;
 class FileSystemTemplateLoader;
 class TemplateImpl;

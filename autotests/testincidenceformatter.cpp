@@ -145,7 +145,6 @@ void IncidenceFormatterTest::testRecurrenceString()
 //  qDebug() << "recurrenceString=" << IncidenceFormatter::recurrenceString( e3 );
 }
 
-
 KCalCore::Calendar::Ptr IncidenceFormatterTest::loadCalendar(const QString &name)
 {
     auto calendar = KCalCore::MemoryCalendar::Ptr::create(KDateTime::UTC);
@@ -161,14 +160,14 @@ KCalCore::Calendar::Ptr IncidenceFormatterTest::loadCalendar(const QString &name
 bool IncidenceFormatterTest::validateHtml(const QString &name, const QString &_html)
 {
     QString html = QStringLiteral("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
-                "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
-                "  <head>\n"
-                "    <title></title>\n"
-                "    <style></style>\n"
-                "  </head>\n"
-                "<body>")
-        + _html
-        + QStringLiteral("</body>\n</html>");
+                                  "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+                                  "  <head>\n"
+                                  "    <title></title>\n"
+                                  "    <style></style>\n"
+                                  "  </head>\n"
+                                  "<body>")
+                   + _html
+                   + QStringLiteral("</body>\n</html>");
 
     const QString outFileName = QStringLiteral(TEST_DATA_DIR "/%1.out").arg(name);
     const QString htmlFileName = QStringLiteral(TEST_DATA_DIR "/%1.out.html").arg(name);
@@ -247,9 +246,9 @@ void IncidenceFormatterTest::testErrorTemplate()
     GrantleeTemplateManager::instance()->setTemplatePath(QStringLiteral(TEST_TEMPLATE_PATH));
 
     const QString expected = QStringLiteral(
-        "<h1>Template parsing error</h1>\n"
-        "<b>Template:</b> broken-template.html<br>\n"
-        "<b>Error message:</b> Unclosed tag in template broken-template.html. Expected one of: (else endif), line 2, broken-template.html");
+                                 "<h1>Template parsing error</h1>\n"
+                                 "<b>Template:</b> broken-template.html<br>\n"
+                                 "<b>Error message:</b> Unclosed tag in template broken-template.html. Expected one of: (else endif), line 2, broken-template.html");
 
     QCOMPARE(html, expected);
 }

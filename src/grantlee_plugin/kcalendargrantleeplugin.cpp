@@ -41,7 +41,7 @@ QHash<QString, Grantlee::AbstractNodeFactory *> KCalendarGrantleePlugin::nodeFac
     return nodeFactories;
 }
 
-QHash<QString, Grantlee::Filter *> KCalendarGrantleePlugin::filters(const QString& name)
+QHash<QString, Grantlee::Filter *> KCalendarGrantleePlugin::filters(const QString &name)
 {
     Q_UNUSED(name);
 

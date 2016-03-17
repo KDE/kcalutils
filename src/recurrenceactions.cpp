@@ -149,7 +149,7 @@ int RecurrenceActions::availableOccurrences(const Incidence::Ptr &incidence,
     return result;
 }
 
-static QDialog* createDialog(QDialogButtonBox::StandardButtons buttons,
+static QDialog *createDialog(QDialogButtonBox::StandardButtons buttons,
                              const QString &caption, QWidget *mainWidget,
                              QDialogButtonBox **buttonBox, QWidget *parent)
 {
@@ -166,8 +166,9 @@ static QDialog* createDialog(QDialogButtonBox::StandardButtons buttons,
     QObject::connect(*buttonBox, &QDialogButtonBox::rejected, dialog.data(), &QDialog::reject);
     (*buttonBox)->button(QDialogButtonBox::Ok)->setDefault(true);
 
-    if (mainWidget)
+    if (mainWidget) {
         mainLayout->addWidget(mainWidget);
+    }
 
     mainLayout->addWidget(*buttonBox);
 
@@ -214,25 +215,25 @@ int RecurrenceActions::questionSelectedAllCancel(const QString &message, const Q
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Yes), actionSelected);
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), actionAll);
 
-   bool checkboxResult = false;
-   int result = KMessageBox::createKMessageBox(
-     dialog,
-     buttonBox,
-     QMessageBox::Question,
-     message,
-     QStringList(),
-     QString(),
-     &checkboxResult,
-     KMessageBox::Notify );
+    bool checkboxResult = false;
+    int result = KMessageBox::createKMessageBox(
+                     dialog,
+                     buttonBox,
+                     QMessageBox::Question,
+                     message,
+                     QStringList(),
+                     QString(),
+                     &checkboxResult,
+                     KMessageBox::Notify);
 
-   switch (result) {
-     case QDialogButtonBox::Yes:
-       return SelectedOccurrence;
-     case QDialogButtonBox::Ok:
-       return AllOccurrences;
-     default:
-       return NoOccurrence;
-   }
+    switch (result) {
+    case QDialogButtonBox::Yes:
+        return SelectedOccurrence;
+    case QDialogButtonBox::Ok:
+        return AllOccurrences;
+    default:
+        return NoOccurrence;
+    }
 
     return NoOccurrence;
 }
@@ -253,27 +254,27 @@ int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message,
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::No), actionFuture);
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), actionAll);
 
-   bool checkboxResult = false;
-   int result = KMessageBox::createKMessageBox(
-     dialog,
-     buttonBox,
-     QMessageBox::Question,
-     message,
-     QStringList(),
-     QString(),
-     &checkboxResult,
-     KMessageBox::Notify );
+    bool checkboxResult = false;
+    int result = KMessageBox::createKMessageBox(
+                     dialog,
+                     buttonBox,
+                     QMessageBox::Question,
+                     message,
+                     QStringList(),
+                     QString(),
+                     &checkboxResult,
+                     KMessageBox::Notify);
 
-   switch (result) {
-     case QDialogButtonBox::Yes:
-       return SelectedOccurrence;
-     case QDialogButtonBox::No:
-       return FutureOccurrences;
-     case QDialogButtonBox::Ok:
-       return AllOccurrences;
-     default:
-       return NoOccurrence;
-   }
+    switch (result) {
+    case QDialogButtonBox::Yes:
+        return SelectedOccurrence;
+    case QDialogButtonBox::No:
+        return FutureOccurrences;
+    case QDialogButtonBox::Ok:
+        return AllOccurrences;
+    default:
+        return NoOccurrence;
+    }
 
     return NoOccurrence;
 }

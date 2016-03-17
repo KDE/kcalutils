@@ -113,8 +113,8 @@ static QString htmlAddMailtoLink(const QString &email, const QString &name)
         if (path.isEmpty() || path.startsWith(QLatin1Char('"'))) {
             path = email;
         }
-            QUrl mailto;
-            mailto.setScheme(QStringLiteral("mailto"));
+        QUrl mailto;
+        mailto.setScheme(QStringLiteral("mailto"));
         mailto.setPath(path);
 
         // static for performance
@@ -311,7 +311,7 @@ static QString rsvpStatusIconName(Attendee::PartStat status)
 
 //@cond PRIVATE
 static QVariantHash displayViewFormatPerson(const QString &email, const QString &name,
-                                            const QString &uid, const QString &iconName)
+        const QString &uid, const QString &iconName)
 {
     // Search for new print name or uid, if needed.
     QPair<QString, QString> s = searchNameAndUid(email, name, uid);
@@ -342,7 +342,7 @@ static QVariantHash displayViewFormatPerson(const QString &email, const QString 
 }
 
 static QVariantHash displayViewFormatPerson(const QString &email, const QString &name,
-                                            const QString &uid, Attendee::PartStat status)
+        const QString &uid, Attendee::PartStat status)
 {
     return displayViewFormatPerson(email, name, uid, rsvpStatusIconName(status));
 }
@@ -373,10 +373,9 @@ static QString displayViewFormatDescription(const Incidence::Ptr &incidence)
     return QString();
 }
 
-
 static QVariantList displayViewFormatAttendeeRoleList(const Incidence::Ptr &incidence,
-                                                      Attendee::Role role,
-                                                      bool showStatus)
+        Attendee::Role role,
+        bool showStatus)
 {
     QVariantList attendeeDataList;
     attendeeDataList.reserve(incidence->attendeeCount());
@@ -395,7 +394,7 @@ static QVariantList displayViewFormatAttendeeRoleList(const Incidence::Ptr &inci
             continue;
         }
         QVariantHash attendeeData = displayViewFormatPerson(a->email(), a->name(), a->uid(),
-                                                            showStatus ? a->status() : Attendee::None);
+                                    showStatus ? a->status() : Attendee::None);
         if (!a->delegator().isEmpty()) {
             attendeeData[QStringLiteral("delegator")] = a->delegator();
         }
@@ -495,7 +494,7 @@ static QVariantHash displayViewFormatBirthday(const Event::Ptr &event)
 
     // It's callees duty to ensure this
     Q_ASSERT(event->customProperty("KABC", "BIRTHDAY") == QLatin1String("YES") ||
-            event->customProperty("KABC", "ANNIVERSARY") == QLatin1String("YES"));
+             event->customProperty("KABC", "ANNIVERSARY") == QLatin1String("YES"));
 
     const QString uid_1 = event->customProperty("KABC", "UID-1");
     const QString name_1 = event->customProperty("KABC", "NAME-1");
@@ -537,7 +536,6 @@ static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QStri
 
     incidence[QStringLiteral("calendar")] = calendar ? resourceString(calendar, event) : sourceName;
     incidence[QStringLiteral("location")] = event->richLocation();
-
 
     KDateTime startDt = event->dtStart();
     KDateTime endDt = event->dtEnd();
@@ -676,11 +674,11 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
 
     incidence[QStringLiteral("categories")] = todo->categories();
     incidence[QStringLiteral("priority")] = todo->priority();
-     if (todo->isCompleted()) {
+    if (todo->isCompleted()) {
         incidence[QStringLiteral("completedDate")] = todo->completed().dateTime();
-     } else {
+    } else {
         incidence[QStringLiteral("percent")] = todo->percentComplete();
-     }
+    }
     incidence[QStringLiteral("attachments")] = displayViewFormatAttachments(todo);
     incidence[QStringLiteral("creationDate")] = todo->created().toTimeSpec(spec).dateTime();
 
@@ -721,7 +719,7 @@ static QString displayViewFormatFreeBusy(const Calendar::Ptr &calendar, const QS
     Period::List periods = fb->busyPeriods();
     QVariantList periodsData;
     periodsData.reserve(periods.size());
-    for ( auto it = periods.cbegin(), end = periods.cend(); it != end; ++it) {
+    for (auto it = periods.cbegin(), end = periods.cend(); it != end; ++it) {
         const Period per = *it;
         QVariantHash periodData;
         if (per.hasDuration()) {
@@ -798,23 +796,19 @@ public:
     }
 
 protected:
-    bool visit(const Event::Ptr &event) Q_DECL_OVERRIDE
-    {
+    bool visit(const Event::Ptr &event) Q_DECL_OVERRIDE {
         mResult = displayViewFormatEvent(mCalendar, mSourceName, event, mDate, mSpec);
         return !mResult.isEmpty();
     }
-    bool visit(const Todo::Ptr &todo) Q_DECL_OVERRIDE
-    {
+    bool visit(const Todo::Ptr &todo) Q_DECL_OVERRIDE {
         mResult = displayViewFormatTodo(mCalendar, mSourceName, todo, mDate, mSpec);
         return !mResult.isEmpty();
     }
-    bool visit(const Journal::Ptr &journal) Q_DECL_OVERRIDE
-    {
+    bool visit(const Journal::Ptr &journal) Q_DECL_OVERRIDE {
         mResult = displayViewFormatJournal(mCalendar, mSourceName, journal, mSpec);
         return !mResult.isEmpty();
     }
-    bool visit(const FreeBusy::Ptr &fb) Q_DECL_OVERRIDE
-    {
+    bool visit(const FreeBusy::Ptr &fb) Q_DECL_OVERRIDE {
         mResult = displayViewFormatFreeBusy(mCalendar, mSourceName, fb, mSpec);
         return !mResult.isEmpty();
     }
@@ -1622,7 +1616,7 @@ static QString invitationDetailsJournal(const Journal::Ptr &journal,
 }
 
 static QString invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHtmlMode,
-                                         const KDateTime::Spec &spec)
+        const KDateTime::Spec &spec)
 {
     Q_UNUSED(noHtmlMode);
 
@@ -2285,23 +2279,19 @@ public:
     ~InvitationHeaderVisitor();
 
 protected:
-    bool visit(const Event::Ptr &event) Q_DECL_OVERRIDE
-    {
+    bool visit(const Event::Ptr &event) Q_DECL_OVERRIDE {
         mResult = invitationHeaderEvent(event, mExistingIncidence, mMessage, mSender);
         return !mResult.isEmpty();
     }
-    bool visit(const Todo::Ptr &todo) Q_DECL_OVERRIDE
-    {
+    bool visit(const Todo::Ptr &todo) Q_DECL_OVERRIDE {
         mResult = invitationHeaderTodo(todo, mExistingIncidence, mMessage, mSender);
         return !mResult.isEmpty();
     }
-    bool visit(const Journal::Ptr &journal) Q_DECL_OVERRIDE
-    {
+    bool visit(const Journal::Ptr &journal) Q_DECL_OVERRIDE {
         mResult = invitationHeaderJournal(journal, mMessage);
         return !mResult.isEmpty();
     }
-    bool visit(const FreeBusy::Ptr &fb) Q_DECL_OVERRIDE
-    {
+    bool visit(const FreeBusy::Ptr &fb) Q_DECL_OVERRIDE {
         mResult = invitationHeaderFreeBusy(fb, mMessage);
         return !mResult.isEmpty();
     }
@@ -2319,26 +2309,22 @@ public:
     ~InvitationBodyVisitor();
 
 protected:
-    bool visit(const Event::Ptr &event) Q_DECL_OVERRIDE
-    {
+    bool visit(const Event::Ptr &event) Q_DECL_OVERRIDE {
         Event::Ptr oldevent = mExistingIncidence.dynamicCast<Event>();
         mResult = invitationDetailsEvent(event, oldevent, mMessage, mNoHtmlMode, mSpec);
         return !mResult.isEmpty();
     }
-    bool visit(const Todo::Ptr &todo) Q_DECL_OVERRIDE
-    {
+    bool visit(const Todo::Ptr &todo) Q_DECL_OVERRIDE {
         Todo::Ptr oldtodo = mExistingIncidence.dynamicCast<Todo>();
         mResult = invitationDetailsTodo(todo, oldtodo, mMessage, mNoHtmlMode, mSpec);
         return !mResult.isEmpty();
     }
-    bool visit(const Journal::Ptr &journal) Q_DECL_OVERRIDE
-    {
+    bool visit(const Journal::Ptr &journal) Q_DECL_OVERRIDE {
         Journal::Ptr oldjournal = mExistingIncidence.dynamicCast<Journal>();
         mResult = invitationDetailsJournal(journal, oldjournal, mNoHtmlMode, mSpec);
         return !mResult.isEmpty();
     }
-    bool visit(const FreeBusy::Ptr &fb) Q_DECL_OVERRIDE
-    {
+    bool visit(const FreeBusy::Ptr &fb) Q_DECL_OVERRIDE {
         mResult = invitationDetailsFreeBusy(fb, FreeBusy::Ptr(), mNoHtmlMode, mSpec);
         return !mResult.isEmpty();
     }
@@ -2399,25 +2385,21 @@ public:
     }
 
 protected:
-    bool visit(const Event::Ptr &event) Q_DECL_OVERRIDE
-    {
+    bool visit(const Event::Ptr &event) Q_DECL_OVERRIDE {
         compareEvents(event, mExistingIncidence.dynamicCast<Event>());
         compareIncidences(event, mExistingIncidence);
         return !mChanges.isEmpty();
     }
-    bool visit(const Todo::Ptr &todo) Q_DECL_OVERRIDE
-    {
+    bool visit(const Todo::Ptr &todo) Q_DECL_OVERRIDE {
         compareTodos(todo, mExistingIncidence.dynamicCast<Todo>());
         compareIncidences(todo, mExistingIncidence);
         return !mChanges.isEmpty();
     }
-    bool visit(const Journal::Ptr &journal) Q_DECL_OVERRIDE
-    {
+    bool visit(const Journal::Ptr &journal) Q_DECL_OVERRIDE {
         compareIncidences(journal, mExistingIncidence);
         return !mChanges.isEmpty();
     }
-    bool visit(const FreeBusy::Ptr &fb) Q_DECL_OVERRIDE
-    {
+    bool visit(const FreeBusy::Ptr &fb) Q_DECL_OVERRIDE {
         Q_UNUSED(fb);
         return !mChanges.isEmpty();
     }
@@ -2787,7 +2769,7 @@ static QString formatICalInvitationHelper(const QString &invitation,
             for (Incidence::List::ConstIterator it = list.begin(), end = list.end(); it != end; ++it) {
                 if ((*it)->schedulingID() == incBase->uid() &&
                         incidenceOwnedByMe(helper->calendar(), *it) &&
-                    (*it)->recurrenceId() == incBase->recurrenceId()) {
+                        (*it)->recurrenceId() == incBase->recurrenceId()) {
                     existingIncidence = *it;
                     break;
                 }
@@ -3432,7 +3414,7 @@ static QString tooltipFormatAttendees(const Calendar::Ptr &calendar,
 }
 
 QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr &incidence,
-                                                            const QString &dtRangeText)
+        const QString &dtRangeText)
 {
     int maxDescLen = 120; // maximum description chars to print (before elipsis)
 
@@ -3578,8 +3560,7 @@ protected:
     bool visit(const Event::Ptr &event) Q_DECL_OVERRIDE;
     bool visit(const Todo::Ptr &todo) Q_DECL_OVERRIDE;
     bool visit(const Journal::Ptr &journal) Q_DECL_OVERRIDE;
-    bool visit(const FreeBusy::Ptr &) Q_DECL_OVERRIDE
-    {
+    bool visit(const FreeBusy::Ptr &) Q_DECL_OVERRIDE {
         mResult = i18n("This is a Free Busy Object");
         return !mResult.isEmpty();
     }
@@ -3864,7 +3845,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                     dayNames.append(i18nc("separator for list of days", ", "));
                 }
                 dayNames.append(QLocale::system().dayName(((i + weekStart + 6) % 7) + 1,
-                                                    QLocale::ShortFormat));
+                                QLocale::ShortFormat));
                 addSpace = true;
             }
         }

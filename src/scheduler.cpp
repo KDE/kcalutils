@@ -110,7 +110,7 @@ bool Scheduler::acceptPublish(const IncidenceBase::Ptr &newIncBase, ScheduleMess
 
     qCDebug(KCALUTILS_LOG) << "status=" << Stringify::scheduleMessageStatus(status);
 
-    Incidence::Ptr newInc = newIncBase.staticCast<Incidence>() ;
+    Incidence::Ptr newInc = newIncBase.staticCast<Incidence>();
     Incidence::Ptr calInc = mCalendar->incidence(newIncBase->uid());
     switch (status) {
     case ScheduleMessage::Unknown:
@@ -148,7 +148,7 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
                               ScheduleMessage::Status status,
                               const QString &email)
 {
-    Incidence::Ptr inc = incidence.staticCast<Incidence>() ;
+    Incidence::Ptr inc = incidence.staticCast<Incidence>();
     if (!inc) {
         qCWarning(KCALUTILS_LOG) << "Accept what?";
         return false;
@@ -171,7 +171,7 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
                                << "; incidence count = " << mCalendar->incidences().count();
     }
     Incidence::List::ConstIterator incit = existingIncidences.begin();
-    for (; incit != existingIncidences.end() ; ++incit) {
+    for (; incit != existingIncidences.end(); ++incit) {
         Incidence::Ptr existingIncidence = *incit;
         qCDebug(KCALUTILS_LOG) << "Considering this found event ("
                                << (existingIncidence->isReadOnly() ? "readonly" : "readwrite")
@@ -290,7 +290,7 @@ bool Scheduler::acceptCancel(const IncidenceBase::Ptr &incidence,
 
     bool ret = false;
     Incidence::List::ConstIterator incit = existingIncidences.begin();
-    for (; incit != existingIncidences.end() ; ++incit) {
+    for (; incit != existingIncidences.end(); ++incit) {
         Incidence::Ptr i = *incit;
         qCDebug(KCALUTILS_LOG) << "Considering this found event ("
                                << (i->isReadOnly() ? "readonly" : "readwrite")
