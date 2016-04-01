@@ -52,7 +52,6 @@ using namespace KCalCore;
 #include <kemailaddress.h>
 #include <ktexttohtml.h>
 
-#include <KCalendarSystem>
 #include "kcalutils_debug.h"
 #include <KIconLoader>
 #include <KLocalizedString>
@@ -3781,7 +3780,6 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
 
     const int weekStart = QLocale::system().firstDayOfWeek();
     QString dayNames;
-    const KCalendarSystem *calSys = KLocale::global()->calendar();
 
     Recurrence *recur = incidence->recurrence();
 
@@ -3931,7 +3929,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                                   "Recurs yearly on %2 %3 until %4",
                                   "Recurs every %1 years on %2 %3 until %4",
                                   recur->frequency(),
-                                  calSys->monthName(recur->yearMonths().at(0), recur->startDate().year()),
+                                  QLocale().monthName(recur->yearMonths().at(0), QLocale::LongFormat),
                                   dayList.at(recur->yearDates().at(0) + 31),
                                   recurEnd(incidence));
                 if (recur->duration() >  0) {
@@ -3946,21 +3944,18 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                                   "Recurs yearly on %2 %3",
                                   "Recurs every %1 years on %2 %3",
                                   recur->frequency(),
-                                  calSys->monthName(recur->yearMonths().at(0),
-                                                    recur->startDate().year()),
+                                  QLocale().monthName(recur->yearMonths().at(0), QLocale::LongFormat),
                                   dayList[ recur->yearDates().at(0) + 31 ]);
             } else {
                 if (!recur->yearMonths().isEmpty()) {
                     recurStr = i18nc("Recurs Every year on month-name [1st|2nd|...]",
                                      "Recurs yearly on %1 %2",
-                                     calSys->monthName(recur->yearMonths().at(0),
-                                                       recur->startDate().year()),
+                                     QLocale().monthName(recur->yearMonths().at(0), QLocale::LongFormat),
                                      dayList[ recur->startDate().day() + 31 ]);
                 } else {
                     recurStr = i18nc("Recurs Every year on month-name [1st|2nd|...]",
                                      "Recurs yearly on %1 %2",
-                                     calSys->monthName(recur->startDate().month(),
-                                                       recur->startDate().year()),
+                                     QLocale().monthName(recur->startDate().month(), QLocale::LongFormat),
                                      dayList[ recur->startDate().day() + 31 ]);
                 }
             }
@@ -4003,7 +3998,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                                   recur->frequency(),
                                   dayList[rule.pos() + 31],
                                   QLocale::system().dayName(rule.day(), QLocale::LongFormat),
-                                  calSys->monthName(recur->yearMonths().at(0), recur->startDate().year()),
+                                  QLocale().monthName(recur->yearMonths().at(0), QLocale::LongFormat),
                                   recurEnd(incidence));
                 if (recur->duration() >  0) {
                     recurStr += i18nc("number of occurrences",
@@ -4018,7 +4013,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                                    recur->frequency(),
                                    dayList[rule.pos() + 31],
                                    QLocale::system().dayName(rule.day(), QLocale::LongFormat),
-                                   calSys->monthName(recur->yearMonths().at(0), recur->startDate().year()));
+                                   QLocale().monthName(recur->yearMonths().at(0), QLocale::LongFormat));
             }
         }
     }

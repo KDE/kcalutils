@@ -27,7 +27,6 @@
 using namespace KCalCore;
 
 #include "kcalutils_debug.h"
-#include <KCalendarSystem>
 
 #include <KLocalizedString>
 
