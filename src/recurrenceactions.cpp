@@ -207,13 +207,20 @@ int RecurrenceActions::questionSelectedAllCancel(const QString &message, const Q
         const KGuiItem &actionSelected,
         const KGuiItem &actionAll, QWidget *parent)
 {
-    QDialogButtonBox::StandardButtons buttons = QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::No | QDialogButtonBox::Yes;
-    QDialogButtonBox *buttonBox = 0;
-    auto dialog = createDialog(buttons, caption, Q_NULLPTR, &buttonBox, parent);
+    QPointer<QDialog> dialog = new QDialog(parent);
+    dialog->setWindowTitle(caption);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::No | QDialogButtonBox::Yes, parent);
     dialog->setObjectName(QStringLiteral("RecurrenceActions::questionSelectedAllCancel"));
 
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Yes), actionSelected);
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), actionAll);
+
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, dialog.data(), &QDialog::accept);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, dialog.data(), &QDialog::reject);
+    buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
 
     bool checkboxResult = false;
     int result = KMessageBox::createKMessageBox(
@@ -245,14 +252,20 @@ int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message,
         const KGuiItem &actionAll,
         QWidget *parent)
 {
-    QDialogButtonBox::StandardButtons buttons = QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::No | QDialogButtonBox::Yes;
-    QDialogButtonBox *buttonBox = 0;
-    auto dialog = createDialog(buttons, caption, Q_NULLPTR, &buttonBox, parent);
+    QPointer<QDialog> dialog = new QDialog(parent);
+    dialog->setWindowTitle(caption);
 
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::No | QDialogButtonBox::Yes, parent);
     dialog->setObjectName(QStringLiteral("RecurrenceActions::questionSelectedFutureAllCancel"));
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Yes), actionSelected);
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::No), actionFuture);
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), actionAll);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, dialog.data(), &QDialog::accept);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, dialog.data(), &QDialog::reject);
+    buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
 
     bool checkboxResult = false;
     int result = KMessageBox::createKMessageBox(
