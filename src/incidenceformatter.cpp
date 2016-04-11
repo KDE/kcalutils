@@ -1079,9 +1079,7 @@ static QVariantList eventsOnSameDays(InvitationFormatterHelper *helper,
 
     QVariantList events;
     int count = 0;
-    for (Event::List::ConstIterator it = matchingEvents.begin(), end = matchingEvents.end();
-          it != end && count < 50;
-          ++it) {
+    for (auto it = matchingEvents.cbegin(), end = matchingEvents.cend(); it != end && count < 50; ++it) {
         if ((*it)->schedulingID() == event->uid()) {
             // Exclude the same event from the list.
             continue;
