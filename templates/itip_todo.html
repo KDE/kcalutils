@@ -1,0 +1,58 @@
+{% extends "itip.html" %}
+
+{% block incidenceDetail %}
+  {% if incidence.location %}
+  <tr>
+    <th>{% i18n "Where:" %}</th>
+    <td>{{ incidence.location }}</td>
+  </tr>
+  {% endif %}
+
+  <tr>
+    {% if incidence.hasStartDate %}
+    <th>{% i18n "When:" %}</th>
+      {% if incidence.isAllDay %}
+        {% if incidence.isMultiDay %}
+        <td>{% i18nc "<beginDate> - <endDate>" "%1 - %2" incidence.dtStartStr incidence.dtDueStr %}</td>
+        {% else %}
+        <td>{% i18nc "Date as string" "%1" incidence.dtStartStr %}</td>
+        {% endif %}
+      {% else %}
+        {% if incidence.isMultiDay %}
+        <td>{% i18nc "<beginDateTime> - <endDateTime>" "%1 - %2" incidence.dtStartStr incidence.dtDueStr %}</td>
+        {% else %}
+        <td>{% i18nc "<beginDateTime> - <endTime>" "%1 - %2" incidence.dtStartStr incidence.dtDueStr %}</td>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  </tr>
+
+  {% if incidence.percentComplete %}
+  <tr>
+    <th>{% i18n "Percent Done:" %}</th>
+    <td>{{ incidence.percentComplete }}</td>
+  </tr>
+  {% endif %}
+
+  {% if not incidence.hasStartDate %}
+  <tr>
+    <th>{% i18n "Due:" %}</th>
+    <td>{{ incidence.dtDueStr }}</td>
+  </tr>
+  {% endif %}
+
+  {% if incidence.recurs %}
+  <tr>
+    <th>{% i18n "Recurrence:" %}</th>
+    <td>{{ incidence.recurrence }}</td>
+  </tr>
+  {% endif %}
+
+  {% if incidence.description %}
+  <tr>
+    <th>{% i18n "Description:" %}</th>
+    <td>{{ incidence.description|safe }}</td>
+  </tr>
+  {% endif %}
+
+{% endblock incidenceDetail %}

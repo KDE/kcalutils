@@ -1,0 +1,43 @@
+{% extends "itip.html" %}
+
+{% block incidenceDetail %}
+  <tr>
+    <th>{% i18n "Person:" %}</th>
+    <td>{{ incidence.organizer }}</td>
+  </tr>
+
+  <tr>
+    <th>{% i18n "Start date:" %}</th>
+    <td>{{ incidence.dtStart|kdatetime }}</td>
+  </tr>
+
+  <tr>
+    <th>{% i18n "End date:" %}</th>
+    <td>{{ incidence.dtEnd|kdatetime }}</td>
+  </tr>
+
+  <tr>
+    <td colspan="2"><hr></td>
+  </tr>
+  <tr>
+    <td colspan="2">{% i18n "Busy periods given in this free/busy object:" %}</td>
+  </tr>
+
+  {% for period in incidence.periods %}
+  <tr>
+    <td></td>
+    <td>
+    {% if period.hasDuration %}
+      {% i18nc "<startDate> for <duration>" "%1 for %2" period.start|kdatetime period.duration %}
+    {% else %}
+      {% if period.isMultiDay %}
+        {% i18nc "<startDate> - <endDate>" "%1 - %2" period.start|kdatetime period.end|kdatetime %}
+      {% else %}
+        {% i18nc "<date>, <startTime> - <endTime>" "%1, %2 - %3" period.start|kdate period.start|ktime period.end|ktime %}
+      {% endif %}
+    {% endif %}
+    </td>
+  <tr>
+  {% endfor %}
+
+{% endblock incidenceDetail %}

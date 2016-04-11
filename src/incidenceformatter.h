@@ -205,6 +205,10 @@ KCALUTILS_EXPORT QString timeToString(const KDateTime &date, bool shortfmt = tru
 KCALUTILS_EXPORT QString dateToString(const KDateTime &date, bool shortfmt = true,
                                       const KDateTime::Spec &spec = KDateTime::Spec());
 
+
+KCALUTILS_EXPORT QString formatStartEnd(const KDateTime &start, const KDateTime &end,
+                                        const KDateTime::Spec &spec, bool isAllDay);
+
 /**
   Build a QString date/time representation of a KDateTime object.
   @param date The date to be formatted.
@@ -245,10 +249,9 @@ KCALUTILS_EXPORT QString incidenceStatusName(KCalCore::Incidence::Status status)
 KCALUTILS_EXPORT QString incidenceStatusStr(const KCalCore::Incidence::Ptr &incidence);
 
 class EventViewerVisitor;
-class ScheduleMessageVisitor;
+template<typename T> class ScheduleMessageVisitor;
 class InvitationHeaderVisitor;
 class InvitationBodyVisitor;
-class IncidenceCompareVisitor;
 class ToolTipVisitor;
 class MailBodyVisitor;
 }

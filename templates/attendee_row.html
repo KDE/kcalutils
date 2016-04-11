@@ -11,18 +11,37 @@
     {% endif %}
     </a>
 {% else %}
+    <a href="mailto:{{ attendee.email }}">
     {% if attendee.name %}
         {{ attendee.name }}
     {% else %}
         {{ attendee.email }}
     {% endif %}
+    </a>
 {% endif %}
-{% if attendee.delegator %}
-    {% i18n "(delegated by %1)" attendee.delegator %}
+
+
+{% if attendee.isOrganizer or attendee.isMyself or attandee.delegator or attandee.delegate %}
+(
+    {% if attendee.isOrganizer %}
+        {% i18n "organizer" %}
+    {% endif %}
+    {% if attendee.isMyself %}
+        {% if attendee.isOrganizer %},&nbsp;{% else %}({% endif %}
+        {% i18n "myself" %}
+    {%  endif %}
+    {% if attendee.delegator %}
+        {% if attendee.isOrganizer or attendee.isMyself %},&nbsp;{% else %}({% endif %}
+        {% i18n "delegated by %1)" attendee.delegator %}
+    {% else %}
+        {% if attendee.delegate %}
+            {% if attendee.isOrganizer or attendee.isMyself %},&nbsp;{% else %}({% endif %}
+            {% i18n "delegated to %1)" attendee.delegate %}
+        {% else %})
+        {% endif %}
+    {% endif %}
 {% endif %}
-{% if attendee.delegate %}
-    {% i18n "(delegated to %1)" attendee.delegate %}\
-{% endif %}
+
 {% if attendee.mailto %}
     <a href="{{ attendee.mailto }}">{% icon "mail-message-new" small _("Send email") %}</a>
 {% endif %}

@@ -209,6 +209,8 @@ bool IncidenceFormatterTest::compareHtml(const QString &name)
         content.replace(QRegExp(QStringLiteral("\"file:[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("\"file:\\1\""));
         // emoticons give us absolute paths without file:
         content.replace(QRegExp(QStringLiteral("src=\"/[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("src=\"\\1\""));
+        // icon filename extensions depend on used theme, Oxygen has PNG, Breeze has SVG
+        content.replace(QRegExp(QStringLiteral(".(png|svg)\"")), QStringLiteral("\""));
         if (!f.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
             return false;
         }
@@ -363,3 +365,62 @@ void IncidenceFormatterTest::testDisplayViewFreeBusy()
 
     cleanup(name);
 }
+
+void IncidenceFormatterTest::testFormatIcalInvitation_data()
+{
+    QTest::addColumn<QString>("name");
+
+    QTest::newRow("itip-journal") << QStringLiteral("itip-journal");
+    QTest::newRow("itip-journal-delegation-request") << QStringLiteral("itip-journal-delegation-request");
+    QTest::newRow("itip-journal-delegation-reply") << QStringLiteral("itip-journal-delegation-reply");
+    QTest::newRow("itip-journal-declined-reply") << QStringLiteral("itip-journal-declined-reply");
+    QTest::newRow("itip-journal-tentative-reply") << QStringLiteral("itip-journal-tentative-reply");
+    QTest::newRow("itip-journal-accepted-reply") << QStringLiteral("itip-journal-accepted-reply");
+
+    QTest::newRow("itip-todo") << QStringLiteral("itip-todo");
+    QTest::newRow("itip-todo-with-start") << QStringLiteral("itip-todo-with-start");
+    QTest::newRow("itip-todo-delegation-request") << QStringLiteral("itip-todo-delegation-request");
+    QTest::newRow("itip-todo-delegation-reply") << QStringLiteral("itip-todo-delegation-reply");
+    QTest::newRow("itip-todo-declined-reply") << QStringLiteral("itip-todo-declined-reply");
+    QTest::newRow("itip-todo-tentative-reply") << QStringLiteral("itip-todo-tentative-reply");
+    QTest::newRow("itip-todo-accepted-reply") << QStringLiteral("itip-todo-accepted-reply");
+
+    QTest::newRow("itip-event-with-html-description") << QStringLiteral("itip-event-with-html-description");
+    QTest::newRow("itip-event-with-recurrence-attachment-reminder") << QStringLiteral("itip-event-with-recurrence-attachment-reminder");
+    QTest::newRow("itip-event-multiday-allday") << QStringLiteral("itip-event-multiday-allday");
+    QTest::newRow("itip-event-multiday") << QStringLiteral("itip-event-multiday");
+    QTest::newRow("itip-event-allday") << QStringLiteral("itip-event-allday");
+    QTest::newRow("itip-event") << QStringLiteral("itip-event");
+    QTest::newRow("itip-event-request") << QStringLiteral("itip-event-request");
+    QTest::newRow("itip-event-counterproposal") << QStringLiteral("itip-event-counterproposal");
+    QTest::newRow("itip-event-counterproposal-declined") << QStringLiteral("itip-event-counterproposal-declined");
+    QTest::newRow("itip-event-delegation-request") << QStringLiteral("itip-event-delegation-request");
+    QTest::newRow("itip-event-delegation-reply") << QStringLiteral("itip-event-delegation-reply");
+    QTest::newRow("itip-event-declined-reply") << QStringLiteral("itip-event-delegation-reply");
+    QTest::newRow("itip-event-tentative-reply") << QStringLiteral("itip-event-tentative-reply");
+    QTest::newRow("itip-event-accepted-reply") << QStringLiteral("itip-event-accepted-reply");
+}
+
+void IncidenceFormatterTest::testFormatIcalInvitation()
+{
+    QFETCH(QString, name);
+
+    KCalCore::MemoryCalendar::Ptr calendar(new KCalCore::MemoryCalendar(KDateTime::Spec(KDateTime::UTC)));
+    InvitationFormatterHelper helper;
+
+    QFile eventFile(QStringLiteral(TEST_DATA_DIR "/%1.ical").arg(name));
+    QVERIFY(eventFile.exists());
+    QVERIFY(eventFile.open(QIODevice::ReadOnly));
+    const QByteArray data = eventFile.readAll();
+
+    const QString html = IncidenceFormatter::formatICalInvitation(QString::fromUtf8(data),
+                                                                  calendar,
+                                                                  &helper,
+                                                                  false);
+
+    QVERIFY(validateHtml(name, html));
+    QVERIFY(compareHtml(name));
+
+    cleanup(name);
+}
+
