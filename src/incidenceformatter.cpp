@@ -851,7 +851,7 @@ static QString htmlCompare(const QString &value, const QString &oldvalue)
 {
     // if 'value' is empty, then print nothing
     if (value.isEmpty()) {
-        return QString::null;
+        return QString();
     }
 
     // if 'value' is new or unchanged, then print normally
@@ -1018,7 +1018,7 @@ static QString invitationDescriptionIncidence(const Incidence::Ptr &incidence, b
         }
     }
 
-    return QString::null;
+    return QString();
 }
 
 static bool slicesInterval(const Event::Ptr &event,
@@ -1086,7 +1086,7 @@ static QVariantList eventsOnSameDays(InvitationFormatterHelper *helper,
         }
         if (!slicesInterval(*it, startDay, endDay)) {
             /* Calendar::events includes events that have a recurrence that is
-             * "active" in the specified interval. Wether or not the event is actually
+             * "active" in the specified interval. Whether or not the event is actually
              * happening ( has a recurrence that falls into the interval ).
              * This appears to be done deliberately and not to be a bug so we additionally
              * check if the event is actually happening here. */
@@ -1290,6 +1290,7 @@ static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo, const Todo::Ptr
 static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, bool noHtmlMode,
                                              const KDateTime::Spec &spec)
 {
+    Q_UNUSED(spec);
     if (!journal) {
         return QVariantHash();
     }
@@ -1326,6 +1327,7 @@ static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHt
                                               const KDateTime::Spec &spec)
 {
     Q_UNUSED(noHtmlMode);
+    Q_UNUSED(spec);
 
     if (!fb) {
         return QVariantHash();
@@ -2063,7 +2065,7 @@ static QVariantList responseButtons(const Incidence::Ptr &incidence,
     return buttons;
 }
 
-static QVariantList counterButtons(const Incidence::Ptr &incidence)
+static QVariantList counterButtons()
 {
     QVariantList buttons;
 
@@ -2339,7 +2341,7 @@ static QString formatICalInvitationHelper(const QString &invitation,
         if (inc) {
             // First, determine if this reply is really a counter in disguise.
             if (replyMeansCounter(inc)) {
-                buttons = counterButtons(inc);
+                buttons = counterButtons();
                 break;
             }
 
@@ -2379,7 +2381,7 @@ static QString formatICalInvitationHelper(const QString &invitation,
 
     case iTIPCounter:
         // Counter proposal
-        buttons = counterButtons(inc);
+        buttons = counterButtons();
         break;
 
     case iTIPDeclineCounter:
@@ -2431,11 +2433,29 @@ static QString formatICalInvitationHelper(const QString &invitation,
 
 QString IncidenceFormatter::formatICalInvitation(const QString &invitation,
         const MemoryCalendar::Ptr &calendar,
-        InvitationFormatterHelper *helper,
-        bool outlookCompareStyle)
+        InvitationFormatterHelper *helper)
 {
     return formatICalInvitationHelper(invitation, calendar, helper, false,
                                       KSystemTimeZones::local(), QString());
+}
+
+QString IncidenceFormatter::formatICalInvitation(const QString &invitation,
+        const MemoryCalendar::Ptr &calendar,
+        InvitationFormatterHelper *helper,
+        bool outlookCompareStyle)
+{
+    Q_UNUSED(outlookCompareStyle);
+    return formatICalInvitationHelper(invitation, calendar, helper, false,
+                                      KSystemTimeZones::local(), QString());
+}
+
+QString IncidenceFormatter::formatICalInvitationNoHtml(const QString &invitation,
+        const MemoryCalendar::Ptr &calendar,
+        InvitationFormatterHelper *helper,
+        const QString &sender)
+{
+    return formatICalInvitationHelper(invitation, calendar, helper, true,
+                                      KSystemTimeZones::local(), sender);
 }
 
 QString IncidenceFormatter::formatICalInvitationNoHtml(const QString &invitation,
@@ -2444,6 +2464,7 @@ QString IncidenceFormatter::formatICalInvitationNoHtml(const QString &invitation
         const QString &sender,
         bool outlookCompareStyle)
 {
+    Q_UNUSED(outlookCompareStyle);
     return formatICalInvitationHelper(invitation, calendar, helper, true,
                                       KSystemTimeZones::local(), sender);
 }
@@ -3700,4 +3721,3 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
 
     return reminderStringList;
 }
-

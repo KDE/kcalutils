@@ -415,12 +415,10 @@ void IncidenceFormatterTest::testFormatIcalInvitation()
 
     const QString html = IncidenceFormatter::formatICalInvitation(QString::fromUtf8(data),
                                                                   calendar,
-                                                                  &helper,
-                                                                  false);
+                                                                  &helper);
 
     QVERIFY(validateHtml(name, html));
     QVERIFY(compareHtml(name));
 
     cleanup(name);
 }
-
