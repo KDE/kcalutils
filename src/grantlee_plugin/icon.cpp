@@ -89,6 +89,7 @@ Grantlee::Node *IconTag::getNode(const QString &tagContent, Grantlee::Parser *p)
 
 IconNode::IconNode(QObject *parent)
     : Grantlee::Node(parent)
+    , mSizeOrGroup(KIconLoader::Small)
 {
 }
 
