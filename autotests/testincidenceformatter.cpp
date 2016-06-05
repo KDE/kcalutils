@@ -37,8 +37,9 @@
 #include <KLocale>
 
 #include <QDebug>
+#include <QIcon>
 #include <QProcess>
-#include <qtest.h>
+#include <QTest>
 
 QTEST_MAIN(IncidenceFormatterTest)
 
@@ -50,6 +51,7 @@ void IncidenceFormatterTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
     GrantleeTemplateManager::instance()->setTemplatePath(QStringLiteral(TEST_TEMPLATE_PATH));
     GrantleeTemplateManager::instance()->setPluginPath(QStringLiteral(TEST_PLUGIN_PATH));
+    QIcon::setThemeName(QStringLiteral("oxygen"));
 }
 
 void IncidenceFormatterTest::testRecurrenceString()
