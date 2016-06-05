@@ -65,8 +65,8 @@ QString Stringify::incidenceType(Incidence::IncidenceType type)
 QString Stringify::todoCompletedDateTime(const Todo::Ptr &todo,
         bool shortfmt)
 {
-    return QLocale::system().toString(todo->completed().dateTime(),
-                                      (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
+    return QLocale().toString(todo->completed().dateTime(),
+                              (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
 }
 
 QString Stringify::incidenceSecrecy(Incidence::Secrecy secrecy)
@@ -212,9 +212,9 @@ QString Stringify::formatTime(const KDateTime &dt, bool shortfmt, const KDateTim
             timeZone = QLatin1Char(' ') + spec.timeZone().name();
         }
 
-        return QLocale::system().toString(dt.toTimeSpec(spec).time(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat) + timeZone;
+        return QLocale().toString(dt.toTimeSpec(spec).time(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat) + timeZone;
     } else {
-        return QLocale::system().toString(dt.time(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
+        return QLocale().toString(dt.time(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
     }
 }
 
@@ -251,11 +251,11 @@ QString Stringify::formatDateTime(const KDateTime &dt, bool allDay,
             timeZone = QLatin1Char(' ') + spec.timeZone().name();
         }
 
-        return QLocale::system().toString(
+        return QLocale().toString(
                    dt.toTimeSpec(spec).dateTime(),
                    (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat)) + timeZone;
     } else {
-        return  QLocale::system().toString(
+        return  QLocale().toString(
                     dt.dateTime(),
                     (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
     }

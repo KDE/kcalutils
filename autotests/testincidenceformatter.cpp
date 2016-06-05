@@ -38,6 +38,7 @@
 
 #include <QDebug>
 #include <QIcon>
+#include <QLocale>
 #include <QProcess>
 #include <QTest>
 
@@ -52,6 +53,7 @@ void IncidenceFormatterTest::initTestCase()
     GrantleeTemplateManager::instance()->setTemplatePath(QStringLiteral(TEST_TEMPLATE_PATH));
     GrantleeTemplateManager::instance()->setPluginPath(QStringLiteral(TEST_PLUGIN_PATH));
     QIcon::setThemeName(QStringLiteral("oxygen"));
+    QLocale::setDefault(QLocale(QStringLiteral("C")));
 }
 
 void IncidenceFormatterTest::testRecurrenceString()
@@ -135,12 +137,12 @@ void IncidenceFormatterTest::testRecurrenceString()
              i18n("Recurs every 2 hours until %1", endDateStr));
 
     r3->addExDateTime(kdt.addSecs(1 * 60 * 60));
-    QString hourStr = QLocale::system().toString(QTime(13, 0), QLocale::ShortFormat);
+    QString hourStr = QLocale().toString(QTime(13, 0), QLocale::ShortFormat);
     QCOMPARE(IncidenceFormatter::recurrenceString(e3),
              i18n("Recurs every 2 hours until %1 (excluding %2)", endDateStr, hourStr));
 
     r3->addExDateTime(kdt.addSecs(3 * 60 * 60));
-    QString hourStr2 = QLocale::system().toString(QTime(15, 0), QLocale::ShortFormat);
+    QString hourStr2 = QLocale().toString(QTime(15, 0), QLocale::ShortFormat);
     QCOMPARE(IncidenceFormatter::recurrenceString(e3),
              i18n("Recurs every 2 hours until %1 (excluding %2,%3)", endDateStr, hourStr, hourStr2));
 

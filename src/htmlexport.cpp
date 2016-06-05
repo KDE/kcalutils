@@ -188,7 +188,7 @@ void HtmlExport::createMonthView(QTextStream *ts)
         // Write table header
         *ts << "  <tr>";
         for (int i = 0; i < 7; ++i) {
-            *ts << "<th>" << QLocale::system().dayName(start.addDays(i).dayOfWeek()) << "</th>";
+            *ts << "<th>" << QLocale().dayName(start.addDays(i).dayOfWeek()) << "</th>";
         }
         *ts << "</tr>" << endl;
 
