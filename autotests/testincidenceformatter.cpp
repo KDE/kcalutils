@@ -252,7 +252,7 @@ void IncidenceFormatterTest::testErrorTemplate()
     const QString expected = QStringLiteral(
                                  "<h1>Template parsing error</h1>\n"
                                  "<b>Template:</b> broken-template.html<br>\n"
-                                 "<b>Error message:</b> Unclosed tag in template broken-template.html. Expected one of: (else endif), line 2, broken-template.html");
+                                 "<b>Error message:</b> Unclosed tag in template broken-template.html. Expected one of: (elif else endif), line 2, broken-template.html");
 
     QCOMPARE(html, expected);
 }
