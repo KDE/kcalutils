@@ -73,7 +73,7 @@ using namespace IncidenceFormatter;
  *  General helpers
  *******************/
 
-static QVariantHash inviteButton(const QString &id, const QString &text, const QString &iconName);
+static QVariantHash inviteButton(const QString &id, const QString &text, const QString &iconName, InvitationFormatterHelper *helper);
 
 //@cond PRIVATE
 static QString string2HTML(const QString &str)
@@ -1128,7 +1128,7 @@ static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper,
 
     incidence[QStringLiteral("checkCalendarButton")] = inviteButton(QStringLiteral("check_calendar"),
                                                                     i18n("Check my calendar"),
-                                                                    QStringLiteral("go-jump-today"));
+                                                                    QStringLiteral("go-jump-today"), helper);
     incidence[QStringLiteral("eventsOnSameDays")] = eventsOnSameDays(helper, event, spec, noHtmlMode);
 
     return incidence;
@@ -1197,7 +1197,7 @@ static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper,
 
     incidence[QStringLiteral("checkCalendarButton")] = inviteButton(QStringLiteral("check_calendar"),
                                                                     i18n("Check my calendar"),
-                                                                    QStringLiteral("go-jump-today"));
+                                                                    QStringLiteral("go-jump-today"), helper);
     incidence[QStringLiteral("eventsOnSameDays")] = eventsOnSameDays(helper, event, spec, noHtmlMode);
 
 
@@ -1991,17 +1991,17 @@ static bool incidenceOwnedByMe(const Calendar::Ptr &calendar,
     return true;
 }
 
-static QVariantHash inviteButton(const QString &id, const QString &text, const QString &iconName)
+static QVariantHash inviteButton(const QString &id, const QString &text, const QString &iconName, InvitationFormatterHelper *helper)
 {
     QVariantHash button;
-    button[QStringLiteral("uri")] = id;
+    button[QStringLiteral("uri")] = helper->generateLinkURL(id);
     button[QStringLiteral("icon")] = iconName;
     button[QStringLiteral("label")] = text;
     return button;
 }
 
 static QVariantList responseButtons(const Incidence::Ptr &incidence,
-                                    bool rsvpReq, bool rsvpRec,
+                                    bool rsvpReq, bool rsvpRec, InvitationFormatterHelper *helper,
                                     const Incidence::Ptr &existingInc = Incidence::Ptr())
 {
     bool hideAccept = false,
@@ -2022,10 +2022,10 @@ static QVariantList responseButtons(const Incidence::Ptr &incidence,
     QVariantList buttons;
     if (!rsvpReq && (incidence && incidence->revision() == 0)) {
         // Record only
-        buttons << inviteButton(QStringLiteral("record"), i18n("Record"), QStringLiteral("dialog-ok"));
+        buttons << inviteButton(QStringLiteral("record"), i18n("Record"), QStringLiteral("dialog-ok"), helper);
 
         // Move to trash
-        buttons << inviteButton(QStringLiteral("delete"), i18n("Move to Trash"), QStringLiteral("edittrash"));
+        buttons << inviteButton(QStringLiteral("delete"), i18n("Move to Trash"), QStringLiteral("edittrash"), helper);
 
     } else {
 
@@ -2033,54 +2033,54 @@ static QVariantList responseButtons(const Incidence::Ptr &incidence,
         if (!hideAccept) {
             buttons << inviteButton(QStringLiteral("accept"),
                                     i18nc("accept invitation", "Accept"),
-                                    QStringLiteral("dialog-ok-apply"));
+                                    QStringLiteral("dialog-ok-apply"), helper);
         }
 
         // Tentative
         if (!hideTentative) {
             buttons << inviteButton(QStringLiteral("accept_conditionally"),
                                     i18nc("Accept invitation conditionally", "Provisorily"),
-                                    QStringLiteral("dialog-ok"));
+                                    QStringLiteral("dialog-ok"), helper);
         }
 
         // Decline
         if (!hideDecline) {
             buttons << inviteButton(QStringLiteral("decline"),
                                     i18nc("decline invitation", "Decline"),
-                                    QStringLiteral("dialog-cancel"));
+                                    QStringLiteral("dialog-cancel"), helper);
         }
 
         // Counter proposal
         buttons << inviteButton(QStringLiteral("counter"),
                                 i18nc("invitation counter proposal", "Counter proposal ..."),
-                                QStringLiteral("edit-undo"));
+                                QStringLiteral("edit-undo"), helper);
     }
 
     if (!rsvpRec || (incidence && incidence->revision() > 0)) {
         // Delegate
         buttons << inviteButton(QStringLiteral("delegate"),
                                 i18nc("delegate inviation to another", "Delegate ..."),
-                                QStringLiteral("mail-forward"));
+                                QStringLiteral("mail-forward"), helper);
     }
     return buttons;
 }
 
-static QVariantList counterButtons()
+static QVariantList counterButtons(InvitationFormatterHelper *helper)
 {
     QVariantList buttons;
 
     // Accept proposal
     buttons << inviteButton(QStringLiteral("accept_counter"), i18n("Accept"),
-                            QStringLiteral("dialog-ok-apply"));
+                            QStringLiteral("dialog-ok-apply"), helper);
 
     // Decline proposal
     buttons << inviteButton(QStringLiteral("decline_counter"), i18n("Decline"),
-                            QStringLiteral("dialog-cancel"));
+                            QStringLiteral("dialog-cancel"), helper);
 
     return buttons;
 }
 
-static QVariantList recordButtons(const Incidence::Ptr &incidence)
+static QVariantList recordButtons(const Incidence::Ptr &incidence, InvitationFormatterHelper *helper)
 {
     QVariantList buttons;
     if (incidence) {
@@ -2088,12 +2088,12 @@ static QVariantList recordButtons(const Incidence::Ptr &incidence)
                                 incidence->type() == Incidence::TypeTodo ?
                                     i18n("Record invitation in my to-do list") :
                                     i18n("Record invitation in my calendar"),
-                                QStringLiteral("dialog-ok"));
+                                QStringLiteral("dialog-ok"), helper);
     }
     return buttons;
 }
 
-static QVariantList recordResponseButtons(const Incidence::Ptr &incidence)
+static QVariantList recordResponseButtons(const Incidence::Ptr &incidence, InvitationFormatterHelper *helper)
 {
     QVariantList buttons;
 
@@ -2102,12 +2102,12 @@ static QVariantList recordResponseButtons(const Incidence::Ptr &incidence)
                                 incidence->type() == Incidence::TypeTodo ?
                                     i18n("Record response in my to-do list") :
                                     i18n("Record response in my calendar"),
-                                QStringLiteral("dialog-ok"));
+                                QStringLiteral("dialog-ok"), helper);
     }
     return buttons;
 }
 
-static QVariantList cancelButtons(const Incidence::Ptr &incidence)
+static QVariantList cancelButtons(const Incidence::Ptr &incidence, InvitationFormatterHelper *helper)
 {
     QVariantList buttons;
 
@@ -2117,7 +2117,7 @@ static QVariantList cancelButtons(const Incidence::Ptr &incidence)
                                 incidence->type() == Incidence::TypeTodo ?
                                     i18n("Remove invitation from my to-do list") :
                                     i18n("Remove invitation from my calendar"),
-                                QStringLiteral("dialog-cancel"));
+                                QStringLiteral("dialog-cancel"), helper);
     }
 
     return buttons;
@@ -2317,21 +2317,21 @@ static QString formatICalInvitationHelper(const QString &invitation,
     case iTIPRefresh:
     case iTIPAdd: {
         if (inc && incRevision > 0 && (existingIncidence || !helper->calendar())) {
-            buttons += recordButtons(inc);
+            buttons += recordButtons(inc, helper);
         }
 
         if (!myInc) {
             if (a) {
-                buttons += responseButtons(inc, rsvpReq, rsvpRec);
+                buttons += responseButtons(inc, rsvpReq, rsvpRec, helper);
             } else {
-                buttons += responseButtons(inc, false, false);
+                buttons += responseButtons(inc, false, false, helper);
             }
         }
         break;
     }
 
     case iTIPCancel:
-        buttons = cancelButtons(inc);
+        buttons = cancelButtons(inc, helper);
         break;
 
     case iTIPReply: {
@@ -2341,7 +2341,7 @@ static QString formatICalInvitationHelper(const QString &invitation,
         if (inc) {
             // First, determine if this reply is really a counter in disguise.
             if (replyMeansCounter(inc)) {
-                buttons = counterButtons();
+                buttons = counterButtons(helper);
                 break;
             }
 
@@ -2354,7 +2354,7 @@ static QString formatICalInvitationHelper(const QString &invitation,
             if (a) {
                 if (a->status() != Attendee::Accepted ||
                         a->status() != Attendee::Tentative) {
-                    buttons = responseButtons(inc, rsvpReq, rsvpRec);
+                    buttons = responseButtons(inc, rsvpReq, rsvpRec, helper);
                     break;
                 }
             }
@@ -2370,10 +2370,10 @@ static QString formatICalInvitationHelper(const QString &invitation,
         if (ea && (ea->status() != Attendee::NeedsAction) && (ea->status() == a->status())) {
             const QString tStr = i18n("The <b>%1</b> response has been recorded",
                                       Stringify::attendeeStatus(ea->status()));
-            buttons << inviteButton(QString(), tStr, QString());
+            buttons << inviteButton(QString(), tStr, QString(), helper);
         } else {
             if (inc) {
-                buttons = recordResponseButtons(inc);
+                buttons = recordResponseButtons(inc, helper);
             }
         }
         break;
@@ -2381,11 +2381,11 @@ static QString formatICalInvitationHelper(const QString &invitation,
 
     case iTIPCounter:
         // Counter proposal
-        buttons = counterButtons();
+        buttons = counterButtons(helper);
         break;
 
     case iTIPDeclineCounter:
-        buttons << responseButtons(inc, rsvpReq, rsvpRec);
+        buttons << responseButtons(inc, rsvpReq, rsvpRec, helper);
         break;
 
     case iTIPNoMethod:
