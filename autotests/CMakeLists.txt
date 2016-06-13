@@ -1,5 +1,3 @@
-remove_definitions(-DQT_NO_CAST_FROM_BYTEARRAY)
-
 include(ECMAddTests)
 
 set(QT_REQUIRED_VERSION "5.2.0")
