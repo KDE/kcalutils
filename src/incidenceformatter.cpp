@@ -525,7 +525,7 @@ static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QStri
     incidence[QStringLiteral("attachments")] = displayViewFormatAttachments(event);
     incidence[QStringLiteral("creationDate")] = event->created().toTimeSpec(spec).dateTime();
 
-    return GrantleeTemplateManager::instance()->render(QStringLiteral("event.html"), incidence);
+    return GrantleeTemplateManager::instance()->render(QStringLiteral(":/event.html"), incidence);
 }
 
 static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QString &sourceName,
@@ -612,7 +612,7 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
     incidence[QStringLiteral("attachments")] = displayViewFormatAttachments(todo);
     incidence[QStringLiteral("creationDate")] = todo->created().toTimeSpec(spec).dateTime();
 
-    return GrantleeTemplateManager::instance()->render(QStringLiteral("todo.html"), incidence);
+    return GrantleeTemplateManager::instance()->render(QStringLiteral(":/todo.html"), incidence);
 }
 
 static QString displayViewFormatJournal(const Calendar::Ptr &calendar, const QString &sourceName,
@@ -629,7 +629,7 @@ static QString displayViewFormatJournal(const Calendar::Ptr &calendar, const QSt
     incidence[QStringLiteral("categories")] = journal->categories();
     incidence[QStringLiteral("creationDate")] = journal->created().toTimeSpec(spec).dateTime();
 
-    return GrantleeTemplateManager::instance()->render(QStringLiteral("journal.html"), incidence);
+    return GrantleeTemplateManager::instance()->render(QStringLiteral(":/journal.html"), incidence);
 }
 
 static QString displayViewFormatFreeBusy(const Calendar::Ptr &calendar, const QString &sourceName,
@@ -686,7 +686,7 @@ static QString displayViewFormatFreeBusy(const Calendar::Ptr &calendar, const QS
 
     fbData[QStringLiteral("periods")] = periodsData;
 
-    return GrantleeTemplateManager::instance()->render(QStringLiteral("freebusy.html"), fbData);
+    return GrantleeTemplateManager::instance()->render(QStringLiteral(":/freebusy.html"), fbData);
 }
 //@endcond
 
@@ -2412,16 +2412,16 @@ static QString formatICalInvitationHelper(const QString &invitation,
     QString templateName;
     switch (inc->type()) {
     case KCalCore::IncidenceBase::TypeEvent:
-        templateName = QStringLiteral("itip_event.html");
+        templateName = QStringLiteral(":/itip_event.html");
         break;
     case KCalCore::IncidenceBase::TypeTodo:
-        templateName = QStringLiteral("itip_todo.html");
+        templateName = QStringLiteral(":/itip_todo.html");
         break;
     case KCalCore::IncidenceBase::TypeJournal:
-        templateName = QStringLiteral("itip_journal.html");
+        templateName = QStringLiteral(":/itip_journal.html");
         break;
     case KCalCore::IncidenceBase::TypeFreeBusy:
-        templateName = QStringLiteral("itip_freebusy.html");
+        templateName = QStringLiteral(":/itip_freebusy.html");
         break;
     case KCalCore::IncidenceBase::TypeUnknown:
         return QString();

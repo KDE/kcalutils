@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="event.html">templates/event.html</file>
+        <file alias="freebusy.html">templates/freebusy.html</file>
+        <file alias="incidence_header.html">templates/incidence_header.html</file>
+        <file alias="journal.html">templates/journal.html</file>
+        <file alias="template_base.html">templates/template_base.html</file>
+        <file alias="todo.html">templates/todo.html</file>
+        <file alias="attendee_row.html">templates/attendee_row.html</file>
+        <file alias="itip_freebusy.html">templates/itip_freebusy.html</file>
+        <file alias="itip_journal.html">templates/itip_journal.html</file>
+        <file alias="itip_todo.html">templates/itip_todo.html</file>
+        <file alias="itip.html">templates/itip.html</file>
+        <file alias="itip_event.html">templates/itip_event.html</file>
+    </qresource>
+</RCC>

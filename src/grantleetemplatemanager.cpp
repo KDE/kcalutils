@@ -21,6 +21,7 @@
 
 #include "grantleetemplatemanager_p.h"
 #include "grantleeki18nlocalizer_p.h"
+#include "qtresourcetemplateloader.h"
 
 #include <QString>
 #include <QStandardPaths>
@@ -36,17 +37,16 @@ GrantleeTemplateManager *GrantleeTemplateManager::sInstance = Q_NULLPTR;
 
 GrantleeTemplateManager::GrantleeTemplateManager()
     : mEngine(new Grantlee::Engine)
-    , mLoader(new Grantlee::FileSystemTemplateLoader)
+    , mLoader(new KCalUtils::QtResourceTemplateLoader)
     , mLocalizer(new GrantleeKi18nLocalizer)
 {
     const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kcalendar/templates"),
                          QStandardPaths::LocateDirectory);
-    if (path.isEmpty()) {
-        qFatal("Cannot find KCalendarUtils templates, check your instalation");
+    if (!path.isEmpty()) {
+        mLoader->setTemplateDirs({ path });
+        mLoader->setTheme(QStringLiteral("default"));
     }
 
-    mLoader->setTemplateDirs({ path });
-    mLoader->setTheme(QStringLiteral("default"));
     mEngine->addTemplateLoader(mLoader);
     mEngine->addPluginPath(QStringLiteral(GRANTLEE_PLUGIN_INSTALL_DIR));
     mEngine->addDefaultLibrary(QStringLiteral("grantlee_i18ntags"));
@@ -116,12 +116,10 @@ QString GrantleeTemplateManager::render(const QString &templateName, const QVari
     if (tpl->error()) {
         return errorTemplate(i18n("Template parsing error"), templateName, tpl);
     }
-
     Grantlee::Context ctx = createContext(data);
     const QString result = tpl->render(&ctx);
     if (tpl->error()) {
         return errorTemplate(i18n("Template rendering error"), templateName, tpl);
     }
-
     return result;
 }

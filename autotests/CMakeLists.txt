@@ -19,6 +19,7 @@ ecm_add_tests(testdndfactory.cpp teststringify.cpp
 ecm_add_test(testincidenceformatter.cpp
         ${CMAKE_SOURCE_DIR}/src/incidenceformatter.cpp
         ${CMAKE_SOURCE_DIR}/src/grantleetemplatemanager.cpp
+        ${CMAKE_SOURCE_DIR}/src/qtresourcetemplateloader.cpp
         ${CMAKE_SOURCE_DIR}/src/grantleeki18nlocalizer.cpp
         ${CMAKE_SOURCE_DIR}/src/stringify.cpp
         ${CMAKE_BINARY_DIR}/src/kcalutils_debug.cpp

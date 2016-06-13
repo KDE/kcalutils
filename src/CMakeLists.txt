@@ -13,12 +13,15 @@ set(kcalutils_SRCS
   dndfactory.cpp
   grantleeki18nlocalizer.cpp
   grantleetemplatemanager.cpp
+  qtresourcetemplateloader.cpp
 )
 ecm_qt_declare_logging_category(kcalutils_SRCS HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME log_kcalutils)
 
 kconfig_add_kcfg_files(kcalutils_SRCS htmlexportsettings.kcfgc)
 
 ki18n_wrap_ui(kcalutils_SRCS recurrenceactionsscopewidget.ui)
+
+qt5_add_resources(kcalutils_SRCS templates.qrc)
 
 add_library(KF5CalendarUtils ${kcalutils_SRCS})
 

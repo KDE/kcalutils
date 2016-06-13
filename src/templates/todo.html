@@ -1,9 +1,9 @@
-{% extends "template_base.html" %}
+{% extends ":/template_base.html" %}
 
 
 {% block body %}
 {% with _("Todo") as type %}
-{% include "incidence_header.html" %}
+{% include ":/incidence_header.html" %}
 {% endwith %}
 
 <table class="main">
@@ -95,7 +95,7 @@
         <th>{% i18n "Organizer:" %}</th>
         <td>
         {% with incidence.organizer as attendee %}
-        {% include "attendee_row.html" %}
+        {% include ":/attendee_row.html" %}
         {% endwith %}
         </td>
     </tr>
@@ -107,7 +107,7 @@
         <th>{% i18n "Chair:" %}</th>
         <td>
         {% for attendee in incidence.chair %}
-            {% include "attendee_row.html" %}
+            {% include ":/attendee_row.html" %}
             {% if not forloop.last %}<br/>{% endif %}
         {% endfor %}
         </td>
@@ -120,7 +120,7 @@
         <th>{% i18n "Required Participants:" %}</th>
         <td>
         {% for attendee in incidence.requiredParticipants %}
-            {% include "attendee_row.html" %}
+            {% include ":/attendee_row.html" %}
             {% if not forloop.last %}<br/>{% endif %}
         {% endfor %}
         </td>
@@ -133,7 +133,7 @@
         <th>{% i18n "Optional participants:" %}</th>
         <td>
         {% for attendee in incidence.optionalParticipants %}
-            {% include "attendee_row.html" %}
+            {% include ":/attendee_row.html" %}
             {% if not forloop.last %}<br/>{% endif %}
         {% endfor %}
         </td>
@@ -146,7 +146,7 @@
         <th>{% i18n "Observers:" %}</th>
         <td>
         {% for attendee in incidence.chair %}
-            {% include "attendee_row.html" %}
+            {% include ":/attendee_row.html" %}
             {% if not forloop.last %}<br/>{% endif %}
         {% endfor %}
         </td>

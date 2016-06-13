@@ -1,4 +1,4 @@
-{% extends "template_base.html" %}
+{% extends ":/template_base.html" %}
 
 {% block style %}
 #invitation {
@@ -106,7 +106,7 @@
     <th>{{ incidence.attendeesTitle }}</th>
     <td>
     {% for attendee in incidence.attendees %}
-        {% include "attendee_row.html" %}
+        {% include ":/attendee_row.html" %}
         {% if not forloop.last %}<br/>{% endif %}
     {% endfor %}
     </td>
