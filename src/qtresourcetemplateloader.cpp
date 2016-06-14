@@ -23,7 +23,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <grantlee/engine.h>
-
+//TODO: remove this class when Grantlee support it
 using namespace KCalUtils;
 
 QtResourceTemplateLoader::QtResourceTemplateLoader(const QSharedPointer<Grantlee::AbstractLocalizer> localizer)
