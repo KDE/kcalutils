@@ -137,25 +137,6 @@ KCALUTILS_EXPORT QString mailBodyStr(const KCalCore::IncidenceBase::Ptr &inciden
   which will be intrepreted as an invitation.
   @param calendar is a pointer to the Calendar that owns the invitation.
   @param helper is a pointer to an InvitationFormatterHelper.
-  @param outlookCompareStyle if true, display updated invitation comparisons in the style
-  of Microsoft Outlook (tm); else use our own "classic" style.
-
-  @deprecated Use formatICalInvitation(const QString &, const KCalCore::MemoryCalendar::Ptr &, InvitationFormatterHelper *helper)
-*/
-KCALUTILS_DEPRECATED KCALUTILS_EXPORT QString formatICalInvitation(
-    const QString &invitation,
-    const KCalCore::MemoryCalendar::Ptr &calendar,
-    InvitationFormatterHelper *helper,
-    bool outlookCompareStyle);
-
-/**
-  Deliver an HTML formatted string displaying an invitation.
-  Use the time zone from mCalendar.
-
-  @param invitation a QString containing a string representation of a calendar Incidence
-  which will be intrepreted as an invitation.
-  @param calendar is a pointer to the Calendar that owns the invitation.
-  @param helper is a pointer to an InvitationFormatterHelper.
 
   @since 5.23.0
 */
@@ -164,28 +145,6 @@ KCALUTILS_EXPORT QString formatICalInvitation(
     const KCalCore::MemoryCalendar::Ptr &calendar,
     InvitationFormatterHelper *helper);
 
-/**
-  Deliver an HTML formatted string displaying an invitation.
-  Differs from formatICalInvitation() in that invitation details (summary, location, etc)
-  have HTML formatting cleaned.
-  Use the time zone from calendar.
-
-  @param invitation a QString containing a string representation of a calendar Incidence
-  which will be intrepreted as an invitation.
-  @param calendar is a pointer to the Calendar that owns the invitation.
-  @param helper is a pointer to an InvitationFormatterHelper.
-  @param sender is a QString containing the email address of the person sending the invitation.
-  @param outlookCompareStyle if true, display updated invitation comparisons in the style
-  of Microsoft Outlook (tm); else use our own "classic" style.
-
-  @deprecated Use formatICalInvitationNoHtml(const QString &, const KCalCore::MemoryCalendar::Ptr &, InvitationFormatterHelper *, const QString &)
-*/
-KCALUTILS_DEPRECATED KCALUTILS_EXPORT QString formatICalInvitationNoHtml(
-    const QString &invitation,
-    const KCalCore::MemoryCalendar::Ptr &calendar,
-    InvitationFormatterHelper *helper,
-    const QString &sender,
-    bool outlookCompareStyle);
 
 /**
   Deliver an HTML formatted string displaying an invitation.

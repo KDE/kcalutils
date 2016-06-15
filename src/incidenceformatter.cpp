@@ -2439,32 +2439,11 @@ QString IncidenceFormatter::formatICalInvitation(const QString &invitation,
                                       KSystemTimeZones::local(), QString());
 }
 
-QString IncidenceFormatter::formatICalInvitation(const QString &invitation,
-        const MemoryCalendar::Ptr &calendar,
-        InvitationFormatterHelper *helper,
-        bool outlookCompareStyle)
-{
-    Q_UNUSED(outlookCompareStyle);
-    return formatICalInvitationHelper(invitation, calendar, helper, false,
-                                      KSystemTimeZones::local(), QString());
-}
-
 QString IncidenceFormatter::formatICalInvitationNoHtml(const QString &invitation,
         const MemoryCalendar::Ptr &calendar,
         InvitationFormatterHelper *helper,
         const QString &sender)
 {
-    return formatICalInvitationHelper(invitation, calendar, helper, true,
-                                      KSystemTimeZones::local(), sender);
-}
-
-QString IncidenceFormatter::formatICalInvitationNoHtml(const QString &invitation,
-        const MemoryCalendar::Ptr &calendar,
-        InvitationFormatterHelper *helper,
-        const QString &sender,
-        bool outlookCompareStyle)
-{
-    Q_UNUSED(outlookCompareStyle);
     return formatICalInvitationHelper(invitation, calendar, helper, true,
                                       KSystemTimeZones::local(), sender);
 }
