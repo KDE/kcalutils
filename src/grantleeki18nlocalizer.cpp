@@ -76,7 +76,7 @@ QString GrantleeKi18nLocalizer::processArguments(const KLocalizedString &kstr,
     }
 
     // Return localized in the currenctly active locale
-    return str.toString({ currentLocale() });
+    return str.toString(QByteArrayLiteral("libkcalutils5"));
 }
 
 QString GrantleeKi18nLocalizer::localizeContextString(const QString &string, const QString &context, const QVariantList &arguments) const
