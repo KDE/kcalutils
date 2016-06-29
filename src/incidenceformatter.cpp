@@ -2717,7 +2717,8 @@ static QString tooltipFormatAttendeeRoleList(const Incidence::Ptr &incidence,
     Attendee::List::ConstIterator it;
     Attendee::List attendees = incidence->attendees();
 
-    for (it = attendees.constBegin(); it != attendees.constEnd(); ++it) {
+    Attendee::List::ConstIterator end(attendees.constEnd());
+    for (it = attendees.constBegin(); it != end; ++it) {
         Attendee::Ptr a = *it;
         if (a->role() != role) {
             // skip not this role
