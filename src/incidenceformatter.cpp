@@ -2039,7 +2039,7 @@ static QVariantList responseButtons(const Incidence::Ptr &incidence,
         // Tentative
         if (!hideTentative) {
             buttons << inviteButton(QStringLiteral("accept_conditionally"),
-                                    i18nc("Accept invitation conditionally", "Provisorily"),
+                                    i18nc("Accept invitation conditionally", "Tentative"),
                                     QStringLiteral("dialog-ok"), helper);
         }
 
