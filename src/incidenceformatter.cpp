@@ -1843,7 +1843,7 @@ static QVariantList invitationRsvpList(const Incidence::Ptr &incidence, const At
     return attendees;
 }
 
-static QVariantList invitationAttachments(const Incidence::Ptr &incidence)
+static QVariantList invitationAttachments(const Incidence::Ptr &incidence, InvitationFormatterHelper *helper)
 {
     if (!incidence) {
         return QVariantList();
@@ -1863,7 +1863,8 @@ static QVariantList invitationAttachments(const Incidence::Ptr &incidence)
                                                 mimeType.iconName() :
                                                 QStringLiteral("application-octet-stream"));
         attachment[QStringLiteral("name")] = a->label();
-        attachment[QStringLiteral("uri")] = QStringLiteral("ATTACH:%1").arg(QString::fromLatin1(a->label().toUtf8().toBase64()));
+        const QString attachementStr = helper->generateLinkURL(QStringLiteral("ATTACH:%1").arg(QString::fromLatin1(a->label().toUtf8().toBase64())));;
+        attachment[QStringLiteral("uri")] = attachementStr;
         attachments.push_back(attachment);
     }
 
@@ -2407,7 +2408,7 @@ static QString formatICalInvitationHelper(const QString &invitation,
     }
 
     // Add the attachment list
-    incidence[QStringLiteral("attachments")] = invitationAttachments(inc);
+    incidence[QStringLiteral("attachments")] = invitationAttachments(inc, helper);
 
     QString templateName;
     switch (inc->type()) {
