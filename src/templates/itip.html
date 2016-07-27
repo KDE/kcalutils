@@ -120,7 +120,7 @@
     <td>
     {% for attachment in incidence.attachments %}
         {% icon attachment.icon Small %}
-        <a href="{{ attachment.url }}"><font size="-1">{{ attachment.name }}</font></a>
+        <a href="{{ attachment.uri }}"><font size="-1">{{ attachment.name }}</font></a>
         {% if not forloop.last %}<br/>{% endif %}
     {% endfor %}
     </td>
