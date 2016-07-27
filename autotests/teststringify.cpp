@@ -26,7 +26,13 @@
 
 #include <qtest.h>
 QTEST_MAIN(StringifyTest)
-
+#ifndef Q_OS_WIN
+void initLocale()
+{
+    setenv("LC_ALL", "en_US.utf-8", 1);
+}
+Q_CONSTRUCTOR_FUNCTION(initLocale)
+#endif
 using namespace KCalCore;
 using namespace KCalUtils;
 
