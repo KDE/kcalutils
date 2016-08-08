@@ -12,3 +12,7 @@ libraries:
    cmake: "KF5::CalendarUtils"
 cmakename: KF5CalendarUtils
 
+public_lib: true
+group: kdepim
+platforms:
+    - name: Linux
