@@ -15,7 +15,7 @@ set(kcalutils_SRCS
   grantleetemplatemanager.cpp
   qtresourcetemplateloader.cpp
 )
-ecm_qt_declare_logging_category(kcalutils_SRCS HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME log_kcalutils)
+ecm_qt_declare_logging_category(kcalutils_SRCS HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME org.kde.pim.kcalutils)
 
 kconfig_add_kcfg_files(kcalutils_SRCS htmlexportsettings.kcfgc)
 
