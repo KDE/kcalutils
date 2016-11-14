@@ -436,7 +436,6 @@ static QVariantHash displayViewFormatBirthday(const Event::Ptr &event)
 static QVariantHash incidenceTemplateHeader(const Incidence::Ptr &incidence)
 {
     QVariantHash incidenceData;
-    QString iconPath;
     if (incidence->customProperty("KABC", "BIRTHDAY") == QLatin1String("YES")) {
         incidenceData[QStringLiteral("icon")] = QStringLiteral("view-calendar-birthday");
     } else if (incidence->customProperty("KABC", "ANNIVERSARY") == QLatin1String("YES")) {
@@ -3171,7 +3170,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
 
     Recurrence *recur = incidence->recurrence();
 
-    QString txt, recurStr;
+    QString recurStr;
     static QString noRecurrence = i18n("No recurrence");
     switch (recur->recurrenceType()) {
     case Recurrence::rNone:
