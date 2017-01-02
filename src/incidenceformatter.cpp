@@ -694,7 +694,7 @@ class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
 {
 public:
     EventViewerVisitor()
-        : mCalendar(Q_NULLPTR), mSpec(KDateTime::Spec()) {}
+        : mCalendar(nullptr), mSpec(KDateTime::Spec()) {}
 
     ~EventViewerVisitor();
 
@@ -1954,7 +1954,7 @@ private:
 //@endcond
 
 InvitationFormatterHelper::InvitationFormatterHelper()
-    : d(Q_NULLPTR)
+    : d(nullptr)
 {
 }
 

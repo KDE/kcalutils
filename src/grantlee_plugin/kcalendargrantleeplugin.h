@@ -30,7 +30,7 @@ class KCalendarGrantleePlugin : public QObject
     Q_PLUGIN_METADATA(IID "org.kde.KCalendarGrantleePlugin")
 
 public:
-    explicit KCalendarGrantleePlugin(QObject *parent = Q_NULLPTR);
+    explicit KCalendarGrantleePlugin(QObject *parent = nullptr);
     ~KCalendarGrantleePlugin();
 
     QHash<QString, Grantlee::Filter *> filters(const QString  &name) Q_DECL_OVERRIDE;

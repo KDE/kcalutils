@@ -53,7 +53,7 @@ class IconTag : public Grantlee::AbstractNodeFactory
 {
     Q_OBJECT
 public:
-    explicit IconTag(QObject *parent = Q_NULLPTR);
+    explicit IconTag(QObject *parent = nullptr);
     ~IconTag();
 
     Grantlee::Node *getNode(const QString &tagContent, Grantlee::Parser *p) const Q_DECL_OVERRIDE;
@@ -63,8 +63,8 @@ class IconNode : public Grantlee::Node
 {
     Q_OBJECT
 public:
-    explicit IconNode(QObject *parent = Q_NULLPTR);
-    IconNode(const QString &iconName, int sizeOrGroup, const QString &altText, QObject *parent = Q_NULLPTR);
+    explicit IconNode(QObject *parent = nullptr);
+    IconNode(const QString &iconName, int sizeOrGroup, const QString &altText, QObject *parent = nullptr);
     ~IconNode();
 
     void render(Grantlee::OutputStream *stream, Grantlee::Context *c) const Q_DECL_OVERRIDE;

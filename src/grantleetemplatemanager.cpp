@@ -33,7 +33,7 @@
 
 #include <KLocalizedString>
 
-GrantleeTemplateManager *GrantleeTemplateManager::sInstance = Q_NULLPTR;
+GrantleeTemplateManager *GrantleeTemplateManager::sInstance = nullptr;
 
 GrantleeTemplateManager::GrantleeTemplateManager()
     : mEngine(new Grantlee::Engine)
