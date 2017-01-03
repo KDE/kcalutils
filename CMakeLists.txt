@@ -1,6 +1,7 @@
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.0)
 
-project(KCalUtils)
+set(PIM_VERSION "5.4.40")
+project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
 set(KF5_VERSION "5.28.0")
@@ -9,7 +10,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(ECMGenerateHeaders)
 include(ECMGeneratePriFile)
-include(ECMPackageConfigHelpers)
+include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 include(FeatureSummary)
 include(KDEInstallDirs)
@@ -19,12 +20,11 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMCoverageOption)
 
 
-set(PIM_VERSION "5.4.40")
 
 set(CALENDARUTILS_LIB_VERSION ${PIM_VERSION})
 set(CALENDARCORE_LIB_VERSION "5.4.40")
 set(IDENTITYMANAGER_LIB_VERSION "5.4.40")
-ecm_setup_version(${CALENDARUTILS_LIB_VERSION} VARIABLE_PREFIX KCALUTILS
+ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfigVersion.cmake"
                         SOVERSION 5
@@ -54,7 +54,7 @@ endif()
 ########### CMake Config Files ###########
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5CalendarUtils")
 
-ecm_configure_package_config_file(
+configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/KF5CalendarUtilsConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfig.cmake"
   INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
