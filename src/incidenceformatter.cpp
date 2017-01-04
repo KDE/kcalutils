@@ -3480,7 +3480,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
     }
 
     if (!exStr.isEmpty()) {
-        recurStr = i18n("%1 (excluding %2)", recurStr, exStr.join(QStringLiteral(",")));
+        recurStr = i18n("%1 (excluding %2)", recurStr, exStr.join(QLatin1Char(',')));
     }
 
     return recurStr;
