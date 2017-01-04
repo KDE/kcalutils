@@ -97,7 +97,7 @@ static bool iamAttendee(const Attendee::Ptr &attendee)
 
 static QString htmlAddTag(const QString &tag, const QString &text)
 {
-    int numLineBreaks = text.count(QStringLiteral("\n"));
+    int numLineBreaks = text.count(QLatin1Char('\n'));
     QString str = QLatin1Char('<') + tag + QLatin1Char('>');
     QString tmpText = text;
     QString tmpStr = str;

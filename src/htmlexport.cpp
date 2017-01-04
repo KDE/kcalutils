@@ -643,7 +643,7 @@ void HtmlExport::formatAttendees(QTextStream *ts,
 
 QString HtmlExport::breakString(const QString &text)
 {
-    int number = text.count(QStringLiteral("\n"));
+    int number = text.count(QLatin1Char('\n'));
     if (number <= 0) {
         return text;
     } else {
