@@ -1784,7 +1784,8 @@ static QVariantList invitationAttendeeList(const Incidence::Ptr &incidence)
     }
 
     QVariantList attendees;
-    Q_FOREACH (const Attendee::Ptr &a, incidence->attendees()) {
+    const Attendee::List lstAttendees = incidence->attendees();
+    for (const Attendee::Ptr &a : lstAttendees) {
         if (iamAttendee(a)) {
             continue;
         }
@@ -1811,7 +1812,8 @@ static QVariantList invitationRsvpList(const Incidence::Ptr &incidence, const At
     }
 
     QVariantList attendees;
-    Q_FOREACH (const Attendee::Ptr &a_, incidence->attendees()) {
+    const Attendee::List lstAttendees = incidence->attendees();
+    for (const Attendee::Ptr &a_ : lstAttendees) {
         Attendee::Ptr a = a_;
         if (!attendeeIsOrganizer(incidence, a)) {
             continue;
@@ -1854,7 +1856,8 @@ static QVariantList invitationAttachments(const Incidence::Ptr &incidence, Invit
     }
 
     QVariantList attachments;
-    Q_FOREACH (const Attachment::Ptr &a, incidence->attachments()) {
+    const Attachment::List lstAttachments = incidence->attachments();
+    for (const Attachment::Ptr &a : lstAttachments) {
         QVariantHash attachment;
         QMimeDatabase mimeDb;
         auto mimeType = mimeDb.mimeTypeForName(a->mimeType());
