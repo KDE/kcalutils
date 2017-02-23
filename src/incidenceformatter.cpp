@@ -1443,7 +1443,7 @@ static QString invitationHeaderEvent(const Event::Ptr &event,
         }
 
         Attendee::List attendees = event->attendees();
-        if (attendees.count() == 0) {
+        if (attendees.isEmpty()) {
             qCDebug(KCALUTILS_LOG) << "No attendees in the iCal reply!";
             return QString();
         }
@@ -1704,7 +1704,7 @@ static QString invitationHeaderJournal(const Journal::Ptr &journal,
         }
 
         Attendee::List attendees = journal->attendees();
-        if (attendees.count() == 0) {
+        if (attendees.isEmpty()) {
             qCDebug(KCALUTILS_LOG) << "No attendees in the iCal reply!";
             return QString();
         }
