@@ -106,7 +106,7 @@ static QString htmlAddTag(const QString &tag, const QString &text)
             int pos = 0;
             QString tmp;
             for (int i = 0; i <= numLineBreaks; ++i) {
-                pos = tmpText.indexOf(QLatin1String("\n"));
+                pos = tmpText.indexOf(QLatin1Char('\n'));
                 tmp = tmpText.left(pos);
                 tmpText = tmpText.right(tmpText.length() - pos - 1);
                 tmpStr += tmp + QLatin1String("<br>");
