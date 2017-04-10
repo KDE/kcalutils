@@ -22,6 +22,7 @@
 #include "htmlexport.h"
 #include "htmlexportsettings.h"
 #include "stringify.h"
+#include "incidenceformatter.h"
 
 #include <kcalcore/memorycalendar.h>
 using namespace KCalCore;
@@ -312,14 +313,14 @@ void HtmlExport::createEvent(QTextStream *ts,
             *ts << "    <td>&nbsp;</td>" << endl;
         } else {
             *ts << "    <td valign=\"top\">"
-                << Stringify::formatTime(event->dtStart(), true, d->mCalendar->timeSpec())
+                << IncidenceFormatter::timeToString(event->dtStart(), true, d->mCalendar->timeSpec())
                 << "</td>" << endl;
         }
         if (event->isMultiDay(d->mCalendar->timeSpec()) && (event->dtEnd().date() != date)) {
             *ts << "    <td>&nbsp;</td>" << endl;
         } else {
             *ts << "    <td valign=\"top\">"
-                << Stringify::formatTime(event->dtEnd(), true, d->mCalendar->timeSpec())
+                << IncidenceFormatter::timeToString(event->dtEnd(), true, d->mCalendar->timeSpec())
                 << "</td>" << endl;
         }
     } else {
@@ -522,7 +523,7 @@ void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
         }
         *ts << ">" << endl;
         if (todo->hasDueDate()) {
-            *ts << "    " << Stringify::formatDate(todo->dtDue(true)) << endl;
+            *ts << "    " << IncidenceFormatter::dateToString(todo->dtDue(true)) << endl;
         } else {
             *ts << "    &nbsp;" << endl;
         }

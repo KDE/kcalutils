@@ -79,51 +79,12 @@ KCALUTILS_EXPORT QString todoCompletedDateTime(const KCalCore::Todo::Ptr &todo,
         bool shortfmt = false);
 
 KCALUTILS_EXPORT QString attendeeRole(KCalCore::Attendee::Role role);
-KCALUTILS_EXPORT QStringList attendeeRoleList();
 KCALUTILS_EXPORT QString attendeeStatus(KCalCore::Attendee::PartStat status);
-KCALUTILS_EXPORT QStringList attendeeStatusList();
-
-/**
-  Build a QString time representation of a KDateTime object.
-  @param date The date to be formatted.
-  @param shortfmt If true, display info in short format.
-  @param spec Time spec to use.
-  @see formatDate(), formatDateTime().
-*/
-KCALUTILS_EXPORT QString formatTime(const KDateTime &dt, bool shortfmt = true,
-                                    const KDateTime::Spec &spec = KDateTime::Spec());
-
-/**
-  Build a QString date representation of a KDateTime object.
-  @param date The date to be formatted.
-  @param shortfmt If true, display info in short format.
-  @param spec Time spec to use.
-  @see formatDate(), formatDateTime().
-*/
-KCALUTILS_EXPORT QString formatDate(const KDateTime &dt, bool shortfmt = true,
-                                    const KDateTime::Spec &spec = KDateTime::Spec());
-
-/**
-  Build a QString date/time representation of a KDateTime object.
-  @param date The date to be formatted.
-  @param dateOnly If true, don't print the time fields; print the date fields only.
-  @param shortfmt If true, display info in short format.
-  @param spec Time spec to use.
-  @see formatDate(), formatTime().
-*/
-KCALUTILS_EXPORT QString formatDateTime(const KDateTime &dt,
-                                        bool dateOnly = false,
-                                        bool shortfmt = true,
-                                        const KDateTime::Spec &spec = KDateTime::Spec());
 
 /**
    Build a translated message representing an exception
 */
 KCALUTILS_EXPORT QString errorMessage(const KCalCore::Exception &exception);
-
-KCALUTILS_EXPORT QString secrecyName(KCalCore::Incidence::Secrecy secrecy);
-
-KCALUTILS_EXPORT QStringList secrecyList();
 
 } // namespace Stringify
 

@@ -147,17 +147,6 @@ QString Stringify::attendeeRole(Attendee::Role role)
     }
 }
 
-QStringList Stringify::attendeeRoleList()
-{
-    QStringList list;
-    list << attendeeRole(Attendee::ReqParticipant);
-    list << attendeeRole(Attendee::OptParticipant);
-    list << attendeeRole(Attendee::NonParticipant);
-    list << attendeeRole(Attendee::Chair);
-
-    return list;
-}
-
 QString Stringify::attendeeStatus(Attendee::PartStat status)
 {
     switch (status) {
@@ -186,78 +175,6 @@ QString Stringify::attendeeStatus(Attendee::PartStat status)
     case Attendee::None:
         return i18nc("@item event or to-do status unknown", "Unknown");
         break;
-    }
-}
-
-QStringList Stringify::attendeeStatusList()
-{
-    QStringList list;
-    list << attendeeStatus(Attendee::NeedsAction);
-    list << attendeeStatus(Attendee::Accepted);
-    list << attendeeStatus(Attendee::Declined);
-    list << attendeeStatus(Attendee::Tentative);
-    list << attendeeStatus(Attendee::Delegated);
-    list << attendeeStatus(Attendee::Completed);
-    list << attendeeStatus(Attendee::InProcess);
-
-    return list;
-}
-
-QString Stringify::formatTime(const KDateTime &dt, bool shortfmt, const KDateTime::Spec &spec)
-{
-    if (spec.isValid()) {
-
-        QString timeZone;
-        if (spec.timeZone() != KSystemTimeZones::local()) {
-            timeZone = QLatin1Char(' ') + spec.timeZone().name();
-        }
-
-        return QLocale().toString(dt.toTimeSpec(spec).time(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat) + timeZone;
-    } else {
-        return QLocale().toString(dt.time(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
-    }
-}
-
-QString Stringify::formatDate(const KDateTime &dt, bool shortfmt, const KDateTime::Spec &spec)
-{
-    if (spec.isValid()) {
-
-        QString timeZone;
-        if (spec.timeZone() != KSystemTimeZones::local()) {
-            timeZone = QLatin1Char(' ') + spec.timeZone().name();
-        }
-
-        return
-            QLocale().toString(dt.toTimeSpec(spec).date(),
-                               (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat)) +
-            timeZone;
-    } else {
-        return
-            QLocale().toString(dt.date(),
-                               (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
-    }
-}
-
-QString Stringify::formatDateTime(const KDateTime &dt, bool allDay,
-                                  bool shortfmt, const KDateTime::Spec &spec)
-{
-    if (allDay) {
-        return formatDate(dt, shortfmt, spec);
-    }
-
-    if (spec.isValid()) {
-        QString timeZone;
-        if (spec.timeZone() != KSystemTimeZones::local()) {
-            timeZone = QLatin1Char(' ') + spec.timeZone().name();
-        }
-
-        return QLocale().toString(
-                   dt.toTimeSpec(spec).dateTime(),
-                   (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat)) + timeZone;
-    } else {
-        return  QLocale().toString(
-                    dt.dateTime(),
-                    (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
     }
 }
 
@@ -357,28 +274,4 @@ QString Stringify::scheduleMessageStatus(ScheduleMessage::Status status)
     default:
         return i18nc("@item unknown status", "Unknown Status: %1", int(status));
     }
-}
-
-QString Stringify::secrecyName(Incidence::Secrecy secrecy)
-{
-    switch (secrecy) {
-    case Incidence::SecrecyPublic:
-        return i18nc("@item incidence access if for everyone", "Public");
-    case Incidence::SecrecyPrivate:
-        return i18nc("@item incidence access is by owner only", "Private");
-    case Incidence::SecrecyConfidential:
-        return i18nc("@item incidence access is by owner and a controlled group", "Confidential");
-    default:
-        return QString();  // to make compilers happy
-    }
-}
-
-QStringList Stringify::secrecyList()
-{
-    QStringList list;
-    list << secrecyName(Incidence::SecrecyPublic);
-    list << secrecyName(Incidence::SecrecyPrivate);
-    list << secrecyName(Incidence::SecrecyConfidential);
-
-    return list;
 }
