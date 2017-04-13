@@ -859,7 +859,7 @@ static QString htmlCompare(const QString &value, const QString &oldvalue)
     }
 
     // if 'value' has changed, then make a special print
-    return QStringLiteral("<font color=\"%1\">%2</font> (<strike>%3</strike>").arg(diffColor(), value, oldvalue);
+    return QStringLiteral("<font color=\"%1\">%2</font> (<strike>%3</strike>)").arg(diffColor(), value, oldvalue);
 }
 
 static Attendee::Ptr findDelegatedFromMyAttendee(const Incidence::Ptr &incidence)
