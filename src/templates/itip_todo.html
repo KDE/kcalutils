@@ -4,7 +4,7 @@
   {% if incidence.location %}
   <tr>
     <th>{% i18n "Where:" %}</th>
-    <td>{{ incidence.location }}</td>
+    <td>{{ incidence.location|safe }}</td>
   </tr>
   {% endif %}
 
@@ -30,7 +30,7 @@
   {% if incidence.percentComplete %}
   <tr>
     <th>{% i18n "Percent Done:" %}</th>
-    <td>{{ incidence.percentComplete }}</td>
+    <td>{{ incidence.percentComplete|safe }}</td>
   </tr>
   {% endif %}
 
@@ -44,7 +44,7 @@
   {% if incidence.recurs %}
   <tr>
     <th>{% i18n "Recurrence:" %}</th>
-    <td>{{ incidence.recurrence }}</td>
+    <td>{{ incidence.recurrence|safe }}</td>
   </tr>
   {% endif %}
 
