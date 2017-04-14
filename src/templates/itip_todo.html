@@ -15,7 +15,7 @@
         {% if incidence.isMultiDay %}
         <td>{% i18nc "<beginDate> - <endDate>" "%1 - %2" incidence.dtStartStr|safe incidence.dtDueStr|safe %}</td>
         {% else %}
-        <td>{% i18nc "Date as string" "%1" incidence.dtStartStr|safe %}</td>
+        <td>{{ incidence.dtStartStr|safe }}</td>
         {% endif %}
       {% else %}
         {% if incidence.isMultiDay %}
