@@ -162,7 +162,7 @@ bool HtmlExport::save(QTextStream *ts)
 void HtmlExport::createMonthView(QTextStream *ts)
 {
     QDate start = fromDate();
-    start.setYMD(start.year(), start.month(), 1);    // go back to first day in month
+    start.setDate(start.year(), start.month(), 1);    // go back to first day in month
 
     QDate end(start.year(), start.month(), start.daysInMonth());
 
@@ -243,8 +243,8 @@ void HtmlExport::createMonthView(QTextStream *ts)
             startyear += 1;
             startmonth = 1;
         }
-        start.setYMD(startyear, startmonth, 1);
-        end.setYMD(start.year(), start.month(), start.daysInMonth());
+        start.setDate(startyear, startmonth, 1);
+        end.setDate(start.year(), start.month(), start.daysInMonth());
     }
 }
 

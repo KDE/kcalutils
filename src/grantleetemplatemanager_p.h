@@ -21,6 +21,7 @@
 #define GRANTLEETEMPLATEMANAGER_H_P
 
 #include <QSharedPointer>
+#include <QVariantHash>
 
 namespace Grantlee
 {
