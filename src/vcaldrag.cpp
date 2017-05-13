@@ -40,7 +40,7 @@ bool VCalDrag::populateMimeData(QMimeData *e,
 {
     VCalFormat format;
     QString calstr(format.toString(cal));
-    if (calstr.length() > 0) {
+    if (e && !calstr.isEmpty()) {
         e->setData(mimeType(), calstr.toUtf8());
     }
     return canDecode(e);
@@ -48,7 +48,11 @@ bool VCalDrag::populateMimeData(QMimeData *e,
 
 bool VCalDrag::canDecode(const QMimeData *me)
 {
-    return me->hasFormat(mimeType());
+    if (me) {
+        return me->hasFormat(mimeType());
+    } else {
+        return false;
+    }
 }
 
 bool VCalDrag::fromMimeData(const QMimeData *de,
