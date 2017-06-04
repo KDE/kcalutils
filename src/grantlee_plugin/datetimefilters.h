@@ -29,8 +29,8 @@ public:
     ~KDateFilter();
 
     QVariant doFilter(const QVariant &input, const QVariant &argument = QVariant(),
-                      bool autoescape = false) const Q_DECL_OVERRIDE;
-    bool isSafe() const Q_DECL_OVERRIDE;
+                      bool autoescape = false) const override;
+    bool isSafe() const override;
 private:
     Q_DISABLE_COPY(KDateFilter)
 };
@@ -42,8 +42,8 @@ public:
     ~KTimeFilter();
 
     QVariant doFilter(const QVariant &input, const QVariant &argument = QVariant(),
-                      bool autoescape = false) const Q_DECL_OVERRIDE;
-    bool isSafe() const Q_DECL_OVERRIDE;
+                      bool autoescape = false) const override;
+    bool isSafe() const override;
 private:
     Q_DISABLE_COPY(KTimeFilter)
 };
@@ -55,8 +55,8 @@ public:
     ~KDateTimeFilter();
 
     QVariant doFilter(const QVariant &input, const QVariant &argument = QVariant(),
-                      bool autoescape = false) const Q_DECL_OVERRIDE;
-    bool isSafe() const Q_DECL_OVERRIDE;
+                      bool autoescape = false) const override;
+    bool isSafe() const override;
 private:
     Q_DISABLE_COPY(KDateTimeFilter)
 };

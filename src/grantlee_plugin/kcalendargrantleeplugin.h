@@ -33,8 +33,8 @@ public:
     explicit KCalendarGrantleePlugin(QObject *parent = nullptr);
     ~KCalendarGrantleePlugin();
 
-    QHash<QString, Grantlee::Filter *> filters(const QString  &name) Q_DECL_OVERRIDE;
-    QHash<QString, Grantlee::AbstractNodeFactory *> nodeFactories(const QString &name) Q_DECL_OVERRIDE;
+    QHash<QString, Grantlee::Filter *> filters(const QString  &name) override;
+    QHash<QString, Grantlee::AbstractNodeFactory *> nodeFactories(const QString &name) override;
 };
 
 #endif // KCALENDARGRANTLEEPLUGIN_H

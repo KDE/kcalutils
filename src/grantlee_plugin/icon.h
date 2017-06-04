@@ -56,7 +56,7 @@ public:
     explicit IconTag(QObject *parent = nullptr);
     ~IconTag();
 
-    Grantlee::Node *getNode(const QString &tagContent, Grantlee::Parser *p) const Q_DECL_OVERRIDE;
+    Grantlee::Node *getNode(const QString &tagContent, Grantlee::Parser *p) const override;
 };
 
 class IconNode : public Grantlee::Node
@@ -67,7 +67,7 @@ public:
     IconNode(const QString &iconName, int sizeOrGroup, const QString &altText, QObject *parent = nullptr);
     ~IconNode();
 
-    void render(Grantlee::OutputStream *stream, Grantlee::Context *c) const Q_DECL_OVERRIDE;
+    void render(Grantlee::OutputStream *stream, Grantlee::Context *c) const override;
 
 private:
     QString mIconName;
