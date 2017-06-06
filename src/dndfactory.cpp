@@ -43,7 +43,7 @@
 #include <KUrlMimeData>
 #include <QUrl>
 
-#include <QtCore/QMimeData>
+#include <QMimeData>
 #include <QApplication>
 #include <QClipboard>
 #include <QDrag>

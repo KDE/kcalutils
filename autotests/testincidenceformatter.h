@@ -22,7 +22,7 @@
 #ifndef TESTINCIDENCEFORMATTER_H
 #define TESTINCIDENCEFORMATTER_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 #include <KCalCore/MemoryCalendar>
 

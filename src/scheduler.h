@@ -27,8 +27,8 @@
 #include <kcalcore/incidencebase.h>
 #include <kcalcore/calendar.h>
 
-#include <QtCore/QString>
-#include <QtCore/QList>
+#include <QString>
+#include <QList>
 
 namespace KCalCore
 {

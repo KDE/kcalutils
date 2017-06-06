@@ -24,8 +24,8 @@
 #include <kcalcore/vcalformat.h>
 using namespace KCalCore;
 
-#include <QtCore/QMimeData>
-#include <QtCore/QString>
+#include <QMimeData>
+#include <QString>
 
 using namespace KCalUtils;
 using namespace VCalDrag;

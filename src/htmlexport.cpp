@@ -31,9 +31,9 @@ using namespace KCalCore;
 
 #include <KLocalizedString>
 
-#include <QtCore/QFile>
-#include <QtCore/QMap>
-#include <QtCore/QTextStream>
+#include <QFile>
+#include <QMap>
+#include <QTextStream>
 #include <QApplication>
 #include <QLocale>
 

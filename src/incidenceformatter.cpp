@@ -59,7 +59,7 @@ using namespace KCalCore;
 #include <KLocale>
 #include <KSystemTimeZone>
 
-#include <QtCore/QBitArray>
+#include <QBitArray>
 #include <QApplication>
 #include <QPalette>
 #include <QTextDocument>
