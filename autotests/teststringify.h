@@ -22,7 +22,7 @@
 #ifndef TESTSTRINGIFY_H
 #define TESTSTRINGIFY_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class StringifyTest : public QObject
 {

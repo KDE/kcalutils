@@ -23,7 +23,7 @@
 #ifndef TESTDNDFACTORY_H
 #define TESTDNDFACTORY_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class DndFactoryTest : public QObject
 {
