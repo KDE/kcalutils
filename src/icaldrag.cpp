@@ -40,7 +40,7 @@ bool ICalDrag::populateMimeData(QMimeData *me, const MemoryCalendar::Ptr &cal)
     ICalFormat icf;
     QString scal = icf.toString(cal, QString(), false);
 
-    if (me && scal.length() > 0) {
+    if (me && !scal.isEmpty()) {
         me->setData(mimeType(), scal.toUtf8());
     }
     return canDecode(me);
@@ -63,7 +63,7 @@ bool ICalDrag::fromMimeData(const QMimeData *de, const MemoryCalendar::Ptr &cal)
     bool success = false;
 
     QByteArray payload = de->data(mimeType());
-    if (payload.size()) {
+    if (!payload.isEmpty()) {
         QString txt = QString::fromUtf8(payload.data());
 
         ICalFormat icf;

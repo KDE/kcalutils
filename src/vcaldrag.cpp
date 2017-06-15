@@ -64,8 +64,8 @@ bool VCalDrag::fromMimeData(const QMimeData *de,
 
     bool success = false;
     QByteArray payload = de->data(mimeType());
-    if (payload.size()) {
-        QString txt = QString::fromUtf8(payload.data());
+    if (!payload.isEmpty()) {
+        const QString txt = QString::fromUtf8(payload.data());
 
         VCalFormat format;
         success = format.fromString(cal, txt);

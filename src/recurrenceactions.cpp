@@ -182,7 +182,7 @@ int RecurrenceActions::questionMultipleChoice(const KDateTime &selectedOccurrenc
 {
     QDialogButtonBox::StandardButtons buttons = QDialogButtonBox::Ok | QDialogButtonBox::Cancel;
     ScopeWidget *widget = new ScopeWidget(availableChoices, selectedOccurrence, 0);
-    QDialogButtonBox *buttonBox = 0;
+    QDialogButtonBox *buttonBox = nullptr;
     auto dialog = createDialog(buttons, caption, widget, &buttonBox, parent);
 
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Ok), action);
