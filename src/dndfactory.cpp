@@ -289,7 +289,8 @@ bool DndFactory::cutIncidences(const Incidence::List &incidences)
 {
     if (copyIncidences(incidences)) {
         Incidence::List::ConstIterator it;
-        for (it = incidences.constBegin(); it != incidences.constEnd(); ++it) {
+        const Incidence::List::ConstIterator end(incidences.constEnd());
+        for (it = incidences.constBegin(); it != end; ++it) {
             d->mCalendar->deleteIncidence(*it);
         }
         return true;
