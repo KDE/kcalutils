@@ -203,11 +203,13 @@ MemoryCalendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData)
 MemoryCalendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData,
         const KDateTime::Spec &timeSpec)
 {
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(timeSpec));
+    if (mimeData) {
+        MemoryCalendar::Ptr calendar(new MemoryCalendar(timeSpec));
 
-    if (ICalDrag::fromMimeData(mimeData, calendar) ||
-            VCalDrag::fromMimeData(mimeData, calendar)) {
-        return calendar;
+        if (ICalDrag::fromMimeData(mimeData, calendar) ||
+                VCalDrag::fromMimeData(mimeData, calendar)) {
+            return calendar;
+        }
     }
 
     return MemoryCalendar::Ptr();
