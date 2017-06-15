@@ -11,7 +11,7 @@
     <!-- Calendar -->
     {% if incidence.calendar %}
     <tr>
-        <th>{% i18n "Calendar:" %}</th>
+        <th valign="top">{% i18n "Calendar:" %}</th>
         <td>{{ incidence.calendar }}</td>
     </tr>
     {% endif %}
@@ -19,7 +19,7 @@
     <!-- Location -->
     {% if incidence.location %}
     <tr>
-        <th>{% i18n "Location:" %}</th>
+        <th valign="top">{% i18n "Location:" %}</th>
         <td>{{ incidence.location|safe }}</td>
     </tr>
     {% endif %}
@@ -27,7 +27,7 @@
     <!-- Start date -->
     {% if incidence.startDate %}
     <tr>
-        <th>{% i18nc "to-do start date/time" "Start:" %}</th>
+        <th valign="top">{% i18nc "to-do start date/time" "Start:" %}</th>
         <td>{{ incidence.startDate|kdatetime }}</td>
     </tr>
     {% endif %}
@@ -35,7 +35,7 @@
     <!-- Due date -->
     {% if incidence.dueDate %}
     <tr>
-        <th>{% i18nc "to-do due date/time" "Due:" %}</th>
+        <th valign="top">{% i18nc "to-do due date/time" "Due:" %}</th>
         {% if incidence.allDay %}
         <td>{{ incidence.dueDate|kdatetime:"dateonly" }}</td>
         {% else %}
@@ -47,7 +47,7 @@
     <!-- Duration -->
     {% if incidence.duration %}
     <tr>
-        <th>{% i18n "Duration:" %}</th>
+        <th valign="top">{% i18n "Duration:" %}</th>
         <td>{{ incidence.duration }}</td>
     </tr>
     {% endif %}
@@ -55,7 +55,7 @@
     <!-- Recurrence -->
     {% if incidence.recurs or incidence.isException %}
     <tr>
-        <th>{% i18n "Recurrence:" %}</th>
+        <th valign="top">{% i18n "Recurrence:" %}</th>
         {% if incidence.isException %}
         <td>{% i18n "Exception" %}</td>
         {% else %}
@@ -73,7 +73,7 @@
     <!-- Description -->
     {% if incidence.description %}
     <tr>
-        <th>{% i18n "Description:" %}</th>
+        <th valign="top">{% i18n "Description:" %}</th>
         <td>{{ incidence.description|safe }}</td>
     </tr>
     {% endif %}
@@ -84,7 +84,7 @@
     <!-- Reminders -->
     {% if incidence.reminders %}
     <tr>
-        <th>{% i18np "Reminder:" "Reminders:" incidence.reminders|length %}</th>
+        <th valign="top">{% i18np "Reminder:" "Reminders:" incidence.reminders|length %}</th>
         <td>{{ incidence.reminders|join:"<br/>" }}</td>
     </tr>
     {% endif %}
@@ -92,7 +92,7 @@
     <!-- Organizer -->
     {% if incidence.organizer %}
     <tr>
-        <th>{% i18n "Organizer:" %}</th>
+        <th valign="top">{% i18n "Organizer:" %}</th>
         <td>
         {% with incidence.organizer as attendee %}
         {% include ":/attendee_row.html" %}
@@ -104,7 +104,7 @@
     <!-- Attendees - Chair -->
     {% if incidence.chairs %}
     <tr>
-        <th>{% i18n "Chair:" %}</th>
+        <th valign="top">{% i18n "Chair:" %}</th>
         <td>
         {% for attendee in incidence.chair %}
             {% include ":/attendee_row.html" %}
@@ -117,7 +117,7 @@
     <!-- Attendees - Required Participants -->
     {% if incidence.requiredParticipants %}
     <tr>
-        <th>{% i18n "Required Participants:" %}</th>
+        <th valign="top">{% i18n "Required Participants:" %}</th>
         <td>
         {% for attendee in incidence.requiredParticipants %}
             {% include ":/attendee_row.html" %}
@@ -130,7 +130,7 @@
     <!-- Attendees - Optional Participants -->
     {% if incidence.optionalParticipants %}
     <tr>
-        <th>{% i18n "Optional participants:" %}</th>
+        <th valign="top">{% i18n "Optional participants:" %}</th>
         <td>
         {% for attendee in incidence.optionalParticipants %}
             {% include ":/attendee_row.html" %}
@@ -143,7 +143,7 @@
     <!-- Attendees - Observers -->
     {% if incidence.observers %}
     <tr>
-        <th>{% i18n "Observers:" %}</th>
+        <th valign="top">{% i18n "Observers:" %}</th>
         <td>
         {% for attendee in incidence.chair %}
             {% include ":/attendee_row.html" %}
@@ -156,7 +156,7 @@
     <!-- Categories -->
     {% if incidence.categories %}
     <tr>
-        <th>{% i18np "Category:" "Categories:" incidence.categories|length %}</th>
+        <th valign="top">{% i18np "Category:" "Categories:" incidence.categories|length %}</th>
         <td>{{ incidence.categories|join:", " }}</td>
     </tr>
     {% endif %}
@@ -164,7 +164,7 @@
     <!-- Priority -->
     {% ifnotequal incidence.priority 0 %}
     <tr>
-        <th>{% i18n "Priority:" %}</th>
+        <th valign="top">{% i18n "Priority:" %}</th>
         <td>{{ incidence.priority }}</td>
     </tr>
     {% endifnotequal %}
@@ -172,12 +172,12 @@
     <!-- Completed -->
     {% if incidence.completedDate %}
     <tr>
-        <th>{% i18nc "Completed: date" "Completed:" %}</th>
+        <th valign="top">{% i18nc "Completed: date" "Completed:" %}</th>
         <td>{{ incidence.completedDate|kdate }}</td>
     </tr>
     {% else %}
     <tr>
-        <th>{% i18n "Percent done:" %}</th>
+        <th valign="top">{% i18n "Percent done:" %}</th>
         <td>{% i18n "%1%" incidence.percent %}</td>
     </tr>
     {% endif %}
@@ -185,7 +185,7 @@
     <!-- Attachments -->
     {% if incidence.attachments %}
     <tr>
-        <th>{% i18np "Attachment:" "Attachments:" incidence.attachments|length %}</th>
+        <th valign="top">{% i18np "Attachment:" "Attachments:" incidence.attachments|length %}</th>
         <td>{% for attachment in incidence.attachments %}
             <a href="{{ attachment.uri }}">{{ attachment.label }}</a>
             {% if not forloop.last %}

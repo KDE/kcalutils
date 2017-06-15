@@ -75,10 +75,10 @@
 <table border="0" cellspacing="0" cellpadding="4">
    <tr>
      {% ifequal incidencecomment|length 1 %}
-     <th>{% i18n "Comment:" %}</th>
+     <th valign="top">{% i18n "Comment:" %}</th>
      <td>{{ incidence.comments|first }}</td>
      {% else %}
-     <th>{% i18n "Comments:" %}</th>
+     <th valign="top">{% i18n "Comments:" %}</th>
      <td><ul>
      {% for comment in incidence.comments %}
         <li>{{ comment }}</li>
@@ -103,7 +103,7 @@
   <!-- RSVP/attadees -->
   {% if incidence.attendees %}
   <tr>
-    <th>{{ incidence.attendeesTitle }}</th>
+    <th valign="top">{{ incidence.attendeesTitle }}</th>
     <td>
     {% for attendee in incidence.attendees %}
         {% include ":/attendee_row.html" %}
@@ -116,7 +116,7 @@
   <!-- Attachments //-->
   {% if incidence.attachments %}
   <tr>
-    <th>{% i18n "Attachments:" %}</th>
+    <th valign="top">{% i18n "Attachments:" %}</th>
     <td>
     {% for attachment in incidence.attachments %}
         {% icon attachment.icon Small %}
