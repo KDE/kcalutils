@@ -63,7 +63,7 @@ bool VCalDrag::fromMimeData(const QMimeData *de,
     }
 
     bool success = false;
-    QByteArray payload = de->data(mimeType());
+    const QByteArray payload = de->data(mimeType());
     if (!payload.isEmpty()) {
         const QString txt = QString::fromUtf8(payload.data());
 

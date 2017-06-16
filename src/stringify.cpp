@@ -85,10 +85,7 @@ QString Stringify::incidenceSecrecy(Incidence::Secrecy secrecy)
 
 QStringList Stringify::incidenceSecrecyList()
 {
-    QStringList list;
-    list << incidenceSecrecy(Incidence::SecrecyPublic);
-    list << incidenceSecrecy(Incidence::SecrecyPrivate);
-    list << incidenceSecrecy(Incidence::SecrecyConfidential);
+    const QStringList list {incidenceSecrecy(Incidence::SecrecyPublic), incidenceSecrecy(Incidence::SecrecyPrivate), incidenceSecrecy(Incidence::SecrecyConfidential)};
 
     return list;
 }

@@ -194,7 +194,8 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence,
             // So check the attendee status of the attendee.
             const Attendee::List attendees = existingIncidence->attendees();
             Attendee::List::ConstIterator ait;
-            for (ait = attendees.begin(); ait != attendees.end(); ++ait) {
+            const Attendee::List::ConstIterator aitEnd(attendees.end());
+            for (ait = attendees.begin(); ait != aitEnd; ++ait) {
                 if ((*ait)->email() == email && (*ait)->status() == Attendee::NeedsAction) {
                     // This incidence wasn't created by me - it's probably in a shared folder
                     // and meant for someone else, ignore it.
@@ -315,7 +316,8 @@ bool Scheduler::acceptCancel(const IncidenceBase::Ptr &incidence,
         bool isMine = true;
         const Attendee::List attendees = i->attendees();
         Attendee::List::ConstIterator ait;
-        for (ait = attendees.begin(); ait != attendees.end(); ++ait) {
+        const Attendee::List::ConstIterator aitEnd(attendees.end());
+        for (ait = attendees.begin(); ait != aitEnd; ++ait) {
             if ((*ait)->email() == attendee &&
                     (*ait)->status() == Attendee::NeedsAction) {
                 // This incidence wasn't created by me - it's probably in a shared
