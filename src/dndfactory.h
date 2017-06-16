@@ -46,8 +46,7 @@ class QDrag;
 class QDropEvent;
 class QMimeData;
 
-namespace KCalUtils
-{
+namespace KCalUtils {
 class DndFactoryPrivate;
 /**
   @brief
@@ -87,8 +86,7 @@ public:
     /**
      Create the calendar that is contained in the mime data.
     */
-    static KCalCore::MemoryCalendar::Ptr createDropCalendar(const QMimeData *md,
-            const KDateTime::Spec &timeSpec);
+    static KCalCore::MemoryCalendar::Ptr createDropCalendar(const QMimeData *md, const KDateTime::Spec &timeSpec);
 
     /**
       Create the mime data for the whole calendar.
@@ -157,8 +155,7 @@ public:
       @see pasteIncidence()
     */
     KCalCore::Incidence::List pasteIncidences(
-        const KDateTime &newDateTime = KDateTime(),
-        QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions = QFlags<PasteFlag>());
+        const KDateTime &newDateTime = KDateTime(), QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions = QFlags<PasteFlag>());
 
     /**
       This function clones the incidence that's in the clipboard and sets the clone's
@@ -175,8 +172,7 @@ public:
       @return A pointer to the cloned incidence.
     */
     KCalCore::Incidence::Ptr pasteIncidence(
-        const KDateTime &newDateTime = KDateTime(),
-        QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions = QFlags<PasteFlag>());
+        const KDateTime &newDateTime = KDateTime(), QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions = QFlags<PasteFlag>());
 
 private:
     //@cond PRIVATE
@@ -184,7 +180,6 @@ private:
     DndFactoryPrivate *const d;
     //@endcond
 };
-
 }
 
 #endif

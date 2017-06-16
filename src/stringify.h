@@ -37,21 +37,16 @@
 #include <kcalcore/schedulemessage.h>
 #include <kcalcore/todo.h>
 
-namespace KCalCore
-{
+namespace KCalCore {
 class Exception;
 }
 
-namespace KCalUtils
-{
-
+namespace KCalUtils {
 /**
   @brief
   Provides methods to format Incidence properties in various ways for display purposes.
 */
-namespace Stringify
-{
-
+namespace Stringify {
 KCALUTILS_EXPORT QString incidenceType(KCalCore::Incidence::IncidenceType type);
 
 /**
@@ -75,8 +70,7 @@ KCALUTILS_EXPORT QString scheduleMessageStatus(KCalCore::ScheduleMessage::Status
   formatted according to the user's locale settings.
   @param shortfmt If true, use a short date format; else use a long format.
 */
-KCALUTILS_EXPORT QString todoCompletedDateTime(const KCalCore::Todo::Ptr &todo,
-        bool shortfmt = false);
+KCALUTILS_EXPORT QString todoCompletedDateTime(const KCalCore::Todo::Ptr &todo, bool shortfmt = false);
 
 KCALUTILS_EXPORT QString attendeeRole(KCalCore::Attendee::Role role);
 KCALUTILS_EXPORT QString attendeeStatus(KCalCore::Attendee::PartStat status);
@@ -85,9 +79,7 @@ KCALUTILS_EXPORT QString attendeeStatus(KCalCore::Attendee::PartStat status);
    Build a translated message representing an exception
 */
 KCALUTILS_EXPORT QString errorMessage(const KCalCore::Exception &exception);
-
 } // namespace Stringify
-
 } //namespace KCalUtils
 
 #endif

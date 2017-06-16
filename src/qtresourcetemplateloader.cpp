@@ -17,7 +17,6 @@
  *
  */
 
-
 #include "qtresourcetemplateloader.h"
 
 #include <QFile>
@@ -29,7 +28,6 @@ using namespace KCalUtils;
 QtResourceTemplateLoader::QtResourceTemplateLoader(const QSharedPointer<Grantlee::AbstractLocalizer> localizer)
     : Grantlee::FileSystemTemplateLoader(localizer)
 {
-
 }
 
 Grantlee::Template QtResourceTemplateLoader::loadByName(const QString &fileName, const Grantlee::Engine *engine) const

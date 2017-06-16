@@ -30,14 +30,12 @@
 #include <QString>
 #include <QList>
 
-namespace KCalCore
-{
+namespace KCalCore {
 class ICalFormat;
 class FreeBusyCache;
 }
 
-namespace KCalUtils
-{
+namespace KCalUtils {
 struct SchedulerPrivate;
 /**
   This class provides an encapsulation of iTIP transactions (RFC 2446).
@@ -50,14 +48,13 @@ public:
     /**
       Creates a scheduler for calendar specified as argument.
     */
-    explicit Scheduler(const  KCalCore::Calendar::Ptr &calendar);
+    explicit Scheduler(const KCalCore::Calendar::Ptr &calendar);
     virtual ~Scheduler();
 
     /**
       iTIP publish action
     */
-    virtual bool publish(const KCalCore::IncidenceBase::Ptr &incidence,
-                         const QString &recipients) = 0;
+    virtual bool publish(const KCalCore::IncidenceBase::Ptr &incidence, const QString &recipients) = 0;
     /**
       Performs iTIP transaction on incidence. The method is specified as the
       method argument and can be any valid iTIP method.
@@ -65,8 +62,7 @@ public:
       @param incidence the incidence for the transaction.
       @param method the iTIP transaction method to use.
     */
-    virtual bool performTransaction(const KCalCore::IncidenceBase::Ptr &incidence,
-                                    KCalCore::iTIPMethod method) = 0;
+    virtual bool performTransaction(const KCalCore::IncidenceBase::Ptr &incidence, KCalCore::iTIPMethod method) = 0;
 
     /**
       Performs iTIP transaction on incidence to specified recipient(s).
@@ -76,8 +72,7 @@ public:
       @param method the iTIP transaction method to use.
       @param recipients the receipients of the transaction.
     */
-    virtual bool performTransaction(const KCalCore::IncidenceBase::Ptr &incidence,
-                                    KCalCore::iTIPMethod method, const QString &recipients) = 0;
+    virtual bool performTransaction(const KCalCore::IncidenceBase::Ptr &incidence, KCalCore::iTIPMethod method, const QString &recipients) = 0;
 
     /**
       Retrieves incoming iTIP transactions.
@@ -97,10 +92,7 @@ public:
       @param email the email address of the person for whom this
       transaction is to be performed.
     */
-    bool acceptTransaction(const KCalCore::IncidenceBase::Ptr &incidence,
-                           KCalCore::iTIPMethod method,
-                           KCalCore::ScheduleMessage::Status status,
-                           const QString &email = QString());
+    bool acceptTransaction(const KCalCore::IncidenceBase::Ptr &incidence, KCalCore::iTIPMethod method, KCalCore::ScheduleMessage::Status status, const QString &email = QString());
 
     virtual bool deleteTransaction(const KCalCore::IncidenceBase::Ptr &incidence);
 
@@ -120,33 +112,21 @@ public:
     KCalCore::FreeBusyCache *freeBusyCache() const;
 
 protected:
-    bool acceptPublish(const KCalCore::IncidenceBase::Ptr &,
-                       KCalCore::ScheduleMessage::Status status,
-                       KCalCore::iTIPMethod method);
+    bool acceptPublish(const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status, KCalCore::iTIPMethod method);
 
-    bool acceptRequest(const KCalCore::IncidenceBase::Ptr &,
-                       KCalCore::ScheduleMessage::Status status,
-                       const QString &email);
+    bool acceptRequest(const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status, const QString &email);
 
-    bool acceptAdd(const KCalCore::IncidenceBase::Ptr &,
-                   KCalCore::ScheduleMessage::Status status);
+    bool acceptAdd(const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status);
 
-    bool acceptCancel(const KCalCore::IncidenceBase::Ptr &,
-                      KCalCore::ScheduleMessage::Status status,
-                      const QString &attendee);
+    bool acceptCancel(const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status, const QString &attendee);
 
-    bool acceptDeclineCounter(const KCalCore::IncidenceBase::Ptr &,
-                              KCalCore::ScheduleMessage::Status status);
+    bool acceptDeclineCounter(const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status);
 
-    bool acceptReply(const KCalCore::IncidenceBase::Ptr &,
-                     KCalCore::ScheduleMessage::Status status,
-                     KCalCore::iTIPMethod method);
+    bool acceptReply(const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status, KCalCore::iTIPMethod method);
 
-    bool acceptRefresh(const KCalCore::IncidenceBase::Ptr &,
-                       KCalCore::ScheduleMessage::Status status);
+    bool acceptRefresh(const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status);
 
-    bool acceptCounter(const KCalCore::IncidenceBase::Ptr &,
-                       KCalCore::ScheduleMessage::Status status);
+    bool acceptCounter(const KCalCore::IncidenceBase::Ptr &, KCalCore::ScheduleMessage::Status status);
 
     bool acceptFreeBusy(const KCalCore::IncidenceBase::Ptr &, KCalCore::iTIPMethod method);
 
@@ -157,7 +137,6 @@ private:
     Q_DISABLE_COPY(Scheduler)
     SchedulerPrivate *const d;
 };
-
 }
 
 #endif

@@ -31,16 +31,13 @@
 #include <QDateTime>
 #include <QString>
 
-namespace KCalCore
-{
+namespace KCalCore {
 class MemoryCalendar;
 }
 
 class QTextStream;
 
-namespace KCalUtils
-{
-
+namespace KCalUtils {
 class HTMLExportSettings;
 class HtmlExportPrivate;
 /**
@@ -77,8 +74,7 @@ protected:
 
     void createTodo(QTextStream *ts, const KCalCore::Todo::Ptr &todo);
 
-    void createEvent(QTextStream *ts, const KCalCore::Event::Ptr &event,
-                     QDate date, bool withDescription = true);
+    void createEvent(QTextStream *ts, const KCalCore::Event::Ptr &event, QDate date, bool withDescription = true);
 
     void createFooter(QTextStream *ts);
 
@@ -102,7 +98,6 @@ private:
     HtmlExportPrivate *const d;
     //@endcond
 };
-
 }
 
 #endif

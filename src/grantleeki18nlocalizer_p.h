@@ -34,21 +34,17 @@ public:
 
     // Only reimplement string localization to use KLocalizedString instead of
     // tr(), the remaining methods use QLocale internally, so we can reuse them
-    QString localizeContextString(const QString &string, const QString &context,
-                                  const QVariantList &arguments) const override;
+    QString localizeContextString(const QString &string, const QString &context, const QVariantList &arguments) const override;
     QString localizeString(const QString &string, const QVariantList &arguments) const override;
-    QString localizePluralContextString(const QString &string, const QString &pluralForm,
-                                        const QString &context, const QVariantList &arguments) const override;
-    QString localizePluralString(const QString &string, const QString &pluralForm,
-                                 const QVariantList &arguments) const override;
+    QString localizePluralContextString(const QString &string, const QString &pluralForm, const QString &context, const QVariantList &arguments) const override;
+    QString localizePluralString(const QString &string, const QString &pluralForm, const QVariantList &arguments) const override;
 
     // Only exception, Grantlee's implementation is not using QLocale for this
     // for some reason
     QString localizeMonetaryValue(qreal value, const QString &currenctCode) const override;
 
 private:
-    QString processArguments(const KLocalizedString &str,
-                             const QVariantList &arguments) const;
+    QString processArguments(const KLocalizedString &str, const QVariantList &arguments) const;
 };
 
 #endif // GRANTLEEKI18NLOCALIZER_H

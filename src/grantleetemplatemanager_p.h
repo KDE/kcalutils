@@ -23,8 +23,7 @@
 #include <QSharedPointer>
 #include <QVariantHash>
 
-namespace Grantlee
-{
+namespace Grantlee {
 class Engine;
 class FileSystemTemplateLoader;
 class TemplateImpl;
@@ -51,9 +50,7 @@ private:
     Q_DISABLE_COPY(GrantleeTemplateManager)
     GrantleeTemplateManager();
 
-    QString errorTemplate(const QString &reason,
-                          const QString &origTemplateName,
-                          const Grantlee::Template &failedTemplate) const;
+    QString errorTemplate(const QString &reason, const QString &origTemplateName, const Grantlee::Template &failedTemplate) const;
     Grantlee::Context createContext(const QVariantHash &hash = QVariantHash()) const;
 
     Grantlee::Engine *mEngine;

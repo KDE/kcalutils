@@ -27,14 +27,11 @@
 
 class QMimeData;
 
-namespace KCalUtils
-{
-
+namespace KCalUtils {
 /**
   vCalendar drag&drop class.
 */
-namespace VCalDrag
-{
+namespace VCalDrag {
 /**
   Mime-type of iCalendar
 */
@@ -43,8 +40,7 @@ KCALUTILS_EXPORT QString mimeType();
 /**
   Sets the vCalendar representation as data of the drag object
 */
-KCALUTILS_EXPORT bool populateMimeData(QMimeData *e,
-                                       const KCalCore::MemoryCalendar::Ptr &cal);
+KCALUTILS_EXPORT bool populateMimeData(QMimeData *e, const KCalCore::MemoryCalendar::Ptr &cal);
 
 /**
   Return, if drag&drop object can be decode to vCalendar.
@@ -54,10 +50,8 @@ KCALUTILS_EXPORT bool canDecode(const QMimeData *);
 /**
   Decode drag&drop object to vCalendar component \a vcal.
 */
-KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e,
-                                   const KCalCore::MemoryCalendar::Ptr &cal);
+KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalCore::MemoryCalendar::Ptr &cal);
 }
-
 }
 
 #endif

@@ -21,8 +21,7 @@
 #define QTRESOURCETEMPLATELOADER_H
 #include "grantlee/templateloader.h"
 
-namespace KCalUtils
-{
+namespace KCalUtils {
 class QtResourceTemplateLoader : public Grantlee::FileSystemTemplateLoader
 {
 public:

@@ -64,11 +64,10 @@ class KCalUtils::DndFactoryPrivate
 public:
     DndFactoryPrivate(const MemoryCalendar::Ptr &calendar)
         : mCalendar(calendar)
-    {}
+    {
+    }
 
-    Incidence::Ptr pasteIncidence(const Incidence::Ptr &incidence,
-                                  KDateTime newDateTime,
-                                  QFlags<DndFactory::PasteFlag> pasteOptions)
+    Incidence::Ptr pasteIncidence(const Incidence::Ptr &incidence, KDateTime newDateTime, QFlags<DndFactory::PasteFlag> pasteOptions)
     {
         Incidence::Ptr inc(incidence);
 
@@ -98,7 +97,6 @@ public:
                 } else {
                     event->setDtEnd(newDateTime.addSecs(durationInSeconds));
                 }
-
             } else if (inc->type() == Incidence::TypeTodo) {
                 Todo::Ptr aTodo = inc.staticCast<Todo>();
                 const bool pasteAtDtStart = (pasteOptions & DndFactory::FlagTodosPasteAtDtStart);
@@ -113,7 +111,6 @@ public:
                 } else {
                     aTodo->setDtDue(newDateTime);
                 }
-
             } else if (inc->type() == Incidence::TypeJournal) {
                 if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
                     // Set date and preserve time and timezone stuff
@@ -200,14 +197,13 @@ MemoryCalendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData)
     return createDropCalendar(mimeData, d->mCalendar->timeSpec());
 }
 
-MemoryCalendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData,
-        const KDateTime::Spec &timeSpec)
+MemoryCalendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData, const KDateTime::Spec &timeSpec)
 {
     if (mimeData) {
         MemoryCalendar::Ptr calendar(new MemoryCalendar(timeSpec));
 
-        if (ICalDrag::fromMimeData(mimeData, calendar) ||
-                VCalDrag::fromMimeData(mimeData, calendar)) {
+        if (ICalDrag::fromMimeData(mimeData, calendar)
+            || VCalDrag::fromMimeData(mimeData, calendar)) {
             return calendar;
         }
     }
@@ -333,8 +329,7 @@ bool DndFactory::copyIncidence(const Incidence::Ptr &selectedInc)
     return copyIncidences(list);
 }
 
-Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime,
-        QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions)
+Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime, QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions)
 {
     QClipboard *clipboard = QApplication::clipboard();
     Q_ASSERT(clipboard);
@@ -354,7 +349,7 @@ Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime,
     const Incidence::List incidences = calendar->incidences();
     const Incidence::List::ConstIterator end(incidences.constEnd());
     for (it = incidences.constBegin();
-            it != end; ++it) {
+         it != end; ++it) {
         Incidence::Ptr incidence = d->pasteIncidence(*it, newDateTime, pasteOptions);
         if (incidence) {
             list.append(incidence);
@@ -377,8 +372,7 @@ Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime,
     return list;
 }
 
-Incidence::Ptr DndFactory::pasteIncidence(const KDateTime &newDateTime,
-        QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions)
+Incidence::Ptr DndFactory::pasteIncidence(const KDateTime &newDateTime, QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions)
 {
     QClipboard *clipboard = QApplication::clipboard();
     MemoryCalendar::Ptr calendar(createDropCalendar(clipboard->mimeData()));

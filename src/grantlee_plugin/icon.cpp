@@ -39,19 +39,18 @@ Grantlee::Node *IconTag::getNode(const QString &tagContent, Grantlee::Parser *p)
     Q_UNUSED(p);
 
     static QHash<QString, int> sizeOrGroupLookup
-    = { { QStringLiteral("desktop"), KIconLoader::Desktop },
-        { QStringLiteral("toolbar"), KIconLoader::Toolbar },
-        { QStringLiteral("maintoolbar"), KIconLoader::MainToolbar },
-        { QStringLiteral("small"), KIconLoader::Small },
-        { QStringLiteral("panel"), KIconLoader::Panel },
-        { QStringLiteral("dialog"), KIconLoader::Dialog },
-        { QStringLiteral("sizesmall"), KIconLoader::SizeSmall },
-        { QStringLiteral("sizesmallmedium"), KIconLoader::SizeSmallMedium },
-        { QStringLiteral("sizemedium"), KIconLoader::SizeMedium },
-        { QStringLiteral("sizelarge"), KIconLoader::SizeLarge },
-        { QStringLiteral("sizehuge"), KIconLoader::SizeHuge },
-        { QStringLiteral("sizeenormous"), KIconLoader::SizeEnormous }
-    };
+        = { { QStringLiteral("desktop"), KIconLoader::Desktop },
+            { QStringLiteral("toolbar"), KIconLoader::Toolbar },
+            { QStringLiteral("maintoolbar"), KIconLoader::MainToolbar },
+            { QStringLiteral("small"), KIconLoader::Small },
+            { QStringLiteral("panel"), KIconLoader::Panel },
+            { QStringLiteral("dialog"), KIconLoader::Dialog },
+            { QStringLiteral("sizesmall"), KIconLoader::SizeSmall },
+            { QStringLiteral("sizesmallmedium"), KIconLoader::SizeSmallMedium },
+            { QStringLiteral("sizemedium"), KIconLoader::SizeMedium },
+            { QStringLiteral("sizelarge"), KIconLoader::SizeLarge },
+            { QStringLiteral("sizehuge"), KIconLoader::SizeHuge },
+            { QStringLiteral("sizeenormous"), KIconLoader::SizeEnormous }};
 
     const QStringList parts = smartSplit(tagContent);
     const int partsSize = parts.size();
@@ -134,8 +133,8 @@ void IconNode::render(Grantlee::OutputStream *stream, Grantlee::Context *c) cons
 
     const QString html = QStringLiteral("<img src=\"file://%1\" align=\"top\" height=\"%2\" width=\"%2\" alt=\"%3\" title=\"%4\" />")
                          .arg(KIconLoader::global()->iconPath(iconName, mSizeOrGroup))
-                         .arg(mSizeOrGroup < KIconLoader::LastGroup ?
-                              IconSize(static_cast<KIconLoader::Group>(mSizeOrGroup))
+                         .arg(mSizeOrGroup < KIconLoader::LastGroup
+                              ? IconSize(static_cast<KIconLoader::Group>(mSizeOrGroup))
                               : mSizeOrGroup)
                          .arg(altText.isEmpty() ? iconName : altText, altText); // title is intentionally blank if no alt is provided
     (*stream) << Grantlee::SafeString(html, Grantlee::SafeString::IsSafe);

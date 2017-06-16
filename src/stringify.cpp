@@ -62,8 +62,7 @@ QString Stringify::incidenceType(Incidence::IncidenceType type)
     }
 }
 
-QString Stringify::todoCompletedDateTime(const Todo::Ptr &todo,
-        bool shortfmt)
+QString Stringify::todoCompletedDateTime(const Todo::Ptr &todo, bool shortfmt)
 {
     return QLocale().toString(todo->completed().dateTime(),
                               (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
@@ -85,7 +84,9 @@ QString Stringify::incidenceSecrecy(Incidence::Secrecy secrecy)
 
 QStringList Stringify::incidenceSecrecyList()
 {
-    const QStringList list {incidenceSecrecy(Incidence::SecrecyPublic), incidenceSecrecy(Incidence::SecrecyPrivate), incidenceSecrecy(Incidence::SecrecyConfidential)};
+    const QStringList list {
+        incidenceSecrecy(Incidence::SecrecyPublic), incidenceSecrecy(Incidence::SecrecyPrivate), incidenceSecrecy(Incidence::SecrecyConfidential)
+    };
 
     return list;
 }
@@ -245,7 +246,6 @@ QString Stringify::errorMessage(const Exception &exception)
     case Exception::UserCancel:
         // no real error; the user canceled the operation
         break;
-
     }
 
     return message;

@@ -46,8 +46,10 @@ class KCalUtils::HtmlExportPrivate
 {
 public:
     HtmlExportPrivate(MemoryCalendar *calendar, HTMLExportSettings *settings)
-        : mCalendar(calendar), mSettings(settings)
-    {}
+        : mCalendar(calendar)
+        , mSettings(settings)
+    {
+    }
 
     MemoryCalendar *mCalendar;
     HTMLExportSettings *mSettings;
@@ -216,8 +218,8 @@ void HtmlExport::createMonthView(QTextStream *ts)
                 // Only print events within the from-to range
                 if (start >= fromDate() && start <= toDate()) {
                     Event::List events = d->mCalendar->events(start, d->mCalendar->timeSpec(),
-                                         EventSortStartDate,
-                                         SortDirectionAscending);
+                                                              EventSortStartDate,
+                                                              SortDirectionAscending);
                     if (events.count()) {
                         *ts << "<table>";
                         Event::List::ConstIterator it;
@@ -255,7 +257,7 @@ void HtmlExport::createEventList(QTextStream *ts)
     *ts << "<table border=\"0\" cellpadding=\"3\" cellspacing=\"3\">" << endl;
     *ts << "  <tr>" << endl;
     *ts << "    <th class=\"sum\">" << i18nc("@title:column event start time",
-            "Start Time") << "</th>" << endl;
+                                             "Start Time") << "</th>" << endl;
     *ts << "    <th>" << i18nc("@title:column event end time",
                                "End Time") << "</th>" << endl;
     *ts << "    <th>" << i18nc("@title:column event description",
@@ -281,8 +283,8 @@ void HtmlExport::createEventList(QTextStream *ts)
     for (QDate dt = fromDate(); dt <= toDate(); dt = dt.addDays(1)) {
         qCDebug(KCALUTILS_LOG) << "Getting events for" << dt.toString();
         Event::List events = d->mCalendar->events(dt, d->mCalendar->timeSpec(),
-                             EventSortStartDate,
-                             SortDirectionAscending);
+                                                  EventSortStartDate,
+                                                  SortDirectionAscending);
         if (events.count()) {
             *ts << "  <tr><td colspan=\"" << QString::number(columns)
                 << "\" class=\"datehead\"><i>"
@@ -302,10 +304,7 @@ void HtmlExport::createEventList(QTextStream *ts)
     *ts << "</table>" << endl;
 }
 
-void HtmlExport::createEvent(QTextStream *ts,
-                             const Event::Ptr &event,
-                             QDate date,
-                             bool withDescription)
+void HtmlExport::createEvent(QTextStream *ts, const Event::Ptr &event, QDate date, bool withDescription)
 {
     qCDebug(KCALUTILS_LOG) << event->summary();
     *ts << "  <tr>" << endl;
@@ -431,7 +430,7 @@ void HtmlExport::createTodoList(QTextStream *ts)
 
     // Create sub-level lists
     for (it = todoList.constBegin(); it != todoList.constEnd(); ++it) {
-        Incidence::List relations =  d->mCalendar->relations((*it)->uid());
+        Incidence::List relations = d->mCalendar->relations((*it)->uid());
 
         if (relations.count()) {
             // Generate sub-to-do list
@@ -440,7 +439,7 @@ void HtmlExport::createTodoList(QTextStream *ts)
             *ts << "\"" << QString::number(columns) << "\"";
             *ts << "><a name=\"sub" << (*it)->uid() << "\"></a>"
                 << i18nc("@title:column sub-to-dos of the parent to-do",
-                         "Sub-To-dos of: ") << "<a href=\"#"
+                     "Sub-To-dos of: ") << "<a href=\"#"
                 << (*it)->uid() << "\"><b>" << cleanChars((*it)->summary())
                 << "</b></a></td>" << endl;
             *ts << "  </tr>" << endl;
@@ -498,7 +497,7 @@ void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
     if (relations.count()) {
         *ts << "    <div align=\"right\"><a href=\"#sub" << todo->uid()
             << "\">" << i18nc("@title:column sub-to-dos of the parent to-do",
-                              "Sub-To-dos") << "</a></div>" << endl;
+                          "Sub-To-dos") << "</a></div>" << endl;
     }
     *ts << "  </td>" << endl;
 
@@ -594,15 +593,14 @@ bool HtmlExport::checkSecrecy(const Incidence::Ptr &incidence)
     if (secrecy == Incidence::SecrecyPrivate && !d->mSettings->excludePrivate()) {
         return true;
     }
-    if (secrecy == Incidence::SecrecyConfidential &&
-            !d->mSettings->excludeConfidential()) {
+    if (secrecy == Incidence::SecrecyConfidential
+        && !d->mSettings->excludeConfidential()) {
         return true;
     }
     return false;
 }
 
-void HtmlExport::formatLocation(QTextStream *ts,
-                                const Incidence::Ptr &incidence)
+void HtmlExport::formatLocation(QTextStream *ts, const Incidence::Ptr &incidence)
 {
     if (!incidence->location().isEmpty()) {
         *ts << "    " << cleanChars(incidence->location()) << endl;
@@ -611,8 +609,7 @@ void HtmlExport::formatLocation(QTextStream *ts,
     }
 }
 
-void HtmlExport::formatCategories(QTextStream *ts,
-                                  const Incidence::Ptr &incidence)
+void HtmlExport::formatCategories(QTextStream *ts, const Incidence::Ptr &incidence)
 {
     if (!incidence->categoriesStr().isEmpty()) {
         *ts << "    " << cleanChars(incidence->categoriesStr()) << endl;
@@ -621,8 +618,7 @@ void HtmlExport::formatCategories(QTextStream *ts,
     }
 }
 
-void HtmlExport::formatAttendees(QTextStream *ts,
-                                 const Incidence::Ptr &incidence)
+void HtmlExport::formatAttendees(QTextStream *ts, const Incidence::Ptr &incidence)
 {
     Attendee::List attendees = incidence->attendees();
     if (attendees.count()) {

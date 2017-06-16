@@ -47,7 +47,8 @@ class ScopeWidget : public QWidget
     Q_OBJECT
 public:
     ScopeWidget(int availableChoices, const KDateTime &dateTime, QWidget *parent)
-        : QWidget(parent), mAvailableChoices(availableChoices)
+        : QWidget(parent)
+        , mAvailableChoices(availableChoices)
     {
         mUi.setupUi(this);
 
@@ -86,7 +87,9 @@ private:
     Ui_RecurrenceActionsScopeWidget mUi;
 };
 
-ScopeWidget::~ScopeWidget() {}
+ScopeWidget::~ScopeWidget()
+{
+}
 
 void ScopeWidget::setMessage(const QString &message)
 {
@@ -128,8 +131,7 @@ int ScopeWidget::checkedChoices() const
     return result;
 }
 
-int RecurrenceActions::availableOccurrences(const Incidence::Ptr &incidence,
-        const KDateTime &selectedOccurrence)
+int RecurrenceActions::availableOccurrences(const Incidence::Ptr &incidence, const KDateTime &selectedOccurrence)
 {
     int result = NoOccurrence;
 
@@ -149,9 +151,7 @@ int RecurrenceActions::availableOccurrences(const Incidence::Ptr &incidence,
     return result;
 }
 
-static QDialog *createDialog(QDialogButtonBox::StandardButtons buttons,
-                             const QString &caption, QWidget *mainWidget,
-                             QDialogButtonBox **buttonBox, QWidget *parent)
+static QDialog *createDialog(QDialogButtonBox::StandardButtons buttons, const QString &caption, QWidget *mainWidget, QDialogButtonBox **buttonBox, QWidget *parent)
 {
     QPointer<QDialog> dialog = new QDialog(parent);
     dialog->setWindowTitle(caption);
@@ -175,10 +175,8 @@ static QDialog *createDialog(QDialogButtonBox::StandardButtons buttons,
     return dialog;
 }
 
-int RecurrenceActions::questionMultipleChoice(const KDateTime &selectedOccurrence,
-        const QString &message, const QString &caption,
-        const KGuiItem &action, int availableChoices,
-        int preselectedChoices, QWidget *parent)
+int RecurrenceActions::questionMultipleChoice(const KDateTime &selectedOccurrence, const QString &message, const QString &caption, const KGuiItem &action, int availableChoices, int preselectedChoices,
+                                              QWidget *parent)
 {
     QDialogButtonBox::StandardButtons buttons = QDialogButtonBox::Ok | QDialogButtonBox::Cancel;
     ScopeWidget *widget = new ScopeWidget(availableChoices, selectedOccurrence, 0);
@@ -203,9 +201,7 @@ int RecurrenceActions::questionMultipleChoice(const KDateTime &selectedOccurrenc
     return widget->checkedChoices();
 }
 
-int RecurrenceActions::questionSelectedAllCancel(const QString &message, const QString &caption,
-        const KGuiItem &actionSelected,
-        const KGuiItem &actionAll, QWidget *parent)
+int RecurrenceActions::questionSelectedAllCancel(const QString &message, const QString &caption, const KGuiItem &actionSelected, const KGuiItem &actionAll, QWidget *parent)
 {
     QPointer<QDialog> dialog = new QDialog(parent);
     dialog->setWindowTitle(caption);
@@ -224,14 +220,14 @@ int RecurrenceActions::questionSelectedAllCancel(const QString &message, const Q
 
     bool checkboxResult = false;
     int result = KMessageBox::createKMessageBox(
-                     dialog,
-                     buttonBox,
-                     QMessageBox::Question,
-                     message,
-                     QStringList(),
-                     QString(),
-                     &checkboxResult,
-                     KMessageBox::Notify);
+        dialog,
+        buttonBox,
+        QMessageBox::Question,
+        message,
+        QStringList(),
+        QString(),
+        &checkboxResult,
+        KMessageBox::Notify);
 
     switch (result) {
     case QDialogButtonBox::Yes:
@@ -245,12 +241,8 @@ int RecurrenceActions::questionSelectedAllCancel(const QString &message, const Q
     return NoOccurrence;
 }
 
-int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message,
-        const QString &caption,
-        const KGuiItem &actionSelected,
-        const KGuiItem &actionFuture,
-        const KGuiItem &actionAll,
-        QWidget *parent)
+int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message, const QString &caption, const KGuiItem &actionSelected, const KGuiItem &actionFuture, const KGuiItem &actionAll,
+                                                       QWidget *parent)
 {
     QPointer<QDialog> dialog = new QDialog(parent);
     dialog->setWindowTitle(caption);
@@ -269,14 +261,14 @@ int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message,
 
     bool checkboxResult = false;
     int result = KMessageBox::createKMessageBox(
-                     dialog,
-                     buttonBox,
-                     QMessageBox::Question,
-                     message,
-                     QStringList(),
-                     QString(),
-                     &checkboxResult,
-                     KMessageBox::Notify);
+        dialog,
+        buttonBox,
+        QMessageBox::Question,
+        message,
+        QStringList(),
+        QString(),
+        &checkboxResult,
+        KMessageBox::Notify);
 
     switch (result) {
     case QDialogButtonBox::Yes:

@@ -40,9 +40,7 @@
 #include <QDate>
 class InvitationFormatterHelperPrivate;
 
-namespace KCalUtils
-{
-
+namespace KCalUtils {
 class KCALUTILS_EXPORT InvitationFormatterHelper
 {
 public:
@@ -68,9 +66,7 @@ private:
   for tool tips, or a representation for a viewer widget.
 
 */
-namespace IncidenceFormatter
-{
-
+namespace IncidenceFormatter {
 /**
   Create a QString representation of an Incidence in a nice format
   suitable for using in a tooltip.
@@ -83,10 +79,7 @@ namespace IncidenceFormatter
   @param spec is an optional time specification which, when specified,
   will shift the Incidence times to different timezones.
 */
-KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName,
-                                    const KCalCore::IncidenceBase::Ptr &incidence,
-                                    QDate date = QDate(),
-                                    bool richText = true,
+KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalCore::IncidenceBase::Ptr &incidence, QDate date = QDate(), bool richText = true,
                                     const KDateTime::Spec &spec = KDateTime::Spec());
 
 /**
@@ -99,10 +92,8 @@ KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName,
   @param spec is an optional time specification which, when specified,
   will shift the Incidence times to different timezones.
 */
-KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalCore::Calendar::Ptr &calendar,
-        const KCalCore::IncidenceBase::Ptr &incidence,
-        QDate date = QDate(),
-        const KDateTime::Spec &spec = KDateTime::Spec());
+KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalCore::Calendar::Ptr &calendar, const KCalCore::IncidenceBase::Ptr &incidence,
+                                             QDate date = QDate(), const KDateTime::Spec &spec = KDateTime::Spec());
 
 /**
   Create a RichText QString representation of an Incidence in a nice format
@@ -114,10 +105,7 @@ KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalCore::Calendar::Ptr &cale
   @param spec is an optional time specification which, when specified,
   will shift the Incidence times to different timezones.
 */
-KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName,
-        const KCalCore::IncidenceBase::Ptr &incidence,
-        QDate date = QDate(),
-        const KDateTime::Spec &spec = KDateTime::Spec());
+KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KCalCore::IncidenceBase::Ptr &incidence, QDate date = QDate(), const KDateTime::Spec &spec = KDateTime::Spec());
 
 /**
   Create a QString representation of an Incidence in format suitable for
@@ -126,8 +114,7 @@ KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName,
   @param spec is an optional time specification which, when specified,
   will shift the Incidence times to different timezones.
 */
-KCALUTILS_EXPORT QString mailBodyStr(const KCalCore::IncidenceBase::Ptr &incidence,
-                                     const KDateTime::Spec &spec = KDateTime::Spec());
+KCALUTILS_EXPORT QString mailBodyStr(const KCalCore::IncidenceBase::Ptr &incidence, const KDateTime::Spec &spec = KDateTime::Spec());
 
 /**
   Deliver an HTML formatted string displaying an invitation.
@@ -141,10 +128,7 @@ KCALUTILS_EXPORT QString mailBodyStr(const KCalCore::IncidenceBase::Ptr &inciden
   @since 5.23.0
 */
 KCALUTILS_EXPORT QString formatICalInvitation(
-    const QString &invitation,
-    const KCalCore::MemoryCalendar::Ptr &calendar,
-    InvitationFormatterHelper *helper);
-
+    const QString &invitation, const KCalCore::MemoryCalendar::Ptr &calendar, InvitationFormatterHelper *helper);
 
 /**
   Deliver an HTML formatted string displaying an invitation.
@@ -161,10 +145,7 @@ KCALUTILS_EXPORT QString formatICalInvitation(
   @since 5.23.0
 */
 KCALUTILS_EXPORT QString formatICalInvitationNoHtml(
-    const QString &invitation,
-    const KCalCore::MemoryCalendar::Ptr &calendar,
-    InvitationFormatterHelper *helper,
-    const QString &sender);
+    const QString &invitation, const KCalCore::MemoryCalendar::Ptr &calendar, InvitationFormatterHelper *helper, const QString &sender);
 
 /**
   Build a pretty QString representation of an Incidence's recurrence info.
@@ -181,8 +162,7 @@ KCALUTILS_EXPORT QString recurrenceString(const KCalCore::Incidence::Ptr &incide
   @param shortfmt if false, a short version of each reminder is printed;
   else a longer version of each reminder is printed.
 */
-KCALUTILS_EXPORT QStringList reminderStringList(const KCalCore::Incidence::Ptr &incidence,
-        bool shortfmt = true);
+KCALUTILS_EXPORT QStringList reminderStringList(const KCalCore::Incidence::Ptr &incidence, bool shortfmt = true);
 
 /**
   Build a QString time representation of a KDateTime object.
@@ -191,8 +171,7 @@ KCALUTILS_EXPORT QStringList reminderStringList(const KCalCore::Incidence::Ptr &
   @param spec Time spec to use.
   @see dateToString(), dateTimeToString().
 */
-KCALUTILS_EXPORT QString timeToString(const KDateTime &date, bool shortfmt = true,
-                                      const KDateTime::Spec &spec = KDateTime::Spec());
+KCALUTILS_EXPORT QString timeToString(const KDateTime &date, bool shortfmt = true, const KDateTime::Spec &spec = KDateTime::Spec());
 
 /**
   Build a QString date representation of a KDateTime object.
@@ -201,12 +180,9 @@ KCALUTILS_EXPORT QString timeToString(const KDateTime &date, bool shortfmt = tru
   @param spec Time spec to use.
   @see dateToString(), dateTimeToString().
 */
-KCALUTILS_EXPORT QString dateToString(const KDateTime &date, bool shortfmt = true,
-                                      const KDateTime::Spec &spec = KDateTime::Spec());
+KCALUTILS_EXPORT QString dateToString(const KDateTime &date, bool shortfmt = true, const KDateTime::Spec &spec = KDateTime::Spec());
 
-
-KCALUTILS_EXPORT QString formatStartEnd(const KDateTime &start, const KDateTime &end,
-                                        const KDateTime::Spec &spec, bool isAllDay);
+KCALUTILS_EXPORT QString formatStartEnd(const KDateTime &start, const KDateTime &end, const KDateTime::Spec &spec, bool isAllDay);
 
 /**
   Build a QString date/time representation of a KDateTime object.
@@ -216,18 +192,14 @@ KCALUTILS_EXPORT QString formatStartEnd(const KDateTime &start, const KDateTime 
   @param spec Time spec to use.
   @see dateToString(), timeToString().
 */
-KCALUTILS_EXPORT QString dateTimeToString(const KDateTime &date,
-        bool dateOnly = false,
-        bool shortfmt = true,
-        const KDateTime::Spec &spec = KDateTime::Spec());
+KCALUTILS_EXPORT QString dateTimeToString(const KDateTime &date, bool dateOnly = false, bool shortfmt = true, const KDateTime::Spec &spec = KDateTime::Spec());
 
 /**
   Returns a Calendar Resource label name for the specified Incidence.
   @param calendar is a pointer to the Calendar.
   @param incidence is a pointer to the Incidence.
 */
-KCALUTILS_EXPORT QString resourceString(const KCalCore::Calendar::Ptr &calendar,
-                                        const KCalCore::Incidence::Ptr &incidence);
+KCALUTILS_EXPORT QString resourceString(const KCalCore::Calendar::Ptr &calendar, const KCalCore::Incidence::Ptr &incidence);
 
 /**
   Returns a duration string computed for the specified Incidence.
@@ -254,7 +226,6 @@ class InvitationBodyVisitor;
 class ToolTipVisitor;
 class MailBodyVisitor;
 }
-
 }
 
 #endif

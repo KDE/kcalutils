@@ -31,9 +31,7 @@ class KDateTime;
 class KGuiItem;
 class QWidget;
 
-namespace KCalUtils
-{
-
+namespace KCalUtils {
 /**
   @short Utility functions for dealing with recurrences
 
@@ -44,8 +42,7 @@ namespace KCalUtils
   @author Kevin Krammer, krake@kdab.com
   @since 4.6
 */
-namespace RecurrenceActions
-{
+namespace RecurrenceActions {
 /**
   @short Flags for indicating on which occurrences to work on
 
@@ -91,8 +88,7 @@ enum Scope {
   @return the #Scope to which actions on the given @incidence can be applied to
 */
 KCALUTILS_EXPORT
-int availableOccurrences(const KCalCore::Incidence::Ptr &incidence,
-                         const KDateTime &selectedOccurrence);
+int availableOccurrences(const KCalCore::Incidence::Ptr &incidence, const KDateTime &selectedOccurrence);
 
 /**
   @short Presents a multiple choice scope selection dialog to the user
@@ -112,10 +108,8 @@ int availableOccurrences(const KCalCore::Incidence::Ptr &incidence,
 
   @return the chosen #Scope options, OR'ed together
 */
-KCALUTILS_EXPORT int questionMultipleChoice(const KDateTime &selectedOccurrence,
-        const QString &message, const QString &caption,
-        const KGuiItem &action, int availableChoices,
-        int preselectedChoices, QWidget *parent);
+KCALUTILS_EXPORT int questionMultipleChoice(const KDateTime &selectedOccurrence, const QString &message, const QString &caption, const KGuiItem &action, int availableChoices, int preselectedChoices,
+                                            QWidget *parent);
 
 /**
   @short Presents a message box with two action choices and cancel to the user
@@ -133,9 +127,7 @@ KCALUTILS_EXPORT int questionMultipleChoice(const KDateTime &selectedOccurrence,
   @param #NoOccurrence on cancel, #SelectedOccurrence or #AllOccurrences on the respective action.
 */
 KCALUTILS_EXPORT
-int questionSelectedAllCancel(const QString &message, const QString &caption,
-                              const KGuiItem &actionSelected, const KGuiItem &actionAll,
-                              QWidget *parent);
+int questionSelectedAllCancel(const QString &message, const QString &caption, const KGuiItem &actionSelected, const KGuiItem &actionAll, QWidget *parent);
 
 /**
   @short Presents a message box with three action choices and cancel to the user
@@ -162,14 +154,8 @@ int questionSelectedAllCancel(const QString &message, const QString &caption,
   on the respective action.
 */
 KCALUTILS_EXPORT
-int questionSelectedFutureAllCancel(const QString &message, const QString &caption,
-                                    const KGuiItem &actionSelected,
-                                    const KGuiItem &actionFuture,
-                                    const KGuiItem &actionAll,
-                                    QWidget *parent);
+int questionSelectedFutureAllCancel(const QString &message, const QString &caption, const KGuiItem &actionSelected, const KGuiItem &actionFuture, const KGuiItem &actionAll, QWidget *parent);
 }
-
 }
 
 #endif
-
