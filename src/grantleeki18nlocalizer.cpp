@@ -69,6 +69,9 @@ QString GrantleeKi18nLocalizer::processArguments(const KLocalizedString &kstr,
                 break;
             }
         // fall-through
+#if QT_VERSION >= QT_VERSION_CHECK(5,8,0)
+        Q_FALLTHROUGH();
+#endif
         default:
             qCWarning(KCALUTILS_LOG) << "Unknown type" << iter->typeName() << "(" << iter->type() << ")";
             break;

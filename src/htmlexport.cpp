@@ -221,7 +221,8 @@ void HtmlExport::createMonthView(QTextStream *ts)
                     if (events.count()) {
                         *ts << "<table>";
                         Event::List::ConstIterator it;
-                        for (it = events.constBegin(); it != events.constEnd(); ++it) {
+                        Event::List::ConstIterator end(events.constEnd());
+                        for (it = events.constBegin(); it != end; ++it) {
                             if (checkSecrecy(*it)) {
                                 createEvent(ts, *it, start, false);
                             }
@@ -289,7 +290,8 @@ void HtmlExport::createEventList(QTextStream *ts)
                 << "</i></td></tr>" << endl;
 
             Event::List::ConstIterator it;
-            for (it = events.constBegin(); it != events.constEnd(); ++it) {
+            const Event::List::ConstIterator end(events.constEnd());
+            for (it = events.constBegin(); it != end; ++it) {
                 if (checkSecrecy(*it)) {
                     createEvent(ts, *it, dt);
                 }
@@ -381,14 +383,15 @@ void HtmlExport::createTodoList(QTextStream *ts)
     // replaced by a real sorting algorithm.
     Todo::List todoList;
     Todo::List::ConstIterator it;
+    const Todo::List::ConstIterator end(rawTodoList.constEnd());
     for (int i = 1; i <= 9; ++i) {
-        for (it = rawTodoList.constBegin(); it != rawTodoList.constEnd(); ++it) {
+        for (it = rawTodoList.constBegin(); it != end; ++it) {
             if ((*it)->priority() == i && checkSecrecy(*it)) {
                 todoList.append(*it);
             }
         }
     }
-    for (it = rawTodoList.constBegin(); it != rawTodoList.constEnd(); ++it) {
+    for (it = rawTodoList.constBegin(); it != end; ++it) {
         if ((*it)->priority() == 0 && checkSecrecy(*it)) {
             todoList.append(*it);
         }
@@ -627,7 +630,8 @@ void HtmlExport::formatAttendees(QTextStream *ts,
         *ts << incidence->organizer()->fullName();
         *ts << "</em><br />";
         Attendee::List::ConstIterator it;
-        for (it = attendees.constBegin(); it != attendees.constEnd(); ++it) {
+        const Attendee::List::ConstIterator end(attendees.constEnd());
+        for (it = attendees.constBegin(); it != end; ++it) {
             Attendee::Ptr a(*it);
             if (!a->email().isEmpty()) {
                 *ts << "<a href=\"mailto:" << a->email();

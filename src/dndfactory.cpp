@@ -306,7 +306,8 @@ bool DndFactory::copyIncidences(const Incidence::List &incidences)
     MemoryCalendar::Ptr calendar(new MemoryCalendar(d->mCalendar->timeSpec()));
 
     Incidence::List::ConstIterator it;
-    for (it = incidences.constBegin(); it != incidences.constEnd(); ++it) {
+    const Incidence::List::ConstIterator end(incidences.constEnd());
+    for (it = incidences.constBegin(); it != end; ++it) {
         if (*it) {
             calendar->addIncidence(Incidence::Ptr((*it)->clone()));
         }
@@ -351,8 +352,9 @@ Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime,
 
     Incidence::List::ConstIterator it;
     const Incidence::List incidences = calendar->incidences();
+    const Incidence::List::ConstIterator end(incidences.constEnd());
     for (it = incidences.constBegin();
-            it != incidences.constEnd(); ++it) {
+            it != end; ++it) {
         Incidence::Ptr incidence = d->pasteIncidence(*it, newDateTime, pasteOptions);
         if (incidence) {
             list.append(incidence);

@@ -78,7 +78,6 @@ static QVariantHash inviteButton(const QString &id, const QString &text, const Q
 //@cond PRIVATE
 static QString string2HTML(const QString &str)
 {
-//  return Qt::convertFromPlainText( str, Qt::WhiteSpaceNormal );
     // use convertToHtml so we get clickable links and other goodies
     return KTextToHTML::convertToHtml(str, KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys);
 }
@@ -215,7 +214,7 @@ static QString firstAttendeeName(const Incidence::Ptr &incidence, const QString 
     QString name;
     if (incidence) {
         Attendee::List attendees = incidence->attendees();
-        if (attendees.count() > 0) {
+        if (!attendees.isEmpty()) {
             Attendee::Ptr attendee = *attendees.begin();
             name = attendee->name();
             if (name.isEmpty()) {
@@ -336,8 +335,8 @@ static QVariantList displayViewFormatAttendeeRoleList(const Incidence::Ptr &inci
 
     Attendee::List::ConstIterator it;
     Attendee::List attendees = incidence->attendees();
-
-    for (it = attendees.constBegin(); it != attendees.constEnd(); ++it) {
+    const Attendee::List::ConstIterator end(attendees.constEnd());
+    for (it = attendees.constBegin(); it != end; ++it) {
         Attendee::Ptr a = *it;
         if (a->role() != role) {
             // skip this role
@@ -874,7 +873,8 @@ static Attendee::Ptr findDelegatedFromMyAttendee(const Incidence::Ptr &incidence
     QString delegatorName, delegatorEmail;
     Attendee::List attendees = incidence->attendees();
     Attendee::List::ConstIterator it;
-    for (it = attendees.constBegin(); it != attendees.constEnd(); ++it) {
+    const Attendee::List::ConstIterator end(attendees.constEnd());
+    for (it = attendees.constBegin(); it != end; ++it) {
         Attendee::Ptr a = *it;
         KEmailAddress::extractEmailAddressAndName(a->delegator(), delegatorEmail, delegatorName);
         if (thatIsMe(delegatorEmail)) {
@@ -897,7 +897,8 @@ static Attendee::Ptr findMyAttendee(const Incidence::Ptr &incidence)
 
     Attendee::List attendees = incidence->attendees();
     Attendee::List::ConstIterator it;
-    for (it = attendees.constBegin(); it != attendees.constEnd(); ++it) {
+    const Attendee::List::ConstIterator end(attendees.constEnd());
+    for (it = attendees.constBegin(); it != end; ++it) {
         Attendee::Ptr a = *it;
         if (iamAttendee(a)) {
             attendee = a;
@@ -920,7 +921,8 @@ static Attendee::Ptr findAttendee(const Incidence::Ptr &incidence,
 
     Attendee::List attendees = incidence->attendees();
     Attendee::List::ConstIterator it;
-    for (it = attendees.constBegin(); it != attendees.constEnd(); ++it) {
+    const Attendee::List::ConstIterator end(attendees.constEnd());
+    for (it = attendees.constBegin(); it != end; ++it) {
         Attendee::Ptr a = *it;
         if (email == a->email()) {
             attendee = a;
@@ -941,7 +943,8 @@ static bool rsvpRequested(const Incidence::Ptr &incidence)
     bool rsvp = true; // better send superfluously than not at all
     Attendee::List attendees = incidence->attendees();
     Attendee::List::ConstIterator it;
-    for (it = attendees.constBegin(); it != attendees.constEnd(); ++it) {
+    const Attendee::List::ConstIterator end(attendees.constEnd());
+    for (it = attendees.constBegin(); it != end; ++it) {
         if (it == attendees.constBegin()) {
             rsvp = (*it)->RSVP(); // use what the first one has
         } else {
@@ -1582,7 +1585,7 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo,
         }
 
         Attendee::List attendees = todo->attendees();
-        if (attendees.count() == 0) {
+        if (attendees.isEmpty()) {
             qCDebug(KCALUTILS_LOG) << "No attendees in the iCal reply!";
             return QString();
         }
@@ -1973,12 +1976,12 @@ QString InvitationFormatterHelper::generateLinkURL(const QString &id)
 QString InvitationFormatterHelper::makeLink(const QString &id, const QString &text)
 {
     if (!id.startsWith(QLatin1String("ATTACH:"))) {
-        QString res = QStringLiteral("<a href=\"%1\"><font size=\"-1\"><b>%2</b></font></a>").
+        const QString res = QStringLiteral("<a href=\"%1\"><font size=\"-1\"><b>%2</b></font></a>").
                       arg(generateLinkURL(id), text);
         return res;
     } else {
         // draw the attachment links in non-bold face
-        QString res = QStringLiteral("<a href=\"%1\">%2</a>").
+        const QString res = QStringLiteral("<a href=\"%1\">%2</a>").
                       arg(generateLinkURL(id), text);
         return res;
     }
@@ -2631,8 +2634,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Journal::Ptr &jo
 QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const FreeBusy::Ptr &fb)
 {
     //FIXME: support mRichText==false
-    QString ret;
-    ret = QLatin1String("<br>") +
+    QString ret = QLatin1String("<br>") +
           i18n("<i>Period start:</i> %1",
                QLocale().toString(fb->dtStart().dateTime(), QLocale::ShortFormat));
     ret += QLatin1String("<br>") +
@@ -2720,7 +2722,7 @@ static QString tooltipFormatAttendeeRoleList(const Incidence::Ptr &incidence,
     Attendee::List::ConstIterator it;
     Attendee::List attendees = incidence->attendees();
 
-    Attendee::List::ConstIterator end(attendees.constEnd());
+    const Attendee::List::ConstIterator end(attendees.constEnd());
     for (it = attendees.constBegin(); it != end; ++it) {
         Attendee::Ptr a = *it;
         if (a->role() != role) {
@@ -2870,7 +2872,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
         tmp += QLatin1String("<hr>");
     }
 
-    int reminderCount = incidence->alarms().count();
+    const int reminderCount = incidence->alarms().count();
     if (reminderCount > 0 && incidence->hasEnabledAlarms()) {
         tmp += QLatin1String("<br>");
         tmp += QLatin1String("<i>") + i18np("Reminder:", "Reminders:", reminderCount) + QLatin1String("</i>") + QLatin1String("&nbsp;");
@@ -3417,8 +3419,9 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
     // Now, append the EXDATEs
     DateTimeList l = recur->exDateTimes();
     DateTimeList::ConstIterator il;
+    const DateTimeList::ConstIterator end(l.constEnd());
     QStringList exStr;
-    for (il = l.constBegin(); il != l.constEnd(); ++il) {
+    for (il = l.constBegin(); il != end; ++il) {
         switch (recur->recurrenceType()) {
         case Recurrence::rMinutely:
             exStr << i18n("minute %1", (*il).time().minute());
@@ -3452,7 +3455,8 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
 
     DateList d = recur->exDates();
     DateList::ConstIterator dl;
-    for (dl = d.constBegin(); dl != d.constEnd(); ++dl) {
+    const DateList::ConstIterator dlEdnd(d.constEnd());
+    for (dl = d.constBegin(); dl != dlEdnd; ++dl) {
         switch (recur->recurrenceType()) {
         case Recurrence::rDaily:
             exStr << QLocale().toString((*dl), QLocale::ShortFormat);
@@ -3624,7 +3628,8 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
     if (incidence) {
         Alarm::List alarms = incidence->alarms();
         Alarm::List::ConstIterator it;
-        for (it = alarms.constBegin(); it != alarms.constEnd(); ++it) {
+        const Alarm::List::ConstIterator end(alarms.constEnd());
+        for (it = alarms.constBegin(); it != end; ++it) {
             Alarm::Ptr alarm = *it;
             int offset = 0;
             QString remStr, atStr, offsetStr;
