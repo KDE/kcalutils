@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
 
+<<<<<<< HEAD
 set(PIM_VERSION "5.5.40")
+=======
+set(PIM_VERSION "5.5.3")
+>>>>>>> origin/Applications/17.04
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
@@ -46,6 +50,10 @@ add_definitions("-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII")
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
+if(BUILD_TESTING)
+   add_definitions(-DBUILD_TESTING)
+endif(BUILD_TESTING)
+
 
 ########### Targets ###########
 add_subdirectory(src)

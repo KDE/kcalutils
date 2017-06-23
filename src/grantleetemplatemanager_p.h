@@ -22,6 +22,7 @@
 
 #include <QSharedPointer>
 #include <QVariantHash>
+#include "kcalutils_private_export.h"
 
 namespace Grantlee {
 class Engine;
@@ -34,7 +35,7 @@ typedef QSharedPointer<TemplateImpl> Template;
 class QString;
 class GrantleeKi18nLocalizer;
 
-class GrantleeTemplateManager
+class KCALUTILS_TESTS_EXPORT GrantleeTemplateManager
 {
 public:
     ~GrantleeTemplateManager();
