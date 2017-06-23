@@ -1,10 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-<<<<<<< HEAD
 set(PIM_VERSION "5.5.40")
-=======
-set(PIM_VERSION "5.5.3")
->>>>>>> origin/Applications/17.04
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
