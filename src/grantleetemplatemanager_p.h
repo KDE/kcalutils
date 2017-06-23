@@ -21,6 +21,7 @@
 #define GRANTLEETEMPLATEMANAGER_H_P
 
 #include <QSharedPointer>
+#include "kcalutils_private_export.h"
 
 namespace Grantlee
 {
@@ -34,7 +35,7 @@ typedef QSharedPointer<TemplateImpl> Template;
 class QString;
 class GrantleeKi18nLocalizer;
 
-class GrantleeTemplateManager
+class KCALUTILS_TESTS_EXPORT GrantleeTemplateManager
 {
 public:
     ~GrantleeTemplateManager();

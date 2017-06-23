@@ -43,6 +43,10 @@ find_package(KF5IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRE
 
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 add_definitions("-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII")
+if(BUILD_TESTING)
+   add_definitions(-DBUILD_TESTING)
+endif(BUILD_TESTING)
+
 
 ########### Targets ###########
 add_subdirectory(src)
