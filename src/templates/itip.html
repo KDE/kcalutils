@@ -67,7 +67,16 @@
 
 <!-- Response buttons/groupware links -->
 {% for button in incidence.buttons %}
-    <a class="button" href="{{ button.uri }}">{% icon button.icon %}{{ button.label }}</a>
+    <a class="button" 
+    {% if button.uri %}
+       href="{{ button.uri }}"
+
+    {% endif %}
+    >
+    {% if button.icon %}
+       {% icon button.icon %}
+    {% endif %}
+    {{ button.label|safe }}</a>
 {% endfor %}
 
 <!-- Comments -->
