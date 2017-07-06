@@ -236,7 +236,7 @@ bool Scheduler::acceptRequest(const IncidenceBase::Ptr &incidence, ScheduleMessa
     // Move the uid to be the schedulingID and make a unique UID
     inc->setSchedulingID(inc->uid(), CalFormat::createUniqueId());
     // notify the user in case this is an update and we didn't find the to-be-updated incidence
-    if (existingIncidences.count() == 0 && inc->revision() > 0) {
+    if (existingIncidences.isEmpty() && inc->revision() > 0) {
         KMessageBox::information(
             nullptr,
             xi18nc("@info",
