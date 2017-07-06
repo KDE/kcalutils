@@ -2670,12 +2670,15 @@ static QString tooltipFormatOrganizer(const QString &email, const QString &name)
     const QString printName = searchName(email, name);
 
     // Get the icon for organizer
+    //TODO fixme laurent: use another icon. It doesn't exist in breeze.
     const QString iconPath
-        = KIconLoader::global()->iconPath(QStringLiteral("meeting-organizer"), KIconLoader::Small);
+        = KIconLoader::global()->iconPath(QStringLiteral("meeting-organizer"), KIconLoader::Small, true);
 
     // Make the return string.
     QString personString;
-    personString += QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">") + QLatin1String("&nbsp;");
+    if (!iconPath.isEmpty()) {
+        personString += QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">") + QLatin1String("&nbsp;");
+    }
     personString += (printName.isEmpty() ? email : printName);
     return personString;
 }
