@@ -2838,21 +2838,36 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
         tmp += QLatin1String("<hr>");
         tmp += QLatin1String("<i>") + i18n("Description:") + QLatin1String("</i>") + QLatin1String("<br>");
         tmp += desc;
-        tmp += QLatin1String("<hr>");
     }
 
+    bool needAnHorizontalLine = true;
     const int reminderCount = incidence->alarms().count();
     if (reminderCount > 0 && incidence->hasEnabledAlarms()) {
+        if (needAnHorizontalLine) {
+            tmp += QLatin1String("<hr>");
+            needAnHorizontalLine = false;
+        }
         tmp += QLatin1String("<br>");
         tmp += QLatin1String("<i>") + i18np("Reminder:", "Reminders:", reminderCount) + QLatin1String("</i>") + QLatin1String("&nbsp;");
         tmp += reminderStringList(incidence).join(QStringLiteral(", "));
     }
 
-    tmp += QLatin1String("<br>");
-    tmp += tooltipFormatAttendees(mCalendar, incidence);
+    const QString attendees = tooltipFormatAttendees(mCalendar, incidence);
+    if (!attendees.isEmpty()) {
+        if (needAnHorizontalLine) {
+            tmp += QLatin1String("<hr>");
+            needAnHorizontalLine = false;
+        }
+        tmp += QLatin1String("<br>");
+        tmp += attendees;
+    }
 
     int categoryCount = incidence->categories().count();
     if (categoryCount > 0) {
+        if (needAnHorizontalLine) {
+            tmp += QLatin1String("<hr>");
+            needAnHorizontalLine = false;
+        }
         tmp += QLatin1String("<br>");
         tmp += QLatin1String("<i>") + i18np("Category:", "Categories:", categoryCount) + QLatin1String("</i>") + QLatin1String("&nbsp;");
         tmp += incidence->categories().join(QStringLiteral(", "));
