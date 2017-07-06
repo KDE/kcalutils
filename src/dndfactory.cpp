@@ -347,7 +347,7 @@ Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime, QFlags
 
     Incidence::List::ConstIterator it;
     const Incidence::List incidences = calendar->incidences();
-    const Incidence::List::ConstIterator end(incidences.constEnd());
+    Incidence::List::ConstIterator end(incidences.constEnd());
     for (it = incidences.constBegin();
          it != end; ++it) {
         Incidence::Ptr incidence = d->pasteIncidence(*it, newDateTime, pasteOptions);
@@ -358,7 +358,8 @@ Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime, QFlags
     }
 
     // update relations
-    for (it = list.constBegin(); it != list.constEnd(); ++it) {
+    end = list.constEnd();
+    for (it = list.constBegin(); it != end; ++it) {
         Incidence::Ptr incidence = *it;
         if (oldUidToNewInc.contains(incidence->relatedTo())) {
             Incidence::Ptr parentInc = oldUidToNewInc[incidence->relatedTo()];
