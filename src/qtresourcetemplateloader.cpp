@@ -25,7 +25,7 @@
 //TODO: remove this class when Grantlee support it
 using namespace KCalUtils;
 
-QtResourceTemplateLoader::QtResourceTemplateLoader(const QSharedPointer<Grantlee::AbstractLocalizer> localizer)
+QtResourceTemplateLoader::QtResourceTemplateLoader(const QSharedPointer<Grantlee::AbstractLocalizer> &localizer)
     : Grantlee::FileSystemTemplateLoader(localizer)
 {
 }

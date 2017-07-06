@@ -25,7 +25,7 @@ namespace KCalUtils {
 class QtResourceTemplateLoader : public Grantlee::FileSystemTemplateLoader
 {
 public:
-    QtResourceTemplateLoader(const QSharedPointer<Grantlee::AbstractLocalizer> localizer = QSharedPointer<Grantlee::AbstractLocalizer>());
+    QtResourceTemplateLoader(const QSharedPointer<Grantlee::AbstractLocalizer> &localizer = QSharedPointer<Grantlee::AbstractLocalizer>());
 
     Grantlee::Template loadByName(const QString &fileName, const Grantlee::Engine *engine) const override;
     bool canLoadTemplate(const QString &name) const override;
