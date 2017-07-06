@@ -2939,7 +2939,7 @@ protected:
     bool visit(const FreeBusy::Ptr &) override
     {
         mResult = i18n("This is a Free Busy Object");
-        return !mResult.isEmpty();
+        return true;
     }
 
 protected:
@@ -3046,7 +3046,7 @@ bool IncidenceFormatter::MailBodyVisitor::visit(const Journal::Ptr &journal)
     if (!journal->description().isEmpty()) {
         mResult += i18n("Text of the journal:\n%1\n", journal->richDescription());
     }
-    return !mResult.isEmpty();
+    return true;
 }
 
 //@endcond
