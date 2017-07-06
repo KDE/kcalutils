@@ -2897,13 +2897,13 @@ QString IncidenceFormatter::toolTipStr(const QString &sourceName, const Incidenc
 static QString mailBodyIncidence(const Incidence::Ptr &incidence)
 {
     QString body;
-    if (!incidence->summary().isEmpty()) {
+    if (!incidence->summary().trimmed().isEmpty()) {
         body += i18n("Summary: %1\n", incidence->richSummary());
     }
     if (!incidence->organizer()->isEmpty()) {
         body += i18n("Organizer: %1\n", incidence->organizer()->fullName());
     }
-    if (!incidence->location().isEmpty()) {
+    if (!incidence->location().trimmed().isEmpty()) {
         body += i18n("Location: %1\n", incidence->richLocation());
     }
     return body;
