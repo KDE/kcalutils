@@ -14,7 +14,7 @@ if (RUN_UNINSTALL)
 endif()
 
 find_package(ECM ${ECM_VERSION} CONFIG REQUIRED)
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${KCalUtils_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
 
 include(ECMGenerateHeaders)
 include(ECMGeneratePriFile)
@@ -26,7 +26,7 @@ include(KDECMakeSettings)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(ECMQtDeclareLoggingCategory)
 include(ECMCoverageOption)
-
+include(KPIMGrantleeMacros)
 
 
 set(CALENDARUTILS_LIB_VERSION ${PIM_VERSION})
