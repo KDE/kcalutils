@@ -338,7 +338,7 @@ bool Scheduler::acceptCancel(const IncidenceBase::Ptr &incidence, ScheduleMessag
     }
 
     // in case we didn't find the to-be-removed incidence
-    if (existingIncidences.count() > 0 && inc->revision() > 0) {
+    if (!existingIncidences.isEmpty() && inc->revision() > 0) {
         KMessageBox::error(
             nullptr,
             i18nc("@info",
