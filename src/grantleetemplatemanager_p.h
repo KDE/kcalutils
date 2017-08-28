@@ -54,7 +54,7 @@ private:
     QString errorTemplate(const QString &reason, const QString &origTemplateName, const Grantlee::Template &failedTemplate) const;
     Grantlee::Context createContext(const QVariantHash &hash = QVariantHash()) const;
 
-    Grantlee::Engine *mEngine;
+    Grantlee::Engine *mEngine = nullptr;
     QSharedPointer<Grantlee::FileSystemTemplateLoader> mLoader;
     QSharedPointer<GrantleeKi18nLocalizer> mLocalizer;
 

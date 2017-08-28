@@ -131,7 +131,7 @@ protected:
     bool acceptFreeBusy(const KCalCore::IncidenceBase::Ptr &, KCalCore::iTIPMethod method);
 
     KCalCore::Calendar::Ptr mCalendar;
-    KCalCore::ICalFormat *mFormat;
+    KCalCore::ICalFormat *mFormat = nullptr;
 
 private:
     Q_DISABLE_COPY(Scheduler)
