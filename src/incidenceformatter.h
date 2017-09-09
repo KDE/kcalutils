@@ -70,51 +70,46 @@ namespace IncidenceFormatter {
 /**
   Create a QString representation of an Incidence in a nice format
   suitable for using in a tooltip.
+  All dates and times are converted to local time for display.
   @param sourceName where the incidence is from (e.g. resource name)
   @param incidence is a pointer to the Incidence to be formatted.
   @param date is the QDate for which the toolTip should be computed; used
   mainly for recurring incidences. Note: For to-dos, this is the due date of
   the occurrence, not the start date.
   @param richText if yes, the QString will be created as RichText.
-  @param spec is an optional time specification which, when specified,
-  will shift the Incidence times to different timezones.
 */
-KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalCore::IncidenceBase::Ptr &incidence, QDate date = QDate(), bool richText = true,
-                                    const KDateTime::Spec &spec = KDateTime::Spec());
+KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalCore::IncidenceBase::Ptr &incidence, QDate date = QDate(), bool richText = true);
 
 /**
   Create a RichText QString representation of an Incidence in a nice format
   suitable for using in a viewer widget.
+  All dates and times are converted to local time for display.
   @param calendar is a pointer to the Calendar that owns the specified Incidence.
   @param incidence is a pointer to the Incidence to be formatted.
   @param date is the QDate for which the string representation should be computed;
   used mainly for recurring incidences.
-  @param spec is an optional time specification which, when specified,
-  will shift the Incidence times to different timezones.
 */
 KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalCore::Calendar::Ptr &calendar, const KCalCore::IncidenceBase::Ptr &incidence,
-                                             QDate date = QDate(), const KDateTime::Spec &spec = KDateTime::Spec());
+                                             QDate date = QDate());
 
 /**
   Create a RichText QString representation of an Incidence in a nice format
   suitable for using in a viewer widget.
+  All dates and times are converted to local time for display.
   @param sourceName where the incidence is from (e.g. resource name)
   @param incidence is a pointer to the Incidence to be formatted.
   @param date is the QDate for which the string representation should be computed;
   used mainly for recurring incidences.
-  @param spec is an optional time specification which, when specified,
-  will shift the Incidence times to different timezones.
 */
-KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KCalCore::IncidenceBase::Ptr &incidence, QDate date = QDate(), const KDateTime::Spec &spec = KDateTime::Spec());
+KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KCalCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
 
 /**
   Create a QString representation of an Incidence in format suitable for
   including inside a mail message.
+  All dates and times are converted to local time for display.
   @param incidence is a pointer to the Incidence to be formatted.
-  @param spec is an optional time specification which, when specified,
-  will shift the Incidence times to different timezones.
 */
-KCALUTILS_EXPORT QString mailBodyStr(const KCalCore::IncidenceBase::Ptr &incidence, const KDateTime::Spec &spec = KDateTime::Spec());
+KCALUTILS_EXPORT QString mailBodyStr(const KCalCore::IncidenceBase::Ptr &incidence);
 
 /**
   Deliver an HTML formatted string displaying an invitation.
@@ -165,34 +160,33 @@ KCALUTILS_EXPORT QString recurrenceString(const KCalCore::Incidence::Ptr &incide
 KCALUTILS_EXPORT QStringList reminderStringList(const KCalCore::Incidence::Ptr &incidence, bool shortfmt = true);
 
 /**
-  Build a QString time representation of a KDateTime object.
-  @param date The date to be formatted.
+  Build a QString time representation of a QTime object.
+  @param time The time to be formatted.
   @param shortfmt If true, display info in short format.
-  @param spec Time spec to use.
   @see dateToString(), dateTimeToString().
 */
-KCALUTILS_EXPORT QString timeToString(const KDateTime &date, bool shortfmt = true, const KDateTime::Spec &spec = KDateTime::Spec());
+KCALUTILS_EXPORT QString timeToString(const QTime &time, bool shortfmt = true);
 
 /**
   Build a QString date representation of a KDateTime object.
+  All dates and times are converted to local time for display.
   @param date The date to be formatted.
   @param shortfmt If true, display info in short format.
-  @param spec Time spec to use.
   @see dateToString(), dateTimeToString().
 */
-KCALUTILS_EXPORT QString dateToString(const KDateTime &date, bool shortfmt = true, const KDateTime::Spec &spec = KDateTime::Spec());
+KCALUTILS_EXPORT QString dateToString(const KDateTime &date, bool shortfmt = true);
 
-KCALUTILS_EXPORT QString formatStartEnd(const KDateTime &start, const KDateTime &end, const KDateTime::Spec &spec, bool isAllDay);
+KCALUTILS_EXPORT QString formatStartEnd(const KDateTime &start, const KDateTime &end, bool isAllDay);
 
 /**
   Build a QString date/time representation of a KDateTime object.
+  All dates and times are converted to local time for display.
   @param date The date to be formatted.
   @param dateOnly If true, don't print the time fields; print the date fields only.
   @param shortfmt If true, display info in short format.
-  @param spec Time spec to use.
   @see dateToString(), timeToString().
 */
-KCALUTILS_EXPORT QString dateTimeToString(const KDateTime &date, bool dateOnly = false, bool shortfmt = true, const KDateTime::Spec &spec = KDateTime::Spec());
+KCALUTILS_EXPORT QString dateTimeToString(const KDateTime &date, bool dateOnly = false, bool shortfmt = true);
 
 /**
   Returns a Calendar Resource label name for the specified Incidence.

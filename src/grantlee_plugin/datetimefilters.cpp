@@ -81,7 +81,7 @@ QVariant KTimeFilter::doFilter(const QVariant &input, const QVariant &argument, 
 
     const bool shortFmt = (argument.value<Grantlee::SafeString>().get().compare(QLatin1String("short"), Qt::CaseInsensitive) == 0);
 
-    return Grantlee::SafeString(KCalUtils::IncidenceFormatter::timeToString(KDateTime(QDate(), time), shortFmt));
+    return Grantlee::SafeString(KCalUtils::IncidenceFormatter::timeToString(time, shortFmt));
 }
 
 bool KTimeFilter::isSafe() const
