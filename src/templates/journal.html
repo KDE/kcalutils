@@ -19,7 +19,7 @@
     <!-- Date -->
     {% if incidence.date %}
     <tr>
-        <th>{% i18n "Date:" %}</th>
+        <th valign="top">{% i18n "Date:" %}</th>
         <td>{{ incidence.date|kdate }}</td>
     </tr>
     {% endif %}
@@ -27,7 +27,7 @@
     <!-- Description -->
     {% if incidence.description %}
     <tr>
-        <th>{% i18n "Description:" %}</th>
+        <th valign="top">{% i18n "Description:" %}</th>
         <td>{{ incidence.description|safe }}</td>
     </tr>
     {% endif %}

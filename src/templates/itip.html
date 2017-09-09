@@ -72,11 +72,7 @@
        href="{{ button.uri }}"
 
     {% endif %}
-    >
-    {% if button.icon %}
-       {% icon button.icon %}
-    {% endif %}
-    {{ button.label|safe }}</a>
+    >{% if button.icon %}{% icon button.icon %}{% endif %}{{ button.label|safe }}</a>
 {% endfor %}
 
 <!-- Comments -->
@@ -103,11 +99,7 @@
 <div dir="{{ incidence.ltr }}">
 
 <h2 class="summary">
-{% if incidence.iconName %}
-
-{% icon incidence.iconName desktop %} 
-{% endif %}
-{{ incidence.summary|safe }}</h2>
+{% if incidence.iconName %}{% icon incidence.iconName desktop %} {% endif %}{{ incidence.summary|safe }}</h2>
 
 <table border="0">
 
