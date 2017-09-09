@@ -194,13 +194,8 @@ QDrag *DndFactory::createDrag(const Incidence::Ptr &incidence, QWidget *owner)
 
 MemoryCalendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData)
 {
-    return createDropCalendar(mimeData, d->mCalendar->timeSpec());
-}
-
-MemoryCalendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData, const KDateTime::Spec &timeSpec)
-{
     if (mimeData) {
-        MemoryCalendar::Ptr calendar(new MemoryCalendar(timeSpec));
+        MemoryCalendar::Ptr calendar(new MemoryCalendar(KDateTime::LocalZone));
 
         if (ICalDrag::fromMimeData(mimeData, calendar)
             || VCalDrag::fromMimeData(mimeData, calendar)) {

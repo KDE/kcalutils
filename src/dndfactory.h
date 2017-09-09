@@ -79,14 +79,9 @@ public:
     KCalCore::MemoryCalendar::Ptr createDropCalendar(QDropEvent *de);
 
     /**
-      Create the calendar that is contained in the mime data.
-     */
-    KCalCore::MemoryCalendar::Ptr createDropCalendar(const QMimeData *md);
-
-    /**
      Create the calendar that is contained in the mime data.
     */
-    static KCalCore::MemoryCalendar::Ptr createDropCalendar(const QMimeData *md, const KDateTime::Spec &timeSpec);
+    static KCalCore::MemoryCalendar::Ptr createDropCalendar(const QMimeData *md);
 
     /**
       Create the mime data for the whole calendar.
