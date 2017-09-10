@@ -26,7 +26,6 @@
 
 #include "ui_recurrenceactionsscopewidget.h"
 
-#include <KLocale>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KConfigGroup>
@@ -57,7 +56,7 @@ public:
         } else {
             mUi.checkBoxPast->setText(i18nc("@option:check calendar items before a certain date",
                                             "Items before %1",
-                                            KLocale::global()->formatDateTime(dateTime)));
+                                            QLocale().toString(dateTime.dateTime(), QLocale::ShortFormat)));
         }
         if ((mAvailableChoices & SelectedOccurrence) == 0) {
             mUi.checkBoxSelected->hide();
@@ -70,7 +69,7 @@ public:
         } else {
             mUi.checkBoxFuture->setText(i18nc("@option:check calendar items after a certain date",
                                               "Items after %1",
-                                              KLocale::global()->formatDateTime(dateTime)));
+                                              QLocale().toString(dateTime.dateTime(), QLocale::ShortFormat)));
         }
     }
 

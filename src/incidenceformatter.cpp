@@ -56,7 +56,6 @@ using namespace KCalCore;
 #include <KIconLoader>
 #include <KLocalizedString>
 
-#include <KLocale>
 #include <KSystemTimeZone>
 
 #include <QBitArray>
@@ -3038,7 +3037,7 @@ static QString recurEnd(const Incidence::Ptr &incidence)
     if (incidence->allDay()) {
         endstr = QLocale().toString(incidence->recurrence()->endDate());
     } else {
-        endstr = KLocale::global()->formatDateTime(incidence->recurrence()->endDateTime());
+        endstr = QLocale().toString(incidence->recurrence()->endDateTime().toLocalZone().dateTime(), QLocale::ShortFormat);
     }
     return endstr;
 }
@@ -3542,7 +3541,7 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
             if (alarm->hasTime()) {
                 offset = 0;
                 if (alarm->time().isValid()) {
-                    atStr = KLocale::global()->formatDateTime(alarm->time());
+                    atStr = QLocale().toString(alarm->time().toLocalZone().dateTime(), QLocale::ShortFormat);
                 }
             } else if (alarm->hasStartOffset()) {
                 offset = alarm->startOffset().asSeconds();
@@ -3555,7 +3554,7 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
                                       "%1 after the start", secs2Duration(offset));
                 } else { //offset is 0
                     if (incidence->dtStart().isValid()) {
-                        atStr = KLocale::global()->formatDateTime(incidence->dtStart());
+                        atStr = QLocale().toString(incidence->dtStart().toLocalZone().dateTime(), QLocale::ShortFormat);
                     }
                 }
             } else if (alarm->hasEndOffset()) {
@@ -3581,12 +3580,12 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
                     if (incidence->type() == Incidence::TypeTodo) {
                         Todo::Ptr t = incidence.staticCast<Todo>();
                         if (t->dtDue().isValid()) {
-                            atStr = KLocale::global()->formatDateTime(t->dtDue());
+                            atStr = QLocale().toString(t->dtDue().toLocalZone().dateTime(), QLocale::ShortFormat);
                         }
                     } else {
                         Event::Ptr e = incidence.staticCast<Event>();
                         if (e->dtEnd().isValid()) {
-                            atStr = KLocale::global()->formatDateTime(e->dtEnd());
+                            atStr = QLocale().toString(e->dtEnd().toLocalZone().dateTime(), QLocale::ShortFormat);
                         }
                     }
                 }

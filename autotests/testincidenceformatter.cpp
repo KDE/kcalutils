@@ -34,12 +34,12 @@
 
 #include <KDateTime>
 #include <KLocalizedString>
-#include <KLocale>
 
 #include <QDebug>
 #include <QIcon>
 #include <QLocale>
 #include <QProcess>
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_MAIN(IncidenceFormatterTest)
@@ -81,7 +81,7 @@ void IncidenceFormatterTest::testRecurrenceString()
 
     r1->setDaily(1);
     r1->setEndDateTime(kdt.addDays(5));     // ends 5 days from now
-    QString endDateStr = KLocale::global()->formatDateTime(kdt.addDays(5));
+    QString endDateStr = QLocale().toString(kdt.addDays(5).toLocalZone().dateTime(), QLocale::ShortFormat);
     QCOMPARE(IncidenceFormatter::recurrenceString(e1),
              i18n("Recurs daily until %1", endDateStr));
 
@@ -134,7 +134,7 @@ void IncidenceFormatterTest::testRecurrenceString()
 
     r3->setHourly(1);
     r3->setEndDateTime(kdt.addSecs(5 * 60 * 60));     // ends 5 hrs from now
-    endDateStr = KLocale::global()->formatDateTime(r3->endDateTime());
+    endDateStr = QLocale().toString(r3->endDateTime().toLocalZone().dateTime(), QLocale::ShortFormat);
     QCOMPARE(IncidenceFormatter::recurrenceString(e3),
              i18n("Recurs hourly until %1", endDateStr));
 
