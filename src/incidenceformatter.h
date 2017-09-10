@@ -174,9 +174,9 @@ KCALUTILS_EXPORT QString timeToString(const QTime &time, bool shortfmt = true);
   @param shortfmt If true, display info in short format.
   @see dateToString(), dateTimeToString().
 */
-KCALUTILS_EXPORT QString dateToString(const KDateTime &date, bool shortfmt = true);
+KCALUTILS_EXPORT QString dateToString(const QDate &date, bool shortfmt = true);
 
-KCALUTILS_EXPORT QString formatStartEnd(const KDateTime &start, const KDateTime &end, bool isAllDay);
+KCALUTILS_EXPORT QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllDay);
 
 /**
   Build a QString date/time representation of a KDateTime object.
@@ -186,7 +186,7 @@ KCALUTILS_EXPORT QString formatStartEnd(const KDateTime &start, const KDateTime 
   @param shortfmt If true, display info in short format.
   @see dateToString(), timeToString().
 */
-KCALUTILS_EXPORT QString dateTimeToString(const KDateTime &date, bool dateOnly = false, bool shortfmt = true);
+KCALUTILS_EXPORT QString dateTimeToString(const QDateTime &date, bool dateOnly = false, bool shortfmt = true);
 
 /**
   Returns a Calendar Resource label name for the specified Incidence.

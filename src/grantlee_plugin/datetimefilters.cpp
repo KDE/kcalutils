@@ -22,8 +22,6 @@
 
 #include <grantlee/safestring.h>
 
-#include <KDateTime>
-
 #include <QDebug>
 
 KDateFilter::KDateFilter()
@@ -49,7 +47,7 @@ QVariant KDateFilter::doFilter(const QVariant &input, const QVariant &argument, 
     }
 
     const bool shortFmt = (argument.value<Grantlee::SafeString>().get().compare(QLatin1String("short"), Qt::CaseInsensitive) == 0);
-    return Grantlee::SafeString(KCalUtils::IncidenceFormatter::dateToString(KDateTime(date), shortFmt));
+    return Grantlee::SafeString(KCalUtils::IncidenceFormatter::dateToString(date, shortFmt));
 }
 
 bool KDateFilter::isSafe() const
@@ -111,7 +109,7 @@ QVariant KDateTimeFilter::doFilter(const QVariant &input, const QVariant &argume
     const bool shortFmt = arguments.contains(QStringLiteral("short"), Qt::CaseInsensitive);
     const bool dateOnly = arguments.contains(QStringLiteral("dateonly"), Qt::CaseInsensitive);
 
-    return Grantlee::SafeString(KCalUtils::IncidenceFormatter::dateTimeToString(KDateTime(dt), dateOnly, shortFmt));
+    return Grantlee::SafeString(KCalUtils::IncidenceFormatter::dateTimeToString(dt, dateOnly, shortFmt));
 }
 
 bool KDateTimeFilter::isSafe() const

@@ -525,7 +525,7 @@ void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
         }
         *ts << ">" << endl;
         if (todo->hasDueDate()) {
-            *ts << "    " << IncidenceFormatter::dateToString(todo->dtDue(true)) << endl;
+            *ts << "    " << IncidenceFormatter::dateToString(todo->dtDue(true).toLocalZone().date()) << endl;
         } else {
             *ts << "    &nbsp;" << endl;
         }
