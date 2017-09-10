@@ -40,7 +40,7 @@
 #include <kcalcore/todo.h>
 #include <kcalcore/memorycalendar.h>
 
-#include <KDateTime>
+#include <QDateTime>
 
 class QDrag;
 class QDropEvent;
@@ -149,8 +149,7 @@ public:
 
       @see pasteIncidence()
     */
-    KCalCore::Incidence::List pasteIncidences(
-        const KDateTime &newDateTime = KDateTime(), QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions = QFlags<PasteFlag>());
+    KCalCore::Incidence::List pasteIncidences(const QDateTime &newDateTime = QDateTime(), PasteFlags pasteOptions = PasteFlags());
 
     /**
       This function clones the incidence that's in the clipboard and sets the clone's
@@ -166,8 +165,7 @@ public:
 
       @return A pointer to the cloned incidence.
     */
-    KCalCore::Incidence::Ptr pasteIncidence(
-        const KDateTime &newDateTime = KDateTime(), QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions = QFlags<PasteFlag>());
+    KCalCore::Incidence::Ptr pasteIncidence(const QDateTime &newDateTime = QDateTime(), PasteFlags pasteOptions = PasteFlags());
 
 private:
     //@cond PRIVATE

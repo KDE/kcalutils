@@ -90,7 +90,7 @@ void DndFactoryTest::testPasteAllDayEvent2()
 
     QVERIFY(factory.copyIncidences(incidencesToPaste));
 
-    const KDateTime newDateTime(QDate(2011, 1, 1));
+    const QDateTime newDateTime(QDate(2011, 1, 1));
     const uint originalLength = allDayEvent->dtStart().secsTo(allDayEvent->dtEnd());
 
     // paste at the new time
@@ -119,7 +119,7 @@ void DndFactoryTest::testPasteAllDayEvent2()
              << " and new dtEnd is " << pastedEvent->dtEnd();
 #endif
     QVERIFY(originalLength == newLength);
-    QVERIFY(pastedEvent->dtStart() == newDateTime);
+    QVERIFY(pastedEvent->dtStart().dateTime() == newDateTime);
     QVERIFY(pastedEvent->summary() == allDayEvent->summary());
 }
 
@@ -138,7 +138,7 @@ void DndFactoryTest::testPasteTodo()
 
     QVERIFY(factory.copyIncidences(incidencesToPaste));
 
-    const KDateTime newDateTime(QDate(2011, 1, 1), QTime(10, 10));
+    const QDateTime newDateTime(QDate(2011, 1, 1), QTime(10, 10));
 
     Incidence::List pastedIncidences = factory.pasteIncidences(newDateTime);
     QVERIFY(pastedIncidences.size() == 1);
@@ -152,7 +152,7 @@ void DndFactoryTest::testPasteTodo()
 
     Todo::Ptr pastedTodo = incidence.staticCast<Todo>();
 
-    QVERIFY(pastedTodo->dtDue() == newDateTime);
+    QVERIFY(pastedTodo->dtDue().dateTime() == newDateTime);
     QVERIFY(pastedTodo->summary() == todo->summary());
 
 }

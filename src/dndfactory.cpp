@@ -67,7 +67,7 @@ public:
     {
     }
 
-    Incidence::Ptr pasteIncidence(const Incidence::Ptr &incidence, KDateTime newDateTime, QFlags<DndFactory::PasteFlag> pasteOptions)
+    Incidence::Ptr pasteIncidence(const Incidence::Ptr &incidence, QDateTime newDateTime, DndFactory::PasteFlags pasteOptions)
     {
         Incidence::Ptr inc(incidence);
 
@@ -82,7 +82,7 @@ public:
                 if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
                     // Set date and preserve time and timezone stuff
                     const QDate date = newDateTime.date();
-                    newDateTime = event->dtStart();
+                    newDateTime = event->dtStart().dateTime();
                     newDateTime.setDate(date);
                 }
 
@@ -90,12 +90,13 @@ public:
                 const int durationInSeconds = event->dtStart().secsTo(event->dtEnd());
                 const int durationInDays = event->dtStart().daysTo(event->dtEnd());
 
-                event->setDtStart(newDateTime);
 
-                if (newDateTime.isDateOnly()) {
-                    event->setDtEnd(newDateTime.addDays(durationInDays));
+                if (incidence->allDay()) {
+                    event->setDtStart(KDateTime(newDateTime.date()));
+                    event->setDtEnd(KDateTime(newDateTime.addDays(durationInDays)));
                 } else {
-                    event->setDtEnd(newDateTime.addSecs(durationInSeconds));
+                    event->setDtStart(KDateTime(newDateTime));
+                    event->setDtEnd(KDateTime(newDateTime.addSecs(durationInSeconds)));
                 }
             } else if (inc->type() == Incidence::TypeTodo) {
                 Todo::Ptr aTodo = inc.staticCast<Todo>();
@@ -103,22 +104,22 @@ public:
                 if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
                     // Set date and preserve time and timezone stuff
                     const QDate date = newDateTime.date();
-                    newDateTime = pasteAtDtStart ? aTodo->dtStart() : aTodo->dtDue();
+                    newDateTime = pasteAtDtStart ? aTodo->dtStart().dateTime() : aTodo->dtDue().dateTime();
                     newDateTime.setDate(date);
                 }
                 if (pasteAtDtStart) {
-                    aTodo->setDtStart(newDateTime);
+                    aTodo->setDtStart(KDateTime(newDateTime));
                 } else {
-                    aTodo->setDtDue(newDateTime);
+                    aTodo->setDtDue(KDateTime(newDateTime));
                 }
             } else if (inc->type() == Incidence::TypeJournal) {
                 if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
                     // Set date and preserve time and timezone stuff
                     const QDate date = newDateTime.date();
-                    newDateTime = inc->dtStart();
+                    newDateTime = inc->dtStart().dateTime();
                     newDateTime.setDate(date);
                 }
-                inc->setDtStart(newDateTime);
+                inc->setDtStart(KDateTime(newDateTime));
             } else {
                 qCDebug(KCALUTILS_LOG) << "Trying to paste unknown incidence of type" << int(inc->type());
             }
@@ -324,7 +325,7 @@ bool DndFactory::copyIncidence(const Incidence::Ptr &selectedInc)
     return copyIncidences(list);
 }
 
-Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime, QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions)
+Incidence::List DndFactory::pasteIncidences(const QDateTime &newDateTime, PasteFlags pasteOptions)
 {
     QClipboard *clipboard = QApplication::clipboard();
     Q_ASSERT(clipboard);
@@ -368,7 +369,7 @@ Incidence::List DndFactory::pasteIncidences(const KDateTime &newDateTime, QFlags
     return list;
 }
 
-Incidence::Ptr DndFactory::pasteIncidence(const KDateTime &newDateTime, QFlags<KCalUtils::DndFactory::PasteFlag> pasteOptions)
+Incidence::Ptr DndFactory::pasteIncidence(const QDateTime &newDateTime, PasteFlags pasteOptions)
 {
     QClipboard *clipboard = QApplication::clipboard();
     MemoryCalendar::Ptr calendar(createDropCalendar(clipboard->mimeData()));
