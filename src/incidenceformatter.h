@@ -168,7 +168,7 @@ KCALUTILS_EXPORT QStringList reminderStringList(const KCalCore::Incidence::Ptr &
 KCALUTILS_EXPORT QString timeToString(const QTime &time, bool shortfmt = true);
 
 /**
-  Build a QString date representation of a KDateTime object.
+  Build a QString date representation of a QDate object.
   All dates and times are converted to local time for display.
   @param date The date to be formatted.
   @param shortfmt If true, display info in short format.
@@ -179,7 +179,7 @@ KCALUTILS_EXPORT QString dateToString(const QDate &date, bool shortfmt = true);
 KCALUTILS_EXPORT QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllDay);
 
 /**
-  Build a QString date/time representation of a KDateTime object.
+  Build a QString date/time representation of a QDateTime object.
   All dates and times are converted to local time for display.
   @param date The date to be formatted.
   @param dateOnly If true, don't print the time fields; print the date fields only.
