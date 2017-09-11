@@ -41,6 +41,7 @@
 #include <QProcess>
 #include <QStandardPaths>
 #include <QTest>
+#include <QTimeZone>
 
 QTEST_MAIN(IncidenceFormatterTest)
 #ifndef Q_OS_WIN
@@ -158,7 +159,7 @@ void IncidenceFormatterTest::testRecurrenceString()
 
 KCalCore::Calendar::Ptr IncidenceFormatterTest::loadCalendar(const QString &name)
 {
-    auto calendar = KCalCore::MemoryCalendar::Ptr::create(KDateTime::UTC);
+    auto calendar = KCalCore::MemoryCalendar::Ptr::create(QTimeZone::utc());
     KCalCore::ICalFormat format;
 
     if (!format.load(calendar, QStringLiteral(TEST_DATA_DIR "/%1.ical").arg(name))) {
@@ -416,7 +417,7 @@ void IncidenceFormatterTest::testFormatIcalInvitation()
 {
     QFETCH(QString, name);
 
-    KCalCore::MemoryCalendar::Ptr calendar(new KCalCore::MemoryCalendar(KDateTime::Spec(KDateTime::UTC)));
+    KCalCore::MemoryCalendar::Ptr calendar(new KCalCore::MemoryCalendar(QTimeZone::utc()));
     InvitationFormatterHelper helper;
 
     QFile eventFile(QStringLiteral(TEST_DATA_DIR "/%1.ical").arg(name));

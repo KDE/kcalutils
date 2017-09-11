@@ -27,6 +27,7 @@
 #include <kcalcore/memorycalendar.h>
 
 #include <qtest.h>
+#include <QTimeZone>
 
 QTEST_MAIN(DndFactoryTest)   // clipboard() needs GUI
 
@@ -36,7 +37,7 @@ using namespace KCalUtils;
 void DndFactoryTest::testPasteAllDayEvent()
 {
 
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(QString()));
+    MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
     DndFactory factory(calendar);
 
@@ -75,7 +76,7 @@ void DndFactoryTest::testPasteAllDayEvent()
 void DndFactoryTest::testPasteAllDayEvent2()
 {
 
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(QString()));
+    MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
     DndFactory factory(calendar);
 
@@ -125,7 +126,7 @@ void DndFactoryTest::testPasteAllDayEvent2()
 
 void DndFactoryTest::testPasteTodo()
 {
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(QString()));
+    MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
     DndFactory factory(calendar);
 

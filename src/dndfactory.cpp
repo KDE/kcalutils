@@ -50,6 +50,7 @@
 #include <QDate>
 #include <QWidget>
 #include <QDropEvent>
+#include <QTimeZone>
 
 using namespace KCalCore;
 using namespace KCalUtils;
@@ -162,7 +163,7 @@ QDrag *DndFactory::createDrag(QWidget *owner)
 
 QMimeData *DndFactory::createMimeData(const Incidence::Ptr &incidence)
 {
-    MemoryCalendar::Ptr cal(new MemoryCalendar(d->mCalendar->timeSpec()));
+    MemoryCalendar::Ptr cal(new MemoryCalendar(d->mCalendar->timeZone()));
     Incidence::Ptr i(incidence->clone());
     //strip recurrence id's, We don't want to drag the exception but the occurrence.
     i->setRecurrenceId({});
@@ -196,7 +197,7 @@ QDrag *DndFactory::createDrag(const Incidence::Ptr &incidence, QWidget *owner)
 MemoryCalendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData)
 {
     if (mimeData) {
-        MemoryCalendar::Ptr calendar(new MemoryCalendar(KDateTime::LocalZone));
+        MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
         if (ICalDrag::fromMimeData(mimeData, calendar)
             || VCalDrag::fromMimeData(mimeData, calendar)) {
@@ -295,7 +296,7 @@ bool DndFactory::copyIncidences(const Incidence::List &incidences)
 {
     QClipboard *clipboard = QApplication::clipboard();
     Q_ASSERT(clipboard);
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(d->mCalendar->timeSpec()));
+    MemoryCalendar::Ptr calendar(new MemoryCalendar(d->mCalendar->timeZone()));
 
     Incidence::List::ConstIterator it;
     const Incidence::List::ConstIterator end(incidences.constEnd());

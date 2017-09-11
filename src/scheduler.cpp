@@ -29,6 +29,7 @@ using namespace KCalCore;
 #include "kcalutils_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <QTimeZone>
 
 using namespace KCalUtils;
 
@@ -47,7 +48,7 @@ Scheduler::Scheduler(const Calendar::Ptr &calendar) : d(new KCalUtils::Scheduler
 {
     mCalendar = calendar;
     mFormat = new ICalFormat();
-    mFormat->setTimeSpec(calendar->timeSpec());
+    mFormat->setTimeZone(calendar->timeZone());
 }
 
 Scheduler::~Scheduler()
