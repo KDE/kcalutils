@@ -1044,7 +1044,7 @@ static QVariantList eventsOnSameDays(InvitationFormatterHelper *helper, const Ev
     startDay.setTime(QTime(0, 0, 0));
     endDay.setTime(QTime(23, 59, 59));
 
-    Event::List matchingEvents = helper->calendar()->events(startDay.date(), endDay.date(), KDateTime::LocalZone);
+    Event::List matchingEvents = helper->calendar()->events(startDay.date(), endDay.date(), QTimeZone::systemTimeZone());
     if (matchingEvents.isEmpty()) {
         return QVariantList();
     }

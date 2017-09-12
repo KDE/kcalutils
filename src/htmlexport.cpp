@@ -217,7 +217,7 @@ void HtmlExport::createMonthView(QTextStream *ts)
 
                 // Only print events within the from-to range
                 if (start >= fromDate() && start <= toDate()) {
-                    Event::List events = d->mCalendar->events(start, d->mCalendar->timeSpec(),
+                    Event::List events = d->mCalendar->events(start, d->mCalendar->timeZone(),
                                                               EventSortStartDate,
                                                               SortDirectionAscending);
                     if (events.count()) {
@@ -282,7 +282,7 @@ void HtmlExport::createEventList(QTextStream *ts)
 
     for (QDate dt = fromDate(); dt <= toDate(); dt = dt.addDays(1)) {
         qCDebug(KCALUTILS_LOG) << "Getting events for" << dt.toString();
-        Event::List events = d->mCalendar->events(dt, d->mCalendar->timeSpec(),
+        Event::List events = d->mCalendar->events(dt, d->mCalendar->timeZone(),
                                                   EventSortStartDate,
                                                   SortDirectionAscending);
         if (events.count()) {
