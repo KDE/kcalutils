@@ -37,6 +37,8 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+#include <KCalCore/Utils>
+
 using namespace KCalUtils;
 using namespace KCalUtils::RecurrenceActions;
 using namespace KCalCore;
@@ -135,15 +137,15 @@ int RecurrenceActions::availableOccurrences(const Incidence::Ptr &incidence, con
     int result = NoOccurrence;
 
     if (incidence->recurrence()->recursOn(selectedOccurrence.date(),
-                                          selectedOccurrence.timeSpec())) {
+                                          KCalCore::specToZone(selectedOccurrence.timeSpec()))) {
         result |= SelectedOccurrence;
     }
 
-    if (incidence->recurrence()->getPreviousDateTime(selectedOccurrence).isValid()) {
+    if (incidence->recurrence()->getPreviousDateTime(KCalCore::k2q(selectedOccurrence)).isValid()) {
         result |= PastOccurrences;
     }
 
-    if (incidence->recurrence()->getNextDateTime(selectedOccurrence).isValid()) {
+    if (incidence->recurrence()->getNextDateTime(KCalCore::k2q(selectedOccurrence)).isValid()) {
         result |= FutureOccurrences;
     }
 
