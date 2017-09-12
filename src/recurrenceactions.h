@@ -27,7 +27,7 @@
 
 #include <kcalcore/incidence.h>
 
-class KDateTime;
+class QDateTime;
 class KGuiItem;
 class QWidget;
 
@@ -88,7 +88,7 @@ enum Scope {
   @return the #Scope to which actions on the given @incidence can be applied to
 */
 KCALUTILS_EXPORT
-int availableOccurrences(const KCalCore::Incidence::Ptr &incidence, const KDateTime &selectedOccurrence);
+int availableOccurrences(const KCalCore::Incidence::Ptr &incidence, const QDateTime &selectedOccurrence);
 
 /**
   @short Presents a multiple choice scope selection dialog to the user
@@ -108,7 +108,7 @@ int availableOccurrences(const KCalCore::Incidence::Ptr &incidence, const KDateT
 
   @return the chosen #Scope options, OR'ed together
 */
-KCALUTILS_EXPORT int questionMultipleChoice(const KDateTime &selectedOccurrence, const QString &message, const QString &caption, const KGuiItem &action, int availableChoices, int preselectedChoices,
+KCALUTILS_EXPORT int questionMultipleChoice(const QDateTime &selectedOccurrence, const QString &message, const QString &caption, const KGuiItem &action, int availableChoices, int preselectedChoices,
                                             QWidget *parent);
 
 /**

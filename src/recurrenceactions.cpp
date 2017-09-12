@@ -37,8 +37,6 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-#include <KCalCore/Utils>
-
 using namespace KCalUtils;
 using namespace KCalUtils::RecurrenceActions;
 using namespace KCalCore;
@@ -47,7 +45,7 @@ class ScopeWidget : public QWidget
 {
     Q_OBJECT
 public:
-    ScopeWidget(int availableChoices, const KDateTime &dateTime, QWidget *parent)
+    ScopeWidget(int availableChoices, const QDateTime &dateTime, QWidget *parent)
         : QWidget(parent)
         , mAvailableChoices(availableChoices)
     {
@@ -58,7 +56,7 @@ public:
         } else {
             mUi.checkBoxPast->setText(i18nc("@option:check calendar items before a certain date",
                                             "Items before %1",
-                                            QLocale().toString(dateTime.dateTime(), QLocale::ShortFormat)));
+                                            QLocale().toString(dateTime, QLocale::ShortFormat)));
         }
         if ((mAvailableChoices & SelectedOccurrence) == 0) {
             mUi.checkBoxSelected->hide();
@@ -71,7 +69,7 @@ public:
         } else {
             mUi.checkBoxFuture->setText(i18nc("@option:check calendar items after a certain date",
                                               "Items after %1",
-                                              QLocale().toString(dateTime.dateTime(), QLocale::ShortFormat)));
+                                              QLocale().toString(dateTime, QLocale::ShortFormat)));
         }
     }
 
@@ -132,20 +130,19 @@ int ScopeWidget::checkedChoices() const
     return result;
 }
 
-int RecurrenceActions::availableOccurrences(const Incidence::Ptr &incidence, const KDateTime &selectedOccurrence)
+int RecurrenceActions::availableOccurrences(const Incidence::Ptr &incidence, const QDateTime &selectedOccurrence)
 {
     int result = NoOccurrence;
 
-    if (incidence->recurrence()->recursOn(selectedOccurrence.date(),
-                                          KCalCore::specToZone(selectedOccurrence.timeSpec()))) {
+    if (incidence->recurrence()->recursOn(selectedOccurrence.date(), selectedOccurrence.timeZone())) {
         result |= SelectedOccurrence;
     }
 
-    if (incidence->recurrence()->getPreviousDateTime(KCalCore::k2q(selectedOccurrence)).isValid()) {
+    if (incidence->recurrence()->getPreviousDateTime(selectedOccurrence).isValid()) {
         result |= PastOccurrences;
     }
 
-    if (incidence->recurrence()->getNextDateTime(KCalCore::k2q(selectedOccurrence)).isValid()) {
+    if (incidence->recurrence()->getNextDateTime(selectedOccurrence).isValid()) {
         result |= FutureOccurrences;
     }
 
@@ -176,7 +173,7 @@ static QDialog *createDialog(QDialogButtonBox::StandardButtons buttons, const QS
     return dialog;
 }
 
-int RecurrenceActions::questionMultipleChoice(const KDateTime &selectedOccurrence, const QString &message, const QString &caption, const KGuiItem &action, int availableChoices, int preselectedChoices,
+int RecurrenceActions::questionMultipleChoice(const QDateTime &selectedOccurrence, const QString &message, const QString &caption, const KGuiItem &action, int availableChoices, int preselectedChoices,
                                               QWidget *parent)
 {
     QDialogButtonBox::StandardButtons buttons = QDialogButtonBox::Ok | QDialogButtonBox::Cancel;
