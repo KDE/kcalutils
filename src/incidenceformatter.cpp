@@ -639,18 +639,18 @@ static QString displayViewFormatFreeBusy(const Calendar::Ptr &calendar, const QS
             if (dur > 0) {
                 cont += i18ncp("seconds part of duration", "1 second", "%1 seconds", dur);
             }
-            periodData[QStringLiteral("dtStart")] = per.start().toLocalZone().dateTime();
+            periodData[QStringLiteral("dtStart")] = per.start().toLocalTime();
             periodData[QStringLiteral("duration")] = cont;
         } else {
-            const KDateTime pStart = per.start().toLocalZone();
-            const KDateTime pEnd = per.end().toLocalZone();
+            const QDateTime pStart = per.start().toLocalTime();
+            const QDateTime pEnd = per.end().toLocalTime();
             if (per.start().date() == per.end().date()) {
                 periodData[QStringLiteral("date")] = pStart.date();
                 periodData[QStringLiteral("start")] = pStart.time();
                 periodData[QStringLiteral("end")] = pEnd.time();
             } else {
-                periodData[QStringLiteral("start")] = pStart.dateTime();
-                periodData[QStringLiteral("end")] = pEnd.dateTime();
+                periodData[QStringLiteral("start")] = pStart;
+                periodData[QStringLiteral("end")] = pEnd;
             }
         }
 
@@ -1315,8 +1315,8 @@ static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHt
             }
             period[QStringLiteral("duration")] = cont;
         }
-        period[QStringLiteral("start")] = it->start().dateTime();
-        period[QStringLiteral("end")] = it->end().dateTime();
+        period[QStringLiteral("start")] = it->start();
+        period[QStringLiteral("end")] = it->end();
 
         periodsList.push_back(period);
     }
@@ -3540,7 +3540,7 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
             if (alarm->hasTime()) {
                 offset = 0;
                 if (alarm->time().isValid()) {
-                    atStr = QLocale().toString(alarm->time().toLocalZone().dateTime(), QLocale::ShortFormat);
+                    atStr = QLocale().toString(alarm->time().toLocalTime(), QLocale::ShortFormat);
                 }
             } else if (alarm->hasStartOffset()) {
                 offset = alarm->startOffset().asSeconds();
