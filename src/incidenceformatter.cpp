@@ -455,18 +455,18 @@ static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QStri
     incidence[QStringLiteral("calendar")] = calendar ? resourceString(calendar, event) : sourceName;
     incidence[QStringLiteral("location")] = event->richLocation();
 
-    KDateTime startDt = event->dtStart().toLocalZone();
-    KDateTime endDt = event->dtEnd().toLocalZone();
+    QDateTime startDt = KCalCore::k2q(event->dtStart().toLocalZone());
+    QDateTime endDt = KCalCore::k2q(event->dtEnd().toLocalZone());
     if (event->recurs()) {
         if (date.isValid()) {
-            KDateTime kdt(date, QTime(0, 0, 0), KSystemTimeZones::local());
+            QDateTime kdt(date, QTime(0, 0, 0), Qt::LocalTime);
             int diffDays = startDt.daysTo(kdt);
             kdt = kdt.addSecs(-1);
-            startDt.setDate(event->recurrence()->getNextDateTime(KCalCore::k2q(kdt)).date());
+            startDt.setDate(event->recurrence()->getNextDateTime(kdt).date());
             if (event->hasEndDate()) {
                 endDt = endDt.addDays(diffDays);
                 if (startDt > endDt) {
-                    startDt.setDate(event->recurrence()->getPreviousDateTime(KCalCore::k2q(kdt)).date());
+                    startDt.setDate(event->recurrence()->getPreviousDateTime(kdt).date());
                     endDt = startDt.addDays(event->dtStart().daysTo(event->dtEnd()));
                 }
             }
@@ -527,11 +527,11 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
     const bool hasDueDate = todo->hasDueDate();
 
     if (hastStartDate) {
-        KDateTime startDt = todo->dtStart(true /**first*/).toLocalZone();
+        QDateTime startDt = KCalCore::k2q(todo->dtStart(true /**first*/).toLocalZone());
         if (todo->recurs() && ocurrenceDueDate.isValid()) {
             if (hasDueDate) {
                 // In kdepim all recuring to-dos have due date.
-                const int length = startDt.daysTo(todo->dtDue(true /**first*/));
+                const int length = startDt.daysTo(KCalCore::k2q(todo->dtDue(true /**first*/)));
                 if (length >= 0) {
                     startDt.setDate(ocurrenceDueDate.addDays(-length));
                 } else {
@@ -543,19 +543,19 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
                 startDt.setDate(ocurrenceDueDate);
             }
         }
-        incidence[QStringLiteral("startDate")] = startDt.dateTime();
+        incidence[QStringLiteral("startDate")] = startDt;
     }
 
     if (hasDueDate) {
-        KDateTime dueDt = todo->dtDue().toLocalZone();
+        QDateTime dueDt = KCalCore::k2q(todo->dtDue().toLocalZone());
         if (todo->recurs()) {
             if (ocurrenceDueDate.isValid()) {
-                KDateTime kdt(ocurrenceDueDate, QTime(0, 0, 0), KSystemTimeZones::local());
+                QDateTime kdt(ocurrenceDueDate, QTime(0, 0, 0), Qt::LocalTime);
                 kdt = kdt.addSecs(-1);
-                dueDt.setDate(todo->recurrence()->getNextDateTime(KCalCore::k2q(kdt)).date());
+                dueDt.setDate(todo->recurrence()->getNextDateTime(kdt).date());
             }
         }
-        incidence[QStringLiteral("dueDate")] = dueDt.dateTime();
+        incidence[QStringLiteral("dueDate")] = dueDt;
     }
 
     incidence[QStringLiteral("duration")] = durationString(todo);
@@ -999,16 +999,16 @@ static QString invitationDescriptionIncidence(const Incidence::Ptr &incidence, b
     return QString();
 }
 
-static bool slicesInterval(const Event::Ptr &event, const KDateTime &startDt, const KDateTime &endDt)
+static bool slicesInterval(const Event::Ptr &event, const QDateTime &startDt, const QDateTime &endDt)
 {
-    KDateTime closestStart = event->dtStart();
-    KDateTime closestEnd = event->dtEnd();
+    QDateTime closestStart = KCalCore::k2q(event->dtStart());
+    QDateTime closestEnd = KCalCore::k2q(event->dtEnd());
     if (event->recurs()) {
-        if (!event->recurrence()->timesInInterval(KCalCore::k2q(startDt), KCalCore::k2q(endDt)).isEmpty()) {
+        if (!event->recurrence()->timesInInterval(startDt, endDt).isEmpty()) {
             // If there is a recurrence in this interval we know already that we slice.
             return true;
         }
-        closestStart = KCalCore::q2k(event->recurrence()->getPreviousDateTime(KCalCore::k2q(startDt)));
+        closestStart = event->recurrence()->getPreviousDateTime(startDt);
         if (event->hasEndDate()) {
             closestEnd = closestStart.addSecs(event->dtStart().secsTo(event->dtEnd()));
         }
@@ -1040,8 +1040,8 @@ static QVariantList eventsOnSameDays(InvitationFormatterHelper *helper, const Ev
         return QVariantList();
     }
 
-    KDateTime startDay = event->dtStart();
-    KDateTime endDay = event->hasEndDate() ? event->dtEnd() : event->dtStart();
+    QDateTime startDay = KCalCore::k2q(event->dtStart());
+    QDateTime endDay = event->hasEndDate() ? KCalCore::k2q(event->dtEnd()) : KCalCore::k2q(event->dtStart());
     startDay.setTime(QTime(0, 0, 0));
     endDay.setTime(QTime(23, 59, 59));
 
@@ -2471,18 +2471,18 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
     QString ret;
     QString tmp;
 
-    KDateTime startDt = event->dtStart().toLocalZone();
-    KDateTime endDt = event->dtEnd().toLocalZone();
+    QDateTime startDt = KCalCore::k2q(event->dtStart().toLocalZone());
+    QDateTime endDt = KCalCore::k2q(event->dtEnd().toLocalZone());
     if (event->recurs()) {
         if (date.isValid()) {
-            KDateTime kdt(date, QTime(0, 0, 0), KSystemTimeZones::local());
+            QDateTime kdt(date, QTime(0, 0, 0), Qt::LocalTime);
             int diffDays = startDt.daysTo(kdt);
             kdt = kdt.addSecs(-1);
-            startDt.setDate(event->recurrence()->getNextDateTime(KCalCore::k2q(kdt)).date());
+            startDt.setDate(event->recurrence()->getNextDateTime(kdt).date());
             if (event->hasEndDate()) {
                 endDt = endDt.addDays(diffDays);
                 if (startDt > endDt) {
-                    startDt.setDate(event->recurrence()->getPreviousDateTime(KCalCore::k2q(kdt)).date());
+                    startDt.setDate(event->recurrence()->getPreviousDateTime(kdt).date());
                     endDt = startDt.addDays(event->dtStart().daysTo(event->dtEnd()));
                 }
             }
@@ -2523,24 +2523,24 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo,
     //FIXME: support mRichText==false
     QString ret;
     if (todo->hasStartDate()) {
-        KDateTime startDt = todo->dtStart();
+        QDateTime startDt = KCalCore::k2q(todo->dtStart());
         if (todo->recurs() && date.isValid()) {
             startDt.setDate(date);
         }
         ret += QLatin1String("<br>")
-               +i18n("<i>Start:</i> %1", dateToString(startDt.toLocalZone().date(), false));
+               +i18n("<i>Start:</i> %1", dateToString(startDt.toLocalTime().date(), false));
     }
 
     if (todo->hasDueDate()) {
-        KDateTime dueDt = todo->dtDue();
+        QDateTime dueDt = KCalCore::k2q(todo->dtDue());
         if (todo->recurs() && date.isValid()) {
-            KDateTime kdt(date, QTime(0, 0, 0), KSystemTimeZones::local());
+            QDateTime kdt(date, QTime(0, 0, 0), Qt::LocalTime);
             kdt = kdt.addSecs(-1);
-            dueDt.setDate(todo->recurrence()->getNextDateTime(KCalCore::k2q(kdt)).date());
+            dueDt.setDate(todo->recurrence()->getNextDateTime(kdt).date());
         }
         ret += QLatin1String("<br>")
                +i18n("<i>Due:</i> %1",
-                     dateTimeToString(dueDt.dateTime(), todo->allDay(), false));
+                     dateTimeToString(dueDt, todo->allDay(), false));
     }
 
     // Print priority and completed info here, for lack of a better place
