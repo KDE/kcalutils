@@ -2132,7 +2132,7 @@ static QString formatICalInvitationHelper(const QString &invitation, const Memor
 
     IncidenceBase::Ptr incBase = msg->event();
 
-    incBase->shiftTimes(mCalendar->timeSpec(), KDateTime::Spec::LocalZone());
+    incBase->shiftTimes(mCalendar->timeZone(), QTimeZone::systemTimeZone());
 
     // Determine if this incidence is in my calendar (and owned by me)
     Incidence::Ptr existingIncidence;
