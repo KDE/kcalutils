@@ -506,7 +506,7 @@ static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QStri
     incidence[QStringLiteral("categories")] = event->categories();
 
     incidence[QStringLiteral("attachments")] = displayViewFormatAttachments(event);
-    incidence[QStringLiteral("creationDate")] = event->created().toLocalZone().dateTime();
+    incidence[QStringLiteral("creationDate")] = event->created().toLocalTime();
 
     return GrantleeTemplateManager::instance()->render(QStringLiteral(":/event.html"), incidence);
 }
@@ -585,7 +585,7 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
         incidence[QStringLiteral("percent")] = todo->percentComplete();
     }
     incidence[QStringLiteral("attachments")] = displayViewFormatAttachments(todo);
-    incidence[QStringLiteral("creationDate")] = todo->created().toLocalZone().dateTime();
+    incidence[QStringLiteral("creationDate")] = todo->created().toLocalTime();
 
     return GrantleeTemplateManager::instance()->render(QStringLiteral(":/todo.html"), incidence);
 }
@@ -601,7 +601,7 @@ static QString displayViewFormatJournal(const Calendar::Ptr &calendar, const QSt
     incidence[QStringLiteral("date")] = journal->dtStart().toLocalZone().dateTime();
     incidence[QStringLiteral("description")] = displayViewFormatDescription(journal);
     incidence[QStringLiteral("categories")] = journal->categories();
-    incidence[QStringLiteral("creationDate")] = journal->created().toLocalZone().dateTime();
+    incidence[QStringLiteral("creationDate")] = journal->created().toLocalTime();
 
     return GrantleeTemplateManager::instance()->render(QStringLiteral(":/journal.html"), incidence);
 }
