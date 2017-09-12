@@ -310,14 +310,14 @@ void HtmlExport::createEvent(QTextStream *ts, const Event::Ptr &event, QDate dat
     *ts << "  <tr>" << endl;
 
     if (!event->allDay()) {
-        if (event->isMultiDay(d->mCalendar->timeSpec()) && (event->dtStart().date() != date)) {
+        if (event->isMultiDay(d->mCalendar->timeZone()) && (event->dtStart().date() != date)) {
             *ts << "    <td>&nbsp;</td>" << endl;
         } else {
             *ts << "    <td valign=\"top\">"
                 << IncidenceFormatter::timeToString(event->dtStart().toLocalZone().time(), true)
                 << "</td>" << endl;
         }
-        if (event->isMultiDay(d->mCalendar->timeSpec()) && (event->dtEnd().date() != date)) {
+        if (event->isMultiDay(d->mCalendar->timeZone()) && (event->dtEnd().date() != date)) {
             *ts << "    <td>&nbsp;</td>" << endl;
         } else {
             *ts << "    <td valign=\"top\">"

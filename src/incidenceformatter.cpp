@@ -1090,7 +1090,7 @@ static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper, co
     incidence[QStringLiteral("location")] = invitationLocation(event, noHtmlMode);
     incidence[QStringLiteral("recurs")] = event->recurs();
     incidence[QStringLiteral("recurrence")] = recurrenceString(event);
-    incidence[QStringLiteral("isMultiDay")] = event->isMultiDay(KDateTime::LocalZone);
+    incidence[QStringLiteral("isMultiDay")] = event->isMultiDay(QTimeZone::systemTimeZone());
     incidence[QStringLiteral("isAllDay")] = event->allDay();
     incidence[QStringLiteral("dateTime")] = IncidenceFormatter::formatStartEnd(event->dtStart().dateTime(), event->dtEnd().dateTime(), event->allDay());
     incidence[QStringLiteral("duration")] = durationString(event);
