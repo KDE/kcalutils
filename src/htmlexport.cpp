@@ -314,14 +314,14 @@ void HtmlExport::createEvent(QTextStream *ts, const Event::Ptr &event, QDate dat
             *ts << "    <td>&nbsp;</td>" << endl;
         } else {
             *ts << "    <td valign=\"top\">"
-                << IncidenceFormatter::timeToString(event->dtStart().toLocalZone().time(), true)
+                << IncidenceFormatter::timeToString(event->dtStart().toLocalTime().time(), true)
                 << "</td>" << endl;
         }
         if (event->isMultiDay(d->mCalendar->timeZone()) && (event->dtEnd().date() != date)) {
             *ts << "    <td>&nbsp;</td>" << endl;
         } else {
             *ts << "    <td valign=\"top\">"
-                << IncidenceFormatter::timeToString(event->dtEnd().toLocalZone().time(), true)
+                << IncidenceFormatter::timeToString(event->dtEnd().toLocalTime().time(), true)
                 << "</td>" << endl;
         }
     } else {
@@ -525,7 +525,7 @@ void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
         }
         *ts << ">" << endl;
         if (todo->hasDueDate()) {
-            *ts << "    " << IncidenceFormatter::dateToString(todo->dtDue(true).toLocalZone().date()) << endl;
+            *ts << "    " << IncidenceFormatter::dateToString(todo->dtDue(true).toLocalTime().date()) << endl;
         } else {
             *ts << "    &nbsp;" << endl;
         }

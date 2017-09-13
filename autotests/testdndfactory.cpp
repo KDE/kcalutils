@@ -43,8 +43,9 @@ void DndFactoryTest::testPasteAllDayEvent()
 
     Event::Ptr allDayEvent(new Event());
     allDayEvent->setSummary(QStringLiteral("Summary 1"));
-    allDayEvent->setDtStart(KDateTime(QDate(2010, 8, 8)));
-    allDayEvent->setDtEnd(KDateTime(QDate(2010, 8, 9)));
+    allDayEvent->setDtStart(QDateTime(QDate(2010, 8, 8), {}));
+    allDayEvent->setDtEnd(QDateTime(QDate(2010, 8, 9), {}));
+    allDayEvent->setAllDay(true);
     const QString originalUid = allDayEvent->uid();
     const bool originalIsAllDay = allDayEvent->allDay();
 
@@ -82,8 +83,9 @@ void DndFactoryTest::testPasteAllDayEvent2()
 
     Event::Ptr allDayEvent(new Event());
     allDayEvent->setSummary(QStringLiteral("Summary 2"));
-    allDayEvent->setDtStart(KDateTime(QDate(2010, 8, 8)));
-    allDayEvent->setDtEnd(KDateTime(QDate(2010, 8, 9)));
+    allDayEvent->setDtStart(QDateTime(QDate(2010, 8, 8), {}));
+    allDayEvent->setDtEnd(QDateTime(QDate(2010, 8, 9), {}));
+    allDayEvent->setAllDay(true);
     const QString originalUid = allDayEvent->uid();
 
     Incidence::List incidencesToPaste;
@@ -119,9 +121,9 @@ void DndFactoryTest::testPasteAllDayEvent2()
              << "; new dtStart is " << pastedEvent->dtStart()
              << " and new dtEnd is " << pastedEvent->dtEnd();
 #endif
-    QVERIFY(originalLength == newLength);
-    QVERIFY(pastedEvent->dtStart().dateTime() == newDateTime);
-    QVERIFY(pastedEvent->summary() == allDayEvent->summary());
+    QCOMPARE(newLength, originalLength);
+    QCOMPARE(newDateTime, pastedEvent->dtStart());
+    QCOMPARE(allDayEvent->summary(), pastedEvent->summary());
 }
 
 void DndFactoryTest::testPasteTodo()
@@ -132,7 +134,7 @@ void DndFactoryTest::testPasteTodo()
 
     Todo::Ptr todo(new Todo());
     todo->setSummary(QStringLiteral("Summary 1"));
-    todo->setDtDue(KDateTime(QDate(2010, 8, 9)));
+    todo->setDtDue(QDateTime(QDate(2010, 8, 9), {}));
 
     Incidence::List incidencesToPaste;
     incidencesToPaste.append(todo);
@@ -153,7 +155,7 @@ void DndFactoryTest::testPasteTodo()
 
     Todo::Ptr pastedTodo = incidence.staticCast<Todo>();
 
-    QVERIFY(pastedTodo->dtDue().dateTime() == newDateTime);
-    QVERIFY(pastedTodo->summary() == todo->summary());
+    QCOMPARE(newDateTime, pastedTodo->dtDue());
+    QCOMPARE(todo->summary(), pastedTodo->summary());
 
 }

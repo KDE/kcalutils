@@ -44,7 +44,6 @@
 #include <kcalcore/memorycalendar.h>
 #include <kcalcore/todo.h>
 #include <kcalcore/visitor.h>
-#include <kcalcore/utils.h>
 using namespace KCalCore;
 
 #include <kidentitymanagement/identitymanager.h>
@@ -453,8 +452,8 @@ static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QStri
     incidence[QStringLiteral("calendar")] = calendar ? resourceString(calendar, event) : sourceName;
     incidence[QStringLiteral("location")] = event->richLocation();
 
-    QDateTime startDt = KCalCore::k2q(event->dtStart().toLocalZone());
-    QDateTime endDt = KCalCore::k2q(event->dtEnd().toLocalZone());
+    QDateTime startDt = event->dtStart().toLocalTime();
+    QDateTime endDt = event->dtEnd().toLocalTime();
     if (event->recurs()) {
         if (date.isValid()) {
             QDateTime kdt(date, QTime(0, 0, 0), Qt::LocalTime);
@@ -525,11 +524,11 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
     const bool hasDueDate = todo->hasDueDate();
 
     if (hastStartDate) {
-        QDateTime startDt = KCalCore::k2q(todo->dtStart(true /**first*/).toLocalZone());
+        QDateTime startDt = todo->dtStart(true /**first*/).toLocalTime();
         if (todo->recurs() && ocurrenceDueDate.isValid()) {
             if (hasDueDate) {
                 // In kdepim all recuring to-dos have due date.
-                const int length = startDt.daysTo(KCalCore::k2q(todo->dtDue(true /**first*/)));
+                const int length = startDt.daysTo(todo->dtDue(true /**first*/));
                 if (length >= 0) {
                     startDt.setDate(ocurrenceDueDate.addDays(-length));
                 } else {
@@ -545,7 +544,7 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
     }
 
     if (hasDueDate) {
-        QDateTime dueDt = KCalCore::k2q(todo->dtDue().toLocalZone());
+        QDateTime dueDt = todo->dtDue().toLocalTime();
         if (todo->recurs()) {
             if (ocurrenceDueDate.isValid()) {
                 QDateTime kdt(ocurrenceDueDate, QTime(0, 0, 0), Qt::LocalTime);
@@ -578,7 +577,7 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
     incidence[QStringLiteral("categories")] = todo->categories();
     incidence[QStringLiteral("priority")] = todo->priority();
     if (todo->isCompleted()) {
-        incidence[QStringLiteral("completedDate")] = todo->completed().dateTime();
+        incidence[QStringLiteral("completedDate")] = todo->completed();
     } else {
         incidence[QStringLiteral("percent")] = todo->percentComplete();
     }
@@ -596,7 +595,7 @@ static QString displayViewFormatJournal(const Calendar::Ptr &calendar, const QSt
 
     QVariantHash incidence = incidenceTemplateHeader(journal);
     incidence[QStringLiteral("calendar")] = calendar ? resourceString(calendar, journal) : sourceName;
-    incidence[QStringLiteral("date")] = journal->dtStart().toLocalZone().dateTime();
+    incidence[QStringLiteral("date")] = journal->dtStart().toLocalTime();
     incidence[QStringLiteral("description")] = displayViewFormatDescription(journal);
     incidence[QStringLiteral("categories")] = journal->categories();
     incidence[QStringLiteral("creationDate")] = journal->created().toLocalTime();
@@ -614,8 +613,8 @@ static QString displayViewFormatFreeBusy(const Calendar::Ptr &calendar, const QS
 
     QVariantHash fbData;
     fbData[QStringLiteral("organizer")] = fb->organizer()->fullName();
-    fbData[QStringLiteral("start")] = fb->dtStart().toLocalZone().date();
-    fbData[QStringLiteral("end")] = fb->dtEnd().toLocalZone().date();
+    fbData[QStringLiteral("start")] = fb->dtStart().toLocalTime().date();
+    fbData[QStringLiteral("end")] = fb->dtEnd().toLocalTime().date();
 
     Period::List periods = fb->busyPeriods();
     QVariantList periodsData;
@@ -999,8 +998,8 @@ static QString invitationDescriptionIncidence(const Incidence::Ptr &incidence, b
 
 static bool slicesInterval(const Event::Ptr &event, const QDateTime &startDt, const QDateTime &endDt)
 {
-    QDateTime closestStart = KCalCore::k2q(event->dtStart());
-    QDateTime closestEnd = KCalCore::k2q(event->dtEnd());
+    QDateTime closestStart = event->dtStart();
+    QDateTime closestEnd = event->dtEnd();
     if (event->recurs()) {
         if (!event->recurrence()->timesInInterval(startDt, endDt).isEmpty()) {
             // If there is a recurrence in this interval we know already that we slice.
@@ -1038,8 +1037,8 @@ static QVariantList eventsOnSameDays(InvitationFormatterHelper *helper, const Ev
         return QVariantList();
     }
 
-    QDateTime startDay = KCalCore::k2q(event->dtStart());
-    QDateTime endDay = event->hasEndDate() ? KCalCore::k2q(event->dtEnd()) : KCalCore::k2q(event->dtStart());
+    QDateTime startDay = event->dtStart();
+    QDateTime endDay = event->hasEndDate() ? event->dtEnd() : event->dtStart();
     startDay.setTime(QTime(0, 0, 0));
     endDay.setTime(QTime(23, 59, 59));
 
@@ -1066,7 +1065,7 @@ static QVariantList eventsOnSameDays(InvitationFormatterHelper *helper, const Ev
         ++count;
         QVariantHash ev;
         ev[QStringLiteral("summary")] = invitationSummary(*it, noHtmlMode);
-        ev[QStringLiteral("dateTime")] = IncidenceFormatter::formatStartEnd((*it)->dtStart().dateTime(), (*it)->dtEnd().dateTime(), (*it)->allDay());
+        ev[QStringLiteral("dateTime")] = IncidenceFormatter::formatStartEnd((*it)->dtStart(), (*it)->dtEnd(), (*it)->allDay());
         events.push_back(ev);
     }
     if (count == 50) {
@@ -1091,7 +1090,7 @@ static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper, co
     incidence[QStringLiteral("recurrence")] = recurrenceString(event);
     incidence[QStringLiteral("isMultiDay")] = event->isMultiDay(QTimeZone::systemTimeZone());
     incidence[QStringLiteral("isAllDay")] = event->allDay();
-    incidence[QStringLiteral("dateTime")] = IncidenceFormatter::formatStartEnd(event->dtStart().dateTime(), event->dtEnd().dateTime(), event->allDay());
+    incidence[QStringLiteral("dateTime")] = IncidenceFormatter::formatStartEnd(event->dtStart(), event->dtEnd(), event->allDay());
     incidence[QStringLiteral("duration")] = durationString(event);
     incidence[QStringLiteral("description")] = invitationDescriptionIncidence(event, noHtmlMode);
 
@@ -1153,8 +1152,8 @@ static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper, co
     incidence[QStringLiteral("recurs")] = event->recurs() || oldevent->recurs();
     incidence[QStringLiteral("recurrence")] = htmlCompare(recurrenceString(event),
                                                           recurrenceString(oldevent));
-    incidence[QStringLiteral("dateTime")] = htmlCompare(IncidenceFormatter::formatStartEnd(event->dtStart().dateTime(), event->dtEnd().dateTime(), event->allDay()),
-                                                        IncidenceFormatter::formatStartEnd(oldevent->dtStart().dateTime(), oldevent->dtEnd().dateTime(), oldevent->allDay()));
+    incidence[QStringLiteral("dateTime")] = htmlCompare(IncidenceFormatter::formatStartEnd(event->dtStart(), event->dtEnd(), event->allDay()),
+                                                        IncidenceFormatter::formatStartEnd(oldevent->dtStart(), oldevent->dtEnd(), oldevent->allDay()));
     incidence[QStringLiteral("duration")] = htmlCompare(durationString(event),
                                                         durationString(oldevent));
     incidence[QStringLiteral("description")] = invitationDescriptionIncidence(event, noHtmlMode);
@@ -1183,16 +1182,16 @@ static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo, bool noHtmlMode
     bool isMultiDay = false;
     if (todo->hasStartDate()) {
         if (todo->allDay()) {
-            incidence[QStringLiteral("dtStartStr")] = dateToString(todo->dtStart().toLocalZone().date(), true);
+            incidence[QStringLiteral("dtStartStr")] = dateToString(todo->dtStart().toLocalTime().date(), true);
         } else {
-            incidence[QStringLiteral("dtStartStr")] = dateTimeToString(todo->dtStart().dateTime(), false, true);
+            incidence[QStringLiteral("dtStartStr")] = dateTimeToString(todo->dtStart(), false, true);
         }
         isMultiDay = todo->dtStart().date() != todo->dtDue().date();
     }
     if (todo->allDay()) {
-        incidence[QStringLiteral("dtDueStr")] = dateToString(todo->dtDue().toLocalZone().date(), true);
+        incidence[QStringLiteral("dtDueStr")] = dateToString(todo->dtDue().toLocalTime().date(), true);
     } else {
-        incidence[QStringLiteral("dtDueStr")] = dateTimeToString(todo->dtDue().dateTime(), false, true);
+        incidence[QStringLiteral("dtDueStr")] = dateTimeToString(todo->dtDue(), false, true);
     }
     incidence[QStringLiteral("isMultiDay")] = isMultiDay;
     incidence[QStringLiteral("duration")] = durationString(todo);
@@ -1230,10 +1229,10 @@ static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo, const Todo::Ptr
                                                         invitationLocation(oldtodo, noHtmlMode));
     incidence[QStringLiteral("isAllDay")] = todo->allDay();
     incidence[QStringLiteral("hasStartDate")] = todo->hasStartDate();
-    incidence[QStringLiteral("dtStartStr")] = htmlCompare(dateTimeToString(todo->dtStart().dateTime(), false, false),
-                                                          dateTimeToString(oldtodo->dtStart().dateTime(), false, false));
-    incidence[QStringLiteral("dtDueStr")] = htmlCompare(dateTimeToString(todo->dtDue().dateTime(), false, false),
-                                                        dateTimeToString(oldtodo->dtDue().dateTime(), false, false));
+    incidence[QStringLiteral("dtStartStr")] = htmlCompare(dateTimeToString(todo->dtStart(), false, false),
+                                                          dateTimeToString(oldtodo->dtStart(), false, false));
+    incidence[QStringLiteral("dtDueStr")] = htmlCompare(dateTimeToString(todo->dtDue(), false, false),
+                                                        dateTimeToString(oldtodo->dtDue(), false, false));
     incidence[QStringLiteral("duration")] = htmlCompare(durationString(todo),
                                                         durationString(oldtodo));
     incidence[QStringLiteral("percentComplete")] = htmlCompare(i18n("%1%", todo->percentComplete()),
@@ -1256,7 +1255,7 @@ static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, bool n
     QVariantHash incidence;
     incidence[QStringLiteral("iconName")] = QStringLiteral("view-pim-journal");
     incidence[QStringLiteral("summary")] = invitationSummary(journal, noHtmlMode);
-    incidence[QStringLiteral("date")] = journal->dtStart().dateTime();
+    incidence[QStringLiteral("date")] = journal->dtStart();
     incidence[QStringLiteral("description")] = invitationDescriptionIncidence(journal, noHtmlMode);
 
     return incidence;
@@ -1272,8 +1271,8 @@ static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, const 
     incidence[QStringLiteral("iconName")] = QStringLiteral("view-pim-journal");
     incidence[QStringLiteral("summary")] = htmlCompare(invitationSummary(journal, noHtmlMode),
                                                        invitationSummary(oldjournal, noHtmlMode));
-    incidence[QStringLiteral("dateStr")] = htmlCompare(dateToString(journal->dtStart().toLocalZone().date(), false),
-                                                       dateToString(oldjournal->dtStart().toLocalZone().date(), false));
+    incidence[QStringLiteral("dateStr")] = htmlCompare(dateToString(journal->dtStart().toLocalTime().date(), false),
+                                                       dateToString(oldjournal->dtStart().toLocalTime().date(), false));
     incidence[QStringLiteral("description")] = invitationDescriptionIncidence(journal, noHtmlMode);
 
     return incidence;
@@ -1289,8 +1288,8 @@ static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHt
 
     QVariantHash incidence;
     incidence[QStringLiteral("organizer")] = fb->organizer()->fullName();
-    incidence[QStringLiteral("dtStart")] = fb->dtStart().dateTime();
-    incidence[QStringLiteral("dtEnd")] = fb->dtEnd().dateTime();
+    incidence[QStringLiteral("dtStart")] = fb->dtStart();
+    incidence[QStringLiteral("dtEnd")] = fb->dtEnd();
 
     QVariantList periodsList;
     const Period::List periods = fb->busyPeriods();
@@ -2469,8 +2468,8 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
     QString ret;
     QString tmp;
 
-    QDateTime startDt = KCalCore::k2q(event->dtStart().toLocalZone());
-    QDateTime endDt = KCalCore::k2q(event->dtEnd().toLocalZone());
+    QDateTime startDt = event->dtStart().toLocalTime();;
+    QDateTime endDt = event->dtEnd().toLocalTime();
     if (event->recurs()) {
         if (date.isValid()) {
             QDateTime kdt(date, QTime(0, 0, 0), Qt::LocalTime);
@@ -2521,7 +2520,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo,
     //FIXME: support mRichText==false
     QString ret;
     if (todo->hasStartDate()) {
-        QDateTime startDt = KCalCore::k2q(todo->dtStart());
+        QDateTime startDt = todo->dtStart();
         if (todo->recurs() && date.isValid()) {
             startDt.setDate(date);
         }
@@ -2530,7 +2529,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo,
     }
 
     if (todo->hasDueDate()) {
-        QDateTime dueDt = KCalCore::k2q(todo->dtDue());
+        QDateTime dueDt = todo->dtDue();
         if (todo->recurs() && date.isValid()) {
             QDateTime kdt(date, QTime(0, 0, 0), Qt::LocalTime);
             kdt = kdt.addSecs(-1);
@@ -2567,7 +2566,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Journal::Ptr &jo
     QString ret;
     if (journal->dtStart().isValid()) {
         ret += QLatin1String("<br>")
-               +i18n("<i>Date:</i> %1", dateToString(journal->dtStart().toLocalZone().date(), false));
+               +i18n("<i>Date:</i> %1", dateToString(journal->dtStart().toLocalTime().date(), false));
     }
     return ret.replace(QLatin1Char(' '), QLatin1String("&nbsp;"));
 }
@@ -2577,10 +2576,10 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const FreeBusy::Ptr &f
     //FIXME: support mRichText==false
     QString ret = QLatin1String("<br>")
                   +i18n("<i>Period start:</i> %1",
-                        QLocale().toString(fb->dtStart().dateTime(), QLocale::ShortFormat));
+                        QLocale().toString(fb->dtStart(), QLocale::ShortFormat));
     ret += QLatin1String("<br>")
            +i18n("<i>Period start:</i> %1",
-                 QLocale().toString(fb->dtEnd().dateTime(), QLocale::ShortFormat));
+                 QLocale().toString(fb->dtEnd(), QLocale::ShortFormat));
     return ret.replace(QLatin1Char(' '), QLatin1String("&nbsp;"));
 }
 
@@ -2928,15 +2927,15 @@ bool IncidenceFormatter::MailBodyVisitor::visit(const Event::Ptr &event)
     };
 
     mResult = mailBodyIncidence(event);
-    mResult += i18n("Start Date: %1\n", dateToString(event->dtStart().toLocalZone().date(), true));
+    mResult += i18n("Start Date: %1\n", dateToString(event->dtStart().toLocalTime().date(), true));
     if (!event->allDay()) {
-        mResult += i18n("Start Time: %1\n", timeToString(event->dtStart().toLocalZone().time(), true));
+        mResult += i18n("Start Time: %1\n", timeToString(event->dtStart().toLocalTime().time(), true));
     }
     if (event->dtStart() != event->dtEnd()) {
-        mResult += i18n("End Date: %1\n", dateToString(event->dtEnd().toLocalZone().date(), true));
+        mResult += i18n("End Date: %1\n", dateToString(event->dtEnd().toLocalTime().date(), true));
     }
     if (!event->allDay()) {
-        mResult += i18n("End Time: %1\n", timeToString(event->dtEnd().toLocalZone().time(), true));
+        mResult += i18n("End Time: %1\n", timeToString(event->dtEnd().toLocalTime().time(), true));
     }
     if (event->recurs()) {
         Recurrence *recur = event->recurrence();
@@ -2983,15 +2982,15 @@ bool IncidenceFormatter::MailBodyVisitor::visit(const Todo::Ptr &todo)
     mResult = mailBodyIncidence(todo);
 
     if (todo->hasStartDate() && todo->dtStart().isValid()) {
-        mResult += i18n("Start Date: %1\n", dateToString(todo->dtStart(false).toLocalZone().date(), true));
+        mResult += i18n("Start Date: %1\n", dateToString(todo->dtStart(false).toLocalTime().date(), true));
         if (!todo->allDay()) {
-            mResult += i18n("Start Time: %1\n", timeToString(todo->dtStart(false).toLocalZone().time(), true));
+            mResult += i18n("Start Time: %1\n", timeToString(todo->dtStart(false).toLocalTime().time(), true));
         }
     }
     if (todo->hasDueDate() && todo->dtDue().isValid()) {
-        mResult += i18n("Due Date: %1\n", dateToString(todo->dtDue().toLocalZone().date(), true));
+        mResult += i18n("Due Date: %1\n", dateToString(todo->dtDue().toLocalTime().date(), true));
         if (!todo->allDay()) {
-            mResult += i18n("Due Time: %1\n", timeToString(todo->dtDue().toLocalZone().time(), true));
+            mResult += i18n("Due Time: %1\n", timeToString(todo->dtDue().toLocalTime().time(), true));
         }
     }
     QString details = todo->richDescription();
@@ -3004,9 +3003,9 @@ bool IncidenceFormatter::MailBodyVisitor::visit(const Todo::Ptr &todo)
 bool IncidenceFormatter::MailBodyVisitor::visit(const Journal::Ptr &journal)
 {
     mResult = mailBodyIncidence(journal);
-    mResult += i18n("Date: %1\n", dateToString(journal->dtStart().toLocalZone().date(), true));
+    mResult += i18n("Date: %1\n", dateToString(journal->dtStart().toLocalTime().date(), true));
     if (!journal->allDay()) {
-        mResult += i18n("Time: %1\n", timeToString(journal->dtStart().toLocalZone().time(), true));
+        mResult += i18n("Time: %1\n", timeToString(journal->dtStart().toLocalTime().time(), true));
     }
     if (!journal->description().isEmpty()) {
         mResult += i18n("Text of the journal:\n%1\n", journal->richDescription());
@@ -3551,7 +3550,7 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
                                       "%1 after the start", secs2Duration(offset));
                 } else { //offset is 0
                     if (incidence->dtStart().isValid()) {
-                        atStr = QLocale().toString(incidence->dtStart().toLocalZone().dateTime(), QLocale::ShortFormat);
+                        atStr = QLocale().toString(incidence->dtStart().toLocalTime(), QLocale::ShortFormat);
                     }
                 }
             } else if (alarm->hasEndOffset()) {
@@ -3577,12 +3576,12 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
                     if (incidence->type() == Incidence::TypeTodo) {
                         Todo::Ptr t = incidence.staticCast<Todo>();
                         if (t->dtDue().isValid()) {
-                            atStr = QLocale().toString(t->dtDue().toLocalZone().dateTime(), QLocale::ShortFormat);
+                            atStr = QLocale().toString(t->dtDue().toLocalTime(), QLocale::ShortFormat);
                         }
                     } else {
                         Event::Ptr e = incidence.staticCast<Event>();
                         if (e->dtEnd().isValid()) {
-                            atStr = QLocale().toString(e->dtEnd().toLocalZone().dateTime(), QLocale::ShortFormat);
+                            atStr = QLocale().toString(e->dtEnd().toLocalTime(), QLocale::ShortFormat);
                         }
                     }
                 }
