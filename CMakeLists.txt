@@ -10,6 +10,7 @@ find_package(ECM ${KF5_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${KCalUtils_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
 
 include(ECMGenerateHeaders)
+include(GenerateExportHeader)
 include(ECMGeneratePriFile)
 include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
@@ -35,8 +36,9 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
 find_package(KF5CoreAddons ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5Config ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5I18n ${KF5_VERSION} CONFIG REQUIRED)
-find_package(KF5KDELibs4Support ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5Codecs ${KF5_VERSION} CONFIG REQUIRED)
+find_package(KF5WidgetsAddons ${KF5_VERSION} CONFIG REQUIRED)
+find_package(KF5IconThemes ${KF5_VERSION} CONFIG REQUIRED)
 find_package(Grantlee5 "5.1" CONFIG REQUIRED)
 
 find_package(KF5CalendarCore ${CALENDARCORE_LIB_VERSION} CONFIG REQUIRED)
