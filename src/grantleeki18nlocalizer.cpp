@@ -21,7 +21,6 @@
 #include "kcalutils_debug.h"
 
 #include <QLocale>
-#include <QDate>
 
 #include <grantlee/safestring.h>
 

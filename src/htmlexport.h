@@ -28,7 +28,6 @@
 #include <kcalcore/incidence.h>
 #include <kcalcore/todo.h>
 
-#include <QDateTime>
 #include <QString>
 
 namespace KCalCore {

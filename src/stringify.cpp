@@ -40,7 +40,6 @@ using namespace KCalCore;
 
 #include <KLocalizedString>
 
-#include <KSystemTimeZone>
 #include <QLocale>
 
 using namespace KCalUtils;

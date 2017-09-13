@@ -57,14 +57,12 @@ using namespace KCalCore;
 #include <KIconLoader>
 #include <KLocalizedString>
 
-#include <KSystemTimeZone>
 
-#include <QBitArray>
 #include <QApplication>
 #include <QPalette>
-#include <QTextDocument>
 #include <QLocale>
 #include <QMimeDatabase>
+#include <QBitArray>
 
 using namespace KCalUtils;
 using namespace IncidenceFormatter;

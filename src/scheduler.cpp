@@ -29,7 +29,6 @@ using namespace KCalCore;
 #include "kcalutils_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <QTimeZone>
 
 using namespace KCalUtils;
 

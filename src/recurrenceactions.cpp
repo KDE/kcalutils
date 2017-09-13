@@ -28,7 +28,6 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KConfigGroup>
 #include <KGuiItem>
 
 #include <QPointer>
