@@ -38,11 +38,6 @@ namespace VCalDrag {
 KCALUTILS_EXPORT QString mimeType();
 
 /**
-  Sets the vCalendar representation as data of the drag object
-*/
-KCALUTILS_EXPORT bool populateMimeData(QMimeData *e, const KCalCore::MemoryCalendar::Ptr &cal);
-
-/**
   Return, if drag&drop object can be decode to vCalendar.
 */
 KCALUTILS_EXPORT bool canDecode(const QMimeData *);

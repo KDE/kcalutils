@@ -35,16 +35,6 @@ QString VCalDrag::mimeType()
     return QStringLiteral("text/x-vCalendar");
 }
 
-bool VCalDrag::populateMimeData(QMimeData *e, const MemoryCalendar::Ptr &cal)
-{
-    VCalFormat format;
-    QString calstr(format.toString(cal));
-    if (e && !calstr.isEmpty()) {
-        e->setData(mimeType(), calstr.toUtf8());
-    }
-    return canDecode(e);
-}
-
 bool VCalDrag::canDecode(const QMimeData *me)
 {
     if (me) {

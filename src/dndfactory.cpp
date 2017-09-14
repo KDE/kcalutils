@@ -148,7 +148,6 @@ QMimeData *DndFactory::createMimeData()
     QMimeData *mimeData = new QMimeData;
 
     ICalDrag::populateMimeData(mimeData, d->mCalendar);
-    VCalDrag::populateMimeData(mimeData, d->mCalendar);
 
     return mimeData;
 }
@@ -172,7 +171,6 @@ QMimeData *DndFactory::createMimeData(const Incidence::Ptr &incidence)
     QMimeData *mimeData = new QMimeData;
 
     ICalDrag::populateMimeData(mimeData, cal);
-    VCalDrag::populateMimeData(mimeData, cal);
 
     QUrl uri = i->uri();
     if (uri.isValid()) {
@@ -309,7 +307,6 @@ bool DndFactory::copyIncidences(const Incidence::List &incidences)
     QMimeData *mimeData = new QMimeData;
 
     ICalDrag::populateMimeData(mimeData, calendar);
-    VCalDrag::populateMimeData(mimeData, calendar);
 
     if (calendar->incidences().isEmpty()) {
         return false;
