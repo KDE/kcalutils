@@ -38,6 +38,7 @@ find_package(KF5Config ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5I18n ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5Codecs ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5WidgetsAddons ${KF5_VERSION} CONFIG REQUIRED)
+find_package(KF5ConfigWidgets ${KF5_VERSION} CONFIG REQUIRED)
 find_package(KF5IconThemes ${KF5_VERSION} CONFIG REQUIRED)
 find_package(Grantlee5 "5.1" CONFIG REQUIRED)
 
