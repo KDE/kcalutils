@@ -155,7 +155,7 @@ static QDialog *createDialog(QDialogButtonBox::StandardButtons buttons, const QS
     QVBoxLayout *mainLayout = new QVBoxLayout();
     dialog->setLayout(mainLayout);
 
-    *buttonBox = new QDialogButtonBox(buttons);
+    *buttonBox = new QDialogButtonBox(buttons, parent);
     QPushButton *okButton = (*buttonBox)->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
