@@ -650,10 +650,9 @@ QString HtmlExport::breakString(const QString &text)
     } else {
         QString out;
         QString tmpText = text;
-        int pos = 0;
         QString tmp;
         for (int i = 0; i <= number; ++i) {
-            pos = tmpText.indexOf(QLatin1Char('\n'));
+            int pos = tmpText.indexOf(QLatin1Char('\n'));
             tmp = tmpText.left(pos);
             tmpText = tmpText.right(tmpText.length() - pos - 1);
             out += tmp + QLatin1String("<br />");
