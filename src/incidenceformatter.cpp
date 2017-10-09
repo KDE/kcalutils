@@ -98,10 +98,9 @@ static QString htmlAddTag(const QString &tag, const QString &text)
     QString tmpStr = str;
     if (numLineBreaks >= 0) {
         if (numLineBreaks > 0) {
-            int pos = 0;
             QString tmp;
             for (int i = 0; i <= numLineBreaks; ++i) {
-                pos = tmpText.indexOf(QLatin1Char('\n'));
+                int pos = tmpText.indexOf(QLatin1Char('\n'));
                 tmp = tmpText.left(pos);
                 tmpText = tmpText.right(tmpText.length() - pos - 1);
                 tmpStr += tmp + QLatin1String("<br>");
@@ -378,9 +377,7 @@ static QVariantList displayViewFormatAttachments(const Incidence::Ptr &incidence
     QVariantList dataList;
     dataList.reserve(as.count());
 
-    int count = 0;
     for (auto it = as.cbegin(), end = as.cend(); it != end; ++it) {
-        count++;
         QVariantHash attData;
         if ((*it)->isUri()) {
             QString name;
@@ -2747,7 +2744,6 @@ static QString tooltipFormatAttendees(const Calendar::Ptr &calendar, const Incid
 
 QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr &incidence, const QString &dtRangeText)
 {
-    int maxDescLen = 120; // maximum description chars to print (before elipsis)
 
     //FIXME: support mRichText==false
     if (!incidence) {
@@ -2799,6 +2795,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
     if (!incidence->description().isEmpty()) {
         QString desc(incidence->description());
         if (!incidence->descriptionIsRich()) {
+            int maxDescLen = 120; // maximum description chars to print (before elipsis)
             if (desc.length() > maxDescLen) {
                 desc = desc.left(maxDescLen) + i18nc("elipsis", "...");
             }
@@ -2837,7 +2834,6 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
     if (categoryCount > 0) {
         if (needAnHorizontalLine) {
             tmp += QLatin1String("<hr>");
-            needAnHorizontalLine = false;
         }
         tmp += QLatin1String("<br>");
         tmp += QLatin1String("<i>") + i18np("Category:", "Categories:", categoryCount) + QLatin1String("</i>") + QLatin1String("&nbsp;");
