@@ -3526,6 +3526,7 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
         Alarm::List alarms = incidence->alarms();
         Alarm::List::ConstIterator it;
         const Alarm::List::ConstIterator end(alarms.constEnd());
+        reminderStringList.reserve(alarms.count());
         for (it = alarms.constBegin(); it != end; ++it) {
             Alarm::Ptr alarm = *it;
             int offset = 0;
