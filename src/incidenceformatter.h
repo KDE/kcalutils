@@ -89,8 +89,7 @@ KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalCore::I
   @param date is the QDate for which the string representation should be computed;
   used mainly for recurring incidences.
 */
-KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalCore::Calendar::Ptr &calendar, const KCalCore::IncidenceBase::Ptr &incidence,
-                                             QDate date = QDate());
+KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalCore::Calendar::Ptr &calendar, const KCalCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
 
 /**
   Create a RichText QString representation of an Incidence in a nice format

@@ -49,6 +49,7 @@ void initLocale()
     setenv("LC_ALL", "en_US.utf-8", 1);
     setenv("TZ", "UTC", 1);
 }
+
 Q_CONSTRUCTOR_FUNCTION(initLocale)
 #endif
 using namespace KCalCore;
@@ -258,9 +259,9 @@ void IncidenceFormatterTest::testErrorTemplate()
     GrantleeTemplateManager::instance()->setTemplatePath(QStringLiteral(TEST_TEMPLATE_PATH));
 
     const QString expected = QStringLiteral(
-                                 "<h1>Template parsing error</h1>\n"
-                                 "<b>Template:</b> broken-template.html<br>\n"
-                                 "<b>Error message:</b> Unclosed tag in template broken-template.html. Expected one of: (elif else endif), line 2, broken-template.html");
+        "<h1>Template parsing error</h1>\n"
+        "<b>Template:</b> broken-template.html<br>\n"
+        "<b>Error message:</b> Unclosed tag in template broken-template.html. Expected one of: (elif else endif), line 2, broken-template.html");
 
     QCOMPARE(html, expected);
 }

@@ -56,7 +56,6 @@ using namespace KCalCore;
 #include <KIconLoader>
 #include <KLocalizedString>
 
-
 #include <QApplication>
 #include <QPalette>
 #include <QLocale>
@@ -2106,8 +2105,7 @@ Calendar::Ptr InvitationFormatterHelper::calendar() const
     return Calendar::Ptr();
 }
 
-static QString formatICalInvitationHelper(const QString &invitation, const MemoryCalendar::Ptr &mCalendar, InvitationFormatterHelper *helper, bool noHtmlMode,
-                                          const QString &sender)
+static QString formatICalInvitationHelper(const QString &invitation, const MemoryCalendar::Ptr &mCalendar, InvitationFormatterHelper *helper, bool noHtmlMode, const QString &sender)
 {
     if (invitation.isEmpty()) {
         return QString();
@@ -2465,7 +2463,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
     QString ret;
     QString tmp;
 
-    QDateTime startDt = event->dtStart().toLocalTime();;
+    QDateTime startDt = event->dtStart().toLocalTime();
     QDateTime endDt = event->dtEnd().toLocalTime();
     if (event->recurs()) {
         if (date.isValid()) {
@@ -2744,7 +2742,6 @@ static QString tooltipFormatAttendees(const Calendar::Ptr &calendar, const Incid
 
 QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr &incidence, const QString &dtRangeText)
 {
-
     //FIXME: support mRichText==false
     if (!incidence) {
         return QString();

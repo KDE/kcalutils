@@ -22,7 +22,6 @@
 
 #include <grantlee/safestring.h>
 
-
 KDateFilter::KDateFilter()
     : Grantlee::Filter()
 {

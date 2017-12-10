@@ -58,7 +58,6 @@ private Q_SLOTS:
 
     void testFormatIcalInvitation_data();
     void testFormatIcalInvitation();
-
 };
 
 #endif

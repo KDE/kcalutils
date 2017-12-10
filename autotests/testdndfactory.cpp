@@ -36,7 +36,6 @@ using namespace KCalUtils;
 
 void DndFactoryTest::testPasteAllDayEvent()
 {
-
     MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
     DndFactory factory(calendar);
@@ -76,7 +75,6 @@ void DndFactoryTest::testPasteAllDayEvent()
 
 void DndFactoryTest::testPasteAllDayEvent2()
 {
-
     MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
     DndFactory factory(calendar);
@@ -157,5 +155,4 @@ void DndFactoryTest::testPasteTodo()
 
     QCOMPARE(newDateTime, pastedTodo->dtDue());
     QCOMPARE(todo->summary(), pastedTodo->summary());
-
 }

@@ -91,7 +91,6 @@ public:
                 const int durationInSeconds = event->dtStart().secsTo(event->dtEnd());
                 const int durationInDays = event->dtStart().daysTo(event->dtEnd());
 
-
                 if (incidence->allDay()) {
                     event->setDtStart(QDateTime(newDateTime.date(), {}));
                     event->setDtEnd(newDateTime.addDays(durationInDays));
