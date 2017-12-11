@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-set(PIM_VERSION "5.7.40")
+set(PIM_VERSION "5.7.41")
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
@@ -21,7 +21,6 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(ECMQtDeclareLoggingCategory)
 include(ECMCoverageOption)
 include(KPIMGrantleeMacros)
-
 
 set(CALENDARUTILS_LIB_VERSION ${PIM_VERSION})
 set(CALENDARCORE_LIB_VERSION "5.7.40")
@@ -51,15 +50,14 @@ add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 if(BUILD_TESTING)
-   add_definitions(-DBUILD_TESTING)
-endif(BUILD_TESTING)
-
+  add_definitions(-DBUILD_TESTING)
+endif()
 
 ########### Targets ###########
 add_subdirectory(src)
 
 if(BUILD_TESTING)
-    add_subdirectory(autotests)
+  add_subdirectory(autotests)
 endif()
 
 ########### CMake Config Files ###########
@@ -79,15 +77,15 @@ install(FILES
 )
 
 install(EXPORT KF5CalendarUtilsTargets
-    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-    FILE KF5CalendarUtilsTargets.cmake
-    NAMESPACE KF5::
+  DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+  FILE KF5CalendarUtilsTargets.cmake
+  NAMESPACE KF5::
 )
 
 install(FILES
-   ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h
-   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}
-   COMPONENT Devel
+  ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}
+  COMPONENT Devel
 )
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

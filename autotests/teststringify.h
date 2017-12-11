@@ -31,6 +31,7 @@ private Q_SLOTS:
     void testIncidenceStrings();
     void testAttendeeStrings();
     void testDateTimeStrings();
+    void testUTCoffsetStrings();
 };
 
 #endif

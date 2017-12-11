@@ -5,6 +5,7 @@
   Copyright (c) 2004 Reinhold Kainhofer <reinhold@kainhofer.com>
   Copyright (c) 2005 Rafal Rzepecki <divide@users.sourceforge.net>
   Copyright (c) 2009-2010 Klarälvdalens Datakonsult AB, a KDAB Group company <info@kdab.net>
+  Copyright (c) 2017 Allen Winter <winter@kde.org>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -35,7 +36,7 @@
 */
 #include "stringify.h"
 
-#include <kcalcore/exceptions.h>
+#include <KCalCore/Exceptions>
 using namespace KCalCore;
 
 #include <KLocalizedString>
@@ -83,7 +84,9 @@ QString Stringify::incidenceSecrecy(Incidence::Secrecy secrecy)
 QStringList Stringify::incidenceSecrecyList()
 {
     const QStringList list {
-        incidenceSecrecy(Incidence::SecrecyPublic), incidenceSecrecy(Incidence::SecrecyPrivate), incidenceSecrecy(Incidence::SecrecyConfidential)
+        incidenceSecrecy(Incidence::SecrecyPublic),
+        incidenceSecrecy(Incidence::SecrecyPrivate),
+        incidenceSecrecy(Incidence::SecrecyConfidential)
     };
 
     return list;
@@ -268,5 +271,22 @@ QString Stringify::scheduleMessageStatus(ScheduleMessage::Status status)
                      "Updated Scheduling Message Request");
     default:
         return i18nc("@item unknown status", "Unknown Status: %1", int(status));
+    }
+}
+
+QString Stringify::tzUTCOffsetStr(const QTimeZone &tz)
+{
+    int currentOffset = tz.offsetFromUtc(QDateTime::currentDateTimeUtc());
+    int absOffset = qAbs(currentOffset);
+    int utcOffsetHrs = absOffset / 3600;  // in hours
+    int utcOffsetMins = (absOffset % 3600) / 60;    // in minutes
+
+    const QString hrStr = QStringLiteral("%1").arg(utcOffsetHrs, 2, 10, QLatin1Char('0'));
+    const QString mnStr = QStringLiteral("%1").arg(utcOffsetMins, 2, 10, QLatin1Char('0'));
+
+    if (currentOffset < 0) {
+        return QStringLiteral("-%1:%2").arg(hrStr, mnStr);
+    } else {
+        return QStringLiteral("+%1:%2").arg(hrStr, mnStr);
     }
 }

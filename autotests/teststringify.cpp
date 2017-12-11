@@ -81,3 +81,30 @@ void StringifyTest::testDateTimeStrings()
 {
     //TODO
 }
+
+void StringifyTest::testUTCoffsetStrings()
+{
+    QTimeZone tz1(5 * 60 * 60); //5 hrs
+    QCOMPARE(Stringify::tzUTCOffsetStr(tz1), QStringLiteral("+05:00"));
+
+    QTimeZone tz2(-5 * 60 * 60); //-5 hrs
+    QCOMPARE(Stringify::tzUTCOffsetStr(tz2), QStringLiteral("-05:00"));
+
+    QTimeZone tz3(0);
+    QCOMPARE(Stringify::tzUTCOffsetStr(tz3), QStringLiteral("+00:00"));
+
+    QTimeZone tz4(30 * 60 * 60); //30 hrs -- out-of-range
+    QCOMPARE(Stringify::tzUTCOffsetStr(tz4), QStringLiteral("+00:00"));
+
+    QTimeZone tz5((5 * 60 * 60) + (30 * 60)); //5:30
+    QCOMPARE(Stringify::tzUTCOffsetStr(tz5), QStringLiteral("+05:30"));
+
+    QTimeZone tz6(-((11 * 60 * 60) + (59 * 60))); //-11:59
+    QCOMPARE(Stringify::tzUTCOffsetStr(tz6), QStringLiteral("-11:59"));
+
+    QTimeZone tz7(12 * 60 * 60); //12:00
+    QCOMPARE(Stringify::tzUTCOffsetStr(tz7), QStringLiteral("+12:00"));
+
+    QTimeZone tz8(-((12 * 60 * 60) + (59 * 60))); //-12:59
+    QCOMPARE(Stringify::tzUTCOffsetStr(tz8), QStringLiteral("-12:59"));
+}

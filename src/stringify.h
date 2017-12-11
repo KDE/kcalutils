@@ -34,8 +34,10 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalcore/schedulemessage.h>
-#include <kcalcore/todo.h>
+#include <KCalCore/ScheduleMessage>
+#include <KCalCore/Todo>
+
+#include <QTimeZone>
 
 namespace KCalCore {
 class Exception;
@@ -74,6 +76,13 @@ KCALUTILS_EXPORT QString todoCompletedDateTime(const KCalCore::Todo::Ptr &todo, 
 
 KCALUTILS_EXPORT QString attendeeRole(KCalCore::Attendee::Role role);
 KCALUTILS_EXPORT QString attendeeStatus(KCalCore::Attendee::PartStat status);
+
+/**
+  Returns a string containing the UTC offset of the specified QTimeZone @p tz (relative to the current date).
+  The format is [+-]HH::MM, according to standards.
+  @since 5.8
+*/
+KCALUTILS_EXPORT QString tzUTCOffsetStr(const QTimeZone &tz);
 
 /**
    Build a translated message representing an exception
