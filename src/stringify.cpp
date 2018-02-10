@@ -76,9 +76,8 @@ QString Stringify::incidenceSecrecy(Incidence::Secrecy secrecy)
         return i18nc("@item incidence access is by owner only", "Private");
     case Incidence::SecrecyConfidential:
         return i18nc("@item incidence access is by owner and a controlled group", "Confidential");
-    default: // to make compiler happy
-        return QString();
     }
+    return QString();
 }
 
 QStringList Stringify::incidenceSecrecyList()
@@ -113,9 +112,9 @@ QString Stringify::incidenceStatus(Incidence::Status status)
         return i18nc("@item journal is in final form", "Final");
     case Incidence::StatusX:
     case Incidence::StatusNone:
-    default:
         return QString();
     }
+    return QString();
 }
 
 QString Stringify::incidenceStatus(const Incidence::Ptr &incidence)
@@ -132,49 +131,37 @@ QString Stringify::attendeeRole(Attendee::Role role)
     switch (role) {
     case Attendee::Chair:
         return i18nc("@item chairperson", "Chair");
-        break;
-    default:
     case Attendee::ReqParticipant:
         return i18nc("@item participation is required", "Participant");
-        break;
     case Attendee::OptParticipant:
         return i18nc("@item participation is optional", "Optional Participant");
-        break;
     case Attendee::NonParticipant:
         return i18nc("@item non-participant copied for information", "Observer");
-        break;
     }
+    return {};
 }
 
 QString Stringify::attendeeStatus(Attendee::PartStat status)
 {
     switch (status) {
-    default:
     case Attendee::NeedsAction:
         return i18nc("@item event, to-do or journal needs action", "Needs Action");
-        break;
     case Attendee::Accepted:
         return i18nc("@item event, to-do or journal accepted", "Accepted");
-        break;
     case Attendee::Declined:
         return i18nc("@item event, to-do or journal declined", "Declined");
-        break;
     case Attendee::Tentative:
         return i18nc("@item event or to-do tentatively accepted", "Tentative");
-        break;
     case Attendee::Delegated:
         return i18nc("@item event or to-do delegated", "Delegated");
-        break;
     case Attendee::Completed:
         return i18nc("@item to-do completed", "Completed");
-        break;
     case Attendee::InProcess:
         return i18nc("@item to-do in process of being completed", "In Process");
-        break;
     case Attendee::None:
         return i18nc("@item event or to-do status unknown", "Unknown");
-        break;
     }
+    return {};
 }
 
 QString Stringify::errorMessage(const Exception &exception)

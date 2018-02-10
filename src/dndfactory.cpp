@@ -88,8 +88,8 @@ public:
                 }
 
                 // in seconds
-                const int durationInSeconds = event->dtStart().secsTo(event->dtEnd());
-                const int durationInDays = event->dtStart().daysTo(event->dtEnd());
+                const qint64 durationInSeconds = event->dtStart().secsTo(event->dtEnd());
+                const qint64 durationInDays = event->dtStart().daysTo(event->dtEnd());
 
                 if (incidence->allDay()) {
                     event->setDtStart(QDateTime(newDateTime.date(), {}));
