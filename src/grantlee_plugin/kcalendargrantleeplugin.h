@@ -30,7 +30,7 @@ class KCalendarGrantleePlugin : public QObject, public Grantlee::TagLibraryInter
 
 public:
     explicit KCalendarGrantleePlugin(QObject *parent = nullptr);
-    ~KCalendarGrantleePlugin();
+    ~KCalendarGrantleePlugin() override;
 
     QHash<QString, Grantlee::Filter *> filters(const QString &name) override;
     QHash<QString, Grantlee::AbstractNodeFactory *> nodeFactories(const QString &name) override;

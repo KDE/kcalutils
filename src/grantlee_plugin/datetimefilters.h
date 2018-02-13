@@ -25,8 +25,8 @@
 class KDateFilter : public Grantlee::Filter
 {
 public:
-    explicit KDateFilter();
-    ~KDateFilter();
+    KDateFilter();
+    ~KDateFilter() override;
 
     QVariant doFilter(const QVariant &input, const QVariant &argument = QVariant(), bool autoescape = false) const override;
     bool isSafe() const override;
@@ -37,8 +37,8 @@ private:
 class KTimeFilter : public Grantlee::Filter
 {
 public:
-    explicit KTimeFilter();
-    ~KTimeFilter();
+    KTimeFilter();
+    ~KTimeFilter() override;
 
     QVariant doFilter(const QVariant &input, const QVariant &argument = QVariant(), bool autoescape = false) const override;
     bool isSafe() const override;
@@ -49,8 +49,8 @@ private:
 class KDateTimeFilter : public Grantlee::Filter
 {
 public:
-    explicit KDateTimeFilter();
-    ~KDateTimeFilter();
+    KDateTimeFilter();
+    ~KDateTimeFilter() override;
 
     QVariant doFilter(const QVariant &input, const QVariant &argument = QVariant(), bool autoescape = false) const override;
     bool isSafe() const override;
