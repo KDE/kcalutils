@@ -88,4 +88,6 @@ install(FILES
   COMPONENT Devel
 )
 
+install( FILES kcalutils.renamecategories kcalutils.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
+
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
