@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-set(PIM_VERSION "5.7.41")
+set(PIM_VERSION "5.7.80")
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
