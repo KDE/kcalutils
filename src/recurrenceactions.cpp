@@ -33,6 +33,8 @@
 #include <QPointer>
 #include <QDialog>
 #include <QDialogButtonBox>
+#include <QStyle>
+#include <QStyleOptionFrame>
 #include <QPushButton>
 #include <QVBoxLayout>
 
