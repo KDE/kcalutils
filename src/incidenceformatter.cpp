@@ -666,7 +666,7 @@ public:
     {
     }
 
-    ~EventViewerVisitor();
+    ~EventViewerVisitor() override;
 
     bool act(const Calendar::Ptr &calendar, const IncidenceBase::Ptr &incidence, QDate date)
     {
