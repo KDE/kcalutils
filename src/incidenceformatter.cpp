@@ -226,22 +226,16 @@ static QString rsvpStatusIconName(Attendee::PartStat status)
     switch (status) {
     case Attendee::Accepted:
         return QStringLiteral("dialog-ok-apply");
-        break;
     case Attendee::Declined:
         return QStringLiteral("dialog-cancel");
-        break;
     case Attendee::NeedsAction:
         return QStringLiteral("help-about");
-        break;
     case Attendee::InProcess:
         return QStringLiteral("help-about");
-        break;
     case Attendee::Tentative:
         return QStringLiteral("dialog-ok");
-        break;
     case Attendee::Delegated:
         return QStringLiteral("mail-forward");
-        break;
     case Attendee::Completed:
         return QStringLiteral("mail-mark-read");
     default:
@@ -524,7 +518,7 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
         if (todo->recurs() && ocurrenceDueDate.isValid()) {
             if (hasDueDate) {
                 // In kdepim all recuring to-dos have due date.
-                const int length = startDt.daysTo(todo->dtDue(true /**first*/));
+                const qint64 length = startDt.daysTo(todo->dtDue(true /**first*/));
                 if (length >= 0) {
                     startDt.setDate(ocurrenceDueDate.addDays(-length));
                 } else {
@@ -2468,7 +2462,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
     if (event->recurs()) {
         if (date.isValid()) {
             QDateTime kdt(date, QTime(0, 0, 0), Qt::LocalTime);
-            int diffDays = startDt.daysTo(kdt);
+            qint64 diffDays = startDt.daysTo(kdt);
             kdt = kdt.addSecs(-1);
             startDt.setDate(event->recurrence()->getNextDateTime(kdt).date());
             if (event->hasEndDate()) {

@@ -178,7 +178,7 @@ int RecurrenceActions::questionMultipleChoice(const QDateTime &selectedOccurrenc
                                               QWidget *parent)
 {
     QDialogButtonBox::StandardButtons buttons = QDialogButtonBox::Ok | QDialogButtonBox::Cancel;
-    ScopeWidget *widget = new ScopeWidget(availableChoices, selectedOccurrence, 0);
+    ScopeWidget *widget = new ScopeWidget(availableChoices, selectedOccurrence, nullptr);
     QDialogButtonBox *buttonBox = nullptr;
     auto dialog = createDialog(buttons, caption, widget, &buttonBox, parent);
 
@@ -236,8 +236,6 @@ int RecurrenceActions::questionSelectedAllCancel(const QString &message, const Q
     default:
         return NoOccurrence;
     }
-
-    return NoOccurrence;
 }
 
 int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message, const QString &caption, const KGuiItem &actionSelected, const KGuiItem &actionFuture, const KGuiItem &actionAll,
