@@ -440,14 +440,19 @@ static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QStri
     QVariantHash incidence = incidenceTemplateHeader(event);
 
     incidence[QStringLiteral("calendar")] = calendar ? resourceString(calendar, event) : sourceName;
-    incidence[QStringLiteral("location")] = event->richLocation();
+    const QString richLocation = event->richLocation();
+    if (richLocation.startsWith(QLatin1String("http:/")) || richLocation.startsWith(QLatin1String("https:/"))) {
+        incidence[QStringLiteral("location")] = QStringLiteral("<a href=\"%1\">%1</a>").arg(richLocation);
+    } else {
+        incidence[QStringLiteral("location")] = richLocation;
+    }
 
     QDateTime startDt = event->dtStart().toLocalTime();
     QDateTime endDt = event->dtEnd().toLocalTime();
     if (event->recurs()) {
         if (date.isValid()) {
             QDateTime kdt(date, QTime(0, 0, 0), Qt::LocalTime);
-            int diffDays = startDt.daysTo(kdt);
+            qint64 diffDays = startDt.daysTo(kdt);
             kdt = kdt.addSecs(-1);
             startDt.setDate(event->recurrence()->getNextDateTime(kdt).date());
             if (event->hasEndDate()) {
@@ -3363,24 +3368,16 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         case Recurrence::rHourly:
             exStr << QLocale().toString((*il).time(), QLocale::ShortFormat);
             break;
-        case Recurrence::rDaily:
-            exStr << QLocale().toString((*il).date(), QLocale::ShortFormat);
-            break;
         case Recurrence::rWeekly:
             exStr << QLocale().dayName((*il).date().dayOfWeek(), QLocale::ShortFormat);
-            break;
-        case Recurrence::rMonthlyPos:
-            exStr << QLocale().toString((*il).date(), QLocale::ShortFormat);
-            break;
-        case Recurrence::rMonthlyDay:
-            exStr << QLocale().toString((*il).date(), QLocale::ShortFormat);
             break;
         case Recurrence::rYearlyMonth:
             exStr << QLocale().monthName((*il).date().month(), QLocale::LongFormat);
             break;
+        case Recurrence::rDaily:
+        case Recurrence::rMonthlyPos:
+        case Recurrence::rMonthlyDay:
         case Recurrence::rYearlyDay:
-            exStr << QLocale().toString((*il).date(), QLocale::ShortFormat);
-            break;
         case Recurrence::rYearlyPos:
             exStr << QLocale().toString((*il).date(), QLocale::ShortFormat);
             break;
@@ -3453,22 +3450,22 @@ QString IncidenceFormatter::resourceString(const Calendar::Ptr &calendar, const 
     return QString();
 }
 
-static QString secs2Duration(int secs)
+static QString secs2Duration(qint64 secs)
 {
     QString tmp;
-    int days = secs / 86400;
+    qint64 days = secs / 86400;
     if (days > 0) {
         tmp += i18np("1 day", "%1 days", days);
         tmp += QLatin1Char(' ');
         secs -= (days * 86400);
     }
-    int hours = secs / 3600;
+    qint64 hours = secs / 3600;
     if (hours > 0) {
         tmp += i18np("1 hour", "%1 hours", hours);
         tmp += QLatin1Char(' ');
         secs -= (hours * 3600);
     }
-    int mins = secs / 60;
+    qint64 mins = secs / 60;
     if (mins > 0) {
         tmp += i18np("1 minute", "%1 minutes", mins);
     }
