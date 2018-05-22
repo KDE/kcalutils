@@ -3,7 +3,8 @@
 {% endif %}
 
 {% if attendee.uid %}
-    <a href="uid:{{ attendee.uid }}">
+    <!--<a href="uid:{{ attendee.uid }}"> -->
+    <a href="mailto:{{ attendee.email }}">
     {% if attendee.name %}
         {{ attendee.name }}
     {% else %}
