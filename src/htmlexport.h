@@ -54,12 +54,12 @@ public:
     /**
       Writes out the calendar in HTML format.
     */
-    bool save(const QString &fileName = QString());
+    Q_REQUIRED_RESULT bool save(const QString &fileName = QString());
 
     /**
       Writes out calendar to text stream.
     */
-    bool save(QTextStream *ts);
+    Q_REQUIRED_RESULT bool save(QTextStream *ts);
 
     void addHoliday(QDate date, const QString &name);
 

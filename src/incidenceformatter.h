@@ -46,9 +46,9 @@ class KCALUTILS_EXPORT InvitationFormatterHelper
 public:
     InvitationFormatterHelper();
     virtual ~InvitationFormatterHelper();
-    virtual QString generateLinkURL(const QString &id);
-    virtual QString makeLink(const QString &id, const QString &text);
-    virtual KCalCore::Calendar::Ptr calendar() const;
+    Q_REQUIRED_RESULT virtual QString generateLinkURL(const QString &id);
+    Q_REQUIRED_RESULT virtual QString makeLink(const QString &id, const QString &text);
+    Q_REQUIRED_RESULT virtual KCalCore::Calendar::Ptr calendar() const;
 
 private:
     //@cond PRIVATE

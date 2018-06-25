@@ -45,7 +45,7 @@ public:
     void setTemplatePath(const QString &path);
     void setPluginPath(const QString &path);
 
-    QString render(const QString &templateName, const QVariantHash &data) const;
+    Q_REQUIRED_RESULT QString render(const QString &templateName, const QVariantHash &data) const;
 
 private:
     Q_DISABLE_COPY(GrantleeTemplateManager)

@@ -36,22 +36,22 @@ namespace ICalDrag {
 /**
   Mime-type of iCalendar
 */
-KCALUTILS_EXPORT QString mimeType();
+Q_REQUIRED_RESULT KCALUTILS_EXPORT QString mimeType();
 
 /**
   Sets the iCalendar representation as data of the drag object
 */
-KCALUTILS_EXPORT bool populateMimeData(QMimeData *e, const KCalCore::MemoryCalendar::Ptr &cal);
+Q_REQUIRED_RESULT KCALUTILS_EXPORT bool populateMimeData(QMimeData *e, const KCalCore::MemoryCalendar::Ptr &cal);
 
 /**
   Return, if drag&drop object can be decode to iCalendar.
 */
-KCALUTILS_EXPORT bool canDecode(const QMimeData *);
+Q_REQUIRED_RESULT KCALUTILS_EXPORT bool canDecode(const QMimeData *);
 
 /**
   Decode drag&drop object to iCalendar component \a cal.
 */
-KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalCore::MemoryCalendar::Ptr &cal);
+Q_REQUIRED_RESULT KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalCore::MemoryCalendar::Ptr &cal);
 }
 }
 

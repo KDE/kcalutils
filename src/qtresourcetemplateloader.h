@@ -27,8 +27,8 @@ class QtResourceTemplateLoader : public Grantlee::FileSystemTemplateLoader
 public:
     QtResourceTemplateLoader(const QSharedPointer<Grantlee::AbstractLocalizer> &localizer = QSharedPointer<Grantlee::AbstractLocalizer>());
 
-    Grantlee::Template loadByName(const QString &fileName, const Grantlee::Engine *engine) const override;
-    bool canLoadTemplate(const QString &name) const override;
+    Q_REQUIRED_RESULT Grantlee::Template loadByName(const QString &fileName, const Grantlee::Engine *engine) const override;
+    Q_REQUIRED_RESULT bool canLoadTemplate(const QString &name) const override;
 };
 }
 #endif // QTRESOURCETEMPLATELOADER_H

@@ -87,7 +87,7 @@ enum Scope {
 
   @return the #Scope to which actions on the given @incidence can be applied to
 */
-KCALUTILS_EXPORT
+Q_REQUIRED_RESULT KCALUTILS_EXPORT
 int availableOccurrences(const KCalCore::Incidence::Ptr &incidence, const QDateTime &selectedOccurrence);
 
 /**
@@ -108,7 +108,7 @@ int availableOccurrences(const KCalCore::Incidence::Ptr &incidence, const QDateT
 
   @return the chosen #Scope options, OR'ed together
 */
-KCALUTILS_EXPORT int questionMultipleChoice(const QDateTime &selectedOccurrence, const QString &message, const QString &caption, const KGuiItem &action, int availableChoices, int preselectedChoices,
+Q_REQUIRED_RESULT KCALUTILS_EXPORT int questionMultipleChoice(const QDateTime &selectedOccurrence, const QString &message, const QString &caption, const KGuiItem &action, int availableChoices, int preselectedChoices,
                                             QWidget *parent);
 
 /**
@@ -126,7 +126,7 @@ KCALUTILS_EXPORT int questionMultipleChoice(const QDateTime &selectedOccurrence,
 
   @param #NoOccurrence on cancel, #SelectedOccurrence or #AllOccurrences on the respective action.
 */
-KCALUTILS_EXPORT
+Q_REQUIRED_RESULT KCALUTILS_EXPORT
 int questionSelectedAllCancel(const QString &message, const QString &caption, const KGuiItem &actionSelected, const KGuiItem &actionAll, QWidget *parent);
 
 /**
@@ -153,7 +153,7 @@ int questionSelectedAllCancel(const QString &message, const QString &caption, co
   @param #NoOccurrence on cancel, #SelectedOccurrence, #FutureOccurrences or #AllOccurrences
   on the respective action.
 */
-KCALUTILS_EXPORT
+Q_REQUIRED_RESULT KCALUTILS_EXPORT
 int questionSelectedFutureAllCancel(const QString &message, const QString &caption, const KGuiItem &actionSelected, const KGuiItem &actionFuture, const KGuiItem &actionAll, QWidget *parent);
 }
 }
