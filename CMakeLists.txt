@@ -23,8 +23,8 @@ include(ECMCoverageOption)
 include(KPIMGrantleeMacros)
 
 set(CALENDARUTILS_LIB_VERSION ${PIM_VERSION})
-set(CALENDARCORE_LIB_VERSION "5.9.0")
-set(IDENTITYMANAGER_LIB_VERSION "5.9.0")
+set(CALENDARCORE_LIB_VERSION "5.9.1")
+set(IDENTITYMANAGER_LIB_VERSION "5.9.1")
 ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfigVersion.cmake"
