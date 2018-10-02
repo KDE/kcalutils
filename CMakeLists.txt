@@ -19,7 +19,7 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(ECMQtDeclareLoggingCategory)
-include(ECMCoverageOption)
+
 include(KPIMGrantleeMacros)
 
 set(CALENDARUTILS_LIB_VERSION ${PIM_VERSION})
