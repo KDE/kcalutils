@@ -12,7 +12,7 @@ set(CMAKE_MODULE_PATH ${KCalUtils_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
 include(ECMGenerateHeaders)
 include(GenerateExportHeader)
 include(ECMGeneratePriFile)
-include(CMakePackageConfigHelpers)
+
 include(ECMSetupVersion)
 include(FeatureSummary)
 include(KDEInstallDirs)
