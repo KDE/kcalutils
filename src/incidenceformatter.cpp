@@ -522,7 +522,7 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
         QDateTime startDt = todo->dtStart(true /**first*/).toLocalTime();
         if (todo->recurs() && ocurrenceDueDate.isValid()) {
             if (hasDueDate) {
-                // In kdepim all recuring to-dos have due date.
+                // In kdepim all recurring to-dos have due date.
                 const qint64 length = startDt.daysTo(todo->dtDue(true /**first*/));
                 if (length >= 0) {
                     startDt.setDate(ocurrenceDueDate.addDays(-length));
@@ -2021,7 +2021,7 @@ static QVariantList responseButtons(const Incidence::Ptr &incidence, bool rsvpRe
     if (!rsvpRec || (incidence && incidence->revision() > 0)) {
         // Delegate
         buttons << inviteButton(QStringLiteral("delegate"),
-                                i18nc("delegate inviation to another", "Delegate ..."),
+                                i18nc("delegate invitation to another", "Delegate ..."),
                                 QStringLiteral("mail-forward"), helper);
     }
     return buttons;

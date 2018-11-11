@@ -74,7 +74,7 @@ QString GrantleeKi18nLocalizer::processArguments(const KLocalizedString &kstr, c
         }
     }
 
-    // Return localized in the currenctly active locale
+    // Return localized in the currently active locale
     return str.toString("libkcalutils5");
 }
 

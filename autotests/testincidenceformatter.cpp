@@ -189,7 +189,7 @@ bool IncidenceFormatterTest::validateHtml(const QString &name, const QString &_h
     outFile.write(html.toUtf8());
     outFile.close();
 
-    // validate xml and pretty-print for comparisson
+    // validate xml and pretty-print for comparison
     // TODO add proper cmake check for xmllint and diff
     const QStringList args = {
         QStringLiteral("--format"),

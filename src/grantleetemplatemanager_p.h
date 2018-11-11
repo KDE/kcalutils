@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef GRANTLEETEMPLATEMANAGER_H_P
-#define GRANTLEETEMPLATEMANAGER_H_P
+#ifndef GRANTLEETEMPLATEMANAGER_P_H
+#define GRANTLEETEMPLATEMANAGER_P_H
 
 #include <QSharedPointer>
 #include <QVariantHash>
@@ -61,4 +61,4 @@ private:
     static GrantleeTemplateManager *sInstance;
 };
 
-#endif // TEMPLATEMANAGER_H_P
+#endif // GRANTLEETEMPLATEMANAGER_P_H

@@ -17,7 +17,7 @@
  *
  */
 
-#include "config-kcalutils.h"
+#include <config-kcalutils.h>
 
 #include "grantleetemplatemanager_p.h"
 #include "grantleeki18nlocalizer_p.h"

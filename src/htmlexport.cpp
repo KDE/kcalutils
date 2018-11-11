@@ -263,7 +263,7 @@ void HtmlExport::createEventList(QTextStream *ts)
     *ts << "    <th>" << i18nc("@title:column event description",
                                "Event") << "</th>" << endl;
     if (d->mSettings->eventLocation()) {
-        *ts << "    <th>" << i18nc("@title:column event locatin",
+        *ts << "    <th>" << i18nc("@title:column event location",
                                    "Location") << "</th>" << endl;
         ++columns;
     }

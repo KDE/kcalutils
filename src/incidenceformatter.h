@@ -115,7 +115,7 @@ KCALUTILS_EXPORT QString mailBodyStr(const KCalCore::IncidenceBase::Ptr &inciden
   Use the time zone from mCalendar.
 
   @param invitation a QString containing a string representation of a calendar Incidence
-  which will be intrepreted as an invitation.
+  which will be interpreted as an invitation.
   @param calendar is a pointer to the Calendar that owns the invitation.
   @param helper is a pointer to an InvitationFormatterHelper.
 
@@ -131,7 +131,7 @@ KCALUTILS_EXPORT QString formatICalInvitation(
   Use the time zone from calendar.
 
   @param invitation a QString containing a string representation of a calendar Incidence
-  which will be intrepreted as an invitation.
+  which will be interpreted as an invitation.
   @param calendar is a pointer to the Calendar that owns the invitation.
   @param helper is a pointer to an InvitationFormatterHelper.
   @param sender is a QString containing the email address of the person sending the invitation.

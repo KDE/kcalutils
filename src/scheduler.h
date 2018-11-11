@@ -66,11 +66,11 @@ public:
 
     /**
       Performs iTIP transaction on incidence to specified recipient(s).
-      The method is specified as the method argumanet and can be any valid iTIP method.
+      The method is specified as the method argument and can be any valid iTIP method.
 
       @param incidence the incidence for the transaction.
       @param method the iTIP transaction method to use.
-      @param recipients the receipients of the transaction.
+      @param recipients the recipients of the transaction.
     */
     virtual bool performTransaction(const KCalCore::IncidenceBase::Ptr &incidence, KCalCore::iTIPMethod method, const QString &recipients) = 0;
 
