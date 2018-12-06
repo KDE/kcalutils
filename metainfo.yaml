@@ -3,7 +3,11 @@ description: The KDE calendar utility library
 tier: 3
 type: functional
 platforms:
-    - name: All
+    - name: Linux
+    - name: FreeBSD
+    - name: Windows
+    - name: MacOSX
+    - name: Android
 portingAid: false
 deprecated: false
 release: false
@@ -14,5 +18,3 @@ libraries:
 
 public_lib: true
 group: kdepim
-platforms:
-    - name: Linux
