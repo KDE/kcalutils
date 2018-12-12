@@ -27,7 +27,7 @@
     <entry type="String" key="Credit URL">
       <label>Creator URL</label>
       <tooltip>URL of the creator application of the calendar.</tooltip>
-      <whatsthis>Enter the URL of the creator application of the calendar, for example http://userbase.kde.org/KOrganizer</whatsthis>
+      <whatsthis>Enter the URL of the creator application of the calendar, for example https://userbase.kde.org/KOrganizer</whatsthis>
       <default></default>
     </entry>
     <entry type="String" key="Page Title">
