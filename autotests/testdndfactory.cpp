@@ -26,7 +26,7 @@
 
 #include <kcalcore/memorycalendar.h>
 
-#include <qtest.h>
+#include <QTest>
 #include <QTimeZone>
 
 QTEST_MAIN(DndFactoryTest)   // clipboard() needs GUI

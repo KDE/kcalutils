@@ -24,7 +24,7 @@
 
 #include <KLocalizedString>
 
-#include <qtest.h>
+#include <QTest>
 QTEST_MAIN(StringifyTest)
 #ifndef Q_OS_WIN
 void initLocale()
