@@ -623,7 +623,7 @@ void HtmlExport::formatAttendees(QTextStream *ts, const Incidence::Ptr &incidenc
     Attendee::List attendees = incidence->attendees();
     if (attendees.count()) {
         *ts << "<em>";
-        *ts << incidence->organizer()->fullName();
+        *ts << incidence->organizer().fullName();
         *ts << "</em><br />";
         Attendee::List::ConstIterator it;
         const Attendee::List::ConstIterator end(attendees.constEnd());

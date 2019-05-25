@@ -140,7 +140,7 @@ static bool iamOrganizer(const Incidence::Ptr &incidence)
         return false;
     }
 
-    return thatIsMe(incidence->organizer()->email());
+    return thatIsMe(incidence->organizer().email());
 }
 
 static bool senderIsOrganizer(const Incidence::Ptr &incidence, const QString &sender)
@@ -155,8 +155,8 @@ static bool senderIsOrganizer(const Incidence::Ptr &incidence, const QString &se
     QString senderName, senderEmail;
     if (KEmailAddress::extractEmailAddressAndName(sender, senderEmail, senderName)) {
         // for this heuristic, we say the sender is the organizer if either the name or the email match.
-        if (incidence->organizer()->email() != senderEmail
-            && incidence->organizer()->name() != senderName) {
+        if (incidence->organizer().email() != senderEmail
+            && incidence->organizer().name() != senderName) {
             isorg = false;
         }
     }
@@ -166,7 +166,7 @@ static bool senderIsOrganizer(const Incidence::Ptr &incidence, const QString &se
 static bool attendeeIsOrganizer(const Incidence::Ptr &incidence, const Attendee::Ptr &attendee)
 {
     if (incidence && attendee
-        && (incidence->organizer()->email() == attendee->email())) {
+        && (incidence->organizer().email() == attendee->email())) {
         return true;
     } else {
         return false;
@@ -184,9 +184,9 @@ static QString organizerName(const Incidence::Ptr &incidence, const QString &def
 
     QString name;
     if (incidence) {
-        name = incidence->organizer()->name();
+        name = incidence->organizer().name();
         if (name.isEmpty()) {
-            name = incidence->organizer()->email();
+            name = incidence->organizer().email();
         }
     }
     if (name.isEmpty()) {
@@ -353,10 +353,10 @@ static QVariantHash displayViewFormatOrganizer(const Incidence::Ptr &incidence)
     if (attendeeCount > 1
         || (attendeeCount == 1
             && !attendeeIsOrganizer(incidence, incidence->attendees().at(0)))) {
-        QPair<QString, QString> s = searchNameAndUid(incidence->organizer()->email(),
-                                                     incidence->organizer()->name(),
+        QPair<QString, QString> s = searchNameAndUid(incidence->organizer().email(),
+                                                     incidence->organizer().name(),
                                                      QString());
-        return displayViewFormatPerson(incidence->organizer()->email(), s.first, s.second,
+        return displayViewFormatPerson(incidence->organizer().email(), s.first, s.second,
                                        QStringLiteral("meeting-organizer"));
     }
 
@@ -407,8 +407,8 @@ static QVariantHash displayViewFormatBirthday(const Event::Ptr &event)
     const QString uid_1 = event->customProperty("KABC", "UID-1");
     const QString name_1 = event->customProperty("KABC", "NAME-1");
     const QString email_1 = event->customProperty("KABC", "EMAIL-1");
-    const KCalCore::Person::Ptr p = Person::fromFullName(email_1);
-    return displayViewFormatPerson(p->email(), name_1, uid_1, QString());
+    const KCalCore::Person p = Person::fromFullName(email_1);
+    return displayViewFormatPerson(p.email(), name_1, uid_1, QString());
 }
 
 static QVariantHash incidenceTemplateHeader(const Incidence::Ptr &incidence)
@@ -607,7 +607,7 @@ static QString displayViewFormatFreeBusy(const Calendar::Ptr &calendar, const QS
     }
 
     QVariantHash fbData;
-    fbData[QStringLiteral("organizer")] = fb->organizer()->fullName();
+    fbData[QStringLiteral("organizer")] = fb->organizer().fullName();
     fbData[QStringLiteral("start")] = fb->dtStart().toLocalTime().date();
     fbData[QStringLiteral("end")] = fb->dtEnd().toLocalTime().date();
 
@@ -1282,7 +1282,7 @@ static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHt
     }
 
     QVariantHash incidence;
-    incidence[QStringLiteral("organizer")] = fb->organizer()->fullName();
+    incidence[QStringLiteral("organizer")] = fb->organizer().fullName();
     incidence[QStringLiteral("dtStart")] = fb->dtStart();
     incidence[QStringLiteral("dtEnd")] = fb->dtEnd();
 
@@ -2599,7 +2599,7 @@ bool IncidenceFormatter::ToolTipVisitor::visit(const FreeBusy::Ptr &fb)
 {
     //FIXME: support mRichText==false
     mResult = QLatin1String("<qt><b>")
-              +i18n("Free/Busy information for %1", fb->organizer()->fullName())
+              +i18n("Free/Busy information for %1", fb->organizer().fullName())
               +QLatin1String("</b>");
     mResult += dateRangeText(fb);
     mResult += QLatin1String("</qt>");
@@ -2700,8 +2700,8 @@ static QString tooltipFormatAttendees(const Calendar::Ptr &calendar, const Incid
         || (attendeeCount == 1
             && !attendeeIsOrganizer(incidence, incidence->attendees().at(0)))) {
         tmpStr += QLatin1String("<i>") + i18n("Organizer:") + QLatin1String("</i>") + QLatin1String("<br>");
-        tmpStr += QLatin1String("&nbsp;&nbsp;") + tooltipFormatOrganizer(incidence->organizer()->email(),
-                                                                         incidence->organizer()->name());
+        tmpStr += QLatin1String("&nbsp;&nbsp;") + tooltipFormatOrganizer(incidence->organizer().email(),
+                                                                         incidence->organizer().name());
     }
 
     // Show the attendee status if the incidence's organizer owns the resource calendar,
@@ -2863,8 +2863,8 @@ static QString mailBodyIncidence(const Incidence::Ptr &incidence)
     if (!incidence->summary().trimmed().isEmpty()) {
         body += i18n("Summary: %1\n", incidence->richSummary());
     }
-    if (!incidence->organizer()->isEmpty()) {
-        body += i18n("Organizer: %1\n", incidence->organizer()->fullName());
+    if (!incidence->organizer().isEmpty()) {
+        body += i18n("Organizer: %1\n", incidence->organizer().fullName());
     }
     if (!incidence->location().trimmed().isEmpty()) {
         body += i18n("Location: %1\n", incidence->richLocation());
