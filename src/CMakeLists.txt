@@ -8,7 +8,6 @@ set(kcalutils_SRCS
   incidenceformatter.cpp
   recurrenceactions.cpp
   stringify.cpp
-  scheduler.cpp
   vcaldrag.cpp
   dndfactory.cpp
   grantleeki18nlocalizer.cpp
@@ -63,7 +62,6 @@ ecm_generate_headers(KCalUtils_CamelCase_HEADERS
   ICalDrag
   IncidenceFormatter
   RecurrenceActions
-  Scheduler
   Stringify
   VCalDrag
   PREFIX KCalUtils
