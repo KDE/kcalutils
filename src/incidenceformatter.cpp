@@ -83,10 +83,10 @@ static bool thatIsMe(const QString &email)
     return KIdentityManagement::thatIsMe(email);
 }
 
-static bool iamAttendee(const Attendee::Ptr &attendee)
+static bool iamAttendee(const Attendee &attendee)
 {
     // Check if this attendee is the user
-    return thatIsMe(attendee->email());
+    return thatIsMe(attendee.email());
 }
 
 static QString htmlAddTag(const QString &tag, const QString &text)
@@ -163,10 +163,10 @@ static bool senderIsOrganizer(const Incidence::Ptr &incidence, const QString &se
     return isorg;
 }
 
-static bool attendeeIsOrganizer(const Incidence::Ptr &incidence, const Attendee::Ptr &attendee)
+static bool attendeeIsOrganizer(const Incidence::Ptr &incidence, const Attendee &attendee)
 {
-    if (incidence && attendee
-        && (incidence->organizer().email() == attendee->email())) {
+    if (incidence && !attendee.isNull()
+        && (incidence->organizer().email() == attendee.email())) {
         return true;
     } else {
         return false;
@@ -206,12 +206,12 @@ static QString firstAttendeeName(const Incidence::Ptr &incidence, const QString 
 
     QString name;
     if (incidence) {
-        Attendee::List attendees = incidence->attendees();
+        const Attendee::List attendees = incidence->attendees();
         if (!attendees.isEmpty()) {
-            Attendee::Ptr attendee = *attendees.begin();
-            name = attendee->name();
+            const Attendee attendee = attendees.at(0);
+            name = attendee.name();
             if (name.isEmpty()) {
-                name = attendee->email();
+                name = attendee.email();
             }
         }
     }
@@ -315,12 +315,9 @@ static QVariantList displayViewFormatAttendeeRoleList(const Incidence::Ptr &inci
     QVariantList attendeeDataList;
     attendeeDataList.reserve(incidence->attendeeCount());
 
-    Attendee::List::ConstIterator it;
-    Attendee::List attendees = incidence->attendees();
-    const Attendee::List::ConstIterator end(attendees.constEnd());
-    for (it = attendees.constBegin(); it != end; ++it) {
-        Attendee::Ptr a = *it;
-        if (a->role() != role) {
+    const Attendee::List attendees = incidence->attendees();
+    for (const auto &a : attendees) {
+        if (a.role() != role) {
             // skip this role
             continue;
         }
@@ -328,16 +325,16 @@ static QVariantList displayViewFormatAttendeeRoleList(const Incidence::Ptr &inci
             // skip attendee that is also the organizer
             continue;
         }
-        QVariantHash attendeeData = displayViewFormatPerson(a->email(), a->name(), a->uid(),
-                                                            showStatus ? a->status() : Attendee::None);
-        if (!a->delegator().isEmpty()) {
-            attendeeData[QStringLiteral("delegator")] = a->delegator();
+        QVariantHash attendeeData = displayViewFormatPerson(a.email(), a.name(), a.uid(),
+                                                            showStatus ? a.status() : Attendee::None);
+        if (!a.delegator().isEmpty()) {
+            attendeeData[QStringLiteral("delegator")] = a.delegator();
         }
-        if (!a->delegate().isEmpty()) {
-            attendeeData[QStringLiteral("delegate")] = a->delegate();
+        if (!a.delegate().isEmpty()) {
+            attendeeData[QStringLiteral("delegate")] = a.delegate();
         }
         if (showStatus) {
-            attendeeData[QStringLiteral("status")] = Stringify::attendeeStatus(a->status());
+            attendeeData[QStringLiteral("status")] = Stringify::attendeeStatus(a.status());
         }
 
         attendeeDataList << attendeeData;
@@ -830,22 +827,19 @@ static QString htmlCompare(const QString &value, const QString &oldvalue)
     return QStringLiteral("<font color=\"%1\">%2</font> (<strike>%3</strike>)").arg(diffColor(), value, oldvalue);
 }
 
-static Attendee::Ptr findDelegatedFromMyAttendee(const Incidence::Ptr &incidence)
+static Attendee findDelegatedFromMyAttendee(const Incidence::Ptr &incidence)
 {
     // Return the first attendee that was delegated-from the user
 
-    Attendee::Ptr attendee;
+    Attendee attendee;
     if (!incidence) {
         return attendee;
     }
 
     QString delegatorName, delegatorEmail;
-    Attendee::List attendees = incidence->attendees();
-    Attendee::List::ConstIterator it;
-    const Attendee::List::ConstIterator end(attendees.constEnd());
-    for (it = attendees.constBegin(); it != end; ++it) {
-        Attendee::Ptr a = *it;
-        KEmailAddress::extractEmailAddressAndName(a->delegator(), delegatorEmail, delegatorName);
+    const Attendee::List attendees = incidence->attendees();
+    for (const auto &a : attendees) {
+        KEmailAddress::extractEmailAddressAndName(a.delegator(), delegatorEmail, delegatorName);
         if (thatIsMe(delegatorEmail)) {
             attendee = a;
             break;
@@ -855,20 +849,17 @@ static Attendee::Ptr findDelegatedFromMyAttendee(const Incidence::Ptr &incidence
     return attendee;
 }
 
-static Attendee::Ptr findMyAttendee(const Incidence::Ptr &incidence)
+static Attendee findMyAttendee(const Incidence::Ptr &incidence)
 {
     // Return the attendee for the incidence that is probably the user
 
-    Attendee::Ptr attendee;
+    Attendee attendee;
     if (!incidence) {
         return attendee;
     }
 
-    Attendee::List attendees = incidence->attendees();
-    Attendee::List::ConstIterator it;
-    const Attendee::List::ConstIterator end(attendees.constEnd());
-    for (it = attendees.constBegin(); it != end; ++it) {
-        Attendee::Ptr a = *it;
+    const Attendee::List attendees = incidence->attendees();
+    for (const auto &a : attendees) {
         if (iamAttendee(a)) {
             attendee = a;
             break;
@@ -878,21 +869,18 @@ static Attendee::Ptr findMyAttendee(const Incidence::Ptr &incidence)
     return attendee;
 }
 
-static Attendee::Ptr findAttendee(const Incidence::Ptr &incidence, const QString &email)
+static Attendee findAttendee(const Incidence::Ptr &incidence, const QString &email)
 {
     // Search for an attendee by email address
 
-    Attendee::Ptr attendee;
+    Attendee attendee;
     if (!incidence) {
         return attendee;
     }
 
-    Attendee::List attendees = incidence->attendees();
-    Attendee::List::ConstIterator it;
-    const Attendee::List::ConstIterator end(attendees.constEnd());
-    for (it = attendees.constBegin(); it != end; ++it) {
-        Attendee::Ptr a = *it;
-        if (email == a->email()) {
+    const Attendee::List attendees = incidence->attendees();
+    for (const auto &a : attendees) {
+        if (email == a.email()) {
             attendee = a;
             break;
         }
@@ -914,9 +902,9 @@ static bool rsvpRequested(const Incidence::Ptr &incidence)
     const Attendee::List::ConstIterator end(attendees.constEnd());
     for (it = attendees.constBegin(); it != end; ++it) {
         if (it == attendees.constBegin()) {
-            rsvp = (*it)->RSVP(); // use what the first one has
+            rsvp = (*it).RSVP(); // use what the first one has
         } else {
-            if ((*it)->RSVP() != rsvp) {
+            if ((*it).RSVP() != rsvp) {
                 rsvp = true; // they differ, default
                 break;
             }
@@ -945,11 +933,10 @@ static QString rsvpRequestedStr(bool rsvpRequested, const QString &role)
 static QString myStatusStr(const Incidence::Ptr &incidence)
 {
     QString ret;
-    Attendee::Ptr a = findMyAttendee(incidence);
-    if (a
-        && a->status() != Attendee::NeedsAction && a->status() != Attendee::Delegated) {
+    const Attendee a = findMyAttendee(incidence);
+    if (!a.isNull() && a.status() != Attendee::NeedsAction && a.status() != Attendee::Delegated) {
         ret = i18n("(<b>Note</b>: the Organizer preset your response to <b>%1</b>)",
-                   Stringify::attendeeStatus(a->status()));
+                   Stringify::attendeeStatus(a.status()));
     }
     return ret;
 }
@@ -1401,13 +1388,13 @@ static QString invitationHeaderEvent(const Event::Ptr &event, const Incidence::P
         QString attendeeName = firstAttendeeName(event, sender);
 
         QString delegatorName, dummy;
-        Attendee::Ptr attendee = *attendees.begin();
-        KEmailAddress::extractEmailAddressAndName(attendee->delegator(), dummy, delegatorName);
+        const Attendee attendee = *attendees.begin();
+        KEmailAddress::extractEmailAddressAndName(attendee.delegator(), dummy, delegatorName);
         if (delegatorName.isEmpty()) {
-            delegatorName = attendee->delegator();
+            delegatorName = attendee.delegator();
         }
 
-        switch (attendee->status()) {
+        switch (attendee.status()) {
         case Attendee::NeedsAction:
             return i18n("%1 indicates this invitation still needs some action.", attendeeName);
         case Attendee::Accepted:
@@ -1442,9 +1429,9 @@ static QString invitationHeaderEvent(const Event::Ptr &event, const Incidence::P
         case Attendee::Delegated:
         {
             QString delegate, dummy;
-            KEmailAddress::extractEmailAddressAndName(attendee->delegate(), dummy, delegate);
+            KEmailAddress::extractEmailAddressAndName(attendee.delegate(), dummy, delegate);
             if (delegate.isEmpty()) {
-                delegate = attendee->delegate();
+                delegate = attendee.delegate();
             }
             if (!delegate.isEmpty()) {
                 return i18n("%1 has delegated this invitation to %2.", attendeeName, delegate);
@@ -1541,13 +1528,13 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr 
         QString attendeeName = firstAttendeeName(todo, sender);
 
         QString delegatorName, dummy;
-        Attendee::Ptr attendee = *attendees.begin();
-        KEmailAddress::extractEmailAddressAndName(attendee->delegate(), dummy, delegatorName);
+        const Attendee attendee = *attendees.begin();
+        KEmailAddress::extractEmailAddressAndName(attendee.delegate(), dummy, delegatorName);
         if (delegatorName.isEmpty()) {
-            delegatorName = attendee->delegator();
+            delegatorName = attendee.delegator();
         }
 
-        switch (attendee->status()) {
+        switch (attendee.status()) {
         case Attendee::NeedsAction:
             return i18n("%1 indicates this to-do assignment still needs some action.",
                         attendeeName);
@@ -1591,9 +1578,9 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr 
         case Attendee::Delegated:
         {
             QString delegate, dummy;
-            KEmailAddress::extractEmailAddressAndName(attendee->delegate(), dummy, delegate);
+            KEmailAddress::extractEmailAddressAndName(attendee.delegate(), dummy, delegate);
             if (delegate.isEmpty()) {
-                delegate = attendee->delegate();
+                delegate = attendee.delegate();
             }
             if (!delegate.isEmpty()) {
                 return i18n("%1 has delegated this to-do to %2.", attendeeName, delegate);
@@ -1662,9 +1649,9 @@ static QString invitationHeaderJournal(const Journal::Ptr &journal, const Schedu
             qCDebug(KCALUTILS_LOG) << "Warning: attendeecount in the reply should be 1 "
                                    << "but is " << attendees.count();
         }
-        Attendee::Ptr attendee = *attendees.begin();
+        const Attendee attendee = *attendees.begin();
 
-        switch (attendee->status()) {
+        switch (attendee.status()) {
         case Attendee::NeedsAction:
             return i18n("Sender indicates this journal assignment still needs some action.");
         case Attendee::Accepted:
@@ -1735,19 +1722,19 @@ static QVariantList invitationAttendeeList(const Incidence::Ptr &incidence)
 
     QVariantList attendees;
     const Attendee::List lstAttendees = incidence->attendees();
-    for (const Attendee::Ptr &a : lstAttendees) {
+    for (const Attendee &a : lstAttendees) {
         if (iamAttendee(a)) {
             continue;
         }
 
         QVariantHash attendee;
-        attendee[QStringLiteral("name")] = a->name();
-        attendee[QStringLiteral("email")] = a->email();
-        attendee[QStringLiteral("delegator")] = a->delegator();
-        attendee[QStringLiteral("delegate")] = a->delegate();
+        attendee[QStringLiteral("name")] = a.name();
+        attendee[QStringLiteral("email")] = a.email();
+        attendee[QStringLiteral("delegator")] = a.delegator();
+        attendee[QStringLiteral("delegate")] = a.delegate();
         attendee[QStringLiteral("isOrganizer")] = attendeeIsOrganizer(incidence, a);
-        attendee[QStringLiteral("status")] = Stringify::attendeeStatus(a->status());
-        attendee[QStringLiteral("icon")] = rsvpStatusIconName(a->status());
+        attendee[QStringLiteral("status")] = Stringify::attendeeStatus(a.status());
+        attendee[QStringLiteral("icon")] = rsvpStatusIconName(a.status());
 
         attendees.push_back(attendee);
     }
@@ -1755,7 +1742,7 @@ static QVariantList invitationAttendeeList(const Incidence::Ptr &incidence)
     return attendees;
 }
 
-static QVariantList invitationRsvpList(const Incidence::Ptr &incidence, const Attendee::Ptr &sender)
+static QVariantList invitationRsvpList(const Incidence::Ptr &incidence, const Attendee &sender)
 {
     if (!incidence) {
         return QVariantList();
@@ -1763,30 +1750,30 @@ static QVariantList invitationRsvpList(const Incidence::Ptr &incidence, const At
 
     QVariantList attendees;
     const Attendee::List lstAttendees = incidence->attendees();
-    for (const Attendee::Ptr &a_ : lstAttendees) {
-        Attendee::Ptr a = a_;
+    for (const Attendee &a_ : lstAttendees) {
+        Attendee a = a_;
         if (!attendeeIsOrganizer(incidence, a)) {
             continue;
         }
         QVariantHash attendee;
-        attendee[QStringLiteral("status")] = Stringify::attendeeStatus(a->status());
-        if (sender && (a->email() == sender->email())) {
+        attendee[QStringLiteral("status")] = Stringify::attendeeStatus(a.status());
+        if (!sender.isNull() && (a.email() == sender.email())) {
             // use the attendee taken from the response incidence,
             // rather than the attendee from the calendar incidence.
-            if (a->status() != sender->status()) {
+            if (a.status() != sender.status()) {
                 attendee[QStringLiteral("status")] = i18n("%1 (<i>unrecorded</i>",
-                                                          Stringify::attendeeStatus(sender->status()));
+                                                          Stringify::attendeeStatus(sender.status()));
             }
             a = sender;
         }
 
-        attendee[QStringLiteral("name")] = a->name();
-        attendee[QStringLiteral("email")] = a->email();
-        attendee[QStringLiteral("delegator")] = a->delegator();
-        attendee[QStringLiteral("delegate")] = a->delegate();
+        attendee[QStringLiteral("name")] = a.name();
+        attendee[QStringLiteral("email")] = a.email();
+        attendee[QStringLiteral("delegator")] = a.delegator();
+        attendee[QStringLiteral("delegate")] = a.delegate();
         attendee[QStringLiteral("isOrganizer")] = attendeeIsOrganizer(incidence, a);
         attendee[QStringLiteral("isMyself")] = iamAttendee(a);
-        attendee[QStringLiteral("icon")] = rsvpStatusIconName(a->status());
+        attendee[QStringLiteral("icon")] = rsvpStatusIconName(a.status());
 
         attendees.push_back(attendee);
     }
@@ -1973,13 +1960,13 @@ static QVariantList responseButtons(const Incidence::Ptr &incidence, bool rsvpRe
          hideDecline = false;
 
     if (existingInc) {
-        Attendee::Ptr ea = findMyAttendee(existingInc);
-        if (ea) {
+        const Attendee ea = findMyAttendee(existingInc);
+        if (!ea.isNull()) {
             // If this is an update of an already accepted incidence
             // to not show the buttons that confirm the status.
-            hideAccept = ea->status() == Attendee::Accepted;
-            hideDecline = ea->status() == Attendee::Declined;
-            hideTentative = ea->status() == Attendee::Tentative;
+            hideAccept = ea.status() == Attendee::Accepted;
+            hideDecline = ea.status() == Attendee::Declined;
+            hideTentative = ea.status() == Attendee::Tentative;
         }
     }
 
@@ -2191,7 +2178,7 @@ static QString formatICalInvitationHelper(const QString &invitation, const Memor
 
     // determine if the invitation response has already been recorded
     bool rsvpRec = false;
-    Attendee::Ptr ea;
+    Attendee ea;
     if (!myInc) {
         Incidence::Ptr rsvpIncidence = existingIncidence;
         if (!rsvpIncidence && inc && incRevision > 0) {
@@ -2200,10 +2187,10 @@ static QString formatICalInvitationHelper(const QString &invitation, const Memor
         if (rsvpIncidence) {
             ea = findMyAttendee(rsvpIncidence);
         }
-        if (ea
-            && (ea->status() == Attendee::Accepted
-                || ea->status() == Attendee::Declined
-                || ea->status() == Attendee::Tentative)) {
+        if (!ea.isNull()
+            && (ea.status() == Attendee::Accepted
+                || ea.status() == Attendee::Declined
+                || ea.status() == Attendee::Tentative)) {
             rsvpRec = true;
         }
     }
@@ -2211,32 +2198,32 @@ static QString formatICalInvitationHelper(const QString &invitation, const Memor
     // determine invitation role
     QString role;
     bool isDelegated = false;
-    Attendee::Ptr a = findMyAttendee(inc);
-    if (!a && inc) {
+    Attendee a = findMyAttendee(inc);
+    if (a.isNull() && inc) {
         if (!inc->attendees().isEmpty()) {
             a = inc->attendees().at(0);
         }
     }
-    if (a) {
-        isDelegated = (a->status() == Attendee::Delegated);
-        role = Stringify::attendeeRole(a->role());
+    if (!a.isNull()) {
+        isDelegated = (a.status() == Attendee::Delegated);
+        role = Stringify::attendeeRole(a.role());
     }
 
     // determine if RSVP needed, not-needed, or response already recorded
     bool rsvpReq = rsvpRequested(inc);
-    if (!rsvpReq && a && a->status() == Attendee::NeedsAction) {
+    if (!rsvpReq && !a.isNull() && a.status() == Attendee::NeedsAction) {
         rsvpReq = true;
     }
 
     QString eventInfo;
-    if (!myInc && a) {
+    if (!myInc && !a.isNull()) {
         if (rsvpRec && inc) {
             if (incRevision == 0) {
                 eventInfo = i18n("Your <b>%1</b> response has been recorded.",
-                                 Stringify::attendeeStatus(ea->status()));
+                                 Stringify::attendeeStatus(ea.status()));
             } else {
                 eventInfo = i18n("Your status for this invitation is <b>%1</b>.",
-                                 Stringify::attendeeStatus(ea->status()));
+                                 Stringify::attendeeStatus(ea.status()));
             }
             rsvpReq = false;
         } else if (msg->method() == iTIPCancel) {
@@ -2277,7 +2264,7 @@ static QString formatICalInvitationHelper(const QString &invitation, const Memor
         }
 
         if (!myInc) {
-            if (a) {
+            if (!a.isNull()) {
                 buttons += responseButtons(inc, rsvpReq, rsvpRec, helper);
             } else {
                 buttons += responseButtons(inc, false, false, helper);
@@ -2292,8 +2279,8 @@ static QString formatICalInvitationHelper(const QString &invitation, const Memor
     case iTIPReply:
     {
         // Record invitation response
-        Attendee::Ptr a;
-        Attendee::Ptr ea;
+        Attendee a;
+        Attendee ea;
         if (inc) {
             // First, determine if this reply is really a counter in disguise.
             if (replyMeansCounter(inc)) {
@@ -2307,9 +2294,9 @@ static QString formatICalInvitationHelper(const QString &invitation, const Memor
             // then we need to start over which means putting all the action
             // buttons and NOT putting on the [Record response..] button
             a = findDelegatedFromMyAttendee(inc);
-            if (a) {
-                if (a->status() != Attendee::Accepted
-                    || a->status() != Attendee::Tentative) {
+            if (!a.isNull()) {
+                if (a.status() != Attendee::Accepted
+                    || a.status() != Attendee::Tentative) {
                     buttons = responseButtons(inc, rsvpReq, rsvpRec, helper);
                     break;
                 }
@@ -2319,13 +2306,13 @@ static QString formatICalInvitationHelper(const QString &invitation, const Memor
             if (!inc->attendees().isEmpty()) {
                 a = inc->attendees().at(0);
             }
-            if (a && helper->calendar()) {
-                ea = findAttendee(existingIncidence, a->email());
+            if (!a.isNull() && helper->calendar()) {
+                ea = findAttendee(existingIncidence, a.email());
             }
         }
-        if (ea && (ea->status() != Attendee::NeedsAction) && (ea->status() == a->status())) {
+        if (!ea.isNull() && (ea.status() != Attendee::NeedsAction) && (ea.status() == a.status())) {
             const QString tStr = i18n("The <b>%1</b> response has been recorded",
-                                      Stringify::attendeeStatus(ea->status()));
+                                      Stringify::attendeeStatus(ea.status()));
             buttons << inviteButton(QString(), tStr, QString(), helper);
         } else {
             if (inc) {
@@ -2655,13 +2642,9 @@ static QString tooltipFormatAttendeeRoleList(const Incidence::Ptr &incidence, At
 
     int i = 0;
     QString tmpStr;
-    Attendee::List::ConstIterator it;
-    Attendee::List attendees = incidence->attendees();
-
-    const Attendee::List::ConstIterator end(attendees.constEnd());
-    for (it = attendees.constBegin(); it != end; ++it) {
-        Attendee::Ptr a = *it;
-        if (a->role() != role) {
+    const Attendee::List attendees = incidence->attendees();
+    for (const auto &a : attendees) {
+        if (a.role() != role) {
             // skip not this role
             continue;
         }
@@ -2673,13 +2656,13 @@ static QString tooltipFormatAttendeeRoleList(const Incidence::Ptr &incidence, At
             tmpStr += QLatin1String("&nbsp;&nbsp;") + etc;
             break;
         }
-        tmpStr += QLatin1String("&nbsp;&nbsp;") + tooltipPerson(a->email(), a->name(),
-                                                                showStatus ? a->status() : Attendee::None);
-        if (!a->delegator().isEmpty()) {
-            tmpStr += i18n(" (delegated by %1)", a->delegator());
+        tmpStr += QLatin1String("&nbsp;&nbsp;") + tooltipPerson(a.email(), a.name(),
+                                                                showStatus ? a.status() : Attendee::None);
+        if (!a.delegator().isEmpty()) {
+            tmpStr += i18n(" (delegated by %1)", a.delegator());
         }
-        if (!a->delegate().isEmpty()) {
-            tmpStr += i18n(" (delegated to %1)", a->delegate());
+        if (!a.delegate().isEmpty()) {
+            tmpStr += i18n(" (delegated to %1)", a.delegate());
         }
         tmpStr += QLatin1String("<br>");
         i++;

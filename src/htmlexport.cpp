@@ -620,20 +620,17 @@ void HtmlExport::formatCategories(QTextStream *ts, const Incidence::Ptr &inciden
 
 void HtmlExport::formatAttendees(QTextStream *ts, const Incidence::Ptr &incidence)
 {
-    Attendee::List attendees = incidence->attendees();
-    if (attendees.count()) {
+    const Attendee::List attendees = incidence->attendees();
+    if (!attendees.isEmpty()) {
         *ts << "<em>";
         *ts << incidence->organizer().fullName();
         *ts << "</em><br />";
-        Attendee::List::ConstIterator it;
-        const Attendee::List::ConstIterator end(attendees.constEnd());
-        for (it = attendees.constBegin(); it != end; ++it) {
-            Attendee::Ptr a(*it);
-            if (!a->email().isEmpty()) {
-                *ts << "<a href=\"mailto:" << a->email();
-                *ts << "\">" << cleanChars(a->name()) << "</a>";
+        for (const auto &a : attendees) {
+            if (!a.email().isEmpty()) {
+                *ts << "<a href=\"mailto:" << a.email();
+                *ts << "\">" << cleanChars(a.name()) << "</a>";
             } else {
-                *ts << "    " << cleanChars(a->name());
+                *ts << "    " << cleanChars(a.name());
             }
             *ts << "<br />" << endl;
         }
