@@ -34,9 +34,9 @@
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QStyle>
-#include <QStyleOptionFrame>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QStyleOption>
 
 using namespace KCalUtils;
 using namespace KCalUtils::RecurrenceActions;
