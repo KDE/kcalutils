@@ -4,7 +4,7 @@ set(PIM_VERSION "5.11.40")
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
-set(KF5_MIN_VERSION "5.58.0")
+set(KF5_MIN_VERSION "5.59.0")
 
 find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${KCalUtils_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
@@ -87,10 +87,6 @@ install(FILES
   COMPONENT Devel
 )
 
-if (${ECM_VERSION} STRGREATER "5.58.0")
-    install(FILES kcalutils.renamecategories kcalutils.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-else()
-    install(FILES kcalutils.renamecategories kcalutils.categories  DESTINATION ${KDE_INSTALL_CONFDIR})
-endif()
+install(FILES kcalutils.renamecategories kcalutils.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
