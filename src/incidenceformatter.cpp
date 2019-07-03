@@ -369,22 +369,22 @@ static QVariantList displayViewFormatAttachments(const Incidence::Ptr &incidence
 
     for (auto it = as.cbegin(), end = as.cend(); it != end; ++it) {
         QVariantHash attData;
-        if ((*it)->isUri()) {
+        if ((*it).isUri()) {
             QString name;
-            if ((*it)->uri().startsWith(QLatin1String("kmail:"))) {
+            if ((*it).uri().startsWith(QLatin1String("kmail:"))) {
                 name = i18n("Show mail");
             } else {
-                if ((*it)->label().isEmpty()) {
-                    name = (*it)->uri();
+                if ((*it).label().isEmpty()) {
+                    name = (*it).uri();
                 } else {
-                    name = (*it)->label();
+                    name = (*it).label();
                 }
             }
-            attData[QStringLiteral("uri")] = (*it)->uri();
+            attData[QStringLiteral("uri")] = (*it).uri();
             attData[QStringLiteral("label")] = name;
         } else {
-            attData[QStringLiteral("uri")] = QStringLiteral("ATTACH:%1").arg(QString::fromUtf8((*it)->label().toUtf8().toBase64()));
-            attData[QStringLiteral("label")] = (*it)->label();
+            attData[QStringLiteral("uri")] = QStringLiteral("ATTACH:%1").arg(QString::fromUtf8((*it).label().toUtf8().toBase64()));
+            attData[QStringLiteral("label")] = (*it).label();
         }
         dataList << attData;
     }
@@ -1794,15 +1794,15 @@ static QVariantList invitationAttachments(const Incidence::Ptr &incidence, Invit
 
     QVariantList attachments;
     const Attachment::List lstAttachments = incidence->attachments();
-    for (const Attachment::Ptr &a : lstAttachments) {
+    for (const Attachment &a : lstAttachments) {
         QVariantHash attachment;
         QMimeDatabase mimeDb;
-        auto mimeType = mimeDb.mimeTypeForName(a->mimeType());
+        auto mimeType = mimeDb.mimeTypeForName(a.mimeType());
         attachment[QStringLiteral("icon")] = (mimeType.isValid()
                                               ? mimeType.iconName()
                                               : QStringLiteral("application-octet-stream"));
-        attachment[QStringLiteral("name")] = a->label();
-        const QString attachementStr = helper->generateLinkURL(QStringLiteral("ATTACH:%1").arg(QString::fromLatin1(a->label().toUtf8().toBase64())));
+        attachment[QStringLiteral("name")] = a.label();
+        const QString attachementStr = helper->generateLinkURL(QStringLiteral("ATTACH:%1").arg(QString::fromLatin1(a.label().toUtf8().toBase64())));
         attachment[QStringLiteral("uri")] = attachementStr;
         attachments.push_back(attachment);
     }
