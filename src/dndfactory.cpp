@@ -52,7 +52,7 @@
 #include <QDropEvent>
 #include <QTimeZone>
 
-using namespace KCalCore;
+using namespace KCalendarCore;
 using namespace KCalUtils;
 
 /**

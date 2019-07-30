@@ -36,8 +36,8 @@
 */
 #include "stringify.h"
 
-#include <KCalCore/Exceptions>
-using namespace KCalCore;
+#include <KCalendarCore/Exceptions>
+using namespace KCalendarCore;
 
 #include <KLocalizedString>
 

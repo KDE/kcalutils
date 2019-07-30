@@ -37,14 +37,14 @@
 #include "stringify.h"
 #include "grantleetemplatemanager_p.h"
 
-#include <kcalcore/event.h>
-#include <kcalcore/freebusy.h>
-#include <kcalcore/icalformat.h>
-#include <kcalcore/journal.h>
-#include <kcalcore/memorycalendar.h>
-#include <kcalcore/todo.h>
-#include <kcalcore/visitor.h>
-using namespace KCalCore;
+#include <kcalendarcore/event.h>
+#include <kcalendarcore/freebusy.h>
+#include <kcalendarcore/icalformat.h>
+#include <kcalendarcore/journal.h>
+#include <kcalendarcore/memorycalendar.h>
+#include <kcalendarcore/todo.h>
+#include <kcalendarcore/visitor.h>
+using namespace KCalendarCore;
 
 #include <kidentitymanagement/identitymanager.h>
 #include <kidentitymanagement/utils.h>
@@ -404,7 +404,7 @@ static QVariantHash displayViewFormatBirthday(const Event::Ptr &event)
     const QString uid_1 = event->customProperty("KABC", "UID-1");
     const QString name_1 = event->customProperty("KABC", "NAME-1");
     const QString email_1 = event->customProperty("KABC", "EMAIL-1");
-    const KCalCore::Person p = Person::fromFullName(email_1);
+    const KCalendarCore::Person p = Person::fromFullName(email_1);
     return displayViewFormatPerson(p.email(), name_1, uid_1, QString());
 }
 
@@ -2354,19 +2354,19 @@ static QString formatICalInvitationHelper(const QString &invitation, const Memor
 
     QString templateName;
     switch (inc->type()) {
-    case KCalCore::IncidenceBase::TypeEvent:
+    case KCalendarCore::IncidenceBase::TypeEvent:
         templateName = QStringLiteral(":/itip_event.html");
         break;
-    case KCalCore::IncidenceBase::TypeTodo:
+    case KCalendarCore::IncidenceBase::TypeTodo:
         templateName = QStringLiteral(":/itip_todo.html");
         break;
-    case KCalCore::IncidenceBase::TypeJournal:
+    case KCalendarCore::IncidenceBase::TypeJournal:
         templateName = QStringLiteral(":/itip_journal.html");
         break;
-    case KCalCore::IncidenceBase::TypeFreeBusy:
+    case KCalendarCore::IncidenceBase::TypeFreeBusy:
         templateName = QStringLiteral(":/itip_freebusy.html");
         break;
-    case KCalCore::IncidenceBase::TypeUnknown:
+    case KCalendarCore::IncidenceBase::TypeUnknown:
         return QString();
     }
 

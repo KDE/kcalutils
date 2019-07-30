@@ -24,8 +24,8 @@
 #include "stringify.h"
 #include "incidenceformatter.h"
 
-#include <kcalcore/memorycalendar.h>
-using namespace KCalCore;
+#include <kcalendarcore/memorycalendar.h>
+using namespace KCalendarCore;
 
 #include "kcalutils_debug.h"
 

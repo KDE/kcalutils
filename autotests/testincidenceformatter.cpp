@@ -25,12 +25,12 @@
 #include "incidenceformatter.h"
 #include "grantleetemplatemanager_p.h"
 
-#include <kcalcore/event.h>
-#include <kcalcore/icalformat.h>
-#include <kcalcore/todo.h>
-#include <kcalcore/journal.h>
-#include <kcalcore/freebusy.h>
-#include <kcalcore/memorycalendar.h>
+#include <kcalendarcore/event.h>
+#include <kcalendarcore/icalformat.h>
+#include <kcalendarcore/todo.h>
+#include <kcalendarcore/journal.h>
+#include <kcalendarcore/freebusy.h>
+#include <kcalendarcore/memorycalendar.h>
 
 #include <KLocalizedString>
 
@@ -52,7 +52,7 @@ void initLocale()
 
 Q_CONSTRUCTOR_FUNCTION(initLocale)
 #endif
-using namespace KCalCore;
+using namespace KCalendarCore;
 using namespace KCalUtils;
 
 void IncidenceFormatterTest::initTestCase()
@@ -156,13 +156,13 @@ void IncidenceFormatterTest::testRecurrenceString()
 //  qDebug() << "recurrenceString=" << IncidenceFormatter::recurrenceString( e3 );
 }
 
-KCalCore::Calendar::Ptr IncidenceFormatterTest::loadCalendar(const QString &name)
+KCalendarCore::Calendar::Ptr IncidenceFormatterTest::loadCalendar(const QString &name)
 {
-    auto calendar = KCalCore::MemoryCalendar::Ptr::create(QTimeZone::utc());
-    KCalCore::ICalFormat format;
+    auto calendar = KCalendarCore::MemoryCalendar::Ptr::create(QTimeZone::utc());
+    KCalendarCore::ICalFormat format;
 
     if (!format.load(calendar, QStringLiteral(TEST_DATA_DIR "/%1.ical").arg(name))) {
-        return KCalCore::Calendar::Ptr();
+        return KCalendarCore::Calendar::Ptr();
     }
 
     return calendar;
@@ -283,7 +283,7 @@ void IncidenceFormatterTest::testDisplayViewFormatEvent()
 {
     QFETCH(QString, name);
 
-    KCalCore::Calendar::Ptr calendar = loadCalendar(name);
+    KCalendarCore::Calendar::Ptr calendar = loadCalendar(name);
     QVERIFY(calendar);
 
     const auto events = calendar->events();
@@ -308,7 +308,7 @@ void IncidenceFormatterTest::testDisplayViewFormatTodo()
 {
     QFETCH(QString, name);
 
-    KCalCore::Calendar::Ptr calendar = loadCalendar(name);
+    KCalendarCore::Calendar::Ptr calendar = loadCalendar(name);
     QVERIFY(calendar);
 
     const auto todos = calendar->todos();
@@ -333,7 +333,7 @@ void IncidenceFormatterTest::testDisplayViewFormatJournal()
 {
     QFETCH(QString, name);
 
-    KCalCore::Calendar::Ptr calendar = loadCalendar(name);
+    KCalendarCore::Calendar::Ptr calendar = loadCalendar(name);
     QVERIFY(calendar);
 
     const auto journals = calendar->journals();
@@ -358,15 +358,15 @@ void IncidenceFormatterTest::testDisplayViewFreeBusy()
 {
     QFETCH(QString, name);
 
-    KCalCore::Calendar::Ptr calendar = loadCalendar(name);
+    KCalendarCore::Calendar::Ptr calendar = loadCalendar(name);
     QVERIFY(calendar);
 
     QFile file(QStringLiteral(TEST_DATA_DIR "/%1.ical").arg(name));
     QVERIFY(file.open(QIODevice::ReadOnly));
     const QByteArray fbData = file.readAll();
 
-    KCalCore::ICalFormat format;
-    KCalCore::FreeBusy::Ptr freeBusy = format.parseFreeBusy(QString::fromUtf8(fbData));
+    KCalendarCore::ICalFormat format;
+    KCalendarCore::FreeBusy::Ptr freeBusy = format.parseFreeBusy(QString::fromUtf8(fbData));
     QVERIFY(freeBusy);
 
     const QString html = IncidenceFormatter::extensiveDisplayStr(calendar, freeBusy);
@@ -416,7 +416,7 @@ void IncidenceFormatterTest::testFormatIcalInvitation()
 {
     QFETCH(QString, name);
 
-    KCalCore::MemoryCalendar::Ptr calendar(new KCalCore::MemoryCalendar(QTimeZone::utc()));
+    KCalendarCore::MemoryCalendar::Ptr calendar(new KCalendarCore::MemoryCalendar(QTimeZone::utc()));
     InvitationFormatterHelper helper;
 
     QFile eventFile(QStringLiteral(TEST_DATA_DIR "/%1.ical").arg(name));

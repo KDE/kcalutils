@@ -24,7 +24,7 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalcore/memorycalendar.h>
+#include <kcalendarcore/memorycalendar.h>
 
 class QMimeData;
 
@@ -41,7 +41,7 @@ Q_REQUIRED_RESULT KCALUTILS_EXPORT QString mimeType();
 /**
   Sets the iCalendar representation as data of the drag object
 */
-Q_REQUIRED_RESULT KCALUTILS_EXPORT bool populateMimeData(QMimeData *e, const KCalCore::MemoryCalendar::Ptr &cal);
+Q_REQUIRED_RESULT KCALUTILS_EXPORT bool populateMimeData(QMimeData *e, const KCalendarCore::MemoryCalendar::Ptr &cal);
 
 /**
   Return, if drag&drop object can be decode to iCalendar.
@@ -51,7 +51,7 @@ Q_REQUIRED_RESULT KCALUTILS_EXPORT bool canDecode(const QMimeData *);
 /**
   Decode drag&drop object to iCalendar component \a cal.
 */
-Q_REQUIRED_RESULT KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalCore::MemoryCalendar::Ptr &cal);
+Q_REQUIRED_RESULT KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalendarCore::MemoryCalendar::Ptr &cal);
 }
 }
 

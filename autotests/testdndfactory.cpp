@@ -1,8 +1,8 @@
 /*
   This file is part of the kcalcore library.
 
-  Copyright (c) 2010 Klar‰lvdalens Datakonsult AB, a KDAB Group company <info@kdab.net>
-  Author: SÈrgio Martins <sergio.martins@kdab.com>
+  Copyright (c) 2010 Klar√§lvdalens Datakonsult AB, a KDAB Group company <info@kdab.net>
+  Author: S√©rgio Martins <sergio.martins@kdab.com>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -24,14 +24,14 @@
 
 #include "dndfactory.h"
 
-#include <kcalcore/memorycalendar.h>
+#include <kcalendarcore/memorycalendar.h>
 
 #include <QTest>
 #include <QTimeZone>
 
 QTEST_MAIN(DndFactoryTest)   // clipboard() needs GUI
 
-using namespace KCalCore;
+using namespace KCalendarCore;
 using namespace KCalUtils;
 
 void DndFactoryTest::testPasteAllDayEvent()

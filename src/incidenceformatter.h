@@ -34,8 +34,8 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalcore/incidence.h>
-#include <kcalcore/memorycalendar.h>
+#include <kcalendarcore/incidence.h>
+#include <kcalendarcore/memorycalendar.h>
 
 #include <QDate>
 class InvitationFormatterHelperPrivate;
@@ -48,7 +48,7 @@ public:
     virtual ~InvitationFormatterHelper();
     Q_REQUIRED_RESULT virtual QString generateLinkURL(const QString &id);
     Q_REQUIRED_RESULT virtual QString makeLink(const QString &id, const QString &text);
-    Q_REQUIRED_RESULT virtual KCalCore::Calendar::Ptr calendar() const;
+    Q_REQUIRED_RESULT virtual KCalendarCore::Calendar::Ptr calendar() const;
 
 private:
     //@cond PRIVATE
@@ -78,7 +78,7 @@ namespace IncidenceFormatter {
   the occurrence, not the start date.
   @param richText if yes, the QString will be created as RichText.
 */
-KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalCore::IncidenceBase::Ptr &incidence, QDate date = QDate(), bool richText = true);
+KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalendarCore::IncidenceBase::Ptr &incidence, QDate date = QDate(), bool richText = true);
 
 /**
   Create a RichText QString representation of an Incidence in a nice format
@@ -89,7 +89,7 @@ KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalCore::I
   @param date is the QDate for which the string representation should be computed;
   used mainly for recurring incidences.
 */
-KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalCore::Calendar::Ptr &calendar, const KCalCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
+KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalendarCore::Calendar::Ptr &calendar, const KCalendarCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
 
 /**
   Create a RichText QString representation of an Incidence in a nice format
@@ -100,7 +100,7 @@ KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalCore::Calendar::Ptr &cale
   @param date is the QDate for which the string representation should be computed;
   used mainly for recurring incidences.
 */
-KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KCalCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
+KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KCalendarCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
 
 /**
   Create a QString representation of an Incidence in format suitable for
@@ -108,7 +108,7 @@ KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KC
   All dates and times are converted to local time for display.
   @param incidence is a pointer to the Incidence to be formatted.
 */
-KCALUTILS_EXPORT QString mailBodyStr(const KCalCore::IncidenceBase::Ptr &incidence);
+KCALUTILS_EXPORT QString mailBodyStr(const KCalendarCore::IncidenceBase::Ptr &incidence);
 
 /**
   Deliver an HTML formatted string displaying an invitation.
@@ -122,7 +122,7 @@ KCALUTILS_EXPORT QString mailBodyStr(const KCalCore::IncidenceBase::Ptr &inciden
   @since 5.23.0
 */
 KCALUTILS_EXPORT QString formatICalInvitation(
-    const QString &invitation, const KCalCore::MemoryCalendar::Ptr &calendar, InvitationFormatterHelper *helper);
+    const QString &invitation, const KCalendarCore::MemoryCalendar::Ptr &calendar, InvitationFormatterHelper *helper);
 
 /**
   Deliver an HTML formatted string displaying an invitation.
@@ -139,14 +139,14 @@ KCALUTILS_EXPORT QString formatICalInvitation(
   @since 5.23.0
 */
 KCALUTILS_EXPORT QString formatICalInvitationNoHtml(
-    const QString &invitation, const KCalCore::MemoryCalendar::Ptr &calendar, InvitationFormatterHelper *helper, const QString &sender);
+    const QString &invitation, const KCalendarCore::MemoryCalendar::Ptr &calendar, InvitationFormatterHelper *helper, const QString &sender);
 
 /**
   Build a pretty QString representation of an Incidence's recurrence info.
   @param incidence is a pointer to the Incidence whose recurrence info
   is to be formatted.
 */
-KCALUTILS_EXPORT QString recurrenceString(const KCalCore::Incidence::Ptr &incidence);
+KCALUTILS_EXPORT QString recurrenceString(const KCalendarCore::Incidence::Ptr &incidence);
 
 /**
   Returns a reminder string computed for the specified Incidence.
@@ -156,7 +156,7 @@ KCALUTILS_EXPORT QString recurrenceString(const KCalCore::Incidence::Ptr &incide
   @param shortfmt if false, a short version of each reminder is printed;
   else a longer version of each reminder is printed.
 */
-KCALUTILS_EXPORT QStringList reminderStringList(const KCalCore::Incidence::Ptr &incidence, bool shortfmt = true);
+KCALUTILS_EXPORT QStringList reminderStringList(const KCalendarCore::Incidence::Ptr &incidence, bool shortfmt = true);
 
 /**
   Build a QString time representation of a QTime object.
@@ -192,25 +192,25 @@ KCALUTILS_EXPORT QString dateTimeToString(const QDateTime &date, bool dateOnly =
   @param calendar is a pointer to the Calendar.
   @param incidence is a pointer to the Incidence.
 */
-KCALUTILS_EXPORT QString resourceString(const KCalCore::Calendar::Ptr &calendar, const KCalCore::Incidence::Ptr &incidence);
+KCALUTILS_EXPORT QString resourceString(const KCalendarCore::Calendar::Ptr &calendar, const KCalendarCore::Incidence::Ptr &incidence);
 
 /**
   Returns a duration string computed for the specified Incidence.
   Only makes sense for Events and Todos.
   @param incidence is a pointer to the Incidence.
 */
-KCALUTILS_EXPORT QString durationString(const KCalCore::Incidence::Ptr &incidence);
+KCALUTILS_EXPORT QString durationString(const KCalendarCore::Incidence::Ptr &incidence);
 
 /**
   Returns the translated string form of a specified #Status.
    @param status is a #Status type.
 */
-KCALUTILS_EXPORT QString incidenceStatusName(KCalCore::Incidence::Status status);
+KCALUTILS_EXPORT QString incidenceStatusName(KCalendarCore::Incidence::Status status);
 
 /**
    Returns a translatedstatus string for this incidence
 */
-KCALUTILS_EXPORT QString incidenceStatusStr(const KCalCore::Incidence::Ptr &incidence);
+KCALUTILS_EXPORT QString incidenceStatusStr(const KCalendarCore::Incidence::Ptr &incidence);
 
 class EventViewerVisitor;
 template<typename T> class ScheduleMessageVisitor;
