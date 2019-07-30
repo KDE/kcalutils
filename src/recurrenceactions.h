@@ -25,7 +25,7 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalcore/incidence.h>
+#include <kcalendarcore/incidence.h>
 
 class QDateTime;
 class KGuiItem;
@@ -88,7 +88,7 @@ enum Scope {
   @return the #Scope to which actions on the given @incidence can be applied to
 */
 Q_REQUIRED_RESULT KCALUTILS_EXPORT
-int availableOccurrences(const KCalCore::Incidence::Ptr &incidence, const QDateTime &selectedOccurrence);
+int availableOccurrences(const KCalendarCore::Incidence::Ptr &incidence, const QDateTime &selectedOccurrence);
 
 /**
   @short Presents a multiple choice scope selection dialog to the user

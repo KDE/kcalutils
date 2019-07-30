@@ -24,7 +24,7 @@
 
 #include <QObject>
 
-#include <KCalCore/MemoryCalendar>
+#include <KCalendarCore/MemoryCalendar>
 
 class IncidenceFormatterTest : public QObject
 {
@@ -32,7 +32,7 @@ class IncidenceFormatterTest : public QObject
 
 private:
     /* Helper functions for testDisplayViewFormat* */
-    KCalCore::Calendar::Ptr loadCalendar(const QString &name);
+    KCalendarCore::Calendar::Ptr loadCalendar(const QString &name);
     bool validateHtml(const QString &name, const QString &html);
     bool compareHtml(const QString &name);
     void cleanup(const QString &name);

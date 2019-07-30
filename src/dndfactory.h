@@ -35,10 +35,10 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalcore/event.h>
-#include <kcalcore/journal.h>
-#include <kcalcore/todo.h>
-#include <kcalcore/memorycalendar.h>
+#include <kcalendarcore/event.h>
+#include <kcalendarcore/journal.h>
+#include <kcalendarcore/todo.h>
+#include <kcalendarcore/memorycalendar.h>
 
 #include <QDateTime>
 
@@ -69,19 +69,19 @@ public:
 
     Q_DECLARE_FLAGS(PasteFlags, PasteFlag)
 
-    explicit DndFactory(const KCalCore::MemoryCalendar::Ptr &cal);
+    explicit DndFactory(const KCalendarCore::MemoryCalendar::Ptr &cal);
 
     ~DndFactory();
 
     /**
       Create the calendar that is contained in the drop event's data.
      */
-    KCalCore::MemoryCalendar::Ptr createDropCalendar(QDropEvent *de);
+    KCalendarCore::MemoryCalendar::Ptr createDropCalendar(QDropEvent *de);
 
     /**
      Create the calendar that is contained in the mime data.
     */
-    static KCalCore::MemoryCalendar::Ptr createDropCalendar(const QMimeData *md);
+    static KCalendarCore::MemoryCalendar::Ptr createDropCalendar(const QMimeData *md);
 
     /**
       Create the mime data for the whole calendar.
@@ -96,52 +96,52 @@ public:
     /**
       Create the mime data for a single incidence.
     */
-    QMimeData *createMimeData(const KCalCore::Incidence::Ptr &incidence);
+    QMimeData *createMimeData(const KCalendarCore::Incidence::Ptr &incidence);
 
     /**
       Create a drag object for a single incidence.
     */
-    QDrag *createDrag(const KCalCore::Incidence::Ptr &incidence, QWidget *owner);
+    QDrag *createDrag(const KCalendarCore::Incidence::Ptr &incidence, QWidget *owner);
 
     /**
       Create Todo object from mime data.
     */
-    KCalCore::Todo::Ptr createDropTodo(const QMimeData *md);
+    KCalendarCore::Todo::Ptr createDropTodo(const QMimeData *md);
 
     /**
       Create Todo object from drop event.
     */
-    KCalCore::Todo::Ptr createDropTodo(QDropEvent *de);
+    KCalendarCore::Todo::Ptr createDropTodo(QDropEvent *de);
 
     /**
       Create Event object from mime data.
     */
-    KCalCore::Event::Ptr createDropEvent(const QMimeData *md);
+    KCalendarCore::Event::Ptr createDropEvent(const QMimeData *md);
 
     /**
       Create Event object from drop event.
     */
-    KCalCore::Event::Ptr createDropEvent(QDropEvent *de);
+    KCalendarCore::Event::Ptr createDropEvent(QDropEvent *de);
 
     /**
       Cut the incidence to the clipboard.
     */
-    void cutIncidence(const KCalCore::Incidence::Ptr &);
+    void cutIncidence(const KCalendarCore::Incidence::Ptr &);
 
     /**
       Copy the incidence to clipboard/
     */
-    bool copyIncidence(const KCalCore::Incidence::Ptr &);
+    bool copyIncidence(const KCalendarCore::Incidence::Ptr &);
 
     /**
       Cuts a list of @p incidences to the clipboard.
     */
-    bool cutIncidences(const KCalCore::Incidence::List &incidences);
+    bool cutIncidences(const KCalendarCore::Incidence::List &incidences);
 
     /**
       Copies a list of @p incidences to the clipboard.
     */
-    bool copyIncidences(const KCalCore::Incidence::List &incidences);
+    bool copyIncidences(const KCalendarCore::Incidence::List &incidences);
 
     /**
       This function clones the incidences that are in the clipboard and sets the clone's
@@ -149,7 +149,7 @@ public:
 
       @see pasteIncidence()
     */
-    KCalCore::Incidence::List pasteIncidences(const QDateTime &newDateTime = QDateTime(), PasteFlags pasteOptions = PasteFlags());
+    KCalendarCore::Incidence::List pasteIncidences(const QDateTime &newDateTime = QDateTime(), PasteFlags pasteOptions = PasteFlags());
 
     /**
       This function clones the incidence that's in the clipboard and sets the clone's
@@ -165,7 +165,7 @@ public:
 
       @return A pointer to the cloned incidence.
     */
-    KCalCore::Incidence::Ptr pasteIncidence(const QDateTime &newDateTime = QDateTime(), PasteFlags pasteOptions = PasteFlags());
+    KCalendarCore::Incidence::Ptr pasteIncidence(const QDateTime &newDateTime = QDateTime(), PasteFlags pasteOptions = PasteFlags());
 
 private:
     //@cond PRIVATE

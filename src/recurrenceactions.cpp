@@ -40,7 +40,7 @@
 
 using namespace KCalUtils;
 using namespace KCalUtils::RecurrenceActions;
-using namespace KCalCore;
+using namespace KCalendarCore;
 
 class ScopeWidget : public QWidget
 {

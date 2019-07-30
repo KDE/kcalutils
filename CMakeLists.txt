@@ -23,7 +23,7 @@ include(ECMQtDeclareLoggingCategory)
 include(KPIMGrantleeMacros)
 
 set(CALENDARUTILS_LIB_VERSION ${PIM_VERSION})
-set(CALENDARCORE_LIB_VERSION "5.11.80")
+set(CALENDARCORE_LIB_VERSION "5.11.90")
 set(IDENTITYMANAGER_LIB_VERSION "5.11.80")
 ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h"

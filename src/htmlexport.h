@@ -24,13 +24,13 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalcore/event.h>
-#include <kcalcore/incidence.h>
-#include <kcalcore/todo.h>
+#include <kcalendarcore/event.h>
+#include <kcalendarcore/incidence.h>
+#include <kcalendarcore/todo.h>
 
 #include <QString>
 
-namespace KCalCore {
+namespace KCalendarCore {
 class MemoryCalendar;
 }
 
@@ -48,7 +48,7 @@ public:
     /**
       Create new HTML exporter for calendar.
     */
-    HtmlExport(KCalCore::MemoryCalendar *calendar, HTMLExportSettings *settings);
+    HtmlExport(KCalendarCore::MemoryCalendar *calendar, HTMLExportSettings *settings);
     virtual ~HtmlExport();
 
     /**
@@ -71,19 +71,19 @@ protected:
     void createJournalView(QTextStream *ts);
     void createFreeBusyView(QTextStream *ts);
 
-    void createTodo(QTextStream *ts, const KCalCore::Todo::Ptr &todo);
+    void createTodo(QTextStream *ts, const KCalendarCore::Todo::Ptr &todo);
 
-    void createEvent(QTextStream *ts, const KCalCore::Event::Ptr &event, QDate date, bool withDescription = true);
+    void createEvent(QTextStream *ts, const KCalendarCore::Event::Ptr &event, QDate date, bool withDescription = true);
 
     void createFooter(QTextStream *ts);
 
-    bool checkSecrecy(const KCalCore::Incidence::Ptr &incidence);
+    bool checkSecrecy(const KCalendarCore::Incidence::Ptr &incidence);
 
-    void formatLocation(QTextStream *ts, const KCalCore::Incidence::Ptr &incidence);
+    void formatLocation(QTextStream *ts, const KCalendarCore::Incidence::Ptr &incidence);
 
-    void formatCategories(QTextStream *ts, const KCalCore::Incidence::Ptr &incidence);
+    void formatCategories(QTextStream *ts, const KCalendarCore::Incidence::Ptr &incidence);
 
-    void formatAttendees(QTextStream *ts, const KCalCore::Incidence::Ptr &incidence);
+    void formatAttendees(QTextStream *ts, const KCalendarCore::Incidence::Ptr &incidence);
 
     QString breakString(const QString &text);
 
