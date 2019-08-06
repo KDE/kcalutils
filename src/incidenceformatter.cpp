@@ -1094,7 +1094,7 @@ QString IncidenceFormatter::formatStartEnd(const QDateTime &start, const QDateTi
     // If it has an end dateTime:
     // on the same day -> Only add end time.
     // if it floats also omit the time
-    tmpStr += IncidenceFormatter::dateTimeToString(start, isAllDay, true);
+    tmpStr += IncidenceFormatter::dateTimeToString(start, isAllDay, false);
 
     if (end.isValid()) {
         if (start.date() == end.date()) {
@@ -1103,7 +1103,7 @@ QString IncidenceFormatter::formatStartEnd(const QDateTime &start, const QDateTi
                 tmpStr += QLatin1String(" - ") + IncidenceFormatter::timeToString(end.toLocalTime().time(), true);
             }
         } else {
-            tmpStr += QLatin1String(" - ") + IncidenceFormatter::dateTimeToString(end, isAllDay, true);
+            tmpStr += QLatin1String(" - ") + IncidenceFormatter::dateTimeToString(end, isAllDay, false);
         }
     }
     return tmpStr;
