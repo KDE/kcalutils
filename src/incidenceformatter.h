@@ -41,6 +41,9 @@
 class InvitationFormatterHelperPrivate;
 
 namespace KCalUtils {
+/**
+ * @brief The InvitationFormatterHelper class
+ */
 class KCALUTILS_EXPORT InvitationFormatterHelper
 {
 public:

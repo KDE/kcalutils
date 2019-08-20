@@ -45,8 +45,7 @@ class Exception;
 
 namespace KCalUtils {
 /**
-  @brief
-  Provides methods to format Incidence properties in various ways for display purposes.
+  @brief Provides methods to format Incidence properties in various ways for display purposes.
 */
 namespace Stringify {
 Q_REQUIRED_RESULT KCALUTILS_EXPORT QString incidenceType(KCalendarCore::Incidence::IncidenceType type);
