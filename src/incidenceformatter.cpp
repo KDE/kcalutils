@@ -2796,7 +2796,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
         }
         tmp += QLatin1String("<br>");
         tmp += QLatin1String("<i>") + i18np("Reminder:", "Reminders:", reminderCount) + QLatin1String("</i>") + QLatin1String("&nbsp;");
-        tmp += reminderStringList(incidence).join(QStringLiteral(", "));
+        tmp += reminderStringList(incidence).join(QLatin1String(", "));
     }
 
     const QString attendees = tooltipFormatAttendees(mCalendar, incidence);
@@ -2816,7 +2816,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
         }
         tmp += QLatin1String("<br>");
         tmp += QLatin1String("<i>") + i18np("Category:", "Categories:", categoryCount) + QLatin1String("</i>") + QLatin1String("&nbsp;");
-        tmp += incidence->categories().join(QStringLiteral(", "));
+        tmp += incidence->categories().join(QLatin1String(", "));
     }
 
     tmp += QLatin1String("</qt>");

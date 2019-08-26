@@ -104,8 +104,8 @@ QVariant KDateTimeFilter::doFilter(const QVariant &input, const QVariant &argume
     const QDateTime dt = input.toDateTime();
 
     const QStringList arguments = argument.value<Grantlee::SafeString>().get().split(QLatin1Char(','));
-    const bool shortFmt = arguments.contains(QStringLiteral("short"), Qt::CaseInsensitive);
-    const bool dateOnly = arguments.contains(QStringLiteral("dateonly"), Qt::CaseInsensitive);
+    const bool shortFmt = arguments.contains(QLatin1String("short"), Qt::CaseInsensitive);
+    const bool dateOnly = arguments.contains(QLatin1String("dateonly"), Qt::CaseInsensitive);
 
     return Grantlee::SafeString(KCalUtils::IncidenceFormatter::dateTimeToString(dt, dateOnly, shortFmt));
 }
