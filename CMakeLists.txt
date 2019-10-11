@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(PIM_VERSION "5.12.2")
+set(PIM_VERSION "5.12.3")
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
@@ -24,8 +24,8 @@ include(ECMQtDeclareLoggingCategory)
 include(KPIMGrantleeMacros)
 
 set(CALENDARUTILS_LIB_VERSION ${PIM_VERSION})
-set(CALENDARCORE_LIB_VERSION "5.12.1")
-set(IDENTITYMANAGER_LIB_VERSION "5.12.1")
+set(CALENDARCORE_LIB_VERSION "5.12.2")
+set(IDENTITYMANAGER_LIB_VERSION "5.12.2")
 ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfigVersion.cmake"
