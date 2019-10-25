@@ -39,7 +39,7 @@
 #include "vcaldrag.h"
 
 #include "kcalutils_debug.h"
-#include <KIconLoader>  // for BarIcon
+#include <KIconLoader>
 #include <KUrlMimeData>
 #include <QUrl>
 
@@ -48,6 +48,7 @@
 #include <QClipboard>
 #include <QDrag>
 #include <QDate>
+#include <QIcon>
 #include <QWidget>
 #include <QDropEvent>
 #include <QTimeZone>
@@ -186,7 +187,7 @@ QDrag *DndFactory::createDrag(const Incidence::Ptr &incidence, QWidget *owner)
 {
     QDrag *drag = new QDrag(owner);
     drag->setMimeData(createMimeData(incidence));
-    drag->setPixmap(BarIcon(incidence->iconName()));
+    drag->setPixmap(QIcon::fromTheme(incidence->iconName()).pixmap(KIconLoader::SizeSmallMedium));
 
     return drag;
 }
