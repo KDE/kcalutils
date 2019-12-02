@@ -49,7 +49,7 @@ using namespace KCalendarCore;
 #include <kidentitymanagement/identitymanager.h>
 #include <kidentitymanagement/utils.h>
 
-#include <kemailaddress.h>
+#include <KEmailAddress>
 #include <ktexttohtml.h>
 
 #include "kcalutils_debug.h"
