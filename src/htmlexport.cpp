@@ -40,7 +40,15 @@ using namespace KCalendarCore;
 using namespace KCalUtils;
 
 static QString cleanChars(const QString &txt);
-
+namespace {
+auto returnEndLine() {
+#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
+     return endl;
+#else
+     return Qt::endl;
+#endif
+}
+}
 //@cond PRIVATE
 class KCalUtils::HtmlExportPrivate
 {
@@ -94,25 +102,25 @@ bool HtmlExport::save(QTextStream *ts)
     ts->setCodec("UTF-8");
     // Write HTML header
     *ts << "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" ";
-    *ts << "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">" << endl;
+    *ts << "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">" << returnEndLine();
 
-    *ts << "<html><head>" << endl;
+    *ts << "<html><head>" << returnEndLine();
     *ts << "  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=";
-    *ts << "UTF-8\" />" << endl;
+    *ts << "UTF-8\" />" << returnEndLine();
     if (!d->mSettings->pageTitle().isEmpty()) {
-        *ts << "  <title>" << d->mSettings->pageTitle() << "</title>" << endl;
+        *ts << "  <title>" << d->mSettings->pageTitle() << "</title>" << returnEndLine();
     }
-    *ts << "  <style type=\"text/css\">" << endl;
+    *ts << "  <style type=\"text/css\">" << returnEndLine();
     *ts << styleSheet();
-    *ts << "  </style>" << endl;
-    *ts << "</head><body>" << endl;
+    *ts << "  </style>" << returnEndLine();
+    *ts << "</head><body>" << returnEndLine();
 
     // FIXME: Write header
     // (Heading, Calendar-Owner, Calendar-Date, ...)
 
     if (d->mSettings->eventView() || d->mSettings->monthView() || d->mSettings->weekView()) {
         if (!d->mSettings->eventTitle().isEmpty()) {
-            *ts << "<h1>" << d->mSettings->eventTitle() << "</h1>" << endl;
+            *ts << "<h1>" << d->mSettings->eventTitle() << "</h1>" << returnEndLine();
         }
 
         // Write Week View
@@ -132,7 +140,7 @@ bool HtmlExport::save(QTextStream *ts)
     // Write Todo List
     if (d->mSettings->todoView()) {
         if (!d->mSettings->todoListTitle().isEmpty()) {
-            *ts << "<h1>" << d->mSettings->todoListTitle() << "</h1>" << endl;
+            *ts << "<h1>" << d->mSettings->todoListTitle() << "</h1>" << returnEndLine();
         }
         createTodoList(ts);
     }
@@ -140,7 +148,7 @@ bool HtmlExport::save(QTextStream *ts)
     // Write Journals
     if (d->mSettings->journalView()) {
         if (!d->mSettings->journalTitle().isEmpty()) {
-            *ts << "<h1>" << d->mSettings->journalTitle() << "</h1>" << endl;
+            *ts << "<h1>" << d->mSettings->journalTitle() << "</h1>" << returnEndLine();
         }
         createJournalView(ts);
     }
@@ -148,7 +156,7 @@ bool HtmlExport::save(QTextStream *ts)
     // Write Free/Busy
     if (d->mSettings->freeBusyView()) {
         if (!d->mSettings->freeBusyTitle().isEmpty()) {
-            *ts << "<h1>" << d->mSettings->freeBusyTitle() << "</h1>" << endl;
+            *ts << "<h1>" << d->mSettings->freeBusyTitle() << "</h1>" << returnEndLine();
         }
         createFreeBusyView(ts);
     }
@@ -156,7 +164,7 @@ bool HtmlExport::save(QTextStream *ts)
     createFooter(ts);
 
     // Write HTML trailer
-    *ts << "</body></html>" << endl;
+    *ts << "</body></html>" << returnEndLine();
 
     return true;
 }
@@ -178,7 +186,7 @@ void HtmlExport::createMonthView(QTextStream *ts)
         QString hYear = hDate.toString(QStringLiteral("yyyy"));
         *ts << "<h2>"
             << i18nc("@title month and year", "%1 %2", hMon, hYear)
-            << "</h2>" << endl;
+            << "</h2>" << returnEndLine();
         if (QLocale().firstDayOfWeek() == 1) {
             start = start.addDays(1 - start.dayOfWeek());
         } else {
@@ -186,18 +194,18 @@ void HtmlExport::createMonthView(QTextStream *ts)
                 start = start.addDays(-start.dayOfWeek());
             }
         }
-        *ts << "<table border=\"1\">" << endl;
+        *ts << "<table border=\"1\">" << returnEndLine();
 
         // Write table header
         *ts << "  <tr>";
         for (int i = 0; i < 7; ++i) {
             *ts << "<th>" << QLocale().dayName(start.addDays(i).dayOfWeek()) << "</th>";
         }
-        *ts << "</tr>" << endl;
+        *ts << "</tr>" << returnEndLine();
 
         // Write days
         while (start <= end) {
-            *ts << "  <tr>" << endl;
+            *ts << "  <tr>" << returnEndLine();
             for (int i = 0; i < 7; ++i) {
                 *ts << "    <td valign=\"top\"><table border=\"0\">";
 
@@ -235,12 +243,12 @@ void HtmlExport::createMonthView(QTextStream *ts)
                     }
                 }
 
-                *ts << "</td></tr></table></td>" << endl;
+                *ts << "</td></tr></table></td>" << returnEndLine();
                 start = start.addDays(1);
             }
-            *ts << "  </tr>" << endl;
+            *ts << "  </tr>" << returnEndLine();
         }
-        *ts << "</table>" << endl;
+        *ts << "</table>" << returnEndLine();
         startmonth += 1;
         if (startmonth > 12) {
             startyear += 1;
@@ -254,31 +262,31 @@ void HtmlExport::createMonthView(QTextStream *ts)
 void HtmlExport::createEventList(QTextStream *ts)
 {
     int columns = 3;
-    *ts << "<table border=\"0\" cellpadding=\"3\" cellspacing=\"3\">" << endl;
-    *ts << "  <tr>" << endl;
+    *ts << "<table border=\"0\" cellpadding=\"3\" cellspacing=\"3\">" << returnEndLine();
+    *ts << "  <tr>" << returnEndLine();
     *ts << "    <th class=\"sum\">" << i18nc("@title:column event start time",
-                                             "Start Time") << "</th>" << endl;
+                                             "Start Time") << "</th>" << returnEndLine();
     *ts << "    <th>" << i18nc("@title:column event end time",
-                               "End Time") << "</th>" << endl;
+                               "End Time") << "</th>" << returnEndLine();
     *ts << "    <th>" << i18nc("@title:column event description",
-                               "Event") << "</th>" << endl;
+                               "Event") << "</th>" << returnEndLine();
     if (d->mSettings->eventLocation()) {
         *ts << "    <th>" << i18nc("@title:column event location",
-                                   "Location") << "</th>" << endl;
+                                   "Location") << "</th>" << returnEndLine();
         ++columns;
     }
     if (d->mSettings->eventCategories()) {
         *ts << "    <th>" << i18nc("@title:column event categories",
-                                   "Categories") << "</th>" << endl;
+                                   "Categories") << "</th>" << returnEndLine();
         ++columns;
     }
     if (d->mSettings->eventAttendees()) {
         *ts << "    <th>" << i18nc("@title:column event attendees",
-                                   "Attendees") << "</th>" << endl;
+                                   "Attendees") << "</th>" << returnEndLine();
         ++columns;
     }
 
-    *ts << "  </tr>" << endl;
+    *ts << "  </tr>" << returnEndLine();
 
     for (QDate dt = fromDate(); dt <= toDate(); dt = dt.addDays(1)) {
         qCDebug(KCALUTILS_LOG) << "Getting events for" << dt.toString();
@@ -289,7 +297,7 @@ void HtmlExport::createEventList(QTextStream *ts)
             *ts << "  <tr><td colspan=\"" << QString::number(columns)
                 << "\" class=\"datehead\"><i>"
                 << QLocale().toString(dt)
-                << "</i></td></tr>" << endl;
+                << "</i></td></tr>" << returnEndLine();
 
             Event::List::ConstIterator it;
             const Event::List::ConstIterator end(events.constEnd());
@@ -301,59 +309,59 @@ void HtmlExport::createEventList(QTextStream *ts)
         }
     }
 
-    *ts << "</table>" << endl;
+    *ts << "</table>" << returnEndLine();
 }
 
 void HtmlExport::createEvent(QTextStream *ts, const Event::Ptr &event, QDate date, bool withDescription)
 {
     qCDebug(KCALUTILS_LOG) << event->summary();
-    *ts << "  <tr>" << endl;
+    *ts << "  <tr>" << returnEndLine();
 
     if (!event->allDay()) {
         if (event->isMultiDay(d->mCalendar->timeZone()) && (event->dtStart().date() != date)) {
-            *ts << "    <td>&nbsp;</td>" << endl;
+            *ts << "    <td>&nbsp;</td>" << returnEndLine();
         } else {
             *ts << "    <td valign=\"top\">"
                 << IncidenceFormatter::timeToString(event->dtStart().toLocalTime().time(), true)
-                << "</td>" << endl;
+                << "</td>" << returnEndLine();
         }
         if (event->isMultiDay(d->mCalendar->timeZone()) && (event->dtEnd().date() != date)) {
-            *ts << "    <td>&nbsp;</td>" << endl;
+            *ts << "    <td>&nbsp;</td>" << returnEndLine();
         } else {
             *ts << "    <td valign=\"top\">"
                 << IncidenceFormatter::timeToString(event->dtEnd().toLocalTime().time(), true)
-                << "</td>" << endl;
+                << "</td>" << returnEndLine();
         }
     } else {
-        *ts << "    <td>&nbsp;</td><td>&nbsp;</td>" << endl;
+        *ts << "    <td>&nbsp;</td><td>&nbsp;</td>" << returnEndLine();
     }
 
-    *ts << "    <td class=\"sum\">" << endl;
-    *ts << "      <b>" << cleanChars(event->summary()) << "</b>" << endl;
+    *ts << "    <td class=\"sum\">" << returnEndLine();
+    *ts << "      <b>" << cleanChars(event->summary()) << "</b>" << returnEndLine();
     if (withDescription && !event->description().isEmpty()) {
-        *ts << "      <p>" << breakString(cleanChars(event->description())) << "</p>" << endl;
+        *ts << "      <p>" << breakString(cleanChars(event->description())) << "</p>" << returnEndLine();
     }
-    *ts << "    </td>" << endl;
+    *ts << "    </td>" << returnEndLine();
 
     if (d->mSettings->eventLocation()) {
-        *ts << "  <td>" << endl;
+        *ts << "  <td>" << returnEndLine();
         formatLocation(ts, event);
-        *ts << "  </td>" << endl;
+        *ts << "  </td>" << returnEndLine();
     }
 
     if (d->mSettings->eventCategories()) {
-        *ts << "  <td>" << endl;
+        *ts << "  <td>" << returnEndLine();
         formatCategories(ts, event);
-        *ts << "  </td>" << endl;
+        *ts << "  </td>" << returnEndLine();
     }
 
     if (d->mSettings->eventAttendees()) {
-        *ts << "  <td>" << endl;
+        *ts << "  <td>" << returnEndLine();
         formatAttendees(ts, event);
-        *ts << "  </td>" << endl;
+        *ts << "  </td>" << returnEndLine();
     }
 
-    *ts << "  </tr>" << endl;
+    *ts << "  </tr>" << returnEndLine();
 }
 
 void HtmlExport::createTodoList(QTextStream *ts)
@@ -397,29 +405,29 @@ void HtmlExport::createTodoList(QTextStream *ts)
     }
 
     int columns = 3;
-    *ts << "<table border=\"0\" cellpadding=\"3\" cellspacing=\"3\">" << endl;
-    *ts << "  <tr>" << endl;
-    *ts << "    <th class=\"sum\">" << i18nc("@title:column", "To-do") << "</th>" << endl;
-    *ts << "    <th>" << i18nc("@title:column to-do priority", "Priority") << "</th>" << endl;
+    *ts << "<table border=\"0\" cellpadding=\"3\" cellspacing=\"3\">" << returnEndLine();
+    *ts << "  <tr>" << returnEndLine();
+    *ts << "    <th class=\"sum\">" << i18nc("@title:column", "To-do") << "</th>" << returnEndLine();
+    *ts << "    <th>" << i18nc("@title:column to-do priority", "Priority") << "</th>" << returnEndLine();
     *ts << "    <th>" << i18nc("@title:column to-do percent completed",
-                               "Completed") << "</th>" << endl;
+                               "Completed") << "</th>" << returnEndLine();
     if (d->mSettings->taskDueDate()) {
-        *ts << "    <th>" << i18nc("@title:column to-do due date", "Due Date") << "</th>" << endl;
+        *ts << "    <th>" << i18nc("@title:column to-do due date", "Due Date") << "</th>" << returnEndLine();
         ++columns;
     }
     if (d->mSettings->taskLocation()) {
-        *ts << "    <th>" << i18nc("@title:column to-do location", "Location") << "</th>" << endl;
+        *ts << "    <th>" << i18nc("@title:column to-do location", "Location") << "</th>" << returnEndLine();
         ++columns;
     }
     if (d->mSettings->taskCategories()) {
-        *ts << "    <th>" << i18nc("@title:column to-do categories", "Categories") << "</th>" << endl;
+        *ts << "    <th>" << i18nc("@title:column to-do categories", "Categories") << "</th>" << returnEndLine();
         ++columns;
     }
     if (d->mSettings->taskAttendees()) {
-        *ts << "    <th>" << i18nc("@title:column to-do attendees", "Attendees") << "</th>" << endl;
+        *ts << "    <th>" << i18nc("@title:column to-do attendees", "Attendees") << "</th>" << returnEndLine();
         ++columns;
     }
-    *ts << "  </tr>" << endl;
+    *ts << "  </tr>" << returnEndLine();
 
     // Create top-level list.
     for (it = todoList.constBegin(); it != todoList.constEnd(); ++it) {
@@ -434,15 +442,15 @@ void HtmlExport::createTodoList(QTextStream *ts)
 
         if (relations.count()) {
             // Generate sub-to-do list
-            *ts << "  <tr>" << endl;
+            *ts << "  <tr>" << returnEndLine();
             *ts << "    <td class=\"subhead\" colspan=";
             *ts << "\"" << QString::number(columns) << "\"";
             *ts << "><a name=\"sub" << (*it)->uid() << "\"></a>"
                 << i18nc("@title:column sub-to-dos of the parent to-do",
                      "Sub-To-dos of: ") << "<a href=\"#"
                 << (*it)->uid() << "\"><b>" << cleanChars((*it)->summary())
-                << "</b></a></td>" << endl;
-            *ts << "  </tr>" << endl;
+                << "</b></a></td>" << returnEndLine();
+            *ts << "  </tr>" << returnEndLine();
 
             Todo::List sortedList;
             // FIXME: Sort list by priorities. This is brute force and should be
@@ -471,7 +479,7 @@ void HtmlExport::createTodoList(QTextStream *ts)
         }
     }
 
-    *ts << "</table>" << endl;
+    *ts << "</table>" << returnEndLine();
 }
 
 void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
@@ -482,54 +490,54 @@ void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
 
     Incidence::List relations = d->mCalendar->relations(todo->uid());
 
-    *ts << "<tr>" << endl;
+    *ts << "<tr>" << returnEndLine();
 
     *ts << "  <td class=\"sum";
     if (completed) {
         *ts << "done";
     }
-    *ts << "\">" << endl;
-    *ts << "    <a name=\"" << todo->uid() << "\"></a>" << endl;
-    *ts << "    <b>" << cleanChars(todo->summary()) << "</b>" << endl;
+    *ts << "\">" << returnEndLine();
+    *ts << "    <a name=\"" << todo->uid() << "\"></a>" << returnEndLine();
+    *ts << "    <b>" << cleanChars(todo->summary()) << "</b>" << returnEndLine();
     if (!todo->description().isEmpty()) {
-        *ts << "    <p>" << breakString(cleanChars(todo->description())) << "</p>" << endl;
+        *ts << "    <p>" << breakString(cleanChars(todo->description())) << "</p>" << returnEndLine();
     }
     if (relations.count()) {
         *ts << "    <div align=\"right\"><a href=\"#sub" << todo->uid()
             << "\">" << i18nc("@title:column sub-to-dos of the parent to-do",
-                          "Sub-To-dos") << "</a></div>" << endl;
+                          "Sub-To-dos") << "</a></div>" << returnEndLine();
     }
-    *ts << "  </td>" << endl;
+    *ts << "  </td>" << returnEndLine();
 
     *ts << "  <td";
     if (completed) {
         *ts << " class=\"done\"";
     }
-    *ts << ">" << endl;
-    *ts << "    " << todo->priority() << endl;
-    *ts << "  </td>" << endl;
+    *ts << ">" << returnEndLine();
+    *ts << "    " << todo->priority() << returnEndLine();
+    *ts << "  </td>" << returnEndLine();
 
     *ts << "  <td";
     if (completed) {
         *ts << " class=\"done\"";
     }
-    *ts << ">" << endl;
+    *ts << ">" << returnEndLine();
     *ts << "    " << i18nc("@info to-do percent complete",
-                           "%1 %", todo->percentComplete()) << endl;
-    *ts << "  </td>" << endl;
+                           "%1 %", todo->percentComplete()) << returnEndLine();
+    *ts << "  </td>" << returnEndLine();
 
     if (d->mSettings->taskDueDate()) {
         *ts << "  <td";
         if (completed) {
             *ts << " class=\"done\"";
         }
-        *ts << ">" << endl;
+        *ts << ">" << returnEndLine();
         if (todo->hasDueDate()) {
-            *ts << "    " << IncidenceFormatter::dateToString(todo->dtDue(true).toLocalTime().date()) << endl;
+            *ts << "    " << IncidenceFormatter::dateToString(todo->dtDue(true).toLocalTime().date()) << returnEndLine();
         } else {
-            *ts << "    &nbsp;" << endl;
+            *ts << "    &nbsp;" << returnEndLine();
         }
-        *ts << "  </td>" << endl;
+        *ts << "  </td>" << returnEndLine();
     }
 
     if (d->mSettings->taskLocation()) {
@@ -537,9 +545,9 @@ void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
         if (completed) {
             *ts << " class=\"done\"";
         }
-        *ts << ">" << endl;
+        *ts << ">" << returnEndLine();
         formatLocation(ts, todo);
-        *ts << "  </td>" << endl;
+        *ts << "  </td>" << returnEndLine();
     }
 
     if (d->mSettings->taskCategories()) {
@@ -547,9 +555,9 @@ void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
         if (completed) {
             *ts << " class=\"done\"";
         }
-        *ts << ">" << endl;
+        *ts << ">" << returnEndLine();
         formatCategories(ts, todo);
-        *ts << "  </td>" << endl;
+        *ts << "  </td>" << returnEndLine();
     }
 
     if (d->mSettings->taskAttendees()) {
@@ -557,12 +565,12 @@ void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
         if (completed) {
             *ts << " class=\"done\"";
         }
-        *ts << ">" << endl;
+        *ts << ">" << returnEndLine();
         formatAttendees(ts, todo);
-        *ts << "  </td>" << endl;
+        *ts << "  </td>" << returnEndLine();
     }
 
-    *ts << "</tr>" << endl;
+    *ts << "</tr>" << returnEndLine();
 }
 
 void HtmlExport::createWeekView(QTextStream *ts)
@@ -603,18 +611,18 @@ bool HtmlExport::checkSecrecy(const Incidence::Ptr &incidence)
 void HtmlExport::formatLocation(QTextStream *ts, const Incidence::Ptr &incidence)
 {
     if (!incidence->location().isEmpty()) {
-        *ts << "    " << cleanChars(incidence->location()) << endl;
+        *ts << "    " << cleanChars(incidence->location()) << returnEndLine();
     } else {
-        *ts << "    &nbsp;" << endl;
+        *ts << "    &nbsp;" << returnEndLine();
     }
 }
 
 void HtmlExport::formatCategories(QTextStream *ts, const Incidence::Ptr &incidence)
 {
     if (!incidence->categoriesStr().isEmpty()) {
-        *ts << "    " << cleanChars(incidence->categoriesStr()) << endl;
+        *ts << "    " << cleanChars(incidence->categoriesStr()) << returnEndLine();
     } else {
-        *ts << "    &nbsp;" << endl;
+        *ts << "    &nbsp;" << returnEndLine();
     }
 }
 
@@ -632,10 +640,10 @@ void HtmlExport::formatAttendees(QTextStream *ts, const Incidence::Ptr &incidenc
             } else {
                 *ts << "    " << cleanChars(a.name());
             }
-            *ts << "<br />" << endl;
+            *ts << "<br />" << returnEndLine();
         }
     } else {
-        *ts << "    &nbsp;" << endl;
+        *ts << "    &nbsp;" << returnEndLine();
     }
 }
 
@@ -693,7 +701,7 @@ void HtmlExport::createFooter(QTextStream *ts)
                              "with %1", d->mSettings->creditName());
         }
     }
-    *ts << "<p>" << trailer << "</p>" << endl;
+    *ts << "<p>" << trailer << "</p>" << returnEndLine();
 }
 
 QString cleanChars(const QString &text)

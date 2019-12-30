@@ -43,7 +43,7 @@ find_package(Grantlee5 "5.1" CONFIG REQUIRED)
 
 find_package(KF5CalendarCore ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRED)
-
+set(CMAKE_CXX_STANDARD 14)
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 add_definitions(-DQT_NO_FOREACH)
 
