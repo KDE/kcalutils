@@ -108,8 +108,7 @@ int availableOccurrences(const KCalendarCore::Incidence::Ptr &incidence, const Q
 
   @return the chosen #Scope options, OR'ed together
 */
-Q_REQUIRED_RESULT KCALUTILS_EXPORT int questionMultipleChoice(const QDateTime &selectedOccurrence, const QString &message, const QString &caption, const KGuiItem &action, int availableChoices, int preselectedChoices,
-                                            QWidget *parent);
+Q_REQUIRED_RESULT KCALUTILS_EXPORT int questionMultipleChoice(const QDateTime &selectedOccurrence, const QString &message, const QString &caption, const KGuiItem &action, int availableChoices, int preselectedChoices, QWidget *parent);
 
 /**
   @short Presents a message box with two action choices and cancel to the user
