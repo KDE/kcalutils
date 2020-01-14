@@ -39,7 +39,7 @@ find_package(KF5Codecs ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5WidgetsAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5ConfigWidgets ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5IconThemes ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(Grantlee5 "5.1" CONFIG REQUIRED)
+find_package(Grantlee5 "5.2" CONFIG REQUIRED)
 
 find_package(KF5CalendarCore ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRED)
