@@ -90,7 +90,9 @@ install(FILES
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}
   COMPONENT Devel
 )
+if (ECM_VERSION VERSION_LESS "5.68.0")
+   install(FILES kcalutils.renamecategories kcalutils.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+endif()
 
-install(FILES kcalutils.renamecategories kcalutils.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
