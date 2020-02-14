@@ -90,8 +90,11 @@ void DndFactoryTest::testPasteAllDayEvent2()
     incidencesToPaste.append(allDayEvent);
 
     QVERIFY(factory.copyIncidences(incidencesToPaste));
-
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     const QDateTime newDateTime(QDate(2011, 1, 1));
+#else
+    const QDateTime newDateTime(QDate(2011, 1, 1).startOfDay());
+#endif
     const uint originalLength = allDayEvent->dtStart().secsTo(allDayEvent->dtEnd());
 
     // paste at the new time
