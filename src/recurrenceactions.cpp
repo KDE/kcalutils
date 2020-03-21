@@ -212,8 +212,6 @@ int RecurrenceActions::questionSelectedAllCancel(const QString &message, const Q
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    QObject::connect(buttonBox, &QDialogButtonBox::accepted, dialog.data(), &QDialog::accept);
-    QObject::connect(buttonBox, &QDialogButtonBox::rejected, dialog.data(), &QDialog::reject);
     buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
 
     bool checkboxResult = false;
@@ -250,12 +248,10 @@ int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message, c
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    QObject::connect(buttonBox, &QDialogButtonBox::accepted, dialog.data(), &QDialog::accept);
-    QObject::connect(buttonBox, &QDialogButtonBox::rejected, dialog.data(), &QDialog::reject);
     buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
 
     bool checkboxResult = false;
-    int result = KMessageBox::createKMessageBox(
+    QDialogButtonBox::StandardButton result = KMessageBox::createKMessageBox(
         dialog,
         buttonBox,
         QMessageBox::Question,
