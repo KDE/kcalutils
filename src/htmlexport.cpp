@@ -232,8 +232,8 @@ void HtmlExport::createMonthView(QTextStream *ts)
                     if (events.count()) {
                         *ts << "<table>";
                         Event::List::ConstIterator it;
-                        Event::List::ConstIterator end(events.constEnd());
-                        for (it = events.constBegin(); it != end; ++it) {
+                        Event::List::ConstIterator endEvents(events.constEnd());
+                        for (it = events.constBegin(); it != endEvents; ++it) {
                             if (checkSecrecy(*it)) {
                                 createEvent(ts, *it, start, false);
                             }
