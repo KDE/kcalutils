@@ -24,7 +24,7 @@
 
 #include "dndfactory.h"
 
-#include <kcalendarcore/memorycalendar.h>
+#include <KCalendarCore/MemoryCalendar>
 
 #include <QTest>
 #include <QTimeZone>

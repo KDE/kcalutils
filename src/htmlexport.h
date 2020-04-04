@@ -24,9 +24,9 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalendarcore/event.h>
-#include <kcalendarcore/incidence.h>
-#include <kcalendarcore/todo.h>
+#include <KCalendarCore/Event>
+#include <KCalendarCore/Incidence>
+#include <KCalendarCore/Todo>
 
 #include <QString>
 

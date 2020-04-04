@@ -34,8 +34,8 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalendarcore/incidence.h>
-#include <kcalendarcore/memorycalendar.h>
+#include <KCalendarCore/Incidence>
+#include <KCalendarCore/MemoryCalendar>
 
 #include <QDate>
 class InvitationFormatterHelperPrivate;

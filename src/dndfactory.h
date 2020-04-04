@@ -35,10 +35,10 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalendarcore/event.h>
-#include <kcalendarcore/journal.h>
-#include <kcalendarcore/todo.h>
-#include <kcalendarcore/memorycalendar.h>
+#include <KCalendarCore/Event>
+#include <KCalendarCore/Journal>
+#include <KCalendarCore/Todo>
+#include <KCalendarCore/MemoryCalendar>
 
 #include <QDateTime>
 

@@ -37,13 +37,13 @@
 #include "stringify.h"
 #include "grantleetemplatemanager_p.h"
 
-#include <kcalendarcore/event.h>
-#include <kcalendarcore/freebusy.h>
-#include <kcalendarcore/icalformat.h>
-#include <kcalendarcore/journal.h>
-#include <kcalendarcore/memorycalendar.h>
-#include <kcalendarcore/todo.h>
-#include <kcalendarcore/visitor.h>
+#include <KCalendarCore/Event>
+#include <KCalendarCore/FreeBusy>
+#include <KCalendarCore/ICalFormat>
+#include <KCalendarCore/Journal>
+#include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/Todo>
+#include <KCalendarCore/Visitor>
 using namespace KCalendarCore;
 
 #include <kidentitymanagement/identitymanager.h>

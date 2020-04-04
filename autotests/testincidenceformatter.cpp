@@ -25,12 +25,12 @@
 #include "incidenceformatter.h"
 #include "grantleetemplatemanager_p.h"
 
-#include <kcalendarcore/event.h>
-#include <kcalendarcore/icalformat.h>
-#include <kcalendarcore/todo.h>
-#include <kcalendarcore/journal.h>
-#include <kcalendarcore/freebusy.h>
-#include <kcalendarcore/memorycalendar.h>
+#include <KCalendarCore/Event>
+#include <KCalendarCore/ICalFormat>
+#include <KCalendarCore/Todo>
+#include <KCalendarCore/Journal>
+#include <KCalendarCore/FreeBusy>
+#include <KCalendarCore/MemoryCalendar>
 
 #include <KLocalizedString>
 

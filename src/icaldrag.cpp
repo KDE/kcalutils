@@ -21,7 +21,7 @@
 */
 #include "icaldrag.h"
 
-#include "kcalendarcore/icalformat.h"
+#include <KCalendarCore/ICalFormat>
 using namespace KCalendarCore;
 
 #include <QMimeData>

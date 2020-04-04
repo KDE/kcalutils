@@ -25,7 +25,7 @@
 
 #include "kcalutils_export.h"
 
-#include <kcalendarcore/incidence.h>
+#include <KCalendarCore/Incidence>
 
 class QDateTime;
 class KGuiItem;
