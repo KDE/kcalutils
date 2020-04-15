@@ -46,6 +46,7 @@ find_package(KF5IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRE
 set(CMAKE_CXX_STANDARD 14)
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 add_definitions(-DQT_NO_FOREACH)
+add_definitions(-DQT_NO_KEYWORDS)
 
 if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
    add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
