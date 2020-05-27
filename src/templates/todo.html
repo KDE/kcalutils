@@ -28,7 +28,11 @@
     {% if incidence.startDate %}
     <tr>
         <th valign="top">{% i18nc "to-do start date/time" "Start:" %}</th>
+        {% if incidence.allDay %}
+        <td>{{ incidence.startDate|kdatetime:"dateonly" }}</td>
+        {% else %}
         <td>{{ incidence.startDate|kdatetime }}</td>
+        {% endif %}
     </tr>
     {% endif %}
 
