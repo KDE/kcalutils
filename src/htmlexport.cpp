@@ -229,7 +229,7 @@ void HtmlExport::createMonthView(QTextStream *ts)
                     Event::List events = d->mCalendar->events(start, d->mCalendar->timeZone(),
                                                               EventSortStartDate,
                                                               SortDirectionAscending);
-                    if (events.count()) {
+                    if (!events.isEmpty()) {
                         *ts << "<table>";
                         Event::List::ConstIterator it;
                         Event::List::ConstIterator endEvents(events.constEnd());
@@ -294,7 +294,7 @@ void HtmlExport::createEventList(QTextStream *ts)
         Event::List events = d->mCalendar->events(dt, d->mCalendar->timeZone(),
                                                   EventSortStartDate,
                                                   SortDirectionAscending);
-        if (events.count()) {
+        if (!events.isEmpty()) {
             *ts << "  <tr><td colspan=\"" << QString::number(columns)
                 << "\" class=\"datehead\"><i>"
                 << QLocale().toString(dt)
@@ -441,7 +441,7 @@ void HtmlExport::createTodoList(QTextStream *ts)
     for (it = todoList.constBegin(); it != todoList.constEnd(); ++it) {
         Incidence::List relations = d->mCalendar->relations((*it)->uid());
 
-        if (relations.count()) {
+        if (!relations.isEmpty()) {
             // Generate sub-to-do list
             *ts << "  <tr>" << returnEndLine();
             *ts << "    <td class=\"subhead\" colspan=";
@@ -503,7 +503,7 @@ void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
     if (!todo->description().isEmpty()) {
         *ts << "    <p>" << breakString(cleanChars(todo->description())) << "</p>" << returnEndLine();
     }
-    if (relations.count()) {
+    if (!relations.isEmpty()) {
         *ts << "    <div align=\"right\"><a href=\"#sub" << todo->uid()
             << "\">" << i18nc("@title:column sub-to-dos of the parent to-do",
                           "Sub-To-dos") << "</a></div>" << returnEndLine();
