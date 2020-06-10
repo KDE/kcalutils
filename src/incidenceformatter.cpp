@@ -2429,7 +2429,7 @@ protected:
     bool visit(const FreeBusy::Ptr &fb) override;
 
     QString dateRangeText(const Event::Ptr &event, QDate date);
-    QString dateRangeText(const Todo::Ptr &todo, QDate date);
+    QString dateRangeText(const Todo::Ptr &todo, QDate asOfDate);
     QString dateRangeText(const Journal::Ptr &journal);
     QString dateRangeText(const FreeBusy::Ptr &fb);
 
@@ -2496,46 +2496,60 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
     return ret.replace(QLatin1Char(' '), QLatin1String("&nbsp;"));
 }
 
-QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo, QDate date)
+QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo, QDate asOfDate)
 {
     //FIXME: support mRichText==false
-    QString ret;
-    if (todo->hasStartDate()) {
-        QDateTime startDt = todo->dtStart();
-        if (todo->recurs() && date.isValid()) {
-            startDt.setDate(date);
+    //FIXME: doesn't handle to-dos that occur more than once per day.
+
+    QDateTime startDt { todo->dtStart(false) };
+    QDateTime dueDt { todo->dtDue(false) };
+
+    if (todo->recurs() && asOfDate.isValid()) {
+        const QDateTime limit { asOfDate.addDays(1), QTime(0, 0, 0), Qt::LocalTime };
+        startDt =  todo->recurrence()->getPreviousDateTime(limit);
+        if (startDt.isValid() && todo->hasDueDate()) {
+            if (todo->allDay()) {
+                // Days, not seconds, because not all days are 24 hours long.
+                const auto duration { todo->dtStart(true).daysTo(todo->dtDue(true)) };
+                dueDt = startDt.addDays(duration);
+            } else {
+                const auto duration { todo->dtStart(true).secsTo(todo->dtDue(true)) };
+                dueDt = startDt.addSecs(duration);
+            }
         }
-        ret += QLatin1String("<br>")
-               +i18n("<i>Start:</i> %1", dateToString(startDt.toLocalTime().date(), false));
     }
 
-    if (todo->hasDueDate()) {
-        QDateTime dueDt = todo->dtDue();
-        if (todo->recurs() && date.isValid()) {
-            QDateTime kdt(date, QTime(0, 0, 0), Qt::LocalTime);
-            kdt = kdt.addSecs(-1);
-            dueDt.setDate(todo->recurrence()->getNextDateTime(kdt).date());
-        }
+    QString ret;
+    if (startDt.isValid()) {
+        ret = QLatin1String("<br>")
+            % i18nc("To-do's start date", "<i>Start:</i> %1", dateTimeToString(startDt, todo->allDay(), false));
+    }
+    if (dueDt.isValid()) {
         ret += QLatin1String("<br>")
-               +i18n("<i>Due:</i> %1",
-                     dateTimeToString(dueDt, todo->allDay(), false));
+            % i18nc("To-do's due date", "<i>Due:</i> %1", dateTimeToString(dueDt, todo->allDay(), false));
     }
 
     // Print priority and completed info here, for lack of a better place
 
     if (todo->priority() > 0) {
-        ret += QLatin1String("<br>");
-        ret += QLatin1String("<i>") + i18n("Priority:") + QLatin1String("</i>") + QLatin1String("&nbsp;");
-        ret += QString::number(todo->priority());
+        ret += QLatin1String("<br>")
+            % i18nc("To-do's priority number", "<i>Priority:</i> %1", QString::number(todo->priority()));
     }
 
     ret += QLatin1String("<br>");
-    if (todo->isCompleted()) {
-        ret += QLatin1String("<i>") + i18nc("Completed: date", "Completed:") + QLatin1String("</i>") + QLatin1String("&nbsp;");
-        ret += Stringify::todoCompletedDateTime(todo).replace(QLatin1Char(' '), QLatin1String("&nbsp;"));
+    if (todo->hasCompletedDate()) {
+        ret += i18nc("To-do's completed date", "<i>Completed:</i> %1", dateTimeToString(todo->completed(), false, false));
     } else {
-        ret += QLatin1String("<i>") + i18n("Percent Done:") + QLatin1String("</i>") + QLatin1String("&nbsp;");
-        ret += i18n("%1%", todo->percentComplete());
+        int pct = todo->percentComplete();
+        if (todo->recurs() && asOfDate.isValid()) {
+            const QDate recurrenceDate = todo->dtRecurrence().date();
+            if (recurrenceDate < startDt.date()) {
+                pct = 0;
+            } else if (recurrenceDate > startDt.date()) {
+                pct = 100;
+            }
+        }
+        ret += i18nc("To-do's percent complete:", "<i>Percent Done:</i> %1%", pct);
     }
 
     return ret.replace(QLatin1Char(' '), QLatin1String("&nbsp;"));
