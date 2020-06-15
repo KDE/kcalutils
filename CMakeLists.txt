@@ -24,7 +24,7 @@ include(ECMQtDeclareLoggingCategory)
 include(KPIMGrantleeMacros)
 
 set(CALENDARUTILS_LIB_VERSION ${PIM_VERSION})
-set(IDENTITYMANAGER_LIB_VERSION "5.14.2")
+set(IDENTITYMANAGER_LIB_VERSION "5.14.3")
 ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfigVersion.cmake"
