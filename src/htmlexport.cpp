@@ -47,8 +47,8 @@ public:
     {
     }
 
-    MemoryCalendar *mCalendar = nullptr;
-    HTMLExportSettings *mSettings = nullptr;
+    MemoryCalendar *const mCalendar;
+    HTMLExportSettings *const mSettings;
     QMap<QDate, QString> mHolidayMap;
 };
 //@endcond
