@@ -17,7 +17,6 @@
 #include <KCalendarCore/Todo>
 #include <KCalendarCore/Journal>
 #include <KCalendarCore/FreeBusy>
-#include <KCalendarCore/MemoryCalendar>
 
 #include <KLocalizedString>
 

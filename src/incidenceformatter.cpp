@@ -28,7 +28,6 @@
 #include <KCalendarCore/FreeBusy>
 #include <KCalendarCore/ICalFormat>
 #include <KCalendarCore/Journal>
-#include <KCalendarCore/MemoryCalendar>
 #include <KCalendarCore/Todo>
 #include <KCalendarCore/Visitor>
 using namespace KCalendarCore;
