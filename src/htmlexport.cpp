@@ -93,7 +93,7 @@ bool HtmlExport::save(QTextStream *ts)
     *ts << "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">" << returnEndLine();
 
     *ts << "<html><head>" << returnEndLine();
-    *ts << "  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=";
+    *ts << R"(  <meta http-equiv="Content-Type" content="text/html; charset=)";
     *ts << "UTF-8\" />" << returnEndLine();
     if (!d->mSettings->pageTitle().isEmpty()) {
         *ts << "  <title>" << d->mSettings->pageTitle() << "</title>" << returnEndLine();
@@ -195,7 +195,7 @@ void HtmlExport::createMonthView(QTextStream *ts)
         while (start <= end) {
             *ts << "  <tr>" << returnEndLine();
             for (int i = 0; i < 7; ++i) {
-                *ts << "    <td valign=\"top\"><table border=\"0\">";
+                *ts << R"(    <td valign="top"><table border="0">)";
 
                 *ts << "<tr><td ";
                 if (d->mHolidayMap.contains(start) || start.dayOfWeek() == 7) {
@@ -250,7 +250,7 @@ void HtmlExport::createMonthView(QTextStream *ts)
 void HtmlExport::createEventList(QTextStream *ts)
 {
     int columns = 3;
-    *ts << "<table border=\"0\" cellpadding=\"3\" cellspacing=\"3\">" << returnEndLine();
+    *ts << R"(<table border="0" cellpadding="3" cellspacing="3">)" << returnEndLine();
     *ts << "  <tr>" << returnEndLine();
     *ts << "    <th class=\"sum\">" << i18nc("@title:column event start time",
                                              "Start Time") << "</th>" << returnEndLine();
@@ -283,7 +283,7 @@ void HtmlExport::createEventList(QTextStream *ts)
                                                   SortDirectionAscending);
         if (!events.isEmpty()) {
             *ts << "  <tr><td colspan=\"" << QString::number(columns)
-                << "\" class=\"datehead\"><i>"
+                << R"(" class="datehead"><i>)"
                 << QLocale().toString(dt)
                 << "</i></td></tr>" << returnEndLine();
 
@@ -393,7 +393,7 @@ void HtmlExport::createTodoList(QTextStream *ts)
     }
 
     int columns = 3;
-    *ts << "<table border=\"0\" cellpadding=\"3\" cellspacing=\"3\">" << returnEndLine();
+    *ts << R"(<table border="0" cellpadding="3" cellspacing="3">)" << returnEndLine();
     *ts << "  <tr>" << returnEndLine();
     *ts << "    <th class=\"sum\">" << i18nc("@title:column", "To-do") << "</th>" << returnEndLine();
     *ts << "    <th>" << i18nc("@title:column to-do priority", "Priority") << "</th>" << returnEndLine();
@@ -491,7 +491,7 @@ void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
         *ts << "    <p>" << breakString(cleanChars(todo->description())) << "</p>" << returnEndLine();
     }
     if (!relations.isEmpty()) {
-        *ts << "    <div align=\"right\"><a href=\"#sub" << todo->uid()
+        *ts << R"(    <div align="right"><a href="#sub)" << todo->uid()
             << "\">" << i18nc("@title:column sub-to-dos of the parent to-do",
                           "Sub-To-dos") << "</a></div>" << returnEndLine();
     }

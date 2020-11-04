@@ -132,7 +132,7 @@ DndFactory::~DndFactory()
 
 QMimeData *DndFactory::createMimeData()
 {
-    QMimeData *mimeData = new QMimeData;
+    auto *mimeData = new QMimeData;
 
     ICalDrag::populateMimeData(mimeData, d->mCalendar);
 
@@ -141,7 +141,7 @@ QMimeData *DndFactory::createMimeData()
 
 QDrag *DndFactory::createDrag(QWidget *owner)
 {
-    QDrag *drag = new QDrag(owner);
+    auto *drag = new QDrag(owner);
     drag->setMimeData(createMimeData());
 
     return drag;
@@ -155,7 +155,7 @@ QMimeData *DndFactory::createMimeData(const Incidence::Ptr &incidence)
     i->setRecurrenceId({});
     cal->addIncidence(i);
 
-    QMimeData *mimeData = new QMimeData;
+    auto *mimeData = new QMimeData;
 
     ICalDrag::populateMimeData(mimeData, cal);
 
@@ -172,7 +172,7 @@ QMimeData *DndFactory::createMimeData(const Incidence::Ptr &incidence)
 
 QDrag *DndFactory::createDrag(const Incidence::Ptr &incidence, QWidget *owner)
 {
-    QDrag *drag = new QDrag(owner);
+    auto *drag = new QDrag(owner);
     drag->setMimeData(createMimeData(incidence));
     drag->setPixmap(QIcon::fromTheme(incidence->iconName()).pixmap(KIconLoader::SizeSmallMedium));
 
@@ -291,7 +291,7 @@ bool DndFactory::copyIncidences(const Incidence::List &incidences)
         }
     }
 
-    QMimeData *mimeData = new QMimeData;
+    auto *mimeData = new QMimeData;
 
     ICalDrag::populateMimeData(mimeData, calendar);
 

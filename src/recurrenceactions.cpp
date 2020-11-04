@@ -141,7 +141,7 @@ static QDialog *createDialog(QDialogButtonBox::StandardButtons buttons, const QS
 {
     QPointer<QDialog> dialog = new QDialog(parent);
     dialog->setWindowTitle(caption);
-    QVBoxLayout *mainLayout = new QVBoxLayout();
+    auto *mainLayout = new QVBoxLayout();
     dialog->setLayout(mainLayout);
 
     *buttonBox = new QDialogButtonBox(buttons, parent);
@@ -164,7 +164,7 @@ static QDialog *createDialog(QDialogButtonBox::StandardButtons buttons, const QS
 int RecurrenceActions::questionMultipleChoice(const QDateTime &selectedOccurrence, const QString &message, const QString &caption, const KGuiItem &action, int availableChoices, int preselectedChoices, QWidget *parent)
 {
     QDialogButtonBox::StandardButtons buttons = QDialogButtonBox::Ok | QDialogButtonBox::Cancel;
-    ScopeWidget *widget = new ScopeWidget(availableChoices, selectedOccurrence, nullptr);
+    auto *widget = new ScopeWidget(availableChoices, selectedOccurrence, nullptr);
     QDialogButtonBox *buttonBox = nullptr;
     auto dialog = createDialog(buttons, caption, widget, &buttonBox, parent);
 

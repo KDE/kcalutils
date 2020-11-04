@@ -17,7 +17,7 @@ class Engine;
 class FileSystemTemplateLoader;
 class TemplateImpl;
 class Context;
-typedef QSharedPointer<TemplateImpl> Template;
+using Template = QSharedPointer<TemplateImpl>;
 }
 
 class QString;

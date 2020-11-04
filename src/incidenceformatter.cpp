@@ -2604,7 +2604,7 @@ static QString tooltipPerson(const QString &email, const QString &name, Attendee
     // Make the return string.
     QString personString;
     if (!iconPath.isEmpty()) {
-        personString += QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">") + QLatin1String("&nbsp;");
+        personString += QLatin1String(R"(<img valign="top" src=")") + iconPath + QLatin1String("\">") + QLatin1String("&nbsp;");
     }
     if (status != Attendee::None) {
         personString += i18nc("attendee name (attendee status)", "%1 (%2)",
@@ -2629,7 +2629,7 @@ static QString tooltipFormatOrganizer(const QString &email, const QString &name)
     // Make the return string.
     QString personString;
     if (!iconPath.isEmpty()) {
-        personString += QLatin1String("<img valign=\"top\" src=\"") + iconPath + QLatin1String("\">") + QLatin1String("&nbsp;");
+        personString += QLatin1String(R"(<img valign="top" src=")") + iconPath + QLatin1String("\">") + QLatin1String("&nbsp;");
     }
     personString += (printName.isEmpty() ? email : printName);
     return personString;
