@@ -2065,9 +2065,6 @@ static QVariantHash invitationStyle()
     p.setCurrentColorGroup(QPalette::Normal);
     style[QStringLiteral("buttonBg")] = p.color(QPalette::Button).name();
     style[QStringLiteral("buttonBorder")] = p.shadow().color().name();
-    p.setCurrentColorGroup(QPalette::Active);
-    style[QStringLiteral("buttonBorderHl")] = p.shadow().color().name();
-    p.setCurrentColorGroup(QPalette::Normal);
     style[QStringLiteral("buttonFg")] = p.color(QPalette::ButtonText).name();
     return style;
 }
