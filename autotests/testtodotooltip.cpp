@@ -15,9 +15,9 @@
 // Standard values for to-dos.
 static const bool ALL_DAY = true;
 static const bool RECURS = true;
-static const QDateTime START_DT { QDate(2020, 6, 10), QTime(11,  0, 0) };
-static const QDateTime DUE_DT   { QDate(2020, 6, 12), QTime(11, 30, 0) };
-static const QDate AS_OF_DATE   { 2020, 6, 12 };
+static const QDateTime START_DT { QDate(2222, 6, 10), QTime(11,  0, 0) };
+static const QDateTime DUE_DT   { QDate(2222, 6, 12), QTime(11, 30, 0) };
+static const QDate AS_OF_DATE   { 2222, 6, 12 };
 static const QString SUMMARY { QStringLiteral("Do something") };
 static const QString CAL_NAME { QStringLiteral("A calendar") };
 
@@ -189,59 +189,59 @@ void TestTodoToolTip::testRecurringOnDate_data()
     QTest::addColumn<QString>("dur");
 
     // Test the tool tip for each day of each occurrence of all-day to-dos.
-    QTest::newRow("All day, 1st, day 1") << ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("All day, 1st occurrence, day 1") << ALL_DAY << START_DT << DUE_DT
         << START_DT.date() << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 1st, day 2") << ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("All day, 1st occurrence, day 2") << ALL_DAY << START_DT << DUE_DT
         << START_DT.date().addDays(1) << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 1st, day 3") << ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("All day, 1st occurrence, day 3") << ALL_DAY << START_DT << DUE_DT
         << DUE_DT.date() << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 1st, only day") << ALL_DAY << DUE_DT << DUE_DT
+    QTest::newRow("All day, 1st occurrence, only day") << ALL_DAY << DUE_DT << DUE_DT
         << DUE_DT.date() << EXPECTED_PCT100 << 0 << QStringLiteral("1 day");
 
-    QTest::newRow("All day, 2nd, day 1") << ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("All day, 2nd occurrence, day 1") << ALL_DAY << START_DT << DUE_DT
         << START_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 2nd, day 2") << ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("All day, 2nd occurrence, day 2") << ALL_DAY << START_DT << DUE_DT
         << START_DT.date().addDays(8) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 2nd, day 3") << ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("All day, 2nd occurrence, day 3") << ALL_DAY << START_DT << DUE_DT
         << DUE_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 2nd, only day") << ALL_DAY << DUE_DT << DUE_DT
+    QTest::newRow("All day, 2nd occurrence, only day") << ALL_DAY << DUE_DT << DUE_DT
         << DUE_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << QStringLiteral("1 day");
 
-    QTest::newRow("All day, 3rd, day 1") << ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("All day, 3rd occurrence, day 1") << ALL_DAY << START_DT << DUE_DT
         << START_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 3rd, day 2") << ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("All day, 3rd occurrence, day 2") << ALL_DAY << START_DT << DUE_DT
         << START_DT.date().addDays(15) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 3rd, day 3") << ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("All day, 3rd occurrence, day 3") << ALL_DAY << START_DT << DUE_DT
         << DUE_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 3rd, only day") << ALL_DAY << DUE_DT << DUE_DT
+    QTest::newRow("All day, 3rd occurrence, only day") << ALL_DAY << DUE_DT << DUE_DT
         << DUE_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << QStringLiteral("1 day");
 
     // Test the tool tip for each day of each occurrence of time-of-day to-dos.
-    QTest::newRow("Timed, 1st, day 1") << !ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("Timed, 1st occurrence, day 1") << !ALL_DAY << START_DT << DUE_DT
         << START_DT.date() << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 1st, day 2") << !ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("Timed, 1st occurrence, day 2") << !ALL_DAY << START_DT << DUE_DT
         << START_DT.date().addDays(1) << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 1st, day 3") << !ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("Timed, 1st occurrence, day 3") << !ALL_DAY << START_DT << DUE_DT
         << DUE_DT.date() << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 1st, only day") << !ALL_DAY << START_DT.addDays(2) << DUE_DT
+    QTest::newRow("Timed, 1st occurrence, only day") << !ALL_DAY << START_DT.addDays(2) << DUE_DT
         << DUE_DT.date() << EXPECTED_PCT100 << 0 << QStringLiteral("30 minutes");
 
-    QTest::newRow("Timed, 2nd, day 1") << !ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("Timed, 2nd occurrence, day 1") << !ALL_DAY << START_DT << DUE_DT
         << START_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 2nd, day 2") << !ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("Timed, 2nd occurrence, day 2") << !ALL_DAY << START_DT << DUE_DT
         << START_DT.date().addDays(8) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 2nd, day 3") << !ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("Timed, 2nd occurrence, day 3") << !ALL_DAY << START_DT << DUE_DT
         << DUE_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, All 2nd, only day") << !ALL_DAY << START_DT.addDays(2) << DUE_DT
+    QTest::newRow("Timed, 2nd occurrence, only day") << !ALL_DAY << START_DT.addDays(2) << DUE_DT
         << DUE_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << QStringLiteral("30 minutes");
 
-    QTest::newRow("Timed, 3rd, day 1") << !ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("Timed, 3rd occurrence, day 1") << !ALL_DAY << START_DT << DUE_DT
         << START_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 3rd, day 2") << !ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("Timed, 3rd occurrence, day 2") << !ALL_DAY << START_DT << DUE_DT
         << START_DT.date().addDays(15) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 3rd, day 3") << !ALL_DAY << START_DT << DUE_DT
+    QTest::newRow("Timed, 3rd occurrence, day 3") << !ALL_DAY << START_DT << DUE_DT
         << DUE_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 3rd, only day") << !ALL_DAY << START_DT.addDays(2) << DUE_DT
+    QTest::newRow("Timed, 3rd occurrence, only day") << !ALL_DAY << START_DT.addDays(2) << DUE_DT
         << DUE_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << QStringLiteral("30 minutes");
 }
 
