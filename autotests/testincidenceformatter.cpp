@@ -41,6 +41,12 @@ Q_CONSTRUCTOR_FUNCTION(initLocale)
 using namespace KCalendarCore;
 using namespace KCalUtils;
 
+// Button colors.
+static QString btnBg;
+static QString btnFg;
+static QString btnBdr;
+static QString btnHl;
+
 void IncidenceFormatterTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
@@ -48,6 +54,14 @@ void IncidenceFormatterTest::initTestCase()
     GrantleeTemplateManager::instance()->setPluginPath(QStringLiteral(TEST_PLUGIN_PATH));
     QIcon::setThemeName(QStringLiteral("oxygen"));
     QLocale::setDefault(QLocale(QStringLiteral("C")));
+
+    QPalette palette;
+    palette.setCurrentColorGroup(QPalette::Normal);
+    btnBg = palette.color(QPalette::Button).name();
+    btnBdr = palette.shadow().color().name();
+    btnFg = palette.color(QPalette::ButtonText).name();
+    palette.setCurrentColorGroup(QPalette::Active);
+    btnHl = palette.shadow().color().name();
 }
 
 void IncidenceFormatterTest::testRecurrenceString()
@@ -412,7 +426,11 @@ void IncidenceFormatterTest::testFormatIcalInvitation()
 
     const QString html = IncidenceFormatter::formatICalInvitation(QString::fromUtf8(data),
                                                                   calendar,
-                                                                  &helper);
+                                                                  &helper)
+        .replace(btnBg, QStringLiteral("btnBg"))
+        .replace(btnFg, QStringLiteral("btnFg"))
+        .replace(btnBdr, QStringLiteral("btnBdr"))
+        ;
 
     QVERIFY(validateHtml(name, html));
     QVERIFY(compareHtml(name));
