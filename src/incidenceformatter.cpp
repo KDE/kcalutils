@@ -405,6 +405,20 @@ static QVariantHash incidenceTemplateHeader(const Incidence::Ptr &incidence)
         incidenceData[QStringLiteral("icon")] = incidence->iconName();
     }
 
+    switch (incidence->type()) {
+        case IncidenceBase::IncidenceType::TypeEvent:
+            incidenceData[QStringLiteral("alarmIcon")] = QStringLiteral("appointment-reminder");
+            incidenceData[QStringLiteral("recursIcon")] = QStringLiteral("appointment-recurring");
+            break;
+        case IncidenceBase::IncidenceType::TypeTodo:
+            incidenceData[QStringLiteral("alarmIcon")] = QStringLiteral("task-reminder");
+            incidenceData[QStringLiteral("recursIcon")] = QStringLiteral("task-recurring");
+            break;
+        default:
+            // Others don't repeat and don't have reminders.
+            break;
+    }
+
     incidenceData[QStringLiteral("hasEnabledAlarms")] = incidence->hasEnabledAlarms();
     incidenceData[QStringLiteral("recurs")] = incidence->recurs();
     incidenceData[QStringLiteral("isReadOnly")] = incidence->isReadOnly();

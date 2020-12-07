@@ -1,22 +1,24 @@
 <table class="header">
     <tr>
-        <td>
+        {% spaceless %}
+        <th>
             {% if incidence.icon %}
             {% icon incidence.icon small type %}
             {% endif %}
 
-            {% if incidence.hasEnabledAlarms %}
-            {% icon "preferences-desktop-notification-bell" small _("Incidence with a reminder") %}
+            {% if incidence.recurs %}
+            {% icon incidence.recursIcon small _("Recurring incidence") %}
             {% endif %}
 
-            {% if incidence.recurs %}
-            {% icon "edit-redo" small _("Recurring incidence") %}
+            {% if incidence.hasEnabledAlarms %}
+            {% icon incidence.alarmIcon small _("Incidence with a reminder") %}
             {% endif %}
 
             {% if incidence.isReadOnly %}
             {% icon "object-locked" small _("Incidence is read only") %}
             {% endif %}
-        </td>
+        </th>
+        {% endspaceless %}
         <td>
             <b><u>{{ incidence.summary|safe }}</u></b>
         </td>
