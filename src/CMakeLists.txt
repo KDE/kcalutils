@@ -26,7 +26,9 @@ ki18n_wrap_ui(kcalutils_SRCS recurrenceactionsscopewidget.ui)
 qt5_add_resources(kcalutils_SRCS templates.qrc)
 
 add_library(KF5CalendarUtils ${kcalutils_SRCS})
-
+if (COMPILE_WITH_CMAKE_SUPPORT)
+    set_target_properties(KF5CalendarUtils PROPERTIES UNITY_BUILD ON)
+endif()
 generate_export_header(KF5CalendarUtils BASE_NAME kcalutils)
 
 add_library(KF5::CalendarUtils ALIAS KF5CalendarUtils)
