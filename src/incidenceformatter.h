@@ -191,17 +191,6 @@ KCALUTILS_EXPORT QString resourceString(const KCalendarCore::Calendar::Ptr &cale
 */
 KCALUTILS_EXPORT QString durationString(const KCalendarCore::Incidence::Ptr &incidence);
 
-/**
-  Returns the translated string form of a specified #Status.
-   @param status is a #Status type.
-*/
-KCALUTILS_EXPORT QString incidenceStatusName(KCalendarCore::Incidence::Status status);
-
-/**
-   Returns a translatedstatus string for this incidence
-*/
-KCALUTILS_EXPORT QString incidenceStatusStr(const KCalendarCore::Incidence::Ptr &incidence);
-
 class EventViewerVisitor;
 template<typename T> class ScheduleMessageVisitor;
 class InvitationHeaderVisitor;
