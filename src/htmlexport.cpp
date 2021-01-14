@@ -563,20 +563,20 @@ void HtmlExport::createTodo(QTextStream *ts, const Todo::Ptr &todo)
 
 void HtmlExport::createWeekView(QTextStream *ts)
 {
-    Q_UNUSED(ts);
+    Q_UNUSED(ts)
     // FIXME: Implement this!
 }
 
 void HtmlExport::createJournalView(QTextStream *ts)
 {
-    Q_UNUSED(ts);
+    Q_UNUSED(ts)
 //   Journal::List rawJournalList = d->mCalendar->journals();
     // FIXME: Implement this!
 }
 
 void HtmlExport::createFreeBusyView(QTextStream *ts)
 {
-    Q_UNUSED(ts);
+    Q_UNUSED(ts)
     // FIXME: Implement this!
 }
 

@@ -21,7 +21,7 @@ KCalendarGrantleePlugin::~KCalendarGrantleePlugin()
 
 QHash<QString, Grantlee::AbstractNodeFactory *> KCalendarGrantleePlugin::nodeFactories(const QString &name)
 {
-    Q_UNUSED(name);
+    Q_UNUSED(name)
 
     QHash<QString, Grantlee::AbstractNodeFactory *> nodeFactories;
     nodeFactories[QStringLiteral("icon")] = new IconTag();
@@ -31,7 +31,7 @@ QHash<QString, Grantlee::AbstractNodeFactory *> KCalendarGrantleePlugin::nodeFac
 
 QHash<QString, Grantlee::Filter *> KCalendarGrantleePlugin::filters(const QString &name)
 {
-    Q_UNUSED(name);
+    Q_UNUSED(name)
 
     QHash<QString, Grantlee::Filter *> filters;
     filters[QStringLiteral("kdate")] = new KDateFilter();

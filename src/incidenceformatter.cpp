@@ -276,7 +276,7 @@ static bool incOrganizerOwnsCalendar(const Calendar::Ptr &calendar, const Incide
     //PORTME!  Look at e35's CalHelper::incOrganizerOwnsCalendar
 
     // For now, use iamOrganizer() which is only part of the check
-    Q_UNUSED(calendar);
+    Q_UNUSED(calendar)
     return iamOrganizer(incidence);
 }
 
@@ -597,8 +597,8 @@ static QString displayViewFormatJournal(const Calendar::Ptr &calendar, const QSt
 
 static QString displayViewFormatFreeBusy(const Calendar::Ptr &calendar, const QString &sourceName, const FreeBusy::Ptr &fb)
 {
-    Q_UNUSED(calendar);
-    Q_UNUSED(sourceName);
+    Q_UNUSED(calendar)
+    Q_UNUSED(sourceName)
     if (!fb) {
         return QString();
     }
@@ -1262,7 +1262,7 @@ static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, const 
 
 static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHtmlMode)
 {
-    Q_UNUSED(noHtmlMode);
+    Q_UNUSED(noHtmlMode)
 
     if (!fb) {
         return QVariantHash();
@@ -1306,13 +1306,13 @@ static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHt
 
 static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, const FreeBusy::Ptr &oldfb, bool noHtmlMode)
 {
-    Q_UNUSED(oldfb);
+    Q_UNUSED(oldfb)
     return invitationDetailsFreeBusy(fb, noHtmlMode);
 }
 
 static bool replyMeansCounter(const Incidence::Ptr &incidence)
 {
-    Q_UNUSED(incidence);
+    Q_UNUSED(incidence)
     return false;
     /**
       see kolab/issue 3665 for an example of when we might use this for something
@@ -1939,8 +1939,8 @@ QString InvitationFormatterHelper::makeLink(const QString &id, const QString &te
 // a shared calendar (Kolab-specific)
 static bool incidenceOwnedByMe(const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
 {
-    Q_UNUSED(calendar);
-    Q_UNUSED(incidence);
+    Q_UNUSED(calendar)
+    Q_UNUSED(incidence)
     return true;
 }
 
@@ -3439,8 +3439,8 @@ QString IncidenceFormatter::dateTimeToString(const QDateTime &date, bool allDay,
 
 QString IncidenceFormatter::resourceString(const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
 {
-    Q_UNUSED(calendar);
-    Q_UNUSED(incidence);
+    Q_UNUSED(calendar)
+    Q_UNUSED(incidence)
     return QString();
 }
 
@@ -3500,7 +3500,7 @@ QString IncidenceFormatter::durationString(const Incidence::Ptr &incidence)
 QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &incidence, bool shortfmt)
 {
     //TODO: implement shortfmt=false
-    Q_UNUSED(shortfmt);
+    Q_UNUSED(shortfmt)
 
     QStringList reminderStringList;
 

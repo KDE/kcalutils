@@ -24,7 +24,7 @@ IconTag::~IconTag()
 
 Grantlee::Node *IconTag::getNode(const QString &tagContent, Grantlee::Parser *p) const
 {
-    Q_UNUSED(p);
+    Q_UNUSED(p)
 
     static QHash<QString, int> sizeOrGroupLookup
         = { { QStringLiteral("desktop"), KIconLoader::Desktop },
@@ -94,7 +94,7 @@ IconNode::~IconNode()
 
 void IconNode::render(Grantlee::OutputStream *stream, Grantlee::Context *c) const
 {
-    Q_UNUSED(c);
+    Q_UNUSED(c)
 
     QString iconName = mIconName;
     if (iconName.startsWith(QLatin1Char('"')) && iconName.endsWith(QLatin1Char('"'))) {
