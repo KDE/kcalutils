@@ -20,6 +20,9 @@ include(ECMGeneratePriFile)
 
 include(ECMSetupVersion)
 include(FeatureSummary)
+if(ECM_VERSION VERSION_GREATER_EQUAL 5.79)
+   include(KDEGitCommitHooks)
+endif()
 include(ECMQtDeclareLoggingCategory)
 
 include(KPIMGrantleeMacros)
@@ -101,4 +104,7 @@ install(FILES
   COMPONENT Devel
 )
 
+if(ECM_VERSION VERSION_GREATER_EQUAL 5.79)
+    kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
+endif()
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
