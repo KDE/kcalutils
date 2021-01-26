@@ -26,15 +26,18 @@
 
 #include <QTimeZone>
 
-namespace KCalendarCore {
+namespace KCalendarCore
+{
 class Exception;
 }
 
-namespace KCalUtils {
+namespace KCalUtils
+{
 /**
   @brief Provides methods to format Incidence properties in various ways for display purposes.
 */
-namespace Stringify {
+namespace Stringify
+{
 Q_REQUIRED_RESULT KCALUTILS_EXPORT QString incidenceType(KCalendarCore::Incidence::IncidenceType type);
 
 /**
@@ -75,6 +78,6 @@ Q_REQUIRED_RESULT KCALUTILS_EXPORT QString tzUTCOffsetStr(const QTimeZone &tz);
 */
 Q_REQUIRED_RESULT KCALUTILS_EXPORT QString errorMessage(const KCalendarCore::Exception &exception);
 } // namespace Stringify
-} //namespace KCalUtils
+} // namespace KCalUtils
 
 #endif

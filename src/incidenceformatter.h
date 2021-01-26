@@ -27,7 +27,8 @@
 #include <QDate>
 class InvitationFormatterHelperPrivate;
 
-namespace KCalUtils {
+namespace KCalUtils
+{
 /**
  * @brief The InvitationFormatterHelper class
  */
@@ -56,7 +57,8 @@ private:
   for tool tips, or a representation for a viewer widget.
 
 */
-namespace IncidenceFormatter {
+namespace IncidenceFormatter
+{
 /**
   Create a QString representation of an Incidence in a nice format
   suitable for using in a tooltip.
@@ -79,7 +81,9 @@ KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalendarCo
   @param date is the QDate for which the string representation should be computed;
   used mainly for recurring incidences.
 */
-KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalendarCore::Calendar::Ptr &calendar, const KCalendarCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
+KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalendarCore::Calendar::Ptr &calendar,
+                                             const KCalendarCore::IncidenceBase::Ptr &incidence,
+                                             QDate date = QDate());
 
 /**
   Create a RichText QString representation of an Incidence in a nice format
@@ -111,8 +115,7 @@ KCALUTILS_EXPORT QString mailBodyStr(const KCalendarCore::IncidenceBase::Ptr &in
 
   @since 5.23.0
 */
-KCALUTILS_EXPORT QString formatICalInvitation(
-    const QString &invitation, const KCalendarCore::MemoryCalendar::Ptr &calendar, InvitationFormatterHelper *helper);
+KCALUTILS_EXPORT QString formatICalInvitation(const QString &invitation, const KCalendarCore::MemoryCalendar::Ptr &calendar, InvitationFormatterHelper *helper);
 
 /**
   Deliver an HTML formatted string displaying an invitation.
@@ -128,8 +131,10 @@ KCALUTILS_EXPORT QString formatICalInvitation(
 
   @since 5.23.0
 */
-KCALUTILS_EXPORT QString formatICalInvitationNoHtml(
-    const QString &invitation, const KCalendarCore::MemoryCalendar::Ptr &calendar, InvitationFormatterHelper *helper, const QString &sender);
+KCALUTILS_EXPORT QString formatICalInvitationNoHtml(const QString &invitation,
+                                                    const KCalendarCore::MemoryCalendar::Ptr &calendar,
+                                                    InvitationFormatterHelper *helper,
+                                                    const QString &sender);
 
 /**
   Build a pretty QString representation of an Incidence's recurrence info.

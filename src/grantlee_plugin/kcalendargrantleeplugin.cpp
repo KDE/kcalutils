@@ -6,8 +6,8 @@
  */
 
 #include "kcalendargrantleeplugin.h"
-#include "icon.h"
 #include "datetimefilters.h"
+#include "icon.h"
 
 KCalendarGrantleePlugin::KCalendarGrantleePlugin(QObject *parent)
     : QObject(parent)

@@ -24,8 +24,8 @@
 
 #include <KCalendarCore/Event>
 #include <KCalendarCore/Journal>
-#include <KCalendarCore/Todo>
 #include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/Todo>
 
 #include <QDateTime>
 
@@ -33,7 +33,8 @@ class QDrag;
 class QDropEvent;
 class QMimeData;
 
-namespace KCalUtils {
+namespace KCalUtils
+{
 class DndFactoryPrivate;
 /**
   @brief
@@ -45,7 +46,6 @@ class DndFactoryPrivate;
 class KCALUTILS_EXPORT DndFactory
 {
 public:
-
     enum PasteFlag {
         FlagTodosPasteAtDtStart = 1, /**< If the cloned incidence is a to-do, the date/time passed
                                         to DndFactory::pasteIncidence() will change dtStart if this

@@ -9,14 +9,14 @@
 #include "testincidenceformatter.h"
 #include "test_config.h"
 
-#include "incidenceformatter.h"
 #include "grantleetemplatemanager_p.h"
+#include "incidenceformatter.h"
 
 #include <KCalendarCore/Event>
-#include <KCalendarCore/ICalFormat>
-#include <KCalendarCore/Todo>
-#include <KCalendarCore/Journal>
 #include <KCalendarCore/FreeBusy>
+#include <KCalendarCore/ICalFormat>
+#include <KCalendarCore/Journal>
+#include <KCalendarCore/Todo>
 
 #include <KLocalizedString>
 
@@ -73,87 +73,75 @@ void IncidenceFormatterTest::testRecurrenceString()
     QTime tim(12, 0, 0);
     QDateTime kdt(day, tim, Qt::UTC);
     e1->setDtStart(kdt);
-    e1->setDtEnd(kdt.addSecs(60 * 60));      // 1hr event
+    e1->setDtEnd(kdt.addSecs(60 * 60)); // 1hr event
 
     QCOMPARE(IncidenceFormatter::recurrenceString(e1), i18n("No recurrence"));
 
     Recurrence *r1 = e1->recurrence();
 
     r1->setDaily(1);
-    r1->setEndDateTime(kdt.addDays(5));     // ends 5 days from now
+    r1->setEndDateTime(kdt.addDays(5)); // ends 5 days from now
     QString endDateStr = QLocale().toString(kdt.addDays(5).toLocalTime(), QLocale::ShortFormat);
-    QCOMPARE(IncidenceFormatter::recurrenceString(e1),
-             i18n("Recurs daily until %1", endDateStr));
+    QCOMPARE(IncidenceFormatter::recurrenceString(e1), i18n("Recurs daily until %1", endDateStr));
 
     r1->setFrequency(2);
 
-    QCOMPARE(IncidenceFormatter::recurrenceString(e1),
-             i18n("Recurs every 2 days until %1", endDateStr));
+    QCOMPARE(IncidenceFormatter::recurrenceString(e1), i18n("Recurs every 2 days until %1", endDateStr));
 
     r1->addExDate(kdt.addDays(1).date());
     QString exDateStr = QLocale().toString(kdt.addDays(1).date(), QLocale::ShortFormat);
-    QCOMPARE(IncidenceFormatter::recurrenceString(e1),
-             i18n("Recurs every 2 days until %1 (excluding %2)", endDateStr, exDateStr));
+    QCOMPARE(IncidenceFormatter::recurrenceString(e1), i18n("Recurs every 2 days until %1 (excluding %2)", endDateStr, exDateStr));
 
     r1->addExDate(kdt.addDays(3).date());
     QString exDateStr2 = QLocale().toString(kdt.addDays(3).date(), QLocale::ShortFormat);
-    QCOMPARE(IncidenceFormatter::recurrenceString(e1),
-             i18n("Recurs every 2 days until %1 (excluding %2,%3)", endDateStr, exDateStr, exDateStr2));
+    QCOMPARE(IncidenceFormatter::recurrenceString(e1), i18n("Recurs every 2 days until %1 (excluding %2,%3)", endDateStr, exDateStr, exDateStr2));
 
     // TEST: An daily recurrence, with datetime exclusions //
     Event::Ptr e2 = Event::Ptr(new Event());
     e2->setDtStart(kdt);
-    e2->setDtEnd(kdt.addSecs(60 * 60));      // 1hr event
+    e2->setDtEnd(kdt.addSecs(60 * 60)); // 1hr event
 
     Recurrence *r2 = e2->recurrence();
 
     r2->setDaily(1);
-    r2->setEndDate(kdt.addDays(5).date());     // ends 5 days from now
-    QCOMPARE(IncidenceFormatter::recurrenceString(e2),
-             i18n("Recurs daily until %1", endDateStr));
+    r2->setEndDate(kdt.addDays(5).date()); // ends 5 days from now
+    QCOMPARE(IncidenceFormatter::recurrenceString(e2), i18n("Recurs daily until %1", endDateStr));
 
     r2->setFrequency(2);
 
-    QCOMPARE(IncidenceFormatter::recurrenceString(e2),
-             i18n("Recurs every 2 days until %1", endDateStr));
+    QCOMPARE(IncidenceFormatter::recurrenceString(e2), i18n("Recurs every 2 days until %1", endDateStr));
 
     r2->addExDateTime(kdt.addDays(1));
-    QCOMPARE(IncidenceFormatter::recurrenceString(e2),
-             i18n("Recurs every 2 days until %1 (excluding %2)", endDateStr, exDateStr));
+    QCOMPARE(IncidenceFormatter::recurrenceString(e2), i18n("Recurs every 2 days until %1 (excluding %2)", endDateStr, exDateStr));
 
     r2->addExDate(kdt.addDays(3).date());
-    QCOMPARE(IncidenceFormatter::recurrenceString(e2),
-             i18n("Recurs every 2 days until %1 (excluding %2,%3)", endDateStr, exDateStr, exDateStr2));
+    QCOMPARE(IncidenceFormatter::recurrenceString(e2), i18n("Recurs every 2 days until %1 (excluding %2,%3)", endDateStr, exDateStr, exDateStr2));
 
     // TEST: An hourly recurrence, with exclusions //
     Event::Ptr e3 = Event::Ptr(new Event());
     e3->setDtStart(kdt);
-    e3->setDtEnd(kdt.addSecs(60 * 60));      // 1hr event
+    e3->setDtEnd(kdt.addSecs(60 * 60)); // 1hr event
 
     Recurrence *r3 = e3->recurrence();
 
     r3->setHourly(1);
-    r3->setEndDateTime(kdt.addSecs(5 * 60 * 60));     // ends 5 hrs from now
+    r3->setEndDateTime(kdt.addSecs(5 * 60 * 60)); // ends 5 hrs from now
     endDateStr = QLocale().toString(r3->endDateTime().toLocalTime(), QLocale::ShortFormat);
-    QCOMPARE(IncidenceFormatter::recurrenceString(e3),
-             i18n("Recurs hourly until %1", endDateStr));
+    QCOMPARE(IncidenceFormatter::recurrenceString(e3), i18n("Recurs hourly until %1", endDateStr));
 
     r3->setFrequency(2);
 
-    QCOMPARE(IncidenceFormatter::recurrenceString(e3),
-             i18n("Recurs every 2 hours until %1", endDateStr));
+    QCOMPARE(IncidenceFormatter::recurrenceString(e3), i18n("Recurs every 2 hours until %1", endDateStr));
 
     r3->addExDateTime(kdt.addSecs(1 * 60 * 60));
     QString hourStr = QLocale().toString(QTime(13, 0), QLocale::ShortFormat);
-    QCOMPARE(IncidenceFormatter::recurrenceString(e3),
-             i18n("Recurs every 2 hours until %1 (excluding %2)", endDateStr, hourStr));
+    QCOMPARE(IncidenceFormatter::recurrenceString(e3), i18n("Recurs every 2 hours until %1 (excluding %2)", endDateStr, hourStr));
 
     r3->addExDateTime(kdt.addSecs(3 * 60 * 60));
     QString hourStr2 = QLocale().toString(QTime(15, 0), QLocale::ShortFormat);
-    QCOMPARE(IncidenceFormatter::recurrenceString(e3),
-             i18n("Recurs every 2 hours until %1 (excluding %2,%3)", endDateStr, hourStr, hourStr2));
+    QCOMPARE(IncidenceFormatter::recurrenceString(e3), i18n("Recurs every 2 hours until %1 (excluding %2,%3)", endDateStr, hourStr, hourStr2));
 
-//  qDebug() << "recurrenceString=" << IncidenceFormatter::recurrenceString( e3 );
+    //  qDebug() << "recurrenceString=" << IncidenceFormatter::recurrenceString( e3 );
 }
 
 KCalendarCore::Calendar::Ptr IncidenceFormatterTest::loadCalendar(const QString &name)
@@ -170,15 +158,15 @@ KCalendarCore::Calendar::Ptr IncidenceFormatterTest::loadCalendar(const QString 
 
 bool IncidenceFormatterTest::validateHtml(const QString &name, const QString &_html)
 {
-    QString html = QStringLiteral("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
-                                  "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
-                                  "  <head>\n"
-                                  "    <title></title>\n"
-                                  "    <style></style>\n"
-                                  "  </head>\n"
-                                  "<body>")
-                   + _html
-                   + QStringLiteral("</body>\n</html>");
+    QString html = QStringLiteral(
+                       "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
+                       "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+                       "  <head>\n"
+                       "    <title></title>\n"
+                       "    <style></style>\n"
+                       "  </head>\n"
+                       "<body>")
+        + _html + QStringLiteral("</body>\n</html>");
 
     const QString outFileName = QStringLiteral(TEST_DATA_DIR "/%1.out").arg(name);
     const QString htmlFileName = QStringLiteral(TEST_DATA_DIR "/%1.out.html").arg(name);
@@ -191,14 +179,8 @@ bool IncidenceFormatterTest::validateHtml(const QString &name, const QString &_h
 
     // validate xml and pretty-print for comparison
     // TODO add proper cmake check for xmllint and diff
-    const QStringList args = {
-        QStringLiteral("--format"),
-        QStringLiteral("--encode"),
-        QStringLiteral("UTF8"),
-        QStringLiteral("--output"),
-        htmlFileName,
-        outFileName
-    };
+    const QStringList args =
+        {QStringLiteral("--format"), QStringLiteral("--encode"), QStringLiteral("UTF8"), QStringLiteral("--output"), htmlFileName, outFileName};
 
     const int result = QProcess::execute(QStringLiteral("xmllint"), args);
     return result == 0;
@@ -230,11 +212,7 @@ bool IncidenceFormatterTest::compareHtml(const QString &name)
     }
 
     // compare to reference file
-    const QStringList args = {
-        QStringLiteral("-u"),
-        referenceFileName,
-        htmlFileName
-    };
+    const QStringList args = {QStringLiteral("-u"), referenceFileName, htmlFileName};
 
     QProcess proc;
     proc.setProcessChannelMode(QProcess::ForwardedChannels);
@@ -424,13 +402,10 @@ void IncidenceFormatterTest::testFormatIcalInvitation()
     QVERIFY(eventFile.open(QIODevice::ReadOnly));
     const QByteArray data = eventFile.readAll();
 
-    const QString html = IncidenceFormatter::formatICalInvitation(QString::fromUtf8(data),
-                                                                  calendar,
-                                                                  &helper)
-        .replace(btnBg, QStringLiteral("btnBg"))
-        .replace(btnFg, QStringLiteral("btnFg"))
-        .replace(btnBdr, QStringLiteral("btnBdr"))
-        ;
+    const QString html = IncidenceFormatter::formatICalInvitation(QString::fromUtf8(data), calendar, &helper)
+                             .replace(btnBg, QStringLiteral("btnBg"))
+                             .replace(btnFg, QStringLiteral("btnFg"))
+                             .replace(btnBdr, QStringLiteral("btnBdr"));
 
     QVERIFY(validateHtml(name, html));
     QVERIFY(compareHtml(name));

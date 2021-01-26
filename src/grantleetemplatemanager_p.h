@@ -8,11 +8,12 @@
 #ifndef GRANTLEETEMPLATEMANAGER_P_H
 #define GRANTLEETEMPLATEMANAGER_P_H
 
+#include "kcalutils_private_export.h"
 #include <QSharedPointer>
 #include <QVariantHash>
-#include "kcalutils_private_export.h"
 
-namespace Grantlee {
+namespace Grantlee
+{
 class Engine;
 class FileSystemTemplateLoader;
 class TemplateImpl;

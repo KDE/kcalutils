@@ -17,13 +17,15 @@
 
 #include <QString>
 
-namespace KCalendarCore {
+namespace KCalendarCore
+{
 class MemoryCalendar;
 }
 
 class QTextStream;
 
-namespace KCalUtils {
+namespace KCalUtils
+{
 class HTMLExportSettings;
 class HtmlExportPrivate;
 /**

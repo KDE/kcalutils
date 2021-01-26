@@ -7,13 +7,13 @@
 
 #include <config-kcalutils.h>
 
-#include "grantleetemplatemanager_p.h"
 #include "grantleeki18nlocalizer_p.h"
+#include "grantleetemplatemanager_p.h"
 #include "qtresourcetemplateloader.h"
 
-#include <QString>
-#include <QStandardPaths>
 #include <QDebug>
+#include <QStandardPaths>
+#include <QString>
 
 #include <grantlee/engine.h>
 #include <grantlee/template.h>
@@ -28,10 +28,9 @@ GrantleeTemplateManager::GrantleeTemplateManager()
     , mLoader(new KCalUtils::QtResourceTemplateLoader)
     , mLocalizer(new GrantleeKi18nLocalizer)
 {
-    const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kcalendar/templates"),
-                                                QStandardPaths::LocateDirectory);
+    const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kcalendar/templates"), QStandardPaths::LocateDirectory);
     if (!path.isEmpty()) {
-        mLoader->setTemplateDirs({ path });
+        mLoader->setTemplateDirs({path});
         mLoader->setTheme(QStringLiteral("default"));
     }
 
@@ -57,7 +56,7 @@ GrantleeTemplateManager *GrantleeTemplateManager::instance()
 
 void GrantleeTemplateManager::setTemplatePath(const QString &path)
 {
-    mLoader->setTemplateDirs({ path });
+    mLoader->setTemplateDirs({path});
     mLoader->setTheme(QString());
 }
 
@@ -78,11 +77,11 @@ Grantlee::Context GrantleeTemplateManager::createContext(const QVariantHash &has
 
 QString GrantleeTemplateManager::errorTemplate(const QString &reason, const QString &origTemplateName, const Grantlee::Template &failedTemplate) const
 {
-    Grantlee::Template tpl = mEngine->newTemplate(
-        QStringLiteral("<h1>{{ error }}</h1>\n"
-                       "<b>%1:</b> {{ templateName }}<br>\n"
-                       "<b>%2:</b> {{ errorMessage }}")
-        .arg(i18n("Template"), i18n("Error message")), QStringLiteral("TemplateError"));
+    Grantlee::Template tpl = mEngine->newTemplate(QStringLiteral("<h1>{{ error }}</h1>\n"
+                                                                 "<b>%1:</b> {{ templateName }}<br>\n"
+                                                                 "<b>%2:</b> {{ errorMessage }}")
+                                                      .arg(i18n("Template"), i18n("Error message")),
+                                                  QStringLiteral("TemplateError"));
 
     Grantlee::Context ctx = createContext();
     ctx.insert(QStringLiteral("error"), reason);

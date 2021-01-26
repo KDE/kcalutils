@@ -24,7 +24,10 @@ public:
     // tr(), the remaining methods use QLocale internally, so we can reuse them
     Q_REQUIRED_RESULT QString localizeContextString(const QString &string, const QString &context, const QVariantList &arguments) const override;
     Q_REQUIRED_RESULT QString localizeString(const QString &string, const QVariantList &arguments) const override;
-    Q_REQUIRED_RESULT QString localizePluralContextString(const QString &string, const QString &pluralForm, const QString &context, const QVariantList &arguments) const override;
+    Q_REQUIRED_RESULT QString localizePluralContextString(const QString &string,
+                                                          const QString &pluralForm,
+                                                          const QString &context,
+                                                          const QVariantList &arguments) const override;
     Q_REQUIRED_RESULT QString localizePluralString(const QString &string, const QString &pluralForm, const QVariantList &arguments) const override;
 
     // Only exception, Grantlee's implementation is not using QLocale for this

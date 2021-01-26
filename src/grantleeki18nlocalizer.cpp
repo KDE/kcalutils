@@ -78,7 +78,10 @@ QString GrantleeKi18nLocalizer::localizeString(const QString &string, const QVar
     return processArguments(str, arguments);
 }
 
-QString GrantleeKi18nLocalizer::localizePluralContextString(const QString &string, const QString &pluralForm, const QString &context, const QVariantList &arguments) const
+QString GrantleeKi18nLocalizer::localizePluralContextString(const QString &string,
+                                                            const QString &pluralForm,
+                                                            const QString &context,
+                                                            const QVariantList &arguments) const
 {
     const KLocalizedString str = kxi18ncp(qPrintable(context), qPrintable(string), qPrintable(pluralForm));
     return processArguments(str, arguments);

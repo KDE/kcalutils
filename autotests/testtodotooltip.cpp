@@ -6,8 +6,8 @@
 
 #include "testtodotooltip.h"
 
-#include <KCalendarCore/Todo>
 #include "incidenceformatter.h"
+#include <KCalendarCore/Todo>
 
 #include <QRegularExpression>
 #include <QTest>
@@ -15,29 +15,29 @@
 // Standard values for to-dos.
 static const bool ALL_DAY = true;
 static const bool RECURS = true;
-static const QDateTime START_DT { QDate(2222, 6, 10), QTime(11,  0, 0) };
-static const QDateTime DUE_DT   { QDate(2222, 6, 12), QTime(11, 30, 0) };
-static const QDate AS_OF_DATE   { 2222, 6, 12 };
-static const QString SUMMARY { QStringLiteral("Do something") };
-static const QString CAL_NAME { QStringLiteral("A calendar") };
+static const QDateTime START_DT{QDate(2222, 6, 10), QTime(11, 0, 0)};
+static const QDateTime DUE_DT{QDate(2222, 6, 12), QTime(11, 30, 0)};
+static const QDate AS_OF_DATE{2222, 6, 12};
+static const QString SUMMARY{QStringLiteral("Do something")};
+static const QString CAL_NAME{QStringLiteral("A calendar")};
 
 // Field names in tool tips.
-static const QString CALENDAR { QStringLiteral("Calendar") };
-static const QString START { QStringLiteral("Start") };
-static const QString DUE { QStringLiteral("Due") };
-static const QString PERCENT { QStringLiteral("Percent Done") };
-static const QString COMPLETED { QStringLiteral("Completed") };
-static const QString DURATION { QStringLiteral("Duration") };
-static const QString RECURRENCE { QStringLiteral("Recurrence") };
-static const QString PRIORITY { QStringLiteral("Priority") };
+static const QString CALENDAR{QStringLiteral("Calendar")};
+static const QString START{QStringLiteral("Start")};
+static const QString DUE{QStringLiteral("Due")};
+static const QString PERCENT{QStringLiteral("Percent Done")};
+static const QString COMPLETED{QStringLiteral("Completed")};
+static const QString DURATION{QStringLiteral("Duration")};
+static const QString RECURRENCE{QStringLiteral("Recurrence")};
+static const QString PRIORITY{QStringLiteral("Priority")};
 
 // Common expected field values in tool tips.
-static const QString EXPECTED_RECURRENCE { QStringLiteral("Recurs every 7 days until") };
-static const QString EXPECTED_DURATION_DAYS { QStringLiteral("3 days") };
-static const QString EXPECTED_DURATION_DT { QStringLiteral("2 days 30 minutes") };
-static const QString EXPECTED_PCT100 { QStringLiteral("100%") };
-static const QString EXPECTED_PCT50 { QStringLiteral("50%") };
-static const QString EXPECTED_PCT0 { QStringLiteral("0%") };
+static const QString EXPECTED_RECURRENCE{QStringLiteral("Recurs every 7 days until")};
+static const QString EXPECTED_DURATION_DAYS{QStringLiteral("3 days")};
+static const QString EXPECTED_DURATION_DT{QStringLiteral("2 days 30 minutes")};
+static const QString EXPECTED_PCT100{QStringLiteral("100%")};
+static const QString EXPECTED_PCT50{QStringLiteral("50%")};
+static const QString EXPECTED_PCT0{QStringLiteral("0%")};
 
 using namespace KCalUtils::IncidenceFormatter;
 
@@ -46,7 +46,7 @@ using namespace KCalUtils::IncidenceFormatter;
 // Other to-do fields are fixed.
 static KCalendarCore::Todo::Ptr makeToDo(bool allday, bool recurs, QDateTime dtStart, QDateTime dtDue)
 {
-    KCalendarCore::Todo::Ptr todo {new KCalendarCore::Todo };
+    KCalendarCore::Todo::Ptr todo{new KCalendarCore::Todo};
     todo->setSummary(SUMMARY);
     todo->setDtStart(dtStart);
     todo->setDtDue(dtDue);
@@ -66,8 +66,7 @@ static QString plain(QString s)
     return s.replace(QStringLiteral("&nbsp;"), QStringLiteral(" "))
         .replace(QStringLiteral("<hr>"), QStringLiteral("\n---\n"))
         .replace(QStringLiteral("<br>"), QStringLiteral("\n"))
-        .remove(QRegularExpression(QStringLiteral("<[/a-z]+>")))
-        ;
+        .remove(QRegularExpression(QStringLiteral("<[/a-z]+>")));
 }
 
 // Return a regular expression that matches a field name and value.
@@ -77,7 +76,8 @@ static QRegularExpression field(const QString &name, const QString &value)
 }
 
 // Return a regular expression that matches just a field name.
-static QRegularExpression field(const QString &name) {
+static QRegularExpression field(const QString &name)
+{
     return QRegularExpression(QStringLiteral("\\b%1:").arg(name));
 }
 
@@ -122,7 +122,7 @@ void TestTodoToolTip::testNonrecurring()
 
     QVERIFY(toolTip.contains(QRegularExpression(SUMMARY)));
     QVERIFY(toolTip.contains(field(CALENDAR, CAL_NAME)));
-    QVERIFY(toolTip.contains(field(PERCENT, EXPECTED_PCT50 )));
+    QVERIFY(toolTip.contains(field(PERCENT, EXPECTED_PCT50)));
     QVERIFY(!toolTip.contains(field(COMPLETED)));
     QVERIFY(!toolTip.contains(field(RECURRENCE)));
     if (dtStart.isValid()) {
@@ -189,60 +189,53 @@ void TestTodoToolTip::testRecurringOnDate_data()
     QTest::addColumn<QString>("dur");
 
     // Test the tool tip for each day of each occurrence of all-day to-dos.
-    QTest::newRow("All day, 1st occurrence, day 1") << ALL_DAY << START_DT << DUE_DT
-        << START_DT.date() << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 1st occurrence, day 2") << ALL_DAY << START_DT << DUE_DT
-        << START_DT.date().addDays(1) << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 1st occurrence, day 3") << ALL_DAY << START_DT << DUE_DT
-        << DUE_DT.date() << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 1st occurrence, only day") << ALL_DAY << DUE_DT << DUE_DT
-        << DUE_DT.date() << EXPECTED_PCT100 << 0 << QStringLiteral("1 day");
+    QTest::newRow("All day, 1st occurrence, day 1") << ALL_DAY << START_DT << DUE_DT << START_DT.date() << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DAYS;
+    QTest::newRow("All day, 1st occurrence, day 2") << ALL_DAY << START_DT << DUE_DT << START_DT.date().addDays(1) << EXPECTED_PCT100 << 0
+                                                    << EXPECTED_DURATION_DAYS;
+    QTest::newRow("All day, 1st occurrence, day 3") << ALL_DAY << START_DT << DUE_DT << DUE_DT.date() << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DAYS;
+    QTest::newRow("All day, 1st occurrence, only day") << ALL_DAY << DUE_DT << DUE_DT << DUE_DT.date() << EXPECTED_PCT100 << 0 << QStringLiteral("1 day");
 
-    QTest::newRow("All day, 2nd occurrence, day 1") << ALL_DAY << START_DT << DUE_DT
-        << START_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 2nd occurrence, day 2") << ALL_DAY << START_DT << DUE_DT
-        << START_DT.date().addDays(8) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 2nd occurrence, day 3") << ALL_DAY << START_DT << DUE_DT
-        << DUE_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 2nd occurrence, only day") << ALL_DAY << DUE_DT << DUE_DT
-        << DUE_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << QStringLiteral("1 day");
+    QTest::newRow("All day, 2nd occurrence, day 1") << ALL_DAY << START_DT << DUE_DT << START_DT.date().addDays(7) << EXPECTED_PCT50 << 7
+                                                    << EXPECTED_DURATION_DAYS;
+    QTest::newRow("All day, 2nd occurrence, day 2") << ALL_DAY << START_DT << DUE_DT << START_DT.date().addDays(8) << EXPECTED_PCT50 << 7
+                                                    << EXPECTED_DURATION_DAYS;
+    QTest::newRow("All day, 2nd occurrence, day 3") << ALL_DAY << START_DT << DUE_DT << DUE_DT.date().addDays(7) << EXPECTED_PCT50 << 7
+                                                    << EXPECTED_DURATION_DAYS;
+    QTest::newRow("All day, 2nd occurrence, only day")
+        << ALL_DAY << DUE_DT << DUE_DT << DUE_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << QStringLiteral("1 day");
 
-    QTest::newRow("All day, 3rd occurrence, day 1") << ALL_DAY << START_DT << DUE_DT
-        << START_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 3rd occurrence, day 2") << ALL_DAY << START_DT << DUE_DT
-        << START_DT.date().addDays(15) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 3rd occurrence, day 3") << ALL_DAY << START_DT << DUE_DT
-        << DUE_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DAYS;
-    QTest::newRow("All day, 3rd occurrence, only day") << ALL_DAY << DUE_DT << DUE_DT
-        << DUE_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << QStringLiteral("1 day");
+    QTest::newRow("All day, 3rd occurrence, day 1") << ALL_DAY << START_DT << DUE_DT << START_DT.date().addDays(14) << EXPECTED_PCT0 << 14
+                                                    << EXPECTED_DURATION_DAYS;
+    QTest::newRow("All day, 3rd occurrence, day 2") << ALL_DAY << START_DT << DUE_DT << START_DT.date().addDays(15) << EXPECTED_PCT0 << 14
+                                                    << EXPECTED_DURATION_DAYS;
+    QTest::newRow("All day, 3rd occurrence, day 3") << ALL_DAY << START_DT << DUE_DT << DUE_DT.date().addDays(14) << EXPECTED_PCT0 << 14
+                                                    << EXPECTED_DURATION_DAYS;
+    QTest::newRow("All day, 3rd occurrence, only day")
+        << ALL_DAY << DUE_DT << DUE_DT << DUE_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << QStringLiteral("1 day");
 
     // Test the tool tip for each day of each occurrence of time-of-day to-dos.
-    QTest::newRow("Timed, 1st occurrence, day 1") << !ALL_DAY << START_DT << DUE_DT
-        << START_DT.date() << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 1st occurrence, day 2") << !ALL_DAY << START_DT << DUE_DT
-        << START_DT.date().addDays(1) << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 1st occurrence, day 3") << !ALL_DAY << START_DT << DUE_DT
-        << DUE_DT.date() << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 1st occurrence, only day") << !ALL_DAY << START_DT.addDays(2) << DUE_DT
-        << DUE_DT.date() << EXPECTED_PCT100 << 0 << QStringLiteral("30 minutes");
+    QTest::newRow("Timed, 1st occurrence, day 1") << !ALL_DAY << START_DT << DUE_DT << START_DT.date() << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DT;
+    QTest::newRow("Timed, 1st occurrence, day 2") << !ALL_DAY << START_DT << DUE_DT << START_DT.date().addDays(1) << EXPECTED_PCT100 << 0
+                                                  << EXPECTED_DURATION_DT;
+    QTest::newRow("Timed, 1st occurrence, day 3") << !ALL_DAY << START_DT << DUE_DT << DUE_DT.date() << EXPECTED_PCT100 << 0 << EXPECTED_DURATION_DT;
+    QTest::newRow("Timed, 1st occurrence, only day") << !ALL_DAY << START_DT.addDays(2) << DUE_DT << DUE_DT.date() << EXPECTED_PCT100 << 0
+                                                     << QStringLiteral("30 minutes");
 
-    QTest::newRow("Timed, 2nd occurrence, day 1") << !ALL_DAY << START_DT << DUE_DT
-        << START_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 2nd occurrence, day 2") << !ALL_DAY << START_DT << DUE_DT
-        << START_DT.date().addDays(8) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 2nd occurrence, day 3") << !ALL_DAY << START_DT << DUE_DT
-        << DUE_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 2nd occurrence, only day") << !ALL_DAY << START_DT.addDays(2) << DUE_DT
-        << DUE_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << QStringLiteral("30 minutes");
+    QTest::newRow("Timed, 2nd occurrence, day 1") << !ALL_DAY << START_DT << DUE_DT << START_DT.date().addDays(7) << EXPECTED_PCT50 << 7
+                                                  << EXPECTED_DURATION_DT;
+    QTest::newRow("Timed, 2nd occurrence, day 2") << !ALL_DAY << START_DT << DUE_DT << START_DT.date().addDays(8) << EXPECTED_PCT50 << 7
+                                                  << EXPECTED_DURATION_DT;
+    QTest::newRow("Timed, 2nd occurrence, day 3") << !ALL_DAY << START_DT << DUE_DT << DUE_DT.date().addDays(7) << EXPECTED_PCT50 << 7 << EXPECTED_DURATION_DT;
+    QTest::newRow("Timed, 2nd occurrence, only day") << !ALL_DAY << START_DT.addDays(2) << DUE_DT << DUE_DT.date().addDays(7) << EXPECTED_PCT50 << 7
+                                                     << QStringLiteral("30 minutes");
 
-    QTest::newRow("Timed, 3rd occurrence, day 1") << !ALL_DAY << START_DT << DUE_DT
-        << START_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 3rd occurrence, day 2") << !ALL_DAY << START_DT << DUE_DT
-        << START_DT.date().addDays(15) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 3rd occurrence, day 3") << !ALL_DAY << START_DT << DUE_DT
-        << DUE_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DT;
-    QTest::newRow("Timed, 3rd occurrence, only day") << !ALL_DAY << START_DT.addDays(2) << DUE_DT
-        << DUE_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << QStringLiteral("30 minutes");
+    QTest::newRow("Timed, 3rd occurrence, day 1") << !ALL_DAY << START_DT << DUE_DT << START_DT.date().addDays(14) << EXPECTED_PCT0 << 14
+                                                  << EXPECTED_DURATION_DT;
+    QTest::newRow("Timed, 3rd occurrence, day 2") << !ALL_DAY << START_DT << DUE_DT << START_DT.date().addDays(15) << EXPECTED_PCT0 << 14
+                                                  << EXPECTED_DURATION_DT;
+    QTest::newRow("Timed, 3rd occurrence, day 3") << !ALL_DAY << START_DT << DUE_DT << DUE_DT.date().addDays(14) << EXPECTED_PCT0 << 14 << EXPECTED_DURATION_DT;
+    QTest::newRow("Timed, 3rd occurrence, only day") << !ALL_DAY << START_DT.addDays(2) << DUE_DT << DUE_DT.date().addDays(14) << EXPECTED_PCT0 << 14
+                                                     << QStringLiteral("30 minutes");
 }
 
 // Test for the values of tool tip fields, or their absence, for specific dates
@@ -277,7 +270,7 @@ void TestTodoToolTip::testAlldayRecurringNoDate()
 
     QVERIFY(toolTip.contains(QRegularExpression(SUMMARY)));
     QVERIFY(toolTip.contains(field(CALENDAR, CAL_NAME)));
-    QVERIFY(toolTip.contains(field(PERCENT, EXPECTED_PCT50 )));
+    QVERIFY(toolTip.contains(field(PERCENT, EXPECTED_PCT50)));
     QVERIFY(!toolTip.contains(field(COMPLETED)));
     QVERIFY(toolTip.contains(field(START, dateTimeToString(START_DT.addDays(7), ALL_DAY, false))));
     QVERIFY(toolTip.contains(field(DUE, dateTimeToString(DUE_DT.addDays(7), ALL_DAY, false))));
@@ -293,7 +286,7 @@ void TestTodoToolTip::testTimedRecurringNoDate()
 
     QVERIFY(toolTip.contains(QRegularExpression(SUMMARY)));
     QVERIFY(toolTip.contains(field(CALENDAR, CAL_NAME)));
-    QVERIFY(toolTip.contains(field(PERCENT, EXPECTED_PCT50 )));
+    QVERIFY(toolTip.contains(field(PERCENT, EXPECTED_PCT50)));
     QVERIFY(!toolTip.contains(field(COMPLETED)));
     QVERIFY(toolTip.contains(field(START, dateTimeToString(START_DT.addDays(7), !ALL_DAY, false))));
     QVERIFY(toolTip.contains(field(DUE, dateTimeToString(DUE_DT.addDays(7), !ALL_DAY, false))));
@@ -310,7 +303,7 @@ void TestTodoToolTip::testAlldayRecurringNeverDue()
 
     QVERIFY(toolTip.contains(QRegularExpression(SUMMARY)));
     QVERIFY(toolTip.contains(field(CALENDAR, CAL_NAME)));
-    QVERIFY(toolTip.contains(field(PERCENT, EXPECTED_PCT50 )));
+    QVERIFY(toolTip.contains(field(PERCENT, EXPECTED_PCT50)));
     QVERIFY(!toolTip.contains(field(COMPLETED)));
     QVERIFY(toolTip.contains(field(START, dateTimeToString(START_DT.addDays(7), ALL_DAY, false))));
     QVERIFY(!toolTip.contains(field(DUE)));
@@ -327,7 +320,7 @@ void TestTodoToolTip::testTimedRecurringNeverDue()
 
     QVERIFY(toolTip.contains(QRegularExpression(SUMMARY)));
     QVERIFY(toolTip.contains(field(CALENDAR, CAL_NAME)));
-    QVERIFY(toolTip.contains(field(PERCENT, EXPECTED_PCT50 )));
+    QVERIFY(toolTip.contains(field(PERCENT, EXPECTED_PCT50)));
     QVERIFY(toolTip.contains(field(START, dateTimeToString(START_DT.addDays(7), !ALL_DAY, false))));
     QVERIFY(!toolTip.contains(field(DUE)));
     QVERIFY(!toolTip.contains(field(DURATION)));
@@ -339,8 +332,8 @@ void TestTodoToolTip::testTimedRecurringNeverDue()
 void TestTodoToolTip::testAlldayRecurringDone()
 {
     auto todo = makeToDo(ALL_DAY, RECURS, START_DT, DUE_DT);
-    todo->setCompleted(START_DT.addDays(14));  // Complete the second occurrence.
-    todo->setCompleted(START_DT.addMonths(1));  // Complete the third occurrence.
+    todo->setCompleted(START_DT.addDays(14)); // Complete the second occurrence.
+    todo->setCompleted(START_DT.addMonths(1)); // Complete the third occurrence.
 
     auto toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE, false));
     QVERIFY(toolTip.contains(field(COMPLETED, dateTimeToString(START_DT.addMonths(1), ALL_DAY, false))));
@@ -356,8 +349,8 @@ void TestTodoToolTip::testAlldayRecurringDone()
 void TestTodoToolTip::testTimedRecurringDone()
 {
     auto todo = makeToDo(!ALL_DAY, RECURS, START_DT, DUE_DT);
-    todo->setCompleted(START_DT.addDays(14));  // Complete the second occurrence.
-    todo->setCompleted(START_DT.addMonths(1));  // Complete the third occurrence.
+    todo->setCompleted(START_DT.addDays(14)); // Complete the second occurrence.
+    todo->setCompleted(START_DT.addMonths(1)); // Complete the third occurrence.
 
     auto toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE, false));
     QVERIFY(toolTip.contains(field(COMPLETED, dateTimeToString(START_DT.addMonths(1), !ALL_DAY, false))));

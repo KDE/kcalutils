@@ -15,11 +15,13 @@
 
 class QMimeData;
 
-namespace KCalUtils {
+namespace KCalUtils
+{
 /**
   iCalendar drag&drop class.
 */
-namespace ICalDrag {
+namespace ICalDrag
+{
 /**
   Mime-type of iCalendar
 */

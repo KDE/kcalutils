@@ -16,7 +16,7 @@
 #include <QTest>
 #include <QTimeZone>
 
-QTEST_MAIN(DndFactoryTest)   // clipboard() needs GUI
+QTEST_MAIN(DndFactoryTest) // clipboard() needs GUI
 
 using namespace KCalendarCore;
 using namespace KCalUtils;

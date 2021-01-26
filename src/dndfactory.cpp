@@ -30,15 +30,15 @@
 #include <KUrlMimeData>
 #include <QUrl>
 
-#include <QMimeData>
 #include <QApplication>
 #include <QClipboard>
-#include <QDrag>
 #include <QDate>
-#include <QIcon>
-#include <QWidget>
+#include <QDrag>
 #include <QDropEvent>
+#include <QIcon>
+#include <QMimeData>
 #include <QTimeZone>
+#include <QWidget>
 
 using namespace KCalendarCore;
 using namespace KCalUtils;
@@ -151,7 +151,7 @@ QMimeData *DndFactory::createMimeData(const Incidence::Ptr &incidence)
 {
     MemoryCalendar::Ptr cal(new MemoryCalendar(d->mCalendar->timeZone()));
     Incidence::Ptr i(incidence->clone());
-    //strip recurrence id's, We don't want to drag the exception but the occurrence.
+    // strip recurrence id's, We don't want to drag the exception but the occurrence.
     i->setRecurrenceId({});
     cal->addIncidence(i);
 
@@ -184,8 +184,7 @@ MemoryCalendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData)
     if (mimeData) {
         MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
-        if (ICalDrag::fromMimeData(mimeData, calendar)
-            || VCalDrag::fromMimeData(mimeData, calendar)) {
+        if (ICalDrag::fromMimeData(mimeData, calendar) || VCalDrag::fromMimeData(mimeData, calendar)) {
             return calendar;
         }
     }
@@ -205,7 +204,7 @@ MemoryCalendar::Ptr DndFactory::createDropCalendar(QDropEvent *dropEvent)
 
 Event::Ptr DndFactory::createDropEvent(const QMimeData *mimeData)
 {
-    //qCDebug(KCALUTILS_LOG);
+    // qCDebug(KCALUTILS_LOG);
     Event::Ptr event;
     MemoryCalendar::Ptr calendar(createDropCalendar(mimeData));
 
@@ -231,7 +230,7 @@ Event::Ptr DndFactory::createDropEvent(QDropEvent *dropEvent)
 
 Todo::Ptr DndFactory::createDropTodo(const QMimeData *mimeData)
 {
-    //qCDebug(KCALUTILS_LOG);
+    // qCDebug(KCALUTILS_LOG);
     Todo::Ptr todo;
     MemoryCalendar::Ptr calendar(createDropCalendar(mimeData));
 
@@ -329,8 +328,7 @@ Incidence::List DndFactory::pasteIncidences(const QDateTime &newDateTime, PasteF
     Incidence::List::ConstIterator it;
     const Incidence::List incidences = calendar->incidences();
     Incidence::List::ConstIterator end(incidences.constEnd());
-    for (it = incidences.constBegin();
-         it != end; ++it) {
+    for (it = incidences.constBegin(); it != end; ++it) {
         Incidence::Ptr incidence = d->pasteIncidence(*it, newDateTime, pasteOptions);
         if (incidence) {
             list.append(incidence);

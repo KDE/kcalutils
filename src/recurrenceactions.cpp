@@ -13,17 +13,17 @@
 
 #include "ui_recurrenceactionsscopewidget.h"
 
+#include <KGuiItem>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KGuiItem>
 
-#include <QPointer>
 #include <QDialog>
 #include <QDialogButtonBox>
-#include <QStyle>
+#include <QPointer>
 #include <QPushButton>
-#include <QVBoxLayout>
+#include <QStyle>
 #include <QStyleOption>
+#include <QVBoxLayout>
 
 using namespace KCalUtils;
 using namespace KCalUtils::RecurrenceActions;
@@ -42,22 +42,19 @@ public:
         if ((mAvailableChoices & PastOccurrences) == 0) {
             mUi.checkBoxPast->hide();
         } else {
-            mUi.checkBoxPast->setText(i18nc("@option:check calendar items before a certain date",
-                                            "Items before %1",
-                                            QLocale().toString(dateTime, QLocale::ShortFormat)));
+            mUi.checkBoxPast->setText(
+                i18nc("@option:check calendar items before a certain date", "Items before %1", QLocale().toString(dateTime, QLocale::ShortFormat)));
         }
         if ((mAvailableChoices & SelectedOccurrence) == 0) {
             mUi.checkBoxSelected->hide();
         } else {
-            mUi.checkBoxSelected->setText(i18nc("@option:check currently selected calendar item",
-                                                "Selected item"));
+            mUi.checkBoxSelected->setText(i18nc("@option:check currently selected calendar item", "Selected item"));
         }
         if ((mAvailableChoices & FutureOccurrences) == 0) {
             mUi.checkBoxFuture->hide();
         } else {
-            mUi.checkBoxFuture->setText(i18nc("@option:check calendar items after a certain date",
-                                              "Items after %1",
-                                              QLocale().toString(dateTime, QLocale::ShortFormat)));
+            mUi.checkBoxFuture->setText(
+                i18nc("@option:check calendar items after a certain date", "Items after %1", QLocale().toString(dateTime, QLocale::ShortFormat)));
         }
     }
 
@@ -87,8 +84,7 @@ void ScopeWidget::setIcon(const QIcon &icon)
 {
     QStyleOption option;
     option.initFrom(this);
-    mUi.iconLabel->setPixmap(
-        icon.pixmap(style()->pixelMetric(QStyle::PM_MessageBoxIconSize, &option, this)));
+    mUi.iconLabel->setPixmap(icon.pixmap(style()->pixelMetric(QStyle::PM_MessageBoxIconSize, &option, this)));
 }
 
 void ScopeWidget::setCheckedChoices(int choices)
@@ -137,7 +133,8 @@ int RecurrenceActions::availableOccurrences(const Incidence::Ptr &incidence, con
     return result;
 }
 
-static QDialog *createDialog(QDialogButtonBox::StandardButtons buttons, const QString &caption, QWidget *mainWidget, QDialogButtonBox **buttonBox, QWidget *parent)
+static QDialog *
+createDialog(QDialogButtonBox::StandardButtons buttons, const QString &caption, QWidget *mainWidget, QDialogButtonBox **buttonBox, QWidget *parent)
 {
     QPointer<QDialog> dialog = new QDialog(parent);
     dialog->setWindowTitle(caption);
@@ -161,7 +158,13 @@ static QDialog *createDialog(QDialogButtonBox::StandardButtons buttons, const QS
     return dialog;
 }
 
-int RecurrenceActions::questionMultipleChoice(const QDateTime &selectedOccurrence, const QString &message, const QString &caption, const KGuiItem &action, int availableChoices, int preselectedChoices, QWidget *parent)
+int RecurrenceActions::questionMultipleChoice(const QDateTime &selectedOccurrence,
+                                              const QString &message,
+                                              const QString &caption,
+                                              const KGuiItem &action,
+                                              int availableChoices,
+                                              int preselectedChoices,
+                                              QWidget *parent)
 {
     QDialogButtonBox::StandardButtons buttons = QDialogButtonBox::Ok | QDialogButtonBox::Cancel;
     auto *widget = new ScopeWidget(availableChoices, selectedOccurrence, nullptr);
@@ -186,7 +189,11 @@ int RecurrenceActions::questionMultipleChoice(const QDateTime &selectedOccurrenc
     return widget->checkedChoices();
 }
 
-int RecurrenceActions::questionSelectedAllCancel(const QString &message, const QString &caption, const KGuiItem &actionSelected, const KGuiItem &actionAll, QWidget *parent)
+int RecurrenceActions::questionSelectedAllCancel(const QString &message,
+                                                 const QString &caption,
+                                                 const KGuiItem &actionSelected,
+                                                 const KGuiItem &actionAll,
+                                                 QWidget *parent)
 {
     QPointer<QDialog> dialog = new QDialog(parent);
     dialog->setWindowTitle(caption);
@@ -202,15 +209,8 @@ int RecurrenceActions::questionSelectedAllCancel(const QString &message, const Q
     buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
 
     bool checkboxResult = false;
-    int result = KMessageBox::createKMessageBox(
-        dialog,
-        buttonBox,
-        QMessageBox::Question,
-        message,
-        QStringList(),
-        QString(),
-        &checkboxResult,
-        KMessageBox::Notify);
+    int result =
+        KMessageBox::createKMessageBox(dialog, buttonBox, QMessageBox::Question, message, QStringList(), QString(), &checkboxResult, KMessageBox::Notify);
 
     switch (result) {
     case QDialogButtonBox::Yes:
@@ -222,7 +222,12 @@ int RecurrenceActions::questionSelectedAllCancel(const QString &message, const Q
     }
 }
 
-int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message, const QString &caption, const KGuiItem &actionSelected, const KGuiItem &actionFuture, const KGuiItem &actionAll, QWidget *parent)
+int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message,
+                                                       const QString &caption,
+                                                       const KGuiItem &actionSelected,
+                                                       const KGuiItem &actionFuture,
+                                                       const KGuiItem &actionAll,
+                                                       QWidget *parent)
 {
     QPointer<QDialog> dialog = new QDialog(parent);
     dialog->setWindowTitle(caption);
@@ -238,15 +243,8 @@ int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message, c
     buttonBox->button(QDialogButtonBox::Ok)->setDefault(true);
 
     bool checkboxResult = false;
-    QDialogButtonBox::StandardButton result = KMessageBox::createKMessageBox(
-        dialog,
-        buttonBox,
-        QMessageBox::Question,
-        message,
-        QStringList(),
-        QString(),
-        &checkboxResult,
-        KMessageBox::Notify);
+    QDialogButtonBox::StandardButton result =
+        KMessageBox::createKMessageBox(dialog, buttonBox, QMessageBox::Question, message, QStringList(), QString(), &checkboxResult, KMessageBox::Notify);
 
     switch (result) {
     case QDialogButtonBox::Yes:
