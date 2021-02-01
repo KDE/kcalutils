@@ -13,6 +13,7 @@ set(kcalutils_SRCS
   grantleeki18nlocalizer.cpp
   grantleetemplatemanager.cpp
   qtresourcetemplateloader.cpp
+  templates.qrc
 )
 ecm_qt_declare_logging_category(kcalutils_SRCS HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME org.kde.pim.kcalutils
         OLD_CATEGORY_NAMES log_kcalutils
@@ -22,8 +23,6 @@ ecm_qt_declare_logging_category(kcalutils_SRCS HEADER kcalutils_debug.h IDENTIFI
 kconfig_add_kcfg_files(kcalutils_SRCS htmlexportsettings.kcfgc)
 
 ki18n_wrap_ui(kcalutils_SRCS recurrenceactionsscopewidget.ui)
-
-qt5_add_resources(kcalutils_SRCS templates.qrc)
 
 add_library(KF5CalendarUtils ${kcalutils_SRCS})
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
