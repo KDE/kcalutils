@@ -4,7 +4,7 @@ set(PIM_VERSION "5.16.40")
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
-set(KF5_MIN_VERSION "5.78.0")
+set(KF5_MIN_VERSION "5.79.0")
 set(QT_REQUIRED_VERSION "5.14.0")
 
 find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
@@ -20,9 +20,7 @@ include(ECMGeneratePriFile)
 
 include(ECMSetupVersion)
 include(FeatureSummary)
-if(ECM_VERSION VERSION_GREATER_EQUAL 5.79)
-   include(KDEGitCommitHooks)
-endif()
+include(KDEGitCommitHooks)
 include(ECMQtDeclareLoggingCategory)
 
 include(KPIMGrantleeMacros)
@@ -104,7 +102,5 @@ install(FILES
   COMPONENT Devel
 )
 
-if(ECM_VERSION VERSION_GREATER_EQUAL 5.79)
-    kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
-endif()
+kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
