@@ -6,8 +6,7 @@
 
   SPDX-License-Identifier: LGPL-2.0-or-later
 */
-#ifndef KCALUTILS_ICALDRAG_H
-#define KCALUTILS_ICALDRAG_H
+#pragma once
 
 #include "kcalutils_export.h"
 
@@ -44,4 +43,3 @@ Q_REQUIRED_RESULT KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const K
 }
 }
 
-#endif

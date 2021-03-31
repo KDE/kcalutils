@@ -6,8 +6,7 @@
   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef TESTSTRINGIFY_H
-#define TESTSTRINGIFY_H
+#pragma once
 
 #include <QObject>
 
@@ -21,4 +20,3 @@ private Q_SLOTS:
     void testUTCoffsetStrings();
 };
 
-#endif

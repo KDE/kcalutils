@@ -6,8 +6,7 @@
 
   SPDX-License-Identifier: LGPL-2.0-or-later
 */
-#ifndef KCALUTILS_VCALDRAG_H
-#define KCALUTILS_VCALDRAG_H
+#pragma once
 
 #include "kcalutils_export.h"
 #include <KCalendarCore/MemoryCalendar>
@@ -38,4 +37,3 @@ Q_REQUIRED_RESULT KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const K
 }
 }
 
-#endif

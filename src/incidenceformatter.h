@@ -16,8 +16,7 @@
   @author Reinhold Kainhofer \<reinhold@kainhofer.com\>
   @author Allen Winter \<allen@kdab.com\>
 */
-#ifndef KCALUTILS_INCIDENCEFORMATTER_H
-#define KCALUTILS_INCIDENCEFORMATTER_H
+#pragma once
 
 #include "kcalutils_export.h"
 
@@ -205,4 +204,3 @@ class MailBodyVisitor;
 }
 }
 
-#endif

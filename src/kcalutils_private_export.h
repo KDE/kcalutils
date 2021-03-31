@@ -4,8 +4,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef KCALUTILSPRIVATE_EXPORT_H
-#define KCALUTILSPRIVATE_EXPORT_H
+#pragma once
 
 #include "kcalutils_export.h"
 
@@ -18,4 +17,3 @@
 #define KCALUTILS_TESTS_EXPORT
 #endif
 
-#endif

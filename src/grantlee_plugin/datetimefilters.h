@@ -5,8 +5,7 @@
  *
  */
 
-#ifndef DATETIMEFILTERS_H
-#define DATETIMEFILTERS_H
+#pragma once
 
 #include <grantlee/filter.h>
 
@@ -49,4 +48,3 @@ private:
     Q_DISABLE_COPY(KDateTimeFilter)
 };
 
-#endif // DATETIMEFILTERS_H

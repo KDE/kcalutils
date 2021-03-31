@@ -16,8 +16,7 @@
   @author Reinhold Kainhofer \<reinhold@kainhofer.com\>
   @author Allen Winter \<allen@kdab.com\>
 */
-#ifndef KCALUTILS_STRINGIFY_H
-#define KCALUTILS_STRINGIFY_H
+#pragma once
 
 #include "kcalutils_export.h"
 
@@ -80,4 +79,3 @@ Q_REQUIRED_RESULT KCALUTILS_EXPORT QString errorMessage(const KCalendarCore::Exc
 } // namespace Stringify
 } // namespace KCalUtils
 
-#endif

@@ -6,8 +6,7 @@
 
   SPDX-License-Identifier: LGPL-2.0-or-later
 */
-#ifndef KCALUTILS_HTMLEXPORT_H
-#define KCALUTILS_HTMLEXPORT_H
+#pragma once
 
 #include "kcalutils_export.h"
 
@@ -88,4 +87,3 @@ private:
 };
 }
 
-#endif

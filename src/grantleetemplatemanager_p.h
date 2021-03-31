@@ -5,8 +5,7 @@
  *
  */
 
-#ifndef GRANTLEETEMPLATEMANAGER_P_H
-#define GRANTLEETEMPLATEMANAGER_P_H
+#pragma once
 
 #include "kcalutils_private_export.h"
 #include <QSharedPointer>
@@ -50,4 +49,3 @@ private:
     static GrantleeTemplateManager *sInstance;
 };
 
-#endif // GRANTLEETEMPLATEMANAGER_P_H

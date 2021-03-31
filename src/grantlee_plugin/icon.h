@@ -5,8 +5,7 @@
  *
  */
 
-#ifndef ICON_H
-#define ICON_H
+#pragma once
 
 #include <grantlee/node.h>
 
@@ -63,4 +62,3 @@ private:
     int mSizeOrGroup;
 };
 
-#endif // ICON_H

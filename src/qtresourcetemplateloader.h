@@ -5,8 +5,7 @@
  *
  */
 
-#ifndef QTRESOURCETEMPLATELOADER_H
-#define QTRESOURCETEMPLATELOADER_H
+#pragma once
 #include "grantlee/templateloader.h"
 
 namespace KCalUtils
@@ -20,4 +19,3 @@ public:
     Q_REQUIRED_RESULT bool canLoadTemplate(const QString &name) const override;
 };
 }
-#endif // QTRESOURCETEMPLATELOADER_H

@@ -6,8 +6,7 @@
   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef TESTINCIDENCEFORMATTER_H
-#define TESTINCIDENCEFORMATTER_H
+#pragma once
 
 #include <QObject>
 
@@ -47,4 +46,3 @@ private Q_SLOTS:
     void testFormatIcalInvitation();
 };
 
-#endif

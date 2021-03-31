@@ -17,8 +17,7 @@
   @author Cornelius Schumacher \<schumacher@kde.org\>
   @author Reinhold Kainhofer \<reinhold@kainhofer.com\>
 */
-#ifndef KCALUTILS_DNDFACTORY_H
-#define KCALUTILS_DNDFACTORY_H
+#pragma once
 
 #include "kcalutils_export.h"
 
@@ -162,4 +161,3 @@ private:
 };
 }
 
-#endif

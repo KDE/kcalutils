@@ -7,8 +7,7 @@
   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef RECURRENCEACTIONS_H
-#define RECURRENCEACTIONS_H
+#pragma once
 
 #include "kcalutils_export.h"
 
@@ -155,4 +154,3 @@ Q_REQUIRED_RESULT KCALUTILS_EXPORT int questionSelectedFutureAllCancel(const QSt
 }
 }
 
-#endif

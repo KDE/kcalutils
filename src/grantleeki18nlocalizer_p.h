@@ -5,8 +5,7 @@
  *
  */
 
-#ifndef GRANTLEEKI18NLOCALIZER_H
-#define GRANTLEEKI18NLOCALIZER_H
+#pragma once
 
 #include <grantlee/qtlocalizer.h>
 
@@ -38,4 +37,3 @@ private:
     Q_REQUIRED_RESULT QString processArguments(const KLocalizedString &str, const QVariantList &arguments) const;
 };
 
-#endif // GRANTLEEKI18NLOCALIZER_H
