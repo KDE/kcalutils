@@ -11,14 +11,14 @@ include_directories(${CMAKE_SOURCE_DIR}/src ${CMAKE_BINARY_DIR}/src)
 
 ecm_add_tests(testdndfactory.cpp teststringify.cpp testtodotooltip.cpp
     NAME_PREFIX "kcalutils-"
-    LINK_LIBRARIES KF5CalendarUtils KF5::I18n Qt5::Test
+    LINK_LIBRARIES KF5CalendarUtils KF5::I18n Qt::Test
 )
 
 
 ecm_add_test(testincidenceformatter.cpp
     TEST_NAME "testincidenceformatter"
     NAME_PREFIX "kcalutils-"
-    LINK_LIBRARIES KF5CalendarUtils Qt5::Core Qt5::Test KF5::CalendarCore KF5::I18n KF5::IdentityManagement Grantlee5::Templates
+    LINK_LIBRARIES KF5CalendarUtils Qt::Core Qt5::Test KF5::CalendarCore KF5::I18n KF5::IdentityManagement Grantlee5::Templates
 )
 
 # Make sure that dates are formatted in C locale
