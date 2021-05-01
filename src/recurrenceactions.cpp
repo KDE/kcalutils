@@ -197,7 +197,7 @@ int RecurrenceActions::questionSelectedAllCancel(const QString &message,
 {
     QPointer<QDialog> dialog = new QDialog(parent);
     dialog->setWindowTitle(caption);
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::No | QDialogButtonBox::Yes, parent);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::No | QDialogButtonBox::Yes, parent);
     dialog->setObjectName(QStringLiteral("RecurrenceActions::questionSelectedAllCancel"));
 
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Yes), actionSelected);
@@ -232,7 +232,7 @@ int RecurrenceActions::questionSelectedFutureAllCancel(const QString &message,
     QPointer<QDialog> dialog = new QDialog(parent);
     dialog->setWindowTitle(caption);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::No | QDialogButtonBox::Yes, parent);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::No | QDialogButtonBox::Yes, parent);
     dialog->setObjectName(QStringLiteral("RecurrenceActions::questionSelectedFutureAllCancel"));
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::Yes), actionSelected);
     KGuiItem::assign(buttonBox->button(QDialogButtonBox::No), actionFuture);
