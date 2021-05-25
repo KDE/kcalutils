@@ -1,8 +1,11 @@
 add_subdirectory(grantlee_plugin)
 
+add_library(KF5CalendarUtils)
+add_library(KF5::CalendarUtils ALIAS KF5CalendarUtils)
+
 configure_file(config-kcalutils.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutils.h)
 
-set(kcalutils_SRCS
+target_sources(KF5CalendarUtils PRIVATE
   htmlexport.cpp
   icaldrag.cpp
   incidenceformatter.cpp
@@ -15,22 +18,21 @@ set(kcalutils_SRCS
   qtresourcetemplateloader.cpp
   templates.qrc
 )
-ecm_qt_declare_logging_category(kcalutils_SRCS HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME org.kde.pim.kcalutils
+ecm_qt_declare_logging_category(KF5CalendarUtils HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME org.kde.pim.kcalutils
         OLD_CATEGORY_NAMES log_kcalutils
         DESCRIPTION "kcalutils (pim lib)" EXPORT KCALUTILS)
 
 
-kconfig_add_kcfg_files(kcalutils_SRCS htmlexportsettings.kcfgc)
+kconfig_add_kcfg_files(KF5CalendarUtils htmlexportsettings.kcfgc)
 
-ki18n_wrap_ui(kcalutils_SRCS recurrenceactionsscopewidget.ui)
+ki18n_wrap_ui(KF5CalendarUtils recurrenceactionsscopewidget.ui)
 
-add_library(KF5CalendarUtils ${kcalutils_SRCS})
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(KF5CalendarUtils PROPERTIES UNITY_BUILD ON)
 endif()
 generate_export_header(KF5CalendarUtils BASE_NAME kcalutils)
 
-add_library(KF5::CalendarUtils ALIAS KF5CalendarUtils)
+
 
 target_include_directories(KF5CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KCalUtils;${KDE_INSTALL_INCLUDEDIR_KF5}/KCalUtils/kcalutils>")
 target_include_directories(KF5CalendarUtils PUBLIC "$<BUILD_INTERFACE:${KCalUtils_SOURCE_DIR}/src;${KCalUtils_BINARY_DIR}/src>")

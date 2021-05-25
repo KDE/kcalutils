@@ -1,12 +1,12 @@
 kde_enable_exceptions()
 
-set(grantleeplugin_SRCS
+
+add_library(kcalendar_grantlee_plugin MODULE)
+target_sources(kcalendar_grantlee_plugin PRIVATE
     kcalendargrantleeplugin.cpp
     icon.cpp
     datetimefilters.cpp
 )
-
-add_library(kcalendar_grantlee_plugin MODULE ${grantleeplugin_SRCS})
 kpim_grantlee_adjust_plugin_name(kcalendar_grantlee_plugin)
 target_link_libraries(kcalendar_grantlee_plugin
     Grantlee5::Templates
