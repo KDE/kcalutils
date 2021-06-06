@@ -45,7 +45,7 @@
         </tr>
         <tr>
             <th valign="top">{% i18n "Time:" %}</th>
-            {% if incidence.hasEnd and incidence.overnight %}
+            {% if incidence.startTime != incidence.endTime %}
             <td>{% i18nc "<beginTime> - <endTime>" "%1 - %2" incidence.startTime|ktime:"short" incidence.endTime|ktime:"short" %}</td>
             {% else %}
             <td>{% i18nc "Time as string" "%1" incidence.startTime|ktime:"short" %}</td>
