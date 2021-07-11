@@ -4,7 +4,7 @@ set(PIM_VERSION "5.18.40")
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
-set(KF5_MIN_VERSION "5.83.0")
+set(KF5_MIN_VERSION "5.84.0")
 set(QT_REQUIRED_VERSION "5.15.0")
 
 find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
@@ -26,7 +26,7 @@ include(ECMQtDeclareLoggingCategory)
 include(KPIMGrantleeMacros)
 
 set(CALENDARUTILS_LIB_VERSION ${PIM_VERSION})
-set(IDENTITYMANAGER_LIB_VERSION "5.17.80")
+set(IDENTITYMANAGER_LIB_VERSION "5.18.40")
 ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfigVersion.cmake"
@@ -50,7 +50,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055400)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055500)
 
 if(BUILD_TESTING)
   add_definitions(-DBUILD_TESTING)
