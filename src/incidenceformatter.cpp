@@ -2564,7 +2564,7 @@ static QString tooltipFormatOrganizer(const QString &email, const QString &name)
 static QString tooltipFormatAttendeeRoleList(const Incidence::Ptr &incidence, Attendee::Role role, bool showStatus)
 {
     int maxNumAtts = 8; // maximum number of people to print per attendee role
-    const QString etc = i18nc("elipsis", "...");
+    const QString etc = i18nc("ellipsis", "...");
 
     int i = 0;
     QString tmpStr;
@@ -2696,9 +2696,9 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
     if (!incidence->description().isEmpty()) {
         QString desc(incidence->description());
         if (!incidence->descriptionIsRich()) {
-            int maxDescLen = 120; // maximum description chars to print (before elipsis)
+            int maxDescLen = 120; // maximum description chars to print (before ellipsis)
             if (desc.length() > maxDescLen) {
-                desc = desc.left(maxDescLen) + i18nc("elipsis", "...");
+                desc = desc.left(maxDescLen) + i18nc("ellipsis", "...");
             }
             desc = desc.toHtmlEscaped().replace(QLatin1Char('\n'), QLatin1String("<br>"));
         } else {
