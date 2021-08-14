@@ -12,7 +12,6 @@ set(CMAKE_MODULE_PATH ${KCalUtils_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
-set(KDE_COMPILERSETTINGS_LEVEL 5.85.0)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 
 include(ECMGenerateHeaders)
@@ -46,8 +45,6 @@ find_package(Grantlee5 "5.2" CONFIG REQUIRED)
 
 find_package(KF5CalendarCore ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRED)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
