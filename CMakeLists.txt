@@ -4,7 +4,7 @@ set(PIM_VERSION "5.18.40")
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
-set(KF5_MIN_VERSION "5.84.0")
+set(KF5_MIN_VERSION "5.85.0")
 set(QT_REQUIRED_VERSION "5.15.0")
 
 find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
@@ -12,6 +12,7 @@ set(CMAKE_MODULE_PATH ${KCalUtils_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
+set(KDE_COMPILERSETTINGS_LEVEL 5.85.0)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 
 include(ECMGenerateHeaders)
@@ -50,7 +51,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055500)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055600)
 
 if(BUILD_TESTING)
   add_definitions(-DBUILD_TESTING)
