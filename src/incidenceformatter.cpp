@@ -138,7 +138,8 @@ static bool senderIsOrganizer(const Incidence::Ptr &incidence, const QString &se
     }
 
     bool isorg = true;
-    QString senderName, senderEmail;
+    QString senderName;
+    QString senderEmail;
     if (KEmailAddress::extractEmailAddressAndName(sender, senderEmail, senderName)) {
         // for this heuristic, we say the sender is the organizer if either the name or the email match.
         if (incidence->organizer().email() != senderEmail && incidence->organizer().name() != senderName) {
@@ -826,7 +827,8 @@ static Attendee findDelegatedFromMyAttendee(const Incidence::Ptr &incidence)
         return attendee;
     }
 
-    QString delegatorName, delegatorEmail;
+    QString delegatorName;
+    QString delegatorEmail;
     const Attendee::List attendees = incidence->attendees();
     for (const auto &a : attendees) {
         KEmailAddress::extractEmailAddressAndName(a.delegator(), delegatorEmail, delegatorName);
@@ -1355,7 +1357,8 @@ static QString invitationHeaderEvent(const Event::Ptr &event, const Incidence::P
         }
         QString attendeeName = firstAttendeeName(event, sender);
 
-        QString delegatorName, dummy;
+        QString delegatorName;
+        QString dummy;
         const Attendee attendee = *attendees.begin();
         KEmailAddress::extractEmailAddressAndName(attendee.delegator(), dummy, delegatorName);
         if (delegatorName.isEmpty()) {
@@ -1392,7 +1395,8 @@ static QString invitationHeaderEvent(const Event::Ptr &event, const Incidence::P
                 return i18n("%1 declines this invitation on behalf of %2.", attendeeName, delegatorName);
             }
         case Attendee::Delegated: {
-            QString delegate, dummy;
+            QString delegate;
+            QString dummy;
             KEmailAddress::extractEmailAddressAndName(attendee.delegate(), dummy, delegate);
             if (delegate.isEmpty()) {
                 delegate = attendee.delegate();
@@ -1486,7 +1490,8 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr 
         }
         QString attendeeName = firstAttendeeName(todo, sender);
 
-        QString delegatorName, dummy;
+        QString delegatorName;
+        QString dummy;
         const Attendee attendee = *attendees.begin();
         KEmailAddress::extractEmailAddressAndName(attendee.delegate(), dummy, delegatorName);
         if (delegatorName.isEmpty()) {
@@ -1531,7 +1536,8 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr 
                 return i18n("%1 declines this to-do on behalf of %2.", attendeeName, delegatorName);
             }
         case Attendee::Delegated: {
-            QString delegate, dummy;
+            QString delegate;
+            QString dummy;
             KEmailAddress::extractEmailAddressAndName(attendee.delegate(), dummy, delegate);
             if (delegate.isEmpty()) {
                 delegate = attendee.delegate();
@@ -1905,7 +1911,9 @@ static QVariantList responseButtons(const Incidence::Ptr &incidence,
                                     InvitationFormatterHelper *helper,
                                     const Incidence::Ptr &existingInc = Incidence::Ptr())
 {
-    bool hideAccept = false, hideTentative = false, hideDecline = false;
+    bool hideAccept = false;
+    bool hideTentative = false;
+    bool hideDecline = false;
 
     if (existingInc) {
         const Attendee ea = findMyAttendee(existingInc);
@@ -2600,7 +2608,8 @@ static QString tooltipFormatAttendeeRoleList(const Incidence::Ptr &incidence, At
 
 static QString tooltipFormatAttendees(const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
 {
-    QString tmpStr, str;
+    QString tmpStr;
+    QString str;
 
     // Add organizer link
     int attendeeCount = incidence->attendees().count();
@@ -3395,7 +3404,9 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
         for (it = alarms.constBegin(); it != end; ++it) {
             Alarm::Ptr alarm = *it;
             int offset = 0;
-            QString remStr, atStr, offsetStr;
+            QString remStr;
+            QString atStr;
+            QString offsetStr;
             if (alarm->hasTime()) {
                 offset = 0;
                 if (alarm->time().isValid()) {
