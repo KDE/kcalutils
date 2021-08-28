@@ -20,8 +20,8 @@
 
 #include "kcalutils_export.h"
 
+#include <KCalendarCore/Calendar>
 #include <KCalendarCore/Incidence>
-#include <KCalendarCore/MemoryCalendar>
 
 #include <QDate>
 class InvitationFormatterHelperPrivate;
@@ -114,7 +114,7 @@ KCALUTILS_EXPORT QString mailBodyStr(const KCalendarCore::IncidenceBase::Ptr &in
 
   @since 5.23.0
 */
-KCALUTILS_EXPORT QString formatICalInvitation(const QString &invitation, const KCalendarCore::MemoryCalendar::Ptr &calendar, InvitationFormatterHelper *helper);
+KCALUTILS_EXPORT QString formatICalInvitation(const QString &invitation, const KCalendarCore::Calendar::Ptr &calendar, InvitationFormatterHelper *helper);
 
 /**
   Deliver an HTML formatted string displaying an invitation.
@@ -131,7 +131,7 @@ KCALUTILS_EXPORT QString formatICalInvitation(const QString &invitation, const K
   @since 5.23.0
 */
 KCALUTILS_EXPORT QString formatICalInvitationNoHtml(const QString &invitation,
-                                                    const KCalendarCore::MemoryCalendar::Ptr &calendar,
+                                                    const KCalendarCore::Calendar::Ptr &calendar,
                                                     InvitationFormatterHelper *helper,
                                                     const QString &sender);
 

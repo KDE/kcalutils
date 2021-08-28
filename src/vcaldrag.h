@@ -9,7 +9,7 @@
 #pragma once
 
 #include "kcalutils_export.h"
-#include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/Calendar>
 
 class QMimeData;
 
@@ -33,7 +33,7 @@ Q_REQUIRED_RESULT KCALUTILS_EXPORT bool canDecode(const QMimeData *);
 /**
   Decode drag&drop object to vCalendar component \a vcal.
 */
-Q_REQUIRED_RESULT KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalendarCore::MemoryCalendar::Ptr &cal);
+Q_REQUIRED_RESULT KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalendarCore::Calendar::Ptr &cal);
 }
 }
 

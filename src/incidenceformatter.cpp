@@ -2034,11 +2034,8 @@ Calendar::Ptr InvitationFormatterHelper::calendar() const
     return Calendar::Ptr();
 }
 
-static QString formatICalInvitationHelper(const QString &invitation,
-                                          const MemoryCalendar::Ptr &mCalendar,
-                                          InvitationFormatterHelper *helper,
-                                          bool noHtmlMode,
-                                          const QString &sender)
+static QString
+formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCalendar, InvitationFormatterHelper *helper, bool noHtmlMode, const QString &sender)
 {
     if (invitation.isEmpty()) {
         return QString();
@@ -2311,13 +2308,13 @@ static QString formatICalInvitationHelper(const QString &invitation,
 
 //@endcond
 
-QString IncidenceFormatter::formatICalInvitation(const QString &invitation, const MemoryCalendar::Ptr &calendar, InvitationFormatterHelper *helper)
+QString IncidenceFormatter::formatICalInvitation(const QString &invitation, const Calendar::Ptr &calendar, InvitationFormatterHelper *helper)
 {
     return formatICalInvitationHelper(invitation, calendar, helper, false, QString());
 }
 
 QString IncidenceFormatter::formatICalInvitationNoHtml(const QString &invitation,
-                                                       const MemoryCalendar::Ptr &calendar,
+                                                       const Calendar::Ptr &calendar,
                                                        InvitationFormatterHelper *helper,
                                                        const QString &sender)
 {
@@ -2337,7 +2334,7 @@ public:
     {
     }
 
-    bool act(const MemoryCalendar::Ptr &calendar, const IncidenceBase::Ptr &incidence, QDate date = QDate(), bool richText = true)
+    bool act(const Calendar::Ptr &calendar, const IncidenceBase::Ptr &incidence, QDate date = QDate(), bool richText = true)
     {
         mCalendar = calendar;
         mLocation.clear();
@@ -2375,7 +2372,7 @@ protected:
     QString generateToolTip(const Incidence::Ptr &incidence, const QString &dtRangeText);
 
 protected:
-    MemoryCalendar::Ptr mCalendar;
+    Calendar::Ptr mCalendar;
     QString mLocation;
     QDate mDate;
     bool mRichText;

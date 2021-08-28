@@ -10,7 +10,7 @@
 
 #include <QObject>
 
-#include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/Calendar>
 
 class IncidenceFormatterTest : public QObject
 {

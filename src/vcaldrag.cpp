@@ -31,7 +31,7 @@ bool VCalDrag::canDecode(const QMimeData *me)
     }
 }
 
-bool VCalDrag::fromMimeData(const QMimeData *de, const MemoryCalendar::Ptr &cal)
+bool VCalDrag::fromMimeData(const QMimeData *de, const Calendar::Ptr &cal)
 {
     if (!canDecode(de)) {
         return false;

@@ -22,7 +22,7 @@ QString ICalDrag::mimeType()
     return QStringLiteral("text/calendar");
 }
 
-bool ICalDrag::populateMimeData(QMimeData *me, const MemoryCalendar::Ptr &cal)
+bool ICalDrag::populateMimeData(QMimeData *me, const Calendar::Ptr &cal)
 {
     ICalFormat icf;
     QString scal = icf.toString(cal, QString(), false);
@@ -42,7 +42,7 @@ bool ICalDrag::canDecode(const QMimeData *me)
     }
 }
 
-bool ICalDrag::fromMimeData(const QMimeData *de, const MemoryCalendar::Ptr &cal)
+bool ICalDrag::fromMimeData(const QMimeData *de, const Calendar::Ptr &cal)
 {
     if (!canDecode(de)) {
         return false;

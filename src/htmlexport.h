@@ -18,7 +18,7 @@
 
 namespace KCalendarCore
 {
-class MemoryCalendar;
+class Calendar;
 }
 
 class QTextStream;
@@ -36,7 +36,7 @@ public:
     /**
       Create new HTML exporter for calendar.
     */
-    HtmlExport(KCalendarCore::MemoryCalendar *calendar, HTMLExportSettings *settings);
+    HtmlExport(KCalendarCore::Calendar *calendar, HTMLExportSettings *settings);
     virtual ~HtmlExport();
 
     /**

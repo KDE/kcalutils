@@ -11,7 +11,7 @@
 #include "incidenceformatter.h"
 #include "stringify.h"
 
-#include <KCalendarCore/MemoryCalendar>
+#include <KCalendarCore/Calendar>
 using namespace KCalendarCore;
 
 #include "kcalutils_debug.h"
@@ -38,19 +38,19 @@ auto returnEndLine()
 class KCalUtils::HtmlExportPrivate
 {
 public:
-    HtmlExportPrivate(MemoryCalendar *calendar, HTMLExportSettings *settings)
+    HtmlExportPrivate(Calendar *calendar, HTMLExportSettings *settings)
         : mCalendar(calendar)
         , mSettings(settings)
     {
     }
 
-    MemoryCalendar *const mCalendar;
+    Calendar *const mCalendar;
     HTMLExportSettings *const mSettings;
     QMap<QDate, QString> mHolidayMap;
 };
 //@endcond
 
-HtmlExport::HtmlExport(MemoryCalendar *calendar, HTMLExportSettings *settings)
+HtmlExport::HtmlExport(Calendar *calendar, HTMLExportSettings *settings)
     : d(new HtmlExportPrivate(calendar, settings))
 {
 }

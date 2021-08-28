@@ -26,6 +26,7 @@
 #include "vcaldrag.h"
 
 #include "kcalutils_debug.h"
+#include <KCalendarCore/MemoryCalendar>
 #include <KIconLoader>
 #include <KUrlMimeData>
 #include <QUrl>
@@ -51,7 +52,7 @@ using namespace KCalUtils;
 class KCalUtils::DndFactoryPrivate
 {
 public:
-    DndFactoryPrivate(const MemoryCalendar::Ptr &calendar)
+    DndFactoryPrivate(const Calendar::Ptr &calendar)
         : mCalendar(calendar)
     {
     }
@@ -116,11 +117,11 @@ public:
         return inc;
     }
 
-    MemoryCalendar::Ptr mCalendar;
+    Calendar::Ptr mCalendar;
 };
 //@endcond
 
-DndFactory::DndFactory(const MemoryCalendar::Ptr &calendar)
+DndFactory::DndFactory(const Calendar::Ptr &calendar)
     : d(new KCalUtils::DndFactoryPrivate(calendar))
 {
 }
@@ -149,7 +150,7 @@ QDrag *DndFactory::createDrag(QWidget *owner)
 
 QMimeData *DndFactory::createMimeData(const Incidence::Ptr &incidence)
 {
-    MemoryCalendar::Ptr cal(new MemoryCalendar(d->mCalendar->timeZone()));
+    Calendar::Ptr cal(new MemoryCalendar(d->mCalendar->timeZone()));
     Incidence::Ptr i(incidence->clone());
     // strip recurrence id's, We don't want to drag the exception but the occurrence.
     i->setRecurrenceId({});
@@ -179,22 +180,22 @@ QDrag *DndFactory::createDrag(const Incidence::Ptr &incidence, QWidget *owner)
     return drag;
 }
 
-MemoryCalendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData)
+Calendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData)
 {
     if (mimeData) {
-        MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
+        Calendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
         if (ICalDrag::fromMimeData(mimeData, calendar) || VCalDrag::fromMimeData(mimeData, calendar)) {
             return calendar;
         }
     }
 
-    return MemoryCalendar::Ptr();
+    return Calendar::Ptr();
 }
 
-MemoryCalendar::Ptr DndFactory::createDropCalendar(QDropEvent *dropEvent)
+Calendar::Ptr DndFactory::createDropCalendar(QDropEvent *dropEvent)
 {
-    MemoryCalendar::Ptr calendar(createDropCalendar(dropEvent->mimeData()));
+    Calendar::Ptr calendar(createDropCalendar(dropEvent->mimeData()));
     if (calendar) {
         dropEvent->accept();
         return calendar;
@@ -206,7 +207,7 @@ Event::Ptr DndFactory::createDropEvent(const QMimeData *mimeData)
 {
     // qCDebug(KCALUTILS_LOG);
     Event::Ptr event;
-    MemoryCalendar::Ptr calendar(createDropCalendar(mimeData));
+    Calendar::Ptr calendar(createDropCalendar(mimeData));
 
     if (calendar) {
         Event::List events = calendar->events();
@@ -232,7 +233,7 @@ Todo::Ptr DndFactory::createDropTodo(const QMimeData *mimeData)
 {
     // qCDebug(KCALUTILS_LOG);
     Todo::Ptr todo;
-    MemoryCalendar::Ptr calendar(createDropCalendar(mimeData));
+    Calendar::Ptr calendar(createDropCalendar(mimeData));
 
     if (calendar) {
         Todo::List todos = calendar->todos();
@@ -280,7 +281,7 @@ bool DndFactory::copyIncidences(const Incidence::List &incidences)
 {
     QClipboard *clipboard = QApplication::clipboard();
     Q_ASSERT(clipboard);
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(d->mCalendar->timeZone()));
+    Calendar::Ptr calendar(new MemoryCalendar(d->mCalendar->timeZone()));
 
     Incidence::List::ConstIterator it;
     const Incidence::List::ConstIterator end(incidences.constEnd());
@@ -313,7 +314,7 @@ Incidence::List DndFactory::pasteIncidences(const QDateTime &newDateTime, PasteF
 {
     QClipboard *clipboard = QApplication::clipboard();
     Q_ASSERT(clipboard);
-    MemoryCalendar::Ptr calendar(createDropCalendar(clipboard->mimeData()));
+    Calendar::Ptr calendar(createDropCalendar(clipboard->mimeData()));
     Incidence::List list;
 
     if (!calendar) {
@@ -355,7 +356,7 @@ Incidence::List DndFactory::pasteIncidences(const QDateTime &newDateTime, PasteF
 Incidence::Ptr DndFactory::pasteIncidence(const QDateTime &newDateTime, PasteFlags pasteOptions)
 {
     QClipboard *clipboard = QApplication::clipboard();
-    MemoryCalendar::Ptr calendar(createDropCalendar(clipboard->mimeData()));
+    Calendar::Ptr calendar(createDropCalendar(clipboard->mimeData()));
 
     if (!calendar) {
         qCDebug(KCALUTILS_LOG) << "Can't parse clipboard";

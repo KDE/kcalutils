@@ -21,9 +21,9 @@
 
 #include "kcalutils_export.h"
 
+#include <KCalendarCore/Calendar>
 #include <KCalendarCore/Event>
 #include <KCalendarCore/Journal>
-#include <KCalendarCore/MemoryCalendar>
 #include <KCalendarCore/Todo>
 
 #include <QDateTime>
@@ -55,19 +55,19 @@ public:
 
     Q_DECLARE_FLAGS(PasteFlags, PasteFlag)
 
-    explicit DndFactory(const KCalendarCore::MemoryCalendar::Ptr &cal);
+    explicit DndFactory(const KCalendarCore::Calendar::Ptr &cal);
 
     ~DndFactory();
 
     /**
       Create the calendar that is contained in the drop event's data.
      */
-    KCalendarCore::MemoryCalendar::Ptr createDropCalendar(QDropEvent *de);
+    KCalendarCore::Calendar::Ptr createDropCalendar(QDropEvent *de);
 
     /**
      Create the calendar that is contained in the mime data.
     */
-    static KCalendarCore::MemoryCalendar::Ptr createDropCalendar(const QMimeData *md);
+    static KCalendarCore::Calendar::Ptr createDropCalendar(const QMimeData *md);
 
     /**
       Create the mime data for the whole calendar.
