@@ -3,7 +3,7 @@
 {% endif %}
 
 {% if attendee.uid %}
-    <a href="mailto:{{ attendee.email }}">
+    <a href="mailto:{{ attendee.email }}" title="{{ attendee.email }}">
     {% if attendee.name %}
         {{ attendee.name }}
     {% else %}
@@ -11,7 +11,7 @@
     {% endif %}
     </a>
 {% else %}
-    <a href="mailto:{{ attendee.email }}">
+    <a href="mailto:{{ attendee.email }}" title="{{ attendee.email }}">
     {% if attendee.name %}
         {{ attendee.name }}
     {% else %}
