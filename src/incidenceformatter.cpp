@@ -78,7 +78,7 @@ static bool iamAttendee(const Attendee &attendee)
 static QString htmlAddTag(const QString &tag, const QString &text)
 {
     int numLineBreaks = text.count(QLatin1Char('\n'));
-    QString str = QLatin1Char('<') + tag + QLatin1Char('>');
+    const QString str = QLatin1Char('<') + tag + QLatin1Char('>');
     QString tmpText = text;
     QString tmpStr = str;
     if (numLineBreaks >= 0) {
@@ -2330,7 +2330,6 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
 {
 public:
     ToolTipVisitor()
-        : mRichText(true)
     {
     }
 
@@ -2375,7 +2374,7 @@ protected:
     Calendar::Ptr mCalendar;
     QString mLocation;
     QDate mDate;
-    bool mRichText;
+    bool mRichText = true;
     QString mResult;
 };
 

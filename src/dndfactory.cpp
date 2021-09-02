@@ -117,7 +117,7 @@ public:
         return inc;
     }
 
-    Calendar::Ptr mCalendar;
+    const Calendar::Ptr mCalendar;
 };
 //@endcond
 
