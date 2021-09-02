@@ -44,7 +44,7 @@ using namespace KCalUtils::IncidenceFormatter;
 // Create a to-do that may or may not be an all-day to-do, may or may nor recur,
 // and with the given start and due dates (which may be invalid).
 // Other to-do fields are fixed.
-static KCalendarCore::Todo::Ptr makeToDo(bool allday, bool recurs, QDateTime dtStart, QDateTime dtDue)
+static KCalendarCore::Todo::Ptr makeToDo(bool allday, bool recurs, const QDateTime &dtStart, const QDateTime &dtDue)
 {
     KCalendarCore::Todo::Ptr todo{new KCalendarCore::Todo};
     todo->setSummary(SUMMARY);

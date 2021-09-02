@@ -158,7 +158,7 @@ KCALUTILS_EXPORT QStringList reminderStringList(const KCalendarCore::Incidence::
   @param shortfmt If true, display info in short format.
   @see dateToString(), dateTimeToString().
 */
-KCALUTILS_EXPORT QString timeToString(const QTime &time, bool shortfmt = true);
+KCALUTILS_EXPORT QString timeToString(QTime time, bool shortfmt = true);
 
 /**
   Build a QString date representation of a QDate object.
@@ -167,7 +167,7 @@ KCALUTILS_EXPORT QString timeToString(const QTime &time, bool shortfmt = true);
   @param shortfmt If true, display info in short format.
   @see dateToString(), dateTimeToString().
 */
-KCALUTILS_EXPORT QString dateToString(const QDate &date, bool shortfmt = true);
+KCALUTILS_EXPORT QString dateToString(QDate date, bool shortfmt = true);
 
 KCALUTILS_EXPORT QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllDay);
 

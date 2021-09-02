@@ -3308,12 +3308,12 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
     return recurStr;
 }
 
-QString IncidenceFormatter::timeToString(const QTime &time, bool shortfmt)
+QString IncidenceFormatter::timeToString(QTime time, bool shortfmt)
 {
     return QLocale().toString(time, shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
 }
 
-QString IncidenceFormatter::dateToString(const QDate &date, bool shortfmt)
+QString IncidenceFormatter::dateToString(QDate date, bool shortfmt)
 {
     return QLocale().toString(date, (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
 }
