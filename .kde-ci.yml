@@ -6,4 +6,4 @@ Dependencies:
   'require':
     'third-party/grantlee' : '@stable'
     'frameworks/kcalendarcore' : '@latest'
-    'kde/pim/kidentitymanagement' : '@latest'
+    'kde/pim/kidentitymanagement' : '@same'
