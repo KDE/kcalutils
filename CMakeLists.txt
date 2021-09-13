@@ -4,7 +4,7 @@ set(PIM_VERSION "5.18.40")
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
-set(KF5_MIN_VERSION "5.85.0")
+set(KF5_MIN_VERSION "5.86.0")
 set(QT_REQUIRED_VERSION "5.15.2")
 
 find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
@@ -53,7 +53,7 @@ find_package(KF5IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRE
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055600)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055700)
 
 if(BUILD_TESTING)
   add_definitions(-DBUILD_TESTING)
