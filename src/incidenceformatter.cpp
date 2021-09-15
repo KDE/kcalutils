@@ -32,8 +32,8 @@
 #include <KCalendarCore/Visitor>
 using namespace KCalendarCore;
 
-#include <kidentitymanagement/identitymanager.h>
-#include <kidentitymanagement/utils.h>
+#include <KIdentityManagement/IdentityManager>
+#include <KIdentityManagement/Utils>
 
 #include <KEmailAddress>
 #include <ktexttohtml.h>
