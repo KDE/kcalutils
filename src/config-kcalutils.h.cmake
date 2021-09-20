@@ -5,9 +5,6 @@
  *
  */
 
-#ifndef CONFIG_KCALUTILS_H
-#define CONFIG_KCALUTILS_H
-
+#pragma once
 #define GRANTLEE_PLUGIN_INSTALL_DIR "${KDE_INSTALL_FULL_LIBDIR}"
 
-#endif
