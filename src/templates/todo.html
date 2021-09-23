@@ -171,7 +171,7 @@
     {% if incidence.completedDate %}
     <tr>
         <th valign="top">{% i18nc "Completed: date" "Completed:" %}</th>
-        <td>{{ incidence.completedDate|kdate }}</td>
+        <td>{{ incidence.completedDate|kdatetime }}</td>
     </tr>
     {% else %}
     <tr>
