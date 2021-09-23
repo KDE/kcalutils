@@ -280,6 +280,7 @@ void IncidenceFormatterTest::testDisplayViewFormatTodo_data()
     QTest::addColumn<QString>("name");
 
     QTest::newRow("todo-1") << QStringLiteral("todo-1");
+    QTest::newRow("todo-2") << QStringLiteral("todo-2");
 }
 
 void IncidenceFormatterTest::testDisplayViewFormatTodo()
