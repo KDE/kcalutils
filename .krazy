@@ -1,2 +1,2 @@
 SKIP /tests/
-EXTRA kdebug,tipsandthis,defines,qenums,null
+EXTRA tipsandthis,defines,qenums,null
