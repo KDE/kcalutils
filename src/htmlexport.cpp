@@ -55,10 +55,7 @@ HtmlExport::HtmlExport(Calendar *calendar, HTMLExportSettings *settings)
 {
 }
 
-HtmlExport::~HtmlExport()
-{
-    delete d;
-}
+HtmlExport::~HtmlExport() = default;
 
 bool HtmlExport::save(const QString &fileName)
 {

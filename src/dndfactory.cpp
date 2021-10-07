@@ -126,10 +126,7 @@ DndFactory::DndFactory(const Calendar::Ptr &calendar)
 {
 }
 
-DndFactory::~DndFactory()
-{
-    delete d;
-}
+DndFactory::~DndFactory() = default;
 
 QMimeData *DndFactory::createMimeData()
 {

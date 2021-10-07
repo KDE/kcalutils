@@ -28,6 +28,8 @@
 
 #include <QDateTime>
 
+#include <memory>
+
 class QDrag;
 class QDropEvent;
 class QMimeData;
@@ -156,7 +158,7 @@ public:
 private:
     //@cond PRIVATE
     Q_DISABLE_COPY(DndFactory)
-    DndFactoryPrivate *const d;
+    std::unique_ptr<DndFactoryPrivate> const d;
     //@endcond
 };
 }

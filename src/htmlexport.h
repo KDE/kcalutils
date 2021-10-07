@@ -16,6 +16,8 @@
 
 #include <QString>
 
+#include <memory>
+
 namespace KCalendarCore
 {
 class Calendar;
@@ -82,7 +84,7 @@ protected:
 private:
     //@cond PRIVATE
     Q_DISABLE_COPY(HtmlExport)
-    HtmlExportPrivate *const d;
+    std::unique_ptr<HtmlExportPrivate> const d;
     //@endcond
 };
 }

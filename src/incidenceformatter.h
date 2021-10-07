@@ -24,10 +24,13 @@
 #include <KCalendarCore/Incidence>
 
 #include <QDate>
-class InvitationFormatterHelperPrivate;
+
+#include <memory>
 
 namespace KCalUtils
 {
+class InvitationFormatterHelperPrivate;
+
 /**
  * @brief The InvitationFormatterHelper class
  */
@@ -43,7 +46,7 @@ public:
 private:
     //@cond PRIVATE
     Q_DISABLE_COPY(InvitationFormatterHelper)
-    InvitationFormatterHelperPrivate *const d;
+    std::unique_ptr<InvitationFormatterHelperPrivate> const d;
     //@endcond
 };
 

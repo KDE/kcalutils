@@ -1861,6 +1861,10 @@ private:
 };
 //@endcond
 
+class KCalUtils::InvitationFormatterHelperPrivate
+{
+};
+
 InvitationFormatterHelper::InvitationFormatterHelper()
     : d(nullptr)
 {
