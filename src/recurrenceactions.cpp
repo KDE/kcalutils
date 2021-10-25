@@ -58,7 +58,7 @@ public:
         }
     }
 
-    ~ScopeWidget();
+    ~ScopeWidget() override;
 
     void setMessage(const QString &message);
     void setIcon(const QIcon &icon);
