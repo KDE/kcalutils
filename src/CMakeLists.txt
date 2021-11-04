@@ -17,6 +17,17 @@ target_sources(KF5CalendarUtils PRIVATE
   grantleetemplatemanager.cpp
   qtresourcetemplateloader.cpp
   templates.qrc
+  vcaldrag.h
+  kcalutils_private_export.h
+  stringify.h
+  icaldrag.h
+  grantleetemplatemanager_p.h
+  grantleeki18nlocalizer_p.h
+  qtresourcetemplateloader.h
+  incidenceformatter.h
+  htmlexport.h
+  dndfactory.h
+  recurrenceactions.h
 )
 ecm_qt_declare_logging_category(KF5CalendarUtils HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME org.kde.pim.kcalutils
         OLD_CATEGORY_NAMES log_kcalutils

@@ -6,6 +6,10 @@ target_sources(kcalendar_grantlee_plugin PRIVATE
     kcalendargrantleeplugin.cpp
     icon.cpp
     datetimefilters.cpp
+    icon.h
+    datetimefilters.h
+    kcalendargrantleeplugin.h
+
 )
 kpim_grantlee_adjust_plugin_name(kcalendar_grantlee_plugin)
 target_link_libraries(kcalendar_grantlee_plugin
