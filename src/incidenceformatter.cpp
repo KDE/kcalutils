@@ -672,7 +672,7 @@ public:
         return incidence->accept(*this, incidence);
     }
 
-    QString result() const
+    Q_REQUIRED_RESULT QString result() const
     {
         return mResult;
     }
@@ -1777,7 +1777,7 @@ public:
         return incidence->accept(*this, incidence);
     }
 
-    T result() const
+    Q_REQUIRED_RESULT T result() const
     {
         return mResult;
     }
@@ -2356,7 +2356,7 @@ public:
         return incidence ? incidence->accept(*this, incidence) : false;
     }
 
-    QString result() const
+    Q_REQUIRED_RESULT QString result() const
     {
         return mResult;
     }
@@ -2798,7 +2798,7 @@ public:
         return incidence ? incidence->accept(*this, incidence) : false;
     }
 
-    QString result() const
+    Q_REQUIRED_RESULT QString result() const
     {
         return mResult;
     }
