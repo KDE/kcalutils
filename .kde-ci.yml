@@ -7,4 +7,4 @@ Dependencies:
     'frameworks/extra-cmake-modules': '@latest'
     'third-party/grantlee' : '@stable'
     'frameworks/kcalendarcore' : '@latest'
-    'kde/pim/kidentitymanagement' : '@same'
+    'pim/kidentitymanagement' : '@same'
