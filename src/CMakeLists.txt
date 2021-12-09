@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: BSD-3-Clause
+
 add_subdirectory(grantlee_plugin)
 
 add_library(KF5CalendarUtils)
