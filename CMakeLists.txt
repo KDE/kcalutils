@@ -59,7 +59,7 @@ find_package(KF5IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRE
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055900)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055A00)
 
 if(BUILD_TESTING)
   add_definitions(-DBUILD_TESTING)
