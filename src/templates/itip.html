@@ -76,7 +76,7 @@
 {% if incidence.comments %}
 <table border="0" cellspacing="0" cellpadding="4">
    <tr>
-     {% ifequal incidencecomment|length 1 %}
+     {% ifequal incidence.comments|length 1 %}
      <th valign="top">{% i18n "Comment:" %}</th>
      <td>{{ incidence.comments|first }}</td>
      {% else %}

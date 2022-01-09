@@ -2289,6 +2289,10 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
     // Add the attachment list
     incidence[QStringLiteral("attachments")] = invitationAttachments(inc, helper);
 
+    if (!inc->comments().isEmpty()) {
+        incidence[QStringLiteral("comments")] = inc->comments();
+    }
+
     QString templateName;
     switch (inc->type()) {
     case KCalendarCore::IncidenceBase::TypeEvent:
