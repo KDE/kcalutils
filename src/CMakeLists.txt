@@ -48,12 +48,12 @@ generate_export_header(KF5CalendarUtils BASE_NAME kcalutils)
 
 
 
-target_include_directories(KF5CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KCalUtils;${KDE_INSTALL_INCLUDEDIR_KF5}/KCalUtils/kcalutils>")
+target_include_directories(KF5CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KCalUtils;${KDE_INSTALL_INCLUDEDIR_KF}/KCalUtils/kcalutils>")
 target_include_directories(KF5CalendarUtils PUBLIC "$<BUILD_INTERFACE:${KCalUtils_SOURCE_DIR}/src;${KCalUtils_BINARY_DIR}/src>")
 
 target_link_libraries(KF5CalendarUtils
 PUBLIC
-  Qt::Widgets
+  Qt${QT_MAJOR_VERSION}::Widgets
   KF5::CalendarCore
   KF5::CoreAddons
   KF5::ConfigGui
@@ -95,13 +95,13 @@ install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h
   ${CMAKE_CURRENT_BINARY_DIR}/htmlexportsettings.h
   ${KCalUtils_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KCalUtils/kcalutils
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KCalUtils/kcalutils
   COMPONENT Devel
 )
 
 install(FILES
   ${KCalUtils_CamelCase_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KCalUtils/KCalUtils/
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KCalUtils/KCalUtils/
   COMPONENT Devel
 )
 
@@ -132,5 +132,5 @@ endif()
 
 ecm_qt_install_logging_categories(EXPORT KCALUTILS FILE kcalutils.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
-ecm_generate_pri_file(BASE_NAME KCalUtils LIB_NAME KF5CalendarUtils DEPS "KConfigGui KCalendarCore KCoreAddons" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KCalUtils)
+ecm_generate_pri_file(BASE_NAME KCalUtils LIB_NAME KF5CalendarUtils DEPS "KConfigGui KCalendarCore KCoreAddons" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KCalUtils)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
