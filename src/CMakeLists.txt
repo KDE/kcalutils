@@ -91,7 +91,6 @@ ecm_generate_headers(KCalUtils_CamelCase_HEADERS
 ########### install files ###############
 
 install(FILES
-  ${CMAKE_CURRENT_SOURCE_DIR}/includes/HTMLExportSettings
   ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h
   ${CMAKE_CURRENT_BINARY_DIR}/htmlexportsettings.h
   ${KCalUtils_HEADERS}
@@ -101,6 +100,7 @@ install(FILES
 
 install(FILES
   ${KCalUtils_CamelCase_HEADERS}
+  ${CMAKE_CURRENT_SOURCE_DIR}/includes/HTMLExportSettings
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KCalUtils/KCalUtils/
   COMPONENT Devel
 )
