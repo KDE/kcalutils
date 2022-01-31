@@ -6,10 +6,18 @@
  */
 
 #pragma once
-
+#include <QObject>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <grantlee/filter.h>
-
+#else
+#include <KTextTemplate/filter.h>
+#endif
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 class KDateFilter : public Grantlee::Filter
+#else
+class KDateFilter : public KTextTemplate::Filter
+#endif
+
 {
 public:
     KDateFilter();
@@ -21,8 +29,11 @@ public:
 private:
     Q_DISABLE_COPY(KDateFilter)
 };
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 class KTimeFilter : public Grantlee::Filter
+#else
+class KTimeFilter : public KTextTemplate::Filter
+#endif
 {
 public:
     KTimeFilter();
@@ -34,8 +45,11 @@ public:
 private:
     Q_DISABLE_COPY(KTimeFilter)
 };
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 class KDateTimeFilter : public Grantlee::Filter
+#else
+class KDateTimeFilter : public KTextTemplate::Filter
+#endif
 {
 public:
     KDateTimeFilter();

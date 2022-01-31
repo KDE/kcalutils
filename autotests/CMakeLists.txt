@@ -19,7 +19,7 @@ ecm_add_tests(testdndfactory.cpp teststringify.cpp testtodotooltip.cpp
 ecm_add_test(testincidenceformatter.cpp
     TEST_NAME "testincidenceformatter"
     NAME_PREFIX "kcalutils-"
-    LINK_LIBRARIES KF5CalendarUtils Qt${QT_MAJOR_VERSION}::Core Qt${QT_MAJOR_VERSION}::Test KF5::CalendarCore KF5::I18n KF5::IdentityManagement Grantlee5::Templates
+    LINK_LIBRARIES KF5CalendarUtils Qt${QT_MAJOR_VERSION}::Core Qt${QT_MAJOR_VERSION}::Test KF5::CalendarCore KF5::I18n KF5::IdentityManagement ${TEMPLATES_LIB}
 )
 
 # Make sure that dates are formatted in C locale

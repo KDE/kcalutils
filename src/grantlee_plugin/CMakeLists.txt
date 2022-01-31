@@ -16,7 +16,7 @@ target_sources(kcalendar_grantlee_plugin PRIVATE
 )
 kpim_grantlee_adjust_plugin_name(kcalendar_grantlee_plugin)
 target_link_libraries(kcalendar_grantlee_plugin
-    Grantlee5::Templates
+    ${TEMPLATES_LIB}
     KF5::IconThemes
     KF5CalendarUtils
 )

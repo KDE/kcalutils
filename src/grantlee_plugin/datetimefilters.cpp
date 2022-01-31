@@ -11,7 +11,11 @@
 #include <grantlee/safestring.h>
 
 KDateFilter::KDateFilter()
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     : Grantlee::Filter()
+#else
+    : KTextTemplate::Filter()
+#endif
 {
 }
 
@@ -31,9 +35,13 @@ QVariant KDateFilter::doFilter(const QVariant &input, const QVariant &argument, 
     } else {
         return QString();
     }
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     const bool shortFmt = (argument.value<Grantlee::SafeString>().get().compare(QLatin1String("short"), Qt::CaseInsensitive) == 0);
     return Grantlee::SafeString(KCalUtils::IncidenceFormatter::dateToString(date, shortFmt));
+#else
+    const bool shortFmt = (argument.value<KTextTemplate::SafeString>().get().compare(QLatin1String("short"), Qt::CaseInsensitive) == 0);
+    return KTextTemplate::SafeString(KCalUtils::IncidenceFormatter::dateToString(date, shortFmt));
+#endif
 }
 
 bool KDateFilter::isSafe() const
@@ -42,7 +50,11 @@ bool KDateFilter::isSafe() const
 }
 
 KTimeFilter::KTimeFilter()
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     : Grantlee::Filter()
+#else
+    : KTextTemplate::Filter()
+#endif
 {
 }
 
@@ -62,10 +74,13 @@ QVariant KTimeFilter::doFilter(const QVariant &input, const QVariant &argument, 
     } else {
         return QString();
     }
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     const bool shortFmt = (argument.value<Grantlee::SafeString>().get().compare(QLatin1String("short"), Qt::CaseInsensitive) == 0);
-
     return Grantlee::SafeString(KCalUtils::IncidenceFormatter::timeToString(time, shortFmt));
+#else
+    const bool shortFmt = (argument.value<KTextTemplate::SafeString>().get().compare(QLatin1String("short"), Qt::CaseInsensitive) == 0);
+    return KTextTemplate::SafeString(KCalUtils::IncidenceFormatter::timeToString(time, shortFmt));
+#endif
 }
 
 bool KTimeFilter::isSafe() const
@@ -74,7 +89,11 @@ bool KTimeFilter::isSafe() const
 }
 
 KDateTimeFilter::KDateTimeFilter()
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     : Grantlee::Filter()
+#else
+    : KTextTemplate::Filter()
+#endif
 {
 }
 
@@ -90,12 +109,17 @@ QVariant KDateTimeFilter::doFilter(const QVariant &input, const QVariant &argume
         return QString();
     }
     const QDateTime dt = input.toDateTime();
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     const QStringList arguments = argument.value<Grantlee::SafeString>().get().split(QLatin1Char(','));
     const bool shortFmt = arguments.contains(QLatin1String("short"), Qt::CaseInsensitive);
     const bool dateOnly = arguments.contains(QLatin1String("dateonly"), Qt::CaseInsensitive);
-
     return Grantlee::SafeString(KCalUtils::IncidenceFormatter::dateTimeToString(dt, dateOnly, shortFmt));
+#else
+    const QStringList arguments = argument.value<KTextTemplate::SafeString>().get().split(QLatin1Char(','));
+    const bool shortFmt = arguments.contains(QLatin1String("short"), Qt::CaseInsensitive);
+    const bool dateOnly = arguments.contains(QLatin1String("dateonly"), Qt::CaseInsensitive);
+    return KTextTemplate::SafeString(KCalUtils::IncidenceFormatter::dateTimeToString(dt, dateOnly, shortFmt));
+#endif
 }
 
 bool KDateTimeFilter::isSafe() const

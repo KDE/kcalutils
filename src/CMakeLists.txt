@@ -63,7 +63,7 @@ PRIVATE
   KF5::I18n
   KF5::IdentityManagement
   KF5::Codecs
-  Grantlee5::Templates
+  ${TEMPLATES_LIB}
 )
 
 set_target_properties(KF5CalendarUtils PROPERTIES
