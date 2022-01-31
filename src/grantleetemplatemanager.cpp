@@ -14,17 +14,26 @@
 #include <QDebug>
 #include <QStandardPaths>
 #include <QString>
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <grantlee/engine.h>
 #include <grantlee/template.h>
 #include <grantlee/templateloader.h>
+#else
+#include <KTextTemplate/engine.h>
+#include <KTextTemplate/template.h>
+#include <KTextTemplate/templateloader.h>
+#endif
 
 #include <KLocalizedString>
 
 GrantleeTemplateManager *GrantleeTemplateManager::sInstance = nullptr;
 
 GrantleeTemplateManager::GrantleeTemplateManager()
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     : mEngine(new Grantlee::Engine)
+#else
+    : mEngine(new KTextTemplate::Engine)
+#endif
     , mLoader(new KCalUtils::QtResourceTemplateLoader)
     , mLocalizer(new GrantleeKi18nLocalizer)
 {
@@ -66,17 +75,29 @@ void GrantleeTemplateManager::setPluginPath(const QString &path)
     pluginPaths.prepend(path);
     mEngine->setPluginPaths(pluginPaths);
 }
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 Grantlee::Context GrantleeTemplateManager::createContext(const QVariantHash &hash) const
+#else
+KTextTemplate::Context GrantleeTemplateManager::createContext(const QVariantHash &hash) const
+#endif
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Grantlee::Context ctx;
+#else
+    KTextTemplate::Context ctx;
+#endif
     ctx.insert(QStringLiteral("incidence"), hash);
     ctx.setLocalizer(mLocalizer);
     return ctx;
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 QString GrantleeTemplateManager::errorTemplate(const QString &reason, const QString &origTemplateName, const Grantlee::Template &failedTemplate) const
+#else
+QString GrantleeTemplateManager::errorTemplate(const QString &reason, const QString &origTemplateName, const KTextTemplate::Template &failedTemplate) const
+#endif
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Grantlee::Template tpl = mEngine->newTemplate(QStringLiteral("<h1>{{ error }}</h1>\n"
                                                                  "<b>%1:</b> {{ templateName }}<br>\n"
                                                                  "<b>%2:</b> {{ errorMessage }}")
@@ -84,6 +105,15 @@ QString GrantleeTemplateManager::errorTemplate(const QString &reason, const QStr
                                                   QStringLiteral("TemplateError"));
 
     Grantlee::Context ctx = createContext();
+#else
+    KTextTemplate::Template tpl = mEngine->newTemplate(QStringLiteral("<h1>{{ error }}</h1>\n"
+                                                                      "<b>%1:</b> {{ templateName }}<br>\n"
+                                                                      "<b>%2:</b> {{ errorMessage }}")
+                                                           .arg(i18n("Template"), i18n("Error message")),
+                                                       QStringLiteral("TemplateError"));
+
+    KTextTemplate::Context ctx = createContext();
+#endif
     ctx.insert(QStringLiteral("error"), reason);
     ctx.insert(QStringLiteral("templateName"), origTemplateName);
     ctx.insert(QStringLiteral("errorMessage"), failedTemplate->errorString());
@@ -96,12 +126,19 @@ QString GrantleeTemplateManager::render(const QString &templateName, const QVari
         qWarning() << "Cannot load template" << templateName << ", please check your installation";
         return QString();
     }
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Grantlee::Template tpl = mLoader->loadByName(templateName, mEngine);
+#else
+    KTextTemplate::Template tpl = mLoader->loadByName(templateName, mEngine);
+#endif
     if (tpl->error()) {
         return errorTemplate(i18n("Template parsing error"), templateName, tpl);
     }
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Grantlee::Context ctx = createContext(data);
+#else
+    KTextTemplate::Context ctx = createContext(data);
+#endif
     const QString result = tpl->render(&ctx);
     if (tpl->error()) {
         return errorTemplate(i18n("Template rendering error"), templateName, tpl);

@@ -7,8 +7,11 @@
 
 #include "datetimefilters.h"
 #include "../incidenceformatter.h"
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <grantlee/safestring.h>
+#else
+#include <KTextTemplate/safestring.h>
+#endif
 
 KDateFilter::KDateFilter()
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
