@@ -47,6 +47,7 @@ using namespace KCalendarCore;
 #include <QLocale>
 #include <QMimeDatabase>
 #include <QPalette>
+#include <QRegularExpression>
 
 using namespace KCalUtils;
 using namespace IncidenceFormatter;
@@ -749,11 +750,13 @@ QString IncidenceFormatter::extensiveDisplayStr(const QString &sourceName, const
 //@cond PRIVATE
 static QString cleanHtml(const QString &html)
 {
-    QRegExp rx(QStringLiteral("<body[^>]*>(.*)</body>"), Qt::CaseInsensitive);
-    rx.indexIn(html);
-    QString body = rx.cap(1);
-
-    return body.remove(QRegExp(QStringLiteral("<[^>]*>"))).trimmed().toHtmlEscaped();
+    static QRegularExpression rx = QRegularExpression(QStringLiteral("<body[^>]*>(.*)</body>"), QRegularExpression::CaseInsensitiveOption);
+    QRegularExpressionMatch match = rx.match(html);
+    if (match.hasMatch()) {
+        QString body = match.captured(1);
+        return body.remove(QRegularExpression(QStringLiteral("<[^>]*>"))).trimmed().toHtmlEscaped();
+    }
+    return html;
 }
 
 static QString invitationSummary(const Incidence::Ptr &incidence, bool noHtmlMode)
