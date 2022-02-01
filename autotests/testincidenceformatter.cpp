@@ -25,10 +25,10 @@
 #include <QIcon>
 #include <QLocale>
 #include <QProcess>
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QTest>
 #include <QTimeZone>
-
 QTEST_MAIN(IncidenceFormatterTest)
 #ifndef Q_OS_WIN
 void initLocale()
@@ -200,11 +200,11 @@ bool IncidenceFormatterTest::compareHtml(const QString &name)
         }
         QString content = QString::fromUtf8(f.readAll());
         f.close();
-        content.replace(QRegExp(QStringLiteral("\"file:[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("\"file:\\1\""));
+        content.replace(QRegularExpression(QStringLiteral("\"file:[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("\"file:\\1\""));
         // emoticons give us absolute paths without file:
-        content.replace(QRegExp(QStringLiteral("src=\"/[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("src=\"\\1\""));
+        content.replace(QRegularExpression(QStringLiteral("src=\"/[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("src=\"\\1\""));
         // icon filename extensions depend on used theme, Oxygen has PNG, Breeze has SVG
-        content.replace(QRegExp(QStringLiteral(".(png|svg)\"")), QStringLiteral("\""));
+        content.replace(QRegularExpression(QStringLiteral(".(png|svg)\"")), QStringLiteral("\""));
         if (!f.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
             return false;
         }
