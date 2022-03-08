@@ -22,5 +22,5 @@ target_link_libraries(kcalendar_grantlee_plugin
 )
 
 install(TARGETS kcalendar_grantlee_plugin
-        LIBRARY DESTINATION ${LIB_INSTALL_DIR}/grantlee/${Grantlee5_VERSION_MAJOR}.${Grantlee5_VERSION_MINOR}/
+        LIBRARY DESTINATION ${LIB_INSTALL_DIR}/KTextTemplate/${KTextTemplate_MAJOR_MINOR_VERSION_STRING}/
 )
