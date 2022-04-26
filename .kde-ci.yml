@@ -8,3 +8,5 @@ Dependencies:
     'third-party/grantlee' : '@stable'
     'frameworks/kcalendarcore' : '@latest'
     'pim/kidentitymanagement' : '@same'
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD' ]      
