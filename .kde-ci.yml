@@ -8,5 +8,6 @@ Dependencies:
     'third-party/grantlee' : '@stable'
     'frameworks/kcalendarcore' : '@latest'
     'pim/kidentitymanagement' : '@same'
+    'frameworks/breeze-icons': '@stable'
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD' ]      
