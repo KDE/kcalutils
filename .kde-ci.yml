@@ -8,3 +8,4 @@ Dependencies:
     'third-party/grantlee' : '@stable'
     'frameworks/kcalendarcore' : '@latest'
     'pim/kidentitymanagement' : '@same'
+    'frameworks/breeze-icons': '@stable'
