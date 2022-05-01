@@ -39,7 +39,6 @@
 #include <QIcon>
 #include <QMimeData>
 #include <QTimeZone>
-#include <QWidget>
 
 using namespace KCalendarCore;
 using namespace KCalUtils;
@@ -137,7 +136,7 @@ QMimeData *DndFactory::createMimeData()
     return mimeData;
 }
 
-QDrag *DndFactory::createDrag(QWidget *owner)
+QDrag *DndFactory::createDrag(QObject *owner)
 {
     auto *drag = new QDrag(owner);
     drag->setMimeData(createMimeData());
@@ -168,7 +167,7 @@ QMimeData *DndFactory::createMimeData(const Incidence::Ptr &incidence)
     return mimeData;
 }
 
-QDrag *DndFactory::createDrag(const Incidence::Ptr &incidence, QWidget *owner)
+QDrag *DndFactory::createDrag(const Incidence::Ptr &incidence, QObject *owner)
 {
     auto *drag = new QDrag(owner);
     drag->setMimeData(createMimeData(incidence));

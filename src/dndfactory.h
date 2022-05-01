@@ -79,7 +79,7 @@ public:
     /**
       Create a drag object for the whole calendar.
     */
-    QDrag *createDrag(QWidget *owner);
+    QDrag *createDrag(QObject *owner);
 
     /**
       Create the mime data for a single incidence.
@@ -89,7 +89,7 @@ public:
     /**
       Create a drag object for a single incidence.
     */
-    QDrag *createDrag(const KCalendarCore::Incidence::Ptr &incidence, QWidget *owner);
+    QDrag *createDrag(const KCalendarCore::Incidence::Ptr &incidence, QObject *owner);
 
     /**
       Create Todo object from mime data.
