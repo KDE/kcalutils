@@ -3267,7 +3267,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
             exStr << QLocale().dayName((*il).date().dayOfWeek(), QLocale::ShortFormat);
             break;
         case Recurrence::rYearlyMonth:
-            exStr << QLocale().monthName((*il).date().month(), QLocale::LongFormat);
+            exStr << QString::number((*il).date().year());
             break;
         case Recurrence::rDaily:
         case Recurrence::rMonthlyPos:
@@ -3301,7 +3301,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
             exStr << QLocale().toString((*dl), QLocale::ShortFormat);
             break;
         case Recurrence::rYearlyMonth:
-            exStr << QLocale().monthName((*dl).month(), QLocale::LongFormat);
+            exStr << QString::number((*dl).year());
             break;
         case Recurrence::rYearlyDay:
             exStr << QLocale().toString((*dl), QLocale::ShortFormat);
