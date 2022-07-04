@@ -1564,7 +1564,7 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr 
         return i18n("%1 makes this counter proposal.", firstAttendeeName(todo, sender));
 
     case iTIPDeclineCounter: {
-        QString orgStr = organizerName(todo, sender);
+        const QString orgStr = organizerName(todo, sender);
         if (senderIsOrganizer(todo, sender)) {
             return i18n("%1 declines the counter proposal.", orgStr);
         } else {
@@ -2340,9 +2340,7 @@ QString IncidenceFormatter::formatICalInvitationNoHtml(const QString &invitation
 class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
 {
 public:
-    ToolTipVisitor()
-    {
-    }
+    ToolTipVisitor() = default;
 
     bool act(const Calendar::Ptr &calendar, const IncidenceBase::Ptr &incidence, QDate date = QDate(), bool richText = true)
     {
@@ -2619,7 +2617,7 @@ static QString tooltipFormatAttendees(const Calendar::Ptr &calendar, const Incid
     QString str;
 
     // Add organizer link
-    int attendeeCount = incidence->attendees().count();
+    const int attendeeCount = incidence->attendees().count();
     if (attendeeCount > 1 || (attendeeCount == 1 && !attendeeIsOrganizer(incidence, incidence->attendees().at(0)))) {
         tmpStr += QLatin1String("<i>") + i18n("Organizer:") + QLatin1String("</i>") + QLatin1String("<br>");
         tmpStr += QLatin1String("&nbsp;&nbsp;") + tooltipFormatOrganizer(incidence->organizer().email(), incidence->organizer().name());
