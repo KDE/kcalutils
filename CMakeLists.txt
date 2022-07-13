@@ -6,7 +6,7 @@ set(PIM_VERSION "5.21.40")
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
-set(KF5_MIN_VERSION "5.95.0")
+set(KF5_MIN_VERSION "5.96.0")
 set(QT_REQUIRED_VERSION "5.15.2")
 
 find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
