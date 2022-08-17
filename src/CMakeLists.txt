@@ -53,7 +53,7 @@ target_include_directories(KF5CalendarUtils PUBLIC "$<BUILD_INTERFACE:${KCalUtil
 
 target_link_libraries(KF5CalendarUtils
 PUBLIC
-  Qt${QT_MAJOR_VERSION}::Widgets
+  Qt::Widgets
   KF5::CalendarCore
   KF5::CoreAddons
   KF5::ConfigGui
