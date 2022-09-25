@@ -23,7 +23,6 @@
 
 #include <KCalendarCore/Calendar>
 #include <KCalendarCore/Event>
-#include <KCalendarCore/Journal>
 #include <KCalendarCore/Todo>
 
 #include <QDateTime>

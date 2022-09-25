@@ -32,7 +32,6 @@
 #include <KCalendarCore/Visitor>
 using namespace KCalendarCore;
 
-#include <KIdentityManagement/IdentityManager>
 #include <KIdentityManagement/Utils>
 
 #include <KEmailAddress>
