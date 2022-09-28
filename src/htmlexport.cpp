@@ -9,7 +9,6 @@
 #include "htmlexport.h"
 #include "htmlexportsettings.h"
 #include "incidenceformatter.h"
-#include "stringify.h"
 
 #include <KCalendarCore/Calendar>
 using namespace KCalendarCore;
