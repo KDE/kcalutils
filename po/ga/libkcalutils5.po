@@ -1,0 +1,3122 @@
+# Irish translation of libkcalutils
+# Copyright (C) 2011 This_file_is_part_of_KDE
+# This file is distributed under the same license as the libkcalutils package.
+# Kevin Scannell <kscanne@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkcalutils\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:47+0000\n"
+"PO-Revision-Date: 2011-12-28 12:28-0500\n"
+"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
+"3 : 4\n"
+
+#: src/grantleetemplatemanager.cpp:104 src/grantleetemplatemanager.cpp:112
+#, kde-format
+msgid "Template"
+msgstr ""
+
+#: src/grantleetemplatemanager.cpp:104 src/grantleetemplatemanager.cpp:112
+#, kde-format
+msgid "Error message"
+msgstr ""
+
+#: src/grantleetemplatemanager.cpp:135
+#, kde-format
+msgid "Template parsing error"
+msgstr ""
+
+#: src/grantleetemplatemanager.cpp:144
+#, kde-format
+msgid "Template rendering error"
+msgstr ""
+
+#: src/htmlexport.cpp:170
+#, kde-format
+msgctxt "@title month and year"
+msgid "%1 %2"
+msgstr "%1 %2"
+
+#: src/htmlexport.cpp:246
+#, kde-format
+msgctxt "@title:column event start time"
+msgid "Start Time"
+msgstr "Am Tosaithe"
+
+#: src/htmlexport.cpp:247
+#, kde-format
+msgctxt "@title:column event end time"
+msgid "End Time"
+msgstr "Am Críochnaithe"
+
+#: src/htmlexport.cpp:248
+#, kde-format
+msgctxt "@title:column event description"
+msgid "Event"
+msgstr "Imeacht"
+
+#: src/htmlexport.cpp:250
+#, fuzzy, kde-format
+#| msgctxt "@title:column event locatin"
+#| msgid "Location"
+msgctxt "@title:column event location"
+msgid "Location"
+msgstr "Suíomh"
+
+#: src/htmlexport.cpp:254
+#, kde-format
+msgctxt "@title:column event categories"
+msgid "Categories"
+msgstr "Catagóirí"
+
+#: src/htmlexport.cpp:258
+#, kde-format
+msgctxt "@title:column event attendees"
+msgid "Attendees"
+msgstr "Rannpháirtithe"
+
+#: src/htmlexport.cpp:375
+#, kde-format
+msgctxt "@title:column"
+msgid "To-do"
+msgstr "Tasc"
+
+#: src/htmlexport.cpp:376
+#, kde-format
+msgctxt "@title:column to-do priority"
+msgid "Priority"
+msgstr "Tosaíocht"
+
+#: src/htmlexport.cpp:377
+#, kde-format
+msgctxt "@title:column to-do percent completed"
+msgid "Completed"
+msgstr "Críochnaithe"
+
+#: src/htmlexport.cpp:379
+#, kde-format
+msgctxt "@title:column to-do due date"
+msgid "Due Date"
+msgstr "Spriocdháta"
+
+#: src/htmlexport.cpp:383
+#, kde-format
+msgctxt "@title:column to-do location"
+msgid "Location"
+msgstr "Suíomh"
+
+#: src/htmlexport.cpp:387
+#, kde-format
+msgctxt "@title:column to-do categories"
+msgid "Categories"
+msgstr "Catagóirí"
+
+#: src/htmlexport.cpp:391
+#, kde-format
+msgctxt "@title:column to-do attendees"
+msgid "Attendees"
+msgstr "Rannpháirtithe"
+
+#: src/htmlexport.cpp:412
+#, kde-format
+msgctxt "@title:column sub-to-dos of the parent to-do"
+msgid "Sub-To-dos of: "
+msgstr "Fo-Thascanna de: "
+
+#: src/htmlexport.cpp:467
+#, kde-format
+msgctxt "@title:column sub-to-dos of the parent to-do"
+msgid "Sub-To-dos"
+msgstr "Fo-Thascanna"
+
+#: src/htmlexport.cpp:485
+#, fuzzy, kde-format
+#| msgctxt "@info/plain to-do percent complete"
+#| msgid "%1 %"
+msgctxt "@info to-do percent complete"
+msgid "%1 %"
+msgstr "%1 %"
+
+#: src/htmlexport.cpp:630
+#, fuzzy, kde-format
+#| msgctxt "@info/plain"
+#| msgid "This page was created "
+msgctxt "@info"
+msgid "This page was created "
+msgstr "Bhí an leathanach seo cruthaithe "
+
+#: src/htmlexport.cpp:639
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info/plain page credit with name and link"
+#| msgid "with <link url='%1'>%2</link>"
+msgctxt "@info/plain page creator email link with name"
+msgid "by <link url='mailto:%1'>%2</link> "
+msgstr "le <link url='%1'>%2</link>"
+
+#: src/htmlexport.cpp:641
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info/plain page credit with name and link"
+#| msgid "with <link url='%1'>%2</link>"
+msgctxt "@info/plain page creator email link"
+msgid "by <link url='mailto:%1'>%2</link> "
+msgstr "le <link url='%1'>%2</link>"
+
+#: src/htmlexport.cpp:645
+#, fuzzy, kde-format
+#| msgctxt "@info/plain page creator name only"
+#| msgid "by %1 "
+msgctxt "@info page creator name only"
+msgid "by %1 "
+msgstr "ag %1 "
+
+#: src/htmlexport.cpp:651
+#, kde-kuit-format
+msgctxt "@info/plain page credit with name and link"
+msgid "with <link url='%1'>%2</link>"
+msgstr "le <link url='%1'>%2</link>"
+
+#: src/htmlexport.cpp:653
+#, fuzzy, kde-format
+#| msgctxt "@info/plain page credit name only"
+#| msgid "with %1"
+msgctxt "@info page credit name only"
+msgid "with %1"
+msgstr "le %1"
+
+#: src/htmlexport.cpp:719
+#, fuzzy, kde-format
+#| msgctxt "@info/plain holiday by date and name"
+#| msgid "%1, %2"
+msgctxt "@info holiday by date and name"
+msgid "%1, %2"
+msgstr "%1, %2"
+
+#: src/incidenceformatter.cpp:167
+#, kde-format
+msgid "Organizer Unknown"
+msgstr ""
+
+#: src/incidenceformatter.cpp:189 src/incidenceformatter.cpp:1422
+#, kde-format
+msgid "Sender"
+msgstr "Seoltóir"
+
+#: src/incidenceformatter.cpp:353
+#, kde-format
+msgid "Show mail"
+msgstr "Taispeáin ríomhphost"
+
+#: src/incidenceformatter.cpp:612 src/incidenceformatter.cpp:1260
+#, kde-format
+msgctxt "hours part of duration"
+msgid "1 hour "
+msgid_plural "%1 hours "
+msgstr[0] "1 uair "
+msgstr[1] "%1 uair "
+msgstr[2] "%1 huaire "
+msgstr[3] "%1 n-uaire "
+msgstr[4] "%1 uair "
+
+#: src/incidenceformatter.cpp:616
+#, kde-format
+msgctxt "minutes part duration"
+msgid "1 minute "
+msgid_plural "%1 minutes "
+msgstr[0] "1 nóiméad "
+msgstr[1] "%1 nóiméad "
+msgstr[2] "%1 nóiméad "
+msgstr[3] "%1 nóiméad "
+msgstr[4] "%1 nóiméad "
+
+#: src/incidenceformatter.cpp:620 src/incidenceformatter.cpp:1268
+#, kde-format
+msgctxt "seconds part of duration"
+msgid "1 second"
+msgid_plural "%1 seconds"
+msgstr[0] "%1 soicind"
+msgstr[1] "%1 shoicind"
+msgstr[2] "%1 shoicind"
+msgstr[3] "%1 soicind"
+msgstr[4] "%1 soicind"
+
+#: src/incidenceformatter.cpp:763
+#, kde-format
+msgid "Summary unspecified"
+msgstr "Gan Achoimre"
+
+#: src/incidenceformatter.cpp:779
+#, kde-format
+msgid "Location unspecified"
+msgstr "Gan suíomh"
+
+#: src/incidenceformatter.cpp:914
+#, fuzzy, kde-format
+#| msgid "Your response is requested"
+msgid "Your response is requested."
+msgstr "Ag feitheamh le freagra uait"
+
+#: src/incidenceformatter.cpp:916
+#, fuzzy, kde-format
+#| msgid "Your response as <b>%1</b> is requested"
+msgid "Your response as <b>%1</b> is requested."
+msgstr "Ag feitheamh le freagra uait mar <b>%1</b>"
+
+#: src/incidenceformatter.cpp:920
+#, fuzzy, kde-format
+#| msgid "No response is necessary"
+msgid "No response is necessary."
+msgstr "Ní gá freagra a thabhairt"
+
+#: src/incidenceformatter.cpp:922
+#, fuzzy, kde-format
+#| msgid "No response as <b>%1</b> is necessary"
+msgid "No response as <b>%1</b> is necessary."
+msgstr "Ní gá freagra a thabhairt mar <b>%1</b>"
+
+#: src/incidenceformatter.cpp:932
+#, kde-format
+msgid "(<b>Note</b>: the Organizer preset your response to <b>%1</b>)"
+msgstr "(<b>Nóta</b>: Réamhshocraigh an tEagraí do fhreagra mar <b>%1</b>)"
+
+#: src/incidenceformatter.cpp:1071 src/incidenceformatter.cpp:1131
+#, fuzzy, kde-format
+#| msgctxt "look for scheduling conflicts"
+#| msgid "Check my calendar"
+msgid "Check my calendar"
+msgstr "Féach ar m'fhéilire"
+
+#: src/incidenceformatter.cpp:1116 src/incidenceformatter.cpp:1186
+#, kde-format
+msgid "Please respond again to the original proposal."
+msgstr ""
+
+#: src/incidenceformatter.cpp:1167 src/incidenceformatter.cpp:1198
+#: src/templates/todo.html:179
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: src/incidenceformatter.cpp:1264
+#, kde-format
+msgctxt "minutes part of duration"
+msgid "1 minute"
+msgid_plural "%1 minutes "
+msgstr[0] "1 nóiméad"
+msgstr[1] "%1 nóiméad "
+msgstr[2] "%1 nóiméad "
+msgstr[3] "%1 nóiméad "
+msgstr[4] "%1 nóiméad "
+
+#: src/incidenceformatter.cpp:1316
+#, fuzzy, kde-format
+#| msgid "This invitation has been published"
+msgid "This invitation has been published."
+msgstr "Foilsíodh an cuireadh seo"
+
+#: src/incidenceformatter.cpp:1321
+#, fuzzy, kde-format
+#| msgid "This invitation has been updated by the organizer %1"
+msgid "This invitation has been updated by the organizer %1."
+msgstr "Nuashonraigh an t-eagraí %1 an cuireadh seo"
+
+#: src/incidenceformatter.cpp:1323
+#, fuzzy, kde-format
+#| msgid "This invitation has been updated by attendee %1"
+msgid "This invitation has been updated by %1 as a representative of %2."
+msgstr "Nuashonraigh rannpháirtí %1 an cuireadh seo"
+
+#: src/incidenceformatter.cpp:1327
+#, fuzzy, kde-format
+#| msgid "I created this invitation"
+msgid "I created this invitation."
+msgstr "Chruthaigh mé an cuireadh seo"
+
+#: src/incidenceformatter.cpp:1331
+#, fuzzy, kde-format
+#| msgid "You received an invitation from %1"
+msgid "You received an invitation from %1."
+msgstr "Fuair tú cuireadh ó %1"
+
+#: src/incidenceformatter.cpp:1333
+#, fuzzy, kde-format
+#| msgid "You received an invitation from %1 as a representative of %2"
+msgid "You received an invitation from %1 as a representative of %2."
+msgstr "Fuair tú cuireadh ó %1 mar ionadaí do %2"
+
+#: src/incidenceformatter.cpp:1337
+#, fuzzy, kde-format
+#| msgid "This invitation was refreshed"
+msgid "This invitation was refreshed."
+msgstr "Athnuadh an cuireadh seo"
+
+#: src/incidenceformatter.cpp:1340
+#, fuzzy, kde-format
+#| msgid "This invitation has been canceled"
+msgid "This invitation has been canceled."
+msgstr "Cealaíodh an cuireadh seo"
+
+#: src/incidenceformatter.cpp:1342
+#, fuzzy, kde-format
+#| msgid "Sender is still processing the invitation"
+msgid "The organizer has revoked the invitation."
+msgstr "Tá an cuireadh á phróiseáil ag an seoltóir fós"
+
+#: src/incidenceformatter.cpp:1345
+#, fuzzy, kde-format
+#| msgid "Addition to the invitation"
+msgid "Addition to the invitation."
+msgstr "Duine eile a dtugadh cuireadh dó"
+
+#: src/incidenceformatter.cpp:1348 src/incidenceformatter.cpp:1422
+#: src/incidenceformatter.cpp:1481 src/incidenceformatter.cpp:1563
+#, fuzzy, kde-format
+#| msgid "%1 makes this counter proposal"
+msgid "%1 makes this counter proposal."
+msgstr "Déanann %1 an fritogra seo"
+
+#: src/incidenceformatter.cpp:1372
+#, fuzzy, kde-format
+#| msgid "%1 indicates this invitation still needs some action"
+msgid "%1 indicates this invitation still needs some action."
+msgstr "Deir %1 go bhfuil obair de dhíth ar an gcuireadh seo fós"
+
+#: src/incidenceformatter.cpp:1376
+#, fuzzy, kde-format
+#| msgid "This invitation has been updated by attendee %1"
+msgid "This invitation has been updated by attendee %1."
+msgstr "Nuashonraigh rannpháirtí %1 an cuireadh seo"
+
+#: src/incidenceformatter.cpp:1378
+#, fuzzy, kde-format
+#| msgid "This invitation has been updated by an attendee"
+msgid "This invitation has been updated by an attendee."
+msgstr "Nuashonraigh rannpháirtí an cuireadh seo"
+
+#: src/incidenceformatter.cpp:1382
+#, fuzzy, kde-format
+#| msgid "%1 accepts this invitation"
+msgid "%1 accepts this invitation."
+msgstr "Glacann %1 leis an gcuireadh seo"
+
+#: src/incidenceformatter.cpp:1384
+#, fuzzy, kde-format
+#| msgid "%1 accepts this invitation on behalf of %2"
+msgid "%1 accepts this invitation on behalf of %2."
+msgstr "Glacann %1 leis an gcuireadh seo ar son %2"
+
+#: src/incidenceformatter.cpp:1389
+#, fuzzy, kde-format
+#| msgid "%1 tentatively accepts this invitation"
+msgid "%1 tentatively accepts this invitation."
+msgstr "Glacann %1 leis an gcuireadh seo go sealadach"
+
+#: src/incidenceformatter.cpp:1391
+#, fuzzy, kde-format
+#| msgid "%1 tentatively accepts this invitation on behalf of %2"
+msgid "%1 tentatively accepts this invitation on behalf of %2."
+msgstr "Glacann %1 leis an gcuireadh seo go sealadach ar son %2"
+
+#: src/incidenceformatter.cpp:1395
+#, fuzzy, kde-format
+#| msgid "%1 declines this invitation"
+msgid "%1 declines this invitation."
+msgstr "Diúltaíonn %1 an cuireadh seo"
+
+#: src/incidenceformatter.cpp:1397
+#, fuzzy, kde-format
+#| msgid "%1 declines this invitation on behalf of %2"
+msgid "%1 declines this invitation on behalf of %2."
+msgstr "Diúltaíonn %1 an cuireadh seo ar son %2"
+
+#: src/incidenceformatter.cpp:1407
+#, fuzzy, kde-format
+#| msgid "%1 has delegated this invitation to %2"
+msgid "%1 has delegated this invitation to %2."
+msgstr "Bhí an cuireadh seo tarmligthe ag %1 chuig %2"
+
+#: src/incidenceformatter.cpp:1409
+#, fuzzy, kde-format
+#| msgid "%1 has delegated this invitation"
+msgid "%1 has delegated this invitation."
+msgstr "Bhí an cuireadh seo tarmligthe ag %1"
+
+#: src/incidenceformatter.cpp:1413
+#, fuzzy, kde-format
+#| msgid "This invitation is now completed"
+msgid "This invitation is now completed."
+msgstr "Tá an cuireadh seo críochnaithe anois"
+
+#: src/incidenceformatter.cpp:1415
+#, fuzzy, kde-format
+#| msgid "%1 is still processing the invitation"
+msgid "%1 is still processing the invitation."
+msgstr "Tá an cuireadh á phróiseáil ag %1 fós"
+
+#: src/incidenceformatter.cpp:1417
+#, fuzzy, kde-format
+#| msgid "Unknown response to this invitation"
+msgid "Unknown response to this invitation."
+msgstr "Freagra anaithnid ar an gcuireadh seo"
+
+#: src/incidenceformatter.cpp:1427
+#, fuzzy, kde-format
+#| msgid "%1 declines the counter proposal"
+msgid "%1 declines your counter proposal."
+msgstr "Diúltaíonn %1 an fritogra seo"
+
+#: src/incidenceformatter.cpp:1429
+#, fuzzy, kde-format
+#| msgid "%1 declines this to-do on behalf of %2"
+msgid "%1 declines your counter proposal on behalf of %2."
+msgstr "Diúltaíonn %1 an tasc seo ar son %2"
+
+#: src/incidenceformatter.cpp:1434
+#, fuzzy, kde-format
+#| msgid "Error: Event iTIP message with unknown method"
+msgid "Error: Event iTIP message with unknown method."
+msgstr "Earráid: teachtaireacht iTIP le modh anaithnid"
+
+#: src/incidenceformatter.cpp:1448
+#, fuzzy, kde-format
+#| msgid "This to-do has been published"
+msgid "This to-do has been published."
+msgstr "Foilsíodh an tasc seo"
+
+#: src/incidenceformatter.cpp:1453
+#, fuzzy, kde-format
+#| msgid "This to-do has been updated by the organizer %1"
+msgid "This to-do has been updated by the organizer %1."
+msgstr "Nuashonraigh an t-eagraí %1 an tasc seo"
+
+#: src/incidenceformatter.cpp:1455
+#, fuzzy, kde-format
+#| msgid "This to-do has been updated by assignee %1"
+msgid "This to-do has been updated by %1 as a representative of %2."
+msgstr "Nuashonraigh sannaí %1 an tasc seo"
+
+#: src/incidenceformatter.cpp:1459
+#, fuzzy, kde-format
+#| msgid "I created this to-do"
+msgid "I created this to-do."
+msgstr "Chruthaigh mé an tasc seo"
+
+#: src/incidenceformatter.cpp:1463
+#, fuzzy, kde-format
+#| msgid "You have been assigned this to-do by %1"
+msgid "You have been assigned this to-do by %1."
+msgstr "Thug %1 an tasc seo duit"
+
+#: src/incidenceformatter.cpp:1465
+#, fuzzy, kde-format
+#| msgid "You have been assigned this to-do by %1 as a representative of %2"
+msgid "You have been assigned this to-do by %1 as a representative of %2."
+msgstr "Thug %1 an tasc seo duit mar ionadaí do %2"
+
+#: src/incidenceformatter.cpp:1470
+#, fuzzy, kde-format
+#| msgid "This to-do was refreshed"
+msgid "This to-do was refreshed."
+msgstr "Athnuadh an tasc seo"
+
+#: src/incidenceformatter.cpp:1473
+#, fuzzy, kde-format
+#| msgid "This to-do was canceled"
+msgid "This to-do was canceled."
+msgstr "Cealaíodh an tasc seo"
+
+#: src/incidenceformatter.cpp:1475
+#, kde-format
+msgid "The organizer has revoked this to-do."
+msgstr ""
+
+#: src/incidenceformatter.cpp:1478
+#, fuzzy, kde-format
+#| msgid "Addition to the to-do"
+msgid "Addition to the to-do."
+msgstr "Cuireadh rud éigin leis an tasc"
+
+#: src/incidenceformatter.cpp:1505
+#, fuzzy, kde-format
+#| msgid "%1 indicates this to-do assignment still needs some action"
+msgid "%1 indicates this to-do assignment still needs some action."
+msgstr "Deir %1 go bhfuil obair de dhíth ar an tasc seo fós"
+
+#: src/incidenceformatter.cpp:1510
+#, fuzzy, kde-format
+#| msgid "This to-do has been completed by assignee %1"
+msgid "This to-do has been completed by assignee %1."
+msgstr "Críochnaigh sannaí %1 an tasc seo"
+
+#: src/incidenceformatter.cpp:1512
+#, fuzzy, kde-format
+#| msgid "This to-do has been updated by assignee %1"
+msgid "This to-do has been updated by assignee %1."
+msgstr "Nuashonraigh sannaí %1 an tasc seo"
+
+#: src/incidenceformatter.cpp:1516
+#, fuzzy, kde-format
+#| msgid "This to-do has been completed by an assignee"
+msgid "This to-do has been completed by an assignee."
+msgstr "Críochnaigh sannaí an tasc seo"
+
+#: src/incidenceformatter.cpp:1518
+#, fuzzy, kde-format
+#| msgid "This to-do has been updated by an assignee"
+msgid "This to-do has been updated by an assignee."
+msgstr "Nuashonraigh sannaí an tasc seo"
+
+#: src/incidenceformatter.cpp:1523
+#, fuzzy, kde-format
+#| msgid "%1 accepts this to-do"
+msgid "%1 accepts this to-do."
+msgstr "Glacann %1 leis an tasc seo"
+
+#: src/incidenceformatter.cpp:1525
+#, fuzzy, kde-format
+#| msgid "%1 accepts this to-do on behalf of %2"
+msgid "%1 accepts this to-do on behalf of %2."
+msgstr "Glacann %1 leis an tasc seo ar son %2"
+
+#: src/incidenceformatter.cpp:1530
+#, fuzzy, kde-format
+#| msgid "%1 tentatively accepts this to-do"
+msgid "%1 tentatively accepts this to-do."
+msgstr "Glacann %1 leis an tasc seo go sealadach"
+
+#: src/incidenceformatter.cpp:1532
+#, fuzzy, kde-format
+#| msgid "%1 tentatively accepts this to-do on behalf of %2"
+msgid "%1 tentatively accepts this to-do on behalf of %2."
+msgstr "Glacann %1 leis an tasc seo go sealadach ar son %2"
+
+#: src/incidenceformatter.cpp:1536
+#, fuzzy, kde-format
+#| msgid "%1 declines this to-do"
+msgid "%1 declines this to-do."
+msgstr "Diúltaíonn %1 an tasc seo"
+
+#: src/incidenceformatter.cpp:1538
+#, fuzzy, kde-format
+#| msgid "%1 declines this to-do on behalf of %2"
+msgid "%1 declines this to-do on behalf of %2."
+msgstr "Diúltaíonn %1 an tasc seo ar son %2"
+
+#: src/incidenceformatter.cpp:1548
+#, fuzzy, kde-format
+#| msgid "%1 has delegated this to-do to %2"
+msgid "%1 has delegated this to-do to %2."
+msgstr "Bhí an tasc seo tarmligthe ag %1 chuig %2"
+
+#: src/incidenceformatter.cpp:1550
+#, fuzzy, kde-format
+#| msgid "%1 has delegated this to-do"
+msgid "%1 has delegated this to-do."
+msgstr "Bhí an tasc seo tarmligthe ag %1"
+
+#: src/incidenceformatter.cpp:1554
+#, fuzzy, kde-format
+#| msgid "The request for this to-do is now completed"
+msgid "The request for this to-do is now completed."
+msgstr "Tá an t-iarratas ar an tasc seo críochnaithe anois"
+
+#: src/incidenceformatter.cpp:1556
+#, fuzzy, kde-format
+#| msgid "%1 is still processing the to-do"
+msgid "%1 is still processing the to-do."
+msgstr "Tá an tasc á phróiseáil ag %1 fós"
+
+#: src/incidenceformatter.cpp:1558
+#, fuzzy, kde-format
+#| msgid "Unknown response to this to-do"
+msgid "Unknown response to this to-do."
+msgstr "Freagra anaithnid ar an tasc seo"
+
+#: src/incidenceformatter.cpp:1568
+#, fuzzy, kde-format
+#| msgid "%1 declines the counter proposal"
+msgid "%1 declines the counter proposal."
+msgstr "Diúltaíonn %1 an fritogra seo"
+
+#: src/incidenceformatter.cpp:1570
+#, fuzzy, kde-format
+#| msgid "%1 declines the counter proposal"
+msgid "%1 declines the counter proposal on behalf of %2."
+msgstr "Diúltaíonn %1 an fritogra seo"
+
+#: src/incidenceformatter.cpp:1575
+#, fuzzy, kde-format
+#| msgid "Error: To-do iTIP message with unknown method"
+msgid "Error: To-do iTIP message with unknown method."
+msgstr "Earráid: teachtaireacht iTIP tasc le modh anaithnid"
+
+#: src/incidenceformatter.cpp:1589
+#, fuzzy, kde-format
+#| msgid "This journal has been published"
+msgid "This journal has been published."
+msgstr "Foilsíodh an dialann seo"
+
+#: src/incidenceformatter.cpp:1591
+#, fuzzy, kde-format
+#| msgid "You have been assigned this journal"
+msgid "You have been assigned this journal."
+msgstr "Tugadh an dialann seo duit"
+
+#: src/incidenceformatter.cpp:1593
+#, fuzzy, kde-format
+#| msgid "This journal was refreshed"
+msgid "This journal was refreshed."
+msgstr "Athnuadh an dialann seo"
+
+#: src/incidenceformatter.cpp:1595
+#, fuzzy, kde-format
+#| msgid "This journal was canceled"
+msgid "This journal was canceled."
+msgstr "Cealaíodh an dialann seo"
+
+#: src/incidenceformatter.cpp:1597
+#, fuzzy, kde-format
+#| msgid "Addition to the journal"
+msgid "Addition to the journal."
+msgstr "Rud curtha leis an dialann"
+
+#: src/incidenceformatter.cpp:1600 src/incidenceformatter.cpp:1635
+#: src/incidenceformatter.cpp:1665
+#, fuzzy, kde-format
+#| msgid "Sender makes this counter proposal"
+msgid "Sender makes this counter proposal."
+msgstr "Déanann an seoltóir an fritogra seo"
+
+#: src/incidenceformatter.cpp:1616
+#, fuzzy, kde-format
+#| msgid "Sender indicates this journal assignment still needs some action"
+msgid "Sender indicates this journal assignment still needs some action."
+msgstr "Deir an seoltóir go bhfuil obair de dhíth ar an dialann seo fós"
+
+#: src/incidenceformatter.cpp:1618
+#, fuzzy, kde-format
+#| msgid "Sender accepts this journal"
+msgid "Sender accepts this journal."
+msgstr "Glacann an seoltóir leis an dialann seo"
+
+#: src/incidenceformatter.cpp:1620
+#, fuzzy, kde-format
+#| msgid "Sender tentatively accepts this journal"
+msgid "Sender tentatively accepts this journal."
+msgstr "Glacann an seoltóir leis an dialann seo go sealadach"
+
+#: src/incidenceformatter.cpp:1622
+#, fuzzy, kde-format
+#| msgid "Sender declines this journal"
+msgid "Sender declines this journal."
+msgstr "Diúltaíonn an seoltóir an dialann seo"
+
+#: src/incidenceformatter.cpp:1624
+#, fuzzy, kde-format
+#| msgid "Sender has delegated this request for the journal"
+msgid "Sender has delegated this request for the journal."
+msgstr "Bhí an t-iarratas seo ar an dialann tarmligthe ag an seoltóir"
+
+#: src/incidenceformatter.cpp:1626
+#, fuzzy, kde-format
+#| msgid "The request for this journal is now completed"
+msgid "The request for this journal is now completed."
+msgstr "Tá an t-iarratas ar an dialann seo críochnaithe anois"
+
+#: src/incidenceformatter.cpp:1628
+#, fuzzy, kde-format
+#| msgid "Sender is still processing the invitation"
+msgid "Sender is still processing the invitation."
+msgstr "Tá an cuireadh á phróiseáil ag an seoltóir fós"
+
+#: src/incidenceformatter.cpp:1630
+#, fuzzy, kde-format
+#| msgid "Unknown response to this journal"
+msgid "Unknown response to this journal."
+msgstr "Freagra anaithnid ar an dialann seo"
+
+#: src/incidenceformatter.cpp:1637 src/incidenceformatter.cpp:1667
+#, fuzzy, kde-format
+#| msgid "Sender declines the counter proposal"
+msgid "Sender declines the counter proposal."
+msgstr "Diúltaíonn an seoltóir an fritogra seo"
+
+#: src/incidenceformatter.cpp:1639
+#, fuzzy, kde-format
+#| msgid "Error: Journal iTIP message with unknown method"
+msgid "Error: Journal iTIP message with unknown method."
+msgstr "Earráid: teachtaireacht iMIP dialainne le modh anaithnid"
+
+#: src/incidenceformatter.cpp:1653
+#, fuzzy, kde-format
+#| msgid "This free/busy list has been published"
+msgid "This free/busy list has been published."
+msgstr "Foilsíodh an liosta saor/gafa seo"
+
+#: src/incidenceformatter.cpp:1655
+#, fuzzy, kde-format
+#| msgid "The free/busy list has been requested"
+msgid "The free/busy list has been requested."
+msgstr "Bhí an liosta saor/gafa iarrtha"
+
+#: src/incidenceformatter.cpp:1657
+#, fuzzy, kde-format
+#| msgid "This free/busy list was refreshed"
+msgid "This free/busy list was refreshed."
+msgstr "Athnuadh an liosta saor/gafa"
+
+#: src/incidenceformatter.cpp:1659
+#, fuzzy, kde-format
+#| msgid "This free/busy list was canceled"
+msgid "This free/busy list was canceled."
+msgstr "Cealaíodh an liosta saor/gafa"
+
+#: src/incidenceformatter.cpp:1661
+#, fuzzy, kde-format
+#| msgid "Addition to the free/busy list"
+msgid "Addition to the free/busy list."
+msgstr "Rud a cuireadh leis an liosta saor/gafa"
+
+#: src/incidenceformatter.cpp:1663
+#, fuzzy, kde-format
+#| msgid "Reply to the free/busy list"
+msgid "Reply to the free/busy list."
+msgstr "Freagra ar an liosta saor/gafa"
+
+#: src/incidenceformatter.cpp:1669
+#, fuzzy, kde-format
+#| msgid "Error: Free/Busy iTIP message with unknown method"
+msgid "Error: Free/Busy iTIP message with unknown method."
+msgstr "Earráid: Teachtaireacht iTIP saor/gafa le modh anaithnid"
+
+#: src/incidenceformatter.cpp:1724
+#, kde-format
+msgid "%1 (<i>unrecorded</i>"
+msgstr ""
+
+#: src/incidenceformatter.cpp:1938
+#, fuzzy, kde-format
+#| msgid "[Record]"
+msgid "Record"
+msgstr "[Déan Taifead]"
+
+#: src/incidenceformatter.cpp:1941
+#, fuzzy, kde-format
+#| msgid "[Move to Trash]"
+msgid "Move to Trash"
+msgstr "[Cuir sa Bhruscar]"
+
+#: src/incidenceformatter.cpp:1945
+#, kde-format
+msgctxt "accept invitation"
+msgid "Accept"
+msgstr "Glac Leis"
+
+#: src/incidenceformatter.cpp:1951
+#, fuzzy, kde-format
+#| msgctxt "@item event is tentative"
+#| msgid "Tentative"
+msgctxt "Accept invitation conditionally"
+msgid "Tentative"
+msgstr "Sealadach"
+
+#: src/incidenceformatter.cpp:1958
+#, kde-format
+msgctxt "decline invitation"
+msgid "Decline"
+msgstr "Diúltaigh"
+
+#: src/incidenceformatter.cpp:1962
+#, fuzzy, kde-format
+#| msgctxt "invitation counter proposal"
+#| msgid "Counter proposal"
+msgctxt "invitation counter proposal"
+msgid "Counter proposal ..."
+msgstr "Fritogra"
+
+#: src/incidenceformatter.cpp:1967
+#, fuzzy, kde-format
+#| msgctxt "delegate inviation to another"
+#| msgid "Delegate"
+msgctxt "delegate invitation to another"
+msgid "Delegate ..."
+msgstr "Tarmlig"
+
+#: src/incidenceformatter.cpp:1977
+#, fuzzy, kde-format
+#| msgctxt "accept invitation"
+#| msgid "Accept"
+msgid "Accept"
+msgstr "Glac Leis"
+
+#: src/incidenceformatter.cpp:1980
+#, fuzzy, kde-format
+#| msgctxt "decline invitation"
+#| msgid "Decline"
+msgid "Decline"
+msgstr "Diúltaigh"
+
+#: src/incidenceformatter.cpp:1990
+#, fuzzy, kde-format
+#| msgid "[Record invitation in my to-do list]"
+msgid "Record invitation in my to-do list"
+msgstr "[Cuir an cuireadh seo i mo thascliosta]"
+
+#: src/incidenceformatter.cpp:1991
+#, fuzzy, kde-format
+#| msgid "[Record invitation in my calendar]"
+msgid "Record invitation in my calendar"
+msgstr "[Cuir an cuireadh seo i m'fhéilire]"
+
+#: src/incidenceformatter.cpp:2004
+#, fuzzy, kde-format
+#| msgid "[Record response in my to-do list]"
+msgid "Record response in my to-do list"
+msgstr "[Cuir an freagra seo i mo thascliosta]"
+
+#: src/incidenceformatter.cpp:2004
+#, fuzzy, kde-format
+#| msgid "[Record response in my calendar]"
+msgid "Record response in my calendar"
+msgstr "[Cuir an freagra seo i m'fhéilire]"
+
+#: src/incidenceformatter.cpp:2018
+#, kde-format
+msgid "Remove invitation from my to-do list"
+msgstr "Bain an cuireadh seo as mo thascliosta"
+
+#: src/incidenceformatter.cpp:2019
+#, kde-format
+msgid "Remove invitation from my calendar"
+msgstr "Bain an cuireadh seo as m'fhéilire"
+
+#: src/incidenceformatter.cpp:2166
+#, kde-format
+msgid "Your <b>%1</b> response has been recorded."
+msgstr ""
+
+#: src/incidenceformatter.cpp:2168
+#, fuzzy, kde-format
+#| msgid "Your status for this invitation is <b>%1</b>"
+msgid "Your status for this invitation is <b>%1</b>."
+msgstr "Seo é do stádas don chuireadh seo: <b>%1</b>"
+
+#: src/incidenceformatter.cpp:2172
+#, fuzzy, kde-format
+#| msgid "This invitation was accepted"
+msgid "This invitation was canceled."
+msgstr "Glacadh leis an gcuireadh seo"
+
+#: src/incidenceformatter.cpp:2174
+#, fuzzy, kde-format
+#| msgid "This invitation was accepted"
+msgid "This invitation was accepted."
+msgstr "Glacadh leis an gcuireadh seo"
+
+#: src/incidenceformatter.cpp:2182
+#, fuzzy, kde-format
+#| msgid "Awaiting delegation response"
+msgid "Awaiting delegation response."
+msgstr "Ag feitheamh le freagra ar tharmligean"
+
+#: src/incidenceformatter.cpp:2254
+#, kde-format
+msgid "The <b>%1</b> response has been recorded"
+msgstr ""
+
+#: src/incidenceformatter.cpp:2281
+#, kde-format
+msgid "Assignees:"
+msgstr ""
+
+#: src/incidenceformatter.cpp:2283
+#, fuzzy, kde-format
+#| msgctxt "@item participation is required"
+#| msgid "Participant"
+msgid "Participants:"
+msgstr "Rannpháirtí"
+
+#: src/incidenceformatter.cpp:2415
+#, kde-format
+msgctxt "Event start"
+msgid "<i>From:</i> %1"
+msgstr "<i>Ó:</i> %1"
+
+#: src/incidenceformatter.cpp:2418
+#, kde-format
+msgctxt "Event end"
+msgid "<i>To:</i> %1"
+msgstr "<i>Go:</i> %1"
+
+#: src/incidenceformatter.cpp:2420 src/incidenceformatter.cpp:2497
+#, kde-format
+msgid "<i>Date:</i> %1"
+msgstr "<i>Dáta:</i> %1"
+
+#: src/incidenceformatter.cpp:2426
+#, kde-format
+msgctxt "time for event"
+msgid "<i>Time:</i> %1"
+msgstr "<i>Am:</i> %1"
+
+#: src/incidenceformatter.cpp:2428
+#, kde-format
+msgctxt "time range for event"
+msgid "<i>Time:</i> %1 - %2"
+msgstr "<i>Am:</i> %1 - %2"
+
+#: src/incidenceformatter.cpp:2461
+#, fuzzy, kde-format
+#| msgid "<i>Start:</i> %1"
+msgctxt "To-do's start date"
+msgid "<i>Start:</i> %1"
+msgstr "<i>Tosach:</i> %1"
+
+#: src/incidenceformatter.cpp:2464
+#, fuzzy, kde-format
+#| msgid "<i>Due:</i> %1"
+msgctxt "To-do's due date"
+msgid "<i>Due:</i> %1"
+msgstr "<i>Dáta Dlite:</i> %1"
+
+#: src/incidenceformatter.cpp:2470
+#, fuzzy, kde-format
+#| msgid "<i>Period start:</i> %1"
+msgctxt "To-do's priority number"
+msgid "<i>Priority:</i> %1"
+msgstr "<i>Tosach an tréimhse:</i> %1"
+
+#: src/incidenceformatter.cpp:2475
+#, fuzzy, kde-format
+#| msgid "<i>Date:</i> %1"
+msgctxt "To-do's completed date"
+msgid "<i>Completed:</i> %1"
+msgstr "<i>Dáta:</i> %1"
+
+#: src/incidenceformatter.cpp:2486
+#, fuzzy, kde-format
+#| msgid "Percent Done:"
+msgctxt "To-do's percent complete:"
+msgid "<i>Percent Done:</i> %1%"
+msgstr "Céatadán Críochnaithe:"
+
+#: src/incidenceformatter.cpp:2505 src/incidenceformatter.cpp:2506
+#, kde-format
+msgid "<i>Period start:</i> %1"
+msgstr "<i>Tosach an tréimhse:</i> %1"
+
+#: src/incidenceformatter.cpp:2531 src/templates/freebusy.html:5
+#, kde-format
+msgid "Free/Busy information for %1"
+msgstr "Eolas Saor/Gafa le haghaidh %1"
+
+#: src/incidenceformatter.cpp:2551
+#, kde-format
+msgctxt "attendee name (attendee status)"
+msgid "%1 (%2)"
+msgstr ""
+
+#: src/incidenceformatter.cpp:2553
+#, kde-format
+msgid "%1"
+msgstr "%1"
+
+#: src/incidenceformatter.cpp:2579 src/incidenceformatter.cpp:2714
+#, fuzzy, kde-format
+#| msgctxt "elipsis"
+#| msgid "..."
+msgctxt "ellipsis"
+msgid "..."
+msgstr "..."
+
+#: src/incidenceformatter.cpp:2599
+#, kde-format
+msgid " (delegated by %1)"
+msgstr " (tarmligthe ag %1)"
+
+#: src/incidenceformatter.cpp:2602
+#, kde-format
+msgid " (delegated to %1)"
+msgstr " (tarmligthe chuig %1)"
+
+#: src/incidenceformatter.cpp:2621 src/templates/event.html:112
+#: src/templates/todo.html:93
+#, kde-format
+msgid "Organizer:"
+msgstr "Eagraí:"
+
+#: src/incidenceformatter.cpp:2632 src/templates/event.html:124
+#: src/templates/todo.html:105
+#, kde-format
+msgid "Chair:"
+msgstr "Cathaoirleach:"
+
+#: src/incidenceformatter.cpp:2639 src/templates/event.html:137
+#: src/templates/todo.html:118
+#, kde-format
+msgid "Required Participants:"
+msgstr "Rannpháirtithe Riachtanacha:"
+
+#: src/incidenceformatter.cpp:2646
+#, kde-format
+msgid "Optional Participants:"
+msgstr "Rannpháirtithe Roghnacha:"
+
+#: src/incidenceformatter.cpp:2653 src/templates/event.html:163
+#: src/templates/todo.html:144
+#, kde-format
+msgid "Observers:"
+msgstr "Breathnóirí:"
+
+#: src/incidenceformatter.cpp:2678 src/templates/event.html:13
+#: src/templates/journal.html:14 src/templates/todo.html:14
+#, kde-format
+msgid "Calendar:"
+msgstr "Féilire:"
+
+#: src/incidenceformatter.cpp:2686 src/templates/event.html:21
+#: src/templates/todo.html:22
+#, kde-format
+msgid "Location:"
+msgstr "Suíomh:"
+
+#: src/incidenceformatter.cpp:2693 src/templates/event.html:60
+#: src/templates/todo.html:54
+#, kde-format
+msgid "Duration:"
+msgstr "Aga:"
+
+#: src/incidenceformatter.cpp:2699 src/incidenceformatter.cpp:2705
+#: src/templates/event.html:68 src/templates/itip_event.html:22
+#: src/templates/itip_todo.html:46 src/templates/todo.html:62
+#, kde-format
+msgid "Recurrence:"
+msgstr "Atarlú:"
+
+#: src/incidenceformatter.cpp:2706 src/templates/todo.html:64
+#, kde-format
+msgid "Exception"
+msgstr ""
+
+#: src/incidenceformatter.cpp:2721 src/templates/event.html:96
+#: src/templates/itip_event.html:29 src/templates/itip_journal.html:11
+#: src/templates/itip_todo.html:53 src/templates/journal.html:30
+#: src/templates/todo.html:74
+#, kde-format
+msgid "Description:"
+msgstr "Cur Síos:"
+
+#: src/incidenceformatter.cpp:2733 src/templates/event.html:104
+#: src/templates/todo.html:85
+#, kde-format
+msgid "Reminder:"
+msgid_plural "Reminders:"
+msgstr[0] "Meabhrúchán:"
+msgstr[1] "Meabhrúcháin:"
+msgstr[2] "Meabhrúcháin:"
+msgstr[3] "Meabhrúcháin:"
+msgstr[4] "Meabhrúcháin:"
+
+#: src/incidenceformatter.cpp:2753 src/templates/event.html:176
+#: src/templates/journal.html:38 src/templates/todo.html:157
+#, kde-format
+msgid "Tag:"
+msgid_plural "Tags:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+#: src/incidenceformatter.cpp:2782
+#, kde-format
+msgid "Summary: %1\n"
+msgstr "Achoimre: %1\n"
+
+#: src/incidenceformatter.cpp:2785
+#, kde-format
+msgid "Organizer: %1\n"
+msgstr "Eagraí: %1\n"
+
+#: src/incidenceformatter.cpp:2788
+#, kde-format
+msgid "Location: %1\n"
+msgstr "Suíomh: %1\n"
+
+#: src/incidenceformatter.cpp:2816
+#, kde-format
+msgid "This is a Free Busy Object"
+msgstr "Réad Saor/Gafa é seo"
+
+#: src/incidenceformatter.cpp:2826
+#, kde-format
+msgctxt "no recurrence"
+msgid "None"
+msgstr "Neamhní"
+
+#: src/incidenceformatter.cpp:2827
+#, kde-format
+msgctxt "event recurs by minutes"
+msgid "Minutely"
+msgstr "Gach Nóiméad"
+
+#: src/incidenceformatter.cpp:2828
+#, kde-format
+msgctxt "event recurs by hours"
+msgid "Hourly"
+msgstr "Gach Uair"
+
+#: src/incidenceformatter.cpp:2829
+#, kde-format
+msgctxt "event recurs by days"
+msgid "Daily"
+msgstr "Go Laethúil"
+
+#: src/incidenceformatter.cpp:2830
+#, kde-format
+msgctxt "event recurs by weeks"
+msgid "Weekly"
+msgstr "Go Seachtainiúil"
+
+#: src/incidenceformatter.cpp:2831
+#, kde-format
+msgctxt "event recurs same position (e.g. first monday) each month"
+msgid "Monthly Same Position"
+msgstr "Go míosúil san áit chéanna"
+
+#: src/incidenceformatter.cpp:2832
+#, kde-format
+msgctxt "event recurs same day each month"
+msgid "Monthly Same Day"
+msgstr "Go míosúil ar an lá céanna"
+
+#: src/incidenceformatter.cpp:2833
+#, kde-format
+msgctxt "event recurs same month each year"
+msgid "Yearly Same Month"
+msgstr "Go bliantúil sa mhí chéanna"
+
+#: src/incidenceformatter.cpp:2834
+#, kde-format
+msgctxt "event recurs same day each year"
+msgid "Yearly Same Day"
+msgstr "Go bliantúil ar an lá céanna"
+
+#: src/incidenceformatter.cpp:2835
+#, kde-format
+msgctxt "event recurs same position (e.g. first monday) each year"
+msgid "Yearly Same Position"
+msgstr "Go bliantúil san áit chéanna"
+
+#: src/incidenceformatter.cpp:2838 src/incidenceformatter.cpp:2892
+#, kde-format
+msgid "Start Date: %1\n"
+msgstr "Dáta Tosaigh: %1\n"
+
+#: src/incidenceformatter.cpp:2840 src/incidenceformatter.cpp:2894
+#, kde-format
+msgid "Start Time: %1\n"
+msgstr "Am Tosaithe: %1\n"
+
+#: src/incidenceformatter.cpp:2843
+#, kde-format
+msgid "End Date: %1\n"
+msgstr "Dáta Deiridh: %1\n"
+
+#: src/incidenceformatter.cpp:2846
+#, kde-format
+msgid "End Time: %1\n"
+msgstr "Am Deiridh: %1\n"
+
+#: src/incidenceformatter.cpp:2851
+#, kde-format
+msgid "Recurs: %1\n"
+msgstr "Atarlaíonn sé: %1\n"
+
+#: src/incidenceformatter.cpp:2852
+#, kde-format
+msgid "Frequency: %1\n"
+msgstr "Minicíocht: %1\n"
+
+#: src/incidenceformatter.cpp:2855
+#, kde-format
+msgid "Repeats once"
+msgid_plural "Repeats %1 times"
+msgstr[0] "Athdhéan uair amháin"
+msgstr[1] "Athdhéan %1 uair"
+msgstr[2] "Athdhéan %1 huaire"
+msgstr[3] "Athdhéan %1 n-uaire"
+msgstr[4] "Athdhéan %1 uair"
+
+#: src/incidenceformatter.cpp:2866
+#, kde-format
+msgid "Repeat until: %1\n"
+msgstr "Athdhéan go dtí: %1\n"
+
+#: src/incidenceformatter.cpp:2868
+#, kde-format
+msgid "Repeats forever\n"
+msgstr "Athdhéan go deo\n"
+
+#: src/incidenceformatter.cpp:2881 src/incidenceformatter.cpp:2905
+#, kde-format
+msgid ""
+"Details:\n"
+"%1\n"
+msgstr ""
+"Sonraí:\n"
+"%1\n"
+
+#: src/incidenceformatter.cpp:2898
+#, kde-format
+msgid "Due Date: %1\n"
+msgstr "Spriocdháta: %1\n"
+
+#: src/incidenceformatter.cpp:2900
+#, kde-format
+msgid "Due Time: %1\n"
+msgstr "Sprioc-am: %1\n"
+
+#: src/incidenceformatter.cpp:2913
+#, kde-format
+msgid "Date: %1\n"
+msgstr "Dáta: %1\n"
+
+#: src/incidenceformatter.cpp:2915
+#, kde-format
+msgid "Time: %1\n"
+msgstr "Am: %1\n"
+
+#: src/incidenceformatter.cpp:2918
+#, kde-format
+msgid ""
+"Text of the journal:\n"
+"%1\n"
+msgstr ""
+"Téacs na dialainne:\n"
+"%1\n"
+
+#: src/incidenceformatter.cpp:2963 src/incidenceformatter.cpp:3038
+#, kde-format
+msgid "No recurrence"
+msgstr "Gan atarlú"
+
+#: src/incidenceformatter.cpp:2967
+#, kde-format
+msgid "31st Last"
+msgstr "31ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2968
+#, kde-format
+msgid "30th Last"
+msgstr "30ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2969
+#, kde-format
+msgid "29th Last"
+msgstr "29ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2970
+#, kde-format
+msgid "28th Last"
+msgstr "28ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2971
+#, kde-format
+msgid "27th Last"
+msgstr "27ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2972
+#, kde-format
+msgid "26th Last"
+msgstr "26ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2973
+#, kde-format
+msgid "25th Last"
+msgstr "25ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2974
+#, kde-format
+msgid "24th Last"
+msgstr "24ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2975
+#, kde-format
+msgid "23rd Last"
+msgstr "23ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2976
+#, kde-format
+msgid "22nd Last"
+msgstr "22ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2977
+#, kde-format
+msgid "21st Last"
+msgstr "21ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2978
+#, kde-format
+msgid "20th Last"
+msgstr "20ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2979
+#, kde-format
+msgid "19th Last"
+msgstr "19ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2980
+#, kde-format
+msgid "18th Last"
+msgstr "18ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2981
+#, kde-format
+msgid "17th Last"
+msgstr "17ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2982
+#, kde-format
+msgid "16th Last"
+msgstr "16ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2983
+#, kde-format
+msgid "15th Last"
+msgstr "15ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2984
+#, kde-format
+msgid "14th Last"
+msgstr "14ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2985
+#, kde-format
+msgid "13th Last"
+msgstr "13ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2986
+#, kde-format
+msgid "12th Last"
+msgstr "12ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2987
+#, kde-format
+msgid "11th Last"
+msgstr "11ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2988
+#, kde-format
+msgid "10th Last"
+msgstr "10ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2989
+#, kde-format
+msgid "9th Last"
+msgstr "9ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2990
+#, kde-format
+msgid "8th Last"
+msgstr "8ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2991
+#, kde-format
+msgid "7th Last"
+msgstr "7ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2992
+#, kde-format
+msgid "6th Last"
+msgstr "6ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2993
+#, kde-format
+msgid "5th Last"
+msgstr "5ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2994
+#, kde-format
+msgid "4th Last"
+msgstr "4ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2995
+#, kde-format
+msgid "3rd Last"
+msgstr "3ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2996
+#, kde-format
+msgid "2nd Last"
+msgstr "2ú ón Deireadh"
+
+#: src/incidenceformatter.cpp:2997
+#, kde-format
+msgctxt "last day of the month"
+msgid "Last"
+msgstr "Lá Deiridh"
+
+#: src/incidenceformatter.cpp:2998
+#, kde-format
+msgctxt "unknown day of the month"
+msgid "unknown"
+msgstr "anaithnid"
+
+#: src/incidenceformatter.cpp:2999
+#, kde-format
+msgid "1st"
+msgstr "1ú"
+
+#: src/incidenceformatter.cpp:3000
+#, kde-format
+msgid "2nd"
+msgstr "2ú"
+
+#: src/incidenceformatter.cpp:3001
+#, kde-format
+msgid "3rd"
+msgstr "3ú"
+
+#: src/incidenceformatter.cpp:3002
+#, kde-format
+msgid "4th"
+msgstr "4ú"
+
+#: src/incidenceformatter.cpp:3003
+#, kde-format
+msgid "5th"
+msgstr "5ú"
+
+#: src/incidenceformatter.cpp:3004
+#, kde-format
+msgid "6th"
+msgstr "6ú"
+
+#: src/incidenceformatter.cpp:3005
+#, kde-format
+msgid "7th"
+msgstr "7ú"
+
+#: src/incidenceformatter.cpp:3006
+#, kde-format
+msgid "8th"
+msgstr "8ú"
+
+#: src/incidenceformatter.cpp:3007
+#, kde-format
+msgid "9th"
+msgstr "9ú"
+
+#: src/incidenceformatter.cpp:3008
+#, kde-format
+msgid "10th"
+msgstr "10ú"
+
+#: src/incidenceformatter.cpp:3009
+#, kde-format
+msgid "11th"
+msgstr "11ú"
+
+#: src/incidenceformatter.cpp:3010
+#, kde-format
+msgid "12th"
+msgstr "12ú"
+
+#: src/incidenceformatter.cpp:3011
+#, kde-format
+msgid "13th"
+msgstr "13ú"
+
+#: src/incidenceformatter.cpp:3012
+#, kde-format
+msgid "14th"
+msgstr "14ú"
+
+#: src/incidenceformatter.cpp:3013
+#, kde-format
+msgid "15th"
+msgstr "15ú"
+
+#: src/incidenceformatter.cpp:3014
+#, kde-format
+msgid "16th"
+msgstr "16ú"
+
+#: src/incidenceformatter.cpp:3015
+#, kde-format
+msgid "17th"
+msgstr "17ú"
+
+#: src/incidenceformatter.cpp:3016
+#, kde-format
+msgid "18th"
+msgstr "18ú"
+
+#: src/incidenceformatter.cpp:3017
+#, kde-format
+msgid "19th"
+msgstr "19ú"
+
+#: src/incidenceformatter.cpp:3018
+#, kde-format
+msgid "20th"
+msgstr "20ú"
+
+#: src/incidenceformatter.cpp:3019
+#, kde-format
+msgid "21st"
+msgstr "21ú"
+
+#: src/incidenceformatter.cpp:3020
+#, kde-format
+msgid "22nd"
+msgstr "22ú"
+
+#: src/incidenceformatter.cpp:3021
+#, kde-format
+msgid "23rd"
+msgstr "23ú"
+
+#: src/incidenceformatter.cpp:3022
+#, kde-format
+msgid "24th"
+msgstr "24ú"
+
+#: src/incidenceformatter.cpp:3023
+#, kde-format
+msgid "25th"
+msgstr "25ú"
+
+#: src/incidenceformatter.cpp:3024
+#, kde-format
+msgid "26th"
+msgstr "26ú"
+
+#: src/incidenceformatter.cpp:3025
+#, kde-format
+msgid "27th"
+msgstr "27ú"
+
+#: src/incidenceformatter.cpp:3026
+#, kde-format
+msgid "28th"
+msgstr "28ú"
+
+#: src/incidenceformatter.cpp:3027
+#, kde-format
+msgid "29th"
+msgstr "29ú"
+
+#: src/incidenceformatter.cpp:3028
+#, kde-format
+msgid "30th"
+msgstr "30ú"
+
+#: src/incidenceformatter.cpp:3029
+#, kde-format
+msgid "31st"
+msgstr "31ú"
+
+#: src/incidenceformatter.cpp:3045
+#, kde-format
+msgid "Recurs every minute until %2"
+msgid_plural "Recurs every %1 minutes until %2"
+msgstr[0] "Atarlaíonn sé gach nóiméad go dtí %2"
+msgstr[1] "Atarlaíonn sé gach %1 nóiméad go dtí %2"
+msgstr[2] "Atarlaíonn sé gach %1 nóiméad go dtí %2"
+msgstr[3] "Atarlaíonn sé gach %1 nóiméad go dtí %2"
+msgstr[4] "Atarlaíonn sé gach %1 nóiméad go dtí %2"
+
+#: src/incidenceformatter.cpp:3047 src/incidenceformatter.cpp:3058
+#: src/incidenceformatter.cpp:3069 src/incidenceformatter.cpp:3098
+#: src/incidenceformatter.cpp:3119 src/incidenceformatter.cpp:3142
+#: src/incidenceformatter.cpp:3166 src/incidenceformatter.cpp:3203
+#: src/incidenceformatter.cpp:3231
+#, fuzzy, kde-format, kde-kuit-format
+#| msgctxt "number of occurrences"
+#| msgid " (<numid>%1</numid> occurrences)"
+msgctxt "number of occurrences"
+msgid " (%1 occurrences)"
+msgstr " (<numid>%1</numid> uair)"
+
+#: src/incidenceformatter.cpp:3050
+#, kde-format
+msgid "Recurs every minute"
+msgid_plural "Recurs every %1 minutes"
+msgstr[0] "Atarlaíonn sé gach nóiméad"
+msgstr[1] "Atarlaíonn sé gach %1 nóiméad"
+msgstr[2] "Atarlaíonn sé gach %1 nóiméad"
+msgstr[3] "Atarlaíonn sé gach %1 nóiméad"
+msgstr[4] "Atarlaíonn sé gach %1 nóiméad"
+
+#: src/incidenceformatter.cpp:3056
+#, kde-format
+msgid "Recurs hourly until %2"
+msgid_plural "Recurs every %1 hours until %2"
+msgstr[0] "Atarlaíonn sé gach uair an chloig go dtí %2"
+msgstr[1] "Atarlaíonn sé gach %1 uair go dtí %2"
+msgstr[2] "Atarlaíonn sé gach %1 huaire go dtí %2"
+msgstr[3] "Atarlaíonn sé gach %1 n-uaire go dtí %2"
+msgstr[4] "Atarlaíonn sé gach %1 uair go dtí %2"
+
+#: src/incidenceformatter.cpp:3061
+#, kde-format
+msgid "Recurs hourly"
+msgid_plural "Recurs every %1 hours"
+msgstr[0] "Atarlaíonn sé gach uair an chloig"
+msgstr[1] "Atarlaíonn sé gach %1 uair"
+msgstr[2] "Atarlaíonn sé gach %1 huaire"
+msgstr[3] "Atarlaíonn sé gach %1 n-uaire"
+msgstr[4] "Atarlaíonn sé gach %1 uair"
+
+#: src/incidenceformatter.cpp:3067
+#, kde-format
+msgid "Recurs daily until %2"
+msgid_plural "Recurs every %1 days until %2"
+msgstr[0] "Atarlaíonn sé gach lá go dtí %2"
+msgstr[1] "Atarlaíonn sé gach %1 lá go dtí %2"
+msgstr[2] "Atarlaíonn sé gach %1 lá go dtí %2"
+msgstr[3] "Atarlaíonn sé gach %1 lá go dtí %2"
+msgstr[4] "Atarlaíonn sé gach %1 lá go dtí %2"
+
+#: src/incidenceformatter.cpp:3072
+#, kde-format
+msgid "Recurs daily"
+msgid_plural "Recurs every %1 days"
+msgstr[0] "Atarlaíonn sé gach lá"
+msgstr[1] "Atarlaíonn sé gach %1 lá"
+msgstr[2] "Atarlaíonn sé gach %1 lá"
+msgstr[3] "Atarlaíonn sé gach %1 lá"
+msgstr[4] "Atarlaíonn sé gach %1 lá"
+
+#: src/incidenceformatter.cpp:3081
+#, kde-format
+msgctxt "separator for list of days"
+msgid ", "
+msgstr ", "
+
+#: src/incidenceformatter.cpp:3088
+#, kde-format
+msgctxt "Recurs weekly on no days"
+msgid "no days"
+msgstr "gan laethanta"
+
+#: src/incidenceformatter.cpp:3092
+#, fuzzy, kde-format
+#| msgctxt "Recurs weekly on [list of days] until end-date"
+#| msgid "Recurs weekly on %2 until %3"
+#| msgid_plural "Recurs every <numid>%1</numid> weeks on %2 until %3"
+msgctxt "Recurs weekly on [list of days] until end-date"
+msgid "Recurs weekly on %2 until %3"
+msgid_plural "Recurs every %1 weeks on %2 until %3"
+msgstr[0] "Atarlaíonn sé gach seachtain ar %2 go dtí %3"
+msgstr[1] "Atarlaíonn sé gach <numid>%1</numid> sheachtain ar %2 go dtí %3"
+msgstr[2] "Atarlaíonn sé gach <numid>%1</numid> sheachtaine ar %2 go dtí %3"
+msgstr[3] "Atarlaíonn sé gach <numid>%1</numid> seachtaine ar %2 go dtí %3"
+msgstr[4] "Atarlaíonn sé gach <numid>%1</numid> seachtain ar %2 go dtí %3"
+
+#: src/incidenceformatter.cpp:3101
+#, fuzzy, kde-format
+#| msgctxt "Recurs weekly on [list of days]"
+#| msgid "Recurs weekly on %2"
+#| msgid_plural "Recurs every <numid>%1</numid> weeks on %2"
+msgctxt "Recurs weekly on [list of days]"
+msgid "Recurs weekly on %2"
+msgid_plural "Recurs every %1 weeks on %2"
+msgstr[0] "Atarlaíonn sé gach seachtain ar %2"
+msgstr[1] "Atarlaíonn sé gach <numid>%1</numid> sheachtain ar %2"
+msgstr[2] "Atarlaíonn sé gach <numid>%1</numid> sheachtaine ar %2"
+msgstr[3] "Atarlaíonn sé gach <numid>%1</numid> seachtaine ar %2"
+msgstr[4] "Atarlaíonn sé gach <numid>%1</numid> seachtain ar %2"
+
+#: src/incidenceformatter.cpp:3112
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
+#| msgid "Recurs every month on the %2 %3 until %4"
+#| msgid_plural "Recurs every <numid>%1</numid> months on the %2 %3 until %4"
+msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
+msgid "Recurs every month on the %2 %3 until %4"
+msgid_plural "Recurs every %1 months on the %2 %3 until %4"
+msgstr[0] "Atarlaíonn sé gach mí ar an %2 %3 go dtí %4"
+msgstr[1] "Atarlaíonn sé gach <numid>%1</numid> mhí ar an %2 %3 go dtí %4"
+msgstr[2] "Atarlaíonn sé gach <numid>%1</numid> mhí ar an %2 %3 go dtí %4"
+msgstr[3] "Atarlaíonn sé gach <numid>%1</numid> mí ar an %2 %3 go dtí %4"
+msgstr[4] "Atarlaíonn sé gach <numid>%1</numid> mí ar an %2 %3 go dtí %4"
+
+#: src/incidenceformatter.cpp:3123
+#, kde-format
+msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname"
+msgid "Recurs every month on the %2 %3"
+msgid_plural "Recurs every %1 months on the %2 %3"
+msgstr[0] "Atarlaíonn sé gach mí ar an %2 %3"
+msgstr[1] "Atarlaíonn sé gach %1 mhí ar an %2 %3"
+msgstr[2] "Atarlaíonn sé gach %1 mhí ar an %2 %3"
+msgstr[3] "Atarlaíonn sé gach %1 mí ar an %2 %3"
+msgstr[4] "Atarlaíonn sé gach %1 mí ar an %2 %3"
+
+#: src/incidenceformatter.cpp:3136
+#, kde-format
+msgctxt "Recurs monthly on the [1st|2nd|...] day until end-date"
+msgid "Recurs monthly on the %2 day until %3"
+msgid_plural "Recurs every %1 months on the %2 day until %3"
+msgstr[0] "Atarlaíonn sé gach mí ar an %2 lá go dtí %3"
+msgstr[1] "Atarlaíonn sé gach %1 mhí ar an %2 lá go dtí %3"
+msgstr[2] "Atarlaíonn sé gach %1 mhí ar an %2 lá go dtí %3"
+msgstr[3] "Atarlaíonn sé gach %1 mí ar an %2 lá go dtí %3"
+msgstr[4] "Atarlaíonn sé gach %1 mí ar an %2 lá go dtí %3"
+
+#: src/incidenceformatter.cpp:3146
+#, fuzzy, kde-format
+#| msgctxt "Recurs monthly on the [1st|2nd|...] day"
+#| msgid "Recurs monthly on the %2 day"
+#| msgid_plural "Recurs every <numid>%1</numid> month on the %2 day"
+msgctxt "Recurs monthly on the [1st|2nd|...] day"
+msgid "Recurs monthly on the %2 day"
+msgid_plural "Recurs every %1 month on the %2 day"
+msgstr[0] "Atarlaíonn sé gach mí ar an %2 lá"
+msgstr[1] "Atarlaíonn sé gach <numid>%1</numid> mhí ar an %2 lá"
+msgstr[2] "Atarlaíonn sé gach <numid>%1</numid> mhí ar an %2 lá"
+msgstr[3] "Atarlaíonn sé gach <numid>%1</numid> mí ar an %2 lá"
+msgstr[4] "Atarlaíonn sé gach <numid>%1</numid> mí ar an %2 lá"
+
+#: src/incidenceformatter.cpp:3159
+#, kde-format
+msgctxt "Recurs Every N years on month-name [1st|2nd|...] until end-date"
+msgid "Recurs yearly on %2 %3 until %4"
+msgid_plural "Recurs every %1 years on %2 %3 until %4"
+msgstr[0] "Atarlaíonn sé gach bliain ar an %3 lá de %2 go dtí %4"
+msgstr[1] "Atarlaíonn sé gach %1 bhliain ar an %3 lá de %2 go dtí %4"
+msgstr[2] "Atarlaíonn sé gach %1 bliana ar an %3 lá de %2 go dtí %4"
+msgstr[3] "Atarlaíonn sé gach %1 mbliana ar an %3 lá de %2 go dtí %4"
+msgstr[4] "Atarlaíonn sé gach %1 bliain ar an %3 lá de %2 go dtí %4"
+
+#: src/incidenceformatter.cpp:3172
+#, kde-format
+msgctxt "Recurs Every N years on month-name [1st|2nd|...]"
+msgid "Recurs yearly on %2 %3"
+msgid_plural "Recurs every %1 years on %2 %3"
+msgstr[0] "Atarlaíonn sé gach bliain ar an %3 lá de %2"
+msgstr[1] "Atarlaíonn sé gach %1 bhliain ar an %3 lá de %2"
+msgstr[2] "Atarlaíonn sé gach %1 bliana ar an %3 lá de %2"
+msgstr[3] "Atarlaíonn sé gach %1 mbliana ar an %3 lá de %2"
+msgstr[4] "Atarlaíonn sé gach %1 bliain ar an %3 lá de %2"
+
+#: src/incidenceformatter.cpp:3180 src/incidenceformatter.cpp:3185
+#, kde-format
+msgctxt "Recurs Every year on month-name [1st|2nd|...]"
+msgid "Recurs yearly on %1 %2"
+msgstr "Atarlaíonn sé gach bliain ar an %2 lá de %1"
+
+#: src/incidenceformatter.cpp:3196
+#, fuzzy, kde-format
+#| msgctxt "Recurs every N years on day N until end-date"
+#| msgid "Recurs every year on day <numid>%2</numid> until %3"
+#| msgid_plural ""
+#| "Recurs every <numid>%1</numid> years on day <numid>%2</numid> until %3"
+msgctxt "Recurs every N years on day N until end-date"
+msgid "Recurs every year on day %2 until %3"
+msgid_plural "Recurs every %1 years on day %2 until %3"
+msgstr[0] "Atarlaíonn sé gach bliain ar lá <numid>%2</numid> go dtí %3"
+msgstr[1] ""
+"Atarlaíonn sé gach <numid>%1</numid> bhliain ar lá <numid>%2</numid> go dtí "
+"%3"
+msgstr[2] ""
+"Atarlaíonn sé gach <numid>%1</numid> bliana ar lá <numid>%2</numid> go dtí %3"
+msgstr[3] ""
+"Atarlaíonn sé gach <numid>%1</numid> mbliana ar lá <numid>%2</numid> go dtí "
+"%3"
+msgstr[4] ""
+"Atarlaíonn sé gach <numid>%1</numid> bliain ar lá <numid>%2</numid> go dtí %3"
+
+#: src/incidenceformatter.cpp:3207
+#, fuzzy, kde-format
+#| msgctxt "Recurs every N YEAR[S] on day N"
+#| msgid "Recurs every year on day <numid>%2</numid>"
+#| msgid_plural "Recurs every <numid>%1</numid> years on day <numid>%2</numid>"
+msgctxt "Recurs every N YEAR[S] on day N"
+msgid "Recurs every year on day %2"
+msgid_plural "Recurs every %1 years on day %2"
+msgstr[0] "Atarlaíonn sé gach bliain ar lá <numid>%2</numid>"
+msgstr[1] ""
+"Atarlaíonn sé gach <numid>%1</numid> bhliain ar lá <numid>%2</numid>"
+msgstr[2] "Atarlaíonn sé gach <numid>%1</numid> bliana ar lá <numid>%2</numid>"
+msgstr[3] ""
+"Atarlaíonn sé gach <numid>%1</numid> mbliana ar lá <numid>%2</numid>"
+msgstr[4] "Atarlaíonn sé gach <numid>%1</numid> bliain ar lá <numid>%2</numid>"
+
+#: src/incidenceformatter.cpp:3222
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
+#| msgid "Every year on the %2 %3 of %4 until %5"
+#| msgid_plural "Every <numid>%1</numid> years on the %2 %3 of %4 until %5"
+msgctxt ""
+"Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
+msgid "Every year on the %2 %3 of %4 until %5"
+msgid_plural "Every %1 years on the %2 %3 of %4 until %5"
+msgstr[0] "Gach bliain ar an %2 %3 de %4 go dtí %5"
+msgstr[1] "Gach <numid>%1</numid> bhliain ar an %2 %3 de %4 go dtí %5"
+msgstr[2] "Gach <numid>%1</numid> bliana ar an %2 %3 de %4 go dtí %5"
+msgstr[3] "Gach <numid>%1</numid> mbliana ar an %2 %3 de %4 go dtí %5"
+msgstr[4] "Gach <numid>%1</numid> bliain ar an %2 %3 de %4 go dtí %5"
+
+#: src/incidenceformatter.cpp:3237
+#, fuzzy, kde-kuit-format
+#| msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
+#| msgid "Every year on the %2 %3 of %4"
+#| msgid_plural "Every <numid>%1</numid> years on the %2 %3 of %4"
+msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
+msgid "Every year on the %2 %3 of %4"
+msgid_plural "Every %1 years on the %2 %3 of %4"
+msgstr[0] "Gach bliain ar an %2 %3 de %4"
+msgstr[1] "Gach <numid>%1</numid> bhliain ar an %2 %3 de %4"
+msgstr[2] "Gach <numid>%1</numid> bliana ar an %2 %3 de %4"
+msgstr[3] "Gach <numid>%1</numid> mbliana ar an %2 %3 de %4"
+msgstr[4] "Gach <numid>%1</numid> bliain ar an %2 %3 de %4"
+
+#: src/incidenceformatter.cpp:3249
+#, kde-format
+msgid "Incidence recurs"
+msgstr "Atarlaíonn sé"
+
+#: src/incidenceformatter.cpp:3258
+#, kde-format
+msgid "minute %1"
+msgstr ""
+
+#: src/incidenceformatter.cpp:3291 src/incidenceformatter.cpp:3350
+#: src/incidenceformatter.cpp:3376 src/incidenceformatter.cpp:3388
+#, kde-format
+msgid "1 day"
+msgid_plural "%1 days"
+msgstr[0] "Lá amháin"
+msgstr[1] "%1 lá"
+msgstr[2] "%1 lá"
+msgstr[3] "%1 lá"
+msgstr[4] "%1 lá"
+
+#: src/incidenceformatter.cpp:3313
+#, kde-format
+msgid "%1 (excluding %2)"
+msgstr ""
+
+#: src/incidenceformatter.cpp:3356
+#, kde-format
+msgid "1 hour"
+msgid_plural "%1 hours"
+msgstr[0] "1 uair"
+msgstr[1] "%1 uair"
+msgstr[2] "%1 huaire"
+msgstr[3] "%1 n-uaire"
+msgstr[4] "%1 uair"
+
+#: src/incidenceformatter.cpp:3362
+#, kde-format
+msgid "1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/incidenceformatter.cpp:3379
+#, kde-format
+msgid "forever"
+msgstr "go brách"
+
+#: src/incidenceformatter.cpp:3423
+#, kde-format
+msgctxt "N days/hours/minutes before the start datetime"
+msgid "%1 before the start"
+msgstr "%1 roimh an tosach"
+
+#: src/incidenceformatter.cpp:3425
+#, kde-format
+msgctxt "N days/hours/minutes after the start datetime"
+msgid "%1 after the start"
+msgstr "%1 tar éis an tosaigh"
+
+#: src/incidenceformatter.cpp:3436
+#, kde-format
+msgctxt "N days/hours/minutes before the due datetime"
+msgid "%1 before the to-do is due"
+msgstr "%1 roimh sprioc-am an tasc"
+
+#: src/incidenceformatter.cpp:3438
+#, kde-format
+msgctxt "N days/hours/minutes before the end datetime"
+msgid "%1 before the end"
+msgstr "%1 roimh an deireadh"
+
+#: src/incidenceformatter.cpp:3442
+#, kde-format
+msgctxt "N days/hours/minutes after the due datetime"
+msgid "%1 after the to-do is due"
+msgstr "%1 tar éis sprioc-am an tasc"
+
+#: src/incidenceformatter.cpp:3444
+#, kde-format
+msgctxt "N days/hours/minutes after the end datetime"
+msgid "%1 after the end"
+msgstr "%1 tar éis an deiridh"
+
+#: src/incidenceformatter.cpp:3462
+#, kde-format
+msgctxt "reminder occurs at datetime"
+msgid "at %1"
+msgstr "ag %1"
+
+#: src/incidenceformatter.cpp:3469
+#, kde-format
+msgid "repeats once"
+msgid_plural "repeats %1 times"
+msgstr[0] "athdhéanta uair amháin"
+msgstr[1] "athdhéanta %1 uair"
+msgstr[2] "athdhéanta %1 huaire"
+msgstr[3] "athdhéanta %1 n-uaire"
+msgstr[4] "athdhéanta %1 uair"
+
+#: src/incidenceformatter.cpp:3470
+#, kde-format
+msgctxt "interval is N days/hours/minutes"
+msgid "interval is %1"
+msgstr "is é %1 an t-eatramh"
+
+#: src/incidenceformatter.cpp:3471
+#, kde-format
+msgctxt "(repeat string, interval string)"
+msgid "(%1, %2)"
+msgstr "(%1, %2)"
+
+#: src/recurrenceactions.cpp:46
+#, kde-format
+msgctxt "@option:check calendar items before a certain date"
+msgid "Items before %1"
+msgstr ""
+
+#: src/recurrenceactions.cpp:51
+#, kde-format
+msgctxt "@option:check currently selected calendar item"
+msgid "Selected item"
+msgstr ""
+
+#: src/recurrenceactions.cpp:57
+#, kde-format
+msgctxt "@option:check calendar items after a certain date"
+msgid "Items after %1"
+msgstr ""
+
+#: src/stringify.cpp:40
+#, kde-format
+msgctxt "@item incidence type is event"
+msgid "event"
+msgstr ""
+
+#: src/stringify.cpp:42
+#, kde-format
+msgctxt "@item incidence type is to-do/task"
+msgid "to-do"
+msgstr ""
+
+#: src/stringify.cpp:44
+#, kde-format
+msgctxt "@item incidence type is journal"
+msgid "journal"
+msgstr ""
+
+#: src/stringify.cpp:46
+#, kde-format
+msgctxt "@item incidence type is freebusy"
+msgid "free/busy"
+msgstr ""
+
+#: src/stringify.cpp:61
+#, kde-format
+msgctxt "@item incidence access if for everyone"
+msgid "Public"
+msgstr "Poiblí"
+
+#: src/stringify.cpp:63
+#, kde-format
+msgctxt "@item incidence access is by owner only"
+msgid "Private"
+msgstr "Príobháideach"
+
+#: src/stringify.cpp:65
+#, kde-format
+msgctxt "@item incidence access is by owner and a controlled group"
+msgid "Confidential"
+msgstr "Faoi Rún"
+
+#: src/stringify.cpp:83
+#, kde-format
+msgctxt "@item event is tentative"
+msgid "Tentative"
+msgstr "Sealadach"
+
+#: src/stringify.cpp:85
+#, kde-format
+msgctxt "@item event is definite"
+msgid "Confirmed"
+msgstr "Cinntithe"
+
+#: src/stringify.cpp:87
+#, kde-format
+msgctxt "@item to-do is complete"
+msgid "Completed"
+msgstr "Críochnaithe"
+
+#: src/stringify.cpp:89
+#, kde-format
+msgctxt "@item to-do needs action"
+msgid "Needs-Action"
+msgstr "Gníomh De Dhíth"
+
+#: src/stringify.cpp:91
+#, kde-format
+msgctxt "@item event orto-do is canceled; journal is removed"
+msgid "Canceled"
+msgstr "Cealaithe"
+
+#: src/stringify.cpp:93
+#, kde-format
+msgctxt "@item to-do is in process"
+msgid "In-Process"
+msgstr "Idir-Lámha"
+
+#: src/stringify.cpp:95
+#, kde-format
+msgctxt "@item journal is in draft form"
+msgid "Draft"
+msgstr "Dréacht"
+
+#: src/stringify.cpp:97
+#, kde-format
+msgctxt "@item journal is in final form"
+msgid "Final"
+msgstr "Deireanach"
+
+#: src/stringify.cpp:118
+#, kde-format
+msgctxt "@item chairperson"
+msgid "Chair"
+msgstr "Cathaoirleach"
+
+#: src/stringify.cpp:120
+#, kde-format
+msgctxt "@item participation is required"
+msgid "Participant"
+msgstr "Rannpháirtí"
+
+#: src/stringify.cpp:122
+#, kde-format
+msgctxt "@item participation is optional"
+msgid "Optional Participant"
+msgstr "Rannpháirtí Roghnach"
+
+#: src/stringify.cpp:124
+#, kde-format
+msgctxt "@item non-participant copied for information"
+msgid "Observer"
+msgstr "Breathnóir"
+
+#: src/stringify.cpp:133
+#, kde-format
+msgctxt "@item event, to-do or journal needs action"
+msgid "Needs Action"
+msgstr "Gníomh De Dhíth"
+
+#: src/stringify.cpp:135
+#, kde-format
+msgctxt "@item event, to-do or journal accepted"
+msgid "Accepted"
+msgstr "Glactha"
+
+#: src/stringify.cpp:137
+#, kde-format
+msgctxt "@item event, to-do or journal declined"
+msgid "Declined"
+msgstr "Diúltaithe"
+
+#: src/stringify.cpp:139
+#, kde-format
+msgctxt "@item event or to-do tentatively accepted"
+msgid "Tentative"
+msgstr "Sealadach"
+
+#: src/stringify.cpp:141
+#, kde-format
+msgctxt "@item event or to-do delegated"
+msgid "Delegated"
+msgstr "Tarmligthe"
+
+#: src/stringify.cpp:143
+#, kde-format
+msgctxt "@item to-do completed"
+msgid "Completed"
+msgstr "Críochnaithe"
+
+#: src/stringify.cpp:145
+#, kde-format
+msgctxt "@item to-do in process of being completed"
+msgid "In Process"
+msgstr "Idir Lámha"
+
+#: src/stringify.cpp:147
+#, kde-format
+msgctxt "@item event or to-do status unknown"
+msgid "Unknown"
+msgstr "Anaithnid"
+
+#: src/stringify.cpp:158
+#, kde-format
+msgctxt "@item"
+msgid "Load Error"
+msgstr ""
+
+#: src/stringify.cpp:161
+#, kde-format
+msgctxt "@item"
+msgid "Save Error"
+msgstr ""
+
+#: src/stringify.cpp:164
+#, kde-format
+msgctxt "@item"
+msgid "Parse Error in libical"
+msgstr ""
+
+#: src/stringify.cpp:167
+#, kde-format
+msgctxt "@item"
+msgid "Parse Error in the kcalcore library"
+msgstr ""
+
+#: src/stringify.cpp:170
+#, kde-format
+msgctxt "@item"
+msgid "No calendar component found."
+msgstr ""
+
+#: src/stringify.cpp:173 src/stringify.cpp:202
+#, kde-format
+msgctxt "@item"
+msgid "Expected iCalendar, got vCalendar format"
+msgstr ""
+
+#: src/stringify.cpp:176
+#, kde-format
+msgctxt "@item"
+msgid "iCalendar Version 2.0 detected."
+msgstr ""
+
+#: src/stringify.cpp:179 src/stringify.cpp:205
+#, kde-format
+msgctxt "@item"
+msgid "Expected iCalendar, got unknown format"
+msgstr ""
+
+#: src/stringify.cpp:182
+#, kde-format
+msgctxt "@item"
+msgid "Restriction violation"
+msgstr ""
+
+#: src/stringify.cpp:185
+#, kde-format
+msgctxt "@item"
+msgid "No writable resource found"
+msgstr ""
+
+#: src/stringify.cpp:189
+#, kde-format
+msgctxt "@item"
+msgid "Error saving to '%1'."
+msgstr ""
+
+#: src/stringify.cpp:193
+#, kde-format
+msgctxt "@item"
+msgid "Could not save '%1'"
+msgstr ""
+
+#: src/stringify.cpp:196
+#, kde-format
+msgctxt "@item"
+msgid "libical error"
+msgstr ""
+
+#: src/stringify.cpp:199
+#, kde-format
+msgctxt "@item"
+msgid "No VERSION property found"
+msgstr ""
+
+#: src/stringify.cpp:208
+#, kde-format
+msgctxt "@item"
+msgid "object is not a freebusy, event, todo or journal"
+msgstr ""
+
+#: src/stringify.cpp:211
+#, kde-format
+msgctxt "@item"
+msgid "messageText is empty, unable to parse into a ScheduleMessage"
+msgstr ""
+
+#: src/stringify.cpp:214
+#, kde-format
+msgctxt "@item"
+msgid "icalparser is unable to parse messageText into a ScheduleMessage"
+msgstr ""
+
+#: src/stringify.cpp:217
+#, kde-format
+msgctxt "@item"
+msgid "message does not contain ICAL_METHOD_PROPERTY"
+msgstr ""
+
+#: src/stringify.cpp:231
+#, kde-format
+msgctxt "@item this is a new scheduling message"
+msgid "New Scheduling Message"
+msgstr "Teachtaireacht Nua Sceidealta"
+
+#: src/stringify.cpp:233
+#, kde-format
+msgctxt "@item this is an update to an existing scheduling message"
+msgid "Updated Scheduling Message"
+msgstr "Teachtaireacht Sceidealta á Nuashonrú"
+
+#: src/stringify.cpp:235
+#, kde-format
+msgctxt "@item obsolete status"
+msgid "Obsolete"
+msgstr "I Léig"
+
+#: src/stringify.cpp:237
+#, kde-format
+msgctxt "@item this is a request for a new scheduling message"
+msgid "New Scheduling Message Request"
+msgstr "Iarratas ar Theachtaireacht Nua Sceidealta"
+
+#: src/stringify.cpp:239
+#, kde-format
+msgctxt ""
+"@item this is a request for an update to an existing scheduling message"
+msgid "Updated Scheduling Message Request"
+msgstr "Iarratas Nuashonraithe ar Theachtaireacht Sceidealta"
+
+#: src/stringify.cpp:241
+#, kde-format
+msgctxt "@item unknown status"
+msgid "Unknown Status: %1"
+msgstr "Stádas Anaithnid: %1"
+
+#: src/templates/attendee_row.html:27
+#, fuzzy
+#| msgid "Organizer:"
+msgid "organizer"
+msgstr "Eagraí:"
+
+#: src/templates/attendee_row.html:31
+msgid "myself"
+msgstr ""
+
+#: src/templates/attendee_row.html:35
+#, fuzzy, kde-format
+#| msgid " (delegated by %1)"
+msgid "delegated by %1)"
+msgstr " (tarmligthe ag %1)"
+
+#: src/templates/attendee_row.html:39
+#, fuzzy, kde-format
+#| msgid " (delegated to %1)"
+msgid "delegated to %1)"
+msgstr " (tarmligthe chuig %1)"
+
+#: src/templates/attendee_row.html:46
+#, fuzzy
+#| msgid "Show mail"
+msgid "Send email"
+msgstr "Taispeáin ríomhphost"
+
+#: src/templates/event.html:5
+#, fuzzy
+#| msgctxt "@title:column event description"
+#| msgid "Event"
+msgid "Event"
+msgstr "Imeacht"
+
+#: src/templates/event.html:30 src/templates/event.html:33
+#: src/templates/event.html:40 src/templates/event.html:43
+#: src/templates/itip_journal.html:5 src/templates/journal.html:22
+msgid "Date:"
+msgstr "Dáta:"
+
+#: src/templates/event.html:31 src/templates/event.html:41
+#: src/templates/itip_todo.html:16
+#, fuzzy, kde-format
+#| msgctxt "<beginTime> - <endTime>"
+#| msgid "%1 - %2"
+msgctxt "<beginDate> - <endDate>"
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: src/templates/event.html:34 src/templates/event.html:44
+#, fuzzy, kde-format
+#| msgid "%1"
+msgctxt "Date as string"
+msgid "%1"
+msgstr "%1"
+
+#: src/templates/event.html:47
+msgid "Time:"
+msgstr "Am:"
+
+#: src/templates/event.html:49
+#, kde-format
+msgctxt "<beginTime> - <endTime>"
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: src/templates/event.html:51
+#, fuzzy, kde-format
+#| msgid "%1"
+msgctxt "Time as string"
+msgid "%1"
+msgstr "%1"
+
+#: src/templates/event.html:70
+msgctxt "Exception in event recurrence"
+msgid "Exception"
+msgstr ""
+
+#: src/templates/event.html:80
+msgid "Birthday:"
+msgstr "Lá Breithe:"
+
+#: src/templates/event.html:88
+msgid "Anniversary:"
+msgstr "Cothrom Lae:"
+
+#: src/templates/event.html:150 src/templates/todo.html:131
+#, fuzzy
+#| msgid "Optional Participants:"
+msgid "Optional participants:"
+msgstr "Rannpháirtithe Roghnacha:"
+
+#: src/templates/event.html:184 src/templates/todo.html:186
+msgid "Attachment:"
+msgid_plural "Attachments:"
+msgstr[0] "Iatán:"
+msgstr[1] "Iatáin:"
+msgstr[2] "Iatáin:"
+msgstr[3] "Iatáin:"
+msgstr[4] "Iatáin:"
+
+#: src/templates/event.html:196 src/templates/journal.html:46
+#: src/templates/todo.html:199
+#, kde-format
+msgid "Creation date: %1"
+msgstr "Dáta a cruthaíodh: %1"
+
+#: src/templates/freebusy.html:6
+#, kde-format
+msgid "Busy times in date range %1 - %2:"
+msgstr "Amanna gafa idir na dátaí %1 - %2:"
+
+#: src/templates/freebusy.html:9
+#, fuzzy
+#| msgctxt "tag for busy periods list"
+#| msgid "Busy:"
+msgctxt "tag for busy period list"
+msgid "Busy:"
+msgstr "Gafa:"
+
+#: src/templates/freebusy.html:13
+#, kde-format
+msgctxt "startDate for duration"
+msgid "%1 for %2"
+msgstr "%1 ar feadh %2"
+
+#: src/templates/freebusy.html:16
+#, fuzzy, kde-format
+#| msgctxt "date, fromTime - toTime "
+#| msgid "%1, %2 - %3"
+msgctxt "date, fromTime - toTime"
+msgid "%1, %2 - %3"
+msgstr "%1, %2 - %3"
+
+#: src/templates/freebusy.html:18
+#, fuzzy, kde-format
+#| msgctxt "<beginTime> - <endTime>"
+#| msgid "%1 - %2"
+msgctxt "fromDateTime - endDateTime"
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: src/templates/incidence_header.html:10
+#, fuzzy
+#| msgid "Recurrence:"
+msgid "Recurring incidence"
+msgstr "Atarlú:"
+
+#: src/templates/incidence_header.html:14
+#, fuzzy
+#| msgid "Incidence recurs"
+msgid "Incidence with a reminder"
+msgstr "Atarlaíonn sé"
+
+#: src/templates/incidence_header.html:18
+#, fuzzy
+#| msgid "Incidence recurs"
+msgid "Incidence is read only"
+msgstr "Atarlaíonn sé"
+
+#: src/templates/itip.html:80
+#, fuzzy
+#| msgid "Comments:"
+msgid "Comment:"
+msgstr "Nótaí:"
+
+#: src/templates/itip.html:83
+msgid "Comments:"
+msgstr "Nótaí:"
+
+#: src/templates/itip.html:122
+#, fuzzy
+#| msgid "Attachment:"
+#| msgid_plural "Attachments:"
+msgid "Attachments:"
+msgstr "Iatán:"
+
+#: src/templates/itip_event.html:6
+msgid "First event:"
+msgstr ""
+
+#: src/templates/itip_event.html:8 src/templates/itip_todo.html:13
+msgid "When:"
+msgstr ""
+
+#: src/templates/itip_event.html:15 src/templates/itip_todo.html:6
+msgid "Where:"
+msgstr "Cén áit:"
+
+#: src/templates/itip_event.html:42
+msgid "Events on these days:"
+msgstr ""
+
+#: src/templates/itip_event.html:44
+msgid "Events on this day:"
+msgstr ""
+
+#: src/templates/itip_freebusy.html:5
+msgid "Person:"
+msgstr "Duine:"
+
+#: src/templates/itip_freebusy.html:10
+msgid "Start date:"
+msgstr "Dáta tosaigh:"
+
+#: src/templates/itip_freebusy.html:15
+msgid "End date:"
+msgstr "Dáta deiridh:"
+
+#: src/templates/itip_freebusy.html:23
+msgid "Busy periods given in this free/busy object:"
+msgstr ""
+
+#: src/templates/itip_freebusy.html:31
+#, fuzzy, kde-format
+#| msgctxt "startDate for duration"
+#| msgid "%1 for %2"
+msgctxt "<startDate> for <duration>"
+msgid "%1 for %2"
+msgstr "%1 ar feadh %2"
+
+#: src/templates/itip_freebusy.html:34
+#, fuzzy, kde-format
+#| msgctxt "<beginTime> - <endTime>"
+#| msgid "%1 - %2"
+msgctxt "<startDate> - <endDate>"
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: src/templates/itip_freebusy.html:36
+#, fuzzy, kde-format
+#| msgctxt "date, fromTime - toTime "
+#| msgid "%1, %2 - %3"
+msgctxt "<date>, <startTime> - <endTime>"
+msgid "%1, %2 - %3"
+msgstr "%1, %2 - %3"
+
+#: src/templates/itip_todo.html:22
+#, fuzzy, kde-format
+#| msgctxt "<beginTime> - <endTime>"
+#| msgid "%1 - %2"
+msgctxt "<beginDateTime> - <endDateTime>"
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: src/templates/itip_todo.html:24
+#, fuzzy, kde-format
+#| msgctxt "<beginTime> - <endTime>"
+#| msgid "%1 - %2"
+msgctxt "<beginDateTime> - <endTime>"
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: src/templates/itip_todo.html:32
+msgid "Percent Done:"
+msgstr "Céatadán Críochnaithe:"
+
+#: src/templates/itip_todo.html:39
+#, fuzzy
+#| msgctxt "to-do due date/time"
+#| msgid "Due:"
+msgid "Due:"
+msgstr "Dlite:"
+
+#: src/templates/journal.html:5
+#, fuzzy
+#| msgid "Journals"
+msgid "Journal"
+msgstr "Dialanna"
+
+#: src/templates/todo.html:5
+msgid "Todo"
+msgstr ""
+
+#: src/templates/todo.html:30
+msgctxt "to-do start date/time"
+msgid "Start:"
+msgstr "Dáta tosaigh:"
+
+#: src/templates/todo.html:42
+msgctxt "to-do due date/time"
+msgid "Due:"
+msgstr "Dlite:"
+
+#: src/templates/todo.html:165
+msgid "Priority:"
+msgstr "Tosaíocht:"
+
+#: src/templates/todo.html:173
+msgctxt "Completed: date"
+msgid "Completed:"
+msgstr "Críochnaithe:"
+
+#: src/templates/todo.html:178
+#, fuzzy
+#| msgid "Percent Done:"
+msgid "Percent done:"
+msgstr "Céatadán Críochnaithe:"
+
+#~ msgid "Category:"
+#~ msgid_plural "Categories:"
+#~ msgstr[0] "Catagóir:"
+#~ msgstr[1] "Catagóirí:"
+#~ msgstr[2] "Catagóirí:"
+#~ msgstr[3] "Catagóirí:"
+#~ msgstr[4] "Catagóirí:"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "The event or task could not be removed from your calendar. Maybe it has "
+#~ "already been deleted or is not owned by you. Or it might belong to a read-"
+#~ "only or disabled calendar."
+#~ msgstr ""
+#~ "Níorbh fhéidir an t-imeacht nó an tasc a bhaint ó d'fhéilire. B'fhéidir "
+#~ "go raibh sé scriosta cheana nó ní leatsa é. Nó b'fhéidir go bhfuil sé "
+#~ "cuid d'fhéilire inléite amháin nó d'fhéilire díchumasaithe."
+
+#~ msgctxt "@info"
+#~ msgid "%1 wants to attend %2 but was not invited."
+#~ msgstr "Ba mhaith le %1 dul go %2 ach ní bhfuair sé/sí cuireadh."
+
+#~ msgctxt "@info"
+#~ msgid "%1 wants to attend %2 on behalf of %3."
+#~ msgstr "Ba mhaith le %1 dul go %2 ar son %3."
+
+#~ msgctxt "@title"
+#~ msgid "Uninvited attendee"
+#~ msgstr "Rannpháirtí gan chuireadh"
+
+#~ msgctxt "@option"
+#~ msgid "Accept Attendance"
+#~ msgstr "Glac le Freastal"
+
+#~ msgctxt "@option"
+#~ msgid "Reject Attendance"
+#~ msgstr "Diúltaigh Freastal"
+
+#~ msgctxt "@info"
+#~ msgid "The organizer rejected your attendance at this meeting."
+#~ msgstr "Dhiúltaigh an t-eagraí do fhreastal ag an gcruinniú seo."
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "An attendee was added to the incidence. Do you want to email the "
+#~ "attendees an update message?"
+#~ msgstr ""
+#~ "Cuireadh rannpháirtí leis an imeacht.  An bhfuil fonn ort teachtaireacht "
+#~ "ríomhphoist a sheoladh chuig na rannpháirtithe go léir?"
+
+#~ msgctxt "@title"
+#~ msgid "Attendee Added"
+#~ msgstr "Cuireadh an Rannpháirtí Leis"
+
+#~ msgctxt "@option"
+#~ msgid "Send Messages"
+#~ msgstr "Seol Teachtaireachtaí"
+
+#~ msgctxt "@option"
+#~ msgid "Do Not Send"
+#~ msgstr "Ná Seol"
+
+#, fuzzy
+#~| msgctxt "@item event, to-do or journal needs action"
+#~| msgid "Needs Action"
+#~ msgid "Needs action"
+#~ msgstr "Gníomh De Dhíth"
+
+#, fuzzy
+#~| msgctxt "@item event, to-do or journal accepted"
+#~| msgid "Accepted"
+#~ msgid "Accepted"
+#~ msgstr "Glactha"
+
+#, fuzzy
+#~| msgctxt "@item event, to-do or journal declined"
+#~| msgid "Declined"
+#~ msgid "Declined"
+#~ msgstr "Diúltaithe"
+
+#, fuzzy
+#~| msgctxt "@item event or to-do delegated"
+#~| msgid "Delegated"
+#~ msgid "Delegated"
+#~ msgstr "Tarmligthe"
+
+#, fuzzy
+#~| msgctxt "@title:column to-do percent completed"
+#~| msgid "Completed"
+#~ msgid "Completed"
+#~ msgstr "Críochnaithe"
+
+#, fuzzy
+#~| msgctxt "@item to-do in process of being completed"
+#~| msgid "In Process"
+#~ msgid "In Process"
+#~ msgstr "Idir Lámha"
+
+#~ msgctxt "%1: Start Date, %2: Start Time"
+#~ msgid "%1 %2"
+#~ msgstr "%1 %2"
+
+#~ msgctxt "%1: Start Date"
+#~ msgid "%1 (all day)"
+#~ msgstr "%1 (an lá ar fad)"
+
+#~ msgctxt "%1: End Date, %2: End Time"
+#~ msgid "%1 %2"
+#~ msgstr "%1 %2"
+
+#~ msgctxt "%1: End Date"
+#~ msgid "%1 (all day)"
+#~ msgstr "%1 (an lá ar fad)"
+
+#~ msgctxt "name (comment)"
+#~ msgid "%1 (%2)"
+#~ msgstr "%1 (%2)"
+
+#~ msgid "What:"
+#~ msgstr "Céard:"
+
+#~ msgctxt "starting date"
+#~ msgid "From:"
+#~ msgstr "Ó:"
+
+#~ msgctxt "starting time"
+#~ msgid "At:"
+#~ msgstr "Ag:"
+
+#~ msgctxt "ending date"
+#~ msgid "To:"
+#~ msgstr "Go:"
+
+#~ msgctxt "ending time"
+#~ msgid "At:"
+#~ msgstr "Ag:"
+
+#~ msgid "no end date specified"
+#~ msgstr "níor sonraíodh dáta deiridh"
+
+#~ msgctxt "Starting date of an event"
+#~ msgid "From:"
+#~ msgstr "Ó:"
+
+#~ msgctxt "Starting time of an event"
+#~ msgid "At:"
+#~ msgstr "Ag:"
+
+#~ msgctxt "Ending date of an event"
+#~ msgid "To:"
+#~ msgstr "Go:"
+
+#~ msgid "Start Date:"
+#~ msgstr "Dáta Tosaigh:"
+
+#~ msgid "Start Time:"
+#~ msgstr "Am Tosaithe:"
+
+#~ msgid "Due Date:"
+#~ msgstr "Spriocdháta:"
+
+#~ msgid "Due Time:"
+#~ msgstr "Sprioc-Am:"
+
+#~ msgctxt "Due Date: None"
+#~ msgid "None"
+#~ msgstr "Faic"
+
+#~ msgid "All day"
+#~ msgstr "I rith an lae"
+
+#~ msgid "Summary:"
+#~ msgstr "Achoimre:"
+
+#~ msgctxt "date, fromTime - toTime "
+#~ msgid "%1, %2 - %3"
+#~ msgstr "%1, %2 - %3"
+
+#~ msgctxt "fromDateTime - toDateTime"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgid "Invitation List"
+#~ msgstr "Liosta Cuirí"
+
+#~ msgctxt "no attendees"
+#~ msgid "None"
+#~ msgstr "Gan Rannpháirtithe"
+
+#~ msgid "Attached Documents:"
+#~ msgstr "Cáipéisí Faoi Iamh:"
+
+#~ msgid "The invitation starting time has been changed from %1 to %2"
+#~ msgstr "Athraíodh tús an chruinnithe ó %1 go %2"
+
+#~ msgid "The invitation ending time has been changed from %1 to %2"
+#~ msgstr "Athraíodh deireadh an chruinnithe ó %1 go %2"
+
+#~ msgid "The to-do has been completed"
+#~ msgstr "Críochnaíodh an tasc seo"
+
+#~ msgid "The to-do is no longer completed"
+#~ msgstr "Níl an tasc críochnaithe a thuilleadh"
+
+#~ msgid "The task completed percentage has changed from %1 to %2"
+#~ msgstr "Athraíodh céatadán críochnaithe an tasc ó %1 go %2"
+
+#~ msgid "A to-do starting time has been added"
+#~ msgstr "Cuireadh am tosaithe leis an tasc"
+
+#~ msgid "The to-do starting time has been removed"
+#~ msgstr "Baineadh am tosaithe den tasc"
+
+#~ msgid "The to-do starting time has been changed from %1 to %2"
+#~ msgstr "Athraíodh am tosaithe an tasc ó %1 go %2"
+
+#~ msgid "A to-do due time has been added"
+#~ msgstr "Cuireadh sprioc-am leis an tasc"
+
+#~ msgid "The to-do due time has been removed"
+#~ msgstr "Baineadh sprioc-am den tasc"
+
+#~ msgid "The to-do due time has been changed from %1 to %2"
+#~ msgstr "Athraíodh sprioc-am an tasc ó %1 go %2"
+
+#~ msgid "The summary has been changed to: \"%1\""
+#~ msgstr "Athraíodh an achoimre go: \"%1\""
+
+#~ msgid "The location has been changed to: \"%1\""
+#~ msgstr "Athraíodh an suíomh go: \"%1\""
+
+#~ msgid "The description has been changed to: \"%1\""
+#~ msgstr "Athraíodh an cur síos go: \"%1\""
+
+#~ msgid "Attendee %1 has been added"
+#~ msgstr "Cuireadh rannpháirtí %1 leis"
+
+#~ msgid "The status of attendee %1 has been changed to: %2"
+#~ msgstr "Athraíodh stádas rannpháirtí %1 go: %2"
+
+#~ msgid "Attendee %1 has been removed"
+#~ msgstr "Baineadh rannpháirtí %1"
+
+#~ msgctxt "Accept invitation conditionally"
+#~ msgid "Accept cond."
+#~ msgstr "Glac ar choinníoll"
+
+#~ msgctxt "forward request to another"
+#~ msgid "Forward"
+#~ msgstr "Ar Aghaidh"
+
+#~ msgctxt "look for scheduling conflicts"
+#~ msgid "Check my calendar"
+#~ msgstr "Féach ar m'fhéilire"
+
+#, fuzzy
+#~| msgid "Export to-do list"
+#~ msgid "Check my to-do list"
+#~ msgstr "Easpórtáil tascliosta"
+
+#~ msgid "The following changes have been made by the organizer:"
+#~ msgstr "Rinne an t-eagraí na hathruithe seo a leanas:"
+
+#~ msgid "The following changes have been made by %1:"
+#~ msgstr "Rinne %1 na hathruithe seo a leanas:"
+
+#~ msgid "The following changes have been made by an attendee:"
+#~ msgstr "D'athraigh rannpháirtí na rudaí seo a leanas:"
+
+#~ msgid "Full name of the calendar owner"
+#~ msgstr "Ainm iomlán úinéir an fhéilire"
+
+#, fuzzy
+#~| msgid "Full name of the calendar owner"
+#~ msgid "The full name of the calendar owner for the export"
+#~ msgstr "Ainm iomlán úinéir an fhéilire"
+
+#~ msgid "Email of the calendar owner"
+#~ msgstr "Seoladh ríomhphoist úinéir an fhéilire"
+
+#, fuzzy
+#~| msgid "Email of the calendar owner"
+#~ msgid "The email address of the calendar owner for the export"
+#~ msgstr "Seoladh ríomhphoist úinéir an fhéilire"
+
+#~ msgid "Creator application"
+#~ msgstr "Feidhmchlár cruthaithe"
+
+#~ msgid "Creator application of the calendar"
+#~ msgstr "Feidhmchlár a chruthaigh an féilire"
+
+#, fuzzy
+#~| msgid "URL of the creator application of the calendar."
+#~ msgid "Enter a creator application of the calendar, for example KOrganizer."
+#~ msgstr "URL an fheidhmchláir a chruthaigh an féilire."
+
+#~ msgid "Creator URL"
+#~ msgstr "URL an Chruthaitheora"
+
+#~ msgid "URL of the creator application of the calendar."
+#~ msgstr "URL an fheidhmchláir a chruthaigh an féilire."
+
+#, fuzzy
+#~| msgid "URL of the creator application of the calendar."
+#~ msgid ""
+#~ "Enter the URL of the creator application of the calendar, for example "
+#~ "http://userbase.kde.org/KOrganizer"
+#~ msgstr "URL an fheidhmchláir a chruthaigh an féilire."
+
+#~ msgid "Page Title"
+#~ msgstr "Teideal an Leathanaigh"
+
+#, fuzzy
+#~| msgid "Title of the calendar"
+#~ msgid "The title of the exported page"
+#~ msgstr "Teideal an fhéilire"
+
+#, fuzzy
+#~| msgid "The output file name for the HTML export."
+#~ msgid "Enter a title for the HTML page."
+#~ msgstr "Ainm an aschomhaid a scríobhfar an easpórtáil HTML ann."
+
+#~ msgid "Date start"
+#~ msgstr "Dáta tosaigh"
+
+#, fuzzy
+#~| msgid "First day of the range that shall be exported to HTML."
+#~ msgid "First day of the range to export"
+#~ msgstr "An chéad lá den raon a easpórtálfar go HTML."
+
+#~ msgid "First day of the range that shall be exported to HTML."
+#~ msgstr "An chéad lá den raon a easpórtálfar go HTML."
+
+#~ msgid "Date end"
+#~ msgstr "Dáta deiridh"
+
+#, fuzzy
+#~| msgid "Last day of the range that shall be exported to HTML."
+#~ msgid "Last day of the range to export"
+#~ msgstr "An lá deiridh den raon a easpórtálfar go HTML."
+
+#~ msgid "Last day of the range that shall be exported to HTML."
+#~ msgstr "An lá deiridh den raon a easpórtálfar go HTML."
+
+#~ msgid "Output filename"
+#~ msgstr "Ainm aschomhaid"
+
+#, fuzzy
+#~| msgid "The output file name for the HTML export."
+#~ msgid "The file name for the export"
+#~ msgstr "Ainm an aschomhaid a scríobhfar an easpórtáil HTML ann."
+
+#~ msgid "The output file name for the HTML export."
+#~ msgstr "Ainm an aschomhaid a scríobhfar an easpórtáil HTML ann."
+
+#~ msgid "Style sheet"
+#~ msgstr "Stílbhileog"
+
+#~ msgid ""
+#~ "CSS style sheet to be used by the final HTML page. This string contains "
+#~ "the actual contents of the CSS, not a path to the style sheet."
+#~ msgstr ""
+#~ "Stílbhileog a úsáidfear an leathanach deiridh HTML. Tá fíorábhar na CSS "
+#~ "sa teaghrán seo, in ionad conair go dtí an stílbhileog."
+
+#~ msgid "Exclude private incidences from the export"
+#~ msgstr "Ná cuir imeachtaí príobháideacha san easpórtáil"
+
+#, fuzzy
+#~| msgid "Exclude private incidences from the export"
+#~ msgid "Exclude private items from the export"
+#~ msgstr "Ná cuir imeachtaí príobháideacha san easpórtáil"
+
+#~ msgid "Exclude confidential incidences from the export"
+#~ msgstr "Ná cuir imeachtaí faoi rún san easpórtáil"
+
+#, fuzzy
+#~| msgid "Exclude confidential incidences from the export"
+#~ msgid "Exclude confidential items from the export"
+#~ msgstr "Ná cuir imeachtaí faoi rún san easpórtáil"
+
+#~ msgid "Export events as list"
+#~ msgstr "Easpórtáil imeachtaí mar liosta"
+
+#, fuzzy
+#~| msgid "Export events as list"
+#~ msgid "Export events as a list"
+#~ msgstr "Easpórtáil imeachtaí mar liosta"
+
+#~ msgid "Export in month view"
+#~ msgstr "Easpórtáil san amharc míosa"
+
+#, fuzzy
+#~| msgid "Export in month view"
+#~ msgid "Export events in a month view"
+#~ msgstr "Easpórtáil san amharc míosa"
+
+#~ msgid "Export in week view"
+#~ msgstr "Easpórtáil san amharc seachtaine"
+
+#, fuzzy
+#~| msgid "Export in week view"
+#~ msgid "Export events in a week view"
+#~ msgstr "Easpórtáil san amharc seachtaine"
+
+#~ msgid "Title of the calendar"
+#~ msgstr "Teideal an fhéilire"
+
+#, fuzzy
+#~| msgid "Title of the calendar"
+#~ msgid "Title for the event calendar"
+#~ msgstr "Teideal an fhéilire"
+
+#~ msgid "Export location of the events"
+#~ msgstr "Easpórtáil ionad na n-imeachtaí"
+
+#~ msgid "Export categories of the events"
+#~ msgstr "Easpórtáil catagóirí na n-imeachtaí"
+
+#~ msgid "Export attendees of the events"
+#~ msgstr "Easpórtáil rannpháirtithe na n-imeachtaí"
+
+#~ msgid "Export to-do list"
+#~ msgstr "Easpórtáil tascliosta"
+
+#, fuzzy
+#~| msgid "Export to-do list"
+#~ msgid "Export the to-do list"
+#~ msgstr "Easpórtáil tascliosta"
+
+#~ msgid "Title of the to-do list"
+#~ msgstr "Teideal an tascliosta"
+
+#, fuzzy
+#~| msgid "Title of the to-do list"
+#~ msgid "Title for the to-do list"
+#~ msgstr "Teideal an tascliosta"
+
+#~ msgid "Export due dates of the to-dos"
+#~ msgstr "Easpórtáil dátaí a bheidh na tascanna dlite"
+
+#~ msgid "Export location of the to-dos"
+#~ msgstr "Easpórtáil suíomh na dtascanna"
+
+#, fuzzy
+#~| msgid "Title of the to-do list"
+#~ msgid "Include the to-do locations"
+#~ msgstr "Teideal an tascliosta"
+
+#~ msgid "Export categories of the to-dos"
+#~ msgstr "Easpórtáil catagóirí na dtascanna"
+
+#~ msgid "Export attendees of the to-dos"
+#~ msgstr "Easpórtáil rannpháirtithe na dtascanna"
+
+#~ msgid "Export journals"
+#~ msgstr "Easpórtáil dialanna"
+
+#~ msgid "Title of the journal list"
+#~ msgstr "Teideal an liosta dialann"
+
+#, fuzzy
+#~| msgid "Title of the journal list"
+#~ msgid "Title for the journal list"
+#~ msgstr "Teideal an liosta dialann"
+
+#, fuzzy
+#~| msgid "Reply to the free/busy list"
+#~ msgid "Export free/busy list"
+#~ msgstr "Freagra ar an liosta saor/gafa"
+
+#~ msgid "Title of the free/busy list"
+#~ msgstr "Teideal an liosta saor/gafa"
+
+#, fuzzy
+#~| msgid "Title of the free/busy list"
+#~ msgid "Title for the free/busy list"
+#~ msgstr "Teideal an liosta saor/gafa"
+
+#~ msgctxt "date as string"
+#~ msgid "%1"
+#~ msgstr "%1"
+
+#~ msgid "Calendar"
+#~ msgstr "Féilire"
+
+#~ msgid "To-do List"
+#~ msgstr "Tascliosta"
+
+#~ msgid "Busy times"
+#~ msgstr "Amanna gnóthacha"
+
+#, fuzzy
+#~| msgid "[Check my calendar] "
+#~ msgid "Check my calendar] "
+#~ msgstr "[Féach ar m'fhéilire] "
+
+#~ msgid "[Accept]"
+#~ msgstr "[Glac Leis]"
+
+#~ msgid "[Decline]"
+#~ msgstr "[Diúltaigh]"
