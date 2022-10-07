@@ -36,4 +36,3 @@ Q_REQUIRED_RESULT KCALUTILS_EXPORT bool canDecode(const QMimeData *);
 Q_REQUIRED_RESULT KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalendarCore::Calendar::Ptr &cal);
 }
 }
-

@@ -43,4 +43,3 @@ public:
 private:
     Q_REQUIRED_RESULT QString processArguments(const KLocalizedString &str, const QVariantList &arguments) const;
 };
-

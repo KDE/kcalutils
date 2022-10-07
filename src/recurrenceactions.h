@@ -153,4 +153,3 @@ Q_REQUIRED_RESULT KCALUTILS_EXPORT int questionSelectedFutureAllCancel(const QSt
                                                                        QWidget *parent);
 }
 }
-

@@ -16,4 +16,3 @@
 #else /* not compiling tests */
 #define KCALUTILS_TESTS_EXPORT
 #endif
-

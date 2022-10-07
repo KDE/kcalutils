@@ -26,4 +26,3 @@ private Q_SLOTS:
     void testTimedRecurringDone();
     void testPriority();
 };
-

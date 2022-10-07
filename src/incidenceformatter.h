@@ -199,11 +199,11 @@ KCALUTILS_EXPORT QString resourceString(const KCalendarCore::Calendar::Ptr &cale
 KCALUTILS_EXPORT QString durationString(const KCalendarCore::Incidence::Ptr &incidence);
 
 class EventViewerVisitor;
-template<typename T> class ScheduleMessageVisitor;
+template<typename T>
+class ScheduleMessageVisitor;
 class InvitationHeaderVisitor;
 class InvitationBodyVisitor;
 class ToolTipVisitor;
 class MailBodyVisitor;
 }
 }
-

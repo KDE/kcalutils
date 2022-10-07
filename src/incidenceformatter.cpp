@@ -1768,7 +1768,8 @@ static QVariantList invitationAttachments(const Incidence::Ptr &incidence, Invit
 }
 
 //@cond PRIVATE
-template<typename T> class KCalUtils::IncidenceFormatter::ScheduleMessageVisitor : public Visitor
+template<typename T>
+class KCalUtils::IncidenceFormatter::ScheduleMessageVisitor : public Visitor
 {
 public:
     bool act(const IncidenceBase::Ptr &incidence, const Incidence::Ptr &existingIncidence, const ScheduleMessage::Ptr &msg, const QString &sender)

@@ -37,4 +37,3 @@ public:
     QHash<QString, KTextTemplate::AbstractNodeFactory *> nodeFactories(const QString &name) override;
 #endif
 };
-

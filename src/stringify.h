@@ -78,4 +78,3 @@ Q_REQUIRED_RESULT KCALUTILS_EXPORT QString tzUTCOffsetStr(const QTimeZone &tz);
 Q_REQUIRED_RESULT KCALUTILS_EXPORT QString errorMessage(const KCalendarCore::Exception &exception);
 } // namespace Stringify
 } // namespace KCalUtils
-
