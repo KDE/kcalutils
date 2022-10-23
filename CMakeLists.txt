@@ -61,7 +61,7 @@ if (QT_MAJOR_VERSION STREQUAL "5")
     find_package(Grantlee5 "5.2" CONFIG REQUIRED)
     set(TEMPLATES_LIB Grantlee5::Templates)
 else()
-    find_package(KF6TextTemplate ${KF5_MIN_VERSION} CONFIG REQUIRED)
+    find_package(KF6TextTemplate CONFIG REQUIRED)
     set(TEMPLATES_LIB KF6TextTemplate::Templates)
 endif()
 
