@@ -2327,8 +2327,3 @@ msgstr "Finalitzada:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Percentatge completat:"
-
-#~ msgid "Category:"
-#~ msgid_plural "Categories:"
-#~ msgstr[0] "Categoria:"
-#~ msgstr[1] "Categories:"
