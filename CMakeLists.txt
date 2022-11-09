@@ -41,7 +41,7 @@ option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, 
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
 
 set(CALENDARUTILS_LIB_VERSION ${PIM_VERSION})
-set(IDENTITYMANAGER_LIB_VERSION "5.21.40")
+set(IDENTITYMANAGER_LIB_VERSION "5.22.40")
 ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CalendarUtilsConfigVersion.cmake"
