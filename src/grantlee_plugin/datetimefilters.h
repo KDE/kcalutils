@@ -10,7 +10,7 @@
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <grantlee/filter.h>
 #else
-#include <KTextTemplate/filter.h>
+#include <KTextTemplate/Filter>
 #endif
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 class KDateFilter : public Grantlee::Filter

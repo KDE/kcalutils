@@ -12,7 +12,7 @@
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <grantlee/engine.h>
 #else
-#include <KTextTemplate/engine.h>
+#include <KTextTemplate/Engine>
 #endif
 // TODO: remove this class when Grantlee support it
 using namespace KCalUtils;

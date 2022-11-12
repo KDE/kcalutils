@@ -19,9 +19,9 @@
 #include <grantlee/template.h>
 #include <grantlee/templateloader.h>
 #else
-#include <KTextTemplate/engine.h>
-#include <KTextTemplate/template.h>
-#include <KTextTemplate/templateloader.h>
+#include <KTextTemplate/Engine>
+#include <KTextTemplate/Template>
+#include <KTextTemplate/TemplateLoader>
 #endif
 
 #include <KLocalizedString>

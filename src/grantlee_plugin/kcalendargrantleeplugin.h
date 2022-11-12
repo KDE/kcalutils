@@ -10,7 +10,7 @@
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <grantlee/taglibraryinterface.h>
 #else
-#include <KTextTemplate/taglibraryinterface.h>
+#include <KTextTemplate/TagLibraryInterface>
 #endif
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 class KCalendarGrantleePlugin : public QObject, public Grantlee::TagLibraryInterface

@@ -10,7 +10,7 @@
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <grantlee/node.h>
 #else
-#include <KTextTemplate/node.h>
+#include <KTextTemplate/Node>
 #endif
 
 /**

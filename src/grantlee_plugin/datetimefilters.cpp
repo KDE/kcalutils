@@ -10,7 +10,7 @@
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <grantlee/safestring.h>
 #else
-#include <KTextTemplate/safestring.h>
+#include <KTextTemplate/SafeString>
 #endif
 
 KDateFilter::KDateFilter()
