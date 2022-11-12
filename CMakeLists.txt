@@ -58,7 +58,7 @@ find_package(KF5ConfigWidgets ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5IconThemes ${KF5_MIN_VERSION} CONFIG REQUIRED)
 
 if (QT_MAJOR_VERSION STREQUAL "5")
-    find_package(Grantlee5 "5.2" CONFIG REQUIRED)
+    find_package(Grantlee5 "5.3" CONFIG REQUIRED)
     set(TEMPLATES_LIB Grantlee5::Templates)
 else()
     find_package(KF6TextTemplate CONFIG REQUIRED)
@@ -69,7 +69,7 @@ find_package(KF5CalendarCore ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRED)
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 
-ecm_set_disabled_deprecation_versions(QT 5.14.0  KF 5.100.0)
+ecm_set_disabled_deprecation_versions(QT 5.15.0  KF 5.100.0)
 
 
 if(BUILD_TESTING)
