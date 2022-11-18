@@ -45,7 +45,11 @@ GrantleeTemplateManager::GrantleeTemplateManager()
 
     mEngine->addTemplateLoader(mLoader);
     mEngine->addPluginPath(QStringLiteral(GRANTLEE_PLUGIN_INSTALL_DIR));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mEngine->addDefaultLibrary(QStringLiteral("grantlee_i18ntags"));
+#else
+    mEngine->addDefaultLibrary(QStringLiteral("ktexttemplate_i18ntags"));
+#endif
     mEngine->addDefaultLibrary(QStringLiteral("kcalendar_grantlee_plugin"));
     mEngine->setSmartTrimEnabled(true);
 }
