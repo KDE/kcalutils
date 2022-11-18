@@ -33,6 +33,6 @@ else()
         KF5CalendarUtils
     )
     install(TARGETS kcalendar_grantlee_plugin
-        LIBRARY DESTINATION ${KDE_INSTALL_LIBDIR}/KTextTemplate/${KF6TextTemplate_VERSION_MAJOR}.${KF6TextTemplate_VERSION_MINOR}/
+        LIBRARY DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/ktexttemplate/
     )
 endif()
