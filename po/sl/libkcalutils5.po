@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"POT-Creation-Date: 2022-11-19 00:46+0000\n"
 "PO-Revision-Date: 2021-10-04 05:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -20,22 +20,22 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.0\n"
 
-#: src/grantleetemplatemanager.cpp:104 src/grantleetemplatemanager.cpp:112
+#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
 msgid "Template"
 msgstr "Predloga"
 
-#: src/grantleetemplatemanager.cpp:104 src/grantleetemplatemanager.cpp:112
+#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
 msgid "Error message"
 msgstr "Sporočilo napake"
 
-#: src/grantleetemplatemanager.cpp:135
+#: src/grantleetemplatemanager.cpp:139
 #, kde-format
 msgid "Template parsing error"
 msgstr "Napaka razčlenjevanja predloge"
 
-#: src/grantleetemplatemanager.cpp:144
+#: src/grantleetemplatemanager.cpp:148
 #, kde-format
 msgid "Template rendering error"
 msgstr "Napaka izrisovanja predloge"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"POT-Creation-Date: 2022-11-19 00:46+0000\n"
 "PO-Revision-Date: 2015-05-21 00:12+0800\n"
 "Last-Translator: Franklin\n"
 "Language-Team: Chinese Traditional <kde-i18n-doc@kde.org>\n"
@@ -18,22 +18,22 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: src/grantleetemplatemanager.cpp:104 src/grantleetemplatemanager.cpp:112
+#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
 msgid "Template"
 msgstr ""
 
-#: src/grantleetemplatemanager.cpp:104 src/grantleetemplatemanager.cpp:112
+#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
 msgid "Error message"
 msgstr ""
 
-#: src/grantleetemplatemanager.cpp:135
+#: src/grantleetemplatemanager.cpp:139
 #, kde-format
 msgid "Template parsing error"
 msgstr ""
 
-#: src/grantleetemplatemanager.cpp:144
+#: src/grantleetemplatemanager.cpp:148
 #, kde-format
 msgid "Template rendering error"
 msgstr ""

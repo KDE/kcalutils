@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcal\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-08 00:48+0000\n"
+"POT-Creation-Date: 2022-11-19 00:46+0000\n"
 "PO-Revision-Date: 2021-12-06 18:24+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -20,22 +20,22 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 21.07.70\n"
 
-#: src/grantleetemplatemanager.cpp:104 src/grantleetemplatemanager.cpp:112
+#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
 msgid "Template"
 msgstr "القالب"
 
-#: src/grantleetemplatemanager.cpp:104 src/grantleetemplatemanager.cpp:112
+#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
 msgid "Error message"
 msgstr "رسالة الخطأ"
 
-#: src/grantleetemplatemanager.cpp:135
+#: src/grantleetemplatemanager.cpp:139
 #, kde-format
 msgid "Template parsing error"
 msgstr "خطأ أثناء تحليل القالب"
 
-#: src/grantleetemplatemanager.cpp:144
+#: src/grantleetemplatemanager.cpp:148
 #, kde-format
 msgid "Template rendering error"
 msgstr "خطأ أثناء تصيير القالب"
