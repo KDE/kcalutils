@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-08 00:48+0000\n"
-"PO-Revision-Date: 2022-03-29 13:37+0300\n"
+"PO-Revision-Date: 2022-12-10 18:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: src/grantleetemplatemanager.cpp:104 src/grantleetemplatemanager.cpp:112
 #, kde-format
@@ -40,7 +40,7 @@ msgstr "Şablon ayrıştırma hatası"
 #: src/grantleetemplatemanager.cpp:144
 #, kde-format
 msgid "Template rendering error"
-msgstr "Şablon derleme hatası"
+msgstr "Şablon sunum hatası"
 
 #: src/htmlexport.cpp:170
 #, kde-format
