@@ -6,13 +6,13 @@ set(PIM_VERSION "5.22.40")
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
-set(KF5_MIN_VERSION "5.102.0")
+set(KF_MIN_VERSION "5.102.0")
 set(QT_REQUIRED_VERSION "5.15.2")
 if (QT_MAJOR_VERSION STREQUAL "6")
     set(QT_REQUIRED_VERSION "6.4.0")
 endif()
 
-find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
+find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${KCalUtils_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
@@ -49,13 +49,13 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
 )
 
 ########### Find packages ###########
-find_package(KF5CoreAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5Config ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5I18n ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5Codecs ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5WidgetsAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5ConfigWidgets ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5IconThemes ${KF5_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5CoreAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5Config ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5I18n ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5Codecs ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5WidgetsAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5ConfigWidgets ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5IconThemes ${KF_MIN_VERSION} CONFIG REQUIRED)
 
 if (QT_MAJOR_VERSION STREQUAL "5")
     find_package(Grantlee5 "5.3" CONFIG REQUIRED)
@@ -65,7 +65,7 @@ else()
     set(TEMPLATES_LIB KF6::TextTemplate)
 endif()
 
-find_package(KF5CalendarCore ${KF5_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5CalendarCore ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRED)
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 
