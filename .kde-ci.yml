@@ -10,7 +10,7 @@ Dependencies:
     'frameworks/breeze-icons': '@stable'
 
 - 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
-   'require':
+  'require':
     'frameworks/extra-cmake-modules': '@latest-kf6'
     'frameworks/kcalendarcore' : '@latest-kf6'
     'pim/kidentitymanagement' : '@latest-kf6'
