@@ -8,9 +8,6 @@ project(KCalUtils VERSION ${PIM_VERSION})
 # ECM setup
 set(KF_MIN_VERSION "5.102.0")
 set(QT_REQUIRED_VERSION "5.15.2")
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.4.0")
-endif()
 
 find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${KCalUtils_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
@@ -36,6 +33,13 @@ include(ECMDeprecationSettings)
 include(KPIMGrantleeMacros)
 include(ECMAddQch)
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_MIN_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
 
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
@@ -49,13 +53,13 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
 )
 
 ########### Find packages ###########
-find_package(KF5CoreAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5Config ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5I18n ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5Codecs ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5WidgetsAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5ConfigWidgets ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5IconThemes ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}CoreAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}Config ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}I18n ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}Codecs ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}WidgetsAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}ConfigWidgets ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}IconThemes ${KF_MIN_VERSION} CONFIG REQUIRED)
 
 if (QT_MAJOR_VERSION STREQUAL "5")
     find_package(Grantlee5 "5.3" CONFIG REQUIRED)
@@ -65,11 +69,11 @@ else()
     set(TEMPLATES_LIB KF6::TextTemplate)
 endif()
 
-find_package(KF5CalendarCore ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}CalendarCore ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRED)
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 
-ecm_set_disabled_deprecation_versions(QT 5.15.0  KF 5.102.0)
+ecm_set_disabled_deprecation_versions(QT 6.4  KF 5.102.0)
 
 
 if(BUILD_TESTING)

@@ -19,7 +19,7 @@ if (QT_MAJOR_VERSION STREQUAL "5")
     kpim_grantlee_adjust_plugin_name(kcalendar_grantlee_plugin)
     target_link_libraries(kcalendar_grantlee_plugin
         ${TEMPLATES_LIB}
-        KF5::IconThemes
+        KF${KF_MAJOR_VERSION}::IconThemes
         KF5CalendarUtils
     )
     install(TARGETS kcalendar_grantlee_plugin
@@ -29,7 +29,7 @@ else()
     ktexttemplate_adjust_plugin_name(kcalendar_grantlee_plugin)
     target_link_libraries(kcalendar_grantlee_plugin
         ${TEMPLATES_LIB}
-        KF5::IconThemes
+        KF${KF_MAJOR_VERSION}::IconThemes
         KF5CalendarUtils
     )
     install(TARGETS kcalendar_grantlee_plugin

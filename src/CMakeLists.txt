@@ -54,15 +54,15 @@ target_include_directories(KF5CalendarUtils PUBLIC "$<BUILD_INTERFACE:${KCalUtil
 target_link_libraries(KF5CalendarUtils
 PUBLIC
   Qt::Widgets
-  KF5::CalendarCore
-  KF5::CoreAddons
-  KF5::ConfigGui
+  KF${KF_MAJOR_VERSION}::CalendarCore
+  KF${KF_MAJOR_VERSION}::CoreAddons
+  KF${KF_MAJOR_VERSION}::ConfigGui
 PRIVATE
-  KF5::WidgetsAddons
-  KF5::IconThemes
-  KF5::I18n
+  KF${KF_MAJOR_VERSION}::WidgetsAddons
+  KF${KF_MAJOR_VERSION}::IconThemes
+  KF${KF_MAJOR_VERSION}::I18n
   KF5::IdentityManagement
-  KF5::Codecs
+  KF${KF_MAJOR_VERSION}::Codecs
   ${TEMPLATES_LIB}
 )
 

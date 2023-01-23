@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Dependencies:
-- 'on': ['@all']
+- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
   'require':
     'frameworks/extra-cmake-modules': '@latest'
     'frameworks/kcalendarcore' : '@latest'
@@ -10,5 +10,9 @@ Dependencies:
     'frameworks/breeze-icons': '@stable'
 
 - 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
-  'require':
+   'require':
+    'frameworks/extra-cmake-modules': '@latest-kf6'
+    'frameworks/kcalendarcore' : '@latest-kf6'
+    'pim/kidentitymanagement' : '@latest-kf6'
+    'frameworks/breeze-icons': '@latest-kf6'
     'libraries/ktexttemplate': '@stable'

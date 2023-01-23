@@ -31,6 +31,7 @@ QVariant KDateFilter::doFilter(const QVariant &input, const QVariant &argument, 
     Q_UNUSED(autoescape)
 
     QDate date;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     if (input.type() == QVariant::Date) {
         date = input.toDate();
     } else if (input.type() == QVariant::DateTime) {
@@ -38,6 +39,15 @@ QVariant KDateFilter::doFilter(const QVariant &input, const QVariant &argument, 
     } else {
         return QString();
     }
+#else
+    if (input.userType() == QMetaType::QDate) {
+        date = input.toDate();
+    } else if (input.userType() == QMetaType::QDateTime) {
+        date = input.toDateTime().date();
+    } else {
+        return QString();
+    }
+#endif
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     const bool shortFmt = (argument.value<Grantlee::SafeString>().get().compare(QLatin1String("short"), Qt::CaseInsensitive) == 0);
     return Grantlee::SafeString(KCalUtils::IncidenceFormatter::dateToString(date, shortFmt));
@@ -70,6 +80,7 @@ QVariant KTimeFilter::doFilter(const QVariant &input, const QVariant &argument, 
     Q_UNUSED(autoescape)
 
     QTime time;
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     if (input.type() == QVariant::Time) {
         time = input.toTime();
     } else if (input.type() == QVariant::DateTime) {
@@ -77,6 +88,16 @@ QVariant KTimeFilter::doFilter(const QVariant &input, const QVariant &argument, 
     } else {
         return QString();
     }
+#else
+    if (input.userType() == QMetaType::QTime) {
+        time = input.toTime();
+    } else if (input.userType() == QMetaType::QDateTime) {
+        time = input.toDateTime().time();
+    } else {
+        return QString();
+    }
+
+#endif
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     const bool shortFmt = (argument.value<Grantlee::SafeString>().get().compare(QLatin1String("short"), Qt::CaseInsensitive) == 0);
     return Grantlee::SafeString(KCalUtils::IncidenceFormatter::timeToString(time, shortFmt));
@@ -107,10 +128,15 @@ KDateTimeFilter::~KDateTimeFilter()
 QVariant KDateTimeFilter::doFilter(const QVariant &input, const QVariant &argument, bool autoescape) const
 {
     Q_UNUSED(autoescape)
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     if (input.type() != QVariant::DateTime) {
         return QString();
     }
+#else
+    if (input.userType() != QMetaType::QDateTime) {
+        return QString();
+    }
+#endif
     const QDateTime dt = input.toDateTime();
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     const QStringList arguments = argument.value<Grantlee::SafeString>().get().split(QLatin1Char(','));
