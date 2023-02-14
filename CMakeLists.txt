@@ -73,7 +73,7 @@ find_package(KF${KF_MAJOR_VERSION}CalendarCore ${KF_MIN_VERSION} CONFIG REQUIRED
 find_package(KF5IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRED)
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 
-ecm_set_disabled_deprecation_versions(QT 6.4  KF 5.102.0)
+ecm_set_disabled_deprecation_versions(QT 6.4  KF 5.103.0)
 
 
 if(BUILD_TESTING)
