@@ -39,11 +39,9 @@ KTextTemplate::Node *IconTag::getNode(const QString &tagContent, KTextTemplate::
 {
     Q_UNUSED(p)
 
-    static QHash<QString, int> sizeOrGroupLookup = {{QStringLiteral("desktop"), KIconLoader::Desktop},
-                                                    {QStringLiteral("toolbar"), KIconLoader::Toolbar},
+    static QHash<QString, int> sizeOrGroupLookup = {{QStringLiteral("toolbar"), KIconLoader::Toolbar},
                                                     {QStringLiteral("maintoolbar"), KIconLoader::MainToolbar},
                                                     {QStringLiteral("small"), KIconLoader::Small},
-                                                    {QStringLiteral("panel"), KIconLoader::Panel},
                                                     {QStringLiteral("dialog"), KIconLoader::Dialog},
                                                     {QStringLiteral("sizesmall"), KIconLoader::SizeSmall},
                                                     {QStringLiteral("sizesmallmedium"), KIconLoader::SizeSmallMedium},
