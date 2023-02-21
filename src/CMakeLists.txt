@@ -3,12 +3,12 @@
 
 add_subdirectory(grantlee_plugin)
 
-add_library(KF5CalendarUtils)
-add_library(KF5::CalendarUtils ALIAS KF5CalendarUtils)
+add_library(KPim${KF_MAJOR_VERSION}CalendarUtils)
+add_library(KPim${KF_MAJOR_VERSION}::CalendarUtils ALIAS KPim${KF_MAJOR_VERSION}CalendarUtils)
 
 configure_file(config-kcalutils.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutils.h)
 
-target_sources(KF5CalendarUtils PRIVATE
+target_sources(KPim${KF_MAJOR_VERSION}CalendarUtils PRIVATE
   htmlexport.cpp
   icaldrag.cpp
   incidenceformatter.cpp
@@ -32,26 +32,26 @@ target_sources(KF5CalendarUtils PRIVATE
   dndfactory.h
   recurrenceactions.h
 )
-ecm_qt_declare_logging_category(KF5CalendarUtils HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME org.kde.pim.kcalutils
+ecm_qt_declare_logging_category(KPim${KF_MAJOR_VERSION}CalendarUtils HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME org.kde.pim.kcalutils
         OLD_CATEGORY_NAMES log_kcalutils
         DESCRIPTION "kcalutils (pim lib)" EXPORT KCALUTILS)
 
 
-kconfig_add_kcfg_files(KF5CalendarUtils htmlexportsettings.kcfgc)
+kconfig_add_kcfg_files(KPim${KF_MAJOR_VERSION}CalendarUtils htmlexportsettings.kcfgc)
 
-ki18n_wrap_ui(KF5CalendarUtils recurrenceactionsscopewidget.ui)
+ki18n_wrap_ui(KPim${KF_MAJOR_VERSION}CalendarUtils recurrenceactionsscopewidget.ui)
 
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
-    set_target_properties(KF5CalendarUtils PROPERTIES UNITY_BUILD ON)
+    set_target_properties(KPim${KF_MAJOR_VERSION}CalendarUtils PROPERTIES UNITY_BUILD ON)
 endif()
-generate_export_header(KF5CalendarUtils BASE_NAME kcalutils)
+generate_export_header(KPim${KF_MAJOR_VERSION}CalendarUtils BASE_NAME kcalutils)
 
 
 
-target_include_directories(KF5CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KCalUtils;${KDE_INSTALL_INCLUDEDIR_KF}/KCalUtils/kcalutils>")
-target_include_directories(KF5CalendarUtils PUBLIC "$<BUILD_INTERFACE:${KCalUtils_SOURCE_DIR}/src;${KCalUtils_BINARY_DIR}/src>")
+target_include_directories(KPim${KF_MAJOR_VERSION}CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/KCalUtils;${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/KCalUtils/kcalutils>")
+target_include_directories(KPim${KF_MAJOR_VERSION}CalendarUtils PUBLIC "$<BUILD_INTERFACE:${KCalUtils_SOURCE_DIR}/src;${KCalUtils_BINARY_DIR}/src>")
 
-target_link_libraries(KF5CalendarUtils
+target_link_libraries(KPim${KF_MAJOR_VERSION}CalendarUtils
 PUBLIC
   Qt::Widgets
   KF${KF_MAJOR_VERSION}::CalendarCore
@@ -66,13 +66,13 @@ PRIVATE
   ${TEMPLATES_LIB}
 )
 
-set_target_properties(KF5CalendarUtils PROPERTIES
+set_target_properties(KPim${KF_MAJOR_VERSION}CalendarUtils PROPERTIES
     VERSION ${KCALUTILS_VERSION}
     SOVERSION ${KCALUTILS_SOVERSION}
     EXPORT_NAME CalendarUtils
 )
 
-install(TARGETS KF5CalendarUtils EXPORT KF5CalendarUtilsTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KPim${KF_MAJOR_VERSION}CalendarUtils EXPORT KPim${KF_MAJOR_VERSION}CalendarUtilsTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### Generate Headers ###############
 ecm_generate_headers(KCalUtils_CamelCase_HEADERS
@@ -94,22 +94,22 @@ install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h
   ${CMAKE_CURRENT_BINARY_DIR}/htmlexportsettings.h
   ${KCalUtils_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KCalUtils/kcalutils
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/KCalUtils/kcalutils
   COMPONENT Devel
 )
 
 install(FILES
   ${KCalUtils_CamelCase_HEADERS}
   ${CMAKE_CURRENT_SOURCE_DIR}/includes/HTMLExportSettings
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KCalUtils/KCalUtils/
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/KCalUtils/KCalUtils/
   COMPONENT Devel
 )
 
 if (BUILD_QCH)
     ecm_add_qch(
-        KF5CalendarUtils_QCH
+        KPim${KF_MAJOR_VERSION}CalendarUtils_QCH
         NAME KCalendarUtils
-        BASE_NAME KF5CalendarUtils
+        BASE_NAME KPim${KF_MAJOR_VERSION}CalendarUtils
         VERSION ${PIM_VERSION}
         ORG_DOMAIN org.kde
         SOURCES # using only public headers, to cover only public API
@@ -132,5 +132,5 @@ endif()
 
 ecm_qt_install_logging_categories(EXPORT KCALUTILS FILE kcalutils.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
-ecm_generate_pri_file(BASE_NAME KCalUtils LIB_NAME KF5CalendarUtils DEPS "KConfigGui KCalendarCore KCoreAddons" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KCalUtils)
+ecm_generate_pri_file(BASE_NAME KCalUtils LIB_NAME KPim${KF_MAJOR_VERSION}CalendarUtils DEPS "KConfigGui KCalendarCore KCoreAddons" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/KCalUtils)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

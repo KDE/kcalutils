@@ -20,7 +20,7 @@ if (QT_MAJOR_VERSION STREQUAL "5")
     target_link_libraries(kcalendar_grantlee_plugin
         ${TEMPLATES_LIB}
         KF${KF_MAJOR_VERSION}::IconThemes
-        KF5CalendarUtils
+        KPim${KF_MAJOR_VERSION}CalendarUtils
     )
     install(TARGETS kcalendar_grantlee_plugin
         LIBRARY DESTINATION ${KDE_INSTALL_LIBDIR}/grantlee/${Grantlee5_VERSION_MAJOR}.${Grantlee5_VERSION_MINOR}/
@@ -30,7 +30,7 @@ else()
     target_link_libraries(kcalendar_grantlee_plugin
         ${TEMPLATES_LIB}
         KF${KF_MAJOR_VERSION}::IconThemes
-        KF5CalendarUtils
+        KPim${KF_MAJOR_VERSION}CalendarUtils
     )
     install(TARGETS kcalendar_grantlee_plugin
         LIBRARY DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/ktexttemplate/
