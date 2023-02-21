@@ -5,6 +5,7 @@ add_subdirectory(grantlee_plugin)
 
 add_library(KPim${KF_MAJOR_VERSION}CalendarUtils)
 add_library(KPim${KF_MAJOR_VERSION}::CalendarUtils ALIAS KPim${KF_MAJOR_VERSION}CalendarUtils)
+add_library(KF5::CalendarUtils ALIAS KPim${KF_MAJOR_VERSION}CalendarUtils)
 
 configure_file(config-kcalutils.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutils.h)
 
