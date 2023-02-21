@@ -7,4 +7,14 @@ find_dependency(KF@KF_MAJOR_VERSION@CoreAddons "@KF_MIN_VERSION@")
 find_dependency(KF@KF_MAJOR_VERSION@Config "@KF_MIN_VERSION@")
 find_dependency(KF@KF_MAJOR_VERSION@CalendarCore "@KF_MIN_VERSION@")
 
+if (@@KCALUTILS_KF5_COMPAT)
+    message(WARNING "\n"
+                    "************* DEPRECATION WARNING *************\n"
+		    "Using find_package(KF5CalendarUtils) and KF5::CalendarUtils targets is deprecated. "
+		    "Please use find_package(KPim@KF_MAJOR_VERSION@CalendarUtils) and KPim@KF_MAJOR_VERSION@::CalendarUtils instead. This backwards "
+                    "compatibility will be removed in the next major version.\n"
+                    "***********************************************\n")
+endif()
+
+
 include("${CMAKE_CURRENT_LIST_DIR}/KPim@KF_MAJOR_VERSION@CalendarUtilsTargets.cmake")
