@@ -72,7 +72,7 @@ set_target_properties(KPim${KF_MAJOR_VERSION}CalendarUtils PROPERTIES
     EXPORT_NAME CalendarUtils
 )
 
-install(TARGETS KPim${KF_MAJOR_VERSION}CalendarUtils EXPORT KPim${KF_MAJOR_VERSION}CalendarUtilsTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KPim${KF_MAJOR_VERSION}CalendarUtils EXPORT KPim${KF_MAJOR_VERSION}CalendarUtilsTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### Generate Headers ###############
 ecm_generate_headers(KCalUtils_CamelCase_HEADERS
