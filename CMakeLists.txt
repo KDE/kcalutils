@@ -85,8 +85,6 @@ if (USE_UNITY_CMAKE_SUPPORT)
     set(COMPILE_WITH_UNITY_CMAKE_SUPPORT ON)
     add_definitions(-DCOMPILE_WITH_UNITY_CMAKE_SUPPORT)
 endif()
-
-########### Targets ###########
 add_subdirectory(src)
 
 if(BUILD_TESTING)
@@ -95,6 +93,16 @@ endif()
 
 ########### CMake Config Files ###########
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KPim${KF_MAJOR_VERSION}CalendarUtils")
+if (BUILD_QCH)
+    ecm_install_qch_export(
+        TARGETS KPim${KF_MAJOR_VERSION}CalendarUtils_QCH
+        FILE KPim${KF_MAJOR_VERSION}CalendarUtilsQchTargets.cmake
+        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+        COMPONENT Devel
+    )
+    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KPim${KF_MAJOR_VERSION}CalendarUtilsQchTargets.cmake\")")
+endif()
+
 configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/KPimCalendarUtilsConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/KPim${KF_MAJOR_VERSION}CalendarUtilsConfig.cmake"
@@ -119,16 +127,6 @@ install(FILES
   DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/KCalUtils/
   COMPONENT Devel
 )
-
-if (BUILD_QCH)
-    ecm_install_qch_export(
-        TARGETS KPim${KF_MAJOR_VERSION}CalendarUtils_QCH
-        FILE KPim${KF_MAJOR_VERSION}CalendarUtilsQchTargets.cmake
-        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-        COMPONENT Devel
-    )
-    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KPim${KF_MAJOR_VERSION}CalendarUtilsQchTargets.cmake\")")
-endif()
 
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 ki18n_install(po)
