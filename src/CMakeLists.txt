@@ -9,7 +9,6 @@ add_library(KPim${KF_MAJOR_VERSION}::CalendarUtils ALIAS KPim${KF_MAJOR_VERSION}
 configure_file(config-kcalutils.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutils.h)
 
 target_sources(KPim${KF_MAJOR_VERSION}CalendarUtils PRIVATE
-  htmlexport.cpp
   icaldrag.cpp
   incidenceformatter.cpp
   recurrenceactions.cpp
@@ -28,7 +27,6 @@ target_sources(KPim${KF_MAJOR_VERSION}CalendarUtils PRIVATE
   grantleeki18nlocalizer_p.h
   qtresourcetemplateloader.h
   incidenceformatter.h
-  htmlexport.h
   dndfactory.h
   recurrenceactions.h
 )
@@ -36,8 +34,6 @@ ecm_qt_declare_logging_category(KPim${KF_MAJOR_VERSION}CalendarUtils HEADER kcal
         OLD_CATEGORY_NAMES log_kcalutils
         DESCRIPTION "kcalutils (pim lib)" EXPORT KCALUTILS)
 
-
-kconfig_add_kcfg_files(KPim${KF_MAJOR_VERSION}CalendarUtils htmlexportsettings.kcfgc)
 
 ki18n_wrap_ui(KPim${KF_MAJOR_VERSION}CalendarUtils recurrenceactionsscopewidget.ui)
 
@@ -56,7 +52,6 @@ PUBLIC
   Qt::Widgets
   KF${KF_MAJOR_VERSION}::CalendarCore
   KF${KF_MAJOR_VERSION}::CoreAddons
-  KF${KF_MAJOR_VERSION}::ConfigGui
 PRIVATE
   KF${KF_MAJOR_VERSION}::WidgetsAddons
   KF${KF_MAJOR_VERSION}::IconThemes
@@ -78,7 +73,6 @@ install(TARGETS KPim${KF_MAJOR_VERSION}CalendarUtils EXPORT KPim${KF_MAJOR_VERSI
 ecm_generate_headers(KCalUtils_CamelCase_HEADERS
   HEADER_NAMES
   DndFactory
-  HtmlExport
   ICalDrag
   IncidenceFormatter
   RecurrenceActions
@@ -92,7 +86,6 @@ ecm_generate_headers(KCalUtils_CamelCase_HEADERS
 
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h
-  ${CMAKE_CURRENT_BINARY_DIR}/htmlexportsettings.h
   ${KCalUtils_HEADERS}
   DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/KCalUtils/kcalutils
   COMPONENT Devel
@@ -100,7 +93,6 @@ install(FILES
 
 install(FILES
   ${KCalUtils_CamelCase_HEADERS}
-  ${CMAKE_CURRENT_SOURCE_DIR}/includes/HTMLExportSettings
   DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/KCalUtils/KCalUtils/
   COMPONENT Devel
 )
@@ -132,5 +124,5 @@ endif()
 
 ecm_qt_install_logging_categories(EXPORT KCALUTILS FILE kcalutils.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
-ecm_generate_pri_file(BASE_NAME KCalUtils LIB_NAME KPim${KF_MAJOR_VERSION}CalendarUtils DEPS "KConfigGui KCalendarCore KCoreAddons" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/KCalUtils)
+ecm_generate_pri_file(BASE_NAME KCalUtils LIB_NAME KPim${KF_MAJOR_VERSION}CalendarUtils DEPS "KCalendarCore KCoreAddons" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/KPim${KF_MAJOR_VERSION}/KCalUtils)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
