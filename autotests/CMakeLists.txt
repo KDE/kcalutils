@@ -3,7 +3,7 @@
 
 include(ECMAddTests)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_REQUIRED_VERSION} CONFIG REQUIRED COMPONENTS Test)
+find_package(Qt6 ${QT_REQUIRED_VERSION} CONFIG REQUIRED COMPONENTS Test)
 
 set(TEST_DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/data")
 set(TEST_TEMPLATE_PATH "${CMAKE_SOURCE_DIR}/templates")
@@ -12,14 +12,14 @@ configure_file(test_config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/test_config.h @ON
 
 ecm_add_tests(testdndfactory.cpp teststringify.cpp testtodotooltip.cpp
     NAME_PREFIX "kcalutils-"
-    LINK_LIBRARIES KPim${KF_MAJOR_VERSION}CalendarUtils KF${KF_MAJOR_VERSION}::I18n Qt::Test
+    LINK_LIBRARIES KPim6CalendarUtils KF6::I18n Qt::Test
 )
 
 
 ecm_add_test(testincidenceformatter.cpp testincidenceformatter.h
     TEST_NAME "testincidenceformatter"
     NAME_PREFIX "kcalutils-"
-    LINK_LIBRARIES KPim${KF_MAJOR_VERSION}CalendarUtils Qt::Core Qt::Test KF${KF_MAJOR_VERSION}::CalendarCore KF${KF_MAJOR_VERSION}::I18n KPim${KF_MAJOR_VERSION}::IdentityManagement ${TEMPLATES_LIB}
+    LINK_LIBRARIES KPim6CalendarUtils Qt::Core Qt::Test KF6::CalendarCore KF6::I18n KPim6::IdentityManagement ${TEMPLATES_LIB}
 )
 
 # Make sure that dates are formatted in C locale

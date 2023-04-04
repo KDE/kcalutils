@@ -13,8 +13,8 @@ deprecated: false
 release: false
 libraries:
  - qmake: KCalUtils
-   cmake: "KF5::CalendarUtils"
-cmakename: KF5CalendarUtils
+   cmake: "KPim6::CalendarUtils"
+cmakename: KPim6CalendarUtils
 
 public_lib: true
 group: kdepim
