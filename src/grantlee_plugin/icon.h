@@ -6,12 +6,8 @@
  */
 
 #pragma once
-#include <QObject>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <grantlee/node.h>
-#else
 #include <KTextTemplate/Node>
-#endif
+#include <QObject>
 
 /**
  * @name icon tag
@@ -39,38 +35,22 @@
  * @note Support for nested variables inside tags is non-standard for Grantlee
  * tags, but makes it easier to use {% icon %} in sub-templates.
  */
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-class IconTag : public Grantlee::AbstractNodeFactory
-#else
 class IconTag : public KTextTemplate::AbstractNodeFactory
-#endif
 {
     Q_OBJECT
 public:
     explicit IconTag(QObject *parent = nullptr);
     ~IconTag() override;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Grantlee::Node *getNode(const QString &tagContent, Grantlee::Parser *p) const override;
-#else
     KTextTemplate::Node *getNode(const QString &tagContent, KTextTemplate::Parser *p) const override;
-#endif
 };
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-class IconNode : public Grantlee::Node
-#else
 class IconNode : public KTextTemplate::Node
-#endif
 {
     Q_OBJECT
 public:
     explicit IconNode(QObject *parent = nullptr);
     IconNode(const QString &iconName, int sizeOrGroup, const QString &altText, QObject *parent = nullptr);
     ~IconNode() override;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    void render(Grantlee::OutputStream *stream, Grantlee::Context *c) const override;
-#else
     void render(KTextTemplate::OutputStream *stream, KTextTemplate::Context *c) const override;
-#endif
 
 private:
     QString mIconName;

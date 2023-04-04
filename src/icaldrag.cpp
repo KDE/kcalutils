@@ -25,11 +25,7 @@ QString ICalDrag::mimeType()
 bool ICalDrag::populateMimeData(QMimeData *me, const Calendar::Ptr &cal)
 {
     ICalFormat icf;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QString scal = icf.toString(cal, QString(), false);
-#else
     QString scal = icf.toString(cal);
-#endif
 
     if (me && !scal.isEmpty()) {
         me->setData(mimeType(), scal.toUtf8());

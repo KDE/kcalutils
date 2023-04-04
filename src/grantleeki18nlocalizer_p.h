@@ -6,21 +6,13 @@
  */
 
 #pragma once
-#include <QObject>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <grantlee/qtlocalizer.h>
-#else
 #include <KTextTemplate/QtLocalizer>
-#endif
+#include <QObject>
 
 #include <QLocale>
 
 class KLocalizedString;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-class GrantleeKi18nLocalizer : public Grantlee::QtLocalizer
-#else
 class GrantleeKi18nLocalizer : public KTextTemplate::QtLocalizer
-#endif
 {
 public:
     explicit GrantleeKi18nLocalizer();

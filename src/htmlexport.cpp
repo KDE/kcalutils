@@ -80,9 +80,6 @@ bool HtmlExport::save(QTextStream *ts)
     if (!d->mSettings) {
         return false;
     }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    ts->setCodec("UTF-8");
-#endif
     // Write HTML header
     *ts << "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" ";
     *ts << "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">" << returnEndLine();
