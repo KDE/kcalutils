@@ -17,7 +17,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
 include(ECMGenerateHeaders)
-include(GenerateExportHeader)
+include(ECMGenerateExportHeader)
 include(ECMGeneratePriFile)
 
 include(ECMSetupVersion)
@@ -41,7 +41,7 @@ add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt 
 set(CALENDARUTILS_LIB_VERSION ${PIM_VERSION})
 set(IDENTITYMANAGER_LIB_VERSION "5.23.40")
 ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
-                        VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h"
+                        VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/src/kcalutils_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KPim6CalendarUtilsConfigVersion.cmake"
                         SOVERSION 6
 )
@@ -112,7 +112,7 @@ install(EXPORT KPim6CalendarUtilsTargets
 )
 
 install(FILES
-  ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_version.h
+  ${CMAKE_CURRENT_BINARY_DIR}/src/kcalutils_version.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils/
   COMPONENT Devel
 )

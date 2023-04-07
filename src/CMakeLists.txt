@@ -44,7 +44,12 @@ ki18n_wrap_ui(KPim6CalendarUtils recurrenceactionsscopewidget.ui)
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(KPim6CalendarUtils PROPERTIES UNITY_BUILD ON)
 endif()
-generate_export_header(KPim6CalendarUtils BASE_NAME kcalutils)
+ecm_generate_export_header(KPim6CalendarUtils
+    BASE_NAME kcalutils
+    VERSION ${KCALUTILS_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    USE_VERSION_HEADER
+)
 
 
 
