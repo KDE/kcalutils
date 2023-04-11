@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:46+0000\n"
+"POT-Creation-Date: 2023-04-11 00:48+0000\n"
 "PO-Revision-Date: 2021-12-07 14:24+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -41,150 +41,6 @@ msgstr "Mallin jäsennysvirhe"
 #, kde-format
 msgid "Template rendering error"
 msgstr "Mallin näyttämisvirhe"
-
-#: src/htmlexport.cpp:170
-#, kde-format
-msgctxt "@title month and year"
-msgid "%1 %2"
-msgstr "%1 %2"
-
-#: src/htmlexport.cpp:246
-#, kde-format
-msgctxt "@title:column event start time"
-msgid "Start Time"
-msgstr "Aloitusaika"
-
-#: src/htmlexport.cpp:247
-#, kde-format
-msgctxt "@title:column event end time"
-msgid "End Time"
-msgstr "Päättymisaika"
-
-#: src/htmlexport.cpp:248
-#, kde-format
-msgctxt "@title:column event description"
-msgid "Event"
-msgstr "Tapahtuma"
-
-#: src/htmlexport.cpp:250
-#, kde-format
-msgctxt "@title:column event location"
-msgid "Location"
-msgstr "Paikka"
-
-#: src/htmlexport.cpp:254
-#, kde-format
-msgctxt "@title:column event categories"
-msgid "Categories"
-msgstr "Luokat"
-
-#: src/htmlexport.cpp:258
-#, kde-format
-msgctxt "@title:column event attendees"
-msgid "Attendees"
-msgstr "Osanottajat"
-
-#: src/htmlexport.cpp:375
-#, kde-format
-msgctxt "@title:column"
-msgid "To-do"
-msgstr "Tehtävä"
-
-#: src/htmlexport.cpp:376
-#, kde-format
-msgctxt "@title:column to-do priority"
-msgid "Priority"
-msgstr "Tärkeys"
-
-#: src/htmlexport.cpp:377
-#, kde-format
-msgctxt "@title:column to-do percent completed"
-msgid "Completed"
-msgstr "Valmistuneet"
-
-#: src/htmlexport.cpp:379
-#, kde-format
-msgctxt "@title:column to-do due date"
-msgid "Due Date"
-msgstr "Määräpäivä"
-
-#: src/htmlexport.cpp:383
-#, kde-format
-msgctxt "@title:column to-do location"
-msgid "Location"
-msgstr "Paikka"
-
-#: src/htmlexport.cpp:387
-#, kde-format
-msgctxt "@title:column to-do categories"
-msgid "Categories"
-msgstr "Luokat"
-
-#: src/htmlexport.cpp:391
-#, kde-format
-msgctxt "@title:column to-do attendees"
-msgid "Attendees"
-msgstr "Osanottajat"
-
-#: src/htmlexport.cpp:412
-#, kde-format
-msgctxt "@title:column sub-to-dos of the parent to-do"
-msgid "Sub-To-dos of: "
-msgstr "Alitehtävät kohteelle: "
-
-#: src/htmlexport.cpp:467
-#, kde-format
-msgctxt "@title:column sub-to-dos of the parent to-do"
-msgid "Sub-To-dos"
-msgstr "Alitehtävät"
-
-#: src/htmlexport.cpp:485
-#, kde-format
-msgctxt "@info to-do percent complete"
-msgid "%1 %"
-msgstr "%1 %"
-
-#: src/htmlexport.cpp:630
-#, kde-format
-msgctxt "@info"
-msgid "This page was created "
-msgstr "Sivu on luotu "
-
-#: src/htmlexport.cpp:639
-#, kde-kuit-format
-msgctxt "@info/plain page creator email link with name"
-msgid "by <link url='mailto:%1'>%2</link> "
-msgstr " tekijänään <link url='mailto:%1'>%2</link> "
-
-#: src/htmlexport.cpp:641
-#, kde-kuit-format
-msgctxt "@info/plain page creator email link"
-msgid "by <link url='mailto:%1'>%2</link> "
-msgstr "tekijänään <link url='mailto:%1'>%2</link> "
-
-#: src/htmlexport.cpp:645
-#, kde-format
-msgctxt "@info page creator name only"
-msgid "by %1 "
-msgstr "tekijänään %1 "
-
-#: src/htmlexport.cpp:651
-#, kde-kuit-format
-msgctxt "@info/plain page credit with name and link"
-msgid "with <link url='%1'>%2</link>"
-msgstr "sekä <link url='%1'>%2</link>"
-
-#: src/htmlexport.cpp:653
-#, kde-format
-msgctxt "@info page credit name only"
-msgid "with %1"
-msgstr "sekä %1"
-
-#: src/htmlexport.cpp:719
-#, kde-format
-msgctxt "@info holiday by date and name"
-msgid "%1, %2"
-msgstr "%1, %2"
 
 #: src/incidenceformatter.cpp:167
 #, kde-format
@@ -2338,6 +2194,102 @@ msgstr "Valmistunut:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Valmistumisprosentti:"
+
+#~ msgctxt "@title month and year"
+#~ msgid "%1 %2"
+#~ msgstr "%1 %2"
+
+#~ msgctxt "@title:column event start time"
+#~ msgid "Start Time"
+#~ msgstr "Aloitusaika"
+
+#~ msgctxt "@title:column event end time"
+#~ msgid "End Time"
+#~ msgstr "Päättymisaika"
+
+#~ msgctxt "@title:column event description"
+#~ msgid "Event"
+#~ msgstr "Tapahtuma"
+
+#~ msgctxt "@title:column event location"
+#~ msgid "Location"
+#~ msgstr "Paikka"
+
+#~ msgctxt "@title:column event categories"
+#~ msgid "Categories"
+#~ msgstr "Luokat"
+
+#~ msgctxt "@title:column event attendees"
+#~ msgid "Attendees"
+#~ msgstr "Osanottajat"
+
+#~ msgctxt "@title:column"
+#~ msgid "To-do"
+#~ msgstr "Tehtävä"
+
+#~ msgctxt "@title:column to-do priority"
+#~ msgid "Priority"
+#~ msgstr "Tärkeys"
+
+#~ msgctxt "@title:column to-do percent completed"
+#~ msgid "Completed"
+#~ msgstr "Valmistuneet"
+
+#~ msgctxt "@title:column to-do due date"
+#~ msgid "Due Date"
+#~ msgstr "Määräpäivä"
+
+#~ msgctxt "@title:column to-do location"
+#~ msgid "Location"
+#~ msgstr "Paikka"
+
+#~ msgctxt "@title:column to-do categories"
+#~ msgid "Categories"
+#~ msgstr "Luokat"
+
+#~ msgctxt "@title:column to-do attendees"
+#~ msgid "Attendees"
+#~ msgstr "Osanottajat"
+
+#~ msgctxt "@title:column sub-to-dos of the parent to-do"
+#~ msgid "Sub-To-dos of: "
+#~ msgstr "Alitehtävät kohteelle: "
+
+#~ msgctxt "@title:column sub-to-dos of the parent to-do"
+#~ msgid "Sub-To-dos"
+#~ msgstr "Alitehtävät"
+
+#~ msgctxt "@info to-do percent complete"
+#~ msgid "%1 %"
+#~ msgstr "%1 %"
+
+#~ msgctxt "@info"
+#~ msgid "This page was created "
+#~ msgstr "Sivu on luotu "
+
+#~ msgctxt "@info/plain page creator email link with name"
+#~ msgid "by <link url='mailto:%1'>%2</link> "
+#~ msgstr " tekijänään <link url='mailto:%1'>%2</link> "
+
+#~ msgctxt "@info/plain page creator email link"
+#~ msgid "by <link url='mailto:%1'>%2</link> "
+#~ msgstr "tekijänään <link url='mailto:%1'>%2</link> "
+
+#~ msgctxt "@info page creator name only"
+#~ msgid "by %1 "
+#~ msgstr "tekijänään %1 "
+
+#~ msgctxt "@info/plain page credit with name and link"
+#~ msgid "with <link url='%1'>%2</link>"
+#~ msgstr "sekä <link url='%1'>%2</link>"
+
+#~ msgctxt "@info page credit name only"
+#~ msgid "with %1"
+#~ msgstr "sekä %1"
+
+#~ msgctxt "@info holiday by date and name"
+#~ msgid "%1, %2"
+#~ msgstr "%1, %2"
 
 #~ msgid "Category:"
 #~ msgid_plural "Categories:"

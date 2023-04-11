@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:46+0000\n"
+"POT-Creation-Date: 2023-04-11 00:48+0000\n"
 "PO-Revision-Date: 2012-07-11 10:24+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -38,162 +38,6 @@ msgstr ""
 #, kde-format
 msgid "Template rendering error"
 msgstr ""
-
-#: src/htmlexport.cpp:170
-#, kde-format
-msgctxt "@title month and year"
-msgid "%1 %2"
-msgstr "%1 %2"
-
-#: src/htmlexport.cpp:246
-#, kde-format
-msgctxt "@title:column event start time"
-msgid "Start Time"
-msgstr "ពេលវេលា​ចាប់ផ្ដើម"
-
-#: src/htmlexport.cpp:247
-#, kde-format
-msgctxt "@title:column event end time"
-msgid "End Time"
-msgstr "ពេលវេលា​បញ្ចប់"
-
-#: src/htmlexport.cpp:248
-#, kde-format
-msgctxt "@title:column event description"
-msgid "Event"
-msgstr "ព្រឹត្តិការណ៍"
-
-#: src/htmlexport.cpp:250
-#, fuzzy, kde-format
-#| msgctxt "@title:column event locatin"
-#| msgid "Location"
-msgctxt "@title:column event location"
-msgid "Location"
-msgstr "ទីតាំង"
-
-#: src/htmlexport.cpp:254
-#, kde-format
-msgctxt "@title:column event categories"
-msgid "Categories"
-msgstr "ប្រភេទ"
-
-#: src/htmlexport.cpp:258
-#, kde-format
-msgctxt "@title:column event attendees"
-msgid "Attendees"
-msgstr "អ្នក​ចូលរួម"
-
-#: src/htmlexport.cpp:375
-#, kde-format
-msgctxt "@title:column"
-msgid "To-do"
-msgstr "កិច្ចការ​ត្រូវ​ធ្វើ"
-
-#: src/htmlexport.cpp:376
-#, kde-format
-msgctxt "@title:column to-do priority"
-msgid "Priority"
-msgstr "អាទិភាព"
-
-#: src/htmlexport.cpp:377
-#, kde-format
-msgctxt "@title:column to-do percent completed"
-msgid "Completed"
-msgstr "បាន​បញ្ចប់"
-
-#: src/htmlexport.cpp:379
-#, kde-format
-msgctxt "@title:column to-do due date"
-msgid "Due Date"
-msgstr "ថ្ងៃ​ដល់​កំណត់"
-
-#: src/htmlexport.cpp:383
-#, kde-format
-msgctxt "@title:column to-do location"
-msgid "Location"
-msgstr "ទីតាំង"
-
-#: src/htmlexport.cpp:387
-#, kde-format
-msgctxt "@title:column to-do categories"
-msgid "Categories"
-msgstr "ប្រភេទ"
-
-#: src/htmlexport.cpp:391
-#, kde-format
-msgctxt "@title:column to-do attendees"
-msgid "Attendees"
-msgstr "អ្នក​ចូលរួម"
-
-#: src/htmlexport.cpp:412
-#, kde-format
-msgctxt "@title:column sub-to-dos of the parent to-do"
-msgid "Sub-To-dos of: "
-msgstr "កិច្ចការ​រង​ត្រូវ​ធ្វើ​នៃ ៖"
-
-#: src/htmlexport.cpp:467
-#, kde-format
-msgctxt "@title:column sub-to-dos of the parent to-do"
-msgid "Sub-To-dos"
-msgstr "កិច្ចការ​រង​ត្រូវ​ធ្វើ"
-
-#: src/htmlexport.cpp:485
-#, fuzzy, kde-format
-#| msgctxt "@info/plain to-do percent complete"
-#| msgid "%1 %"
-msgctxt "@info to-do percent complete"
-msgid "%1 %"
-msgstr "%1 %"
-
-#: src/htmlexport.cpp:630
-#, fuzzy, kde-format
-#| msgctxt "@info/plain"
-#| msgid "This page was created "
-msgctxt "@info"
-msgid "This page was created "
-msgstr "ទំព័រ​នេះ​ត្រូវ​បាន​បង្កើត"
-
-#: src/htmlexport.cpp:639
-#, kde-kuit-format
-msgctxt "@info/plain page creator email link with name"
-msgid "by <link url='mailto:%1'>%2</link> "
-msgstr "ដោយ <link url='mailto:%1'>%2</link> "
-
-#: src/htmlexport.cpp:641
-#, kde-kuit-format
-msgctxt "@info/plain page creator email link"
-msgid "by <link url='mailto:%1'>%2</link> "
-msgstr "ដោយ <link url='mailto:%1'>%2</link> "
-
-#: src/htmlexport.cpp:645
-#, fuzzy, kde-format
-#| msgctxt "@info/plain page creator name only"
-#| msgid "by %1 "
-msgctxt "@info page creator name only"
-msgid "by %1 "
-msgstr "ដោយ %1 "
-
-#: src/htmlexport.cpp:651
-#, kde-kuit-format
-msgctxt "@info/plain page credit with name and link"
-msgid "with <link url='%1'>%2</link>"
-msgstr "ជាមួយ <link url='%1'>%2</link>"
-
-#: src/htmlexport.cpp:653
-#, fuzzy, kde-format
-#| msgctxt "@info/plain page credit name only"
-#| msgid "with %1"
-msgctxt "@info page credit name only"
-msgid "with %1"
-msgstr "ជាមួយ %1"
-
-#: src/htmlexport.cpp:719
-#, fuzzy, kde-format
-#| msgctxt "@info/plain holiday by date and name"
-#| msgid "%1, %2"
-msgctxt "@info holiday by date and name"
-msgid "%1, %2"
-msgstr "%1, %2"
 
 #: src/incidenceformatter.cpp:167
 #, kde-format
@@ -2493,6 +2337,120 @@ msgstr "បាន​បញ្ចប់ ៖"
 #| msgid "Percent Done:"
 msgid "Percent done:"
 msgstr "ភាគរយ​ដែល​ធ្វើ​រួច ៖"
+
+#~ msgctxt "@title month and year"
+#~ msgid "%1 %2"
+#~ msgstr "%1 %2"
+
+#~ msgctxt "@title:column event start time"
+#~ msgid "Start Time"
+#~ msgstr "ពេលវេលា​ចាប់ផ្ដើម"
+
+#~ msgctxt "@title:column event end time"
+#~ msgid "End Time"
+#~ msgstr "ពេលវេលា​បញ្ចប់"
+
+#~ msgctxt "@title:column event description"
+#~ msgid "Event"
+#~ msgstr "ព្រឹត្តិការណ៍"
+
+#, fuzzy
+#~| msgctxt "@title:column event locatin"
+#~| msgid "Location"
+#~ msgctxt "@title:column event location"
+#~ msgid "Location"
+#~ msgstr "ទីតាំង"
+
+#~ msgctxt "@title:column event categories"
+#~ msgid "Categories"
+#~ msgstr "ប្រភេទ"
+
+#~ msgctxt "@title:column event attendees"
+#~ msgid "Attendees"
+#~ msgstr "អ្នក​ចូលរួម"
+
+#~ msgctxt "@title:column"
+#~ msgid "To-do"
+#~ msgstr "កិច្ចការ​ត្រូវ​ធ្វើ"
+
+#~ msgctxt "@title:column to-do priority"
+#~ msgid "Priority"
+#~ msgstr "អាទិភាព"
+
+#~ msgctxt "@title:column to-do percent completed"
+#~ msgid "Completed"
+#~ msgstr "បាន​បញ្ចប់"
+
+#~ msgctxt "@title:column to-do due date"
+#~ msgid "Due Date"
+#~ msgstr "ថ្ងៃ​ដល់​កំណត់"
+
+#~ msgctxt "@title:column to-do location"
+#~ msgid "Location"
+#~ msgstr "ទីតាំង"
+
+#~ msgctxt "@title:column to-do categories"
+#~ msgid "Categories"
+#~ msgstr "ប្រភេទ"
+
+#~ msgctxt "@title:column to-do attendees"
+#~ msgid "Attendees"
+#~ msgstr "អ្នក​ចូលរួម"
+
+#~ msgctxt "@title:column sub-to-dos of the parent to-do"
+#~ msgid "Sub-To-dos of: "
+#~ msgstr "កិច្ចការ​រង​ត្រូវ​ធ្វើ​នៃ ៖"
+
+#~ msgctxt "@title:column sub-to-dos of the parent to-do"
+#~ msgid "Sub-To-dos"
+#~ msgstr "កិច្ចការ​រង​ត្រូវ​ធ្វើ"
+
+#, fuzzy
+#~| msgctxt "@info/plain to-do percent complete"
+#~| msgid "%1 %"
+#~ msgctxt "@info to-do percent complete"
+#~ msgid "%1 %"
+#~ msgstr "%1 %"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "This page was created "
+#~ msgctxt "@info"
+#~ msgid "This page was created "
+#~ msgstr "ទំព័រ​នេះ​ត្រូវ​បាន​បង្កើត"
+
+#~ msgctxt "@info/plain page creator email link with name"
+#~ msgid "by <link url='mailto:%1'>%2</link> "
+#~ msgstr "ដោយ <link url='mailto:%1'>%2</link> "
+
+#~ msgctxt "@info/plain page creator email link"
+#~ msgid "by <link url='mailto:%1'>%2</link> "
+#~ msgstr "ដោយ <link url='mailto:%1'>%2</link> "
+
+#, fuzzy
+#~| msgctxt "@info/plain page creator name only"
+#~| msgid "by %1 "
+#~ msgctxt "@info page creator name only"
+#~ msgid "by %1 "
+#~ msgstr "ដោយ %1 "
+
+#~ msgctxt "@info/plain page credit with name and link"
+#~ msgid "with <link url='%1'>%2</link>"
+#~ msgstr "ជាមួយ <link url='%1'>%2</link>"
+
+#, fuzzy
+#~| msgctxt "@info/plain page credit name only"
+#~| msgid "with %1"
+#~ msgctxt "@info page credit name only"
+#~ msgid "with %1"
+#~ msgstr "ជាមួយ %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain holiday by date and name"
+#~| msgid "%1, %2"
+#~ msgctxt "@info holiday by date and name"
+#~ msgid "%1, %2"
+#~ msgstr "%1, %2"
 
 #~ msgid "Category:"
 #~ msgid_plural "Categories:"
