@@ -1,23 +1,24 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Xosé <xosecalvo@gmail.com>, 2011, 2013.
 # Marce Villarino <mvillarino@kde-espana.es>, 2012, 2014.
 # Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2013, 2015, 2016.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-11 00:48+0000\n"
-"PO-Revision-Date: 2019-03-28 13:06+0100\n"
+"PO-Revision-Date: 2023-04-28 19:31+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
@@ -202,7 +203,7 @@ msgstr "%1 indica que este convite aínda precisa dunha acción."
 #: src/incidenceformatter.cpp:1376
 #, kde-format
 msgid "This invitation has been updated by attendee %1."
-msgstr "Actualizouse este convite polo asisente %1."
+msgstr "Actualizouse este convite polo asistente %1."
 
 #: src/incidenceformatter.cpp:1378
 #, kde-format
@@ -368,7 +369,7 @@ msgstr "%1 acepta esta tarefa en representación de %2."
 #: src/incidenceformatter.cpp:1530
 #, kde-format
 msgid "%1 tentatively accepts this to-do."
-msgstr "%1 acepta esta tarefa provisoriamente."
+msgstr "%1 acepta esta tarefa provisionalmente."
 
 #: src/incidenceformatter.cpp:1532
 #, kde-format
@@ -471,7 +472,7 @@ msgstr "O remitente acepta este diario."
 #: src/incidenceformatter.cpp:1620
 #, kde-format
 msgid "Sender tentatively accepts this journal."
-msgstr "O remitente acepta este diario provisoriamente."
+msgstr "O remitente acepta este diario provisionalmente."
 
 #: src/incidenceformatter.cpp:1622
 #, kde-format
@@ -698,39 +699,34 @@ msgid "<i>Time:</i> %1 - %2"
 msgstr "<i>Horario:</i> %1 - %2"
 
 #: src/incidenceformatter.cpp:2462
-#, fuzzy, kde-format
-#| msgid "<i>Start:</i> %1"
+#, kde-format
 msgctxt "To-do's start date"
 msgid "<i>Start:</i> %1"
 msgstr "<i>Inicio:</i> %1"
 
 #: src/incidenceformatter.cpp:2465
-#, fuzzy, kde-format
-#| msgid "<i>Due:</i> %1"
+#, kde-format
 msgctxt "To-do's due date"
 msgid "<i>Due:</i> %1"
 msgstr "<i>Límite:</i> %1"
 
 #: src/incidenceformatter.cpp:2471
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgctxt "To-do's priority number"
 msgid "<i>Priority:</i> %1"
-msgstr "<i>Inicio do período:</i> %1"
+msgstr "<i>Prioridade:</i> %1"
 
 #: src/incidenceformatter.cpp:2476
-#, fuzzy, kde-format
-#| msgid "<i>Date:</i> %1"
+#, kde-format
 msgctxt "To-do's completed date"
 msgid "<i>Completed:</i> %1"
-msgstr "<i>Data:</i> %1"
+msgstr "<i>Completado:</i> %1"
 
 #: src/incidenceformatter.cpp:2487
-#, fuzzy, kde-format
-#| msgid "Percent Done:"
+#, kde-format
 msgctxt "To-do's percent complete:"
 msgid "<i>Percent Done:</i> %1%"
-msgstr "Porcentaxe feita:"
+msgstr "<i>Porcentaxe feita:</i> %1%"
 
 #: src/incidenceformatter.cpp:2506 src/incidenceformatter.cpp:2507
 #, kde-format
@@ -754,9 +750,7 @@ msgid "%1"
 msgstr "%1"
 
 #: src/incidenceformatter.cpp:2580 src/incidenceformatter.cpp:2715
-#, fuzzy, kde-format
-#| msgctxt "elipsis"
-#| msgid "..."
+#, kde-format
 msgctxt "ellipsis"
 msgid "..."
 msgstr "…"
@@ -781,7 +775,7 @@ msgstr "Organizador:"
 #: src/templates/todo.html:105
 #, kde-format
 msgid "Chair:"
-msgstr "Presidecia:"
+msgstr "Presidencia:"
 
 #: src/incidenceformatter.cpp:2640 src/templates/event.html:137
 #: src/templates/todo.html:118
@@ -851,8 +845,8 @@ msgstr[1] "Lembranzas:"
 #, kde-format
 msgid "Tag:"
 msgid_plural "Tags:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Etiqueta:"
+msgstr[1] "Etiquetas:"
 
 #: src/incidenceformatter.cpp:2783
 #, kde-format
@@ -1723,7 +1717,7 @@ msgstr "Final"
 #, kde-format
 msgctxt "@item chairperson"
 msgid "Chair"
-msgstr "Presidecia"
+msgstr "Presidencia"
 
 #: src/stringify.cpp:120
 #, kde-format
@@ -2064,7 +2058,7 @@ msgstr "Incidencia cunha lembranza"
 
 #: src/templates/incidence_header.html:18
 msgid "Incidence is read only"
-msgstr "Indicencia de só lectura"
+msgstr "Incidencia de só lectura"
 
 #: src/templates/itip.html:80
 msgid "Comment:"
