@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcal\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:46+0000\n"
+"POT-Creation-Date: 2023-04-11 00:48+0000\n"
 "PO-Revision-Date: 2014-09-25 01:12-0700\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -42,150 +42,6 @@ msgstr ""
 #, kde-format
 msgid "Template rendering error"
 msgstr ""
-
-#: src/htmlexport.cpp:170
-#, kde-format
-msgctxt "@title month and year"
-msgid "%1 %2"
-msgstr "%2年%1"
-
-#: src/htmlexport.cpp:246
-#, kde-format
-msgctxt "@title:column event start time"
-msgid "Start Time"
-msgstr "開始時間"
-
-#: src/htmlexport.cpp:247
-#, kde-format
-msgctxt "@title:column event end time"
-msgid "End Time"
-msgstr "終了時間"
-
-#: src/htmlexport.cpp:248
-#, kde-format
-msgctxt "@title:column event description"
-msgid "Event"
-msgstr "イベント"
-
-#: src/htmlexport.cpp:250
-#, kde-format
-msgctxt "@title:column event location"
-msgid "Location"
-msgstr "場所"
-
-#: src/htmlexport.cpp:254
-#, kde-format
-msgctxt "@title:column event categories"
-msgid "Categories"
-msgstr "カテゴリ"
-
-#: src/htmlexport.cpp:258
-#, kde-format
-msgctxt "@title:column event attendees"
-msgid "Attendees"
-msgstr "出席者"
-
-#: src/htmlexport.cpp:375
-#, kde-format
-msgctxt "@title:column"
-msgid "To-do"
-msgstr "To-Do"
-
-#: src/htmlexport.cpp:376
-#, kde-format
-msgctxt "@title:column to-do priority"
-msgid "Priority"
-msgstr "優先度"
-
-#: src/htmlexport.cpp:377
-#, kde-format
-msgctxt "@title:column to-do percent completed"
-msgid "Completed"
-msgstr "進捗率"
-
-#: src/htmlexport.cpp:379
-#, kde-format
-msgctxt "@title:column to-do due date"
-msgid "Due Date"
-msgstr "締切日"
-
-#: src/htmlexport.cpp:383
-#, kde-format
-msgctxt "@title:column to-do location"
-msgid "Location"
-msgstr "場所"
-
-#: src/htmlexport.cpp:387
-#, kde-format
-msgctxt "@title:column to-do categories"
-msgid "Categories"
-msgstr "カテゴリ"
-
-#: src/htmlexport.cpp:391
-#, kde-format
-msgctxt "@title:column to-do attendees"
-msgid "Attendees"
-msgstr "参加者"
-
-#: src/htmlexport.cpp:412
-#, kde-format
-msgctxt "@title:column sub-to-dos of the parent to-do"
-msgid "Sub-To-dos of: "
-msgstr "サブ To-Do の親: "
-
-#: src/htmlexport.cpp:467
-#, kde-format
-msgctxt "@title:column sub-to-dos of the parent to-do"
-msgid "Sub-To-dos"
-msgstr "サブ To-Do"
-
-#: src/htmlexport.cpp:485
-#, kde-format
-msgctxt "@info to-do percent complete"
-msgid "%1 %"
-msgstr "%1%"
-
-#: src/htmlexport.cpp:630
-#, kde-format
-msgctxt "@info"
-msgid "This page was created "
-msgstr "このページは "
-
-#: src/htmlexport.cpp:639
-#, kde-kuit-format
-msgctxt "@info/plain page creator email link with name"
-msgid "by <link url='mailto:%1'>%2</link> "
-msgstr "<link url='mailto:%1'>%2</link> によって"
-
-#: src/htmlexport.cpp:641
-#, kde-kuit-format
-msgctxt "@info/plain page creator email link"
-msgid "by <link url='mailto:%1'>%2</link> "
-msgstr "<link url='mailto:%1'>%2</link> によって"
-
-#: src/htmlexport.cpp:645
-#, kde-format
-msgctxt "@info page creator name only"
-msgid "by %1 "
-msgstr "%1 によって "
-
-#: src/htmlexport.cpp:651
-#, kde-kuit-format
-msgctxt "@info/plain page credit with name and link"
-msgid "with <link url='%1'>%2</link>"
-msgstr "<link url='%1'>%2</link> を用いて作成されました。"
-
-#: src/htmlexport.cpp:653
-#, kde-format
-msgctxt "@info page credit name only"
-msgid "with %1"
-msgstr "%1 を用いて作成されました。"
-
-#: src/htmlexport.cpp:719
-#, kde-format
-msgctxt "@info holiday by date and name"
-msgid "%1, %2"
-msgstr "%1、%2"
 
 #: src/incidenceformatter.cpp:167
 #, kde-format
@@ -2485,3 +2341,99 @@ msgstr "完了日:"
 #| msgid "Percent Done:"
 msgid "Percent done:"
 msgstr "完了パーセント:"
+
+#~ msgctxt "@title month and year"
+#~ msgid "%1 %2"
+#~ msgstr "%2年%1"
+
+#~ msgctxt "@title:column event start time"
+#~ msgid "Start Time"
+#~ msgstr "開始時間"
+
+#~ msgctxt "@title:column event end time"
+#~ msgid "End Time"
+#~ msgstr "終了時間"
+
+#~ msgctxt "@title:column event description"
+#~ msgid "Event"
+#~ msgstr "イベント"
+
+#~ msgctxt "@title:column event location"
+#~ msgid "Location"
+#~ msgstr "場所"
+
+#~ msgctxt "@title:column event categories"
+#~ msgid "Categories"
+#~ msgstr "カテゴリ"
+
+#~ msgctxt "@title:column event attendees"
+#~ msgid "Attendees"
+#~ msgstr "出席者"
+
+#~ msgctxt "@title:column"
+#~ msgid "To-do"
+#~ msgstr "To-Do"
+
+#~ msgctxt "@title:column to-do priority"
+#~ msgid "Priority"
+#~ msgstr "優先度"
+
+#~ msgctxt "@title:column to-do percent completed"
+#~ msgid "Completed"
+#~ msgstr "進捗率"
+
+#~ msgctxt "@title:column to-do due date"
+#~ msgid "Due Date"
+#~ msgstr "締切日"
+
+#~ msgctxt "@title:column to-do location"
+#~ msgid "Location"
+#~ msgstr "場所"
+
+#~ msgctxt "@title:column to-do categories"
+#~ msgid "Categories"
+#~ msgstr "カテゴリ"
+
+#~ msgctxt "@title:column to-do attendees"
+#~ msgid "Attendees"
+#~ msgstr "参加者"
+
+#~ msgctxt "@title:column sub-to-dos of the parent to-do"
+#~ msgid "Sub-To-dos of: "
+#~ msgstr "サブ To-Do の親: "
+
+#~ msgctxt "@title:column sub-to-dos of the parent to-do"
+#~ msgid "Sub-To-dos"
+#~ msgstr "サブ To-Do"
+
+#~ msgctxt "@info to-do percent complete"
+#~ msgid "%1 %"
+#~ msgstr "%1%"
+
+#~ msgctxt "@info"
+#~ msgid "This page was created "
+#~ msgstr "このページは "
+
+#~ msgctxt "@info/plain page creator email link with name"
+#~ msgid "by <link url='mailto:%1'>%2</link> "
+#~ msgstr "<link url='mailto:%1'>%2</link> によって"
+
+#~ msgctxt "@info/plain page creator email link"
+#~ msgid "by <link url='mailto:%1'>%2</link> "
+#~ msgstr "<link url='mailto:%1'>%2</link> によって"
+
+#~ msgctxt "@info page creator name only"
+#~ msgid "by %1 "
+#~ msgstr "%1 によって "
+
+#~ msgctxt "@info/plain page credit with name and link"
+#~ msgid "with <link url='%1'>%2</link>"
+#~ msgstr "<link url='%1'>%2</link> を用いて作成されました。"
+
+#~ msgctxt "@info page credit name only"
+#~ msgid "with %1"
+#~ msgstr "%1 を用いて作成されました。"
+
+#~ msgctxt "@info holiday by date and name"
+#~ msgid "%1, %2"
+#~ msgstr "%1、%2"

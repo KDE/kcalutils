@@ -1,23 +1,24 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Xosé <xosecalvo@gmail.com>, 2011, 2013.
 # Marce Villarino <mvillarino@kde-espana.es>, 2012, 2014.
 # Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2013, 2015, 2016.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:46+0000\n"
-"PO-Revision-Date: 2019-03-28 13:06+0100\n"
+"POT-Creation-Date: 2023-04-11 00:48+0000\n"
+"PO-Revision-Date: 2023-04-28 19:31+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
@@ -38,150 +39,6 @@ msgstr "Erro de análise do modelo"
 #, kde-format
 msgid "Template rendering error"
 msgstr "Erro de xeración do modelo"
-
-#: src/htmlexport.cpp:170
-#, kde-format
-msgctxt "@title month and year"
-msgid "%1 %2"
-msgstr "%1 %2"
-
-#: src/htmlexport.cpp:246
-#, kde-format
-msgctxt "@title:column event start time"
-msgid "Start Time"
-msgstr "Hora de comezo"
-
-#: src/htmlexport.cpp:247
-#, kde-format
-msgctxt "@title:column event end time"
-msgid "End Time"
-msgstr "Hora de remate"
-
-#: src/htmlexport.cpp:248
-#, kde-format
-msgctxt "@title:column event description"
-msgid "Event"
-msgstr "Evento"
-
-#: src/htmlexport.cpp:250
-#, kde-format
-msgctxt "@title:column event location"
-msgid "Location"
-msgstr "Lugar"
-
-#: src/htmlexport.cpp:254
-#, kde-format
-msgctxt "@title:column event categories"
-msgid "Categories"
-msgstr "Categorías"
-
-#: src/htmlexport.cpp:258
-#, kde-format
-msgctxt "@title:column event attendees"
-msgid "Attendees"
-msgstr "Asistentes"
-
-#: src/htmlexport.cpp:375
-#, kde-format
-msgctxt "@title:column"
-msgid "To-do"
-msgstr "Tarefa"
-
-#: src/htmlexport.cpp:376
-#, kde-format
-msgctxt "@title:column to-do priority"
-msgid "Priority"
-msgstr "Prioridade"
-
-#: src/htmlexport.cpp:377
-#, kde-format
-msgctxt "@title:column to-do percent completed"
-msgid "Completed"
-msgstr "Completada"
-
-#: src/htmlexport.cpp:379
-#, kde-format
-msgctxt "@title:column to-do due date"
-msgid "Due Date"
-msgstr "Data límite"
-
-#: src/htmlexport.cpp:383
-#, kde-format
-msgctxt "@title:column to-do location"
-msgid "Location"
-msgstr "Lugar"
-
-#: src/htmlexport.cpp:387
-#, kde-format
-msgctxt "@title:column to-do categories"
-msgid "Categories"
-msgstr "Categorías"
-
-#: src/htmlexport.cpp:391
-#, kde-format
-msgctxt "@title:column to-do attendees"
-msgid "Attendees"
-msgstr "Asistentes"
-
-#: src/htmlexport.cpp:412
-#, kde-format
-msgctxt "@title:column sub-to-dos of the parent to-do"
-msgid "Sub-To-dos of: "
-msgstr "Subtarefas de: "
-
-#: src/htmlexport.cpp:467
-#, kde-format
-msgctxt "@title:column sub-to-dos of the parent to-do"
-msgid "Sub-To-dos"
-msgstr "Subtarefas"
-
-#: src/htmlexport.cpp:485
-#, kde-format
-msgctxt "@info to-do percent complete"
-msgid "%1 %"
-msgstr "%1 %"
-
-#: src/htmlexport.cpp:630
-#, kde-format
-msgctxt "@info"
-msgid "This page was created "
-msgstr "Esta páxina creouse "
-
-#: src/htmlexport.cpp:639
-#, kde-kuit-format
-msgctxt "@info/plain page creator email link with name"
-msgid "by <link url='mailto:%1'>%2</link> "
-msgstr "por <link url='mailto:%1'>%2</link>"
-
-#: src/htmlexport.cpp:641
-#, kde-kuit-format
-msgctxt "@info/plain page creator email link"
-msgid "by <link url='mailto:%1'>%2</link> "
-msgstr "por <link url='mailto:%1'>%2</link>"
-
-#: src/htmlexport.cpp:645
-#, kde-format
-msgctxt "@info page creator name only"
-msgid "by %1 "
-msgstr "por %1 "
-
-#: src/htmlexport.cpp:651
-#, kde-kuit-format
-msgctxt "@info/plain page credit with name and link"
-msgid "with <link url='%1'>%2</link>"
-msgstr "con <link url='%1'>%2</link>"
-
-#: src/htmlexport.cpp:653
-#, kde-format
-msgctxt "@info page credit name only"
-msgid "with %1"
-msgstr "con %1"
-
-#: src/htmlexport.cpp:719
-#, kde-format
-msgctxt "@info holiday by date and name"
-msgid "%1, %2"
-msgstr "%1, %2"
 
 #: src/incidenceformatter.cpp:167
 #, kde-format
@@ -346,7 +203,7 @@ msgstr "%1 indica que este convite aínda precisa dunha acción."
 #: src/incidenceformatter.cpp:1376
 #, kde-format
 msgid "This invitation has been updated by attendee %1."
-msgstr "Actualizouse este convite polo asisente %1."
+msgstr "Actualizouse este convite polo asistente %1."
 
 #: src/incidenceformatter.cpp:1378
 #, kde-format
@@ -512,7 +369,7 @@ msgstr "%1 acepta esta tarefa en representación de %2."
 #: src/incidenceformatter.cpp:1530
 #, kde-format
 msgid "%1 tentatively accepts this to-do."
-msgstr "%1 acepta esta tarefa provisoriamente."
+msgstr "%1 acepta esta tarefa provisionalmente."
 
 #: src/incidenceformatter.cpp:1532
 #, kde-format
@@ -615,7 +472,7 @@ msgstr "O remitente acepta este diario."
 #: src/incidenceformatter.cpp:1620
 #, kde-format
 msgid "Sender tentatively accepts this journal."
-msgstr "O remitente acepta este diario provisoriamente."
+msgstr "O remitente acepta este diario provisionalmente."
 
 #: src/incidenceformatter.cpp:1622
 #, kde-format
@@ -842,39 +699,34 @@ msgid "<i>Time:</i> %1 - %2"
 msgstr "<i>Horario:</i> %1 - %2"
 
 #: src/incidenceformatter.cpp:2462
-#, fuzzy, kde-format
-#| msgid "<i>Start:</i> %1"
+#, kde-format
 msgctxt "To-do's start date"
 msgid "<i>Start:</i> %1"
 msgstr "<i>Inicio:</i> %1"
 
 #: src/incidenceformatter.cpp:2465
-#, fuzzy, kde-format
-#| msgid "<i>Due:</i> %1"
+#, kde-format
 msgctxt "To-do's due date"
 msgid "<i>Due:</i> %1"
 msgstr "<i>Límite:</i> %1"
 
 #: src/incidenceformatter.cpp:2471
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgctxt "To-do's priority number"
 msgid "<i>Priority:</i> %1"
-msgstr "<i>Inicio do período:</i> %1"
+msgstr "<i>Prioridade:</i> %1"
 
 #: src/incidenceformatter.cpp:2476
-#, fuzzy, kde-format
-#| msgid "<i>Date:</i> %1"
+#, kde-format
 msgctxt "To-do's completed date"
 msgid "<i>Completed:</i> %1"
-msgstr "<i>Data:</i> %1"
+msgstr "<i>Completado:</i> %1"
 
 #: src/incidenceformatter.cpp:2487
-#, fuzzy, kde-format
-#| msgid "Percent Done:"
+#, kde-format
 msgctxt "To-do's percent complete:"
 msgid "<i>Percent Done:</i> %1%"
-msgstr "Porcentaxe feita:"
+msgstr "<i>Porcentaxe feita:</i> %1%"
 
 #: src/incidenceformatter.cpp:2506 src/incidenceformatter.cpp:2507
 #, kde-format
@@ -898,9 +750,7 @@ msgid "%1"
 msgstr "%1"
 
 #: src/incidenceformatter.cpp:2580 src/incidenceformatter.cpp:2715
-#, fuzzy, kde-format
-#| msgctxt "elipsis"
-#| msgid "..."
+#, kde-format
 msgctxt "ellipsis"
 msgid "..."
 msgstr "…"
@@ -925,7 +775,7 @@ msgstr "Organizador:"
 #: src/templates/todo.html:105
 #, kde-format
 msgid "Chair:"
-msgstr "Presidecia:"
+msgstr "Presidencia:"
 
 #: src/incidenceformatter.cpp:2640 src/templates/event.html:137
 #: src/templates/todo.html:118
@@ -995,8 +845,8 @@ msgstr[1] "Lembranzas:"
 #, kde-format
 msgid "Tag:"
 msgid_plural "Tags:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Etiqueta:"
+msgstr[1] "Etiquetas:"
 
 #: src/incidenceformatter.cpp:2783
 #, kde-format
@@ -1867,7 +1717,7 @@ msgstr "Final"
 #, kde-format
 msgctxt "@item chairperson"
 msgid "Chair"
-msgstr "Presidecia"
+msgstr "Presidencia"
 
 #: src/stringify.cpp:120
 #, kde-format
@@ -2208,7 +2058,7 @@ msgstr "Incidencia cunha lembranza"
 
 #: src/templates/incidence_header.html:18
 msgid "Incidence is read only"
-msgstr "Indicencia de só lectura"
+msgstr "Incidencia de só lectura"
 
 #: src/templates/itip.html:80
 msgid "Comment:"
@@ -2326,6 +2176,102 @@ msgstr "Completado:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Porcentaxe feita:"
+
+#~ msgctxt "@title month and year"
+#~ msgid "%1 %2"
+#~ msgstr "%1 %2"
+
+#~ msgctxt "@title:column event start time"
+#~ msgid "Start Time"
+#~ msgstr "Hora de comezo"
+
+#~ msgctxt "@title:column event end time"
+#~ msgid "End Time"
+#~ msgstr "Hora de remate"
+
+#~ msgctxt "@title:column event description"
+#~ msgid "Event"
+#~ msgstr "Evento"
+
+#~ msgctxt "@title:column event location"
+#~ msgid "Location"
+#~ msgstr "Lugar"
+
+#~ msgctxt "@title:column event categories"
+#~ msgid "Categories"
+#~ msgstr "Categorías"
+
+#~ msgctxt "@title:column event attendees"
+#~ msgid "Attendees"
+#~ msgstr "Asistentes"
+
+#~ msgctxt "@title:column"
+#~ msgid "To-do"
+#~ msgstr "Tarefa"
+
+#~ msgctxt "@title:column to-do priority"
+#~ msgid "Priority"
+#~ msgstr "Prioridade"
+
+#~ msgctxt "@title:column to-do percent completed"
+#~ msgid "Completed"
+#~ msgstr "Completada"
+
+#~ msgctxt "@title:column to-do due date"
+#~ msgid "Due Date"
+#~ msgstr "Data límite"
+
+#~ msgctxt "@title:column to-do location"
+#~ msgid "Location"
+#~ msgstr "Lugar"
+
+#~ msgctxt "@title:column to-do categories"
+#~ msgid "Categories"
+#~ msgstr "Categorías"
+
+#~ msgctxt "@title:column to-do attendees"
+#~ msgid "Attendees"
+#~ msgstr "Asistentes"
+
+#~ msgctxt "@title:column sub-to-dos of the parent to-do"
+#~ msgid "Sub-To-dos of: "
+#~ msgstr "Subtarefas de: "
+
+#~ msgctxt "@title:column sub-to-dos of the parent to-do"
+#~ msgid "Sub-To-dos"
+#~ msgstr "Subtarefas"
+
+#~ msgctxt "@info to-do percent complete"
+#~ msgid "%1 %"
+#~ msgstr "%1 %"
+
+#~ msgctxt "@info"
+#~ msgid "This page was created "
+#~ msgstr "Esta páxina creouse "
+
+#~ msgctxt "@info/plain page creator email link with name"
+#~ msgid "by <link url='mailto:%1'>%2</link> "
+#~ msgstr "por <link url='mailto:%1'>%2</link>"
+
+#~ msgctxt "@info/plain page creator email link"
+#~ msgid "by <link url='mailto:%1'>%2</link> "
+#~ msgstr "por <link url='mailto:%1'>%2</link>"
+
+#~ msgctxt "@info page creator name only"
+#~ msgid "by %1 "
+#~ msgstr "por %1 "
+
+#~ msgctxt "@info/plain page credit with name and link"
+#~ msgid "with <link url='%1'>%2</link>"
+#~ msgstr "con <link url='%1'>%2</link>"
+
+#~ msgctxt "@info page credit name only"
+#~ msgid "with %1"
+#~ msgstr "con %1"
+
+#~ msgctxt "@info holiday by date and name"
+#~ msgid "%1, %2"
+#~ msgstr "%1, %2"
 
 #~ msgid "Category:"
 #~ msgid_plural "Categories:"

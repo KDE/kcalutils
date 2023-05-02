@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:46+0000\n"
+"POT-Creation-Date: 2023-04-11 00:48+0000\n"
 "PO-Revision-Date: 2021-10-02 12:51+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -36,150 +36,6 @@ msgstr "Ontleedfout in sjabloon"
 #, kde-format
 msgid "Template rendering error"
 msgstr "Renderingfout in sjabloon"
-
-#: src/htmlexport.cpp:170
-#, kde-format
-msgctxt "@title month and year"
-msgid "%1 %2"
-msgstr "%1 %2"
-
-#: src/htmlexport.cpp:246
-#, kde-format
-msgctxt "@title:column event start time"
-msgid "Start Time"
-msgstr "Starttijd"
-
-#: src/htmlexport.cpp:247
-#, kde-format
-msgctxt "@title:column event end time"
-msgid "End Time"
-msgstr "Eindtijd"
-
-#: src/htmlexport.cpp:248
-#, kde-format
-msgctxt "@title:column event description"
-msgid "Event"
-msgstr "Activiteit"
-
-#: src/htmlexport.cpp:250
-#, kde-format
-msgctxt "@title:column event location"
-msgid "Location"
-msgstr "Locatie"
-
-#: src/htmlexport.cpp:254
-#, kde-format
-msgctxt "@title:column event categories"
-msgid "Categories"
-msgstr "Categorieën"
-
-#: src/htmlexport.cpp:258
-#, kde-format
-msgctxt "@title:column event attendees"
-msgid "Attendees"
-msgstr "Deelnemers"
-
-#: src/htmlexport.cpp:375
-#, kde-format
-msgctxt "@title:column"
-msgid "To-do"
-msgstr "Taak"
-
-#: src/htmlexport.cpp:376
-#, kde-format
-msgctxt "@title:column to-do priority"
-msgid "Priority"
-msgstr "Prioriteit"
-
-#: src/htmlexport.cpp:377
-#, kde-format
-msgctxt "@title:column to-do percent completed"
-msgid "Completed"
-msgstr "Voltooid"
-
-#: src/htmlexport.cpp:379
-#, kde-format
-msgctxt "@title:column to-do due date"
-msgid "Due Date"
-msgstr "Einddatum"
-
-#: src/htmlexport.cpp:383
-#, kde-format
-msgctxt "@title:column to-do location"
-msgid "Location"
-msgstr "Locatie"
-
-#: src/htmlexport.cpp:387
-#, kde-format
-msgctxt "@title:column to-do categories"
-msgid "Categories"
-msgstr "Categorieën"
-
-#: src/htmlexport.cpp:391
-#, kde-format
-msgctxt "@title:column to-do attendees"
-msgid "Attendees"
-msgstr "Deelnemers"
-
-#: src/htmlexport.cpp:412
-#, kde-format
-msgctxt "@title:column sub-to-dos of the parent to-do"
-msgid "Sub-To-dos of: "
-msgstr "Subtaken van:"
-
-#: src/htmlexport.cpp:467
-#, kde-format
-msgctxt "@title:column sub-to-dos of the parent to-do"
-msgid "Sub-To-dos"
-msgstr "Subtaken"
-
-#: src/htmlexport.cpp:485
-#, kde-format
-msgctxt "@info to-do percent complete"
-msgid "%1 %"
-msgstr "%1 %"
-
-#: src/htmlexport.cpp:630
-#, kde-format
-msgctxt "@info"
-msgid "This page was created "
-msgstr "Deze pagina is gemaakt "
-
-#: src/htmlexport.cpp:639
-#, kde-kuit-format
-msgctxt "@info/plain page creator email link with name"
-msgid "by <link url='mailto:%1'>%2</link> "
-msgstr "door <link url='mailto:%1'>%2</link> "
-
-#: src/htmlexport.cpp:641
-#, kde-kuit-format
-msgctxt "@info/plain page creator email link"
-msgid "by <link url='mailto:%1'>%2</link> "
-msgstr "door <link url='mailto:%1'>%2</link> "
-
-#: src/htmlexport.cpp:645
-#, kde-format
-msgctxt "@info page creator name only"
-msgid "by %1 "
-msgstr "door %1 "
-
-#: src/htmlexport.cpp:651
-#, kde-kuit-format
-msgctxt "@info/plain page credit with name and link"
-msgid "with <link url='%1'>%2</link>"
-msgstr "met <link url='%1'>%2</link>"
-
-#: src/htmlexport.cpp:653
-#, kde-format
-msgctxt "@info page credit name only"
-msgid "with %1"
-msgstr "met %1"
-
-#: src/htmlexport.cpp:719
-#, kde-format
-msgctxt "@info holiday by date and name"
-msgid "%1, %2"
-msgstr "%1, %2"
 
 #: src/incidenceformatter.cpp:167
 #, kde-format
@@ -2318,6 +2174,102 @@ msgstr "Voltooid:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Percentage gereed:"
+
+#~ msgctxt "@title month and year"
+#~ msgid "%1 %2"
+#~ msgstr "%1 %2"
+
+#~ msgctxt "@title:column event start time"
+#~ msgid "Start Time"
+#~ msgstr "Starttijd"
+
+#~ msgctxt "@title:column event end time"
+#~ msgid "End Time"
+#~ msgstr "Eindtijd"
+
+#~ msgctxt "@title:column event description"
+#~ msgid "Event"
+#~ msgstr "Activiteit"
+
+#~ msgctxt "@title:column event location"
+#~ msgid "Location"
+#~ msgstr "Locatie"
+
+#~ msgctxt "@title:column event categories"
+#~ msgid "Categories"
+#~ msgstr "Categorieën"
+
+#~ msgctxt "@title:column event attendees"
+#~ msgid "Attendees"
+#~ msgstr "Deelnemers"
+
+#~ msgctxt "@title:column"
+#~ msgid "To-do"
+#~ msgstr "Taak"
+
+#~ msgctxt "@title:column to-do priority"
+#~ msgid "Priority"
+#~ msgstr "Prioriteit"
+
+#~ msgctxt "@title:column to-do percent completed"
+#~ msgid "Completed"
+#~ msgstr "Voltooid"
+
+#~ msgctxt "@title:column to-do due date"
+#~ msgid "Due Date"
+#~ msgstr "Einddatum"
+
+#~ msgctxt "@title:column to-do location"
+#~ msgid "Location"
+#~ msgstr "Locatie"
+
+#~ msgctxt "@title:column to-do categories"
+#~ msgid "Categories"
+#~ msgstr "Categorieën"
+
+#~ msgctxt "@title:column to-do attendees"
+#~ msgid "Attendees"
+#~ msgstr "Deelnemers"
+
+#~ msgctxt "@title:column sub-to-dos of the parent to-do"
+#~ msgid "Sub-To-dos of: "
+#~ msgstr "Subtaken van:"
+
+#~ msgctxt "@title:column sub-to-dos of the parent to-do"
+#~ msgid "Sub-To-dos"
+#~ msgstr "Subtaken"
+
+#~ msgctxt "@info to-do percent complete"
+#~ msgid "%1 %"
+#~ msgstr "%1 %"
+
+#~ msgctxt "@info"
+#~ msgid "This page was created "
+#~ msgstr "Deze pagina is gemaakt "
+
+#~ msgctxt "@info/plain page creator email link with name"
+#~ msgid "by <link url='mailto:%1'>%2</link> "
+#~ msgstr "door <link url='mailto:%1'>%2</link> "
+
+#~ msgctxt "@info/plain page creator email link"
+#~ msgid "by <link url='mailto:%1'>%2</link> "
+#~ msgstr "door <link url='mailto:%1'>%2</link> "
+
+#~ msgctxt "@info page creator name only"
+#~ msgid "by %1 "
+#~ msgstr "door %1 "
+
+#~ msgctxt "@info/plain page credit with name and link"
+#~ msgid "with <link url='%1'>%2</link>"
+#~ msgstr "met <link url='%1'>%2</link>"
+
+#~ msgctxt "@info page credit name only"
+#~ msgid "with %1"
+#~ msgstr "met %1"
+
+#~ msgctxt "@info holiday by date and name"
+#~ msgid "%1, %2"
+#~ msgstr "%1, %2"
 
 #~ msgid "Category:"
 #~ msgid_plural "Categories:"

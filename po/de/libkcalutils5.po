@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:46+0000\n"
+"POT-Creation-Date: 2023-04-11 00:48+0000\n"
 "PO-Revision-Date: 2021-10-15 12:28+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 19.12.3\n"
 
 #: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
@@ -38,150 +38,6 @@ msgstr "Fehler beim Einlesen der Vorlage"
 #, kde-format
 msgid "Template rendering error"
 msgstr "Fehler beim Verarbeiten der Vorlage"
-
-#: src/htmlexport.cpp:170
-#, kde-format
-msgctxt "@title month and year"
-msgid "%1 %2"
-msgstr "%1 %2"
-
-#: src/htmlexport.cpp:246
-#, kde-format
-msgctxt "@title:column event start time"
-msgid "Start Time"
-msgstr "Startzeit"
-
-#: src/htmlexport.cpp:247
-#, kde-format
-msgctxt "@title:column event end time"
-msgid "End Time"
-msgstr "Abschlusszeit"
-
-#: src/htmlexport.cpp:248
-#, kde-format
-msgctxt "@title:column event description"
-msgid "Event"
-msgstr "Termin"
-
-#: src/htmlexport.cpp:250
-#, kde-format
-msgctxt "@title:column event location"
-msgid "Location"
-msgstr "Ort"
-
-#: src/htmlexport.cpp:254
-#, kde-format
-msgctxt "@title:column event categories"
-msgid "Categories"
-msgstr "Kategorien"
-
-#: src/htmlexport.cpp:258
-#, kde-format
-msgctxt "@title:column event attendees"
-msgid "Attendees"
-msgstr "Teilnehmer"
-
-#: src/htmlexport.cpp:375
-#, kde-format
-msgctxt "@title:column"
-msgid "To-do"
-msgstr "Aufgabe"
-
-#: src/htmlexport.cpp:376
-#, kde-format
-msgctxt "@title:column to-do priority"
-msgid "Priority"
-msgstr "Priorität"
-
-#: src/htmlexport.cpp:377
-#, kde-format
-msgctxt "@title:column to-do percent completed"
-msgid "Completed"
-msgstr "Abgeschlossen"
-
-#: src/htmlexport.cpp:379
-#, kde-format
-msgctxt "@title:column to-do due date"
-msgid "Due Date"
-msgstr "Fälligkeitsdatum"
-
-#: src/htmlexport.cpp:383
-#, kde-format
-msgctxt "@title:column to-do location"
-msgid "Location"
-msgstr "Ort"
-
-#: src/htmlexport.cpp:387
-#, kde-format
-msgctxt "@title:column to-do categories"
-msgid "Categories"
-msgstr "Kategorien"
-
-#: src/htmlexport.cpp:391
-#, kde-format
-msgctxt "@title:column to-do attendees"
-msgid "Attendees"
-msgstr "Teilnehmer"
-
-#: src/htmlexport.cpp:412
-#, kde-format
-msgctxt "@title:column sub-to-dos of the parent to-do"
-msgid "Sub-To-dos of: "
-msgstr "Teilaufgaben von: "
-
-#: src/htmlexport.cpp:467
-#, kde-format
-msgctxt "@title:column sub-to-dos of the parent to-do"
-msgid "Sub-To-dos"
-msgstr "Teilaufgaben"
-
-#: src/htmlexport.cpp:485
-#, kde-format
-msgctxt "@info to-do percent complete"
-msgid "%1 %"
-msgstr "%1 %"
-
-#: src/htmlexport.cpp:630
-#, kde-format
-msgctxt "@info"
-msgid "This page was created "
-msgstr "Diese Seite wurde erstellt "
-
-#: src/htmlexport.cpp:639
-#, kde-kuit-format
-msgctxt "@info/plain page creator email link with name"
-msgid "by <link url='mailto:%1'>%2</link> "
-msgstr "von <link url='mailto:%1'>%2</link> "
-
-#: src/htmlexport.cpp:641
-#, kde-kuit-format
-msgctxt "@info/plain page creator email link"
-msgid "by <link url='mailto:%1'>%2</link> "
-msgstr "von <link url='mailto:%1'>%2</link> "
-
-#: src/htmlexport.cpp:645
-#, kde-format
-msgctxt "@info page creator name only"
-msgid "by %1 "
-msgstr "von %1 "
-
-#: src/htmlexport.cpp:651
-#, kde-kuit-format
-msgctxt "@info/plain page credit with name and link"
-msgid "with <link url='%1'>%2</link>"
-msgstr "mit <link url='%1'>%2</link>"
-
-#: src/htmlexport.cpp:653
-#, kde-format
-msgctxt "@info page credit name only"
-msgid "with %1"
-msgstr "mit %1"
-
-#: src/htmlexport.cpp:719
-#, kde-format
-msgctxt "@info holiday by date and name"
-msgid "%1, %2"
-msgstr "%1, %2"
 
 #: src/incidenceformatter.cpp:167
 #, kde-format
@@ -2327,6 +2183,102 @@ msgstr "Abgeschlossen:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Abgeschlossen in Prozent:"
+
+#~ msgctxt "@title month and year"
+#~ msgid "%1 %2"
+#~ msgstr "%1 %2"
+
+#~ msgctxt "@title:column event start time"
+#~ msgid "Start Time"
+#~ msgstr "Startzeit"
+
+#~ msgctxt "@title:column event end time"
+#~ msgid "End Time"
+#~ msgstr "Abschlusszeit"
+
+#~ msgctxt "@title:column event description"
+#~ msgid "Event"
+#~ msgstr "Termin"
+
+#~ msgctxt "@title:column event location"
+#~ msgid "Location"
+#~ msgstr "Ort"
+
+#~ msgctxt "@title:column event categories"
+#~ msgid "Categories"
+#~ msgstr "Kategorien"
+
+#~ msgctxt "@title:column event attendees"
+#~ msgid "Attendees"
+#~ msgstr "Teilnehmer"
+
+#~ msgctxt "@title:column"
+#~ msgid "To-do"
+#~ msgstr "Aufgabe"
+
+#~ msgctxt "@title:column to-do priority"
+#~ msgid "Priority"
+#~ msgstr "Priorität"
+
+#~ msgctxt "@title:column to-do percent completed"
+#~ msgid "Completed"
+#~ msgstr "Abgeschlossen"
+
+#~ msgctxt "@title:column to-do due date"
+#~ msgid "Due Date"
+#~ msgstr "Fälligkeitsdatum"
+
+#~ msgctxt "@title:column to-do location"
+#~ msgid "Location"
+#~ msgstr "Ort"
+
+#~ msgctxt "@title:column to-do categories"
+#~ msgid "Categories"
+#~ msgstr "Kategorien"
+
+#~ msgctxt "@title:column to-do attendees"
+#~ msgid "Attendees"
+#~ msgstr "Teilnehmer"
+
+#~ msgctxt "@title:column sub-to-dos of the parent to-do"
+#~ msgid "Sub-To-dos of: "
+#~ msgstr "Teilaufgaben von: "
+
+#~ msgctxt "@title:column sub-to-dos of the parent to-do"
+#~ msgid "Sub-To-dos"
+#~ msgstr "Teilaufgaben"
+
+#~ msgctxt "@info to-do percent complete"
+#~ msgid "%1 %"
+#~ msgstr "%1 %"
+
+#~ msgctxt "@info"
+#~ msgid "This page was created "
+#~ msgstr "Diese Seite wurde erstellt "
+
+#~ msgctxt "@info/plain page creator email link with name"
+#~ msgid "by <link url='mailto:%1'>%2</link> "
+#~ msgstr "von <link url='mailto:%1'>%2</link> "
+
+#~ msgctxt "@info/plain page creator email link"
+#~ msgid "by <link url='mailto:%1'>%2</link> "
+#~ msgstr "von <link url='mailto:%1'>%2</link> "
+
+#~ msgctxt "@info page creator name only"
+#~ msgid "by %1 "
+#~ msgstr "von %1 "
+
+#~ msgctxt "@info/plain page credit with name and link"
+#~ msgid "with <link url='%1'>%2</link>"
+#~ msgstr "mit <link url='%1'>%2</link>"
+
+#~ msgctxt "@info page credit name only"
+#~ msgid "with %1"
+#~ msgstr "mit %1"
+
+#~ msgctxt "@info holiday by date and name"
+#~ msgid "%1, %2"
+#~ msgstr "%1, %2"
 
 #~ msgid "Category:"
 #~ msgid_plural "Categories:"
