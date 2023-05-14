@@ -1619,8 +1619,8 @@ msgstr[3] "يتكرّر كل %1 أسابيع أيام %2"
 msgstr[4] "يتكرّر كل %1 أسبوعًا أيام %2"
 msgstr[5] "يتكرّر كل %1 أسبوع أيام %2"
 
-# يتكرّر (كل ٥ أشهر) في يوم (الإثنين) (الثالث) حتى (كذا تاريخ)
-# يتكرّر (كل ٥ أشهر) في يوم (الإثنين) (الثالث من الآخر) حتى (كذا تاريخ)
+# يتكرّر (كل 5 أشهر) في يوم (الإثنين) (الثالث) حتى (كذا تاريخ)
+# يتكرّر (كل 5 أشهر) في يوم (الإثنين) (الثالث من الآخر) حتى (كذا تاريخ)
 # قديم: يتكرّر كل شهرين في $[بلا-ال-التعريف $[الترتيب %2]] يوم $[بلا-ال-التعريف %3] حتى %4
 #: src/incidenceformatter.cpp:3113
 #, kde-format
@@ -1864,8 +1864,8 @@ msgctxt "interval is N days/hours/minutes"
 msgid "interval is %1"
 msgstr "بمعدّل %1"
 
-# %1 هي ”يتكرر ٥ مرات“ و%2 هي ”بمعدّل %1“
-# ”يتكرر ٥ مرات بمعدّل دقيقتين“
+# %1 هي ”يتكرر 5 مرات“ و%2 هي ”بمعدّل %1“
+# ”يتكرر 5 مرات بمعدّل دقيقتين“
 #: src/incidenceformatter.cpp:3472
 #, kde-format
 msgctxt "(repeat string, interval string)"
@@ -2092,7 +2092,7 @@ msgstr "توقّعتُ iCalendar وحصلتُ على نسق vCalendar"
 #, kde-format
 msgctxt "@item"
 msgid "iCalendar Version 2.0 detected."
-msgstr "اكُتشفت الإصدارة ٢٫٠ من iCalendar."
+msgstr "اكُتشفت الإصدارة 2٫0 من iCalendar."
 
 #: src/stringify.cpp:179 src/stringify.cpp:205
 #, kde-format
