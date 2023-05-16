@@ -17,7 +17,7 @@ target_sources(kcalendar_grantlee_plugin PRIVATE
 
     ktexttemplate_adjust_plugin_name(kcalendar_grantlee_plugin)
     target_link_libraries(kcalendar_grantlee_plugin
-        ${TEMPLATES_LIB}
+        KF6::TextTemplate
         KF6::IconThemes
         KPim6CalendarUtils
     )

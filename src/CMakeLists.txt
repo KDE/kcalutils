@@ -63,7 +63,7 @@ PRIVATE
   KF6::I18n
   KPim6::IdentityManagement
   KF6::Codecs
-  ${TEMPLATES_LIB}
+  KF6::TextTemplate
 )
 
 set_target_properties(KPim6CalendarUtils PROPERTIES

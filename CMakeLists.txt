@@ -53,7 +53,6 @@ find_package(KF6WidgetsAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6IconThemes ${KF_MIN_VERSION} CONFIG REQUIRED)
 
 find_package(KF6TextTemplate CONFIG REQUIRED)
-set(TEMPLATES_LIB KF6::TextTemplate)
 
 find_package(KF6CalendarCore ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KPim6IdentityManagement ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRED)
