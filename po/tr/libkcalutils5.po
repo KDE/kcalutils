@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-11 00:48+0000\n"
-"PO-Revision-Date: 2023-03-31 21:31+0300\n"
+"PO-Revision-Date: 2023-05-15 21:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.03.70\n"
 
 #: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
@@ -1993,7 +1993,7 @@ msgstr "%1"
 #: src/templates/event.html:70
 msgctxt "Exception in event recurrence"
 msgid "Exception"
-msgstr "Elağandışı durum"
+msgstr "Olağandışı durum"
 
 #: src/templates/event.html:80
 msgid "Birthday:"
@@ -2010,8 +2010,8 @@ msgstr "İsteğe bağlı katılımcılar:"
 #: src/templates/event.html:184 src/templates/todo.html:186
 msgid "Attachment:"
 msgid_plural "Attachments:"
-msgstr[0] "Eklenti:"
-msgstr[1] "Eklentiler:"
+msgstr[0] "Ek:"
+msgstr[1] "Ekler:"
 
 #: src/templates/event.html:196 src/templates/journal.html:46
 #: src/templates/todo.html:199
@@ -2069,7 +2069,7 @@ msgstr "Yorumlar:"
 
 #: src/templates/itip.html:122
 msgid "Attachments:"
-msgstr "Eklentiler:"
+msgstr "Ekler:"
 
 #: src/templates/itip_event.html:6
 msgid "First event:"
