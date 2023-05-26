@@ -61,7 +61,7 @@ PRIVATE
   KF6::WidgetsAddons
   KF6::IconThemes
   KF6::I18n
-  KPim6::IdentityManagement
+  KPim6::IdentityManagementCore
   KF6::Codecs
   KF6::TextTemplate
 )

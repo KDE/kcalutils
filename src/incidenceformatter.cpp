@@ -32,7 +32,7 @@
 #include <KCalendarCore/Visitor>
 using namespace KCalendarCore;
 
-#include <KIdentityManagement/Utils>
+#include <KIdentityManagementCore/Utils>
 
 #include <KEmailAddress>
 #include <ktexttohtml.h>
@@ -66,7 +66,7 @@ static QString string2HTML(const QString &str)
 
 static bool thatIsMe(const QString &email)
 {
-    return KIdentityManagement::thatIsMe(email);
+    return KIdentityManagementCore::thatIsMe(email);
 }
 
 static bool iamAttendee(const Attendee &attendee)

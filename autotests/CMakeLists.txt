@@ -19,7 +19,7 @@ ecm_add_tests(testdndfactory.cpp teststringify.cpp testtodotooltip.cpp
 ecm_add_test(testincidenceformatter.cpp testincidenceformatter.h
     TEST_NAME "testincidenceformatter"
     NAME_PREFIX "kcalutils-"
-    LINK_LIBRARIES KPim6CalendarUtils Qt::Core Qt::Test KF6::CalendarCore KF6::I18n KPim6::IdentityManagement KF6::TextTemplate
+    LINK_LIBRARIES KPim6CalendarUtils Qt::Core Qt::Test KF6::CalendarCore KF6::I18n KPim6::IdentityManagementCore KF6::TextTemplate
 )
 
 # Make sure that dates are formatted in C locale
