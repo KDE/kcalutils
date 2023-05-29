@@ -8,4 +8,4 @@ Dependencies:
     'frameworks/kcalendarcore' : '@latest-kf6'
     'pim/kidentitymanagement' : '@latest-kf6'
     'frameworks/breeze-icons': '@latest-kf6'
-    'libraries/ktexttemplate': '@stable'
+    'frameworks/ktexttemplate': '@latest-kf6'
