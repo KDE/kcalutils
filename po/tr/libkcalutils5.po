@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-19 00:46+0000\n"
-"PO-Revision-Date: 2023-05-15 21:18+0300\n"
+"PO-Revision-Date: 2023-05-29 12:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
@@ -1727,7 +1727,7 @@ msgstr "bitişten sonra %1"
 #, kde-format
 msgctxt "reminder occurs at datetime"
 msgid "at %1"
-msgstr "%1 'de"
+msgstr "%1 tarihinde"
 
 #: src/incidenceformatter.cpp:3470
 #, kde-format
@@ -2197,7 +2197,7 @@ msgstr "Yinelenen olay"
 
 #: src/templates/incidence_header.html:14
 msgid "Incidence with a reminder"
-msgstr "Hatırlatmalı olay"
+msgstr "Anımsatıcılı olay"
 
 #: src/templates/incidence_header.html:18
 msgid "Incidence is read only"
