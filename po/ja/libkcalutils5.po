@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
@@ -63,24 +63,21 @@ msgstr ""
 msgctxt "hours part of duration"
 msgid "1 hour "
 msgid_plural "%1 hours "
-msgstr[0] "1 時間 "
-msgstr[1] "%1 時間 "
+msgstr[0] "%1 時間 "
 
 #: src/incidenceformatter.cpp:616
 #, kde-format
 msgctxt "minutes part duration"
 msgid "1 minute "
 msgid_plural "%1 minutes "
-msgstr[0] "1 分 "
-msgstr[1] "%1 分 "
+msgstr[0] "%1 分 "
 
 #: src/incidenceformatter.cpp:620 src/incidenceformatter.cpp:1268
 #, kde-format
 msgctxt "seconds part of duration"
 msgid "1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "1 秒"
-msgstr[1] "%1 秒"
+msgstr[0] "%1 秒"
 
 #: src/incidenceformatter.cpp:763
 #, kde-format
@@ -141,8 +138,7 @@ msgstr "%1%"
 msgctxt "minutes part of duration"
 msgid "1 minute"
 msgid_plural "%1 minutes "
-msgstr[0] "1 分 "
-msgstr[1] "%1 分 "
+msgstr[0] "%1 分 "
 
 #: src/incidenceformatter.cpp:1316
 #, fuzzy, kde-format
@@ -940,7 +936,6 @@ msgstr "説明:"
 msgid "Reminder:"
 msgid_plural "Reminders:"
 msgstr[0] "リマインダ:"
-msgstr[1] "リマインダ:"
 
 #: src/incidenceformatter.cpp:2754 src/templates/event.html:176
 #: src/templates/journal.html:38 src/templates/todo.html:157
@@ -948,7 +943,6 @@ msgstr[1] "リマインダ:"
 msgid "Tag:"
 msgid_plural "Tags:"
 msgstr[0] ""
-msgstr[1] ""
 
 #: src/incidenceformatter.cpp:2783
 #, kde-format
@@ -1064,8 +1058,7 @@ msgstr "頻度: %1\n"
 #, kde-format
 msgid "Repeats once"
 msgid_plural "Repeats %1 times"
-msgstr[0] "1 回繰り返す"
-msgstr[1] "%1 回繰り返す"
+msgstr[0] "%1 回繰り返す"
 
 #: src/incidenceformatter.cpp:2867
 #, kde-format
@@ -1441,8 +1434,7 @@ msgstr "31番目"
 #, kde-format
 msgid "Recurs every minute until %2"
 msgid_plural "Recurs every %1 minutes until %2"
-msgstr[0] "%2 まで毎分繰り返す"
-msgstr[1] "%2 まで %1 分ごとに繰り返す"
+msgstr[0] "%2 まで %1 分ごとに繰り返す"
 
 #: src/incidenceformatter.cpp:3048 src/incidenceformatter.cpp:3059
 #: src/incidenceformatter.cpp:3070 src/incidenceformatter.cpp:3099
@@ -1458,36 +1450,31 @@ msgstr " (<numid>%1</numid> 回)"
 #, kde-format
 msgid "Recurs every minute"
 msgid_plural "Recurs every %1 minutes"
-msgstr[0] "毎分繰り返す"
-msgstr[1] "%1 分ごとに繰り返す"
+msgstr[0] "%1 分ごとに繰り返す"
 
 #: src/incidenceformatter.cpp:3057
 #, kde-format
 msgid "Recurs hourly until %2"
 msgid_plural "Recurs every %1 hours until %2"
-msgstr[0] "%2 まで毎時繰り返す"
-msgstr[1] "%2 まで %1 時間ごとに繰り返す"
+msgstr[0] "%2 まで %1 時間ごとに繰り返す"
 
 #: src/incidenceformatter.cpp:3062
 #, kde-format
 msgid "Recurs hourly"
 msgid_plural "Recurs every %1 hours"
-msgstr[0] "毎時繰り返す"
-msgstr[1] "%1 時間ごとに繰り返す"
+msgstr[0] "%1 時間ごとに繰り返す"
 
 #: src/incidenceformatter.cpp:3068
 #, kde-format
 msgid "Recurs daily until %2"
 msgid_plural "Recurs every %1 days until %2"
-msgstr[0] "%2 まで毎日繰り返す"
-msgstr[1] "%2 まで %1 日ごとに繰り返す"
+msgstr[0] "%2 まで %1 日ごとに繰り返す"
 
 #: src/incidenceformatter.cpp:3073
 #, kde-format
 msgid "Recurs daily"
 msgid_plural "Recurs every %1 days"
-msgstr[0] "毎日繰り返す"
-msgstr[1] "%1 日ごとに繰り返す"
+msgstr[0] "%1 日ごとに繰り返す"
 
 #: src/incidenceformatter.cpp:3082
 #, kde-format
@@ -1508,8 +1495,7 @@ msgstr " --- "
 msgctxt "Recurs weekly on [list of days] until end-date"
 msgid "Recurs weekly on %2 until %3"
 msgid_plural "Recurs every %1 weeks on %2 until %3"
-msgstr[0] "%3 まで毎週%2曜日に繰り返す"
-msgstr[1] "%3 まで %1 週ごとに%2曜日に繰り返す"
+msgstr[0] "%3 まで %1 週ごとに%2曜日に繰り返す"
 
 # %2 は短い曜日名。「毎週金に」ではおかしいので「曜日」を付けました。
 # 複数の曜日を指定した場合は「月、水、金曜日に」のようになってしまいますが。
@@ -1518,56 +1504,49 @@ msgstr[1] "%3 まで %1 週ごとに%2曜日に繰り返す"
 msgctxt "Recurs weekly on [list of days]"
 msgid "Recurs weekly on %2"
 msgid_plural "Recurs every %1 weeks on %2"
-msgstr[0] "毎週%2曜日に繰り返す"
-msgstr[1] "%1 週ごとに%2曜日に繰り返す"
+msgstr[0] "%1 週ごとに%2曜日に繰り返す"
 
 #: src/incidenceformatter.cpp:3113
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
 msgid "Recurs every month on the %2 %3 until %4"
 msgid_plural "Recurs every %1 months on the %2 %3 until %4"
-msgstr[0] "%4 まで毎月%2の%3に繰り返す"
-msgstr[1] "%4 まで %1 カ月ごとに%2の%3に繰り返す"
+msgstr[0] "%4 まで %1 カ月ごとに%2の%3に繰り返す"
 
 #: src/incidenceformatter.cpp:3124
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname"
 msgid "Recurs every month on the %2 %3"
 msgid_plural "Recurs every %1 months on the %2 %3"
-msgstr[0] "毎月%2の%3に繰り返す"
-msgstr[1] "%1 カ月ごとに%2の%3に繰り返す"
+msgstr[0] "%1 カ月ごとに%2の%3に繰り返す"
 
 #: src/incidenceformatter.cpp:3137
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day until end-date"
 msgid "Recurs monthly on the %2 day until %3"
 msgid_plural "Recurs every %1 months on the %2 day until %3"
-msgstr[0] "%3 まで毎月%2の日に繰り返す"
-msgstr[1] "%3 まで %1 カ月ごとに%2の日に繰り返す"
+msgstr[0] "%3 まで %1 カ月ごとに%2の日に繰り返す"
 
 #: src/incidenceformatter.cpp:3147
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day"
 msgid "Recurs monthly on the %2 day"
 msgid_plural "Recurs every %1 month on the %2 day"
-msgstr[0] "毎月%2の日に繰り返す"
-msgstr[1] "%1 カ月ごとに%2の日に繰り返す"
+msgstr[0] "%1 カ月ごとに%2の日に繰り返す"
 
 #: src/incidenceformatter.cpp:3160
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...] until end-date"
 msgid "Recurs yearly on %2 %3 until %4"
 msgid_plural "Recurs every %1 years on %2 %3 until %4"
-msgstr[0] "%4 まで毎年%2の%3の日に繰り返す"
-msgstr[1] "%4 まで %1 年ごとに%2の%3の日に繰り返す"
+msgstr[0] "%4 まで %1 年ごとに%2の%3の日に繰り返す"
 
 #: src/incidenceformatter.cpp:3173
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %2 %3"
 msgid_plural "Recurs every %1 years on %2 %3"
-msgstr[0] "毎年%2の%3の日に繰り返す"
-msgstr[1] "%1 年ごとに%2の%3の日に繰り返す"
+msgstr[0] "%1 年ごとに%2の%3の日に繰り返す"
 
 #: src/incidenceformatter.cpp:3181 src/incidenceformatter.cpp:3186
 #, kde-format
@@ -1580,16 +1559,14 @@ msgstr "毎年%1の%2の日に繰り返す"
 msgctxt "Recurs every N years on day N until end-date"
 msgid "Recurs every year on day %2 until %3"
 msgid_plural "Recurs every %1 years on day %2 until %3"
-msgstr[0] "%3 まで毎年%2番目の日に繰り返す"
-msgstr[1] "%3 まで %1 年ごとに%2番目の日に繰り返す"
+msgstr[0] "%3 まで %1 年ごとに%2番目の日に繰り返す"
 
 #: src/incidenceformatter.cpp:3208
 #, kde-format
 msgctxt "Recurs every N YEAR[S] on day N"
 msgid "Recurs every year on day %2"
 msgid_plural "Recurs every %1 years on day %2"
-msgstr[0] "毎年%2番目の日に繰り返す"
-msgstr[1] "%1 年ごとに%2番目の日に繰り返す"
+msgstr[0] "%1 年ごとに%2番目の日に繰り返す"
 
 #: src/incidenceformatter.cpp:3223
 #, kde-format
@@ -1597,8 +1574,7 @@ msgctxt ""
 "Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
 msgid "Every year on the %2 %3 of %4 until %5"
 msgid_plural "Every %1 years on the %2 %3 of %4 until %5"
-msgstr[0] "%5 まで毎年%4の%2の%3に繰り返す"
-msgstr[1] "%5 まで %1 年ごとに%4の%2の%3に繰り返す"
+msgstr[0] "%5 まで %1 年ごとに%4の%2の%3に繰り返す"
 
 #: src/incidenceformatter.cpp:3238
 #, fuzzy, kde-kuit-format
@@ -1609,8 +1585,7 @@ msgstr[1] "%5 まで %1 年ごとに%4の%2の%3に繰り返す"
 msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
 msgid "Every year on the %2 %3 of %4"
 msgid_plural "Every %1 years on the %2 %3 of %4"
-msgstr[0] "%5 まで毎年%4の%2の%3に繰り返す"
-msgstr[1] "%5 まで <numid>%1</numid> 年ごとに%4の%2の%3に繰り返す"
+msgstr[0] "%5 まで <numid>%1</numid> 年ごとに%4の%2の%3に繰り返す"
 
 #: src/incidenceformatter.cpp:3250
 #, kde-format
@@ -1627,8 +1602,7 @@ msgstr "%1 分 "
 #, kde-format
 msgid "1 day"
 msgid_plural "%1 days"
-msgstr[0] "1 日間"
-msgstr[1] "%1 日間"
+msgstr[0] "%1 日間"
 
 #: src/incidenceformatter.cpp:3314
 #, kde-format
@@ -1639,15 +1613,13 @@ msgstr ""
 #, kde-format
 msgid "1 hour"
 msgid_plural "%1 hours"
-msgstr[0] "1 時間"
-msgstr[1] "%1 時間"
+msgstr[0] "%1 時間"
 
 #: src/incidenceformatter.cpp:3363
 #, kde-format
 msgid "1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] "1 分 "
-msgstr[1] "%1 分 "
+msgstr[0] "%1 分 "
 
 #: src/incidenceformatter.cpp:3380
 #, kde-format
@@ -1700,8 +1672,7 @@ msgstr " %1"
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
-msgstr[0] "1 回繰り返す"
-msgstr[1] "%1 回繰り返す"
+msgstr[0] "%1 回繰り返す"
 
 #: src/incidenceformatter.cpp:3471
 #, kde-format
@@ -2141,7 +2112,6 @@ msgstr "任意参加者:"
 msgid "Attachment:"
 msgid_plural "Attachments:"
 msgstr[0] "添付ファイル:"
-msgstr[1] "添付ファイル:"
 
 #: src/templates/event.html:196 src/templates/journal.html:46
 #: src/templates/todo.html:199
