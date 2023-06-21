@@ -375,3 +375,5 @@ void TestTodoToolTip::testPriority()
 }
 
 QTEST_MAIN(TestTodoToolTip)
+
+#include "moc_testtodotooltip.cpp"

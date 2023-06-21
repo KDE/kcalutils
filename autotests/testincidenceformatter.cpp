@@ -414,3 +414,5 @@ void IncidenceFormatterTest::testFormatIcalInvitation()
 
     cleanup(name);
 }
+
+#include "moc_testincidenceformatter.cpp"

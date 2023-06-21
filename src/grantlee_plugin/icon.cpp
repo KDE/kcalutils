@@ -121,3 +121,5 @@ void IconNode::render(KTextTemplate::OutputStream *stream, KTextTemplate::Contex
             .arg(altText.isEmpty() ? iconName : altText, altText); // title is intentionally blank if no alt is provided
     (*stream) << KTextTemplate::SafeString(html, KTextTemplate::SafeString::IsSafe);
 }
+
+#include "moc_icon.cpp"

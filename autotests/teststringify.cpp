@@ -94,3 +94,5 @@ void StringifyTest::testUTCoffsetStrings()
     QTimeZone tz8(-((12 * 60 * 60) + (59 * 60))); //-12:59
     QCOMPARE(Stringify::tzUTCOffsetStr(tz8), QStringLiteral("-12:59"));
 }
+
+#include "moc_teststringify.cpp"

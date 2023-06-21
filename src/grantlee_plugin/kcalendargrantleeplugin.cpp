@@ -36,3 +36,5 @@ QHash<QString, KTextTemplate::Filter *> KCalendarGrantleePlugin::filters(const Q
 
     return filters;
 }
+
+#include "moc_kcalendargrantleeplugin.cpp"

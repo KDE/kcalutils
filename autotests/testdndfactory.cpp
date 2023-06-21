@@ -142,3 +142,5 @@ void DndFactoryTest::testPasteTodo()
     QCOMPARE(newDateTime, pastedTodo->dtDue());
     QCOMPARE(todo->summary(), pastedTodo->summary());
 }
+
+#include "moc_testdndfactory.cpp"
