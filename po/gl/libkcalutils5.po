@@ -53,7 +53,7 @@ msgstr "Remitente"
 #: src/incidenceformatter.cpp:353
 #, kde-format
 msgid "Show mail"
-msgstr "Mostrar o correo"
+msgstr "Amosar o correo"
 
 #: src/incidenceformatter.cpp:612 src/incidenceformatter.cpp:1260
 #, kde-format
