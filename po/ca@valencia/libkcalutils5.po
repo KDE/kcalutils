@@ -1,16 +1,16 @@
 # Translation of libkcalutils5.po to Catalan (Valencian)
-# Copyright (C) 2010-2022 This_file_is_part_of_KDE
+# Copyright (C) 2010-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2010, 2011, 2012, 2013, 2016, 2020, 2021, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2010, 2011, 2012, 2013, 2016, 2020, 2021, 2022, 2023.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2013, 2014, 2015, 2016, 2018, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-11 00:48+0000\n"
-"PO-Revision-Date: 2022-07-08 15:46+0200\n"
+"PO-Revision-Date: 2023-08-08 16:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
@@ -137,7 +137,7 @@ msgstr "%1%"
 msgctxt "minutes part of duration"
 msgid "1 minute"
 msgid_plural "%1 minutes "
-msgstr[0] "1 minut "
+msgstr[0] "1 minut"
 msgstr[1] "%1 minuts "
 
 #: src/incidenceformatter.cpp:1316
@@ -2188,99 +2188,3 @@ msgstr "Finalitzada:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Percentatge completat:"
-
-#~ msgctxt "@title month and year"
-#~ msgid "%1 %2"
-#~ msgstr "%1 %2"
-
-#~ msgctxt "@title:column event start time"
-#~ msgid "Start Time"
-#~ msgstr "Hora d'inici"
-
-#~ msgctxt "@title:column event end time"
-#~ msgid "End Time"
-#~ msgstr "Hora final"
-
-#~ msgctxt "@title:column event description"
-#~ msgid "Event"
-#~ msgstr "Esdeveniment"
-
-#~ msgctxt "@title:column event location"
-#~ msgid "Location"
-#~ msgstr "Ubicació"
-
-#~ msgctxt "@title:column event categories"
-#~ msgid "Categories"
-#~ msgstr "Categories"
-
-#~ msgctxt "@title:column event attendees"
-#~ msgid "Attendees"
-#~ msgstr "Assistents"
-
-#~ msgctxt "@title:column"
-#~ msgid "To-do"
-#~ msgstr "Tasca pendent"
-
-#~ msgctxt "@title:column to-do priority"
-#~ msgid "Priority"
-#~ msgstr "Prioritat"
-
-#~ msgctxt "@title:column to-do percent completed"
-#~ msgid "Completed"
-#~ msgstr "Completada"
-
-#~ msgctxt "@title:column to-do due date"
-#~ msgid "Due Date"
-#~ msgstr "Data de venciment"
-
-#~ msgctxt "@title:column to-do location"
-#~ msgid "Location"
-#~ msgstr "Ubicació"
-
-#~ msgctxt "@title:column to-do categories"
-#~ msgid "Categories"
-#~ msgstr "Categories"
-
-#~ msgctxt "@title:column to-do attendees"
-#~ msgid "Attendees"
-#~ msgstr "Assistents"
-
-#~ msgctxt "@title:column sub-to-dos of the parent to-do"
-#~ msgid "Sub-To-dos of: "
-#~ msgstr "Subtasques pendents de: "
-
-#~ msgctxt "@title:column sub-to-dos of the parent to-do"
-#~ msgid "Sub-To-dos"
-#~ msgstr "Subtasques pendents"
-
-#~ msgctxt "@info to-do percent complete"
-#~ msgid "%1 %"
-#~ msgstr "%1 %"
-
-#~ msgctxt "@info"
-#~ msgid "This page was created "
-#~ msgstr "Esta pàgina va ser creada "
-
-#~ msgctxt "@info/plain page creator email link with name"
-#~ msgid "by <link url='mailto:%1'>%2</link> "
-#~ msgstr "per a <link url='mailto:%1'>%2</link> "
-
-#~ msgctxt "@info/plain page creator email link"
-#~ msgid "by <link url='mailto:%1'>%2</link> "
-#~ msgstr "per a <link url='mailto:%1'>%2</link> "
-
-#~ msgctxt "@info page creator name only"
-#~ msgid "by %1 "
-#~ msgstr "per a %1 "
-
-#~ msgctxt "@info/plain page credit with name and link"
-#~ msgid "with <link url='%1'>%2</link>"
-#~ msgstr "amb <link url='%1'>%2</link>"
-
-#~ msgctxt "@info page credit name only"
-#~ msgid "with %1"
-#~ msgstr "amb %1"
-
-#~ msgctxt "@info holiday by date and name"
-#~ msgid "%1, %2"
-#~ msgstr "%1, %2"
