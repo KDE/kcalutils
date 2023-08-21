@@ -435,23 +435,9 @@ static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QStri
         incidence[QStringLiteral("location")] = richLocation;
     }
 
-    QDateTime startDt = event->dtStart().toLocalTime();
-    QDateTime endDt = event->dtEnd().toLocalTime();
-    if (event->recurs()) {
-        if (date.isValid()) {
-            QDateTime kdt(date, QTime(0, 0, 0), Qt::LocalTime);
-            qint64 diffDays = startDt.daysTo(kdt);
-            kdt = kdt.addSecs(-1);
-            startDt.setDate(event->recurrence()->getNextDateTime(kdt).date());
-            if (event->hasEndDate()) {
-                endDt = endDt.addDays(diffDays);
-                if (startDt > endDt) {
-                    startDt.setDate(event->recurrence()->getPreviousDateTime(kdt).date());
-                    endDt = startDt.addDays(event->dtStart().daysTo(event->dtEnd()));
-                }
-            }
-        }
-    }
+    const auto startDts = event->startDateTimesForDate(date, QTimeZone::systemTimeZone());
+    const auto startDt = startDts.empty() ? event->dtStart() : startDts[0];
+    const auto endDt = event->endDateForStart(startDt);
 
     incidence[QStringLiteral("isAllDay")] = event->allDay();
     incidence[QStringLiteral("isMultiDay")] = event->isMultiDay();
