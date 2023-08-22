@@ -436,8 +436,8 @@ static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QStri
     }
 
     const auto startDts = event->startDateTimesForDate(date, QTimeZone::systemTimeZone());
-    const auto startDt = startDts.empty() ? event->dtStart() : startDts[0];
-    const auto endDt = event->endDateForStart(startDt);
+    const auto startDt = startDts.empty() ? event->dtStart().toLocalTime() : startDts[0].toLocalTime();
+    const auto endDt = event->endDateForStart(startDt).toLocalTime();
 
     incidence[QStringLiteral("isAllDay")] = event->allDay();
     incidence[QStringLiteral("isMultiDay")] = event->isMultiDay();
