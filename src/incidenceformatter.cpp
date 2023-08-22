@@ -2379,23 +2379,9 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
     QString ret;
     QString tmp;
 
-    QDateTime startDt = event->dtStart().toLocalTime();
-    QDateTime endDt = event->dtEnd().toLocalTime();
-    if (event->recurs()) {
-        if (date.isValid()) {
-            QDateTime kdt(date, QTime(0, 0, 0), Qt::LocalTime);
-            qint64 diffDays = startDt.daysTo(kdt);
-            kdt = kdt.addSecs(-1);
-            startDt.setDate(event->recurrence()->getNextDateTime(kdt).date());
-            if (event->hasEndDate()) {
-                endDt = endDt.addDays(diffDays);
-                if (startDt > endDt) {
-                    startDt.setDate(event->recurrence()->getPreviousDateTime(kdt).date());
-                    endDt = startDt.addDays(event->dtStart().daysTo(event->dtEnd()));
-                }
-            }
-        }
-    }
+    const auto startDts = event->startDateTimesForDate(date, QTimeZone::systemTimeZone());
+    const auto startDt = startDts.empty() ? event->dtStart().toLocalTime() : startDts[0].toLocalTime();
+    const auto endDt = event->endDateForStart(startDt).toLocalTime();
 
     if (event->isMultiDay()) {
         tmp = dateToString(startDt.date(), true);
