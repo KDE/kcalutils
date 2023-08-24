@@ -43,6 +43,21 @@
 using namespace KCalendarCore;
 using namespace KCalUtils;
 
+static QDateTime copyTimeSpec(QDateTime dt, const QDateTime &source)
+{
+    switch (source.timeSpec()) {
+    case Qt::TimeZone:
+        return dt.toTimeZone(source.timeZone());
+    case Qt::LocalTime:
+    case Qt::UTC:
+        return dt.toTimeSpec(source.timeSpec());
+    case Qt::OffsetFromUTC:
+        return dt.toOffsetFromUtc(source.offsetFromUtc());
+    }
+
+    Q_UNREACHABLE();
+}
+
 /**
   DndFactoryPrivate class that helps to provide binary compatibility between releases.
   @internal
@@ -83,8 +98,8 @@ public:
                     event->setDtStart(QDateTime(newDateTime.date(), {}));
                     event->setDtEnd(newDateTime.addDays(durationInDays));
                 } else {
-                    event->setDtStart(newDateTime);
-                    event->setDtEnd(newDateTime.addSecs(durationInSeconds));
+                    event->setDtStart(copyTimeSpec(newDateTime, event->dtStart()));
+                    event->setDtEnd(copyTimeSpec(newDateTime.addSecs(durationInSeconds), event->dtEnd()));
                 }
             } else if (inc->type() == Incidence::TypeTodo) {
                 Todo::Ptr aTodo = inc.staticCast<Todo>();
@@ -96,9 +111,9 @@ public:
                     newDateTime.setDate(date);
                 }
                 if (pasteAtDtStart) {
-                    aTodo->setDtStart(newDateTime);
+                    aTodo->setDtStart(copyTimeSpec(newDateTime, aTodo->dtStart()));
                 } else {
-                    aTodo->setDtDue(newDateTime);
+                    aTodo->setDtDue(copyTimeSpec(newDateTime, aTodo->dtDue()));
                 }
             } else if (inc->type() == Incidence::TypeJournal) {
                 if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
@@ -107,7 +122,7 @@ public:
                     newDateTime = inc->dtStart();
                     newDateTime.setDate(date);
                 }
-                inc->setDtStart(newDateTime);
+                inc->setDtStart(copyTimeSpec(newDateTime, inc->dtStart()));
             } else {
                 qCDebug(KCALUTILS_LOG) << "Trying to paste unknown incidence of type" << int(inc->type());
             }
