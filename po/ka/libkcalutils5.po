@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-26 02:27+0000\n"
-"PO-Revision-Date: 2023-02-09 14:58+0100\n"
+"PO-Revision-Date: 2023-08-28 06:14+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
@@ -139,7 +139,7 @@ msgstr[1] "%1 წუთი "
 #: src/incidenceformatter.cpp:1302
 #, kde-format
 msgid "This invitation has been published."
-msgstr ""
+msgstr "ეს მოსაწვევი გამოქვეყნებულია."
 
 #: src/incidenceformatter.cpp:1307
 #, kde-format
@@ -154,12 +154,12 @@ msgstr ""
 #: src/incidenceformatter.cpp:1313
 #, kde-format
 msgid "I created this invitation."
-msgstr ""
+msgstr "ეს მოსაწვევი მე შევქმენი."
 
 #: src/incidenceformatter.cpp:1317
 #, kde-format
 msgid "You received an invitation from %1."
-msgstr ""
+msgstr "მიიღეთ მოსაწვევი %1-სგან."
 
 #: src/incidenceformatter.cpp:1319
 #, kde-format
@@ -169,28 +169,28 @@ msgstr ""
 #: src/incidenceformatter.cpp:1323
 #, kde-format
 msgid "This invitation was refreshed."
-msgstr ""
+msgstr "ეს მოსაწვევი განახლდა."
 
 #: src/incidenceformatter.cpp:1326
 #, kde-format
 msgid "This invitation has been canceled."
-msgstr ""
+msgstr "ეს მოსაწვევი გაუქმდა."
 
 #: src/incidenceformatter.cpp:1328
 #, kde-format
 msgid "The organizer has revoked the invitation."
-msgstr ""
+msgstr "ორგანიზატორმა ეს მოსაწვევი გააუქმა."
 
 #: src/incidenceformatter.cpp:1331
 #, kde-format
 msgid "Addition to the invitation."
-msgstr ""
+msgstr "მოსაწვევზე დამატებით."
 
 #: src/incidenceformatter.cpp:1334 src/incidenceformatter.cpp:1408
 #: src/incidenceformatter.cpp:1467 src/incidenceformatter.cpp:1549
 #, kde-format
 msgid "%1 makes this counter proposal."
-msgstr ""
+msgstr "%1 ამ პირიქით გთავაზობთ."
 
 #: src/incidenceformatter.cpp:1358
 #, kde-format
@@ -210,7 +210,7 @@ msgstr ""
 #: src/incidenceformatter.cpp:1368
 #, kde-format
 msgid "%1 accepts this invitation."
-msgstr ""
+msgstr "%1 დაეთანხმა მოსაწვევს."
 
 #: src/incidenceformatter.cpp:1370
 #, kde-format
@@ -260,7 +260,7 @@ msgstr ""
 #: src/incidenceformatter.cpp:1403
 #, kde-format
 msgid "Unknown response to this invitation."
-msgstr ""
+msgstr "უცნობი პასუხი ამ მოსაწვევზე."
 
 #: src/incidenceformatter.cpp:1413
 #, kde-format
@@ -435,17 +435,17 @@ msgstr ""
 #: src/incidenceformatter.cpp:1579
 #, kde-format
 msgid "This journal was refreshed."
-msgstr ""
+msgstr "ეს ჟურნალი განაახლეს."
 
 #: src/incidenceformatter.cpp:1581
 #, kde-format
 msgid "This journal was canceled."
-msgstr ""
+msgstr "ეს ჟურნალი გააუქმეს."
 
 #: src/incidenceformatter.cpp:1583
 #, kde-format
 msgid "Addition to the journal."
-msgstr ""
+msgstr "ჟურნალის დამატება."
 
 #: src/incidenceformatter.cpp:1586 src/incidenceformatter.cpp:1621
 #: src/incidenceformatter.cpp:1651
@@ -541,7 +541,7 @@ msgstr ""
 #: src/incidenceformatter.cpp:1710
 #, kde-format
 msgid "%1 (<i>unrecorded</i>"
-msgstr ""
+msgstr "%1 (<i>ჩაწერილი არაა</i>"
 
 #: src/incidenceformatter.cpp:1925
 #, kde-format
@@ -575,13 +575,13 @@ msgstr "უარყოფა"
 #, kde-format
 msgctxt "invitation counter proposal"
 msgid "Counter proposal ..."
-msgstr ""
+msgstr "პირიქით შეთავაზება ..."
 
 #: src/incidenceformatter.cpp:1954
 #, kde-format
 msgctxt "delegate invitation to another"
 msgid "Delegate ..."
-msgstr ""
+msgstr "დელეგირება ..."
 
 #: src/incidenceformatter.cpp:1964
 #, kde-format
@@ -636,12 +636,12 @@ msgstr ""
 #: src/incidenceformatter.cpp:2159
 #, kde-format
 msgid "This invitation was canceled."
-msgstr ""
+msgstr "ეს მოსაწვევი გაუქმდა."
 
 #: src/incidenceformatter.cpp:2161
 #, kde-format
 msgid "This invitation was accepted."
-msgstr ""
+msgstr "ეს მოსაწვევი მიღებულია."
 
 #: src/incidenceformatter.cpp:2169
 #, kde-format
@@ -651,7 +651,7 @@ msgstr ""
 #: src/incidenceformatter.cpp:2241
 #, kde-format
 msgid "The <b>%1</b> response has been recorded"
-msgstr ""
+msgstr "<b>%1</b>-ის პასუხი ჩაიწერა"
 
 #: src/incidenceformatter.cpp:2268
 #, kde-format
@@ -769,18 +769,18 @@ msgstr "ორგანიზატორი:"
 #: src/templates/todo.html:105
 #, kde-format
 msgid "Chair:"
-msgstr ""
+msgstr "სავარძელი:"
 
 #: src/incidenceformatter.cpp:2612 src/templates/event.html:137
 #: src/templates/todo.html:118
 #, kde-format
 msgid "Required Participants:"
-msgstr ""
+msgstr "აუცილებელი მონაწილეები:"
 
 #: src/incidenceformatter.cpp:2619
 #, kde-format
 msgid "Optional Participants:"
-msgstr ""
+msgstr "არასავალდებულო მონაწილეები:"
 
 #: src/incidenceformatter.cpp:2626 src/templates/event.html:163
 #: src/templates/todo.html:144
@@ -1504,7 +1504,7 @@ msgstr ""
 #: src/incidenceformatter.cpp:3231
 #, kde-format
 msgid "minute %1"
-msgstr ""
+msgstr "წუთი %1"
 
 #: src/incidenceformatter.cpp:3264 src/incidenceformatter.cpp:3323
 #: src/incidenceformatter.cpp:3349 src/incidenceformatter.cpp:3361
@@ -1517,7 +1517,7 @@ msgstr[1] "%1 დღე"
 #: src/incidenceformatter.cpp:3286
 #, kde-format
 msgid "%1 (excluding %2)"
-msgstr ""
+msgstr "%1 (%2-ის გამოკლებით)"
 
 #: src/incidenceformatter.cpp:3329
 #, kde-format
@@ -1584,14 +1584,14 @@ msgstr "%1-ზე"
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ერთხელ მეორდება"
+msgstr[1] "%1-ჯერ მეორდება"
 
 #: src/incidenceformatter.cpp:3443
 #, kde-format
 msgctxt "interval is N days/hours/minutes"
 msgid "interval is %1"
-msgstr ""
+msgstr "ინტერვალია %1"
 
 #: src/incidenceformatter.cpp:3444
 #, kde-format
@@ -1603,19 +1603,19 @@ msgstr "(%1, %2)"
 #, kde-format
 msgctxt "@option:check calendar items before a certain date"
 msgid "Items before %1"
-msgstr ""
+msgstr "ელემენტები %1-მდე"
 
 #: src/recurrenceactions.cpp:51
 #, kde-format
 msgctxt "@option:check currently selected calendar item"
 msgid "Selected item"
-msgstr ""
+msgstr "მონიშნული ელემენტი"
 
 #: src/recurrenceactions.cpp:57
 #, kde-format
 msgctxt "@option:check calendar items after a certain date"
 msgid "Items after %1"
-msgstr ""
+msgstr "ელემენტები %1-ის შემდეგ"
 
 #: src/stringify.cpp:40
 #, kde-format
@@ -1711,7 +1711,7 @@ msgstr "საბოლოო"
 #, kde-format
 msgctxt "@item chairperson"
 msgid "Chair"
-msgstr ""
+msgstr "სავარძელი"
 
 #: src/stringify.cpp:120
 #, kde-format
@@ -1735,7 +1735,7 @@ msgstr "დამკვირვებელი"
 #, kde-format
 msgctxt "@item event, to-do or journal needs action"
 msgid "Needs Action"
-msgstr ""
+msgstr "საჭიროებს ქმედებას"
 
 #: src/stringify.cpp:135
 #, kde-format
@@ -1795,7 +1795,7 @@ msgstr "შენახვის შეცდომა"
 #, kde-format
 msgctxt "@item"
 msgid "Parse Error in libical"
-msgstr ""
+msgstr "დამუშავების შეცდომა libical-ში"
 
 #: src/stringify.cpp:167
 #, kde-format
@@ -1807,7 +1807,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item"
 msgid "No calendar component found."
-msgstr ""
+msgstr "კალენდარის კომპონენტი ვერ ვიპოვე."
 
 #: src/stringify.cpp:173 src/stringify.cpp:202
 #, kde-format
@@ -1843,13 +1843,13 @@ msgstr ""
 #, kde-format
 msgctxt "@item"
 msgid "Error saving to '%1'."
-msgstr ""
+msgstr "'%1'-ში შენახვის შეცდომა."
 
 #: src/stringify.cpp:193
 #, kde-format
 msgctxt "@item"
 msgid "Could not save '%1'"
-msgstr ""
+msgstr "%1-ის შენახვის შეცდომა."
 
 #: src/stringify.cpp:196
 #, kde-format
@@ -1861,7 +1861,7 @@ msgstr "libical-ის შეცდომა"
 #, kde-format
 msgctxt "@item"
 msgid "No VERSION property found"
-msgstr ""
+msgstr "თვისება VERSION აღმოჩენილი არაა"
 
 #: src/stringify.cpp:208
 #, kde-format
@@ -1922,15 +1922,15 @@ msgstr ""
 #, kde-format
 msgctxt "@item unknown status"
 msgid "Unknown Status: %1"
-msgstr ""
+msgstr "უცნობი სტატუსი: %1"
 
 #: src/templates/attendee_row.html:27
 msgid "organizer"
-msgstr ""
+msgstr "ორგანიზატორი"
 
 #: src/templates/attendee_row.html:31
 msgid "myself"
-msgstr ""
+msgstr "მე"
 
 #: src/templates/attendee_row.html:35
 #, kde-format
@@ -2000,7 +2000,7 @@ msgstr "დღეობა:"
 
 #: src/templates/event.html:150 src/templates/todo.html:131
 msgid "Optional participants:"
-msgstr ""
+msgstr "არასავალდებულო მონაწილეები:"
 
 #: src/templates/event.html:184 src/templates/todo.html:186
 msgid "Attachment:"
@@ -2012,7 +2012,7 @@ msgstr[1] "მიმაგრებული ფაილები:"
 #: src/templates/todo.html:199
 #, kde-format
 msgid "Creation date: %1"
-msgstr ""
+msgstr "შექმნის თარიღი: %1"
 
 #: src/templates/freebusy.html:6
 #, kde-format
@@ -2068,7 +2068,7 @@ msgstr "მიმაგრებული ფაილები:"
 
 #: src/templates/itip_event.html:6
 msgid "First event:"
-msgstr ""
+msgstr "პირველი მოვლენა:"
 
 #: src/templates/itip_event.html:8 src/templates/itip_todo.html:13
 msgid "When:"
@@ -2080,11 +2080,11 @@ msgstr "სად:"
 
 #: src/templates/itip_event.html:42
 msgid "Events on these days:"
-msgstr ""
+msgstr "მოვლენები ამ დღეებში:"
 
 #: src/templates/itip_event.html:44
 msgid "Events on this day:"
-msgstr ""
+msgstr "მოვლენები ამ დღეს:"
 
 #: src/templates/itip_freebusy.html:5
 msgid "Person:"
@@ -2134,7 +2134,7 @@ msgstr "%1 - %2"
 
 #: src/templates/itip_todo.html:32
 msgid "Percent Done:"
-msgstr ""
+msgstr "დასრულდა პროცენტი:"
 
 #: src/templates/itip_todo.html:39
 msgid "Due:"
@@ -2169,7 +2169,7 @@ msgstr "დასრულებულია:"
 
 #: src/templates/todo.html:178
 msgid "Percent done:"
-msgstr ""
+msgstr "დასრულდა პროცენტი:"
 
 #~ msgctxt "@title month and year"
 #~ msgid "%1 %2"
