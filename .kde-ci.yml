@@ -6,6 +6,6 @@ Dependencies:
   'require':
     'frameworks/extra-cmake-modules': '@latest-kf6'
     'frameworks/kcalendarcore' : '@latest-kf6'
-    'pim/kidentitymanagement' : '@latest-kf6'
+    'pim/kidentitymanagement' : '@same'
     'frameworks/breeze-icons': '@latest-kf6'
     'frameworks/ktexttemplate': '@latest-kf6'
