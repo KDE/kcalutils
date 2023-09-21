@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-26 00:47+0000\n"
+"POT-Creation-Date: 2023-09-21 00:45+0000\n"
 "PO-Revision-Date: 2022-10-10 16:13+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -25,22 +25,22 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
+#: src/grantleetemplatemanager.cpp:81
 #, kde-format
 msgid "Template"
 msgstr "Шаблон"
 
-#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
+#: src/grantleetemplatemanager.cpp:81
 #, kde-format
 msgid "Error message"
 msgstr "Ошибка"
 
-#: src/grantleetemplatemanager.cpp:139
+#: src/grantleetemplatemanager.cpp:99
 #, kde-format
 msgid "Template parsing error"
 msgstr "Не удалось разобрать шаблон"
 
-#: src/grantleetemplatemanager.cpp:148
+#: src/grantleetemplatemanager.cpp:104
 #, kde-format
 msgid "Template rendering error"
 msgstr "Не удалось создать документ по шаблону"

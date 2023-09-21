@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-26 00:47+0000\n"
+"POT-Creation-Date: 2023-09-21 00:45+0000\n"
 "PO-Revision-Date: 2021-10-05 17:18-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -19,22 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
+#: src/grantleetemplatemanager.cpp:81
 #, kde-format
 msgid "Template"
 msgstr "Modelo"
 
-#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
+#: src/grantleetemplatemanager.cpp:81
 #, kde-format
 msgid "Error message"
 msgstr "Mensagem de erro"
 
-#: src/grantleetemplatemanager.cpp:139
+#: src/grantleetemplatemanager.cpp:99
 #, kde-format
 msgid "Template parsing error"
 msgstr "Erro de processamento do modelo"
 
-#: src/grantleetemplatemanager.cpp:148
+#: src/grantleetemplatemanager.cpp:104
 #, kde-format
 msgid "Template rendering error"
 msgstr "Erro de processamento do modelo"

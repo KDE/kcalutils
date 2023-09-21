@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcal\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-26 00:47+0000\n"
+"POT-Creation-Date: 2023-09-21 00:45+0000\n"
 "PO-Revision-Date: 2021-11-09 18:53+0000\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -33,22 +33,22 @@ msgstr ""
 "X-POFile-IgnoreConsistency: 2nd\n"
 "X-POFile-IgnoreConsistency: 3rd\n"
 
-#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
+#: src/grantleetemplatemanager.cpp:81
 #, kde-format
 msgid "Template"
 msgstr "Modelo"
 
-#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
+#: src/grantleetemplatemanager.cpp:81
 #, kde-format
 msgid "Error message"
 msgstr "Mensagem de erro"
 
-#: src/grantleetemplatemanager.cpp:139
+#: src/grantleetemplatemanager.cpp:99
 #, kde-format
 msgid "Template parsing error"
 msgstr "Erro de processamento do modelo"
 
-#: src/grantleetemplatemanager.cpp:148
+#: src/grantleetemplatemanager.cpp:104
 #, kde-format
 msgid "Template rendering error"
 msgstr "Erro de desenho do modelo"

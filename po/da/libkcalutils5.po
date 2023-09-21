@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-26 00:47+0000\n"
+"POT-Creation-Date: 2023-09-21 00:45+0000\n"
 "PO-Revision-Date: 2016-08-11 22:04+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -17,22 +17,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 2.0\n"
 
-#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
+#: src/grantleetemplatemanager.cpp:81
 #, kde-format
 msgid "Template"
 msgstr "Skabelon"
 
-#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
+#: src/grantleetemplatemanager.cpp:81
 #, kde-format
 msgid "Error message"
 msgstr "Fejlmeddelelse"
 
-#: src/grantleetemplatemanager.cpp:139
+#: src/grantleetemplatemanager.cpp:99
 #, kde-format
 msgid "Template parsing error"
 msgstr "Fortolkningsfejl i skabelon"
 
-#: src/grantleetemplatemanager.cpp:148
+#: src/grantleetemplatemanager.cpp:104
 #, kde-format
 msgid "Template rendering error"
 msgstr "Renderingsfejl i skabelon"

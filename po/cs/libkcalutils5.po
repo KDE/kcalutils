@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcal\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-26 00:47+0000\n"
+"POT-Creation-Date: 2023-09-21 00:45+0000\n"
 "PO-Revision-Date: 2023-06-28 15:45+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -20,22 +20,22 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.2\n"
 
-#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
+#: src/grantleetemplatemanager.cpp:81
 #, kde-format
 msgid "Template"
 msgstr "Šablona"
 
-#: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
+#: src/grantleetemplatemanager.cpp:81
 #, kde-format
 msgid "Error message"
 msgstr "Chybová zpráva"
 
-#: src/grantleetemplatemanager.cpp:139
+#: src/grantleetemplatemanager.cpp:99
 #, kde-format
 msgid "Template parsing error"
 msgstr ""
 
-#: src/grantleetemplatemanager.cpp:148
+#: src/grantleetemplatemanager.cpp:104
 #, kde-format
 msgid "Template rendering error"
 msgstr ""
