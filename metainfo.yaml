@@ -12,8 +12,7 @@ portingAid: false
 deprecated: false
 release: false
 libraries:
- - qmake: KCalUtils
-   cmake: "KPim6::CalendarUtils"
+ - cmake: "KPim6::CalendarUtils"
 cmakename: KPim6CalendarUtils
 
 public_lib: true
