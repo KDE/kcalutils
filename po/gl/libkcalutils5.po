@@ -652,7 +652,7 @@ msgstr "Aceptouse este convite."
 #: src/incidenceformatter.cpp:2169
 #, kde-format
 msgid "Awaiting delegation response."
-msgstr "Estase a agardar pola resposta de delegación."
+msgstr "Agardando pola resposta de delegación."
 
 #: src/incidenceformatter.cpp:2241
 #, kde-format
@@ -1855,7 +1855,7 @@ msgstr "Produciuse un erro ao gardar en «%1»."
 #, kde-format
 msgctxt "@item"
 msgid "Could not save '%1'"
-msgstr "Non se puido gardar «%1»"
+msgstr "Non foi posíbel gardar «%1»"
 
 #: src/stringify.cpp:196
 #, kde-format
