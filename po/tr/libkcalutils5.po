@@ -6,13 +6,13 @@
 # obsoleteman <tulliana@gmail.com>, 2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014, 2015, 2017, 2021.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-26 02:27+0000\n"
-"PO-Revision-Date: 2023-06-23 11:00+0300\n"
+"PO-Revision-Date: 2023-10-05 13:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
@@ -816,7 +816,7 @@ msgstr "Süre:"
 #: src/templates/itip_todo.html:46 src/templates/todo.html:62
 #, kde-format
 msgid "Recurrence:"
-msgstr "Tekrarlama:"
+msgstr "Yineleme:"
 
 #: src/incidenceformatter.cpp:2679 src/templates/todo.html:64
 #, kde-format
@@ -950,7 +950,7 @@ msgstr "Bitiş Saati: %1\n"
 #: src/incidenceformatter.cpp:2824
 #, kde-format
 msgid "Recurs: %1\n"
-msgstr "Tekrarlanma: %1\n"
+msgstr "Yinelenir: %1\n"
 
 #: src/incidenceformatter.cpp:2825
 #, kde-format
@@ -967,12 +967,12 @@ msgstr[1] "%1 kez tekrarlar"
 #: src/incidenceformatter.cpp:2839
 #, kde-format
 msgid "Repeat until: %1\n"
-msgstr "Bu tarihe kadar tekrarlanır: %1\n"
+msgstr "Bu tarihe kadar yinele: %1\n"
 
 #: src/incidenceformatter.cpp:2841
 #, kde-format
 msgid "Repeats forever\n"
-msgstr "Sürekli tekrar eder\n"
+msgstr "Sürekli yineler\n"
 
 #: src/incidenceformatter.cpp:2854 src/incidenceformatter.cpp:2878
 #, kde-format
@@ -1015,7 +1015,7 @@ msgstr ""
 #: src/incidenceformatter.cpp:2936 src/incidenceformatter.cpp:3011
 #, kde-format
 msgid "No recurrence"
-msgstr "Tekrarlanma yok"
+msgstr "Yineleme yok"
 
 #: src/incidenceformatter.cpp:2940
 #, kde-format
