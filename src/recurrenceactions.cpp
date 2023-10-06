@@ -64,7 +64,7 @@ public:
     void setIcon(const QIcon &icon);
 
     void setCheckedChoices(int choices);
-    Q_REQUIRED_RESULT int checkedChoices() const;
+    [[nodiscard]] int checkedChoices() const;
 
 private:
     const int mAvailableChoices;

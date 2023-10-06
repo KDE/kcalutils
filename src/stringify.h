@@ -37,44 +37,44 @@ namespace KCalUtils
 */
 namespace Stringify
 {
-Q_REQUIRED_RESULT KCALUTILS_EXPORT QString incidenceType(KCalendarCore::Incidence::IncidenceType type);
+[[nodiscard]] KCALUTILS_EXPORT QString incidenceType(KCalendarCore::Incidence::IncidenceType type);
 
 /**
   Returns the incidence Secrecy as translated string.
   @see incidenceSecrecyList().
 */
-Q_REQUIRED_RESULT KCALUTILS_EXPORT QString incidenceSecrecy(KCalendarCore::Incidence::Secrecy secrecy);
+[[nodiscard]] KCALUTILS_EXPORT QString incidenceSecrecy(KCalendarCore::Incidence::Secrecy secrecy);
 
 /**
   Returns a list of all available Secrecy types as a list of translated strings.
   @see incidenceSecrecy().
 */
-Q_REQUIRED_RESULT KCALUTILS_EXPORT QStringList incidenceSecrecyList();
+[[nodiscard]] KCALUTILS_EXPORT QStringList incidenceSecrecyList();
 
-Q_REQUIRED_RESULT KCALUTILS_EXPORT QString incidenceStatus(KCalendarCore::Incidence::Status status);
-Q_REQUIRED_RESULT KCALUTILS_EXPORT QString incidenceStatus(const KCalendarCore::Incidence::Ptr &incidence);
-Q_REQUIRED_RESULT KCALUTILS_EXPORT QString scheduleMessageStatus(KCalendarCore::ScheduleMessage::Status status);
+[[nodiscard]] KCALUTILS_EXPORT QString incidenceStatus(KCalendarCore::Incidence::Status status);
+[[nodiscard]] KCALUTILS_EXPORT QString incidenceStatus(const KCalendarCore::Incidence::Ptr &incidence);
+[[nodiscard]] KCALUTILS_EXPORT QString scheduleMessageStatus(KCalendarCore::ScheduleMessage::Status status);
 
 /**
   Returns string containing the date/time when the to-do was completed,
   formatted according to the user's locale settings.
   @param shortfmt If true, use a short date format; else use a long format.
 */
-Q_REQUIRED_RESULT KCALUTILS_EXPORT QString todoCompletedDateTime(const KCalendarCore::Todo::Ptr &todo, bool shortfmt = false);
+[[nodiscard]] KCALUTILS_EXPORT QString todoCompletedDateTime(const KCalendarCore::Todo::Ptr &todo, bool shortfmt = false);
 
-Q_REQUIRED_RESULT KCALUTILS_EXPORT QString attendeeRole(KCalendarCore::Attendee::Role role);
-Q_REQUIRED_RESULT KCALUTILS_EXPORT QString attendeeStatus(KCalendarCore::Attendee::PartStat status);
+[[nodiscard]] KCALUTILS_EXPORT QString attendeeRole(KCalendarCore::Attendee::Role role);
+[[nodiscard]] KCALUTILS_EXPORT QString attendeeStatus(KCalendarCore::Attendee::PartStat status);
 
 /**
   Returns a string containing the UTC offset of the specified QTimeZone @p tz (relative to the current date).
   The format is [+-]HH::MM, according to standards.
   @since 5.8
 */
-Q_REQUIRED_RESULT KCALUTILS_EXPORT QString tzUTCOffsetStr(const QTimeZone &tz);
+[[nodiscard]] KCALUTILS_EXPORT QString tzUTCOffsetStr(const QTimeZone &tz);
 
 /**
    Build a translated message representing an exception
 */
-Q_REQUIRED_RESULT KCALUTILS_EXPORT QString errorMessage(const KCalendarCore::Exception &exception);
+[[nodiscard]] KCALUTILS_EXPORT QString errorMessage(const KCalendarCore::Exception &exception);
 } // namespace Stringify
 } // namespace KCalUtils

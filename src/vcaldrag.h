@@ -23,16 +23,16 @@ namespace VCalDrag
 /**
   Mime-type of iCalendar
 */
-Q_REQUIRED_RESULT KCALUTILS_EXPORT QString mimeType();
+[[nodiscard]] KCALUTILS_EXPORT QString mimeType();
 
 /**
   Return, if drag&drop object can be decode to vCalendar.
 */
-Q_REQUIRED_RESULT KCALUTILS_EXPORT bool canDecode(const QMimeData *);
+[[nodiscard]] KCALUTILS_EXPORT bool canDecode(const QMimeData *);
 
 /**
   Decode drag&drop object to vCalendar component \a vcal.
 */
-Q_REQUIRED_RESULT KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalendarCore::Calendar::Ptr &cal);
+[[nodiscard]] KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalendarCore::Calendar::Ptr &cal);
 }
 }
