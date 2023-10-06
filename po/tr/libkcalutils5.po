@@ -6,13 +6,13 @@
 # obsoleteman <tulliana@gmail.com>, 2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014, 2015, 2017, 2021.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-21 00:45+0000\n"
-"PO-Revision-Date: 2023-06-23 11:00+0300\n"
+"PO-Revision-Date: 2023-10-05 13:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -816,7 +816,7 @@ msgstr "Süre:"
 #: src/templates/itip_todo.html:46 src/templates/todo.html:62
 #, kde-format
 msgid "Recurrence:"
-msgstr "Tekrarlama:"
+msgstr "Yineleme:"
 
 #: src/incidenceformatter.cpp:2679 src/templates/todo.html:64
 #, kde-format
@@ -950,7 +950,7 @@ msgstr "Bitiş Saati: %1\n"
 #: src/incidenceformatter.cpp:2824
 #, kde-format
 msgid "Recurs: %1\n"
-msgstr "Tekrarlanma: %1\n"
+msgstr "Yinelenir: %1\n"
 
 #: src/incidenceformatter.cpp:2825
 #, kde-format
@@ -961,18 +961,18 @@ msgstr "Sıklık: %1\n"
 #, kde-format
 msgid "Repeats once"
 msgid_plural "Repeats %1 times"
-msgstr[0] "1 kez tekrarlar"
-msgstr[1] "%1 kez tekrarlar"
+msgstr[0] "1 kez yineler"
+msgstr[1] "%1 kez yineler"
 
 #: src/incidenceformatter.cpp:2839
 #, kde-format
 msgid "Repeat until: %1\n"
-msgstr "Bu tarihe kadar tekrarlanır: %1\n"
+msgstr "Bu tarihe kadar yinele: %1\n"
 
 #: src/incidenceformatter.cpp:2841
 #, kde-format
 msgid "Repeats forever\n"
-msgstr "Sürekli tekrar eder\n"
+msgstr "Sürekli yineler\n"
 
 #: src/incidenceformatter.cpp:2854 src/incidenceformatter.cpp:2878
 #, kde-format
@@ -1015,7 +1015,7 @@ msgstr ""
 #: src/incidenceformatter.cpp:2936 src/incidenceformatter.cpp:3011
 #, kde-format
 msgid "No recurrence"
-msgstr "Tekrarlanma yok"
+msgstr "Yineleme yok"
 
 #: src/incidenceformatter.cpp:2940
 #, kde-format
@@ -1338,8 +1338,8 @@ msgstr "31."
 #, kde-format
 msgid "Recurs every minute until %2"
 msgid_plural "Recurs every %1 minutes until %2"
-msgstr[0] "%2 tarihine kadar her dakikada tekrarlar"
-msgstr[1] "%2 tarihine kadar her %1 dakikada bir tekrarlar"
+msgstr[0] "%2 tarihine kadar her dakikada yineler"
+msgstr[1] "%2 tarihine kadar her %1 dakikada bir yineler"
 
 #: src/incidenceformatter.cpp:3020 src/incidenceformatter.cpp:3031
 #: src/incidenceformatter.cpp:3042 src/incidenceformatter.cpp:3071
@@ -1355,36 +1355,36 @@ msgstr " (%1 olaylar)"
 #, kde-format
 msgid "Recurs every minute"
 msgid_plural "Recurs every %1 minutes"
-msgstr[0] "Her dakikada tekrarlar"
-msgstr[1] "%1 dakikada bir tekrarlar"
+msgstr[0] "Her dakikada yineler"
+msgstr[1] "%1 dakikada bir yineler"
 
 #: src/incidenceformatter.cpp:3029
 #, kde-format
 msgid "Recurs hourly until %2"
 msgid_plural "Recurs every %1 hours until %2"
-msgstr[0] "%2 tarihine kadar her saatte tekrarlar"
-msgstr[1] "%2 tarihine kadar %1 saatte bir tekrarlar"
+msgstr[0] "%2 tarihine kadar her saatte yineler"
+msgstr[1] "%2 tarihine kadar %1 saatte bir yineler"
 
 #: src/incidenceformatter.cpp:3034
 #, kde-format
 msgid "Recurs hourly"
 msgid_plural "Recurs every %1 hours"
-msgstr[0] "Her saatte tekrarlar"
-msgstr[1] "%1 saatte bir tekrarlar"
+msgstr[0] "Her saatte yineler"
+msgstr[1] "%1 saatte bir yineler"
 
 #: src/incidenceformatter.cpp:3040
 #, kde-format
 msgid "Recurs daily until %2"
 msgid_plural "Recurs every %1 days until %2"
-msgstr[0] "%2 tarihine kadar günlük tekrarlar"
-msgstr[1] "%2 tarihine kadar %1 günde bir tekrarlar"
+msgstr[0] "%2 tarihine kadar günlük yineler"
+msgstr[1] "%2 tarihine kadar %1 günde bir yineler"
 
 #: src/incidenceformatter.cpp:3045
 #, kde-format
 msgid "Recurs daily"
 msgid_plural "Recurs every %1 days"
-msgstr[0] "Günlük tekrarlar"
-msgstr[1] "%1 günde bir tekrarlar"
+msgstr[0] "Günlük yineler"
+msgstr[1] "%1 günde bir yineler"
 
 #: src/incidenceformatter.cpp:3054
 #, kde-format
@@ -1403,86 +1403,86 @@ msgstr "gün yok"
 msgctxt "Recurs weekly on [list of days] until end-date"
 msgid "Recurs weekly on %2 until %3"
 msgid_plural "Recurs every %1 weeks on %2 until %3"
-msgstr[0] "%3 tarihine kadar her hafta %2 gününde tekrarlar"
-msgstr[1] "%3 tarihine kadar her %1 haftada %2 gününde tekrarlar"
+msgstr[0] "%3 tarihine kadar her hafta %2 gününde yineler"
+msgstr[1] "%3 tarihine kadar her %1 haftada %2 gününde yineler"
 
 #: src/incidenceformatter.cpp:3074
 #, kde-format
 msgctxt "Recurs weekly on [list of days]"
 msgid "Recurs weekly on %2"
 msgid_plural "Recurs every %1 weeks on %2"
-msgstr[0] "Her hafta %2 gününde tekrarlar"
-msgstr[1] "Her %1 haftada %2 gününde tekrarlar"
+msgstr[0] "Her hafta %2 gününde yineler"
+msgstr[1] "Her %1 haftada %2 gününde yineler"
 
 #: src/incidenceformatter.cpp:3085
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
 msgid "Recurs every month on the %2 %3 until %4"
 msgid_plural "Recurs every %1 months on the %2 %3 until %4"
-msgstr[0] "%4 tarihine kadar her ay %2 %3 günlerinde tekrarlar"
-msgstr[1] "%4 tarihine kadar %1 ayda bir %2 %3 günlerinde tekrarlar"
+msgstr[0] "%4 tarihine kadar her ay %2 %3 günlerinde yineler"
+msgstr[1] "%4 tarihine kadar %1 ayda bir %2 %3 günlerinde yineler"
 
 #: src/incidenceformatter.cpp:3096
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname"
 msgid "Recurs every month on the %2 %3"
 msgid_plural "Recurs every %1 months on the %2 %3"
-msgstr[0] "Her ay %2 %3 günlerinde tekrarlar"
-msgstr[1] "%1 ayda bir %2 %3 günlerinde tekrarlar"
+msgstr[0] "Her ay %2 %3 günlerinde yineler"
+msgstr[1] "%1 ayda bir %2 %3 günlerinde yineler"
 
 #: src/incidenceformatter.cpp:3109
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day until end-date"
 msgid "Recurs monthly on the %2 day until %3"
 msgid_plural "Recurs every %1 months on the %2 day until %3"
-msgstr[0] "%3 tarihine kadar her ay %2 gününde tekrarlar"
-msgstr[1] "%3 tarihine kadar %1 ayda bir %2 gününde tekrarlar"
+msgstr[0] "%3 tarihine kadar her ay %2 gününde yineler"
+msgstr[1] "%3 tarihine kadar %1 ayda bir %2 gününde yineler"
 
 #: src/incidenceformatter.cpp:3119
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day"
 msgid "Recurs monthly on the %2 day"
 msgid_plural "Recurs every %1 month on the %2 day"
-msgstr[0] "Her ay %2 gününde tekrarlar"
-msgstr[1] "Her %1 ayda bir %2 gününde tekrarlar"
+msgstr[0] "Her ay %2 gününde yineler"
+msgstr[1] "Her %1 ayda bir %2 gününde yineler"
 
 #: src/incidenceformatter.cpp:3132
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...] until end-date"
 msgid "Recurs yearly on %2 %3 until %4"
 msgid_plural "Recurs every %1 years on %2 %3 until %4"
-msgstr[0] "%4 tarihine kadar her yıl %2 %3 aylarında tekrarlar"
-msgstr[1] "%4 tarihine kadar %1 yılda bir %2 %3 aylarında tekrarlar"
+msgstr[0] "%4 tarihine kadar her yıl %2 %3 aylarında yineler"
+msgstr[1] "%4 tarihine kadar %1 yılda bir %2 %3 aylarında yineler"
 
 #: src/incidenceformatter.cpp:3145
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %2 %3"
 msgid_plural "Recurs every %1 years on %2 %3"
-msgstr[0] "Her yıl %2 %3 aylarında tekrarlar"
-msgstr[1] "%1 yılda bir %2 %3 aylarında tekrarlar"
+msgstr[0] "Her yıl %2 %3 aylarında yineler"
+msgstr[1] "%1 yılda bir %2 %3 aylarında yineler"
 
 #: src/incidenceformatter.cpp:3153 src/incidenceformatter.cpp:3158
 #, kde-format
 msgctxt "Recurs Every year on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %1 %2"
-msgstr "Her yılın %1 ayında %2 gününde tekrarlar"
+msgstr "Her yılın %1 ayında %2 gününde yineler"
 
 #: src/incidenceformatter.cpp:3169
 #, kde-format
 msgctxt "Recurs every N years on day N until end-date"
 msgid "Recurs every year on day %2 until %3"
 msgid_plural "Recurs every %1 years on day %2 until %3"
-msgstr[0] "%3 tarihine kadar her yıl %2 günde tekrarlar"
-msgstr[1] "%3 tarihine kadar %1 yılda bir %2 günde tekrarlar"
+msgstr[0] "%3 tarihine kadar her yıl %2 günde yineler"
+msgstr[1] "%3 tarihine kadar %1 yılda bir %2 günde yineler"
 
 #: src/incidenceformatter.cpp:3180
 #, kde-format
 msgctxt "Recurs every N YEAR[S] on day N"
 msgid "Recurs every year on day %2"
 msgid_plural "Recurs every %1 years on day %2"
-msgstr[0] "Her yıl %2. gününde tekrarlar"
-msgstr[1] "%1 yılda bi %2. gününde tekrarlar"
+msgstr[0] "Her yıl %2. gününde yineler"
+msgstr[1] "%1 yılda bi %2. gününde yineler"
 
 #: src/incidenceformatter.cpp:3195
 #, kde-format
@@ -1589,8 +1589,8 @@ msgstr "%1 tarihinde"
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
-msgstr[0] "bir kez tekrarlar"
-msgstr[1] "%1 kez tekrarlar"
+msgstr[0] "bir kez yineler"
+msgstr[1] "%1 kez yineler"
 
 #: src/incidenceformatter.cpp:3443
 #, kde-format
