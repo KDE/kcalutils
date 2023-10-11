@@ -8,7 +8,7 @@ find_package(Qt6 ${QT_REQUIRED_VERSION} CONFIG REQUIRED COMPONENTS Test)
 set(TEST_DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/data")
 set(TEST_TEMPLATE_PATH "${CMAKE_SOURCE_DIR}/templates")
 set(TEST_PLUGIN_PATH "${CMAKE_BINARY_DIR}/grantlee")
-configure_file(test_config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/test_config.h @ONLY)
+configure_file(test_config.h.in ${CMAKE_CURRENT_BINARY_DIR}/test_config.h @ONLY)
 
 ecm_add_tests(testdndfactory.cpp teststringify.cpp testtodotooltip.cpp
     NAME_PREFIX "kcalutils-"

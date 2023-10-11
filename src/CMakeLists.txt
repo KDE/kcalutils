@@ -6,7 +6,7 @@ add_subdirectory(grantlee_plugin)
 add_library(KPim6CalendarUtils)
 add_library(KPim6::CalendarUtils ALIAS KPim6CalendarUtils)
 
-configure_file(config-kcalutils.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutils.h)
+configure_file(config-kcalutils.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutils.h)
 
 target_sources(KPim6CalendarUtils PRIVATE
   icaldrag.cpp
