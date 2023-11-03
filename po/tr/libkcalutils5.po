@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-26 02:27+0000\n"
-"PO-Revision-Date: 2023-10-05 13:11+0300\n"
+"PO-Revision-Date: 2023-11-02 13:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: src/grantleetemplatemanager.cpp:108 src/grantleetemplatemanager.cpp:116
 #, kde-format
@@ -430,27 +430,27 @@ msgstr "Hata: Bilinmeyen yöntemli iTIP iletisi."
 #: src/incidenceformatter.cpp:1575
 #, kde-format
 msgid "This journal has been published."
-msgstr "Bu günlük yayımlandı."
+msgstr "Bu günce yayımlandı."
 
 #: src/incidenceformatter.cpp:1577
 #, kde-format
 msgid "You have been assigned this journal."
-msgstr "Bu günlüğe atandınız."
+msgstr "Bu günceye atandınız."
 
 #: src/incidenceformatter.cpp:1579
 #, kde-format
 msgid "This journal was refreshed."
-msgstr "Bu günlük yenilendi."
+msgstr "Bu günce yenilendi."
 
 #: src/incidenceformatter.cpp:1581
 #, kde-format
 msgid "This journal was canceled."
-msgstr "Bu günlük iptal edildi."
+msgstr "Bu günce iptal edildi."
 
 #: src/incidenceformatter.cpp:1583
 #, kde-format
 msgid "Addition to the journal."
-msgstr "Bu günlüğe ek."
+msgstr "Bu günceye ek."
 
 #: src/incidenceformatter.cpp:1586 src/incidenceformatter.cpp:1621
 #: src/incidenceformatter.cpp:1651
@@ -461,32 +461,32 @@ msgstr "Gönderen bu karşı teklifi yapıyor."
 #: src/incidenceformatter.cpp:1602
 #, kde-format
 msgid "Sender indicates this journal assignment still needs some action."
-msgstr "Gönderen bu görev atamasının halen eylem gerektirdiğini belirtiyor."
+msgstr "Gönderen bu günce atamasının halen eylem gerektirdiğini belirtiyor."
 
 #: src/incidenceformatter.cpp:1604
 #, kde-format
 msgid "Sender accepts this journal."
-msgstr "Gönderen bu günlüğü kabul eder."
+msgstr "Gönderen bu günceyi kabul eder."
 
 #: src/incidenceformatter.cpp:1606
 #, kde-format
 msgid "Sender tentatively accepts this journal."
-msgstr "Gönderen bu günlüğü geçici olarak kabul eder."
+msgstr "Gönderen bu günceyi geçici olarak kabul eder."
 
 #: src/incidenceformatter.cpp:1608
 #, kde-format
 msgid "Sender declines this journal."
-msgstr "Gönderen bu günlüğü geri çeker."
+msgstr "Gönderen bu günceyi geri çeker."
 
 #: src/incidenceformatter.cpp:1610
 #, kde-format
 msgid "Sender has delegated this request for the journal."
-msgstr "Gönderen bu talebi günlüğe aktardı.."
+msgstr "Gönderen bu talebi günceye aktardı."
 
 #: src/incidenceformatter.cpp:1612
 #, kde-format
 msgid "The request for this journal is now completed."
-msgstr "Bu günlük için istek şimdi tamamlandı."
+msgstr "Bu günce için olan istek şimdi tamamlandı."
 
 #: src/incidenceformatter.cpp:1614
 #, kde-format
@@ -496,7 +496,7 @@ msgstr "Gönderen halen toplantı davetini gözden geçiriyor."
 #: src/incidenceformatter.cpp:1616
 #, kde-format
 msgid "Unknown response to this journal."
-msgstr "Bu günlüğe bilinmeyen yanıt."
+msgstr "Bu günceye bilinmeyen yanıt."
 
 #: src/incidenceformatter.cpp:1623 src/incidenceformatter.cpp:1653
 #, kde-format
@@ -506,7 +506,7 @@ msgstr "Gönderen karşı teklifi reddediyor."
 #: src/incidenceformatter.cpp:1625
 #, kde-format
 msgid "Error: Journal iTIP message with unknown method."
-msgstr "Hata: Bilinmeyen yöntemli iTIP iletisi."
+msgstr "Hata: Bilinmeyen yöntemli iTIP günce iletisi."
 
 #: src/incidenceformatter.cpp:1639
 #, kde-format
@@ -1009,7 +1009,7 @@ msgid ""
 "Text of the journal:\n"
 "%1\n"
 msgstr ""
-"Günlüğün metni:\n"
+"Güncenin metni:\n"
 "%1\n"
 
 #: src/incidenceformatter.cpp:2936 src/incidenceformatter.cpp:3011
@@ -1638,7 +1638,7 @@ msgstr "Yapılacak"
 #, kde-format
 msgctxt "@item incidence type is journal"
 msgid "journal"
-msgstr "günlük"
+msgstr "günce"
 
 #: src/stringify.cpp:46
 #, kde-format
@@ -1692,7 +1692,7 @@ msgstr "Eylem-Gerektirir"
 #, kde-format
 msgctxt "@item event orto-do is canceled; journal is removed"
 msgid "Canceled"
-msgstr "İptal edilmiş"
+msgstr "İptal Edildi"
 
 #: src/stringify.cpp:93
 #, kde-format
@@ -1740,19 +1740,19 @@ msgstr "Gözlemci"
 #, kde-format
 msgctxt "@item event, to-do or journal needs action"
 msgid "Needs Action"
-msgstr "Eylem Gerektiren"
+msgstr "Eylem Gerektiriyor"
 
 #: src/stringify.cpp:135
 #, kde-format
 msgctxt "@item event, to-do or journal accepted"
 msgid "Accepted"
-msgstr "Kabul edilmiş"
+msgstr "Kabul Edildi"
 
 #: src/stringify.cpp:137
 #, kde-format
 msgctxt "@item event, to-do or journal declined"
 msgid "Declined"
-msgstr "Reddedilmiş"
+msgstr "Reddedildi"
 
 #: src/stringify.cpp:139
 #, kde-format
@@ -1872,7 +1872,7 @@ msgstr "SÜRÜM özelliği bulunamadı"
 #, kde-format
 msgctxt "@item"
 msgid "object is not a freebusy, event, todo or journal"
-msgstr "nesne bir serbest meşgul, olay, yapılacak veya günlük değil"
+msgstr "nesne bir uygun-meşgul, olay, yapılacak veya günce değil"
 
 #: src/stringify.cpp:211
 #, kde-format
@@ -2147,7 +2147,7 @@ msgstr "Gerçekleşme tarihi:"
 
 #: src/templates/journal.html:5
 msgid "Journal"
-msgstr "Günlük"
+msgstr "Günce"
 
 #: src/templates/todo.html:5
 msgid "Todo"
