@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
-set(PIM_VERSION "5.24.3")
+set(PIM_VERSION "5.24.4")
 project(KCalUtils VERSION ${PIM_VERSION})
 
 # ECM setup
