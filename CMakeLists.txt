@@ -58,7 +58,7 @@ find_package(KPim6IdentityManagementCore ${IDENTITYMANAGER_LIB_VERSION} CONFIG R
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils5\")
 
 add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
-ecm_set_disabled_deprecation_versions(QT 6.6  KF 5.240.0)
+ecm_set_disabled_deprecation_versions(QT 6.6  KF 5.245.0)
 
 
 if(BUILD_TESTING)
