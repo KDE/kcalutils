@@ -72,7 +72,7 @@ void IncidenceFormatterTest::testRecurrenceString()
 
     QDate day(2010, 10, 3);
     QTime tim(12, 0, 0);
-    QDateTime kdt(day, tim, Qt::UTC);
+    QDateTime kdt(day, tim, QTimeZone::utc());
     e1->setDtStart(kdt);
     e1->setDtEnd(kdt.addSecs(60 * 60)); // 1hr event
 
