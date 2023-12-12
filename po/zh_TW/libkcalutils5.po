@@ -3,20 +3,21 @@
 # Franklin Weng <franklin@goodhorse.idv.tw>, 2010, 2011, 2013, 2015.
 #
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2010.
+# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-21 00:45+0000\n"
-"PO-Revision-Date: 2015-05-21 00:12+0800\n"
-"Last-Translator: Franklin\n"
-"Language-Team: Chinese Traditional <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-12-11 16:11+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -1043,7 +1044,7 @@ msgstr "結束時間：%1\n"
 #: src/incidenceformatter.cpp:2824
 #, kde-format
 msgid "Recurs: %1\n"
-msgstr "重覆：%1\n"
+msgstr "重複：%1\n"
 
 #: src/incidenceformatter.cpp:2825
 #, kde-format
@@ -1054,17 +1055,17 @@ msgstr "頻率：%1\n"
 #, kde-format
 msgid "Repeats once"
 msgid_plural "Repeats %1 times"
-msgstr[0] "重覆 %1 次"
+msgstr[0] "重複 %1 次"
 
 #: src/incidenceformatter.cpp:2839
 #, kde-format
 msgid "Repeat until: %1\n"
-msgstr "重覆直到：%1\n"
+msgstr "重複直到：%1\n"
 
 #: src/incidenceformatter.cpp:2841
 #, kde-format
 msgid "Repeats forever\n"
-msgstr "永遠重覆\n"
+msgstr "永遠重複\n"
 
 #: src/incidenceformatter.cpp:2854 src/incidenceformatter.cpp:2878
 #, kde-format
@@ -1107,7 +1108,7 @@ msgstr ""
 #: src/incidenceformatter.cpp:2936 src/incidenceformatter.cpp:3011
 #, kde-format
 msgid "No recurrence"
-msgstr "不循環"
+msgstr "不重複"
 
 #: src/incidenceformatter.cpp:2940
 #, kde-format
@@ -1660,7 +1661,7 @@ msgstr "於 %1"
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
-msgstr[0] "重覆 %1 次"
+msgstr[0] "重複 %1 次"
 
 #: src/incidenceformatter.cpp:3443
 #, kde-format
