@@ -61,7 +61,7 @@ QString GrantleeKi18nLocalizer::processArguments(const KLocalizedString &kstr, c
     }
 
     // Return localized in the currently active locale
-    return str.toString("libkcalutils5");
+    return str.toString("libkcalutils6");
 }
 
 QString GrantleeKi18nLocalizer::localizeContextString(const QString &string, const QString &context, const QVariantList &arguments) const
