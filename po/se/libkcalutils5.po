@@ -1,4 +1,4 @@
-# Translation of libkcalutils5 to Northern Sami
+# Translation of libkcalutils6 to Northern Sami
 #
 # Børre Gaup <boerre@skolelinux.no>, 2004.
 msgid ""

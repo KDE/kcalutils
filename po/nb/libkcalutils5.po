@@ -1,4 +1,4 @@
-# Translation of libkcalutils5 to Norwegian Bokmål
+# Translation of libkcalutils6 to Norwegian Bokmål
 #
 # Knut Yrvin <knut.yrvin@gmail.com>, 2003, 2004.
 # Håvard Korsvoll <korsvoll@skulelinux.no>, 2003.
