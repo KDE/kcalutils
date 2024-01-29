@@ -30,7 +30,7 @@ QVariant KDateFilter::doFilter(const QVariant &input, const QVariant &argument, 
     } else {
         return QString();
     }
-    const bool shortFmt = (argument.value<KTextTemplate::SafeString>().get().compare(QLatin1String("short"), Qt::CaseInsensitive) == 0);
+    const bool shortFmt = (argument.value<KTextTemplate::SafeString>().get().compare(QLatin1StringView("short"), Qt::CaseInsensitive) == 0);
     return KTextTemplate::SafeString(KCalUtils::IncidenceFormatter::dateToString(date, shortFmt));
 }
 
@@ -61,7 +61,7 @@ QVariant KTimeFilter::doFilter(const QVariant &input, const QVariant &argument, 
         return QString();
     }
 
-    const bool shortFmt = (argument.value<KTextTemplate::SafeString>().get().compare(QLatin1String("short"), Qt::CaseInsensitive) == 0);
+    const bool shortFmt = (argument.value<KTextTemplate::SafeString>().get().compare(QLatin1StringView("short"), Qt::CaseInsensitive) == 0);
     return KTextTemplate::SafeString(KCalUtils::IncidenceFormatter::timeToString(time, shortFmt));
 }
 
@@ -87,8 +87,8 @@ QVariant KDateTimeFilter::doFilter(const QVariant &input, const QVariant &argume
     }
     const QDateTime dt = input.toDateTime();
     const QStringList arguments = argument.value<KTextTemplate::SafeString>().get().split(QLatin1Char(','));
-    const bool shortFmt = arguments.contains(QLatin1String("short"), Qt::CaseInsensitive);
-    const bool dateOnly = arguments.contains(QLatin1String("dateonly"), Qt::CaseInsensitive);
+    const bool shortFmt = arguments.contains(QLatin1StringView("short"), Qt::CaseInsensitive);
+    const bool dateOnly = arguments.contains(QLatin1StringView("dateonly"), Qt::CaseInsensitive);
     return KTextTemplate::SafeString(KCalUtils::IncidenceFormatter::dateTimeToString(dt, dateOnly, shortFmt));
 }
 
