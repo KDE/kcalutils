@@ -6,13 +6,13 @@
 # obsoleteman <tulliana@gmail.com>, 2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014, 2015, 2017, 2021.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-21 00:45+0000\n"
-"PO-Revision-Date: 2023-11-02 13:16+0300\n"
+"PO-Revision-Date: 2024-02-09 17:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -1884,7 +1884,7 @@ msgstr "İleti metni boş, program iletisi içerisinde ayrıştırılamıyor"
 #, kde-format
 msgctxt "@item"
 msgid "icalparser is unable to parse messageText into a ScheduleMessage"
-msgstr "icalparser iletiMetni'ni Zamanlamaİletisi olarak ayrıştıramadı"
+msgstr "icalparser iletiMetni’ni Zamanlamaİletisi olarak ayrıştıramadı"
 
 #: src/stringify.cpp:217
 #, kde-format
