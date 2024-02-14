@@ -2968,7 +2968,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         dayList.append(i18n("3rd Last"));
         dayList.append(i18n("2nd Last"));
         dayList.append(i18nc("last day of the month", "Last"));
-        dayList.append(i18nc("unknown day of the month", "unknown")); //#31 - zero offset from UI
+        dayList.append(i18nc("unknown day of the month", "unknown")); // #31 - zero offset from UI
         dayList.append(i18n("1st"));
         dayList.append(i18n("2nd"));
         dayList.append(i18n("3rd"));
