@@ -73,7 +73,7 @@ public:
     /**
       Create the mime data for the whole calendar.
     */
-    QMimeData *createMimeData();
+    [[nodiscard]] QMimeData *createMimeData();
 
     /**
       Create a drag object for the whole calendar.

@@ -58,18 +58,18 @@ using namespace IncidenceFormatter;
 static QVariantHash inviteButton(const QString &id, const QString &text, const QString &iconName, InvitationFormatterHelper *helper);
 
 //@cond PRIVATE
-static QString string2HTML(const QString &str)
+[[nodiscard]] static QString string2HTML(const QString &str)
 {
     // use convertToHtml so we get clickable links and other goodies
     return KTextToHTML::convertToHtml(str, KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys);
 }
 
-static bool thatIsMe(const QString &email)
+[[nodiscard]] static bool thatIsMe(const QString &email)
 {
     return KIdentityManagementCore::thatIsMe(email);
 }
 
-static bool iamAttendee(const Attendee &attendee)
+[[nodiscard]] static bool iamAttendee(const Attendee &attendee)
 {
     // Check if this attendee is the user
     return thatIsMe(attendee.email());
@@ -98,7 +98,7 @@ static QString htmlAddTag(const QString &tag, const QString &text)
     return tmpStr;
 }
 
-static QPair<QString, QString> searchNameAndUid(const QString &email, const QString &name, const QString &uid)
+[[nodiscard]] static QPair<QString, QString> searchNameAndUid(const QString &email, const QString &name, const QString &uid)
 {
     // Yes, this is a silly method now, but it's predecessor was quite useful in e35.
     // For now, please keep this sillyness until e35 is frozen to ease forward porting.
@@ -112,13 +112,13 @@ static QPair<QString, QString> searchNameAndUid(const QString &email, const QStr
     return s;
 }
 
-static QString searchName(const QString &email, const QString &name)
+[[nodiscard]] static QString searchName(const QString &email, const QString &name)
 {
     const QString printName = name.isEmpty() ? email : name;
     return printName;
 }
 
-static bool iamOrganizer(const Incidence::Ptr &incidence)
+[[nodiscard]] static bool iamOrganizer(const Incidence::Ptr &incidence)
 {
     // Check if the user is the organizer for this incidence
 
@@ -129,7 +129,7 @@ static bool iamOrganizer(const Incidence::Ptr &incidence)
     return thatIsMe(incidence->organizer().email());
 }
 
-static bool senderIsOrganizer(const Incidence::Ptr &incidence, const QString &sender)
+[[nodiscard]] static bool senderIsOrganizer(const Incidence::Ptr &incidence, const QString &sender)
 {
     // Check if the specified sender is the organizer
 
@@ -149,7 +149,7 @@ static bool senderIsOrganizer(const Incidence::Ptr &incidence, const QString &se
     return isorg;
 }
 
-static bool attendeeIsOrganizer(const Incidence::Ptr &incidence, const Attendee &attendee)
+[[nodiscard]] static bool attendeeIsOrganizer(const Incidence::Ptr &incidence, const Attendee &attendee)
 {
     if (incidence && !attendee.isNull() && (incidence->organizer().email() == attendee.email())) {
         return true;
@@ -158,7 +158,7 @@ static bool attendeeIsOrganizer(const Incidence::Ptr &incidence, const Attendee 
     }
 }
 
-static QString organizerName(const Incidence::Ptr &incidence, const QString &defName)
+[[nodiscard]] static QString organizerName(const Incidence::Ptr &incidence, const QString &defName)
 {
     QString tName;
     if (!defName.isEmpty()) {
@@ -180,7 +180,7 @@ static QString organizerName(const Incidence::Ptr &incidence, const QString &def
     return name;
 }
 
-static QString firstAttendeeName(const Incidence::Ptr &incidence, const QString &defName)
+[[nodiscard]] static QString firstAttendeeName(const Incidence::Ptr &incidence, const QString &defName)
 {
     QString tName;
     if (!defName.isEmpty()) {
@@ -206,7 +206,7 @@ static QString firstAttendeeName(const Incidence::Ptr &incidence, const QString 
     return name;
 }
 
-static QString rsvpStatusIconName(Attendee::PartStat status)
+[[nodiscard]] static QString rsvpStatusIconName(Attendee::PartStat status)
 {
     switch (status) {
     case Attendee::Accepted:
@@ -235,7 +235,7 @@ static QString rsvpStatusIconName(Attendee::PartStat status)
  *******************************************************************/
 
 //@cond PRIVATE
-static QVariantHash displayViewFormatPerson(const QString &email, const QString &name, const QString &uid, const QString &iconName)
+[[nodiscard]] static QVariantHash displayViewFormatPerson(const QString &email, const QString &name, const QString &uid, const QString &iconName)
 {
     // Search for new print name or uid, if needed.
     QPair<QString, QString> s = searchNameAndUid(email, name, uid);
@@ -265,12 +265,12 @@ static QVariantHash displayViewFormatPerson(const QString &email, const QString 
     return personData;
 }
 
-static QVariantHash displayViewFormatPerson(const QString &email, const QString &name, const QString &uid, Attendee::PartStat status)
+[[nodiscard]] static QVariantHash displayViewFormatPerson(const QString &email, const QString &name, const QString &uid, Attendee::PartStat status)
 {
     return displayViewFormatPerson(email, name, uid, rsvpStatusIconName(status));
 }
 
-static bool incOrganizerOwnsCalendar(const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
+[[nodiscard]] static bool incOrganizerOwnsCalendar(const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
 {
     // PORTME!  Look at e35's CalHelper::incOrganizerOwnsCalendar
 
@@ -279,7 +279,7 @@ static bool incOrganizerOwnsCalendar(const Calendar::Ptr &calendar, const Incide
     return iamOrganizer(incidence);
 }
 
-static QString displayViewFormatDescription(const Incidence::Ptr &incidence)
+[[nodiscard]] static QString displayViewFormatDescription(const Incidence::Ptr &incidence)
 {
     if (!incidence->description().isEmpty()) {
         if (!incidence->descriptionIsRich() && !incidence->description().startsWith(QLatin1StringView("<!DOCTYPE HTML"))) {
@@ -294,7 +294,7 @@ static QString displayViewFormatDescription(const Incidence::Ptr &incidence)
     return QString();
 }
 
-static QVariantList displayViewFormatAttendeeRoleList(const Incidence::Ptr &incidence, Attendee::Role role, bool showStatus)
+[[nodiscard]] static QVariantList displayViewFormatAttendeeRoleList(const Incidence::Ptr &incidence, Attendee::Role role, bool showStatus)
 {
     QVariantList attendeeDataList;
     attendeeDataList.reserve(incidence->attendeeCount());
@@ -326,7 +326,7 @@ static QVariantList displayViewFormatAttendeeRoleList(const Incidence::Ptr &inci
     return attendeeDataList;
 }
 
-static QVariantHash displayViewFormatOrganizer(const Incidence::Ptr &incidence)
+[[nodiscard]] static QVariantHash displayViewFormatOrganizer(const Incidence::Ptr &incidence)
 {
     // Add organizer link
     int attendeeCount = incidence->attendees().count();
@@ -338,7 +338,7 @@ static QVariantHash displayViewFormatOrganizer(const Incidence::Ptr &incidence)
     return QVariantHash();
 }
 
-static QVariantList displayViewFormatAttachments(const Incidence::Ptr &incidence)
+[[nodiscard]] static QVariantList displayViewFormatAttachments(const Incidence::Ptr &incidence)
 {
     const Attachment::List as = incidence->attachments();
 
@@ -369,7 +369,7 @@ static QVariantList displayViewFormatAttachments(const Incidence::Ptr &incidence
     return dataList;
 }
 
-static QVariantHash displayViewFormatBirthday(const Event::Ptr &event)
+[[nodiscard]] static QVariantHash displayViewFormatBirthday(const Event::Ptr &event)
 {
     if (!event) {
         return QVariantHash();
@@ -385,7 +385,7 @@ static QVariantHash displayViewFormatBirthday(const Event::Ptr &event)
     return displayViewFormatPerson(p.email(), name_1, uid_1, QString());
 }
 
-static QVariantHash incidenceTemplateHeader(const Incidence::Ptr &incidence)
+[[nodiscard]] static QVariantHash incidenceTemplateHeader(const Incidence::Ptr &incidence)
 {
     QVariantHash incidenceData;
     if (incidence->customProperty("KABC", "BIRTHDAY") == QLatin1StringView("YES")) {
@@ -419,7 +419,7 @@ static QVariantHash incidenceTemplateHeader(const Incidence::Ptr &incidence)
     return incidenceData;
 }
 
-static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QString &sourceName, const Event::Ptr &event, QDate date)
+[[nodiscard]] static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QString &sourceName, const Event::Ptr &event, QDate date)
 {
     if (!event) {
         return QString();
@@ -477,7 +477,7 @@ static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QStri
     return GrantleeTemplateManager::instance()->render(QStringLiteral(":/event.html"), incidence);
 }
 
-static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QString &sourceName, const Todo::Ptr &todo, QDate ocurrenceDueDate)
+[[nodiscard]] static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QString &sourceName, const Todo::Ptr &todo, QDate ocurrenceDueDate)
 {
     if (!todo) {
         qCDebug(KCALUTILS_LOG) << "IncidenceFormatter::displayViewFormatTodo was called without to-do, quitting";
@@ -556,7 +556,7 @@ static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QStrin
     return GrantleeTemplateManager::instance()->render(QStringLiteral(":/todo.html"), incidence);
 }
 
-static QString displayViewFormatJournal(const Calendar::Ptr &calendar, const QString &sourceName, const Journal::Ptr &journal)
+[[nodiscard]] static QString displayViewFormatJournal(const Calendar::Ptr &calendar, const QString &sourceName, const Journal::Ptr &journal)
 {
     if (!journal) {
         return QString();
@@ -572,7 +572,7 @@ static QString displayViewFormatJournal(const Calendar::Ptr &calendar, const QSt
     return GrantleeTemplateManager::instance()->render(QStringLiteral(":/journal.html"), incidence);
 }
 
-static QString displayViewFormatFreeBusy(const Calendar::Ptr &calendar, const QString &sourceName, const FreeBusy::Ptr &fb)
+[[nodiscard]] static QString displayViewFormatFreeBusy(const Calendar::Ptr &calendar, const QString &sourceName, const FreeBusy::Ptr &fb)
 {
     Q_UNUSED(calendar)
     Q_UNUSED(sourceName)
@@ -776,7 +776,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
     return locationStr;
 }
 
-static QString diffColor()
+[[nodiscard]] static QString diffColor()
 {
     // Color for printing comparison differences inside invitations.
 
@@ -784,13 +784,13 @@ static QString diffColor()
     return QColor(Qt::red).name(); // krazy:exclude=qenums TODO make configurable
 }
 
-static QString noteColor()
+[[nodiscard]] static QString noteColor()
 {
     // Color for printing notes inside invitations.
     return qApp->palette().color(QPalette::Active, QPalette::Highlight).name();
 }
 
-static QString htmlCompare(const QString &value, const QString &oldvalue)
+[[nodiscard]] static QString htmlCompare(const QString &value, const QString &oldvalue)
 {
     // if 'value' is empty, then print nothing
     if (value.isEmpty()) {
@@ -806,7 +806,7 @@ static QString htmlCompare(const QString &value, const QString &oldvalue)
     return QStringLiteral("<font color=\"%1\">%2</font> (<strike>%3</strike>)").arg(diffColor(), value, oldvalue);
 }
 
-static Attendee findDelegatedFromMyAttendee(const Incidence::Ptr &incidence)
+[[nodiscard]] static Attendee findDelegatedFromMyAttendee(const Incidence::Ptr &incidence)
 {
     // Return the first attendee that was delegated-from the user
 
@@ -829,7 +829,7 @@ static Attendee findDelegatedFromMyAttendee(const Incidence::Ptr &incidence)
     return attendee;
 }
 
-static Attendee findMyAttendee(const Incidence::Ptr &incidence)
+[[nodiscard]] static Attendee findMyAttendee(const Incidence::Ptr &incidence)
 {
     // Return the attendee for the incidence that is probably the user
 
@@ -849,7 +849,7 @@ static Attendee findMyAttendee(const Incidence::Ptr &incidence)
     return attendee;
 }
 
-static Attendee findAttendee(const Incidence::Ptr &incidence, const QString &email)
+[[nodiscard]] static Attendee findAttendee(const Incidence::Ptr &incidence, const QString &email)
 {
     // Search for an attendee by email address
 
@@ -868,7 +868,7 @@ static Attendee findAttendee(const Incidence::Ptr &incidence, const QString &ema
     return attendee;
 }
 
-static bool rsvpRequested(const Incidence::Ptr &incidence)
+[[nodiscard]] static bool rsvpRequested(const Incidence::Ptr &incidence)
 {
     if (!incidence) {
         return false;
@@ -893,7 +893,7 @@ static bool rsvpRequested(const Incidence::Ptr &incidence)
     return rsvp;
 }
 
-static QString rsvpRequestedStr(bool rsvpRequested, const QString &role)
+[[nodiscard]] static QString rsvpRequestedStr(bool rsvpRequested, const QString &role)
 {
     if (rsvpRequested) {
         if (role.isEmpty()) {
@@ -910,7 +910,7 @@ static QString rsvpRequestedStr(bool rsvpRequested, const QString &role)
     }
 }
 
-static QString myStatusStr(const Incidence::Ptr &incidence)
+[[nodiscard]] static QString myStatusStr(const Incidence::Ptr &incidence)
 {
     QString ret;
     const Attendee a = findMyAttendee(incidence);
@@ -920,7 +920,7 @@ static QString myStatusStr(const Incidence::Ptr &incidence)
     return ret;
 }
 
-static QVariantHash invitationNote(const QString &title, const QString &note, const QString &color)
+[[nodiscard]] static QVariantHash invitationNote(const QString &title, const QString &note, const QString &color)
 {
     QVariantHash noteHash;
     if (note.isEmpty()) {
@@ -933,7 +933,7 @@ static QVariantHash invitationNote(const QString &title, const QString &note, co
     return noteHash;
 }
 
-static QString invitationDescriptionIncidence(const Incidence::Ptr &incidence, bool noHtmlMode)
+[[nodiscard]] static QString invitationDescriptionIncidence(const Incidence::Ptr &incidence, bool noHtmlMode)
 {
     if (!incidence->description().isEmpty()) {
         // use description too
@@ -956,7 +956,7 @@ static QString invitationDescriptionIncidence(const Incidence::Ptr &incidence, b
     return QString();
 }
 
-static bool slicesInterval(const Event::Ptr &event, const QDateTime &startDt, const QDateTime &endDt)
+[[nodiscard]] static bool slicesInterval(const Event::Ptr &event, const QDateTime &startDt, const QDateTime &endDt)
 {
     QDateTime closestStart = event->dtStart();
     QDateTime closestEnd = event->dtEnd();
@@ -990,7 +990,7 @@ static bool slicesInterval(const Event::Ptr &event, const QDateTime &startDt, co
     return (closestStart >= startDt && closestStart <= endDt) && (closestEnd >= startDt && closestEnd <= endDt);
 }
 
-static QVariantList eventsOnSameDays(InvitationFormatterHelper *helper, const Event::Ptr &event, bool noHtmlMode)
+[[nodiscard]] static QVariantList eventsOnSameDays(InvitationFormatterHelper *helper, const Event::Ptr &event, bool noHtmlMode)
 {
     if (!event || !helper || !helper->calendar()) {
         return QVariantList();
@@ -1034,7 +1034,7 @@ static QVariantList eventsOnSameDays(InvitationFormatterHelper *helper, const Ev
     return events;
 }
 
-static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper, const Event::Ptr &event, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper, const Event::Ptr &event, bool noHtmlMode)
 {
     // Invitation details are formatted into an HTML table
     if (!event) {
@@ -1085,11 +1085,11 @@ QString IncidenceFormatter::formatStartEnd(const QDateTime &start, const QDateTi
     return tmpStr;
 }
 
-static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper,
-                                           const Event::Ptr &event,
-                                           const Event::Ptr &oldevent,
-                                           const ScheduleMessage::Ptr &message,
-                                           bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper,
+                                                         const Event::Ptr &event,
+                                                         const Event::Ptr &oldevent,
+                                                         const ScheduleMessage::Ptr &message,
+                                                         bool noHtmlMode)
 {
     if (!oldevent) {
         return invitationDetailsEvent(helper, event, noHtmlMode);
@@ -1120,7 +1120,7 @@ static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper,
     return incidence;
 }
 
-static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo, bool noHtmlMode)
 {
     // To-do details are formatted into an HTML table
     if (!todo) {
@@ -1159,7 +1159,7 @@ static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo, bool noHtmlMode
     return incidence;
 }
 
-static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo, const Todo::Ptr &oldtodo, const ScheduleMessage::Ptr &message, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo, const Todo::Ptr &oldtodo, const ScheduleMessage::Ptr &message, bool noHtmlMode)
 {
     if (!oldtodo) {
         return invitationDetailsTodo(todo, noHtmlMode);
@@ -1190,7 +1190,7 @@ static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo, const Todo::Ptr
     return incidence;
 }
 
-static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, bool noHtmlMode)
 {
     if (!journal) {
         return QVariantHash();
@@ -1205,7 +1205,7 @@ static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, bool n
     return incidence;
 }
 
-static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, const Journal::Ptr &oldjournal, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, const Journal::Ptr &oldjournal, bool noHtmlMode)
 {
     if (!oldjournal) {
         return invitationDetailsJournal(journal, noHtmlMode);
@@ -1221,7 +1221,7 @@ static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, const 
     return incidence;
 }
 
-static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHtmlMode)
 {
     Q_UNUSED(noHtmlMode)
 
@@ -1265,13 +1265,13 @@ static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHt
     return incidence;
 }
 
-static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, const FreeBusy::Ptr &oldfb, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, const FreeBusy::Ptr &oldfb, bool noHtmlMode)
 {
     Q_UNUSED(oldfb)
     return invitationDetailsFreeBusy(fb, noHtmlMode);
 }
 
-static bool replyMeansCounter(const Incidence::Ptr &incidence)
+[[nodiscard]] static bool replyMeansCounter(const Incidence::Ptr &incidence)
 {
     Q_UNUSED(incidence)
     return false;
@@ -1291,7 +1291,8 @@ static bool replyMeansCounter(const Incidence::Ptr &incidence)
     */
 }
 
-static QString invitationHeaderEvent(const Event::Ptr &event, const Incidence::Ptr &existingIncidence, const ScheduleMessage::Ptr &msg, const QString &sender)
+[[nodiscard]] static QString
+invitationHeaderEvent(const Event::Ptr &event, const Incidence::Ptr &existingIncidence, const ScheduleMessage::Ptr &msg, const QString &sender)
 {
     if (!msg || !event) {
         return QString();
@@ -1423,7 +1424,8 @@ static QString invitationHeaderEvent(const Event::Ptr &event, const Incidence::P
     return QString();
 }
 
-static QString invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncidence, const ScheduleMessage::Ptr &msg, const QString &sender)
+[[nodiscard]] static QString
+invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncidence, const ScheduleMessage::Ptr &msg, const QString &sender)
 {
     if (!msg || !todo) {
         return QString();
@@ -1564,7 +1566,7 @@ static QString invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr 
     return QString();
 }
 
-static QString invitationHeaderJournal(const Journal::Ptr &journal, const ScheduleMessage::Ptr &msg)
+[[nodiscard]] static QString invitationHeaderJournal(const Journal::Ptr &journal, const ScheduleMessage::Ptr &msg)
 {
     if (!msg || !journal) {
         return QString();
@@ -1628,7 +1630,7 @@ static QString invitationHeaderJournal(const Journal::Ptr &journal, const Schedu
     return QString();
 }
 
-static QString invitationHeaderFreeBusy(const FreeBusy::Ptr &fb, const ScheduleMessage::Ptr &msg)
+[[nodiscard]] static QString invitationHeaderFreeBusy(const FreeBusy::Ptr &fb, const ScheduleMessage::Ptr &msg)
 {
     if (!msg || !fb) {
         return QString();
@@ -1660,7 +1662,7 @@ static QString invitationHeaderFreeBusy(const FreeBusy::Ptr &fb, const ScheduleM
 
 //@endcond
 
-static QVariantList invitationAttendeeList(const Incidence::Ptr &incidence)
+[[nodiscard]] static QVariantList invitationAttendeeList(const Incidence::Ptr &incidence)
 {
     if (!incidence) {
         return QVariantList();
@@ -1688,7 +1690,7 @@ static QVariantList invitationAttendeeList(const Incidence::Ptr &incidence)
     return attendees;
 }
 
-static QVariantList invitationRsvpList(const Incidence::Ptr &incidence, const Attendee &sender)
+[[nodiscard]] static QVariantList invitationRsvpList(const Incidence::Ptr &incidence, const Attendee &sender)
 {
     if (!incidence) {
         return QVariantList();
@@ -1726,7 +1728,7 @@ static QVariantList invitationRsvpList(const Incidence::Ptr &incidence, const At
     return attendees;
 }
 
-static QVariantList invitationAttachments(const Incidence::Ptr &incidence, InvitationFormatterHelper *helper)
+[[nodiscard]] static QVariantList invitationAttachments(const Incidence::Ptr &incidence, InvitationFormatterHelper *helper)
 {
     if (!incidence) {
         return QVariantList();
@@ -1956,7 +1958,7 @@ static QVariantList responseButtons(const Incidence::Ptr &incidence,
     return buttons;
 }
 
-static QVariantList counterButtons(InvitationFormatterHelper *helper)
+[[nodiscard]] static QVariantList counterButtons(InvitationFormatterHelper *helper)
 {
     QVariantList buttons;
 
@@ -1969,7 +1971,7 @@ static QVariantList counterButtons(InvitationFormatterHelper *helper)
     return buttons;
 }
 
-static QVariantList recordButtons(const Incidence::Ptr &incidence, InvitationFormatterHelper *helper)
+[[nodiscard]] static QVariantList recordButtons(const Incidence::Ptr &incidence, InvitationFormatterHelper *helper)
 {
     QVariantList buttons;
     if (incidence) {
@@ -1982,7 +1984,7 @@ static QVariantList recordButtons(const Incidence::Ptr &incidence, InvitationFor
     return buttons;
 }
 
-static QVariantList recordResponseButtons(const Incidence::Ptr &incidence, InvitationFormatterHelper *helper)
+[[nodiscard]] static QVariantList recordResponseButtons(const Incidence::Ptr &incidence, InvitationFormatterHelper *helper)
 {
     QVariantList buttons;
 
@@ -1995,7 +1997,7 @@ static QVariantList recordResponseButtons(const Incidence::Ptr &incidence, Invit
     return buttons;
 }
 
-static QVariantList cancelButtons(const Incidence::Ptr &incidence, InvitationFormatterHelper *helper)
+[[nodiscard]] static QVariantList cancelButtons(const Incidence::Ptr &incidence, InvitationFormatterHelper *helper)
 {
     QVariantList buttons;
 
@@ -2011,7 +2013,7 @@ static QVariantList cancelButtons(const Incidence::Ptr &incidence, InvitationFor
     return buttons;
 }
 
-static QVariantHash invitationStyle()
+[[nodiscard]] static QVariantHash invitationStyle()
 {
     QVariantHash style;
     QPalette p;
@@ -2358,12 +2360,12 @@ protected:
     bool visit(const Journal::Ptr &journal) override;
     bool visit(const FreeBusy::Ptr &fb) override;
 
-    QString dateRangeText(const Event::Ptr &event, QDate date);
-    QString dateRangeText(const Todo::Ptr &todo, QDate asOfDate);
-    QString dateRangeText(const Journal::Ptr &journal);
-    QString dateRangeText(const FreeBusy::Ptr &fb);
+    [[nodiscard]] QString dateRangeText(const Event::Ptr &event, QDate date);
+    [[nodiscard]] QString dateRangeText(const Todo::Ptr &todo, QDate asOfDate);
+    [[nodiscard]] QString dateRangeText(const Journal::Ptr &journal);
+    [[nodiscard]] QString dateRangeText(const FreeBusy::Ptr &fb);
 
-    QString generateToolTip(const Incidence::Ptr &incidence, const QString &dtRangeText);
+    [[nodiscard]] QString generateToolTip(const Incidence::Ptr &incidence, const QString &dtRangeText);
 
 protected:
     Calendar::Ptr mCalendar;
@@ -2507,7 +2509,7 @@ bool IncidenceFormatter::ToolTipVisitor::visit(const FreeBusy::Ptr &fb)
     return !mResult.isEmpty();
 }
 
-static QString tooltipPerson(const QString &email, const QString &name, Attendee::PartStat status)
+[[nodiscard]] static QString tooltipPerson(const QString &email, const QString &name, Attendee::PartStat status)
 {
     // Search for a new print name, if needed.
     const QString printName = searchName(email, name);
@@ -2528,7 +2530,7 @@ static QString tooltipPerson(const QString &email, const QString &name, Attendee
     return personString;
 }
 
-static QString tooltipFormatOrganizer(const QString &email, const QString &name)
+[[nodiscard]] static QString tooltipFormatOrganizer(const QString &email, const QString &name)
 {
     // Search for a new print name, if needed
     const QString printName = searchName(email, name);
@@ -2546,7 +2548,7 @@ static QString tooltipFormatOrganizer(const QString &email, const QString &name)
     return personString;
 }
 
-static QString tooltipFormatAttendeeRoleList(const Incidence::Ptr &incidence, Attendee::Role role, bool showStatus)
+[[nodiscard]] static QString tooltipFormatAttendeeRoleList(const Incidence::Ptr &incidence, Attendee::Role role, bool showStatus)
 {
     int maxNumAtts = 8; // maximum number of people to print per attendee role
     const QString etc = i18nc("ellipsis", "...");
@@ -2583,7 +2585,7 @@ static QString tooltipFormatAttendeeRoleList(const Incidence::Ptr &incidence, At
     return tmpStr;
 }
 
-static QString tooltipFormatAttendees(const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
+[[nodiscard]] static QString tooltipFormatAttendees(const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
 {
     QString tmpStr;
     QString str;
@@ -2909,7 +2911,7 @@ QString IncidenceFormatter::mailBodyStr(const IncidenceBase::Ptr &incidence)
 }
 
 //@cond PRIVATE
-static QString recurEnd(const Incidence::Ptr &incidence)
+[[nodiscard]] static QString recurEnd(const Incidence::Ptr &incidence)
 {
     QString endstr;
     if (incidence->allDay()) {
