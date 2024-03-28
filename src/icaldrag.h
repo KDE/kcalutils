@@ -29,7 +29,7 @@ namespace ICalDrag
 /**
   Sets the iCalendar representation as data of the drag object
 */
-[[nodiscard]] KCALUTILS_EXPORT bool populateMimeData(QMimeData *e, const KCalendarCore::Calendar::Ptr &cal);
+KCALUTILS_EXPORT bool populateMimeData(QMimeData *e, const KCalendarCore::Calendar::Ptr &cal);
 
 /**
   Return, if drag&drop object can be decode to iCalendar.
