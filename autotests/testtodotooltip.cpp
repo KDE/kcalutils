@@ -39,6 +39,16 @@ static const QString EXPECTED_PCT100{QStringLiteral("100%")};
 static const QString EXPECTED_PCT50{QStringLiteral("50%")};
 static const QString EXPECTED_PCT0{QStringLiteral("0%")};
 
+#ifndef Q_OS_WIN
+void initLocale()
+{
+    setenv("LC_ALL", "en_US.utf-8", 1);
+    setenv("TZ", "UTC", 1);
+}
+
+Q_CONSTRUCTOR_FUNCTION(initLocale)
+#endif
+
 using namespace KCalUtils::IncidenceFormatter;
 
 // Create a to-do that may or may not be an all-day to-do, may or may nor recur,
