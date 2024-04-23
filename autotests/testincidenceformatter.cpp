@@ -53,7 +53,7 @@ void IncidenceFormatterTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
     GrantleeTemplateManager::instance()->setTemplatePath(QStringLiteral(TEST_TEMPLATE_PATH));
     GrantleeTemplateManager::instance()->setPluginPath(QStringLiteral(TEST_PLUGIN_PATH));
-    QIcon::setThemeName(QStringLiteral("oxygen"));
+    QIcon::setThemeName(QStringLiteral("breeze"));
     QLocale::setDefault(QLocale(QStringLiteral("C")));
 
     QPalette palette;
