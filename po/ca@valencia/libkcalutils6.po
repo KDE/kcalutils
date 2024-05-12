@@ -590,13 +590,13 @@ msgstr "Declina"
 #, kde-format
 msgctxt "invitation counter proposal"
 msgid "Counter proposal ..."
-msgstr "Contraproposta «...»"
+msgstr "Contraproposta «…»"
 
 #: src/incidenceformatter.cpp:1956
 #, kde-format
 msgctxt "delegate invitation to another"
 msgid "Delegate ..."
-msgstr "Delega «...»"
+msgstr "Delega «…»"
 
 #: src/incidenceformatter.cpp:1966
 #, kde-format
@@ -762,7 +762,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "ellipsis"
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #: src/incidenceformatter.cpp:2574
 #, kde-format
