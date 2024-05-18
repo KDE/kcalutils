@@ -1,15 +1,15 @@
 # translation of libkcalutils5.pot to esperanto
 # Copyright (C) 2023 Free Software Foundation, Inc.
 # This file is distributed under the same license as the kcalutils package.
-# Oliver Kellogg <okellogg@users.sourceforge.net, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-02 00:38+0000\n"
-"PO-Revision-Date: 2023-11-30 18:56+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-10 11:33+0100\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -67,7 +67,7 @@ msgctxt "minutes part duration"
 msgid "1 minute "
 msgid_plural "%1 minutes "
 msgstr[0] "1 minuto "
-msgstr[1] "%1 minutoj "
+msgstr[1] "%1 minutoj"
 
 #: src/incidenceformatter.cpp:606 src/incidenceformatter.cpp:1254
 #, kde-format
@@ -110,7 +110,7 @@ msgstr "Neniu respondo ĉar <b>%1</b> estas necesa."
 #: src/incidenceformatter.cpp:918
 #, kde-format
 msgid "(<b>Note</b>: the Organizer preset your response to <b>%1</b>)"
-msgstr "(<b>Noto</b>: la Organizanto antaŭdiris vian respondon al <b>%1</b>)"
+msgstr "(<b>Noto</b>: la Organizanto antaŭmetis vian respondon al <b>%1</b>)"
 
 #: src/incidenceformatter.cpp:1057 src/incidenceformatter.cpp:1117
 #, kde-format
@@ -425,22 +425,22 @@ msgstr "Eraro: Por fari iTIP-mesaĝon kun nekonata metodo."
 #: src/incidenceformatter.cpp:1577
 #, kde-format
 msgid "This journal has been published."
-msgstr "Ĉi tiu ĵurnalo estis publikigita."
+msgstr "Ĉi tiu taglibro estis publikigita."
 
 #: src/incidenceformatter.cpp:1579
 #, kde-format
 msgid "You have been assigned this journal."
-msgstr "Vi ricevis ĉi tiun ĵurnalon."
+msgstr "Vi ricevis ĉi tiun taglibron."
 
 #: src/incidenceformatter.cpp:1581
 #, kde-format
 msgid "This journal was refreshed."
-msgstr "Ĉi tiu ĵurnalo estis refreŝigita."
+msgstr "Ĉi tiu taglibro estis refreŝigita."
 
 #: src/incidenceformatter.cpp:1583
 #, kde-format
 msgid "This journal was canceled."
-msgstr "Ĉi tiu ĵurnalo estis nuligita."
+msgstr "Ĉi tiu taglibro estis nuligita."
 
 #: src/incidenceformatter.cpp:1585
 #, kde-format
@@ -456,22 +456,22 @@ msgstr "Sendanto faras ĉi tiun kontraŭproponon."
 #: src/incidenceformatter.cpp:1604
 #, kde-format
 msgid "Sender indicates this journal assignment still needs some action."
-msgstr "Sendanto indikas, ke ĉi tiu ĵurnala tasko ankoraŭ bezonas iun agon."
+msgstr "Sendanto indikas, ke ĉi tiu taglibra tasko ankoraŭ bezonas iun agon."
 
 #: src/incidenceformatter.cpp:1606
 #, kde-format
 msgid "Sender accepts this journal."
-msgstr "Sendanto akceptas ĉi tiun ĵurnalon."
+msgstr "Sendanto akceptas ĉi tiun taglibron."
 
 #: src/incidenceformatter.cpp:1608
 #, kde-format
 msgid "Sender tentatively accepts this journal."
-msgstr "Sendanto provizore akceptas ĉi tiun ĵurnalon."
+msgstr "Sendanto provizore akceptas ĉi tiun taglibron."
 
 #: src/incidenceformatter.cpp:1610
 #, kde-format
 msgid "Sender declines this journal."
-msgstr "Sendanto malakceptas ĉi tiun ĵurnalon."
+msgstr "Sendanto malakceptas ĉi tiun taglibron."
 
 #: src/incidenceformatter.cpp:1612
 #, kde-format
@@ -481,7 +481,7 @@ msgstr "Sendanto delegis ĉi tiun peton por la revuo."
 #: src/incidenceformatter.cpp:1614
 #, kde-format
 msgid "The request for this journal is now completed."
-msgstr "La peto por ĉi tiu ĵurnalo nun estas finita."
+msgstr "La peto por ĉi tiu taglibro nun estas finita."
 
 #: src/incidenceformatter.cpp:1616
 #, kde-format
@@ -491,7 +491,7 @@ msgstr "Sendanto ankoraŭ prilaboras la inviton."
 #: src/incidenceformatter.cpp:1618
 #, kde-format
 msgid "Unknown response to this journal."
-msgstr "Nekonata respondo al ĉi tiu ĵurnalo."
+msgstr "Nekonata respondo al ĉi tiu taglibro."
 
 #: src/incidenceformatter.cpp:1625 src/incidenceformatter.cpp:1655
 #, kde-format
@@ -501,7 +501,7 @@ msgstr "Sendanto malakceptas la kontraŭproponon."
 #: src/incidenceformatter.cpp:1627
 #, kde-format
 msgid "Error: Journal iTIP message with unknown method."
-msgstr "Eraro: Ĵurnalo iTIP-mesaĝo kun nekonata metodo."
+msgstr "Eraro: Taglibra iTIP-mesaĝo kun nekonata metodo."
 
 #: src/incidenceformatter.cpp:1641
 #, kde-format
@@ -1633,7 +1633,7 @@ msgstr "fari"
 #, kde-format
 msgctxt "@item incidence type is journal"
 msgid "journal"
-msgstr "ĵurnalo"
+msgstr "taglibro"
 
 #: src/stringify.cpp:46
 #, kde-format
@@ -1867,7 +1867,7 @@ msgstr "Neniu VERSION-propreco trovita"
 #, kde-format
 msgctxt "@item"
 msgid "object is not a freebusy, event, todo or journal"
-msgstr "objekto ne estas libera okupado, evento, aĵo aŭ ĵurnalo"
+msgstr "objekto ne estas libera okupado, evento, aĵo aŭ taglibro"
 
 #: src/stringify.cpp:211
 #, kde-format
@@ -2138,11 +2138,11 @@ msgstr "Procento Farita:"
 
 #: src/templates/itip_todo.html:39
 msgid "Due:"
-msgstr "Paga:"
+msgstr "Kompletiĝenda:"
 
 #: src/templates/journal.html:5
 msgid "Journal"
-msgstr "Ĵurnalo"
+msgstr "Taglibro"
 
 #: src/templates/todo.html:5
 msgid "Todo"
