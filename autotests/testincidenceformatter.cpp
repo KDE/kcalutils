@@ -201,8 +201,8 @@ bool IncidenceFormatterTest::compareHtml(const QString &name)
         QString content = QString::fromUtf8(f.readAll());
         f.close();
         content.replace(QRegularExpression(QStringLiteral("\"file:[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("\"file:\\1\""));
-        // emoticons give us absolute paths without file:
-        content.replace(QRegularExpression(QStringLiteral("src=\"/[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("src=\"\\1\""));
+        // since KF 6.3 we can also get icons with qrc paths
+        content.replace(QRegularExpression(QStringLiteral("src=\"qrc:/[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("src=\"file:\\1\""));
         // icon filename extensions depend on used theme, Oxygen has PNG, Breeze has SVG
         content.replace(QRegularExpression(QStringLiteral(".(png|svg)\"")), QStringLiteral("\""));
         if (!f.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
