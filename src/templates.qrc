@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/org.kde.pim/kcalutils">
         <file alias="event.html">templates/event.html</file>
         <file alias="freebusy.html">templates/freebusy.html</file>
         <file alias="incidence_header.html">templates/incidence_header.html</file>

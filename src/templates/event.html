@@ -1,9 +1,9 @@
-{% extends ":/template_base.html" %}
+{% extends ":/org.kde.pim/kcalutils/template_base.html" %}
 
 
 {% block body %}
 {% with _("Event") as type %}
-{% include ":/incidence_header.html" %}
+{% include ":/org.kde.pim/kcalutils/incidence_header.html" %}
 {% endwith %}
 
 <table>
@@ -112,7 +112,7 @@
         <th valign="top">{% i18n "Organizer:" %}</th>
         <td>
         {% with incidence.organizer as attendee %}
-        {% include ":/attendee_row.html" %}
+        {% include ":/org.kde.pim/kcalutils/attendee_row.html" %}
         {% endwith %}
         </td>
     </tr>
@@ -124,7 +124,7 @@
         <th valign="top">{% i18n "Chair:" %}</th>
         <td>
         {% for attendee in incidence.chair %}
-            {% include ":/attendee_row.html" %}
+            {% include ":/org.kde.pim/kcalutils/attendee_row.html" %}
             {% if not forloop.last %}<br/>{% endif %}
         {% endfor %}
         </td>
@@ -137,7 +137,7 @@
         <th valign="top">{% i18n "Required Participants:" %}</th>
         <td>
         {% for attendee in incidence.requiredParticipants %}
-            {% include ":/attendee_row.html" %}
+            {% include ":/org.kde.pim/kcalutils/attendee_row.html" %}
             {% if not forloop.last %}<br/>{% endif %}
         {% endfor %}
         </td>
@@ -150,7 +150,7 @@
         <th valign="top">{% i18n "Optional participants:" %}</th>
         <td>
         {% for attendee in incidence.optionalParticipants %}
-            {% include ":/attendee_row.html" %}
+            {% include ":/org.kde.pim/kcalutils/attendee_row.html" %}
             {% if not forloop.last %}<br/>{% endif %}
         {% endfor %}
         </td>
@@ -163,7 +163,7 @@
         <th valign="top">{% i18n "Observers:" %}</th>
         <td>
         {% for attendee in incidence.chair %}
-            {% include ":/attendee_row.html" %}
+            {% include ":/org.kde.pim/kcalutils/attendee_row.html" %}
             {% if not forloop.last %}<br/>{% endif %}
         {% endfor %}
         </td>

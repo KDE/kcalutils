@@ -474,7 +474,7 @@ static QString htmlAddTag(const QString &tag, const QString &text)
     incidence[QStringLiteral("attachments")] = displayViewFormatAttachments(event);
     incidence[QStringLiteral("creationDate")] = event->created().toLocalTime();
 
-    return GrantleeTemplateManager::instance()->render(QStringLiteral(":/event.html"), incidence);
+    return GrantleeTemplateManager::instance()->render(QStringLiteral(":/org.kde.pim/kcalutils/event.html"), incidence);
 }
 
 [[nodiscard]] static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QString &sourceName, const Todo::Ptr &todo, QDate ocurrenceDueDate)
@@ -553,7 +553,7 @@ static QString htmlAddTag(const QString &tag, const QString &text)
     incidence[QStringLiteral("attachments")] = displayViewFormatAttachments(todo);
     incidence[QStringLiteral("creationDate")] = todo->created().toLocalTime();
 
-    return GrantleeTemplateManager::instance()->render(QStringLiteral(":/todo.html"), incidence);
+    return GrantleeTemplateManager::instance()->render(QStringLiteral(":/org.kde.pim/kcalutils/todo.html"), incidence);
 }
 
 [[nodiscard]] static QString displayViewFormatJournal(const Calendar::Ptr &calendar, const QString &sourceName, const Journal::Ptr &journal)
@@ -569,7 +569,7 @@ static QString htmlAddTag(const QString &tag, const QString &text)
     incidence[QStringLiteral("categories")] = journal->categories();
     incidence[QStringLiteral("creationDate")] = journal->created().toLocalTime();
 
-    return GrantleeTemplateManager::instance()->render(QStringLiteral(":/journal.html"), incidence);
+    return GrantleeTemplateManager::instance()->render(QStringLiteral(":/org.kde.pim/kcalutils/journal.html"), incidence);
 }
 
 [[nodiscard]] static QString displayViewFormatFreeBusy(const Calendar::Ptr &calendar, const QString &sourceName, const FreeBusy::Ptr &fb)
@@ -625,7 +625,7 @@ static QString htmlAddTag(const QString &tag, const QString &text)
 
     fbData[QStringLiteral("periods")] = periodsData;
 
-    return GrantleeTemplateManager::instance()->render(QStringLiteral(":/freebusy.html"), fbData);
+    return GrantleeTemplateManager::instance()->render(QStringLiteral(":/org.kde.pim/kcalutils/freebusy.html"), fbData);
 }
 
 //@endcond
@@ -2287,16 +2287,16 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
     QString templateName;
     switch (inc->type()) {
     case KCalendarCore::IncidenceBase::TypeEvent:
-        templateName = QStringLiteral(":/itip_event.html");
+        templateName = QStringLiteral(":/org.kde.pim/kcalutils/itip_event.html");
         break;
     case KCalendarCore::IncidenceBase::TypeTodo:
-        templateName = QStringLiteral(":/itip_todo.html");
+        templateName = QStringLiteral(":/org.kde.pim/kcalutils/itip_todo.html");
         break;
     case KCalendarCore::IncidenceBase::TypeJournal:
-        templateName = QStringLiteral(":/itip_journal.html");
+        templateName = QStringLiteral(":/org.kde.pim/kcalutils/itip_journal.html");
         break;
     case KCalendarCore::IncidenceBase::TypeFreeBusy:
-        templateName = QStringLiteral(":/itip_freebusy.html");
+        templateName = QStringLiteral(":/org.kde.pim/kcalutils/itip_freebusy.html");
         break;
     case KCalendarCore::IncidenceBase::TypeUnknown:
         return QString();

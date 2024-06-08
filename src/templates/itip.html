@@ -1,4 +1,4 @@
-{% extends ":/template_base.html" %}
+{% extends ":/org.kde.pim/kcalutils/template_base.html" %}
 
 {% block style %}
 #invitation {
@@ -109,7 +109,7 @@
     <th valign="top">{{ incidence.attendeesTitle }}</th>
     <td>
     {% for attendee in incidence.attendees %}
-        {% include ":/attendee_row.html" %}
+        {% include ":/org.kde.pim/kcalutils/attendee_row.html" %}
         {% if not forloop.last %}<br/>{% endif %}
     {% endfor %}
     </td>
