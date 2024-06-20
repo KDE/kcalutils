@@ -20,7 +20,7 @@ target_sources(kcalendar_grantlee_plugin PRIVATE
         KF6::TextTemplate
         KF6::IconThemes
         KPim6CalendarUtils
-    )
+)
     install(TARGETS kcalendar_grantlee_plugin
         LIBRARY DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/ktexttemplate/
-    )
+)
