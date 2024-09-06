@@ -6,7 +6,7 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2011, 2013, 2014, 2015, 2016, 2017, 2018, 2020, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: libkcalutils\n"
+"Project-Id-Version: libkcalutils6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-02 00:38+0000\n"
 "PO-Revision-Date: 2021-10-15 12:28+0200\n"
