@@ -115,7 +115,7 @@ void IconNode::render(KTextTemplate::OutputStream *stream, KTextTemplate::Contex
     }
 
     QString iconPath = KIconLoader::global()->iconPath(iconName, mSizeOrGroup < KIconLoader::LastGroup ? mSizeOrGroup : -mSizeOrGroup);
-    if (iconPath.startsWith(QLatin1String(":/"))) {
+    if (iconPath.startsWith(QLatin1StringView(":/"))) {
         iconPath = QStringLiteral("qrc") + iconPath;
     } else {
         iconPath = QStringLiteral("file://") + iconPath;
