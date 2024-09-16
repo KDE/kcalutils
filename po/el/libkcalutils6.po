@@ -89,28 +89,24 @@ msgid "Location unspecified"
 msgstr "Θέση απροσδιόριστη"
 
 #: src/incidenceformatter.cpp:900
-#, fuzzy, kde-format
-#| msgid "Your response is requested"
+#, kde-format
 msgid "Your response is requested."
-msgstr "Ζητείται η απάντησή σας"
+msgstr "Ζητείται η απάντησή σας."
 
 #: src/incidenceformatter.cpp:902
-#, fuzzy, kde-format
-#| msgid "Your response as <b>%1</b> is requested"
+#, kde-format
 msgid "Your response as <b>%1</b> is requested."
-msgstr "Ζητείται η απάντησή σας ως <b>%1</b>"
+msgstr "Ζητείται η απάντησή σας ως <b>%1</b>."
 
 #: src/incidenceformatter.cpp:906
-#, fuzzy, kde-format
-#| msgid "No response is necessary"
+#, kde-format
 msgid "No response is necessary."
-msgstr "Απάντηση δεν είναι απαραίτητη"
+msgstr "Απάντηση δεν είναι απαραίτητη."
 
 #: src/incidenceformatter.cpp:908
-#, fuzzy, kde-format
-#| msgid "No response as <b>%1</b> is necessary"
+#, kde-format
 msgid "No response as <b>%1</b> is necessary."
-msgstr "Απάντηση ως <b>%1</b> δεν είναι απαραίτητη"
+msgstr "Απάντηση ως <b>%1</b> δεν είναι απαραίτητη."
 
 #: src/incidenceformatter.cpp:918
 #, kde-format
@@ -143,492 +139,412 @@ msgstr[0] "1 λεπτό"
 msgstr[1] "%1 λεπτά "
 
 #: src/incidenceformatter.cpp:1303
-#, fuzzy, kde-format
-#| msgid "This invitation has been published"
+#, kde-format
 msgid "This invitation has been published."
-msgstr "Η πρόσκληση αυτή έχει δημοσιευτεί"
+msgstr "Η πρόσκληση αυτή έχει δημοσιευτεί."
 
 #: src/incidenceformatter.cpp:1308
-#, fuzzy, kde-format
-#| msgid "This invitation has been updated by the organizer %1"
+#, kde-format
 msgid "This invitation has been updated by the organizer %1."
-msgstr "Η πρόσκληση αυτή έχει ενημερωθεί από το διοργανωτή %1"
+msgstr "Η πρόσκληση αυτή έχει ενημερωθεί από το διοργανωτή %1."
 
 #: src/incidenceformatter.cpp:1310
-#, fuzzy, kde-format
-#| msgid "This invitation has been updated by %1 as a representative of %2"
+#, kde-format
 msgid "This invitation has been updated by %1 as a representative of %2."
-msgstr "Η πρόσκληση αυτή έχει ενημερωθεί από %1 εκπρόσωπο του %2"
+msgstr "Η πρόσκληση αυτή έχει ενημερωθεί από %1 εκπρόσωπο του %2."
 
 #: src/incidenceformatter.cpp:1314
-#, fuzzy, kde-format
-#| msgid "I created this invitation"
+#, kde-format
 msgid "I created this invitation."
-msgstr "Εγώ δημιούργησα την πρόσκληση"
+msgstr "Εγώ δημιούργησα την πρόσκληση."
 
 #: src/incidenceformatter.cpp:1318
-#, fuzzy, kde-format
-#| msgid "You received an invitation from %1"
+#, kde-format
 msgid "You received an invitation from %1."
-msgstr "Έχετε λάβει μια πρόσκληση από %1"
+msgstr "Έχετε λάβει μια πρόσκληση από %1."
 
 #: src/incidenceformatter.cpp:1320
-#, fuzzy, kde-format
-#| msgid "You received an invitation from %1 as a representative of %2"
+#, kde-format
 msgid "You received an invitation from %1 as a representative of %2."
-msgstr "Έχετε λάβει μια πρόσκληση από %1 εκπρόσωπο του %2"
+msgstr "Έχετε λάβει μια πρόσκληση από %1 εκπρόσωπο του %2."
 
 #: src/incidenceformatter.cpp:1324
-#, fuzzy, kde-format
-#| msgid "This invitation was refreshed"
+#, kde-format
 msgid "This invitation was refreshed."
-msgstr "Η πρόσκληση αυτή έχει ανανεωθεί"
+msgstr "Η πρόσκληση αυτή έχει ανανεωθεί."
 
 #: src/incidenceformatter.cpp:1327
-#, fuzzy, kde-format
-#| msgid "This invitation has been canceled"
+#, kde-format
 msgid "This invitation has been canceled."
-msgstr "Η πρόσκληση αυτή έχει ακυρωθεί"
+msgstr "Η πρόσκληση αυτή έχει ακυρωθεί."
 
 #: src/incidenceformatter.cpp:1329
-#, fuzzy, kde-format
-#| msgid "The organizer has revoked the invitation"
+#, kde-format
 msgid "The organizer has revoked the invitation."
-msgstr "Ο διοργανωτής έχει αποσύρει την πρόσκληση"
+msgstr "Ο διοργανωτής έχει αποσύρει την πρόσκληση."
 
 #: src/incidenceformatter.cpp:1332
-#, fuzzy, kde-format
-#| msgid "Addition to the invitation"
+#, kde-format
 msgid "Addition to the invitation."
-msgstr "Προσθήκη στην πρόσκληση"
+msgstr "Προσθήκη στην πρόσκληση."
 
 #: src/incidenceformatter.cpp:1335 src/incidenceformatter.cpp:1409
 #: src/incidenceformatter.cpp:1469 src/incidenceformatter.cpp:1551
-#, fuzzy, kde-format
-#| msgid "%1 makes this counter proposal"
+#, kde-format
 msgid "%1 makes this counter proposal."
-msgstr "%1 διατυπώνει αυτήν την αντι πρόταση"
+msgstr "%1 διατυπώνει αυτήν την αντι πρόταση."
 
 #: src/incidenceformatter.cpp:1359
-#, fuzzy, kde-format
-#| msgid "%1 indicates this invitation still needs some action"
+#, kde-format
 msgid "%1 indicates this invitation still needs some action."
-msgstr "%1 υποδείχνει ότι η πρόσκληση αυτή ακόμη απαιτεί κάποια ενέργεια"
+msgstr "%1 υποδείχνει ότι η πρόσκληση αυτή ακόμη απαιτεί κάποια ενέργεια."
 
 #: src/incidenceformatter.cpp:1363
-#, fuzzy, kde-format
-#| msgid "This invitation has been updated by attendee %1"
+#, kde-format
 msgid "This invitation has been updated by attendee %1."
-msgstr "Η πρόσκληση αυτή έχει ενημερωθεί από το συμμετέχοντα %1"
+msgstr "Η πρόσκληση αυτή έχει ενημερωθεί από το συμμετέχοντα %1."
 
 #: src/incidenceformatter.cpp:1365
-#, fuzzy, kde-format
-#| msgid "This invitation has been updated by an attendee"
+#, kde-format
 msgid "This invitation has been updated by an attendee."
-msgstr "Η πρόσκληση αυτή έχει ενημερωθεί από έναν συμμετέχοντα"
+msgstr "Η πρόσκληση αυτή έχει ενημερωθεί από έναν συμμετέχοντα."
 
 #: src/incidenceformatter.cpp:1369
-#, fuzzy, kde-format
-#| msgid "%1 accepts this invitation"
+#, kde-format
 msgid "%1 accepts this invitation."
-msgstr "%1 αποδέχεται αυτήν την πρόσκληση"
+msgstr "%1 αποδέχεται αυτήν την πρόσκληση."
 
 #: src/incidenceformatter.cpp:1371
-#, fuzzy, kde-format
-#| msgid "%1 accepts this invitation on behalf of %2"
+#, kde-format
 msgid "%1 accepts this invitation on behalf of %2."
-msgstr "%1 αποδέχεται αυτήν την πρόσκληση εκ μέρους του %2"
+msgstr "%1 αποδέχεται αυτήν την πρόσκληση εκ μέρους του %2."
 
 #: src/incidenceformatter.cpp:1376
-#, fuzzy, kde-format
-#| msgid "%1 tentatively accepts this invitation"
+#, kde-format
 msgid "%1 tentatively accepts this invitation."
-msgstr "%1 διερευνητικά αποδέχεται αυτήν την πρόσκληση"
+msgstr "%1 διερευνητικά αποδέχεται αυτήν την πρόσκληση."
 
 #: src/incidenceformatter.cpp:1378
-#, fuzzy, kde-format
-#| msgid "%1 tentatively accepts this invitation on behalf of %2"
+#, kde-format
 msgid "%1 tentatively accepts this invitation on behalf of %2."
-msgstr "%1 διερευνητικά αποδέχεται αυτήν την πρόσκληση εκ μέρους του %2"
+msgstr "%1 διερευνητικά αποδέχεται αυτήν την πρόσκληση εκ μέρους του %2."
 
 #: src/incidenceformatter.cpp:1382
-#, fuzzy, kde-format
-#| msgid "%1 declines this invitation"
+#, kde-format
 msgid "%1 declines this invitation."
-msgstr "%1 αρνείται αυτήν την πρόσκληση"
+msgstr "%1 αρνείται αυτήν την πρόσκληση."
 
 #: src/incidenceformatter.cpp:1384
-#, fuzzy, kde-format
-#| msgid "%1 declines this invitation on behalf of %2"
+#, kde-format
 msgid "%1 declines this invitation on behalf of %2."
-msgstr "%1 αρνείται αυτήν την πρόσκληση εκ μέρους του %2"
+msgstr "%1 αρνείται αυτήν την πρόσκληση εκ μέρους του %2."
 
 #: src/incidenceformatter.cpp:1394
-#, fuzzy, kde-format
-#| msgid "%1 has delegated this invitation to %2"
+#, kde-format
 msgid "%1 has delegated this invitation to %2."
-msgstr "%1 έχει αναθέσει αυτήν την πρόσκληση στο %2"
+msgstr "%1 έχει αναθέσει αυτήν την πρόσκληση στο %2."
 
 #: src/incidenceformatter.cpp:1396
-#, fuzzy, kde-format
-#| msgid "%1 has delegated this invitation"
+#, kde-format
 msgid "%1 has delegated this invitation."
-msgstr "%1 έχει αναθέσει αυτήν την πρόσκληση"
+msgstr "%1 έχει αναθέσει αυτήν την πρόσκληση."
 
 #: src/incidenceformatter.cpp:1400
-#, fuzzy, kde-format
-#| msgid "This invitation is now completed"
+#, kde-format
 msgid "This invitation is now completed."
-msgstr "Η πρόσκληση αυτή έχει τώρα ολοκληρωθεί"
+msgstr "Η πρόσκληση αυτή έχει τώρα ολοκληρωθεί."
 
 #: src/incidenceformatter.cpp:1402
-#, fuzzy, kde-format
-#| msgid "%1 is still processing the invitation"
+#, kde-format
 msgid "%1 is still processing the invitation."
-msgstr "%1 ακόμη επεξεργάζεται την πρόσκληση"
+msgstr "%1 ακόμη επεξεργάζεται την πρόσκληση."
 
 #: src/incidenceformatter.cpp:1404
-#, fuzzy, kde-format
-#| msgid "Unknown response to this invitation"
+#, kde-format
 msgid "Unknown response to this invitation."
-msgstr "Άγνωστη απάντηση στην πρόσκληση αυτή"
+msgstr "Άγνωστη απάντηση στην πρόσκληση αυτή."
 
 #: src/incidenceformatter.cpp:1414
-#, fuzzy, kde-format
-#| msgid "%1 declines your counter proposal"
+#, kde-format
 msgid "%1 declines your counter proposal."
-msgstr "%1 απορρίπτει την αντι πρότασή σας"
+msgstr "%1 απορρίπτει την αντι πρότασή σας."
 
 #: src/incidenceformatter.cpp:1416
-#, fuzzy, kde-format
-#| msgid "%1 declines your counter proposal on behalf of %2"
+#, kde-format
 msgid "%1 declines your counter proposal on behalf of %2."
-msgstr "%1 απορρίπτει την αντι πρότασή σας εκ μέρους του %2"
+msgstr "%1 απορρίπτει την αντι πρότασή σας εκ μέρους του %2."
 
 #: src/incidenceformatter.cpp:1421
-#, fuzzy, kde-format
-#| msgid "Error: Event iTIP message with unknown method"
+#, kde-format
 msgid "Error: Event iTIP message with unknown method."
-msgstr "Σφάλμα: Μήνυμα iTIP γεγονότος με άγνωστη μέθοδο"
+msgstr "Σφάλμα: Μήνυμα iTIP γεγονότος με άγνωστη μέθοδο."
 
 #: src/incidenceformatter.cpp:1436
-#, fuzzy, kde-format
-#| msgid "This to-do has been published"
+#, kde-format
 msgid "This to-do has been published."
-msgstr "Αυτή η προς υλοποίηση εργασία έχει δημοσιευθεί"
+msgstr "Αυτή η προς υλοποίηση εργασία έχει δημοσιευθεί."
 
 #: src/incidenceformatter.cpp:1441
-#, fuzzy, kde-format
-#| msgid "This to-do has been updated by the organizer %1"
+#, kde-format
 msgid "This to-do has been updated by the organizer %1."
-msgstr "Αυτή η προς υλοποίηση εργασία έχει ενημερωθεί από το διοργανωτή %1"
+msgstr "Αυτή η προς υλοποίηση εργασία έχει ενημερωθεί από το διοργανωτή %1."
 
 #: src/incidenceformatter.cpp:1443
-#, fuzzy, kde-format
-#| msgid "This to-do has been updated by %1 as a representative of %2"
+#, kde-format
 msgid "This to-do has been updated by %1 as a representative of %2."
-msgstr "Αυτή η προς υλοποίηση εργασία έχει ενημερωθεί από %1 εκπρόσωπο του %2"
+msgstr "Αυτή η προς υλοποίηση εργασία έχει ενημερωθεί από %1 εκπρόσωπο του %2."
 
 #: src/incidenceformatter.cpp:1447
-#, fuzzy, kde-format
-#| msgid "I created this to-do"
+#, kde-format
 msgid "I created this to-do."
-msgstr "Εγώ δημιούργησα αυτήν την προς υλοποίηση εργασία"
+msgstr "Εγώ δημιούργησα αυτήν την προς υλοποίηση εργασία."
 
 #: src/incidenceformatter.cpp:1451
-#, fuzzy, kde-format
-#| msgid "You have been assigned this to-do by %1"
+#, kde-format
 msgid "You have been assigned this to-do by %1."
-msgstr "Έχει οριστεί για εσάς αυτή η προς υλοποίηση εργασία από %1"
+msgstr "Έχει οριστεί για εσάς αυτή η προς υλοποίηση εργασία από %1."
 
 #: src/incidenceformatter.cpp:1453
-#, fuzzy, kde-format
-#| msgid "You have been assigned this to-do by %1 as a representative of %2"
+#, kde-format
 msgid "You have been assigned this to-do by %1 as a representative of %2."
 msgstr ""
-"Έχει οριστεί για εσάς αυτή η προς υλοποίηση εργασία από %1 εκπρόσωπο του %2"
+"Έχει οριστεί για εσάς αυτή η προς υλοποίηση εργασία από %1 εκπρόσωπο του %2."
 
 #: src/incidenceformatter.cpp:1458
-#, fuzzy, kde-format
-#| msgid "This to-do was refreshed"
+#, kde-format
 msgid "This to-do was refreshed."
-msgstr "Αυτή η προς υλοποίηση εργασία ανανεώθηκε"
+msgstr "Αυτή η προς υλοποίηση εργασία ανανεώθηκε."
 
 #: src/incidenceformatter.cpp:1461
-#, fuzzy, kde-format
-#| msgid "This to-do was canceled"
+#, kde-format
 msgid "This to-do was canceled."
-msgstr "Αυτή η προς υλοποίηση εργασία ακυρώθηκε"
+msgstr "Αυτή η προς υλοποίηση εργασία ακυρώθηκε."
 
 #: src/incidenceformatter.cpp:1463
-#, fuzzy, kde-format
-#| msgid "The organizer has revoked this to-do"
+#, kde-format
 msgid "The organizer has revoked this to-do."
-msgstr "Ο διοργανωτής έχει αποσύρει αυτήν την προς υλοποίηση εργασία"
+msgstr "Ο διοργανωτής έχει αποσύρει αυτήν την προς υλοποίηση εργασία."
 
 #: src/incidenceformatter.cpp:1466
-#, fuzzy, kde-format
-#| msgid "Addition to the to-do"
+#, kde-format
 msgid "Addition to the to-do."
-msgstr "Προσθήκη στην προς υλοποίηση εργασία"
+msgstr "Προσθήκη στην προς υλοποίηση εργασία."
 
 #: src/incidenceformatter.cpp:1493
-#, fuzzy, kde-format
-#| msgid "%1 indicates this to-do assignment still needs some action"
+#, kde-format
 msgid "%1 indicates this to-do assignment still needs some action."
 msgstr ""
 "%1 υποδείχνει ότι αυτή η ανάθεση της προς υλοποίηση εργασίας απαιτεί ακόμη "
-"κάποια ενέργεια"
+"κάποια ενέργεια."
 
 #: src/incidenceformatter.cpp:1498
-#, fuzzy, kde-format
-#| msgid "This to-do has been completed by assignee %1"
+#, kde-format
 msgid "This to-do has been completed by assignee %1."
-msgstr "Αυτή η προς υλοποίηση εργασία έχει ολοκληρωθεί από τον ανάδοχο %1"
+msgstr "Αυτή η προς υλοποίηση εργασία έχει ολοκληρωθεί από τον ανάδοχο %1."
 
 #: src/incidenceformatter.cpp:1500
-#, fuzzy, kde-format
-#| msgid "This to-do has been updated by assignee %1"
+#, kde-format
 msgid "This to-do has been updated by assignee %1."
-msgstr "Αυτή η προς υλοποίηση εργασία έχει ολοκληρωθεί από τον ανάδοχο %1"
+msgstr "Αυτή η προς υλοποίηση εργασία έχει ολοκληρωθεί από τον ανάδοχο %1."
 
 #: src/incidenceformatter.cpp:1504
-#, fuzzy, kde-format
-#| msgid "This to-do has been completed by an assignee"
+#, kde-format
 msgid "This to-do has been completed by an assignee."
-msgstr "Αυτή η προς υλοποίηση εργασία έχει ολοκληρωθεί από έναν ανάδοχο"
+msgstr "Αυτή η προς υλοποίηση εργασία έχει ολοκληρωθεί από έναν ανάδοχο."
 
 #: src/incidenceformatter.cpp:1506
-#, fuzzy, kde-format
-#| msgid "This to-do has been updated by an assignee"
+#, kde-format
 msgid "This to-do has been updated by an assignee."
-msgstr "Αυτή η προς υλοποίηση εργασία έχει ολοκληρωθεί από έναν ανάδοχο"
+msgstr "Αυτή η προς υλοποίηση εργασία έχει ολοκληρωθεί από έναν ανάδοχο."
 
 #: src/incidenceformatter.cpp:1511
-#, fuzzy, kde-format
-#| msgid "%1 accepts this to-do"
+#, kde-format
 msgid "%1 accepts this to-do."
-msgstr "%1 αποδέχεται αυτήν την προς υλοποίηση εργασία"
+msgstr "%1 αποδέχεται αυτήν την προς υλοποίηση εργασία."
 
 #: src/incidenceformatter.cpp:1513
-#, fuzzy, kde-format
-#| msgid "%1 accepts this to-do on behalf of %2"
+#, kde-format
 msgid "%1 accepts this to-do on behalf of %2."
-msgstr "%1 αποδέχεται αυτήν την προς υλοποίηση εργασία εκ μέρους του %2"
+msgstr "%1 αποδέχεται αυτήν την προς υλοποίηση εργασία εκ μέρους του %2."
 
 #: src/incidenceformatter.cpp:1518
-#, fuzzy, kde-format
-#| msgid "%1 tentatively accepts this to-do"
+#, kde-format
 msgid "%1 tentatively accepts this to-do."
-msgstr "%1 δοκιμαστικά αποδέχεται αυτήν την προς υλοποίηση εργασία"
+msgstr "%1 δοκιμαστικά αποδέχεται αυτήν την προς υλοποίηση εργασία."
 
 #: src/incidenceformatter.cpp:1520
-#, fuzzy, kde-format
-#| msgid "%1 tentatively accepts this to-do on behalf of %2"
+#, kde-format
 msgid "%1 tentatively accepts this to-do on behalf of %2."
 msgstr ""
-"%1 δοκιμαστικά αποδέχεται αυτήν την προς υλοποίηση εργασία εκ μέρους του %2"
+"%1 δοκιμαστικά αποδέχεται αυτήν την προς υλοποίηση εργασία εκ μέρους του %2."
 
 #: src/incidenceformatter.cpp:1524
-#, fuzzy, kde-format
-#| msgid "%1 declines this to-do"
+#, kde-format
 msgid "%1 declines this to-do."
-msgstr "%1 απορρίπτει αυτήν την προς υλοποίηση εργασία"
+msgstr "%1 απορρίπτει αυτήν την προς υλοποίηση εργασία."
 
 #: src/incidenceformatter.cpp:1526
-#, fuzzy, kde-format
-#| msgid "%1 declines this to-do on behalf of %2"
+#, kde-format
 msgid "%1 declines this to-do on behalf of %2."
-msgstr "%1 απορρίπτει αυτήν την προς υλοποίηση εργασία εκ μέρους του %2"
+msgstr "%1 απορρίπτει αυτήν την προς υλοποίηση εργασία εκ μέρους του %2."
 
 #: src/incidenceformatter.cpp:1536
-#, fuzzy, kde-format
-#| msgid "%1 has delegated this to-do to %2"
+#, kde-format
 msgid "%1 has delegated this to-do to %2."
-msgstr "%1 έχει παραχωρήσει αυτήν την προς υλοποίηση εργασία στο %2"
+msgstr "%1 έχει παραχωρήσει αυτήν την προς υλοποίηση εργασία στο %2."
 
 #: src/incidenceformatter.cpp:1538
-#, fuzzy, kde-format
-#| msgid "%1 has delegated this to-do"
+#, kde-format
 msgid "%1 has delegated this to-do."
-msgstr "%1 έχει παραχωρήσει αυτήν την προς υλοποίηση εργασία"
+msgstr "%1 έχει παραχωρήσει αυτήν την προς υλοποίηση εργασία."
 
 #: src/incidenceformatter.cpp:1542
-#, fuzzy, kde-format
-#| msgid "The request for this to-do is now completed"
+#, kde-format
 msgid "The request for this to-do is now completed."
-msgstr "Το αίτημα για αυτήν την προς υλοποίηση εργασία έχει τώρα ολοκληρωθεί"
+msgstr "Το αίτημα για αυτήν την προς υλοποίηση εργασία έχει τώρα ολοκληρωθεί."
 
 #: src/incidenceformatter.cpp:1544
-#, fuzzy, kde-format
-#| msgid "%1 is still processing the to-do"
+#, kde-format
 msgid "%1 is still processing the to-do."
-msgstr "%1 ακόμη επεξεργάζεται την προς υλοποίηση εργασία"
+msgstr "%1 ακόμη επεξεργάζεται την προς υλοποίηση εργασία."
 
 #: src/incidenceformatter.cpp:1546
-#, fuzzy, kde-format
-#| msgid "Unknown response to this to-do"
+#, kde-format
 msgid "Unknown response to this to-do."
-msgstr "Άγνωστη απάντηση σε αυτήν την προς υλοποίηση εργασία"
+msgstr "Άγνωστη απάντηση σε αυτήν την προς υλοποίηση εργασία."
 
 #: src/incidenceformatter.cpp:1556
-#, fuzzy, kde-format
-#| msgid "%1 declines the counter proposal"
+#, kde-format
 msgid "%1 declines the counter proposal."
-msgstr "%1 απορρίπτει την αντι πρόταση"
+msgstr "%1 απορρίπτει την αντι πρόταση."
 
 #: src/incidenceformatter.cpp:1558
-#, fuzzy, kde-format
-#| msgid "%1 declines the counter proposal on behalf of %2"
+#, kde-format
 msgid "%1 declines the counter proposal on behalf of %2."
-msgstr "%1 απορρίπτει την αντι πρόταση εκ μέρους του %2"
+msgstr "%1 απορρίπτει την αντι πρόταση εκ μέρους του %2."
 
 #: src/incidenceformatter.cpp:1563
-#, fuzzy, kde-format
-#| msgid "Error: To-do iTIP message with unknown method"
+#, kde-format
 msgid "Error: To-do iTIP message with unknown method."
-msgstr "Σφάλμα: Μήνυμα iTIP προς υλοποίηση εργασίας με άγνωστη μέθοδο"
+msgstr "Σφάλμα: Μήνυμα iTIP προς υλοποίηση εργασίας με άγνωστη μέθοδο."
 
 #: src/incidenceformatter.cpp:1577
-#, fuzzy, kde-format
-#| msgid "This journal has been published"
+#, kde-format
 msgid "This journal has been published."
-msgstr "Το χρονικό αυτό έχει δημοσιευθεί"
+msgstr "Το χρονικό αυτό έχει δημοσιευθεί."
 
 #: src/incidenceformatter.cpp:1579
-#, fuzzy, kde-format
-#| msgid "You have been assigned this journal"
+#, kde-format
 msgid "You have been assigned this journal."
-msgstr "Σας έχει ανατεθεί αυτό το χρονικό"
+msgstr "Σας έχει ανατεθεί αυτό το χρονικό."
 
 #: src/incidenceformatter.cpp:1581
-#, fuzzy, kde-format
-#| msgid "This journal was refreshed"
+#, kde-format
 msgid "This journal was refreshed."
-msgstr "Το χρονικό αυτό ανανεώθηκε"
+msgstr "Το χρονικό αυτό ανανεώθηκε."
 
 #: src/incidenceformatter.cpp:1583
-#, fuzzy, kde-format
-#| msgid "This journal was canceled"
+#, kde-format
 msgid "This journal was canceled."
-msgstr "Το χρονικό αυτό ακυρώθηκε"
+msgstr "Το χρονικό αυτό ακυρώθηκε."
 
 #: src/incidenceformatter.cpp:1585
-#, fuzzy, kde-format
-#| msgid "Addition to the journal"
+#, kde-format
 msgid "Addition to the journal."
-msgstr "Προσθήκη στο χρονικό"
+msgstr "Προσθήκη στο χρονικό."
 
 #: src/incidenceformatter.cpp:1588 src/incidenceformatter.cpp:1623
 #: src/incidenceformatter.cpp:1653
-#, fuzzy, kde-format
-#| msgid "Sender makes this counter proposal"
+#, kde-format
 msgid "Sender makes this counter proposal."
-msgstr "Ο αποστολέας διατυπώνει αυτήν την αντι πρόταση"
+msgstr "Ο αποστολέας διατυπώνει αυτήν την αντι πρόταση."
 
 #: src/incidenceformatter.cpp:1604
-#, fuzzy, kde-format
-#| msgid "Sender indicates this journal assignment still needs some action"
+#, kde-format
 msgid "Sender indicates this journal assignment still needs some action."
 msgstr ""
 "Ο αποστολέας υποδείχνει ότι η ανάθεση αυτού του χρονικού χρειάζεται ακόμη "
-"κάποια ενέργεια"
+"κάποια ενέργεια."
 
 #: src/incidenceformatter.cpp:1606
-#, fuzzy, kde-format
-#| msgid "Sender accepts this journal"
+#, kde-format
 msgid "Sender accepts this journal."
-msgstr "Ο αποστολέας αποδέχεται αυτό το χρονικό"
+msgstr "Ο αποστολέας αποδέχεται αυτό το χρονικό."
 
 #: src/incidenceformatter.cpp:1608
-#, fuzzy, kde-format
-#| msgid "Sender tentatively accepts this journal"
+#, kde-format
 msgid "Sender tentatively accepts this journal."
-msgstr "Ο αποστολέας δοκιμαστικά αποδέχεται αυτό το χρονικό"
+msgstr "Ο αποστολέας δοκιμαστικά αποδέχεται αυτό το χρονικό."
 
 #: src/incidenceformatter.cpp:1610
-#, fuzzy, kde-format
-#| msgid "Sender declines this journal"
+#, kde-format
 msgid "Sender declines this journal."
-msgstr "Ο αποστολέας απορρίπτει αυτό το χρονικό"
+msgstr "Ο αποστολέας απορρίπτει αυτό το χρονικό."
 
 #: src/incidenceformatter.cpp:1612
-#, fuzzy, kde-format
-#| msgid "Sender has delegated this request for the journal"
+#, kde-format
 msgid "Sender has delegated this request for the journal."
-msgstr "Ο αποστολέας έχει παραχωρήσει αυτό το αίτημα για το χρονικό"
+msgstr "Ο αποστολέας έχει παραχωρήσει αυτό το αίτημα για το χρονικό."
 
 #: src/incidenceformatter.cpp:1614
-#, fuzzy, kde-format
-#| msgid "The request for this journal is now completed"
+#, kde-format
 msgid "The request for this journal is now completed."
-msgstr "Το αίτημα για αυτό το χρονικό έχει τώρα ολοκληρωθεί"
+msgstr "Το αίτημα για αυτό το χρονικό έχει τώρα ολοκληρωθεί."
 
 #: src/incidenceformatter.cpp:1616
-#, fuzzy, kde-format
-#| msgid "Sender is still processing the invitation"
+#, kde-format
 msgid "Sender is still processing the invitation."
-msgstr "Ο αποστολέας επεξεργάζεται ακόμη την πρόσκληση"
+msgstr "Ο αποστολέας επεξεργάζεται ακόμη την πρόσκληση."
 
 #: src/incidenceformatter.cpp:1618
-#, fuzzy, kde-format
-#| msgid "Unknown response to this journal"
+#, kde-format
 msgid "Unknown response to this journal."
-msgstr "Άγνωστη απάντηση σε αυτό το χρονικό"
+msgstr "Άγνωστη απάντηση σε αυτό το χρονικό."
 
 #: src/incidenceformatter.cpp:1625 src/incidenceformatter.cpp:1655
-#, fuzzy, kde-format
-#| msgid "Sender declines the counter proposal"
+#, kde-format
 msgid "Sender declines the counter proposal."
-msgstr "Ο αποστολέας απορρίπτει την αντι πρόταση"
+msgstr "Ο αποστολέας απορρίπτει την αντι πρόταση."
 
 #: src/incidenceformatter.cpp:1627
-#, fuzzy, kde-format
-#| msgid "Error: Journal iTIP message with unknown method"
+#, kde-format
 msgid "Error: Journal iTIP message with unknown method."
-msgstr "Σφάλμα: Μήνυμα iTIP χρονικού με άγνωστη μέθοδο"
+msgstr "Σφάλμα: Μήνυμα iTIP χρονικού με άγνωστη μέθοδο."
 
 #: src/incidenceformatter.cpp:1641
-#, fuzzy, kde-format
-#| msgid "This free/busy list has been published"
+#, kde-format
 msgid "This free/busy list has been published."
-msgstr "Αυτή η λίστα διαθεσιμότητας έχει δημοσιευθεί"
+msgstr "Αυτή η λίστα διαθεσιμότητας έχει δημοσιευθεί."
 
 #: src/incidenceformatter.cpp:1643
-#, fuzzy, kde-format
-#| msgid "The free/busy list has been requested"
+#, kde-format
 msgid "The free/busy list has been requested."
-msgstr "Η λίστα διαθεσιμότητας έχει ζητηθεί"
+msgstr "Η λίστα διαθεσιμότητας έχει ζητηθεί."
 
 #: src/incidenceformatter.cpp:1645
-#, fuzzy, kde-format
-#| msgid "This free/busy list was refreshed"
+#, kde-format
 msgid "This free/busy list was refreshed."
-msgstr "Αυτή η λίστα διαθεσιμότητας ανανεώθηκε"
+msgstr "Αυτή η λίστα διαθεσιμότητας ανανεώθηκε."
 
 #: src/incidenceformatter.cpp:1647
-#, fuzzy, kde-format
-#| msgid "This free/busy list was canceled"
+#, kde-format
 msgid "This free/busy list was canceled."
-msgstr "Αυτή η λίστα διαθεσιμότητας ακυρώθηκε"
+msgstr "Αυτή η λίστα διαθεσιμότητας ακυρώθηκε."
 
 #: src/incidenceformatter.cpp:1649
-#, fuzzy, kde-format
-#| msgid "Addition to the free/busy list"
+#, kde-format
 msgid "Addition to the free/busy list."
-msgstr "Προσθήκη στη λίστα διαθεσιμότητας"
+msgstr "Προσθήκη στη λίστα διαθεσιμότητας."
 
 #: src/incidenceformatter.cpp:1651
-#, fuzzy, kde-format
-#| msgid "Reply to the free/busy list"
+#, kde-format
 msgid "Reply to the free/busy list."
-msgstr "Απάντηση στη λίστα διαθεσιμότητας"
+msgstr "Απάντηση στη λίστα διαθεσιμότητας."
 
 #: src/incidenceformatter.cpp:1657
-#, fuzzy, kde-format
-#| msgid "Error: Free/Busy iTIP message with unknown method"
+#, kde-format
 msgid "Error: Free/Busy iTIP message with unknown method."
-msgstr "Σφάλμα: Μήνυμα iTIP διαθεσιμότητας με άγνωστη μέθοδο"
+msgstr "Σφάλμα: Μήνυμα iTIP διαθεσιμότητας με άγνωστη μέθοδο."
 
 #: src/incidenceformatter.cpp:1712
 #, fuzzy, kde-format
@@ -653,9 +569,7 @@ msgid "Accept"
 msgstr "Αποδοχή"
 
 #: src/incidenceformatter.cpp:1940
-#, fuzzy, kde-format
-#| msgctxt "@item event is tentative"
-#| msgid "Tentative"
+#, kde-format
 msgctxt "Accept invitation conditionally"
 msgid "Tentative"
 msgstr "Δοκιμαστικό"
@@ -667,20 +581,16 @@ msgid "Decline"
 msgstr "Απόρριψη"
 
 #: src/incidenceformatter.cpp:1951
-#, fuzzy, kde-format
-#| msgctxt "invitation counter proposal"
-#| msgid "Counter proposal"
+#, kde-format
 msgctxt "invitation counter proposal"
 msgid "Counter proposal ..."
-msgstr "Αντι πρόταση"
+msgstr "Αντι πρόταση..."
 
 #: src/incidenceformatter.cpp:1956
-#, fuzzy, kde-format
-#| msgctxt "delegate inviation to another"
-#| msgid "Delegate"
+#, kde-format
 msgctxt "delegate invitation to another"
 msgid "Delegate ..."
-msgstr "Ανάθεση"
+msgstr "Ανάθεση..."
 
 #: src/incidenceformatter.cpp:1966
 #, kde-format
@@ -723,34 +633,29 @@ msgid "Remove invitation from my calendar"
 msgstr "Διαγραφή πρόσκλησης από το ημερολόγιό μου"
 
 #: src/incidenceformatter.cpp:2155
-#, fuzzy, kde-format
-#| msgid "Your <b>%1</b> response has been recorded"
+#, kde-format
 msgid "Your <b>%1</b> response has been recorded."
-msgstr "Η <b>%1</b> απάντησή σας έχει καταγραφεί"
+msgstr "Η <b>%1</b> απάντησή σας έχει καταγραφεί."
 
 #: src/incidenceformatter.cpp:2157
-#, fuzzy, kde-format
-#| msgid "Your status for this invitation is <b>%1</b>"
+#, kde-format
 msgid "Your status for this invitation is <b>%1</b>."
-msgstr "Η κατάστασή σας για την πρόσκληση αυτή είναι <b>%1</b>"
+msgstr "Η κατάστασή σας για την πρόσκληση αυτή είναι <b>%1</b>."
 
 #: src/incidenceformatter.cpp:2161
-#, fuzzy, kde-format
-#| msgid "This invitation was canceled"
+#, kde-format
 msgid "This invitation was canceled."
-msgstr "Η πρόσκληση αυτή ακυρώθηκε"
+msgstr "Η πρόσκληση αυτή ακυρώθηκε."
 
 #: src/incidenceformatter.cpp:2163
-#, fuzzy, kde-format
-#| msgid "This invitation was accepted"
+#, kde-format
 msgid "This invitation was accepted."
-msgstr "Η πρόσκληση αυτή έγινε αποδεκτή"
+msgstr "Η πρόσκληση αυτή έγινε αποδεκτή."
 
 #: src/incidenceformatter.cpp:2171
-#, fuzzy, kde-format
-#| msgid "Awaiting delegation response"
+#, kde-format
 msgid "Awaiting delegation response."
-msgstr "Αναμονή απάντησης σε ανάθεση"
+msgstr "Αναμονή απάντησης σε ανάθεση."
 
 #: src/incidenceformatter.cpp:2243
 #, kde-format
@@ -758,10 +663,9 @@ msgid "The <b>%1</b> response has been recorded"
 msgstr "Η <b>%1</b> απάντηση έχει καταγραφεί"
 
 #: src/incidenceformatter.cpp:2270
-#, fuzzy, kde-format
-#| msgid "Assignees"
+#, kde-format
 msgid "Assignees:"
-msgstr "Ανάδοχοι"
+msgstr "Ανάδοχοι:"
 
 #: src/incidenceformatter.cpp:2272
 #, fuzzy, kde-format
@@ -800,15 +704,13 @@ msgid "<i>Time:</i> %1 - %2"
 msgstr "<i>Ώρα:</i> %1 - %2"
 
 #: src/incidenceformatter.cpp:2436
-#, fuzzy, kde-format
-#| msgid "<i>Start:</i> %1"
+#, kde-format
 msgctxt "To-do's start date"
 msgid "<i>Start:</i> %1"
 msgstr "<i>Έναρξη:</i> %1"
 
 #: src/incidenceformatter.cpp:2439
-#, fuzzy, kde-format
-#| msgid "<i>Due:</i> %1"
+#, kde-format
 msgctxt "To-do's due date"
 msgid "<i>Due:</i> %1"
 msgstr "<i>Λήξη:</i> %1"
@@ -856,9 +758,7 @@ msgid "%1"
 msgstr "%1"
 
 #: src/incidenceformatter.cpp:2554 src/incidenceformatter.cpp:2689
-#, fuzzy, kde-format
-#| msgctxt "elipsis"
-#| msgid "..."
+#, kde-format
 msgctxt "ellipsis"
 msgid "..."
 msgstr "..."
@@ -2099,9 +1999,6 @@ msgid "Send email"
 msgstr "Εμφάνιση αλληλογραφίας"
 
 #: src/templates/event.html:5
-#, fuzzy
-#| msgctxt "@title:column event description"
-#| msgid "Event"
 msgid "Event"
 msgstr "Γεγονός"
 
@@ -2113,16 +2010,13 @@ msgstr "Ημερομηνία:"
 
 #: src/templates/event.html:31 src/templates/event.html:41
 #: src/templates/itip_todo.html:16
-#, fuzzy, kde-format
-#| msgctxt "<beginTime> - <endTime>"
-#| msgid "%1 - %2"
+#, kde-format
 msgctxt "<beginDate> - <endDate>"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
 #: src/templates/event.html:34 src/templates/event.html:44
-#, fuzzy, kde-format
-#| msgid "%1"
+#, kde-format
 msgctxt "Date as string"
 msgid "%1"
 msgstr "%1"
@@ -2138,15 +2032,12 @@ msgid "%1 - %2"
 msgstr "%1 - %2"
 
 #: src/templates/event.html:51
-#, fuzzy, kde-format
-#| msgid "%1"
+#, kde-format
 msgctxt "Time as string"
 msgid "%1"
 msgstr "%1"
 
 #: src/templates/event.html:70
-#, fuzzy
-#| msgid "Exception"
 msgctxt "Exception in event recurrence"
 msgid "Exception"
 msgstr "Εξαίρεση"
@@ -2160,8 +2051,6 @@ msgid "Anniversary:"
 msgstr "Επέτειος:"
 
 #: src/templates/event.html:150 src/templates/todo.html:131
-#, fuzzy
-#| msgid "Optional Participants:"
 msgid "Optional participants:"
 msgstr "Προαιρετικοί συμμετέχοντες:"
 
@@ -2183,9 +2072,6 @@ msgid "Busy times in date range %1 - %2:"
 msgstr "Χρόνοι απασχόλησης σε ημερολογιακό εύρος %1 - %2:"
 
 #: src/templates/freebusy.html:9
-#, fuzzy
-#| msgctxt "tag for busy periods list"
-#| msgid "Busy:"
 msgctxt "tag for busy period list"
 msgid "Busy:"
 msgstr "Απασχόληση:"
@@ -2197,17 +2083,13 @@ msgid "%1 for %2"
 msgstr "%1 για %2"
 
 #: src/templates/freebusy.html:16
-#, fuzzy, kde-format
-#| msgctxt "date, fromTime - toTime "
-#| msgid "%1, %2 - %3"
+#, kde-format
 msgctxt "date, fromTime - toTime"
 msgid "%1, %2 - %3"
 msgstr "%1, %2 - %3"
 
 #: src/templates/freebusy.html:18
-#, fuzzy, kde-format
-#| msgctxt "<beginTime> - <endTime>"
-#| msgid "%1 - %2"
+#, kde-format
 msgctxt "fromDateTime - endDateTime"
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -2284,41 +2166,31 @@ msgid "Busy periods given in this free/busy object:"
 msgstr ""
 
 #: src/templates/itip_freebusy.html:31
-#, fuzzy, kde-format
-#| msgctxt "startDate for duration"
-#| msgid "%1 for %2"
+#, kde-format
 msgctxt "<startDate> for <duration>"
 msgid "%1 for %2"
 msgstr "%1 για %2"
 
 #: src/templates/itip_freebusy.html:34
-#, fuzzy, kde-format
-#| msgctxt "<beginTime> - <endTime>"
-#| msgid "%1 - %2"
+#, kde-format
 msgctxt "<startDate> - <endDate>"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
 #: src/templates/itip_freebusy.html:36
-#, fuzzy, kde-format
-#| msgctxt "date, fromTime - toTime "
-#| msgid "%1, %2 - %3"
+#, kde-format
 msgctxt "<date>, <startTime> - <endTime>"
 msgid "%1, %2 - %3"
 msgstr "%1, %2 - %3"
 
 #: src/templates/itip_todo.html:22
-#, fuzzy, kde-format
-#| msgctxt "<beginTime> - <endTime>"
-#| msgid "%1 - %2"
+#, kde-format
 msgctxt "<beginDateTime> - <endDateTime>"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
 #: src/templates/itip_todo.html:24
-#, fuzzy, kde-format
-#| msgctxt "<beginTime> - <endTime>"
-#| msgid "%1 - %2"
+#, kde-format
 msgctxt "<beginDateTime> - <endTime>"
 msgid "%1 - %2"
 msgstr "%1 - %2"
@@ -2328,9 +2200,6 @@ msgid "Percent Done:"
 msgstr "Ποσοστό ολοκλήρωσης:"
 
 #: src/templates/itip_todo.html:39
-#, fuzzy
-#| msgctxt "to-do due date/time"
-#| msgid "Due:"
 msgid "Due:"
 msgstr "Λήξη:"
 
@@ -2364,8 +2233,6 @@ msgid "Completed:"
 msgstr "Ολοκληρώθηκε:"
 
 #: src/templates/todo.html:178
-#, fuzzy
-#| msgid "Percent Done:"
 msgid "Percent done:"
 msgstr "Ποσοστό ολοκλήρωσης:"
 
