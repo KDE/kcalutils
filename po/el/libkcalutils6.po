@@ -547,10 +547,9 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "Σφάλμα: Μήνυμα iTIP διαθεσιμότητας με άγνωστη μέθοδο."
 
 #: src/incidenceformatter.cpp:1712
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>)"
+#, kde-format
 msgid "%1 (<i>unrecorded</i>"
-msgstr "%1 (<i>μη καταγεγραμμένο</i>)"
+msgstr "%1 <i>μη καταγεγραμμένο</i>"
 
 #: src/incidenceformatter.cpp:1927
 #, kde-format
@@ -1410,38 +1409,28 @@ msgid "no days"
 msgstr "καμία ημέρα"
 
 #: src/incidenceformatter.cpp:3067
-#, fuzzy, kde-format
-#| msgctxt "Recurs weekly on [list of days] until end-date"
-#| msgid "Recurs weekly on %2 until %3"
-#| msgid_plural "Recurs every <numid>%1</numid> weeks on %2 until %3"
+#, kde-format
 msgctxt "Recurs weekly on [list of days] until end-date"
 msgid "Recurs weekly on %2 until %3"
 msgid_plural "Recurs every %1 weeks on %2 until %3"
 msgstr[0] "Επανεμφανίζεται κάθε εβδομάδα την %2 μέχρι %3"
-msgstr[1] "Επανεμφανίζεται κάθε <numid>%1</numid> εβδομάδες την %2 μέχρι %3"
+msgstr[1] "Επανεμφανίζεται κάθε %1 εβδομάδες την %2 μέχρι %3"
 
 #: src/incidenceformatter.cpp:3076
-#, fuzzy, kde-format
-#| msgctxt "Recurs weekly on [list of days]"
-#| msgid "Recurs weekly on %2"
-#| msgid_plural "Recurs every <numid>%1</numid> weeks on %2"
+#, kde-format
 msgctxt "Recurs weekly on [list of days]"
 msgid "Recurs weekly on %2"
 msgid_plural "Recurs every %1 weeks on %2"
 msgstr[0] "Επανεμφανίζεται κάθε εβδομάδα την %2"
-msgstr[1] "Επανεμφανίζεται κάθε <numid>%1</numid> εβδομάδες την %2"
+msgstr[1] "Επανεμφανίζεται κάθε %1 εβδομάδες την %2"
 
 #: src/incidenceformatter.cpp:3087
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
-#| msgid "Recurs every month on the %2 %3 until %4"
-#| msgid_plural "Recurs every <numid>%1</numid> months on the %2 %3 until %4"
+#, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
 msgid "Recurs every month on the %2 %3 until %4"
 msgid_plural "Recurs every %1 months on the %2 %3 until %4"
 msgstr[0] "Επανεμφανίζεται κάθε μήνα την %2 %3 μέχρι %4"
-msgstr[1] "Επανεμφανίζεται κάθε <numid>%1</numid> μήνες την %2 %3 μέχρι %4"
+msgstr[1] "Επανεμφανίζεται κάθε %1 μήνες την %2 %3 μέχρι %4"
 
 #: src/incidenceformatter.cpp:3098
 #, kde-format
@@ -1460,15 +1449,12 @@ msgstr[0] "Επανεμφανίζεται κάθε μήνα την %2 ημέρα
 msgstr[1] "Επανεμφανίζεται κάθε <numid>%1</numid> μήνες την %2 ημέρα μέχρι %3"
 
 #: src/incidenceformatter.cpp:3121
-#, fuzzy, kde-format
-#| msgctxt "Recurs monthly on the [1st|2nd|...] day"
-#| msgid "Recurs monthly on the %2 day"
-#| msgid_plural "Recurs every <numid>%1</numid> month on the %2 day"
+#, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day"
 msgid "Recurs monthly on the %2 day"
 msgid_plural "Recurs every %1 month on the %2 day"
 msgstr[0] "Επανεμφανίζεται κάθε μήνα την %2 ημέρα"
-msgstr[1] "Επανεμφανίζεται κάθε <numid>%1</numid> μήνες την %2 ημέρα"
+msgstr[1] "Επανεμφανίζεται κάθε %1 μήνες την %2 ημέρα"
 
 #: src/incidenceformatter.cpp:3134
 #, kde-format
@@ -1519,28 +1505,21 @@ msgstr[1] ""
 "Επανεμφανίζεται κάθε <numid>%1</numid> χρόνια την ημέρα <numid>%2</numid>"
 
 #: src/incidenceformatter.cpp:3197
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
-#| msgid "Every year on the %2 %3 of %4 until %5"
-#| msgid_plural "Every <numid>%1</numid> years on the %2 %3 of %4 until %5"
+#, kde-format
 msgctxt ""
 "Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
 msgid "Every year on the %2 %3 of %4 until %5"
 msgid_plural "Every %1 years on the %2 %3 of %4 until %5"
 msgstr[0] "Κάθε χρόνο την %2 %3 του %4 μέχρι %5"
-msgstr[1] "Κάθε <numid>%1</numid> χρόνια την %2 %3 του %4 μέχρι %5"
+msgstr[1] "Κάθε %1 χρόνια την %2 %3 του %4 μέχρι %5"
 
 #: src/incidenceformatter.cpp:3212
-#, fuzzy, kde-kuit-format
-#| msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
-#| msgid "Every year on the %2 %3 of %4"
-#| msgid_plural "Every <numid>%1</numid> years on the %2 %3 of %4"
+#, kde-kuit-format
 msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
 msgid "Every year on the %2 %3 of %4"
 msgid_plural "Every %1 years on the %2 %3 of %4"
 msgstr[0] "Κάθε χρόνο την %2 %3 του %4"
-msgstr[1] "Κάθε <numid>%1</numid> χρόνια την %2 %3 του %4"
+msgstr[1] "Κάθε %1 χρόνια την %2 %3 του %4"
 
 #: src/incidenceformatter.cpp:3224
 #, kde-format
@@ -1981,16 +1960,14 @@ msgid "myself"
 msgstr "εγώ"
 
 #: src/templates/attendee_row.html:35
-#, fuzzy, kde-format
-#| msgid " (delegated by %1)"
+#, kde-format
 msgid "delegated by %1)"
-msgstr " (ανατέθηκε από %1)"
+msgstr "ανατέθηκε από %1)"
 
 #: src/templates/attendee_row.html:39
-#, fuzzy, kde-format
-#| msgid " (delegated to %1)"
+#, kde-format
 msgid "delegated to %1)"
-msgstr " (ανατέθηκε στο %1)"
+msgstr "ανατέθηκε στο %1)"
 
 #: src/templates/attendee_row.html:46
 #, fuzzy
