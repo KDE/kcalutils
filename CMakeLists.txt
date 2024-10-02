@@ -31,6 +31,15 @@ include(ECMDeprecationSettings)
 include(ECMFeatureSummary)
 
 include(KPIMGrantleeMacros)
+include(ECMCheckOutboundLicense)
+file(GLOB_RECURSE ALL_SOURCE_FILES
+src/*.cpp
+src/*.h
+autotests/*.cpp
+autotests/*.h
+)
+ecm_check_outbound_license(LICENSES GPL-2.0-only  FILES ${ALL_SOURCE_FILES})
+
 include(ECMAddQch)
 
 
