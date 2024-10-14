@@ -516,7 +516,7 @@ static QString htmlAddTag(const QString &tag, const QString &text)
         QDateTime dueDt = todo->dtDue().toLocalTime();
         if (todo->recurs()) {
             if (ocurrenceDueDate.isValid()) {
-                QDateTime kdt(ocurrenceDueDate, QTime(0, 0, 0), Qt::LocalTime);
+                QDateTime kdt(ocurrenceDueDate, QTime(0, 0, 0), QTimeZone::LocalTime);
                 kdt = kdt.addSecs(-1);
                 dueDt.setDate(todo->recurrence()->getNextDateTime(kdt).date());
             }
@@ -2417,7 +2417,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo,
     QDateTime dueDt{todo->dtDue(false)};
 
     if (todo->recurs() && asOfDate.isValid()) {
-        const QDateTime limit{asOfDate.addDays(1), QTime(0, 0, 0), Qt::LocalTime};
+        const QDateTime limit{asOfDate.addDays(1), QTime(0, 0, 0), QTimeZone::LocalTime};
         startDt = todo->recurrence()->getPreviousDateTime(limit);
         if (startDt.isValid() && todo->hasDueDate()) {
             if (todo->allDay()) {
