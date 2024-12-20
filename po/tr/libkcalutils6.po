@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-02 00:38+0000\n"
-"PO-Revision-Date: 2024-02-09 17:45+0300\n"
+"PO-Revision-Date: 2024-12-19 20:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -695,7 +695,7 @@ msgstr "<i>Saat:</i> %1"
 #, kde-format
 msgctxt "time range for event"
 msgid "<i>Time:</i> %1 - %2"
-msgstr "<i>Saat:</i> %1 - %2"
+msgstr "<i>Saat:</i> %1–%2"
 
 #: src/incidenceformatter.cpp:2436
 #, kde-format
@@ -1686,13 +1686,13 @@ msgstr "Tamamlanmış"
 #, kde-format
 msgctxt "@item to-do needs action"
 msgid "Needs-Action"
-msgstr "Eylem-Gerektirir"
+msgstr "Eylem gerektirir"
 
 #: src/stringify.cpp:91
 #, kde-format
 msgctxt "@item event orto-do is canceled; journal is removed"
 msgid "Canceled"
-msgstr "İptal Edildi"
+msgstr "İptal edildi"
 
 #: src/stringify.cpp:93
 #, kde-format
@@ -1848,13 +1848,13 @@ msgstr "Yazılabilir kaynak bulunamadı"
 #, kde-format
 msgctxt "@item"
 msgid "Error saving to '%1'."
-msgstr "'%1' dosyasına kaydedilemedi."
+msgstr "“%1” dosyasına kaydedilemedi."
 
 #: src/stringify.cpp:193
 #, kde-format
 msgctxt "@item"
 msgid "Could not save '%1'"
-msgstr "'%1' kaydedilemedi"
+msgstr "“%1” kaydedilemedi"
 
 #: src/stringify.cpp:196
 #, kde-format
@@ -1872,7 +1872,7 @@ msgstr "SÜRÜM özelliği bulunamadı"
 #, kde-format
 msgctxt "@item"
 msgid "object is not a freebusy, event, todo or journal"
-msgstr "nesne bir uygun-meşgul, olay, yapılacak veya günce değil"
+msgstr "nesne bir uygun–meşgul, olay, yapılacak veya günce değil"
 
 #: src/stringify.cpp:211
 #, kde-format
@@ -1966,7 +1966,7 @@ msgstr "Tarih:"
 #, kde-format
 msgctxt "<beginDate> - <endDate>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1–%2"
 
 #: src/templates/event.html:34 src/templates/event.html:44
 #, kde-format
@@ -1982,7 +1982,7 @@ msgstr "Zaman:"
 #, kde-format
 msgctxt "<beginTime> - <endTime>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1–%2"
 
 #: src/templates/event.html:51
 #, kde-format
@@ -2022,7 +2022,7 @@ msgstr "Oluşturulma tarihi: %1"
 #: src/templates/freebusy.html:6
 #, kde-format
 msgid "Busy times in date range %1 - %2:"
-msgstr "%1 - %2 tarihleri arasındaki dolu zamanlar:"
+msgstr "%1–%2 tarihleri arasındaki dolu zamanlar:"
 
 #: src/templates/freebusy.html:9
 msgctxt "tag for busy period list"
@@ -2039,13 +2039,13 @@ msgstr "%2 için %1"
 #, kde-format
 msgctxt "date, fromTime - toTime"
 msgid "%1, %2 - %3"
-msgstr "%1, %2 - %3"
+msgstr "%1, %2–%3"
 
 #: src/templates/freebusy.html:18
 #, kde-format
 msgctxt "fromDateTime - endDateTime"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1–%2"
 
 #: src/templates/incidence_header.html:10
 msgid "Recurring incidence"
@@ -2117,25 +2117,25 @@ msgstr "%2 için %1"
 #, kde-format
 msgctxt "<startDate> - <endDate>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1–%2"
 
 #: src/templates/itip_freebusy.html:36
 #, kde-format
 msgctxt "<date>, <startTime> - <endTime>"
 msgid "%1, %2 - %3"
-msgstr "%1, %2 - %3"
+msgstr "%1, %2–%3"
 
 #: src/templates/itip_todo.html:22
 #, kde-format
 msgctxt "<beginDateTime> - <endDateTime>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1–%2"
 
 #: src/templates/itip_todo.html:24
 #, kde-format
 msgctxt "<beginDateTime> - <endTime>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1–%2"
 
 #: src/templates/itip_todo.html:32
 msgid "Percent Done:"
