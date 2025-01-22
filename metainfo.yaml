@@ -1,5 +1,5 @@
 maintainer:
-description: The KDE calendar utility library 
+description: The KDE calendar utility library
 tier: 3
 type: functional
 platforms:
@@ -12,7 +12,7 @@ portingAid: false
 deprecated: false
 release: false
 libraries:
- - cmake: "KPim6::CalendarUtils"
+    - cmake: "KPim6::CalendarUtils"
 cmakename: KPim6CalendarUtils
 
 public_lib: true
