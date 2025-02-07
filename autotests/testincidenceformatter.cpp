@@ -29,7 +29,7 @@
 #include <QStandardPaths>
 #include <QTest>
 #include <QTimeZone>
-QTEST_GUILESS_MAIN(IncidenceFormatterTest)
+QTEST_MAIN(IncidenceFormatterTest)
 #ifndef Q_OS_WIN
 void initLocale()
 {
