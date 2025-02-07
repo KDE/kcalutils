@@ -12,7 +12,7 @@
 #include <KLocalizedString>
 
 #include <QTest>
-QTEST_MAIN(StringifyTest)
+QTEST_GUILESS_MAIN(StringifyTest)
 #ifndef Q_OS_WIN
 void initLocale()
 {

@@ -384,6 +384,6 @@ void TestTodoToolTip::testPriority()
     QVERIFY(toolTip.contains(field(PRIORITY, QStringLiteral("5"))));
 }
 
-QTEST_MAIN(TestTodoToolTip)
+QTEST_GUILESS_MAIN(TestTodoToolTip)
 
 #include "moc_testtodotooltip.cpp"
