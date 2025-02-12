@@ -193,6 +193,9 @@
 </table>
 
 <!-- Creation -->
-<p><em>{% i18n "Creation date: %1" incidence.creationDate|kdatetime %}</em></p>
+<p>
+<em>{% i18n "Creation date: %1" incidence.creationDate|kdatetime %}</em><br/>
+<em>{% i18n "Revision: %1" incidence.revision %}</em>
+</p>
 
 {% endblock body %}

@@ -473,6 +473,7 @@ static QString htmlAddTag(const QString &tag, const QString &text)
 
     incidence[QStringLiteral("attachments")] = displayViewFormatAttachments(event);
     incidence[QStringLiteral("creationDate")] = event->created().toLocalTime();
+    incidence[QStringLiteral("revision")] = event->revision();
 
     return GrantleeTemplateManager::instance()->render(QStringLiteral(":/org.kde.pim/kcalutils/event.html"), incidence);
 }
@@ -552,6 +553,7 @@ static QString htmlAddTag(const QString &tag, const QString &text)
     }
     incidence[QStringLiteral("attachments")] = displayViewFormatAttachments(todo);
     incidence[QStringLiteral("creationDate")] = todo->created().toLocalTime();
+    incidence[QStringLiteral("revision")] = todo->revision();
 
     return GrantleeTemplateManager::instance()->render(QStringLiteral(":/org.kde.pim/kcalutils/todo.html"), incidence);
 }
@@ -568,6 +570,7 @@ static QString htmlAddTag(const QString &tag, const QString &text)
     incidence[QStringLiteral("description")] = displayViewFormatDescription(journal);
     incidence[QStringLiteral("categories")] = journal->categories();
     incidence[QStringLiteral("creationDate")] = journal->created().toLocalTime();
+    incidence[QStringLiteral("revision")] = journal->revision();
 
     return GrantleeTemplateManager::instance()->render(QStringLiteral(":/org.kde.pim/kcalutils/journal.html"), incidence);
 }
