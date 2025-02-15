@@ -6,13 +6,13 @@
 # obsoleteman <tulliana@gmail.com>, 2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014, 2015, 2017, 2021.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-14 00:44+0000\n"
-"PO-Revision-Date: 2024-12-19 20:52+0300\n"
+"PO-Revision-Date: 2025-02-14 09:01+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2021,10 +2021,9 @@ msgstr "Oluşturulma tarihi: %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
-#, fuzzy, kde-format
-#| msgid "Recurs: %1\n"
+#, kde-format
 msgid "Revision: %1"
-msgstr "Yinelenir: %1\n"
+msgstr "Revizyon: %1"
 
 #: src/templates/freebusy.html:6
 #, kde-format

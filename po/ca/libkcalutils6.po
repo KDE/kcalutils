@@ -1,16 +1,16 @@
 # Translation of libkcalutils6.po to Catalan
-# Copyright (C) 2010-2024 This_file_is_part_of_KDE
+# Copyright (C) 2010-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2016, 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2013, 2014, 2015, 2016, 2018, 2020, 2021.
+# Josep M. Ferrer <txemaq@gmail.com>, 2010, 2011, 2012, 2013, 2016, 2020, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-14 00:44+0000\n"
-"PO-Revision-Date: 2024-09-27 19:55+0200\n"
+"PO-Revision-Date: 2025-02-14 10:24+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -2029,10 +2029,9 @@ msgstr "Data de creació: %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
-#, fuzzy, kde-format
-#| msgid "Recurs: %1\n"
+#, kde-format
 msgid "Revision: %1"
-msgstr "Recurrència: %1\n"
+msgstr "Revisió: %1"
 
 #: src/templates/freebusy.html:6
 #, kde-format
@@ -2190,104 +2189,3 @@ msgstr "Finalitzada:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Percentatge completat:"
-
-#~ msgctxt "@title month and year"
-#~ msgid "%1 %2"
-#~ msgstr "%1 %2"
-
-#~ msgctxt "@title:column event start time"
-#~ msgid "Start Time"
-#~ msgstr "Hora d'inici"
-
-#~ msgctxt "@title:column event end time"
-#~ msgid "End Time"
-#~ msgstr "Hora final"
-
-#~ msgctxt "@title:column event description"
-#~ msgid "Event"
-#~ msgstr "Esdeveniment"
-
-#~ msgctxt "@title:column event location"
-#~ msgid "Location"
-#~ msgstr "Ubicació"
-
-#~ msgctxt "@title:column event categories"
-#~ msgid "Categories"
-#~ msgstr "Categories"
-
-#~ msgctxt "@title:column event attendees"
-#~ msgid "Attendees"
-#~ msgstr "Assistents"
-
-#~ msgctxt "@title:column"
-#~ msgid "To-do"
-#~ msgstr "Tasca pendent"
-
-#~ msgctxt "@title:column to-do priority"
-#~ msgid "Priority"
-#~ msgstr "Prioritat"
-
-#~ msgctxt "@title:column to-do percent completed"
-#~ msgid "Completed"
-#~ msgstr "Completada"
-
-#~ msgctxt "@title:column to-do due date"
-#~ msgid "Due Date"
-#~ msgstr "Data de venciment"
-
-#~ msgctxt "@title:column to-do location"
-#~ msgid "Location"
-#~ msgstr "Ubicació"
-
-#~ msgctxt "@title:column to-do categories"
-#~ msgid "Categories"
-#~ msgstr "Categories"
-
-#~ msgctxt "@title:column to-do attendees"
-#~ msgid "Attendees"
-#~ msgstr "Assistents"
-
-#~ msgctxt "@title:column sub-to-dos of the parent to-do"
-#~ msgid "Sub-To-dos of: "
-#~ msgstr "Subtasques pendents de: "
-
-#~ msgctxt "@title:column sub-to-dos of the parent to-do"
-#~ msgid "Sub-To-dos"
-#~ msgstr "Subtasques pendents"
-
-#~ msgctxt "@info to-do percent complete"
-#~ msgid "%1 %"
-#~ msgstr "%1 %"
-
-#~ msgctxt "@info"
-#~ msgid "This page was created "
-#~ msgstr "Aquesta pàgina va ser creada "
-
-#~ msgctxt "@info/plain page creator email link with name"
-#~ msgid "by <link url='mailto:%1'>%2</link> "
-#~ msgstr "per a <link url='mailto:%1'>%2</link> "
-
-#~ msgctxt "@info/plain page creator email link"
-#~ msgid "by <link url='mailto:%1'>%2</link> "
-#~ msgstr "per a <link url='mailto:%1'>%2</link> "
-
-#~ msgctxt "@info page creator name only"
-#~ msgid "by %1 "
-#~ msgstr "per a %1 "
-
-#~ msgctxt "@info/plain page credit with name and link"
-#~ msgid "with <link url='%1'>%2</link>"
-#~ msgstr "amb <link url='%1'>%2</link>"
-
-#~ msgctxt "@info page credit name only"
-#~ msgid "with %1"
-#~ msgstr "amb %1"
-
-#~ msgctxt "@info holiday by date and name"
-#~ msgid "%1, %2"
-#~ msgstr "%1, %2"
-
-#~ msgid "Category:"
-#~ msgid_plural "Categories:"
-#~ msgstr[0] "Categoria:"
-#~ msgstr[1] "Categories:"
