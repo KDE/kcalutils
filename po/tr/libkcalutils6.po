@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-14 00:44+0000\n"
-"PO-Revision-Date: 2025-02-14 09:01+0300\n"
+"PO-Revision-Date: 2025-02-15 21:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -580,13 +580,13 @@ msgstr "Reddet"
 #, kde-format
 msgctxt "invitation counter proposal"
 msgid "Counter proposal ..."
-msgstr "Karşıt öneri ..."
+msgstr "Karşıt öneri…"
 
 #: src/incidenceformatter.cpp:1959
 #, kde-format
 msgctxt "delegate invitation to another"
 msgid "Delegate ..."
-msgstr "Temsilci ..."
+msgstr "Temsilci…"
 
 #: src/incidenceformatter.cpp:1969
 #, kde-format
@@ -752,7 +752,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "ellipsis"
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #: src/incidenceformatter.cpp:2577
 #, kde-format
@@ -780,12 +780,12 @@ msgstr "Başkan:"
 #: src/templates/todo.html:118
 #, kde-format
 msgid "Required Participants:"
-msgstr "Gerekli Katılımcılar:"
+msgstr "Gerekli katılımcılar:"
 
 #: src/incidenceformatter.cpp:2624
 #, kde-format
 msgid "Optional Participants:"
-msgstr "Seçimlik Katılımcılar:"
+msgstr "İsteğe bağlı katılımcılar:"
 
 #: src/incidenceformatter.cpp:2631 src/templates/event.html:163
 #: src/templates/todo.html:144
@@ -930,22 +930,22 @@ msgstr "Her Yıl Aynı Konum"
 #: src/incidenceformatter.cpp:2816 src/incidenceformatter.cpp:2870
 #, kde-format
 msgid "Start Date: %1\n"
-msgstr "Başlama Tarihi: %1\n"
+msgstr "Başlama tarihi: %1\n"
 
 #: src/incidenceformatter.cpp:2818 src/incidenceformatter.cpp:2872
 #, kde-format
 msgid "Start Time: %1\n"
-msgstr "Başlama Saati: %1\n"
+msgstr "Başlama zamanı: %1\n"
 
 #: src/incidenceformatter.cpp:2821
 #, kde-format
 msgid "End Date: %1\n"
-msgstr "Bitiş Tarihi: %1\n"
+msgstr "Bitiş tarihi: %1\n"
 
 #: src/incidenceformatter.cpp:2824
 #, kde-format
 msgid "End Time: %1\n"
-msgstr "Bitiş Saati: %1\n"
+msgstr "Bitiş zamanı: %1\n"
 
 #: src/incidenceformatter.cpp:2829
 #, kde-format
@@ -967,7 +967,7 @@ msgstr[1] "%1 kez yineler"
 #: src/incidenceformatter.cpp:2844
 #, kde-format
 msgid "Repeat until: %1\n"
-msgstr "Bu tarihe kadar yinele: %1\n"
+msgstr "Şu tarihe kadar yinele: %1\n"
 
 #: src/incidenceformatter.cpp:2846
 #, kde-format
@@ -986,12 +986,12 @@ msgstr ""
 #: src/incidenceformatter.cpp:2876
 #, kde-format
 msgid "Due Date: %1\n"
-msgstr "Gerçekleşme Tarihi: %1\n"
+msgstr "Gerçekleşme tarihi: %1\n"
 
 #: src/incidenceformatter.cpp:2878
 #, kde-format
 msgid "Due Time: %1\n"
-msgstr "Gerçekleşme Saati: %1\n"
+msgstr "Gerçekleşme zamanı: %1\n"
 
 #: src/incidenceformatter.cpp:2891
 #, kde-format
@@ -1927,7 +1927,7 @@ msgstr "Güncellenmiş Zamanlanan İleti İsteği"
 #, kde-format
 msgctxt "@item unknown status"
 msgid "Unknown Status: %1"
-msgstr "Bilinmeyen Durum: %1"
+msgstr "Bilinmeyen durum: %1"
 
 #: src/templates/attendee_row.html:27
 msgid "organizer"
@@ -1997,11 +1997,11 @@ msgstr "Olağandışı durum"
 
 #: src/templates/event.html:80
 msgid "Birthday:"
-msgstr "Doğumgünü:"
+msgstr "Doğum günü:"
 
 #: src/templates/event.html:88
 msgid "Anniversary:"
-msgstr "Yıl dönümü:"
+msgstr "Yıldönümü:"
 
 #: src/templates/event.html:150 src/templates/todo.html:131
 msgid "Optional participants:"
@@ -2145,7 +2145,7 @@ msgstr "%1–%2"
 
 #: src/templates/itip_todo.html:32
 msgid "Percent Done:"
-msgstr "Tamanlanan Yüzde:"
+msgstr "Tamamlanan yüzde:"
 
 #: src/templates/itip_todo.html:39
 msgid "Due:"
@@ -2176,11 +2176,11 @@ msgstr "Öncelik:"
 #: src/templates/todo.html:173
 msgctxt "Completed: date"
 msgid "Completed:"
-msgstr "Tamanlanan:"
+msgstr "Tamamlanan:"
 
 #: src/templates/todo.html:178
 msgid "Percent done:"
-msgstr "Tamanlanan yüzde:"
+msgstr "Tamamlanan yüzde:"
 
 #~ msgctxt "@title month and year"
 #~ msgid "%1 %2"
