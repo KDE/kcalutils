@@ -14,7 +14,7 @@
 # Sebastien Renard <Sebastien.Renard@digitalfox.org>, 2010.
 # Sébastien Renard <renard@kde.org>, 2010, 2011, 2012, 2014.
 # Geoffray Levasseur <geoffray.levasseurbrandin@numericable.fr>, 2013.
-# Xavier Besnard <xavier.besnard@kde.org>, 2013, 2020, 2021.
+# SPDX-FileCopyrightText: 2013, 2020, 2021, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Vincent Pinon <vpinon@kde.org>, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2019.
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
@@ -24,15 +24,15 @@ msgstr ""
 "Project-Id-Version: libkcal\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-14 00:44+0000\n"
-"PO-Revision-Date: 2023-02-05 17:21+0100\n"
+"PO-Revision-Date: 2025-02-15 09:15+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -2058,10 +2058,9 @@ msgstr "Date de création : %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
-#, fuzzy, kde-format
-#| msgid "Recurs: %1\n"
+#, kde-format
 msgid "Revision: %1"
-msgstr "Périodicité %1\n"
+msgstr "Révision : %1"
 
 #: src/templates/freebusy.html:6
 #, kde-format

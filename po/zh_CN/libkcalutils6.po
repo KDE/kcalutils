@@ -1987,7 +1987,7 @@ msgstr "创建日期：%1"
 #: src/templates/todo.html:201
 #, kde-format
 msgid "Revision: %1"
-msgstr ""
+msgstr "修订版本：%1"
 
 #: src/templates/freebusy.html:6
 #, kde-format
