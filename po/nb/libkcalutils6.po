@@ -2023,7 +2023,6 @@ msgstr "Opprettet dato: %1"
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
 #, fuzzy, kde-format
-#| msgid "Recurs: %1\n"
 msgid "Revision: %1"
 msgstr "Gjentakelse: %1\n"
 
