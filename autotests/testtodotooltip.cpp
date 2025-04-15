@@ -40,7 +40,7 @@ static const QString EXPECTED_PCT50{QStringLiteral("50%")};
 static const QString EXPECTED_PCT0{QStringLiteral("0%")};
 
 #ifndef Q_OS_WIN
-void initLocale()
+static void initLocale()
 {
     setenv("LC_ALL", "en_US.utf-8", 1);
     setenv("TZ", "UTC", 1);
