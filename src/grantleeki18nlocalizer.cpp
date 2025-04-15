@@ -14,7 +14,7 @@
 #include <KLocalizedString>
 
 GrantleeKi18nLocalizer::GrantleeKi18nLocalizer()
-    : KTextTemplate::QtLocalizer()
+
 {
 }
 
