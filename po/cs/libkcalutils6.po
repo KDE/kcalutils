@@ -2048,10 +2048,9 @@ msgstr "Datum vytvoření: %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
-#, fuzzy, kde-format
-#| msgid "Recurs: %1\n"
+#, kde-format
 msgid "Revision: %1"
-msgstr "Opakuje se: %1\n"
+msgstr ""
 
 #: src/templates/freebusy.html:6
 #, kde-format
