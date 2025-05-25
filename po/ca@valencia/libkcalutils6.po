@@ -666,7 +666,7 @@ msgstr "S'està esperant la resposta de delegació."
 #: src/incidenceformatter.cpp:2246
 #, kde-format
 msgid "The <b>%1</b> response has been recorded"
-msgstr "La resposta <b>%1</b> s'ha enregistrat"
+msgstr "S'ha enregistrat la resposta <b>%1</b>"
 
 #: src/incidenceformatter.cpp:2273
 #, kde-format
