@@ -3228,67 +3228,87 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
     }
 
     // Now, append the EXDATEs
-    const auto l = recur->exDateTimes();
-    QStringList exStr;
-    for (auto il = l.cbegin(), end = l.cend(); il != end; ++il) {
+    const auto exDtList = recur->exDateTimes();
+    static int maxExDates = 7; // only print so many exceptions; after all, this is for tooltips and display purposes
+    int count = 0;
+    QStringList seen;
+    QStringList exStrList;
+    for (auto il = exDtList.cbegin(), end = exDtList.cend(); count < maxExDates && il != end; ++il) {
+        QString exDt;
         switch (recur->recurrenceType()) {
         case Recurrence::rMinutely:
-            exStr << i18n("minute %1", (*il).time().minute());
+            exDt = i18n("minute %1", (*il).time().minute());
             break;
         case Recurrence::rHourly:
-            exStr << QLocale().toString((*il).time(), QLocale::ShortFormat);
+            exDt = QLocale().toString((*il).time(), QLocale::ShortFormat);
             break;
         case Recurrence::rWeekly:
-            exStr << QLocale().dayName((*il).date().dayOfWeek(), QLocale::ShortFormat);
+            // exDt = QLocale().dayName((*il).date().dayOfWeek(), QLocale::ShortFormat);
+            exDt = QLocale().toString((*il).date(), QLocale::ShortFormat);
             break;
         case Recurrence::rYearlyMonth:
-            exStr << QString::number((*il).date().year());
+            exDt = QString::number((*il).date().year());
             break;
         case Recurrence::rDaily:
         case Recurrence::rMonthlyPos:
         case Recurrence::rMonthlyDay:
         case Recurrence::rYearlyDay:
         case Recurrence::rYearlyPos:
-            exStr << QLocale().toString((*il).date(), QLocale::ShortFormat);
+            exDt = QLocale().toString((*il).date(), QLocale::ShortFormat);
             break;
+        }
+        if (!seen.contains(exDt)) {
+            count++;
+            seen << exDt;
+            exStrList << exDt;
         }
     }
 
-    DateList d = recur->exDates();
+    DateList exDList = recur->exDates();
     DateList::ConstIterator dl;
-    const DateList::ConstIterator dlEdnd(d.constEnd());
-    for (dl = d.constBegin(); dl != dlEdnd; ++dl) {
+    const DateList::ConstIterator dlEnd(exDList.constEnd());
+    for (dl = exDList.constBegin(); count < maxExDates && dl != dlEnd; ++dl) {
+        QString exDt;
         switch (recur->recurrenceType()) {
         case Recurrence::rDaily:
-            exStr << QLocale().toString((*dl), QLocale::ShortFormat);
+            exDt = QLocale().toString((*dl), QLocale::ShortFormat);
             break;
         case Recurrence::rWeekly:
-            // exStr << calSys->weekDayName( (*dl), KCalendarSystem::ShortDayName );
+            // exStrList << calSys->weekDayName( (*dl), KCalendarSystem::ShortDayName );
             // kolab/issue4735, should be ( excluding 3 days ), instead of excluding( Fr,Fr,Fr )
-            if (exStr.isEmpty()) {
-                exStr << i18np("1 day", "%1 days", recur->exDates().count());
+            if (exStrList.isEmpty()) {
+                exDt = i18np("1 day", "%1 days", recur->exDates().count());
             }
             break;
         case Recurrence::rMonthlyPos:
-            exStr << QLocale().toString((*dl), QLocale::ShortFormat);
+            exDt = QLocale().toString((*dl), QLocale::ShortFormat);
             break;
         case Recurrence::rMonthlyDay:
-            exStr << QLocale().toString((*dl), QLocale::ShortFormat);
+            exDt = QLocale().toString((*dl), QLocale::ShortFormat);
             break;
         case Recurrence::rYearlyMonth:
-            exStr << QString::number((*dl).year());
+            exDt = QString::number((*dl).year());
             break;
         case Recurrence::rYearlyDay:
-            exStr << QLocale().toString((*dl), QLocale::ShortFormat);
+            exDt = QLocale().toString((*dl), QLocale::ShortFormat);
             break;
         case Recurrence::rYearlyPos:
-            exStr << QLocale().toString((*dl), QLocale::ShortFormat);
+            exDt = QLocale().toString((*dl), QLocale::ShortFormat);
             break;
+        }
+        if (!seen.contains(exDt)) {
+            count++;
+            seen << exDt;
+            exStrList << exDt;
         }
     }
 
-    if (!exStr.isEmpty()) {
-        recurStr = i18n("%1 (excluding %2)", recurStr, exStr.join(QLatin1Char(',')));
+    if (!exStrList.isEmpty()) {
+        QString exStr = exStrList.join(QLatin1Char(','));
+        if ((exDtList.count() + exDList.count()) > maxExDates) {
+            exStr = exStr + i18nc("ellipsis", "...");
+        }
+        recurStr = i18n("%1 (excluding %2)", recurStr, exStr);
     }
 
     return recurStr;
