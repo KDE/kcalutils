@@ -53,7 +53,7 @@ KTextTemplate::Node *IconTag::getNode(const QString &tagContent, KTextTemplate::
         // Try to convert to pixel size
         sizeOrGroup = sizeStr.toInt(&ok);
         if (!ok) {
-            // If failed, then try to map the string to one of tne enums
+            // If failed, then try to map the string to one of the enums
             const auto size = sizeOrGroupLookup.constFind(sizeStr);
             if (size == sizeOrGroupLookup.cend()) {
                 // If it's not  a valid size string, assume it's an alt text

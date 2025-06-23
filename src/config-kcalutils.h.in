@@ -7,4 +7,3 @@
 
 #pragma once
 #define GRANTLEE_PLUGIN_INSTALL_DIR "${KDE_INSTALL_FULL_LIBDIR}"
-

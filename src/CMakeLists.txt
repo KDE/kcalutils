@@ -6,34 +6,39 @@ add_subdirectory(grantlee_plugin)
 add_library(KPim6CalendarUtils)
 add_library(KPim6::CalendarUtils ALIAS KPim6CalendarUtils)
 
-configure_file(config-kcalutils.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutils.h)
+configure_file(
+    config-kcalutils.h.in
+    ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutils.h
+)
 
-target_sources(KPim6CalendarUtils PRIVATE
-  icaldrag.cpp
-  incidenceformatter.cpp
-  recurrenceactions.cpp
-  stringify.cpp
-  vcaldrag.cpp
-  dndfactory.cpp
-  grantleeki18nlocalizer.cpp
-  grantleetemplatemanager.cpp
-  qtresourcetemplateloader.cpp
-  templates.qrc
-  vcaldrag.h
-  kcalutils_private_export.h
-  stringify.h
-  icaldrag.h
-  grantleetemplatemanager_p.h
-  grantleeki18nlocalizer_p.h
-  qtresourcetemplateloader.h
-  incidenceformatter.h
-  dndfactory.h
-  recurrenceactions.h
+target_sources(
+    KPim6CalendarUtils
+    PRIVATE
+        icaldrag.cpp
+        incidenceformatter.cpp
+        recurrenceactions.cpp
+        stringify.cpp
+        vcaldrag.cpp
+        dndfactory.cpp
+        grantleeki18nlocalizer.cpp
+        grantleetemplatemanager.cpp
+        qtresourcetemplateloader.cpp
+        templates.qrc
+        vcaldrag.h
+        kcalutils_private_export.h
+        stringify.h
+        icaldrag.h
+        grantleetemplatemanager_p.h
+        grantleeki18nlocalizer_p.h
+        qtresourcetemplateloader.h
+        incidenceformatter.h
+        dndfactory.h
+        recurrenceactions.h
 )
 ecm_qt_declare_logging_category(KPim6CalendarUtils HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME org.kde.pim.kcalutils
         OLD_CATEGORY_NAMES log_kcalutils
-        DESCRIPTION "kcalutils (pim lib)" EXPORT KCALUTILS)
-
+        DESCRIPTION "kcalutils (pim lib)" EXPORT KCALUTILS
+)
 
 ki18n_wrap_ui(KPim6CalendarUtils recurrenceactionsscopewidget.ui)
 
@@ -47,32 +52,42 @@ ecm_generate_export_header(KPim6CalendarUtils
     USE_VERSION_HEADER
 )
 
-
-
-target_include_directories(KPim6CalendarUtils INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils;${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils/kcalutils>")
-target_include_directories(KPim6CalendarUtils PUBLIC "$<BUILD_INTERFACE:${KCalUtils_SOURCE_DIR}/src;${KCalUtils_BINARY_DIR}/src>")
-
-target_link_libraries(KPim6CalendarUtils
-PUBLIC
-  Qt::Widgets
-  KF6::CalendarCore
-  KF6::CoreAddons
-PRIVATE
-  KF6::WidgetsAddons
-  KF6::IconThemes
-  KF6::I18n
-  KPim6::IdentityManagementCore
-  KF6::Codecs
-  KF6::TextTemplate
+target_include_directories(
+    KPim6CalendarUtils
+    INTERFACE
+        "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils;${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils/kcalutils>"
+)
+target_include_directories(
+    KPim6CalendarUtils
+    PUBLIC
+        "$<BUILD_INTERFACE:${KCalUtils_SOURCE_DIR}/src;${KCalUtils_BINARY_DIR}/src>"
 )
 
-set_target_properties(KPim6CalendarUtils PROPERTIES
-    VERSION ${KCALUTILS_VERSION}
-    SOVERSION ${KCALUTILS_SOVERSION}
-    EXPORT_NAME CalendarUtils
+target_link_libraries(
+    KPim6CalendarUtils
+    PUBLIC Qt::Widgets KF6::CalendarCore KF6::CoreAddons
+    PRIVATE
+        KF6::WidgetsAddons
+        KF6::IconThemes
+        KF6::I18n
+        KPim6::IdentityManagementCore
+        KF6::Codecs
+        KF6::TextTemplate
 )
 
-install(TARGETS KPim6CalendarUtils EXPORT KPim6CalendarUtilsTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+set_target_properties(
+    KPim6CalendarUtils
+    PROPERTIES
+        VERSION ${KCALUTILS_VERSION}
+        SOVERSION ${KCALUTILS_SOVERSION}
+        EXPORT_NAME CalendarUtils
+)
+
+install(
+    TARGETS KPim6CalendarUtils
+    EXPORT KPim6CalendarUtilsTargets
+    ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
+)
 
 ########### Generate Headers ###############
 ecm_generate_headers(KCalUtils_CamelCase_HEADERS
@@ -89,17 +104,16 @@ ecm_generate_headers(KCalUtils_CamelCase_HEADERS
 
 ########### install files ###############
 
-install(FILES
-  ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h
-  ${KCalUtils_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils/kcalutils
-  COMPONENT Devel
+install(
+    FILES ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h ${KCalUtils_HEADERS}
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils/kcalutils
+    COMPONENT Devel
 )
 
-install(FILES
-  ${KCalUtils_CamelCase_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils/KCalUtils/
-  COMPONENT Devel
+install(
+    FILES ${KCalUtils_CamelCase_HEADERS}
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils/KCalUtils/
+    COMPONENT Devel
 )
 
 if(BUILD_QCH)
@@ -124,8 +138,7 @@ if(BUILD_QCH)
         TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
         QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
         COMPONENT Devel
-)
+    )
 endif()
 
 ecm_qt_install_logging_categories(EXPORT KCALUTILS FILE kcalutils.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-
