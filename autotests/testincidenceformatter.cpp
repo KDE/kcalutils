@@ -41,6 +41,7 @@ Q_CONSTRUCTOR_FUNCTION(initLocale)
 #endif
 using namespace KCalendarCore;
 using namespace KCalUtils;
+using namespace Qt::StringLiterals;
 
 // Button colors.
 static QString btnBg;
@@ -212,17 +213,38 @@ bool IncidenceFormatterTest::compareHtml(const QString &name)
         f.close();
     }
 
+#ifdef _WIN32
+    const QStringList args = {
+        u"Compare-Object"_s,
+        u"(Get-Content %1)"_s.arg(referenceFileName),
+        u"(Get-Content %1)"_s.arg(htmlFileName),
+    };
+
+    QProcess proc;
+    proc.start(u"powershell"_s, args);
+    if (!proc.waitForFinished()) {
+        return false;
+    }
+
+    auto pStdOut = proc.readAllStandardOutput();
+    if (pStdOut.size()) {
+        qDebug() << "Files are different, diff output message:\n" << pStdOut;
+    }
+
+    return pStdOut.size() == 0;
+#else
     // compare to reference file
-    const QStringList args = {QStringLiteral("-u"), referenceFileName, htmlFileName};
+    const QStringList args = {u"-u"_s, referenceFileName, htmlFileName};
 
     QProcess proc;
     proc.setProcessChannelMode(QProcess::ForwardedChannels);
-    proc.start(QStringLiteral("diff"), args);
+    proc.start(u"diff"_s, args);
     if (!proc.waitForFinished()) {
         return false;
     }
 
     return proc.exitCode() == 0;
+#endif
 }
 
 void IncidenceFormatterTest::cleanup(const QString &name)
