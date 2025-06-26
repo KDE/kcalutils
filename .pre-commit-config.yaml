@@ -38,7 +38,7 @@ repos:
    rev: v2.4.1
    hooks:
     - id: codespell
-      exclude: (autotests/data/|src/templates/attendee_row.html)
+      exclude: (autotests/data/)
  - repo: https://github.com/BlankSpruce/gersemi
    rev: 0.19.3
    hooks:
