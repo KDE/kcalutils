@@ -10,7 +10,10 @@ set(KF_MIN_VERSION "6.14.0")
 set(QT_REQUIRED_VERSION "6.8.0")
 
 find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
-set(CMAKE_MODULE_PATH ${KCalUtils_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH
+    ${KCalUtils_SOURCE_DIR}/cmake
+    ${ECM_MODULE_PATH}
+)
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
@@ -60,11 +63,7 @@ ecm_check_outbound_license(LICENSES GPL-2.0-only  FILES ${ALL_SOURCE_FILES})
 
 include(ECMAddQch)
 
-option(
-    BUILD_QCH
-    "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)"
-    OFF
-)
+option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
 add_feature_info(
     QCH
     ${BUILD_QCH}
@@ -89,12 +88,7 @@ find_package(KF6IconThemes ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6TextTemplate CONFIG REQUIRED)
 
 find_package(KF6CalendarCore ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(
-    KPim6IdentityManagementCore
-    ${IDENTITYMANAGER_LIB_VERSION}
-    CONFIG
-    REQUIRED
-)
+find_package(KPim6IdentityManagementCore ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRED)
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils6\")
 
 add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
@@ -103,11 +97,7 @@ ecm_set_disabled_deprecation_versions(QT 6.8.1 KF 6.15.0)
 if(BUILD_TESTING)
     add_definitions(-DBUILD_TESTING)
 endif()
-option(
-    USE_UNITY_CMAKE_SUPPORT
-    "Use UNITY cmake support (speedup compile time)"
-    OFF
-)
+option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" OFF)
 
 set(COMPILE_WITH_UNITY_CMAKE_SUPPORT OFF)
 if(USE_UNITY_CMAKE_SUPPORT)
@@ -129,9 +119,7 @@ if(BUILD_QCH)
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel
     )
-    set(PACKAGE_INCLUDE_QCHTARGETS
-        "include(\"\${CMAKE_CURRENT_LIST_DIR}/KPim6CalendarUtilsQchTargets.cmake\")"
-    )
+    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KPim6CalendarUtilsQchTargets.cmake\")")
 endif()
 
 configure_package_config_file(
@@ -156,7 +144,8 @@ install(
 )
 
 install(
-    FILES ${CMAKE_CURRENT_BINARY_DIR}/src/kcalutils_version.h
+    FILES
+        ${CMAKE_CURRENT_BINARY_DIR}/src/kcalutils_version.h
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils/
     COMPONENT Devel
 )

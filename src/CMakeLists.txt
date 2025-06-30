@@ -6,10 +6,7 @@ add_subdirectory(grantlee_plugin)
 add_library(KPim6CalendarUtils)
 add_library(KPim6::CalendarUtils ALIAS KPim6CalendarUtils)
 
-configure_file(
-    config-kcalutils.h.in
-    ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutils.h
-)
+configure_file(config-kcalutils.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutils.h)
 
 target_sources(
     KPim6CalendarUtils
@@ -43,7 +40,12 @@ ecm_qt_declare_logging_category(KPim6CalendarUtils HEADER kcalutils_debug.h IDEN
 ki18n_wrap_ui(KPim6CalendarUtils recurrenceactionsscopewidget.ui)
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
-    set_target_properties(KPim6CalendarUtils PROPERTIES UNITY_BUILD ON)
+    set_target_properties(
+        KPim6CalendarUtils
+        PROPERTIES
+            UNITY_BUILD
+                ON
+    )
 endif()
 ecm_generate_export_header(KPim6CalendarUtils
     BASE_NAME kcalutils
@@ -65,7 +67,10 @@ target_include_directories(
 
 target_link_libraries(
     KPim6CalendarUtils
-    PUBLIC Qt::Widgets KF6::CalendarCore KF6::CoreAddons
+    PUBLIC
+        Qt::Widgets
+        KF6::CalendarCore
+        KF6::CoreAddons
     PRIVATE
         KF6::WidgetsAddons
         KF6::IconThemes
@@ -78,16 +83,15 @@ target_link_libraries(
 set_target_properties(
     KPim6CalendarUtils
     PROPERTIES
-        VERSION ${KCALUTILS_VERSION}
-        SOVERSION ${KCALUTILS_SOVERSION}
-        EXPORT_NAME CalendarUtils
+        VERSION
+            ${KCALUTILS_VERSION}
+        SOVERSION
+            ${KCALUTILS_SOVERSION}
+        EXPORT_NAME
+            CalendarUtils
 )
 
-install(
-    TARGETS KPim6CalendarUtils
-    EXPORT KPim6CalendarUtilsTargets
-    ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}
-)
+install(TARGETS KPim6CalendarUtils EXPORT KPim6CalendarUtilsTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### Generate Headers ###############
 ecm_generate_headers(KCalUtils_CamelCase_HEADERS
@@ -105,13 +109,16 @@ ecm_generate_headers(KCalUtils_CamelCase_HEADERS
 ########### install files ###############
 
 install(
-    FILES ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h ${KCalUtils_HEADERS}
+    FILES
+        ${CMAKE_CURRENT_BINARY_DIR}/kcalutils_export.h
+        ${KCalUtils_HEADERS}
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils/kcalutils
     COMPONENT Devel
 )
 
 install(
-    FILES ${KCalUtils_CamelCase_HEADERS}
+    FILES
+        ${KCalUtils_CamelCase_HEADERS}
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils/KCalUtils/
     COMPONENT Devel
 )

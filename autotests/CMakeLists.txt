@@ -24,9 +24,13 @@ ecm_add_test(testincidenceformatter.cpp testincidenceformatter.h
 # Make sure that dates are formatted in C locale
 set_tests_properties(
     kcalutils-testincidenceformatter
-    PROPERTIES ENVIRONMENT "LC_ALL=C"
+    PROPERTIES
+        ENVIRONMENT
+            "LC_ALL=C"
 )
 set_tests_properties(
     kcalutils-testtodotooltip
-    PROPERTIES ENVIRONMENT "LC_ALL=C"
+    PROPERTIES
+        ENVIRONMENT
+            "LC_ALL=C"
 )
