@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-08 00:43+0000\n"
-"PO-Revision-Date: 2025-07-15 08:23+0300\n"
+"PO-Revision-Date: 2025-07-17 10:55+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -60,6 +60,8 @@ msgid "1 hour "
 msgid_plural "%1 hours "
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:605
 #, kde-format
@@ -68,6 +70,8 @@ msgid "1 minute "
 msgid_plural "%1 minutes "
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:609 src/incidenceformatter.cpp:1257
 #, kde-format
@@ -76,6 +80,8 @@ msgid "1 second"
 msgid_plural "%1 seconds"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:752
 #, kde-format
@@ -135,6 +141,8 @@ msgid "1 minute"
 msgid_plural "%1 minutes "
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:1306
 #, kde-format
@@ -834,6 +842,8 @@ msgid "Reminder:"
 msgid_plural "Reminders:"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:2731 src/templates/event.html:176
 #: src/templates/journal.html:38 src/templates/todo.html:157
@@ -842,6 +852,8 @@ msgid "Tag:"
 msgid_plural "Tags:"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:2760
 #, kde-format
@@ -959,6 +971,8 @@ msgid "Repeats once"
 msgid_plural "Repeats %1 times"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:2844
 #, kde-format
@@ -1332,6 +1346,8 @@ msgid "Recurs every minute until %2"
 msgid_plural "Recurs every %1 minutes until %2"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3025 src/incidenceformatter.cpp:3036
 #: src/incidenceformatter.cpp:3047 src/incidenceformatter.cpp:3076
@@ -1349,6 +1365,8 @@ msgid "Recurs every minute"
 msgid_plural "Recurs every %1 minutes"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3034
 #, kde-format
@@ -1356,6 +1374,8 @@ msgid "Recurs hourly until %2"
 msgid_plural "Recurs every %1 hours until %2"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3039
 #, kde-format
@@ -1363,6 +1383,8 @@ msgid "Recurs hourly"
 msgid_plural "Recurs every %1 hours"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3045
 #, kde-format
@@ -1370,6 +1392,8 @@ msgid "Recurs daily until %2"
 msgid_plural "Recurs every %1 days until %2"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3050
 #, kde-format
@@ -1377,6 +1401,8 @@ msgid "Recurs daily"
 msgid_plural "Recurs every %1 days"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3059
 #, kde-format
@@ -1397,6 +1423,8 @@ msgid "Recurs weekly on %2 until %3"
 msgid_plural "Recurs every %1 weeks on %2 until %3"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3079
 #, kde-format
@@ -1405,6 +1433,8 @@ msgid "Recurs weekly on %2"
 msgid_plural "Recurs every %1 weeks on %2"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3090
 #, kde-format
@@ -1413,6 +1443,8 @@ msgid "Recurs every month on the %2 %3 until %4"
 msgid_plural "Recurs every %1 months on the %2 %3 until %4"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3101
 #, kde-format
@@ -1421,6 +1453,8 @@ msgid "Recurs every month on the %2 %3"
 msgid_plural "Recurs every %1 months on the %2 %3"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3114
 #, kde-format
@@ -1429,6 +1463,8 @@ msgid "Recurs monthly on the %2 day until %3"
 msgid_plural "Recurs every %1 months on the %2 day until %3"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3124
 #, kde-format
@@ -1437,6 +1473,8 @@ msgid "Recurs monthly on the %2 day"
 msgid_plural "Recurs every %1 month on the %2 day"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3137
 #, kde-format
@@ -1445,6 +1483,8 @@ msgid "Recurs yearly on %2 %3 until %4"
 msgid_plural "Recurs every %1 years on %2 %3 until %4"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3150
 #, kde-format
@@ -1453,6 +1493,8 @@ msgid "Recurs yearly on %2 %3"
 msgid_plural "Recurs every %1 years on %2 %3"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3158 src/incidenceformatter.cpp:3163
 #, kde-format
@@ -1467,6 +1509,8 @@ msgid "Recurs every year on day %2 until %3"
 msgid_plural "Recurs every %1 years on day %2 until %3"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3185
 #, kde-format
@@ -1475,6 +1519,8 @@ msgid "Recurs every year on day %2"
 msgid_plural "Recurs every %1 years on day %2"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3200
 #, kde-format
@@ -1484,6 +1530,8 @@ msgid "Every year on the %2 %3 of %4 until %5"
 msgid_plural "Every %1 years on the %2 %3 of %4 until %5"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3215
 #, kde-kuit-format
@@ -1492,6 +1540,8 @@ msgid "Every year on the %2 %3 of %4"
 msgid_plural "Every %1 years on the %2 %3 of %4"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3227
 #, kde-format
@@ -1510,6 +1560,8 @@ msgid "1 day"
 msgid_plural "%1 days"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3311
 #, kde-format
@@ -1522,6 +1574,8 @@ msgid "1 hour"
 msgid_plural "%1 hours"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3360
 #, kde-format
@@ -1529,6 +1583,8 @@ msgid "1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3377
 #, kde-format
@@ -1583,6 +1639,8 @@ msgid "repeats once"
 msgid_plural "repeats %1 times"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/incidenceformatter.cpp:3468
 #, kde-format
@@ -2004,6 +2062,8 @@ msgid "Attachment:"
 msgid_plural "Attachments:"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: src/templates/event.html:197 src/templates/journal.html:47
 #: src/templates/todo.html:200
@@ -2059,35 +2119,35 @@ msgstr ""
 
 #: src/templates/itip.html:80
 msgid "Comment:"
-msgstr ""
+msgstr "הערה:"
 
 #: src/templates/itip.html:83
 msgid "Comments:"
-msgstr ""
+msgstr "הערות:"
 
 #: src/templates/itip.html:122
 msgid "Attachments:"
-msgstr ""
+msgstr "צרופות:"
 
 #: src/templates/itip_event.html:6
 msgid "First event:"
-msgstr ""
+msgstr "אירוע ראשון:"
 
 #: src/templates/itip_event.html:8 src/templates/itip_todo.html:13
 msgid "When:"
-msgstr ""
+msgstr "כאשר:"
 
 #: src/templates/itip_event.html:15 src/templates/itip_todo.html:6
 msgid "Where:"
-msgstr ""
+msgstr "איפה:"
 
 #: src/templates/itip_event.html:42
 msgid "Events on these days:"
-msgstr ""
+msgstr "אירועים בימים האלה:"
 
 #: src/templates/itip_event.html:44
 msgid "Events on this day:"
-msgstr ""
+msgstr "אירועים ביום הזה:"
 
 #: src/templates/itip_freebusy.html:5
 msgid "Person:"
@@ -2095,11 +2155,11 @@ msgstr ""
 
 #: src/templates/itip_freebusy.html:10
 msgid "Start date:"
-msgstr ""
+msgstr "תאריך התחלה:"
 
 #: src/templates/itip_freebusy.html:15
 msgid "End date:"
-msgstr ""
+msgstr "תאריך סיום:"
 
 #: src/templates/itip_freebusy.html:23
 msgid "Busy periods given in this free/busy object:"
@@ -2109,7 +2169,7 @@ msgstr ""
 #, kde-format
 msgctxt "<startDate> for <duration>"
 msgid "%1 for %2"
-msgstr ""
+msgstr "%1 למשך %2"
 
 #: src/templates/itip_freebusy.html:34
 #, kde-format
@@ -2137,39 +2197,39 @@ msgstr ""
 
 #: src/templates/itip_todo.html:32
 msgid "Percent Done:"
-msgstr ""
+msgstr "אחוזים שהושלמו:"
 
 #: src/templates/itip_todo.html:39
 msgid "Due:"
-msgstr ""
+msgstr "מועד תוקף:"
 
 #: src/templates/journal.html:5
 msgid "Journal"
-msgstr ""
+msgstr "יומן"
 
 #: src/templates/todo.html:5
 msgid "Todo"
-msgstr ""
+msgstr "מטלה"
 
 #: src/templates/todo.html:30
 msgctxt "to-do start date/time"
 msgid "Start:"
-msgstr ""
+msgstr "התחלה:"
 
 #: src/templates/todo.html:42
 msgctxt "to-do due date/time"
 msgid "Due:"
-msgstr ""
+msgstr "מועד תוקף:"
 
 #: src/templates/todo.html:165
 msgid "Priority:"
-msgstr ""
+msgstr "עדיפות:"
 
 #: src/templates/todo.html:173
 msgctxt "Completed: date"
 msgid "Completed:"
-msgstr ""
+msgstr "הושלמה:"
 
 #: src/templates/todo.html:178
 msgid "Percent done:"
-msgstr ""
+msgstr "אחוזים שהושלמו:"
