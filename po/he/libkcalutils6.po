@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-08 00:43+0000\n"
-"PO-Revision-Date: 2025-07-15 08:23+0300\n"
+"PO-Revision-Date: 2025-07-17 10:55+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
-"n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Poedit 3.6\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -2119,35 +2119,35 @@ msgstr ""
 
 #: src/templates/itip.html:80
 msgid "Comment:"
-msgstr ""
+msgstr "הערה:"
 
 #: src/templates/itip.html:83
 msgid "Comments:"
-msgstr ""
+msgstr "הערות:"
 
 #: src/templates/itip.html:122
 msgid "Attachments:"
-msgstr ""
+msgstr "צרופות:"
 
 #: src/templates/itip_event.html:6
 msgid "First event:"
-msgstr ""
+msgstr "אירוע ראשון:"
 
 #: src/templates/itip_event.html:8 src/templates/itip_todo.html:13
 msgid "When:"
-msgstr ""
+msgstr "כאשר:"
 
 #: src/templates/itip_event.html:15 src/templates/itip_todo.html:6
 msgid "Where:"
-msgstr ""
+msgstr "איפה:"
 
 #: src/templates/itip_event.html:42
 msgid "Events on these days:"
-msgstr ""
+msgstr "אירועים בימים האלה:"
 
 #: src/templates/itip_event.html:44
 msgid "Events on this day:"
-msgstr ""
+msgstr "אירועים ביום הזה:"
 
 #: src/templates/itip_freebusy.html:5
 msgid "Person:"
@@ -2155,11 +2155,11 @@ msgstr ""
 
 #: src/templates/itip_freebusy.html:10
 msgid "Start date:"
-msgstr ""
+msgstr "תאריך התחלה:"
 
 #: src/templates/itip_freebusy.html:15
 msgid "End date:"
-msgstr ""
+msgstr "תאריך סיום:"
 
 #: src/templates/itip_freebusy.html:23
 msgid "Busy periods given in this free/busy object:"
@@ -2169,7 +2169,7 @@ msgstr ""
 #, kde-format
 msgctxt "<startDate> for <duration>"
 msgid "%1 for %2"
-msgstr ""
+msgstr "%1 למשך %2"
 
 #: src/templates/itip_freebusy.html:34
 #, kde-format
@@ -2197,39 +2197,39 @@ msgstr ""
 
 #: src/templates/itip_todo.html:32
 msgid "Percent Done:"
-msgstr ""
+msgstr "אחוזים שהושלמו:"
 
 #: src/templates/itip_todo.html:39
 msgid "Due:"
-msgstr ""
+msgstr "מועד תוקף:"
 
 #: src/templates/journal.html:5
 msgid "Journal"
-msgstr ""
+msgstr "יומן"
 
 #: src/templates/todo.html:5
 msgid "Todo"
-msgstr ""
+msgstr "מטלה"
 
 #: src/templates/todo.html:30
 msgctxt "to-do start date/time"
 msgid "Start:"
-msgstr ""
+msgstr "התחלה:"
 
 #: src/templates/todo.html:42
 msgctxt "to-do due date/time"
 msgid "Due:"
-msgstr ""
+msgstr "מועד תוקף:"
 
 #: src/templates/todo.html:165
 msgid "Priority:"
-msgstr ""
+msgstr "עדיפות:"
 
 #: src/templates/todo.html:173
 msgctxt "Completed: date"
 msgid "Completed:"
-msgstr ""
+msgstr "הושלמה:"
 
 #: src/templates/todo.html:178
 msgid "Percent done:"
-msgstr ""
+msgstr "אחוזים שהושלמו:"
