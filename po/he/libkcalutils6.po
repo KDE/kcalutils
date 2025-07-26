@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-08 00:43+0000\n"
-"PO-Revision-Date: 2025-07-17 10:55+0300\n"
+"PO-Revision-Date: 2025-07-25 08:03+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -2091,31 +2091,31 @@ msgstr ""
 #, kde-format
 msgctxt "startDate for duration"
 msgid "%1 for %2"
-msgstr ""
+msgstr "%1 למשך %2"
 
 #: src/templates/freebusy.html:16
 #, kde-format
 msgctxt "date, fromTime - toTime"
 msgid "%1, %2 - %3"
-msgstr ""
+msgstr "%1, %2 - %3"
 
 #: src/templates/freebusy.html:18
 #, kde-format
 msgctxt "fromDateTime - endDateTime"
 msgid "%1 - %2"
-msgstr ""
+msgstr "%1 - %2"
 
 #: src/templates/incidence_header.html:10
 msgid "Recurring incidence"
-msgstr ""
+msgstr "מופע חוזר"
 
 #: src/templates/incidence_header.html:14
 msgid "Incidence with a reminder"
-msgstr ""
+msgstr "מופע עם תזכורת"
 
 #: src/templates/incidence_header.html:18
 msgid "Incidence is read only"
-msgstr ""
+msgstr "המופע לקריאה בלבד"
 
 #: src/templates/itip.html:80
 msgid "Comment:"
@@ -2151,7 +2151,7 @@ msgstr "אירועים ביום הזה:"
 
 #: src/templates/itip_freebusy.html:5
 msgid "Person:"
-msgstr ""
+msgstr "אדם:"
 
 #: src/templates/itip_freebusy.html:10
 msgid "Start date:"
@@ -2163,7 +2163,7 @@ msgstr "תאריך סיום:"
 
 #: src/templates/itip_freebusy.html:23
 msgid "Busy periods given in this free/busy object:"
-msgstr ""
+msgstr "תקופות עסוקות בהינתן פריט פנוי/עסוק:"
 
 #: src/templates/itip_freebusy.html:31
 #, kde-format
