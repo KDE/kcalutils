@@ -1,23 +1,24 @@
+# SPDX-FileCopyrightText: 2025 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2010.
 # Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2012, 2013, 2015, 2016.
 # Felix Schweighofer <felix.schweighofer@googlemail.com>, 2010.
-# Intevation GmbH, 2010.
 # Torbjörn Klatt <opensource@torbjoern-klatt.de>, 2011.
 # Burkhard Lück <lueck@hube-lueck.de>, 2011, 2013, 2014, 2015, 2016, 2017, 2018, 2020, 2021.
+# Intevation GmbH, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-08 00:43+0000\n"
-"PO-Revision-Date: 2021-10-15 12:28+0200\n"
-"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"PO-Revision-Date: 2025-08-01 20:26+0200\n"
+"Last-Translator: Alexander Becker <alex-at-kde-l10n-de@freenet.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -584,13 +585,13 @@ msgstr "Ablehnen"
 #, kde-format
 msgctxt "invitation counter proposal"
 msgid "Counter proposal ..."
-msgstr "Gegenvorschlag ..."
+msgstr "Gegenvorschlag …"
 
 #: src/incidenceformatter.cpp:1959
 #, kde-format
 msgctxt "delegate invitation to another"
 msgid "Delegate ..."
-msgstr "Delegieren ..."
+msgstr "Delegieren …"
 
 #: src/incidenceformatter.cpp:1969
 #, kde-format
@@ -1829,7 +1830,7 @@ msgstr "iCalendar erwartet, vCalendar erhalten"
 #, kde-format
 msgctxt "@item"
 msgid "iCalendar Version 2.0 detected."
-msgstr "iCalendar Version 2.0 gefunden"
+msgstr "iCalendar Version 2.0 gefunden."
 
 #: src/stringify.cpp:179 src/stringify.cpp:205
 #, kde-format
@@ -2030,10 +2031,9 @@ msgstr "Erstellungsdatum: %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
-#, fuzzy, kde-format
-#| msgid "Recurs: %1\n"
+#, kde-format
 msgid "Revision: %1"
-msgstr "Wiederholung: %1\n"
+msgstr "Revision: %1"
 
 #: src/templates/freebusy.html:6
 #, kde-format
