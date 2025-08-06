@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-08 00:43+0000\n"
-"PO-Revision-Date: 2025-07-25 08:03+0300\n"
+"PO-Revision-Date: 2025-08-05 11:51+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -669,7 +669,7 @@ msgstr ""
 #: src/incidenceformatter.cpp:2275
 #, kde-format
 msgid "Participants:"
-msgstr ""
+msgstr "משתתפים:"
 
 #: src/incidenceformatter.cpp:2393
 #, kde-format
@@ -850,30 +850,30 @@ msgstr[3] ""
 #, kde-format
 msgid "Tag:"
 msgid_plural "Tags:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "תגית:"
+msgstr[1] "תגיות:"
+msgstr[2] "תגיות:"
+msgstr[3] "תגיות:"
 
 #: src/incidenceformatter.cpp:2760
 #, kde-format
 msgid "Summary: %1\n"
-msgstr ""
+msgstr "תקציר: %1\n"
 
 #: src/incidenceformatter.cpp:2763
 #, kde-format
 msgid "Organizer: %1\n"
-msgstr ""
+msgstr "ארגון: %1\n"
 
 #: src/incidenceformatter.cpp:2766
 #, kde-format
 msgid "Location: %1\n"
-msgstr ""
+msgstr "מקום: %1\n"
 
 #: src/incidenceformatter.cpp:2794
 #, kde-format
 msgid "This is a Free Busy Object"
-msgstr ""
+msgstr "זה פריט פנוי עסוק"
 
 #: src/incidenceformatter.cpp:2804
 #, kde-format
@@ -938,32 +938,32 @@ msgstr ""
 #: src/incidenceformatter.cpp:2816 src/incidenceformatter.cpp:2870
 #, kde-format
 msgid "Start Date: %1\n"
-msgstr ""
+msgstr "תאריך התחלה: %1\n"
 
 #: src/incidenceformatter.cpp:2818 src/incidenceformatter.cpp:2872
 #, kde-format
 msgid "Start Time: %1\n"
-msgstr ""
+msgstr "שעת התחלה: %1\n"
 
 #: src/incidenceformatter.cpp:2821
 #, kde-format
 msgid "End Date: %1\n"
-msgstr ""
+msgstr "תאריך סיום: %1\n"
 
 #: src/incidenceformatter.cpp:2824
 #, kde-format
 msgid "End Time: %1\n"
-msgstr ""
+msgstr "שעת סיום: %1\n"
 
 #: src/incidenceformatter.cpp:2829
 #, kde-format
 msgid "Recurs: %1\n"
-msgstr ""
+msgstr "חזרתיות: %1\n"
 
 #: src/incidenceformatter.cpp:2830
 #, kde-format
 msgid "Frequency: %1\n"
-msgstr ""
+msgstr "תדירות: %1\n"
 
 #: src/incidenceformatter.cpp:2833
 #, kde-format
@@ -1670,19 +1670,19 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check calendar items after a certain date"
 msgid "Items after %1"
-msgstr ""
+msgstr "פריטים אחרי %1"
 
 #: src/stringify.cpp:40
 #, kde-format
 msgctxt "@item incidence type is event"
 msgid "event"
-msgstr ""
+msgstr "אירוע"
 
 #: src/stringify.cpp:42
 #, kde-format
 msgctxt "@item incidence type is to-do/task"
 msgid "to-do"
-msgstr ""
+msgstr "מטלה"
 
 #: src/stringify.cpp:44
 #, kde-format
@@ -1694,31 +1694,31 @@ msgstr ""
 #, kde-format
 msgctxt "@item incidence type is freebusy"
 msgid "free/busy"
-msgstr ""
+msgstr "פנוי/עסוק"
 
 #: src/stringify.cpp:61
 #, kde-format
 msgctxt "@item incidence access if for everyone"
 msgid "Public"
-msgstr ""
+msgstr "ציבורי"
 
 #: src/stringify.cpp:63
 #, kde-format
 msgctxt "@item incidence access is by owner only"
 msgid "Private"
-msgstr ""
+msgstr "פרטי"
 
 #: src/stringify.cpp:65
 #, kde-format
 msgctxt "@item incidence access is by owner and a controlled group"
 msgid "Confidential"
-msgstr ""
+msgstr "חסוי"
 
 #: src/stringify.cpp:83
 #, kde-format
 msgctxt "@item event is tentative"
 msgid "Tentative"
-msgstr ""
+msgstr "על תנאי"
 
 #: src/stringify.cpp:85
 #, kde-format
@@ -1730,37 +1730,37 @@ msgstr ""
 #, kde-format
 msgctxt "@item to-do is complete"
 msgid "Completed"
-msgstr ""
+msgstr "הושלמה"
 
 #: src/stringify.cpp:89
 #, kde-format
 msgctxt "@item to-do needs action"
 msgid "Needs-Action"
-msgstr ""
+msgstr "דורשת פעולה"
 
 #: src/stringify.cpp:91
 #, kde-format
 msgctxt "@item event orto-do is canceled; journal is removed"
 msgid "Canceled"
-msgstr ""
+msgstr "בוטלה"
 
 #: src/stringify.cpp:93
 #, kde-format
 msgctxt "@item to-do is in process"
 msgid "In-Process"
-msgstr ""
+msgstr "בתהליך"
 
 #: src/stringify.cpp:95
 #, kde-format
 msgctxt "@item journal is in draft form"
 msgid "Draft"
-msgstr ""
+msgstr "טיוטה"
 
 #: src/stringify.cpp:97
 #, kde-format
 msgctxt "@item journal is in final form"
 msgid "Final"
-msgstr ""
+msgstr "סופי"
 
 #: src/stringify.cpp:118
 #, kde-format
@@ -1790,25 +1790,25 @@ msgstr ""
 #, kde-format
 msgctxt "@item event, to-do or journal needs action"
 msgid "Needs Action"
-msgstr ""
+msgstr "דורשת פעולה"
 
 #: src/stringify.cpp:135
 #, kde-format
 msgctxt "@item event, to-do or journal accepted"
 msgid "Accepted"
-msgstr ""
+msgstr "התקבלה"
 
 #: src/stringify.cpp:137
 #, kde-format
 msgctxt "@item event, to-do or journal declined"
 msgid "Declined"
-msgstr ""
+msgstr "סורבה"
 
 #: src/stringify.cpp:139
 #, kde-format
 msgctxt "@item event or to-do tentatively accepted"
 msgid "Tentative"
-msgstr ""
+msgstr "על תנאי"
 
 #: src/stringify.cpp:141
 #, kde-format
@@ -1820,103 +1820,103 @@ msgstr ""
 #, kde-format
 msgctxt "@item to-do completed"
 msgid "Completed"
-msgstr ""
+msgstr "הושלמה"
 
 #: src/stringify.cpp:145
 #, kde-format
 msgctxt "@item to-do in process of being completed"
 msgid "In Process"
-msgstr ""
+msgstr "בתהליך"
 
 #: src/stringify.cpp:147
 #, kde-format
 msgctxt "@item event or to-do status unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "לא ידוע"
 
 #: src/stringify.cpp:158
 #, kde-format
 msgctxt "@item"
 msgid "Load Error"
-msgstr ""
+msgstr "שגיאת טעינה"
 
 #: src/stringify.cpp:161
 #, kde-format
 msgctxt "@item"
 msgid "Save Error"
-msgstr ""
+msgstr "שגיאת שמירה"
 
 #: src/stringify.cpp:164
 #, kde-format
 msgctxt "@item"
 msgid "Parse Error in libical"
-msgstr ""
+msgstr "שגיאת פענוח ב־libical"
 
 #: src/stringify.cpp:167
 #, kde-format
 msgctxt "@item"
 msgid "Parse Error in the kcalcore library"
-msgstr ""
+msgstr "שגיאת פענוח בספריית kcalcore"
 
 #: src/stringify.cpp:170
 #, kde-format
 msgctxt "@item"
 msgid "No calendar component found."
-msgstr ""
+msgstr "לא נמצא רכיב לוח שנה."
 
 #: src/stringify.cpp:173 src/stringify.cpp:202
 #, kde-format
 msgctxt "@item"
 msgid "Expected iCalendar, got vCalendar format"
-msgstr ""
+msgstr "אמור להיות iCalendar, הגיע vCalendar במקום"
 
 #: src/stringify.cpp:176
 #, kde-format
 msgctxt "@item"
 msgid "iCalendar Version 2.0 detected."
-msgstr ""
+msgstr "זוהה iCalendar בגרסה 2.0."
 
 #: src/stringify.cpp:179 src/stringify.cpp:205
 #, kde-format
 msgctxt "@item"
 msgid "Expected iCalendar, got unknown format"
-msgstr ""
+msgstr "אמור להיות iCalendar, הגיע תסדיר לא מוכר"
 
 #: src/stringify.cpp:182
 #, kde-format
 msgctxt "@item"
 msgid "Restriction violation"
-msgstr ""
+msgstr "הפרת הגבלה"
 
 #: src/stringify.cpp:185
 #, kde-format
 msgctxt "@item"
 msgid "No writable resource found"
-msgstr ""
+msgstr "לא נמצא משאב שניתן לכתוב אליו"
 
 #: src/stringify.cpp:189
 #, kde-format
 msgctxt "@item"
 msgid "Error saving to '%1'."
-msgstr ""
+msgstr "שגיאת שמירה אל ‚%1’."
 
 #: src/stringify.cpp:193
 #, kde-format
 msgctxt "@item"
 msgid "Could not save '%1'"
-msgstr ""
+msgstr "לא ניתן לשמור את ‚%1’"
 
 #: src/stringify.cpp:196
 #, kde-format
 msgctxt "@item"
 msgid "libical error"
-msgstr ""
+msgstr "שגיאת libical"
 
 #: src/stringify.cpp:199
 #, kde-format
 msgctxt "@item"
 msgid "No VERSION property found"
-msgstr ""
+msgstr "לא נמצא מאפיין VERSION (גרסה)"
 
 #: src/stringify.cpp:208
 #, kde-format
@@ -1946,7 +1946,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item this is a new scheduling message"
 msgid "New Scheduling Message"
-msgstr ""
+msgstr "הודעת תזמון חדשה"
 
 #: src/stringify.cpp:233
 #, kde-format
@@ -1977,7 +1977,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item unknown status"
 msgid "Unknown Status: %1"
-msgstr ""
+msgstr "מצב לא ידוע: %1"
 
 #: src/templates/attendee_row.html:27
 msgid "organizer"
@@ -1999,17 +1999,17 @@ msgstr ""
 
 #: src/templates/attendee_row.html:46
 msgid "Send email"
-msgstr ""
+msgstr "שליחת דוא״ל"
 
 #: src/templates/event.html:5
 msgid "Event"
-msgstr ""
+msgstr "אירוע"
 
 #: src/templates/event.html:30 src/templates/event.html:33
 #: src/templates/event.html:40 src/templates/event.html:43
 #: src/templates/itip_journal.html:5 src/templates/journal.html:22
 msgid "Date:"
-msgstr ""
+msgstr "תאריך:"
 
 #: src/templates/event.html:31 src/templates/event.html:41
 #: src/templates/itip_todo.html:16
@@ -2026,7 +2026,7 @@ msgstr ""
 
 #: src/templates/event.html:47
 msgid "Time:"
-msgstr ""
+msgstr "שעה:"
 
 #: src/templates/event.html:49
 #, kde-format
@@ -2043,39 +2043,39 @@ msgstr ""
 #: src/templates/event.html:70
 msgctxt "Exception in event recurrence"
 msgid "Exception"
-msgstr ""
+msgstr "חריגה"
 
 #: src/templates/event.html:80
 msgid "Birthday:"
-msgstr ""
+msgstr "יום הולדת:"
 
 #: src/templates/event.html:88
 msgid "Anniversary:"
-msgstr ""
+msgstr "יום שנה:"
 
 #: src/templates/event.html:150 src/templates/todo.html:131
 msgid "Optional participants:"
-msgstr ""
+msgstr "משתתפי רשות:"
 
 #: src/templates/event.html:184 src/templates/todo.html:186
 msgid "Attachment:"
 msgid_plural "Attachments:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "קובץ מצורף:"
+msgstr[1] "קבצים מצורפים:"
+msgstr[2] "קבצים מצורפים:"
+msgstr[3] "קבצים מצורפים:"
 
 #: src/templates/event.html:197 src/templates/journal.html:47
 #: src/templates/todo.html:200
 #, kde-format
 msgid "Creation date: %1"
-msgstr ""
+msgstr "תאריך יצירה: %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
 #, kde-format
 msgid "Revision: %1"
-msgstr ""
+msgstr "מהדורה: %1"
 
 #: src/templates/freebusy.html:6
 #, kde-format
