@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-08 00:43+0000\n"
-"PO-Revision-Date: 2025-08-07 21:52+0300\n"
+"PO-Revision-Date: 2025-08-10 09:46+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -46,7 +46,7 @@ msgstr "גורם מארגן לא ידוע"
 #: src/incidenceformatter.cpp:189 src/incidenceformatter.cpp:1412
 #, kde-format
 msgid "Sender"
-msgstr ""
+msgstr "מוען"
 
 #: src/incidenceformatter.cpp:353
 #, kde-format
@@ -96,22 +96,22 @@ msgstr "לא צוין מקום"
 #: src/incidenceformatter.cpp:903
 #, kde-format
 msgid "Your response is requested."
-msgstr ""
+msgstr "נדרשת תגובה מצדך."
 
 #: src/incidenceformatter.cpp:905
 #, kde-format
 msgid "Your response as <b>%1</b> is requested."
-msgstr ""
+msgstr "נדרשת תגובה מצדך בתור <b>%1</b>."
 
 #: src/incidenceformatter.cpp:909
 #, kde-format
 msgid "No response is necessary."
-msgstr ""
+msgstr "אין צורך בתגובה."
 
 #: src/incidenceformatter.cpp:911
 #, kde-format
 msgid "No response as <b>%1</b> is necessary."
-msgstr ""
+msgstr "אין צורך בתגובה בתור <b>%1</b>."
 
 #: src/incidenceformatter.cpp:921
 #, kde-format
@@ -126,7 +126,7 @@ msgstr "בדיקת לוח השנה שלי"
 #: src/incidenceformatter.cpp:1105 src/incidenceformatter.cpp:1175
 #, kde-format
 msgid "Please respond again to the original proposal."
-msgstr ""
+msgstr "נא להגיב שוב להצעה המקורית."
 
 #: src/incidenceformatter.cpp:1156 src/incidenceformatter.cpp:1187
 #: src/templates/todo.html:179
@@ -147,17 +147,17 @@ msgstr[3] "%1 דקות"
 #: src/incidenceformatter.cpp:1306
 #, kde-format
 msgid "This invitation has been published."
-msgstr ""
+msgstr "ההזמנה פורסמה."
 
 #: src/incidenceformatter.cpp:1311
 #, kde-format
 msgid "This invitation has been updated by the organizer %1."
-msgstr ""
+msgstr "ההזמנה הזאת עודכנה על ידי המארגן או המארגנת %1."
 
 #: src/incidenceformatter.cpp:1313
 #, kde-format
 msgid "This invitation has been updated by %1 as a representative of %2."
-msgstr ""
+msgstr "ההזמנה הזאת עודכנה על ידי %1 כנציגות מטעם %2."
 
 #: src/incidenceformatter.cpp:1317
 #, kde-format
@@ -172,7 +172,7 @@ msgstr "קיבלת הזמנה מאת %1."
 #: src/incidenceformatter.cpp:1323
 #, kde-format
 msgid "You received an invitation from %1 as a representative of %2."
-msgstr ""
+msgstr "קיבלת הזמנה מאת %1 כנציגות של %2."
 
 #: src/incidenceformatter.cpp:1327
 #, kde-format
@@ -198,7 +198,7 @@ msgstr "תוספת להזמנה."
 #: src/incidenceformatter.cpp:1472 src/incidenceformatter.cpp:1554
 #, kde-format
 msgid "%1 makes this counter proposal."
-msgstr ""
+msgstr "הוגשה הצעה נגדית מצד %1."
 
 #: src/incidenceformatter.cpp:1362
 #, kde-format
@@ -383,52 +383,52 @@ msgstr ""
 #: src/incidenceformatter.cpp:1527
 #, kde-format
 msgid "%1 declines this to-do."
-msgstr ""
+msgstr "המטלה נדחתה על ידי %1."
 
 #: src/incidenceformatter.cpp:1529
 #, kde-format
 msgid "%1 declines this to-do on behalf of %2."
-msgstr ""
+msgstr "המטלה נדחתה על ידי %1 בשם %2."
 
 #: src/incidenceformatter.cpp:1539
 #, kde-format
 msgid "%1 has delegated this to-do to %2."
-msgstr ""
+msgstr "המטלה הזאת מיוצגת על ידי %2 מידי %1."
 
 #: src/incidenceformatter.cpp:1541
 #, kde-format
 msgid "%1 has delegated this to-do."
-msgstr ""
+msgstr "המטלה הזאת נשלחה לייפוי כוח מידי %1."
 
 #: src/incidenceformatter.cpp:1545
 #, kde-format
 msgid "The request for this to-do is now completed."
-msgstr ""
+msgstr "הבקשה למטלה הזאת הושלמה."
 
 #: src/incidenceformatter.cpp:1547
 #, kde-format
 msgid "%1 is still processing the to-do."
-msgstr ""
+msgstr "המטלה עדיין מעובדת על ידי %1."
 
 #: src/incidenceformatter.cpp:1549
 #, kde-format
 msgid "Unknown response to this to-do."
-msgstr ""
+msgstr "תגובה לא ידועה למטלה הזאת."
 
 #: src/incidenceformatter.cpp:1559
 #, kde-format
 msgid "%1 declines the counter proposal."
-msgstr ""
+msgstr "ההצעה הנגדית נדחתה על ידי %1."
 
 #: src/incidenceformatter.cpp:1561
 #, kde-format
 msgid "%1 declines the counter proposal on behalf of %2."
-msgstr ""
+msgstr "ההצעה הנגדית נדחתה על ידי %1 בשם %2."
 
 #: src/incidenceformatter.cpp:1566
 #, kde-format
 msgid "Error: To-do iTIP message with unknown method."
-msgstr ""
+msgstr "שגיאה: הודעת iTIP של מטלה עם שיטה לא מוכרת."
 
 #: src/incidenceformatter.cpp:1580
 #, kde-format
@@ -484,7 +484,7 @@ msgstr "המוען דוחה את היומן הזה."
 #: src/incidenceformatter.cpp:1615
 #, kde-format
 msgid "Sender has delegated this request for the journal."
-msgstr ""
+msgstr "המוען מינה נציגות של הבקשה הזאת ליומן."
 
 #: src/incidenceformatter.cpp:1617
 #, kde-format
@@ -509,7 +509,7 @@ msgstr "המוען דחה את ההצעה הנגדית."
 #: src/incidenceformatter.cpp:1630
 #, kde-format
 msgid "Error: Journal iTIP message with unknown method."
-msgstr "שגיאה: הודעות iTIP של יומן עם שיטה לא מוכרת."
+msgstr "שגיאה: הודעת iTIP של יומן עם שיטה לא מוכרת."
 
 #: src/incidenceformatter.cpp:1644
 #, kde-format
@@ -544,7 +544,7 @@ msgstr "תגובה לרשימת פנוי/עסוק."
 #: src/incidenceformatter.cpp:1660
 #, kde-format
 msgid "Error: Free/Busy iTIP message with unknown method."
-msgstr "שגיאה: הודעות iTIP של פנוי/עסוק עם שיטה לא מוכרת."
+msgstr "שגיאה: הודעת iTIP של פנוי/עסוק עם שיטה לא מוכרת."
 
 #: src/incidenceformatter.cpp:1715
 #, kde-format
@@ -654,12 +654,12 @@ msgstr "ההזמנה הזאת אושרה."
 #: src/incidenceformatter.cpp:2174
 #, kde-format
 msgid "Awaiting delegation response."
-msgstr ""
+msgstr "בהמתנה לתגובה על נציגות"
 
 #: src/incidenceformatter.cpp:2246
 #, kde-format
 msgid "The <b>%1</b> response has been recorded"
-msgstr ""
+msgstr "התגובה <b>%1</b> תועדה"
 
 #: src/incidenceformatter.cpp:2273
 #, kde-format
@@ -749,24 +749,24 @@ msgstr "%1 (%2)"
 #: src/incidenceformatter.cpp:2531
 #, kde-format
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: src/incidenceformatter.cpp:2557 src/incidenceformatter.cpp:2692
 #: src/incidenceformatter.cpp:3309
 #, kde-format
 msgctxt "ellipsis"
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #: src/incidenceformatter.cpp:2577
 #, kde-format
 msgid " (delegated by %1)"
-msgstr ""
+msgstr " (נציגות מטעם %1)"
 
 #: src/incidenceformatter.cpp:2580
 #, kde-format
 msgid " (delegated to %1)"
-msgstr ""
+msgstr " (נציגות לטובת %1)"
 
 #: src/incidenceformatter.cpp:2599 src/templates/event.html:112
 #: src/templates/todo.html:93
@@ -778,7 +778,7 @@ msgstr "ארגון:"
 #: src/templates/todo.html:105
 #, kde-format
 msgid "Chair:"
-msgstr ""
+msgstr "מעמד:"
 
 #: src/incidenceformatter.cpp:2617 src/templates/event.html:137
 #: src/templates/todo.html:118
@@ -1932,13 +1932,13 @@ msgstr "הפריט אינו פנוי/עסוק, אירוע, מטלה או יומ�
 #, kde-format
 msgctxt "@item"
 msgid "messageText is empty, unable to parse into a ScheduleMessage"
-msgstr ""
+msgstr "messageText ריק, לא ניתן לפענח לכדי ScheduleMessage"
 
 #: src/stringify.cpp:214
 #, kde-format
 msgctxt "@item"
 msgid "icalparser is unable to parse messageText into a ScheduleMessage"
-msgstr ""
+msgstr "icalparser לא הצליח לפענח messageText לכדי ScheduleMessage"
 
 #: src/stringify.cpp:217
 #, kde-format
@@ -1985,11 +1985,11 @@ msgstr "מצב לא ידוע: %1"
 
 #: src/templates/attendee_row.html:27
 msgid "organizer"
-msgstr ""
+msgstr "ארגון"
 
 #: src/templates/attendee_row.html:31
 msgid "myself"
-msgstr ""
+msgstr "עצמי"
 
 #: src/templates/attendee_row.html:35
 #, kde-format
