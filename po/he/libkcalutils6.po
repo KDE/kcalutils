@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-08 00:43+0000\n"
-"PO-Revision-Date: 2025-08-10 09:46+0300\n"
+"PO-Revision-Date: 2025-08-12 14:46+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -114,9 +114,9 @@ msgid "No response as <b>%1</b> is necessary."
 msgstr "אין צורך בתגובה בתור <b>%1</b>."
 
 #: src/incidenceformatter.cpp:921
-#, kde-format
+#, fuzzy, kde-format
 msgid "(<b>Note</b>: the Organizer preset your response to <b>%1</b>)"
-msgstr ""
+msgstr "(<b>לתשומת ליבך</b>: the Organizer preset your response to <b>%1</b>)"
 
 #: src/incidenceformatter.cpp:1060 src/incidenceformatter.cpp:1120
 #, kde-format
@@ -203,17 +203,17 @@ msgstr "הוגשה הצעה נגדית מצד %1."
 #: src/incidenceformatter.cpp:1362
 #, kde-format
 msgid "%1 indicates this invitation still needs some action."
-msgstr ""
+msgstr "%1 מציין שההזמנה הזאת עדיין דורשת פעולה כלשהי."
 
 #: src/incidenceformatter.cpp:1366
 #, kde-format
 msgid "This invitation has been updated by attendee %1."
-msgstr ""
+msgstr "ההזמנה הזאת עודכנה על ידי המשתתף או המשתתפת %1."
 
 #: src/incidenceformatter.cpp:1368
 #, kde-format
 msgid "This invitation has been updated by an attendee."
-msgstr ""
+msgstr "ההזמנה הזאת עודכנה על ידי אחד או אחת המשתתפים."
 
 #: src/incidenceformatter.cpp:1372
 #, kde-format
