@@ -66,7 +66,7 @@ static QDateTime copyTimeSpec(QDateTime dt, const QDateTime &source)
 class KCalUtils::DndFactoryPrivate
 {
 public:
-    DndFactoryPrivate(const Calendar::Ptr &calendar)
+    explicit DndFactoryPrivate(const Calendar::Ptr &calendar)
         : mCalendar(calendar)
     {
     }

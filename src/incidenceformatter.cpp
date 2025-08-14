@@ -83,10 +83,9 @@ static QString htmlAddTag(const QString &tag, const QString &text)
     QString tmpStr = str;
     if (numLineBreaks >= 0) {
         if (numLineBreaks > 0) {
-            QString tmp;
             for (int i = 0; i <= numLineBreaks; ++i) {
                 int pos = tmpText.indexOf(QLatin1Char('\n'));
-                tmp = tmpText.left(pos);
+                QString tmp = tmpText.left(pos);
                 tmpText = tmpText.right(tmpText.length() - pos - 1);
                 tmpStr += tmp + QLatin1StringView("<br>");
             }
@@ -661,7 +660,7 @@ public:
         return incidence->accept(*this, incidence);
     }
 
-    [[nodiscard]] QString result() const
+    [[nodiscard]] const QString &result() const
     {
         return mResult;
     }
@@ -3008,7 +3007,6 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
     }
 
     const int weekStart = QLocale().firstDayOfWeek();
-    QString dayNames;
 
     Recurrence *recur = incidence->recurrence();
 
@@ -3053,6 +3051,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
 
     case Recurrence::rWeekly: {
         bool addSpace = false;
+        QString dayNames;
         for (int i = 0; i < 7; ++i) {
             if (recur->days().testBit((i + weekStart + 6) % 7)) {
                 if (addSpace) {
