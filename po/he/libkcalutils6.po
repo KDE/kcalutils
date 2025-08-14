@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-08 00:43+0000\n"
-"PO-Revision-Date: 2025-08-12 14:46+0300\n"
+"PO-Revision-Date: 2025-08-12 22:02+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1641,16 +1641,16 @@ msgstr "ב־%1"
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזר פעם אחת"
+msgstr[1] "חוזר פעמיים"
+msgstr[2] "חוזר %1 פעמים"
+msgstr[3] "חוזר %1 פעמים"
 
 #: src/incidenceformatter.cpp:3468
 #, kde-format
 msgctxt "interval is N days/hours/minutes"
 msgid "interval is %1"
-msgstr ""
+msgstr "ההפרש הוא %1"
 
 #: src/incidenceformatter.cpp:3469
 #, kde-format
@@ -1770,7 +1770,7 @@ msgstr "סופי"
 #, kde-format
 msgctxt "@item chairperson"
 msgid "Chair"
-msgstr ""
+msgstr "מעמד"
 
 #: src/stringify.cpp:120
 #, kde-format
@@ -1994,12 +1994,12 @@ msgstr "עצמי"
 #: src/templates/attendee_row.html:35
 #, kde-format
 msgid "delegated by %1)"
-msgstr ""
+msgstr "נציגות מטעם %1)"
 
 #: src/templates/attendee_row.html:39
 #, kde-format
 msgid "delegated to %1)"
-msgstr ""
+msgstr "נציגות לטובת %1)"
 
 #: src/templates/attendee_row.html:46
 msgid "Send email"
