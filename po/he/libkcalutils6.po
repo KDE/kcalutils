@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:46+0000\n"
-"PO-Revision-Date: 2025-08-15 14:09+0300\n"
+"PO-Revision-Date: 2025-08-17 13:59+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -364,22 +364,22 @@ msgstr "המטלה הזאת עודכנה על ידי מי שהוקצה או הו
 #: src/incidenceformatter.cpp:1513
 #, kde-format
 msgid "%1 accepts this to-do."
-msgstr ""
+msgstr "המטלה הזאת התקבלה על ידי %1."
 
 #: src/incidenceformatter.cpp:1515
 #, kde-format
 msgid "%1 accepts this to-do on behalf of %2."
-msgstr ""
+msgstr "המטלה הזאת התקבלה על ידי %1 מטעם %2."
 
 #: src/incidenceformatter.cpp:1520
 #, kde-format
 msgid "%1 tentatively accepts this to-do."
-msgstr ""
+msgstr "המטלה הזאת התקבלה על ידי %1 על תנאי."
 
 #: src/incidenceformatter.cpp:1522
 #, kde-format
 msgid "%1 tentatively accepts this to-do on behalf of %2."
-msgstr ""
+msgstr "המטלה הזאת התקבלה על ידי %1 מטעם %2 על תנאי."
 
 #: src/incidenceformatter.cpp:1526
 #, kde-format
@@ -1368,19 +1368,19 @@ msgstr " (%1 חזרות)"
 #, kde-format
 msgid "Recurs every minute"
 msgid_plural "Recurs every %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת כל דקה"
+msgstr[1] "חוזרת כל שתי דקות"
+msgstr[2] "חוזרת כל %1 דקות"
+msgstr[3] "חוזרת כל %1 דקות"
 
 #: src/incidenceformatter.cpp:3032
 #, kde-format
 msgid "Recurs hourly until %2"
 msgid_plural "Recurs every %1 hours until %2"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת כל שעה עד %2"
+msgstr[1] "חוזרת כל שעתיים עד %2"
+msgstr[2] "חוזרת כל %1 שעות עד %2"
+msgstr[3] "חוזרת כל %1 שעות עד %2"
 
 #: src/incidenceformatter.cpp:3037
 #, kde-format
@@ -1436,20 +1436,20 @@ msgstr[3] ""
 msgctxt "Recurs weekly on [list of days]"
 msgid "Recurs weekly on %2"
 msgid_plural "Recurs every %1 weeks on %2"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת שבועית ב־%2"
+msgstr[1] "חוזרת כל שבועיים ב־%2"
+msgstr[2] "חוזרת כל %1 שבועות ב־%2"
+msgstr[3] "חוזרת כל %1 שבועות ב־%2"
 
 #: src/incidenceformatter.cpp:3089
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
 msgid "Recurs every month on the %2 %3 until %4"
 msgid_plural "Recurs every %1 months on the %2 %3 until %4"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת כל חודש ב־%2 %3 עד %4"
+msgstr[1] "חוזרת כל חודשיים ב־%2 %3 עד %4"
+msgstr[2] "חוזרת כל %1 חודשים ב־%2 %3 עד %4"
+msgstr[3] "חוזרת כל %1 חודשים ב־%2 %3 עד %4"
 
 #: src/incidenceformatter.cpp:3100
 #, kde-format
@@ -1505,27 +1505,27 @@ msgstr[3] ""
 #, kde-format
 msgctxt "Recurs Every year on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %1 %2"
-msgstr ""
+msgstr "חוזרת כל שנה ב־%1 %2"
 
 #: src/incidenceformatter.cpp:3173
 #, kde-format
 msgctxt "Recurs every N years on day N until end-date"
 msgid "Recurs every year on day %2 until %3"
 msgid_plural "Recurs every %1 years on day %2 until %3"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת כל שנה ביום %2 עד %3"
+msgstr[1] "חוזרת כל שנתיים ביום %2 עד %3"
+msgstr[2] "חוזרת כל %1 שנים ביום %2 עד %3"
+msgstr[3] "חוזרת כל %1 שנים ביום %2 עד %3"
 
 #: src/incidenceformatter.cpp:3184
 #, kde-format
 msgctxt "Recurs every N YEAR[S] on day N"
 msgid "Recurs every year on day %2"
 msgid_plural "Recurs every %1 years on day %2"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת כל שנה ביום %2"
+msgstr[1] "חוזרת כל שנתיים ביום %2"
+msgstr[2] "חוזרת כל %1 שנים ביום %2"
+msgstr[3] "חוזרת כל %1 שנים ביום %2"
 
 #: src/incidenceformatter.cpp:3199
 #, kde-format
