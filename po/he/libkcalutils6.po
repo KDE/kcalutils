@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:46+0000\n"
-"PO-Revision-Date: 2025-08-17 13:59+0300\n"
+"PO-Revision-Date: 2025-08-18 15:39+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1386,28 +1386,28 @@ msgstr[3] "חוזרת כל %1 שעות עד %2"
 #, kde-format
 msgid "Recurs hourly"
 msgid_plural "Recurs every %1 hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת שעתית"
+msgstr[1] "חוזרת כל שעתיים"
+msgstr[2] "חוזרת כל %1 שעות"
+msgstr[3] "חוזרת כל %1 שעות"
 
 #: src/incidenceformatter.cpp:3043
 #, kde-format
 msgid "Recurs daily until %2"
 msgid_plural "Recurs every %1 days until %2"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת יומית עד %2"
+msgstr[1] "חוזרת כל יומיים עד %2"
+msgstr[2] "חוזרת כל %1 ימים עד %2"
+msgstr[3] "חוזרת כל %1 ימים עד %2"
 
 #: src/incidenceformatter.cpp:3048
 #, kde-format
 msgid "Recurs daily"
 msgid_plural "Recurs every %1 days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת יומית"
+msgstr[1] "חוזרת כל יומיים"
+msgstr[2] "חוזרת כל %1 ימים"
+msgstr[3] "חוזרת כל %1 ימים"
 
 #: src/incidenceformatter.cpp:3058
 #, kde-format
@@ -1426,10 +1426,10 @@ msgstr "אין ימים"
 msgctxt "Recurs weekly on [list of days] until end-date"
 msgid "Recurs weekly on %2 until %3"
 msgid_plural "Recurs every %1 weeks on %2 until %3"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת שבועית ב%2 עד %3"
+msgstr[1] "חוזרת כל שבועיים ב%2 עד %3"
+msgstr[2] "חוזרת כל %1 שבועות ב%2 עד %3"
+msgstr[3] "חוזרת כל %1 שבועות ב%2 עד %3"
 
 #: src/incidenceformatter.cpp:3078
 #, kde-format
@@ -1456,10 +1456,10 @@ msgstr[3] "חוזרת כל %1 חודשים ב־%2 %3 עד %4"
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname"
 msgid "Recurs every month on the %2 %3"
 msgid_plural "Recurs every %1 months on the %2 %3"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת חודשית ב־%2 %3"
+msgstr[1] "חוזרת כל חודשיים ב־%2 %3"
+msgstr[2] "חוזרת כל %1 חודשים ב־%2 %3"
+msgstr[3] "חוזרת כל %1 חודשים ב־%2 %3"
 
 #: src/incidenceformatter.cpp:3113
 #, kde-format
