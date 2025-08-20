@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-08 00:43+0000\n"
-"PO-Revision-Date: 2025-08-18 15:39+0300\n"
+"PO-Revision-Date: 2025-08-19 19:42+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -249,12 +249,12 @@ msgstr "ההזמנה נדחתה על ידי %1 מטעם %2."
 #: src/incidenceformatter.cpp:1397
 #, kde-format
 msgid "%1 has delegated this invitation to %2."
-msgstr ""
+msgstr "ההזמנה הזאת הועברה על ידי %1 לידי %2."
 
 #: src/incidenceformatter.cpp:1399
 #, kde-format
 msgid "%1 has delegated this invitation."
-msgstr ""
+msgstr "ההזמנה הזאת הועברה על ידי %1."
 
 #: src/incidenceformatter.cpp:1403
 #, kde-format
@@ -665,7 +665,7 @@ msgstr "התגובה <b>%1</b> תועדה"
 #: src/incidenceformatter.cpp:2273
 #, kde-format
 msgid "Assignees:"
-msgstr ""
+msgstr "אחראיים:"
 
 #: src/incidenceformatter.cpp:2275
 #, kde-format
@@ -1031,152 +1031,152 @@ msgstr "בלי חזרה"
 #: src/incidenceformatter.cpp:2945
 #, kde-format
 msgid "31st Last"
-msgstr ""
+msgstr "31 מהסוף"
 
 #: src/incidenceformatter.cpp:2946
 #, kde-format
 msgid "30th Last"
-msgstr ""
+msgstr "30 מהסוף"
 
 #: src/incidenceformatter.cpp:2947
 #, kde-format
 msgid "29th Last"
-msgstr ""
+msgstr "29 מהסוף"
 
 #: src/incidenceformatter.cpp:2948
 #, kde-format
 msgid "28th Last"
-msgstr ""
+msgstr "28 מהסוף"
 
 #: src/incidenceformatter.cpp:2949
 #, kde-format
 msgid "27th Last"
-msgstr ""
+msgstr "27 מהסוף"
 
 #: src/incidenceformatter.cpp:2950
 #, kde-format
 msgid "26th Last"
-msgstr ""
+msgstr "26 מהסוף"
 
 #: src/incidenceformatter.cpp:2951
 #, kde-format
 msgid "25th Last"
-msgstr ""
+msgstr "25 מהסוף"
 
 #: src/incidenceformatter.cpp:2952
 #, kde-format
 msgid "24th Last"
-msgstr ""
+msgstr "24 מהסוף"
 
 #: src/incidenceformatter.cpp:2953
 #, kde-format
 msgid "23rd Last"
-msgstr ""
+msgstr "23 מהסוף"
 
 #: src/incidenceformatter.cpp:2954
 #, kde-format
 msgid "22nd Last"
-msgstr ""
+msgstr "22 מהסוף"
 
 #: src/incidenceformatter.cpp:2955
 #, kde-format
 msgid "21st Last"
-msgstr ""
+msgstr "21 מהסוף"
 
 #: src/incidenceformatter.cpp:2956
 #, kde-format
 msgid "20th Last"
-msgstr ""
+msgstr "20 מהסוף"
 
 #: src/incidenceformatter.cpp:2957
 #, kde-format
 msgid "19th Last"
-msgstr ""
+msgstr "19 מהסוף"
 
 #: src/incidenceformatter.cpp:2958
 #, kde-format
 msgid "18th Last"
-msgstr ""
+msgstr "18 מהסוף"
 
 #: src/incidenceformatter.cpp:2959
 #, kde-format
 msgid "17th Last"
-msgstr ""
+msgstr "17 מהסוף"
 
 #: src/incidenceformatter.cpp:2960
 #, kde-format
 msgid "16th Last"
-msgstr ""
+msgstr "16 מהסוף"
 
 #: src/incidenceformatter.cpp:2961
 #, kde-format
 msgid "15th Last"
-msgstr ""
+msgstr "15 מהסוף"
 
 #: src/incidenceformatter.cpp:2962
 #, kde-format
 msgid "14th Last"
-msgstr ""
+msgstr "14 מהסוף"
 
 #: src/incidenceformatter.cpp:2963
 #, kde-format
 msgid "13th Last"
-msgstr ""
+msgstr "13 מהסוף"
 
 #: src/incidenceformatter.cpp:2964
 #, kde-format
 msgid "12th Last"
-msgstr ""
+msgstr "12 מהסוף"
 
 #: src/incidenceformatter.cpp:2965
 #, kde-format
 msgid "11th Last"
-msgstr ""
+msgstr "11 מהסוף"
 
 #: src/incidenceformatter.cpp:2966
 #, kde-format
 msgid "10th Last"
-msgstr ""
+msgstr "10 מהסוף"
 
 #: src/incidenceformatter.cpp:2967
 #, kde-format
 msgid "9th Last"
-msgstr ""
+msgstr "9 מהסוף"
 
 #: src/incidenceformatter.cpp:2968
 #, kde-format
 msgid "8th Last"
-msgstr ""
+msgstr "8 מהסוף"
 
 #: src/incidenceformatter.cpp:2969
 #, kde-format
 msgid "7th Last"
-msgstr ""
+msgstr "7 מהסוף"
 
 #: src/incidenceformatter.cpp:2970
 #, kde-format
 msgid "6th Last"
-msgstr ""
+msgstr "6 מהסוף"
 
 #: src/incidenceformatter.cpp:2971
 #, kde-format
 msgid "5th Last"
-msgstr ""
+msgstr "5 מהסוף"
 
 #: src/incidenceformatter.cpp:2972
 #, kde-format
 msgid "4th Last"
-msgstr ""
+msgstr "4 מהסוף"
 
 #: src/incidenceformatter.cpp:2973
 #, kde-format
 msgid "3rd Last"
-msgstr ""
+msgstr "3 מהסוף"
 
 #: src/incidenceformatter.cpp:2974
 #, kde-format
 msgid "2nd Last"
-msgstr ""
+msgstr "2 מהסוף"
 
 #: src/incidenceformatter.cpp:2975
 #, kde-format
@@ -1466,40 +1466,40 @@ msgstr[3] "חוזרת כל %1 חודשים ב־%2 %3"
 msgctxt "Recurs monthly on the [1st|2nd|...] day until end-date"
 msgid "Recurs monthly on the %2 day until %3"
 msgid_plural "Recurs every %1 months on the %2 day until %3"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת חודשית ביום ה%2 עד %3"
+msgstr[1] "חוזרת כל חודשיים ביום ה%2 עד %3"
+msgstr[2] "חוזרת כל %1 חודשים ביום ה%2 עד %3"
+msgstr[3] "חוזרת כל %1 חודשים ביום ה%2 עד %3"
 
 #: src/incidenceformatter.cpp:3124
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day"
 msgid "Recurs monthly on the %2 day"
 msgid_plural "Recurs every %1 month on the %2 day"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת חודשית ביום ה%2"
+msgstr[1] "חוזרת כל חודשיים ביום ה%2"
+msgstr[2] "חוזרת כל %1 חודשים ביום ה%2"
+msgstr[3] "חוזרת כל %1 חודשים ביום ה%2"
 
 #: src/incidenceformatter.cpp:3137
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...] until end-date"
 msgid "Recurs yearly on %2 %3 until %4"
 msgid_plural "Recurs every %1 years on %2 %3 until %4"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת שנתית ב־%2 %3 עד %4"
+msgstr[1] "חוזרת כל שנתיים ב־%2 %3 עד %4"
+msgstr[2] "חוזרת כל %1 שנים ב־%2 %3 עד %4"
+msgstr[3] "חוזרת כל %1 שנים ב־%2 %3 עד %4"
 
 #: src/incidenceformatter.cpp:3150
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %2 %3"
 msgid_plural "Recurs every %1 years on %2 %3"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חוזרת כל שנה ב־%2 %3"
+msgstr[1] "חוזרת כל שנתיים ב־%2 %3"
+msgstr[2] "חוזרת כל %1 שנה ב־%2 %3"
+msgstr[3] "חוזרת כל %1 שנים ב־%2 %3"
 
 #: src/incidenceformatter.cpp:3158 src/incidenceformatter.cpp:3163
 #, kde-format
