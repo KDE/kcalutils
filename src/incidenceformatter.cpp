@@ -77,14 +77,14 @@ static QVariantHash inviteButton(const QString &id, const QString &text, const Q
 
 static QString htmlAddTag(const QString &tag, const QString &text)
 {
-    int numLineBreaks = text.count(QLatin1Char('\n'));
-    const QString str = QLatin1Char('<') + tag + QLatin1Char('>');
+    int numLineBreaks = text.count(u'\n');
+    const QString str = u'<' + tag + u'>';
     QString tmpText = text;
     QString tmpStr = str;
     if (numLineBreaks >= 0) {
         if (numLineBreaks > 0) {
             for (int i = 0; i <= numLineBreaks; ++i) {
-                int pos = tmpText.indexOf(QLatin1Char('\n'));
+                int pos = tmpText.indexOf(u'\n');
                 QString tmp = tmpText.left(pos);
                 tmpText = tmpText.right(tmpText.length() - pos - 1);
                 tmpStr += tmp + QLatin1StringView("<br>");
@@ -93,7 +93,7 @@ static QString htmlAddTag(const QString &tag, const QString &text)
             tmpStr += tmpText;
         }
     }
-    tmpStr += QLatin1StringView("</") + tag + QLatin1Char('>');
+    tmpStr += QLatin1StringView("</") + tag + u'>';
     return tmpStr;
 }
 
@@ -251,7 +251,7 @@ static QString htmlAddTag(const QString &tag, const QString &text)
     if (!email.isEmpty()) {
         Person person(name, email);
         QString path = person.fullName().simplified();
-        if (path.isEmpty() || path.startsWith(QLatin1Char('"'))) {
+        if (path.isEmpty() || path.startsWith(u'"')) {
             path = email;
         }
         QUrl mailto;
@@ -2407,7 +2407,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
             ret += tmp;
         }
     }
-    return ret.replace(QLatin1Char(' '), QLatin1StringView("&nbsp;"));
+    return ret.replace(u' ', QLatin1StringView("&nbsp;"));
 }
 
 QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo, QDate asOfDate)
@@ -2463,7 +2463,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo,
         ret += i18nc("To-do's percent complete:", "<i>Percent Done:</i> %1%", pct);
     }
 
-    return ret.replace(QLatin1Char(' '), QLatin1StringView("&nbsp;"));
+    return ret.replace(u' ', QLatin1StringView("&nbsp;"));
 }
 
 QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Journal::Ptr &journal)
@@ -2473,7 +2473,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Journal::Ptr &jo
     if (journal->dtStart().isValid()) {
         ret += QLatin1StringView("<br>") + i18n("<i>Date:</i> %1", dateToString(journal->dtStart().toLocalTime().date(), false));
     }
-    return ret.replace(QLatin1Char(' '), QLatin1StringView("&nbsp;"));
+    return ret.replace(u' ', QLatin1StringView("&nbsp;"));
 }
 
 QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const FreeBusy::Ptr &fb)
@@ -2481,7 +2481,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const FreeBusy::Ptr &f
     // FIXME: support mRichText==false
     QString ret = QLatin1StringView("<br>") + i18n("<i>Period start:</i> %1", QLocale().toString(fb->dtStart(), QLocale::ShortFormat));
     ret += QLatin1StringView("<br>") + i18n("<i>Period start:</i> %1", QLocale().toString(fb->dtEnd(), QLocale::ShortFormat));
-    return ret.replace(QLatin1Char(' '), QLatin1StringView("&nbsp;"));
+    return ret.replace(u' ', QLatin1StringView("&nbsp;"));
 }
 
 bool IncidenceFormatter::ToolTipVisitor::visit(const Event::Ptr &event)
@@ -2690,7 +2690,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
             if (desc.length() > maxDescLen) {
                 desc = desc.left(maxDescLen) + i18nc("ellipsis", "...");
             }
-            desc = desc.toHtmlEscaped().replace(QLatin1Char('\n'), QLatin1StringView("<br>"));
+            desc = desc.toHtmlEscaped().replace(u'\n', QLatin1StringView("<br>"));
         } else {
             // TODO: truncate the description when it's rich text
         }
@@ -2830,7 +2830,7 @@ bool IncidenceFormatter::MailBodyVisitor::visit(const Event::Ptr &event)
 
         if (recur->duration() > 0) {
             mResult += i18np("Repeats once", "Repeats %1 times", recur->duration());
-            mResult += QLatin1Char('\n');
+            mResult += u'\n';
         } else {
             if (recur->duration() != -1) {
                 // TODO_Recurrence: What to do with all-day
@@ -3303,7 +3303,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
     }
 
     if (!exStrList.isEmpty()) {
-        QString exStr = exStrList.join(QLatin1Char(','));
+        QString exStr = exStrList.join(u',');
         if ((exDtList.count() + exDList.count()) > maxExDates) {
             exStr = exStr + i18nc("ellipsis", "...");
         }
@@ -3345,13 +3345,13 @@ static QString secs2Duration(qint64 secs)
     qint64 days = secs / 86400;
     if (days > 0) {
         tmp += i18np("1 day", "%1 days", days);
-        tmp += QLatin1Char(' ');
+        tmp += u' ';
         secs -= (days * 86400);
     }
     qint64 hours = secs / 3600;
     if (hours > 0) {
         tmp += i18np("1 hour", "%1 hours", hours);
-        tmp += QLatin1Char(' ');
+        tmp += u' ';
         secs -= (hours * 3600);
     }
     qint64 mins = secs / 60;
@@ -3466,7 +3466,7 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
                 QString countStr = i18np("repeats once", "repeats %1 times", alarm->repeatCount());
                 QString intervalStr = i18nc("interval is N days/hours/minutes", "interval is %1", secs2Duration(alarm->snoozeTime().asSeconds()));
                 QString repeatStr = i18nc("(repeat string, interval string)", "(%1, %2)", countStr, intervalStr);
-                remStr = remStr + QLatin1Char(' ') + repeatStr;
+                remStr = remStr + u' ' + repeatStr;
             }
             reminderStringList << remStr;
         }

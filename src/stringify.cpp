@@ -22,6 +22,7 @@
   @author Allen Winter \<allen@kdab.com\>
 */
 #include "stringify.h"
+using namespace Qt::Literals::StringLiterals;
 
 #include <KCalendarCore/Exceptions>
 using namespace KCalendarCore;
@@ -249,8 +250,8 @@ QString Stringify::tzUTCOffsetStr(const QTimeZone &tz)
     int utcOffsetHrs = absOffset / 3600; // in hours
     int utcOffsetMins = (absOffset % 3600) / 60; // in minutes
 
-    const QString hrStr = QStringLiteral("%1").arg(utcOffsetHrs, 2, 10, QLatin1Char('0'));
-    const QString mnStr = QStringLiteral("%1").arg(utcOffsetMins, 2, 10, QLatin1Char('0'));
+    const QString hrStr = QStringLiteral("%1").arg(utcOffsetHrs, 2, 10, u'0');
+    const QString mnStr = QStringLiteral("%1").arg(utcOffsetMins, 2, 10, u'0');
 
     if (currentOffset < 0) {
         return QStringLiteral("-%1:%2").arg(hrStr, mnStr);

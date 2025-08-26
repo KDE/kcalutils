@@ -92,7 +92,7 @@ void IconNode::render(KTextTemplate::OutputStream *stream, KTextTemplate::Contex
     Q_UNUSED(c)
 
     QString iconName = mIconName;
-    if (iconName.startsWith(QLatin1Char('"')) && iconName.endsWith(QLatin1Char('"'))) {
+    if (iconName.startsWith(u'"') && iconName.endsWith(u'"')) {
         iconName = iconName.mid(1, iconName.size() - 2);
     } else {
         iconName = KTextTemplate::Variable(mIconName).resolve(c).toString();
@@ -100,7 +100,7 @@ void IconNode::render(KTextTemplate::OutputStream *stream, KTextTemplate::Contex
 
     QString altText;
     if (!mAltText.isEmpty()) {
-        if (mAltText.startsWith(QLatin1Char('"')) && mAltText.endsWith(QLatin1Char('"'))) {
+        if (mAltText.startsWith(u'"') && mAltText.endsWith(u'"')) {
             altText = mAltText.mid(1, mAltText.size() - 2);
         } else {
             const QVariant v = KTextTemplate::Variable(mAltText).resolve(c);
