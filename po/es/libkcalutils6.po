@@ -113,8 +113,7 @@ msgstr "No es necesario que responda como <b>%1</b>."
 #, kde-format
 msgid "(<b>Note</b>: the Organizer preset your response to <b>%1</b>)"
 msgstr ""
-"(<b>Nota</b>: la predefinición del organizador al que usted responde <b>%1</"
-"b>)"
+"(<b>Nota</b>: la predefinición del organizador al que responde <b>%1</b>)"
 
 #: src/incidenceformatter.cpp:1059 src/incidenceformatter.cpp:1119
 #, kde-format
@@ -124,13 +123,13 @@ msgstr "Comprobar mi calendario"
 #: src/incidenceformatter.cpp:1104 src/incidenceformatter.cpp:1174
 #, kde-format
 msgid "Please respond again to the original proposal."
-msgstr "Por favor, responda a la propuesta original."
+msgstr "Responda a la propuesta original."
 
 #: src/incidenceformatter.cpp:1155 src/incidenceformatter.cpp:1186
 #: src/templates/todo.html:179
 #, kde-format
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: src/incidenceformatter.cpp:1252
 #, kde-format
@@ -163,12 +162,12 @@ msgstr "Yo he creado esta invitación."
 #: src/incidenceformatter.cpp:1320
 #, kde-format
 msgid "You received an invitation from %1."
-msgstr "Usted ha recibido una invitación de %1."
+msgstr "Ha recibido una invitación de %1."
 
 #: src/incidenceformatter.cpp:1322
 #, kde-format
 msgid "You received an invitation from %1 as a representative of %2."
-msgstr "Usted ha recibido una invitación de %1 en representación de %2."
+msgstr "Ha recibido una invitación de %1 en representación de %2."
 
 #: src/incidenceformatter.cpp:1326
 #, kde-format
@@ -582,13 +581,13 @@ msgstr "Rechazar"
 #, kde-format
 msgctxt "invitation counter proposal"
 msgid "Counter proposal ..."
-msgstr "Contrapropuesta..."
+msgstr "Contrapropuesta…"
 
 #: src/incidenceformatter.cpp:1958
 #, kde-format
 msgctxt "delegate invitation to another"
 msgid "Delegate ..."
-msgstr "Delegar..."
+msgstr "Delegar…"
 
 #: src/incidenceformatter.cpp:1968
 #, kde-format
@@ -727,7 +726,7 @@ msgstr "<i>Completada:</i> %1"
 #, kde-format
 msgctxt "To-do's percent complete:"
 msgid "<i>Percent Done:</i> %1%"
-msgstr "<i>Porcentaje completado:</i> %1%"
+msgstr "<i>Porcentaje completado:</i> %1 %"
 
 #: src/incidenceformatter.cpp:2482 src/incidenceformatter.cpp:2483
 #, kde-format
@@ -755,7 +754,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "ellipsis"
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #: src/incidenceformatter.cpp:2576
 #, kde-format
@@ -2188,182 +2187,3 @@ msgstr "Completado:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Porcentaje completado:"
-
-#~ msgctxt "@title month and year"
-#~ msgid "%1 %2"
-#~ msgstr "%1 %2"
-
-#~ msgctxt "@title:column event start time"
-#~ msgid "Start Time"
-#~ msgstr "Hora de inicio"
-
-#~ msgctxt "@title:column event end time"
-#~ msgid "End Time"
-#~ msgstr "Hora de fin"
-
-#~ msgctxt "@title:column event description"
-#~ msgid "Event"
-#~ msgstr "Evento"
-
-#~ msgctxt "@title:column event location"
-#~ msgid "Location"
-#~ msgstr "Ubicación"
-
-#~ msgctxt "@title:column event categories"
-#~ msgid "Categories"
-#~ msgstr "Categorías"
-
-#~ msgctxt "@title:column event attendees"
-#~ msgid "Attendees"
-#~ msgstr "Asistentes"
-
-#~ msgctxt "@title:column"
-#~ msgid "To-do"
-#~ msgstr "Tarea pendiente"
-
-#~ msgctxt "@title:column to-do priority"
-#~ msgid "Priority"
-#~ msgstr "Prioridad"
-
-#~ msgctxt "@title:column to-do percent completed"
-#~ msgid "Completed"
-#~ msgstr "Completado"
-
-#~ msgctxt "@title:column to-do due date"
-#~ msgid "Due Date"
-#~ msgstr "Fecha de vencimiento"
-
-#~ msgctxt "@title:column to-do location"
-#~ msgid "Location"
-#~ msgstr "Ubicación"
-
-#~ msgctxt "@title:column to-do categories"
-#~ msgid "Categories"
-#~ msgstr "Categorías"
-
-#~ msgctxt "@title:column to-do attendees"
-#~ msgid "Attendees"
-#~ msgstr "Asistentes"
-
-#~ msgctxt "@title:column sub-to-dos of the parent to-do"
-#~ msgid "Sub-To-dos of: "
-#~ msgstr "Subtareas de "
-
-#~ msgctxt "@title:column sub-to-dos of the parent to-do"
-#~ msgid "Sub-To-dos"
-#~ msgstr "Subtareas"
-
-#~ msgctxt "@info to-do percent complete"
-#~ msgid "%1 %"
-#~ msgstr "%1 %"
-
-#~ msgctxt "@info"
-#~ msgid "This page was created "
-#~ msgstr "Esta página se creó "
-
-#~ msgctxt "@info/plain page creator email link with name"
-#~ msgid "by <link url='mailto:%1'>%2</link> "
-#~ msgstr "por <link url='mailto:%1'>%2</link> "
-
-#~ msgctxt "@info/plain page creator email link"
-#~ msgid "by <link url='mailto:%1'>%2</link> "
-#~ msgstr "por <link url='mailto:%1'>%2</link> "
-
-#~ msgctxt "@info page creator name only"
-#~ msgid "by %1 "
-#~ msgstr "por %1 "
-
-#~ msgctxt "@info/plain page credit with name and link"
-#~ msgid "with <link url='%1'>%2</link>"
-#~ msgstr "con <link url='%1'>%2</link>"
-
-#~ msgctxt "@info page credit name only"
-#~ msgid "with %1"
-#~ msgstr "con %1"
-
-#~ msgctxt "@info holiday by date and name"
-#~ msgid "%1, %2"
-#~ msgstr "%1, %2"
-
-#~ msgid "Category:"
-#~ msgid_plural "Categories:"
-#~ msgstr[0] "Categoría:"
-#~ msgstr[1] "Categorías:"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "<para>You accepted an invitation update, but an earlier version of the "
-#~ "item could not be found in your calendar.</para><para>This may have "
-#~ "occurred because:<list><item>the organizer did not include you in the "
-#~ "original invitation</item><item>you did not accept the original "
-#~ "invitation yet</item><item>you deleted the original invitation from your "
-#~ "calendar</item><item>you no longer have access to the calendar containing "
-#~ "the invitation</item></list></para><para>This is not a problem, but we "
-#~ "thought you should know.</para>"
-#~ msgstr ""
-#~ "<para>Usted aceptó una actualización de invitación, pero no se pudo "
-#~ "encontrar una versión anterior del elemento en su calendario.</"
-#~ "para><para>Esto puede haber ocurrido porque:<list><item>el organizador no "
-#~ "le incluyó en la invitación original</item><item>usted todavía no ha "
-#~ "aceptado la invitación original</item><item>usted borró la invitación "
-#~ "original de su calendario</item><item>usted ya no tiene acceso al "
-#~ "calendario que contiene la invitación</item></list></para><para>Esto no "
-#~ "es un problema, pero pensamos qué debería saberlo.</para>"
-
-#~ msgctxt "@title"
-#~ msgid "Cannot find invitation to be updated"
-#~ msgstr "No se puede encontrar ninguna invitación que actualizar"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "The event or task could not be removed from your calendar. Maybe it has "
-#~ "already been deleted or is not owned by you. Or it might belong to a read-"
-#~ "only or disabled calendar."
-#~ msgstr ""
-#~ "El evento o tarea no se puede eliminar de su calendario. Puede ser que ya "
-#~ "se haya borrado o que usted no sea el propietario. O podría pertenecer a "
-#~ "un calendario de solo lectura o desactivado."
-
-#~ msgctxt "@info"
-#~ msgid "%1 wants to attend %2 but was not invited."
-#~ msgstr "%1 desea asistir a %2 pero no ha sido invitado."
-
-#~ msgctxt "@info"
-#~ msgid "%1 wants to attend %2 on behalf of %3."
-#~ msgstr "%1 desea asistir a %2 en nombre de %3."
-
-#~ msgctxt "@title"
-#~ msgid "Uninvited attendee"
-#~ msgstr "Asistente no invitado"
-
-#~ msgctxt "@option"
-#~ msgid "Accept Attendance"
-#~ msgstr "Aceptar asistencia"
-
-#~ msgctxt "@option"
-#~ msgid "Reject Attendance"
-#~ msgstr "Rechazar asistencia"
-
-#~ msgctxt "@info"
-#~ msgid "The organizer rejected your attendance at this meeting."
-#~ msgstr "El organizador ha rechazado su asistencia a este encuentro."
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "An attendee was added to the incidence. Do you want to email the "
-#~ "attendees an update message?"
-#~ msgstr ""
-#~ "Se ha añadido un seguidor a la incidencia. ¿Quiere enviar a todos los "
-#~ "seguidores un mensaje de actualización?"
-
-#~ msgctxt "@title"
-#~ msgid "Attendee Added"
-#~ msgstr "Asistente añadido"
-
-#~ msgctxt "@option"
-#~ msgid "Send Messages"
-#~ msgstr "Enviar mensajes"
-
-#~ msgctxt "@option"
-#~ msgid "Do Not Send"
-#~ msgstr "No enviar"
