@@ -47,10 +47,9 @@ static QDateTime copyTimeSpec(QDateTime dt, const QDateTime &source)
 {
     switch (source.timeSpec()) {
     case Qt::TimeZone:
-        return dt.toTimeZone(source.timeZone());
     case Qt::LocalTime:
     case Qt::UTC:
-        return dt.toTimeSpec(source.timeSpec());
+        return dt.toTimeZone(source.timeZone());
     case Qt::OffsetFromUTC:
         return dt.toOffsetFromUtc(source.offsetFromUtc());
     }
