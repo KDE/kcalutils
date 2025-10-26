@@ -55,7 +55,7 @@ void IncidenceFormatterTest::initTestCase()
     GrantleeTemplateManager::instance()->setTemplatePath(QStringLiteral(TEST_TEMPLATE_PATH));
     GrantleeTemplateManager::instance()->setPluginPath(QStringLiteral(TEST_PLUGIN_PATH));
     QIcon::setThemeName(QStringLiteral("breeze"));
-    QLocale::setDefault(QLocale(QStringLiteral("C")));
+    QLocale::setDefault(QLocale(QStringLiteral("en_US")));
 
     QPalette palette;
     palette.setCurrentColorGroup(QPalette::Normal);
