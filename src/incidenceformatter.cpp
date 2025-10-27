@@ -97,16 +97,21 @@ static QString htmlAddTag(const QString &tag, const QString &text)
     return tmpStr;
 }
 
-[[nodiscard]] static QPair<QString, QString> searchNameAndUid(const QString &email, const QString &name, const QString &uid)
+struct IncidenceNameAndUid {
+    QString name;
+    QString uid;
+};
+
+[[nodiscard]] static IncidenceNameAndUid searchNameAndUid(const QString &email, const QString &name, const QString &uid)
 {
     // Yes, this is a silly method now, but it's predecessor was quite useful in e35.
     // For now, please keep this sillyness until e35 is frozen to ease forward porting.
     // -Allen
-    QPair<QString, QString> s;
-    s.first = name;
-    s.second = uid;
+    IncidenceNameAndUid s;
+    s.name = name;
+    s.uid = uid;
     if (!email.isEmpty() && (name.isEmpty() || uid.isEmpty())) {
-        s.second.clear();
+        s.uid.clear();
     }
     return s;
 }
@@ -237,9 +242,9 @@ static QString htmlAddTag(const QString &tag, const QString &text)
 [[nodiscard]] static QVariantHash displayViewFormatPerson(const QString &email, const QString &name, const QString &uid, const QString &iconName)
 {
     // Search for new print name or uid, if needed.
-    QPair<QString, QString> s = searchNameAndUid(email, name, uid);
-    const QString printName = s.first;
-    const QString printUid = s.second;
+    IncidenceNameAndUid s = searchNameAndUid(email, name, uid);
+    const QString printName = s.name;
+    const QString printUid = s.uid;
 
     QVariantHash personData;
     personData[QStringLiteral("icon")] = iconName;
@@ -328,10 +333,10 @@ static QString htmlAddTag(const QString &tag, const QString &text)
 [[nodiscard]] static QVariantHash displayViewFormatOrganizer(const Incidence::Ptr &incidence)
 {
     // Add organizer link
-    int attendeeCount = incidence->attendees().count();
+    const int attendeeCount = incidence->attendees().count();
     if (attendeeCount > 1 || (attendeeCount == 1 && !attendeeIsOrganizer(incidence, incidence->attendees().at(0)))) {
-        QPair<QString, QString> s = searchNameAndUid(incidence->organizer().email(), incidence->organizer().name(), QString());
-        return displayViewFormatPerson(incidence->organizer().email(), s.first, s.second, QStringLiteral("meeting-organizer"));
+        const IncidenceNameAndUid s = searchNameAndUid(incidence->organizer().email(), incidence->organizer().name(), QString());
+        return displayViewFormatPerson(incidence->organizer().email(), s.name, s.uid, QStringLiteral("meeting-organizer"));
     }
 
     return QVariantHash();
