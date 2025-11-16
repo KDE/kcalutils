@@ -12,15 +12,15 @@ msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-28 00:43+0000\n"
-"PO-Revision-Date: 2025-02-15 21:31+0300\n"
-"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"PO-Revision-Date: 2025-11-15 21:25+0300\n"
+"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -45,7 +45,7 @@ msgstr "Şablon sunum hatası"
 #: src/incidenceformatter.cpp:171
 #, kde-format
 msgid "Organizer Unknown"
-msgstr "Düzenleyici Bilinmiyor"
+msgstr "Bilinmeyen organizatör"
 
 #: src/incidenceformatter.cpp:193 src/incidenceformatter.cpp:1416
 #, kde-format
@@ -148,7 +148,7 @@ msgstr "Bu davet yayımlandı."
 #: src/incidenceformatter.cpp:1315
 #, kde-format
 msgid "This invitation has been updated by the organizer %1."
-msgstr "%1 düzenleyicisi tarafından bu davet güncellendi."
+msgstr "%1 organizatörü tarafından bu davet güncellendi."
 
 #: src/incidenceformatter.cpp:1317
 #, kde-format
@@ -183,7 +183,7 @@ msgstr "Bu davet iptal edildi."
 #: src/incidenceformatter.cpp:1336
 #, kde-format
 msgid "The organizer has revoked the invitation."
-msgstr "Düzenleyici daveti iptal etti."
+msgstr "Organizatör, bu daveti geri çekti."
 
 #: src/incidenceformatter.cpp:1339
 #, kde-format
@@ -209,7 +209,7 @@ msgstr "Bu davet %1 katılımcısı tarafından güncellendi."
 #: src/incidenceformatter.cpp:1372
 #, kde-format
 msgid "This invitation has been updated by an attendee."
-msgstr "Bu davetiye bir katılımcı tarafından güncellendi."
+msgstr "Bu davet, bir katılımcı tarafından güncellendi."
 
 #: src/incidenceformatter.cpp:1376
 #, kde-format
@@ -289,7 +289,7 @@ msgstr "Bu yapılacak ögesi yayımlandı."
 #: src/incidenceformatter.cpp:1448
 #, kde-format
 msgid "This to-do has been updated by the organizer %1."
-msgstr "Bu yapılacak iş %1 düzenleyicisi tarafından güncellendi."
+msgstr "Bu yapılacak iş, organizatör %1 tarafından güncellendi."
 
 #: src/incidenceformatter.cpp:1450
 #, kde-format
@@ -325,7 +325,7 @@ msgstr "Bu yapılacak ögesi iptal edildi."
 #: src/incidenceformatter.cpp:1470
 #, kde-format
 msgid "The organizer has revoked this to-do."
-msgstr "Düzenleyici bu yapılacak işi iptal etti."
+msgstr "Organizatör, bu yapılacak işi geri çekti."
 
 #: src/incidenceformatter.cpp:1473
 #, kde-format
@@ -769,7 +769,7 @@ msgstr " (%1 kişisini temsil etti)"
 #: src/templates/todo.html:93
 #, kde-format
 msgid "Organizer:"
-msgstr "Düzenleyici:"
+msgstr "Organizatör:"
 
 #: src/incidenceformatter.cpp:2614 src/templates/event.html:124
 #: src/templates/todo.html:105
@@ -856,7 +856,7 @@ msgstr "Özet: %1\n"
 #: src/incidenceformatter.cpp:2767
 #, kde-format
 msgid "Organizer: %1\n"
-msgstr "Düzenleyici: %1\n"
+msgstr "Organizatör: %1\n"
 
 #: src/incidenceformatter.cpp:2770
 #, kde-format
@@ -1932,7 +1932,7 @@ msgstr "Bilinmeyen durum: %1"
 
 #: src/templates/attendee_row.html:27
 msgid "organizer"
-msgstr "düzenleyici"
+msgstr "organizatör"
 
 #: src/templates/attendee_row.html:31
 msgid "myself"
