@@ -1,5 +1,3 @@
-include(CMakeParseArguments)
-
 macro(kpim_grantlee_adjust_plugin_name pluginname)
     set_target_properties(
         ${pluginname}
