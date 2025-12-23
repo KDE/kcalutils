@@ -7,7 +7,7 @@
 
   SPDX-License-Identifier: LGPL-2.0-or-later
 */
-/**
+/*!
   @file
   This file is part of the API for handling calendar data and provides
   static functions for formatting Incidence properties for various purposes.
@@ -32,22 +32,22 @@ class Exception;
 
 namespace KCalUtils
 {
-/**
-  @brief Provides methods to format Incidence properties in various ways for display purposes.
+/*!
+  \brief Provides methods to format Incidence properties in various ways for display purposes.
 */
 namespace Stringify
 {
 [[nodiscard]] KCALUTILS_EXPORT QString incidenceType(KCalendarCore::Incidence::IncidenceType type);
 
-/**
+/*!
   Returns the incidence Secrecy as translated string.
-  @see incidenceSecrecyList().
+  \sa incidenceSecrecyList().
 */
 [[nodiscard]] KCALUTILS_EXPORT QString incidenceSecrecy(KCalendarCore::Incidence::Secrecy secrecy);
 
-/**
+/*!
   Returns a list of all available Secrecy types as a list of translated strings.
-  @see incidenceSecrecy().
+  \sa incidenceSecrecy().
 */
 [[nodiscard]] KCALUTILS_EXPORT QStringList incidenceSecrecyList();
 
@@ -55,24 +55,24 @@ namespace Stringify
 [[nodiscard]] KCALUTILS_EXPORT QString incidenceStatus(const KCalendarCore::Incidence::Ptr &incidence);
 [[nodiscard]] KCALUTILS_EXPORT QString scheduleMessageStatus(KCalendarCore::ScheduleMessage::Status status);
 
-/**
+/*!
   Returns string containing the date/time when the to-do was completed,
   formatted according to the user's locale settings.
-  @param shortfmt If true, use a short date format; else use a long format.
+  \a shortfmt If true, use a short date format; else use a long format.
 */
 [[nodiscard]] KCALUTILS_EXPORT QString todoCompletedDateTime(const KCalendarCore::Todo::Ptr &todo, bool shortfmt = false);
 
 [[nodiscard]] KCALUTILS_EXPORT QString attendeeRole(KCalendarCore::Attendee::Role role);
 [[nodiscard]] KCALUTILS_EXPORT QString attendeeStatus(KCalendarCore::Attendee::PartStat status);
 
-/**
-  Returns a string containing the UTC offset of the specified QTimeZone @p tz (relative to the current date).
+/*!
+  Returns a string containing the UTC offset of the specified QTimeZone \a tz (relative to the current date).
   The format is [+-]HH::MM, according to standards.
-  @since 5.8
+  \since 5.8
 */
 [[nodiscard]] KCALUTILS_EXPORT QString tzUTCOffsetStr(const QTimeZone &tz);
 
-/**
+/*!
    Build a translated message representing an exception
 */
 [[nodiscard]] KCALUTILS_EXPORT QString errorMessage(const KCalendarCore::Exception &exception);

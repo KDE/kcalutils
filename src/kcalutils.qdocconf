@@ -1,0 +1,33 @@
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
+
+project = CalendarUtils
+description = KMBox provides API to access emails in storages in the MBox format.
+
+
+documentationinheaders = true
+
+headerdirs += .
+sourcedirs += .
+
+outputformats = HTML
+
+depends += \
+    qtcore
+
+navigation.landingpage = "CalendarUtils"
+
+qhp.projects            = CalendarUtils
+
+qhp.CalendarUtils.file                = kcalutils.qhp
+qhp.CalendarUtils.namespace           = org.kde.kcalutils.$QT_VERSION_TAG
+qhp.CalendarUtils.virtualFolder       = kcalutils
+qhp.CalendarUtils.indexTitle          = CalendarUtils
+qhp.CalendarUtils.indexRoot           =
+
+qhp.CalendarUtils.subprojects         = classes
+qhp.CalendarUtils.subprojects.classes.title = C++ Classes
+qhp.CalendarUtils.subprojects.classes.indexTitle = CalendarUtils C++ Classes
+qhp.CalendarUtils.subprojects.classes.selectors = class fake:headerfile
+qhp.CalendarUtils.subprojects.classes.sortPages = true
+
+tagfile = kcalutils.tags

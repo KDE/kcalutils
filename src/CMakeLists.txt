@@ -122,30 +122,5 @@ install(
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils/KCalUtils/
     COMPONENT Devel
 )
-
-if(BUILD_QCH)
-    ecm_add_qch(
-        KPim6CalendarUtils_QCH
-        NAME KCalendarUtils
-        BASE_NAME KPim6CalendarUtils
-        VERSION ${PIM_VERSION}
-        ORG_DOMAIN org.kde
-        SOURCES # using only public headers, to cover only public API
-            ${KCalUtils_HEADERS}
-        MD_MAINPAGE "${CMAKE_SOURCE_DIR}/README.md"
-        #IMAGE_DIRS "${CMAKE_SOURCE_DIR}/docs/pics"
-        LINK_QCHS
-            Qt6Core_QCH
-            Qt6Gui_QCH
-            Qt6Widgets_QCH
-        INCLUDE_DIRS
-            ${CMAKE_CURRENT_BINARY_DIR}
-        BLANK_MACROS
-            KCALUTILS_EXPORT
-        TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
-        QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
-        COMPONENT Devel
-    )
-endif()
-
 ecm_qt_install_logging_categories(EXPORT KCALUTILS FILE kcalutils.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+ecm_generate_qdoc(KPim6CalendarUtils kcalutils.qdocconf)

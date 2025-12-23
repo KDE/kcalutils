@@ -16,27 +16,27 @@ class QMimeData;
 
 namespace KCalUtils
 {
-/**
+/*!
   iCalendar drag&drop class.
 */
 namespace ICalDrag
 {
-/**
+/*!
   Mime-type of iCalendar
 */
 [[nodiscard]] KCALUTILS_EXPORT QString mimeType();
 
-/**
+/*!
   Sets the iCalendar representation as data of the drag object
 */
 KCALUTILS_EXPORT bool populateMimeData(QMimeData *e, const KCalendarCore::Calendar::Ptr &cal);
 
-/**
+/*!
   Return, if drag&drop object can be decode to iCalendar.
 */
 [[nodiscard]] KCALUTILS_EXPORT bool canDecode(const QMimeData *);
 
-/**
+/*!
   Decode drag&drop object to iCalendar component \a cal.
 */
 [[nodiscard]] KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalendarCore::Calendar::Ptr &cal);

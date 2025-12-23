@@ -1,0 +1,9 @@
+/*!
+    \module CalendarUtils
+    \title CalendarUtils C++ Classes
+    \ingroup modules
+    \cmakepackage KPim6
+    \cmakecomponent CalendarUtils
+
+    \brief The KDE calendar utility library.
+*/
