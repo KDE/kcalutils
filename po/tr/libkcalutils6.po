@@ -12,15 +12,15 @@ msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:41+0000\n"
-"PO-Revision-Date: 2025-11-15 21:25+0300\n"
-"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
+"PO-Revision-Date: 2025-12-25 11:54+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -244,12 +244,12 @@ msgstr "%1 bu daveti %2 adına reddediyor."
 #: src/incidenceformatter.cpp:1401
 #, kde-format
 msgid "%1 has delegated this invitation to %2."
-msgstr "%1 bu davet için temsilci gönderiyor %2."
+msgstr "%1 bu daveti %2 kişisine devretti."
 
 #: src/incidenceformatter.cpp:1403
 #, kde-format
 msgid "%1 has delegated this invitation."
-msgstr "%1 bu davet için temsilci gönderiyor."
+msgstr "%1 bu daveti devretti."
 
 #: src/incidenceformatter.cpp:1407
 #, kde-format
@@ -390,7 +390,7 @@ msgstr "%1 bu yapılacak işi %2 adına reddediyor."
 #: src/incidenceformatter.cpp:1543
 #, kde-format
 msgid "%1 has delegated this to-do to %2."
-msgstr "%1 bu yapılacak işi %2 kişisine atadı."
+msgstr "%1 bu yapılacak işi %2 kişisine devretti."
 
 #: src/incidenceformatter.cpp:1545
 #, kde-format
@@ -481,7 +481,7 @@ msgstr "Gönderen bu günceyi geri çeker."
 #: src/incidenceformatter.cpp:1619
 #, kde-format
 msgid "Sender has delegated this request for the journal."
-msgstr "Gönderen bu talebi günceye aktardı."
+msgstr "Gönderen bu talebi günceye devretti."
 
 #: src/incidenceformatter.cpp:1621
 #, kde-format
@@ -758,12 +758,12 @@ msgstr "…"
 #: src/incidenceformatter.cpp:2581
 #, kde-format
 msgid " (delegated by %1)"
-msgstr "(%1 tarafından temsil edildi)"
+msgstr " (%1 tarafından devredildi)"
 
 #: src/incidenceformatter.cpp:2584
 #, kde-format
 msgid " (delegated to %1)"
-msgstr " (%1 kişisini temsil etti)"
+msgstr " (%1 kişisine devredildi)"
 
 #: src/incidenceformatter.cpp:2603 src/templates/event.html:112
 #: src/templates/todo.html:93
@@ -1941,12 +1941,12 @@ msgstr "kendim"
 #: src/templates/attendee_row.html:35
 #, kde-format
 msgid "delegated by %1)"
-msgstr "%1 tarafından temsil edildi)"
+msgstr "%1 tarafından devredildi)"
 
 #: src/templates/attendee_row.html:39
 #, kde-format
 msgid "delegated to %1)"
-msgstr "%1 kişisini temsil etti)"
+msgstr "%1 kişisine devredildi)"
 
 #: src/templates/attendee_row.html:46
 msgid "Send email"
