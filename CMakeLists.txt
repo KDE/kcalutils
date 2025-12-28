@@ -71,7 +71,7 @@ add_feature_info(
 )
 
 set(CALENDARUTILS_LIB_VERSION ${PIM_VERSION})
-set(IDENTITYMANAGER_LIB_VERSION "6.6.0")
+set(IDENTITYMANAGER_LIB_VERSION "6.6.1")
 ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/src/kcalutils_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KPim6CalendarUtilsConfigVersion.cmake"
