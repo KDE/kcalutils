@@ -1354,9 +1354,9 @@ invitationHeaderEvent(const Event::Ptr &event, const Incidence::Ptr &existingInc
         QString attendeeName = firstAttendeeName(event, sender);
 
         QString delegatorName;
-        QString dummy;
+        QString dummyName;
         const Attendee attendee = *attendees.begin();
-        KEmailAddress::extractEmailAddressAndName(attendee.delegator(), dummy, delegatorName);
+        KEmailAddress::extractEmailAddressAndName(attendee.delegator(), dummyName, delegatorName);
         if (delegatorName.isEmpty()) {
             delegatorName = attendee.delegator();
         }
@@ -1488,9 +1488,9 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
         QString attendeeName = firstAttendeeName(todo, sender);
 
         QString delegatorName;
-        QString dummy;
+        QString dummyName;
         const Attendee attendee = *attendees.begin();
-        KEmailAddress::extractEmailAddressAndName(attendee.delegate(), dummy, delegatorName);
+        KEmailAddress::extractEmailAddressAndName(attendee.delegate(), dummyName, delegatorName);
         if (delegatorName.isEmpty()) {
             delegatorName = attendee.delegator();
         }
@@ -2121,16 +2121,17 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
 
     // determine if the invitation response has already been recorded
     bool rsvpRec = false;
-    Attendee ea;
+    Attendee eattendee;
     if (!myInc) {
         Incidence::Ptr rsvpIncidence = existingIncidence;
         if (!rsvpIncidence && inc && incRevision > 0) {
             rsvpIncidence = inc;
         }
         if (rsvpIncidence) {
-            ea = findMyAttendee(rsvpIncidence);
+            eattendee = findMyAttendee(rsvpIncidence);
         }
-        if (!ea.isNull() && (ea.status() == Attendee::Accepted || ea.status() == Attendee::Declined || ea.status() == Attendee::Tentative)) {
+        if (!eattendee.isNull()
+            && (eattendee.status() == Attendee::Accepted || eattendee.status() == Attendee::Declined || eattendee.status() == Attendee::Tentative)) {
             rsvpRec = true;
         }
     }
@@ -2138,30 +2139,30 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
     // determine invitation role
     QString role;
     bool isDelegated = false;
-    Attendee a = findMyAttendee(inc);
-    if (a.isNull() && inc) {
+    Attendee firstAtt = findMyAttendee(inc);
+    if (firstAtt.isNull() && inc) {
         if (!inc->attendees().isEmpty()) {
-            a = inc->attendees().at(0);
+            firstAtt = inc->attendees().at(0);
         }
     }
-    if (!a.isNull()) {
-        isDelegated = (a.status() == Attendee::Delegated);
-        role = Stringify::attendeeRole(a.role());
+    if (!firstAtt.isNull()) {
+        isDelegated = (firstAtt.status() == Attendee::Delegated);
+        role = Stringify::attendeeRole(firstAtt.role());
     }
 
     // determine if RSVP needed, not-needed, or response already recorded
     bool rsvpReq = rsvpRequested(inc);
-    if (!rsvpReq && !a.isNull() && a.status() == Attendee::NeedsAction) {
+    if (!rsvpReq && !firstAtt.isNull() && firstAtt.status() == Attendee::NeedsAction) {
         rsvpReq = true;
     }
 
     QString eventInfo;
-    if (!myInc && !a.isNull()) {
+    if (!myInc && !firstAtt.isNull()) {
         if (rsvpRec && inc) {
             if (incRevision == 0) {
-                eventInfo = i18n("Your <b>%1</b> response has been recorded.", Stringify::attendeeStatus(ea.status()));
+                eventInfo = i18n("Your <b>%1</b> response has been recorded.", Stringify::attendeeStatus(eattendee.status()));
             } else {
-                eventInfo = i18n("Your status for this invitation is <b>%1</b>.", Stringify::attendeeStatus(ea.status()));
+                eventInfo = i18n("Your status for this invitation is <b>%1</b>.", Stringify::attendeeStatus(eattendee.status()));
             }
             rsvpReq = false;
         } else if (msg->method() == iTIPCancel) {
@@ -2202,7 +2203,7 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
         }
 
         if (!myInc) {
-            if (!a.isNull()) {
+            if (!firstAtt.isNull()) {
                 buttons += responseButtons(inc, rsvpReq, rsvpRec, helper);
             } else {
                 buttons += responseButtons(inc, false, false, helper);
@@ -2279,7 +2280,7 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
         incidence[QStringLiteral("attendeesTitle")] = i18n("Participants:");
     }
     if (myInc) {
-        incidence[QStringLiteral("attendees")] = invitationRsvpList(existingIncidence, a);
+        incidence[QStringLiteral("attendees")] = invitationRsvpList(existingIncidence, firstAtt);
     } else {
         incidence[QStringLiteral("attendees")] = invitationAttendeeList(inc);
     }
