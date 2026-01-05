@@ -13,9 +13,9 @@
   This file is part of the API for handling calendar data and
   defines the DndFactory class.
 
-  @author Preston Brown \<pbrown@kde.org\>
-  @author Cornelius Schumacher \<schumacher@kde.org\>
-  @author Reinhold Kainhofer \<reinhold@kainhofer.com\>
+  \author Preston Brown \<pbrown@kde.org\>
+  \author Cornelius Schumacher \<schumacher@kde.org\>
+  \author Reinhold Kainhofer \<reinhold@kainhofer.com\>
 */
 #pragma once
 
@@ -37,6 +37,10 @@ namespace KCalUtils
 {
 class DndFactoryPrivate;
 /*!
+ \class KCalUtils::DndFactory
+ \inmodule KCalUtils
+ \inheaderfile KCalUtils/DndFactory
+
   \brief
   vCalendar/iCalendar Drag-and-Drop object factory.
 
@@ -56,8 +60,12 @@ public:
 
     Q_DECLARE_FLAGS(PasteFlags, PasteFlag)
 
+    /*!
+     */
     explicit DndFactory(const KCalendarCore::Calendar::Ptr &cal);
 
+    /*!
+     */
     ~DndFactory();
 
     /*!

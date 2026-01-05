@@ -16,6 +16,9 @@ class QMimeData;
 namespace KCalUtils
 {
 /*!
+  \inmodule KCalUtils
+  \inheaderfile KCalUtils/VCalDrag
+
   vCalendar drag&drop class.
 */
 namespace VCalDrag

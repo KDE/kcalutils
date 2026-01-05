@@ -12,9 +12,9 @@
   This file is part of the API for handling calendar data and provides
   static functions for formatting Incidences for various purposes.
 
-  @author Cornelius Schumacher \<schumacher@kde.org\>
-  @author Reinhold Kainhofer \<reinhold@kainhofer.com\>
-  @author Allen Winter \<allen@kdab.com\>
+  \author Cornelius Schumacher \<schumacher@kde.org\>
+  \author Reinhold Kainhofer \<reinhold@kainhofer.com\>
+  \author Allen Winter \<allen@kdab.com\>
 */
 #pragma once
 
@@ -32,15 +32,29 @@ namespace KCalUtils
 class InvitationFormatterHelperPrivate;
 
 /*!
+ * \class KCalUtils::InvitationFormatterHelper
+ * \inmodule KCalUtils
+ * \inheaderfile KCalUtils/IncidenceFormatter
+ *
  * \brief The InvitationFormatterHelper class
  */
 class KCALUTILS_EXPORT InvitationFormatterHelper
 {
 public:
+    /*!
+     */
     InvitationFormatterHelper();
+    /*!
+     */
     virtual ~InvitationFormatterHelper();
+    /*!
+     */
     [[nodiscard]] virtual QString generateLinkURL(const QString &id);
+    /*!
+     */
     [[nodiscard]] virtual QString makeLink(const QString &id, const QString &text);
+    /*!
+     */
     [[nodiscard]] virtual KCalendarCore::Calendar::Ptr calendar() const;
 
 private:
@@ -49,6 +63,10 @@ private:
 };
 
 /*!
+ \class KCalUtils::IncidenceFormatter
+ \inmodule KCalUtils
+ \inheaderfile KCalUtils/IncidenceFormatter
+
   \brief
   Provides methods to format Incidences in various ways for display purposes.
 

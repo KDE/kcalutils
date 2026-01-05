@@ -12,9 +12,9 @@
   This file is part of the API for handling calendar data and provides
   static functions for formatting Incidence properties for various purposes.
 
-  @author Cornelius Schumacher \<schumacher@kde.org\>
-  @author Reinhold Kainhofer \<reinhold@kainhofer.com\>
-  @author Allen Winter \<allen@kdab.com\>
+  \author Cornelius Schumacher \<schumacher@kde.org\>
+  \author Reinhold Kainhofer \<reinhold@kainhofer.com\>
+  \author Allen Winter \<allen@kdab.com\>
 */
 #pragma once
 
@@ -33,6 +33,9 @@ class Exception;
 namespace KCalUtils
 {
 /*!
+  \inmodule KCalUtils
+  \inheaderfile KCalUtils/Stringify
+
   \brief Provides methods to format Incidence properties in various ways for display purposes.
 */
 namespace Stringify

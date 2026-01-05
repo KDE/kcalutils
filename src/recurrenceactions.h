@@ -20,13 +20,16 @@ class QWidget;
 namespace KCalUtils
 {
 /*!
+  \inmodule KCalUtils
+  \inheaderfile KCalUtils/RecurrenceActions
+
   \brief Utility functions for dealing with recurrences
 
   Incidences with recurrencies need to be treated differently than single independent ones.
   For example the user might be given the choice to not only modify a selected occurrence
   of an incidence but also all that follow that one, etc.
 
-  @author Kevin Krammer, krake@kdab.com
+  \author Kevin Krammer, krake@kdab.com
   \since 4.6
 */
 namespace RecurrenceActions
