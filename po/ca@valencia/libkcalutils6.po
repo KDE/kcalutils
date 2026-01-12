@@ -34,12 +34,12 @@ msgstr "Missatge d'error"
 #: src/grantleetemplatemanager.cpp:99
 #, kde-format
 msgid "Template parsing error"
-msgstr "S'ha produït un error en l'anàlisi sintàctica de la plantilla"
+msgstr "S'ha produït un error durant l'anàlisi de la plantilla"
 
 #: src/grantleetemplatemanager.cpp:104
 #, kde-format
 msgid "Template rendering error"
-msgstr "S'ha produït un error en renderitzar la plantilla"
+msgstr "S'ha produït un error mentre es renderitzava la plantilla"
 
 #: src/incidenceformatter.cpp:171
 #, kde-format
@@ -1799,13 +1799,13 @@ msgstr "Desconegut"
 #, kde-format
 msgctxt "@item"
 msgid "Load Error"
-msgstr "S'ha produït un error en carregar"
+msgstr "S'ha produït un error mentre es carregava"
 
 #: src/stringify.cpp:161
 #, kde-format
 msgctxt "@item"
 msgid "Save Error"
-msgstr "S'ha produït un error en guardar"
+msgstr "S'ha produït un error mentre es guardava"
 
 #: src/stringify.cpp:164
 #, kde-format
@@ -1859,7 +1859,7 @@ msgstr "No s'ha trobat cap recurs on es puga escriure"
 #, kde-format
 msgctxt "@item"
 msgid "Error saving to '%1'."
-msgstr "S'ha produït un error en guardar a «%1»."
+msgstr "S'ha produït un error mentre es guardava a «%1»."
 
 #: src/stringify.cpp:193
 #, kde-format
