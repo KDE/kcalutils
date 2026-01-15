@@ -21,10 +21,8 @@ IconTag::IconTag(QObject *parent)
 IconTag::~IconTag()
 {
 }
-KTextTemplate::Node *IconTag::getNode(const QString &tagContent, KTextTemplate::Parser *p) const
+KTextTemplate::Node *IconTag::getNode(const QString &tagContent, [[maybe_unused]] KTextTemplate::Parser *p) const
 {
-    Q_UNUSED(p)
-
     static QHash<QString, int> sizeOrGroupLookup = {{QStringLiteral("toolbar"), KIconLoader::Toolbar},
                                                     {QStringLiteral("maintoolbar"), KIconLoader::MainToolbar},
                                                     {QStringLiteral("small"), KIconLoader::Small},
@@ -87,10 +85,8 @@ IconNode::IconNode(const QString &iconName, int sizeOrGroup, const QString &altT
 IconNode::~IconNode()
 {
 }
-void IconNode::render(KTextTemplate::OutputStream *stream, KTextTemplate::Context *c) const
+void IconNode::render(KTextTemplate::OutputStream *stream, [[maybe_unused]] KTextTemplate::Context *c) const
 {
-    Q_UNUSED(c)
-
     QString iconName = mIconName;
     if (iconName.startsWith(u'"') && iconName.endsWith(u'"')) {
         iconName = iconName.mid(1, iconName.size() - 2);

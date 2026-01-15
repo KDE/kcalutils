@@ -20,10 +20,8 @@ KDateFilter::~KDateFilter()
 {
 }
 
-QVariant KDateFilter::doFilter(const QVariant &input, const QVariant &argument, bool autoescape) const
+QVariant KDateFilter::doFilter(const QVariant &input, const QVariant &argument, [[maybe_unused]] bool autoescape) const
 {
-    Q_UNUSED(autoescape)
-
     QDate date;
     if (input.userType() == QMetaType::QDate) {
         date = input.toDate();
@@ -50,10 +48,8 @@ KTimeFilter::~KTimeFilter()
 {
 }
 
-QVariant KTimeFilter::doFilter(const QVariant &input, const QVariant &argument, bool autoescape) const
+QVariant KTimeFilter::doFilter(const QVariant &input, const QVariant &argument, [[maybe_unused]] bool autoescape) const
 {
-    Q_UNUSED(autoescape)
-
     QTime time;
     if (input.userType() == QMetaType::QTime) {
         time = input.toTime();
@@ -81,9 +77,8 @@ KDateTimeFilter::~KDateTimeFilter()
 {
 }
 
-QVariant KDateTimeFilter::doFilter(const QVariant &input, const QVariant &argument, bool autoescape) const
+QVariant KDateTimeFilter::doFilter(const QVariant &input, const QVariant &argument, [[maybe_unused]] bool autoescape) const
 {
-    Q_UNUSED(autoescape)
     if (input.userType() != QMetaType::QDateTime) {
         return QString();
     }

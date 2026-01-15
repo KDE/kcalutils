@@ -274,12 +274,11 @@ struct IncidenceNameAndUid {
     return displayViewFormatPerson(email, name, uid, rsvpStatusIconName(status));
 }
 
-[[nodiscard]] static bool incOrganizerOwnsCalendar(const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
+[[nodiscard]] static bool incOrganizerOwnsCalendar([[maybe_unused]] const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
 {
     // PORTME!  Look at e35's CalHelper::incOrganizerOwnsCalendar
 
     // For now, use iamOrganizer() which is only part of the check
-    Q_UNUSED(calendar)
     return iamOrganizer(incidence);
 }
 
@@ -579,10 +578,9 @@ struct IncidenceNameAndUid {
     return GrantleeTemplateManager::instance()->render(QStringLiteral(":/org.kde.pim/kcalutils/journal.html"), incidence);
 }
 
-[[nodiscard]] static QString displayViewFormatFreeBusy(const Calendar::Ptr &calendar, const QString &sourceName, const FreeBusy::Ptr &fb)
+[[nodiscard]] static QString
+displayViewFormatFreeBusy([[maybe_unused]] const Calendar::Ptr &calendar, [[maybe_unused]] const QString &sourceName, const FreeBusy::Ptr &fb)
 {
-    Q_UNUSED(calendar)
-    Q_UNUSED(sourceName)
     if (!fb) {
         return QString();
     }
@@ -1228,10 +1226,8 @@ QString IncidenceFormatter::formatStartEnd(const QDateTime &start, const QDateTi
     return incidence;
 }
 
-[[nodiscard]] static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, [[maybe_unused]] bool noHtmlMode)
 {
-    Q_UNUSED(noHtmlMode)
-
     if (!fb) {
         return QVariantHash();
     }
@@ -1272,15 +1268,13 @@ QString IncidenceFormatter::formatStartEnd(const QDateTime &start, const QDateTi
     return incidence;
 }
 
-[[nodiscard]] static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, const FreeBusy::Ptr &oldfb, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, [[maybe_unused]] const FreeBusy::Ptr &oldfb, bool noHtmlMode)
 {
-    Q_UNUSED(oldfb)
     return invitationDetailsFreeBusy(fb, noHtmlMode);
 }
 
-[[nodiscard]] static bool replyMeansCounter(const Incidence::Ptr &incidence)
+[[nodiscard]] static bool replyMeansCounter([[maybe_unused]] const Incidence::Ptr &incidence)
 {
-    Q_UNUSED(incidence)
     return false;
     /**
       see kolab/issue 3665 for an example of when we might use this for something
@@ -1891,10 +1885,8 @@ QString InvitationFormatterHelper::makeLink(const QString &id, const QString &te
 
 // Check if the given incidence is likely one that we own instead one from
 // a shared calendar (Kolab-specific)
-static bool incidenceOwnedByMe(const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
+static bool incidenceOwnedByMe([[maybe_unused]] const Calendar::Ptr &calendar, [[maybe_unused]] const Incidence::Ptr &incidence)
 {
-    Q_UNUSED(calendar)
-    Q_UNUSED(incidence)
     return true;
 }
 
@@ -3338,10 +3330,8 @@ QString IncidenceFormatter::dateTimeToString(const QDateTime &date, bool allDay,
     return QLocale().toString(date.toLocalTime(), (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
 }
 
-QString IncidenceFormatter::resourceString(const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
+QString IncidenceFormatter::resourceString([[maybe_unused]] const Calendar::Ptr &calendar, [[maybe_unused]] const Incidence::Ptr &incidence)
 {
-    Q_UNUSED(calendar)
-    Q_UNUSED(incidence)
     return QString();
 }
 
@@ -3396,11 +3386,9 @@ QString IncidenceFormatter::durationString(const Incidence::Ptr &incidence)
     return tmp;
 }
 
-QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &incidence, bool shortfmt)
+QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &incidence, [[maybe_unused]] bool shortfmt)
 {
     // TODO: implement shortfmt=false
-    Q_UNUSED(shortfmt)
-
     QStringList reminderStringList;
 
     if (incidence) {

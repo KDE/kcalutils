@@ -18,17 +18,15 @@ KCalendarGrantleePlugin::KCalendarGrantleePlugin(QObject *parent)
 KCalendarGrantleePlugin::~KCalendarGrantleePlugin()
 {
 }
-QHash<QString, KTextTemplate::AbstractNodeFactory *> KCalendarGrantleePlugin::nodeFactories(const QString &name)
+QHash<QString, KTextTemplate::AbstractNodeFactory *> KCalendarGrantleePlugin::nodeFactories([[maybe_unused]] const QString &name)
 {
-    Q_UNUSED(name)
     QHash<QString, KTextTemplate::AbstractNodeFactory *> nodeFactories;
     nodeFactories[QStringLiteral("icon")] = new IconTag();
 
     return nodeFactories;
 }
-QHash<QString, KTextTemplate::Filter *> KCalendarGrantleePlugin::filters(const QString &name)
+QHash<QString, KTextTemplate::Filter *> KCalendarGrantleePlugin::filters([[maybe_unused]] const QString &name)
 {
-    Q_UNUSED(name)
     QHash<QString, KTextTemplate::Filter *> filters;
     filters[QStringLiteral("kdate")] = new KDateFilter();
     filters[QStringLiteral("ktime")] = new KTimeFilter();
