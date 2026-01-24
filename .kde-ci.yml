@@ -15,3 +15,4 @@ Options:
  allow-failing-tests-on: ['Windows']
  tests-run-in-parallel: True
  cmake-options: '-DWARNINGS_AS_ERRORS=ON'
+ enable-lsan: True
