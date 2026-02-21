@@ -61,10 +61,13 @@ public:
     Q_DECLARE_FLAGS(PasteFlags, PasteFlag)
 
     /*!
+      Constructor of the DndFactory class.
+      \param cal the calendar associated with the factory
      */
     explicit DndFactory(const KCalendarCore::Calendar::Ptr &cal);
 
     /*!
+      Destructor of the DndFactory class.
      */
     ~DndFactory();
 

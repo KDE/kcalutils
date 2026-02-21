@@ -25,22 +25,31 @@ namespace KCalUtils
 namespace ICalDrag
 {
 /*!
-  Mime-type of iCalendar
+  Get the MIME type of iCalendar.
+  \return the MIME type string for iCalendar
 */
 [[nodiscard]] KCALUTILS_EXPORT QString mimeType();
 
 /*!
-  Sets the iCalendar representation as data of the drag object
+  Set the iCalendar representation as data of the MIME data object.
+  \param e the mime data object to populate
+  \param cal the calendar to serialize into the mime data
+  \return true if the operation was successful, false otherwise
 */
 KCALUTILS_EXPORT bool populateMimeData(QMimeData *e, const KCalendarCore::Calendar::Ptr &cal);
 
 /*!
-  Return, if drag&drop object can be decode to iCalendar.
+  Check if drag&drop object can be decoded to iCalendar.
+  \param md the mime data to check
+  \return true if the mime data can be decoded as iCalendar, false otherwise
 */
 [[nodiscard]] KCALUTILS_EXPORT bool canDecode(const QMimeData *);
 
 /*!
-  Decode drag&drop object to iCalendar component \a cal.
+  Decode drag&drop object from mime data to iCalendar component.
+  \param e the mime data to decode
+  \param cal the calendar to load the decoded data into
+  \return true if decoding was successful, false otherwise
 */
 [[nodiscard]] KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalendarCore::Calendar::Ptr &cal);
 }

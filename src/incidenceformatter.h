@@ -42,18 +42,29 @@ class KCALUTILS_EXPORT InvitationFormatterHelper
 {
 public:
     /*!
+      Constructor of the InvitationFormatterHelper class.
      */
     InvitationFormatterHelper();
     /*!
+      Destructor of the InvitationFormatterHelper class.
      */
     virtual ~InvitationFormatterHelper();
     /*!
+      Generate a URL link for the specified ID.
+      \param id the identifier for which to generate the link
+      \return the generated link URL
      */
     [[nodiscard]] virtual QString generateLinkURL(const QString &id);
     /*!
+      Make a formatted link with the specified ID and text.
+      \param id the identifier for the link
+      \param text the text to display for the link
+      \return the formatted link
      */
     [[nodiscard]] virtual QString makeLink(const QString &id, const QString &text);
     /*!
+      Get the calendar associated with this formatter helper.
+      \return a pointer to the calendar
      */
     [[nodiscard]] virtual KCalendarCore::Calendar::Ptr calendar() const;
 
@@ -118,7 +129,8 @@ KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KC
   Create a QString representation of an Incidence in format suitable for
   including inside a mail message.
   All dates and times are converted to local time for display.
-  \a incidence is a pointer to the Incidence to be formatted.
+  \param incidence a pointer to the Incidence to be formatted
+  \return the formatted string representation of the incidence
 */
 KCALUTILS_EXPORT QString mailBodyStr(const KCalendarCore::IncidenceBase::Ptr &incidence);
 
@@ -126,10 +138,11 @@ KCALUTILS_EXPORT QString mailBodyStr(const KCalendarCore::IncidenceBase::Ptr &in
   Deliver an HTML formatted string displaying an invitation.
   Use the time zone from mCalendar.
 
-  \a invitation a QString containing a string representation of a calendar Incidence
+  \param invitation a QString containing a string representation of a calendar Incidence
   which will be interpreted as an invitation.
-  \a calendar is a pointer to the Calendar that owns the invitation.
-  \a helper is a pointer to an InvitationFormatterHelper.
+  \param calendar a pointer to the Calendar that owns the invitation.
+  \param helper a pointer to an InvitationFormatterHelper.
+  \return the formatted HTML invitation string
 
   \since 5.23.0
 */
@@ -141,11 +154,12 @@ KCALUTILS_EXPORT QString formatICalInvitation(const QString &invitation, const K
   have HTML formatting cleaned.
   Use the time zone from calendar.
 
-  \a invitation a QString containing a string representation of a calendar Incidence
+  \param invitation a QString containing a string representation of a calendar Incidence
   which will be interpreted as an invitation.
-  \a calendar is a pointer to the Calendar that owns the invitation.
-  \a helper is a pointer to an InvitationFormatterHelper.
-  \a sender is a QString containing the email address of the person sending the invitation.
+  \param calendar a pointer to the Calendar that owns the invitation.
+  \param helper a pointer to an InvitationFormatterHelper.
+  \param sender a QString containing the email address of the person sending the invitation.
+  \return the formatted HTML invitation string
 
   \since 5.23.0
 */
@@ -156,25 +170,26 @@ KCALUTILS_EXPORT QString formatICalInvitationNoHtml(const QString &invitation,
 
 /*!
   Build a pretty QString representation of an Incidence's recurrence info.
-  \a incidence is a pointer to the Incidence whose recurrence info
-  is to be formatted.
+  \param incidence a pointer to the Incidence whose recurrence info is to be formatted
+  \return the formatted recurrence string
 */
 KCALUTILS_EXPORT QString recurrenceString(const KCalendarCore::Incidence::Ptr &incidence);
 
 /*!
-  Returns a reminder string computed for the specified Incidence.
+  Returns a reminder string list computed for the specified Incidence.
   Each item of the returning QStringList corresponds to a string
-  representation of an reminder belonging to this incidence.
-  \a incidence is a pointer to the Incidence.
-  \a shortfmt if false, a short version of each reminder is printed;
-  else a longer version of each reminder is printed.
+  representation of a reminder belonging to this incidence.
+  \param incidence a pointer to the Incidence
+  \param shortfmt if true, a short version of each reminder is printed; else a longer version
+  \return a list of formatted reminder strings
 */
 KCALUTILS_EXPORT QStringList reminderStringList(const KCalendarCore::Incidence::Ptr &incidence, bool shortfmt = true);
 
 /*!
   Build a QString time representation of a QTime object.
-  \a time The time to be formatted.
-  \a shortfmt If true, display info in short format.
+  \param time the time to be formatted
+  \param shortfmt if true, display info in short format; else use long format
+  \return the formatted time string
   \sa dateToString(), dateTimeToString().
 */
 KCALUTILS_EXPORT QString timeToString(QTime time, bool shortfmt = true);
@@ -182,35 +197,45 @@ KCALUTILS_EXPORT QString timeToString(QTime time, bool shortfmt = true);
 /*!
   Build a QString date representation of a QDate object.
   All dates and times are converted to local time for display.
-  \a date The date to be formatted.
-  \a shortfmt If true, display info in short format.
-  \sa dateToString(), dateTimeToString().
+  \param date the date to be formatted
+  \param shortfmt if true, display info in short format; else use long format
+  \return the formatted date string
+  \sa timeToString(), dateTimeToString().
 */
 KCALUTILS_EXPORT QString dateToString(QDate date, bool shortfmt = true);
 
+/*!
+  Format the start and end dates/times of an incidence.
+  \param start the start date/time
+  \param end the end date/time
+  \param isAllDay if true, the incidence is all-day; otherwise time information is included
+  \return the formatted start and end string
+*/
 KCALUTILS_EXPORT QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllDay);
 
 /*!
   Build a QString date/time representation of a QDateTime object.
   All dates and times are converted to local time for display.
-  \a date The date to be formatted.
-  \a dateOnly If true, don't print the time fields; print the date fields only.
-  \a shortfmt If true, display info in short format.
+  \param date the date/time to be formatted
+  \param dateOnly if true, don't print the time fields; print the date fields only
+  \param shortfmt if true, display info in short format; else use long format
+  \return the formatted date/time string
   \sa dateToString(), timeToString().
 */
 KCALUTILS_EXPORT QString dateTimeToString(const QDateTime &date, bool dateOnly = false, bool shortfmt = true);
 
 /*!
   Returns a Calendar Resource label name for the specified Incidence.
-  \a calendar is a pointer to the Calendar.
-  \a incidence is a pointer to the Incidence.
+  \param calendar a pointer to the Calendar
+  \param incidence a pointer to the Incidence
+  \return the resource string
 */
 KCALUTILS_EXPORT QString resourceString(const KCalendarCore::Calendar::Ptr &calendar, const KCalendarCore::Incidence::Ptr &incidence);
 
 /*!
   Returns a duration string computed for the specified Incidence.
-  Only makes sense for Events and Todos.
-  \a incidence is a pointer to the Incidence.
+  \param incidence a pointer to the Incidence
+  \return the duration string
 */
 KCALUTILS_EXPORT QString durationString(const KCalendarCore::Incidence::Ptr &incidence);
 

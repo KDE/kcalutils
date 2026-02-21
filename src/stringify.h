@@ -40,6 +40,11 @@ namespace KCalUtils
 */
 namespace Stringify
 {
+/*!
+  Get a translated string representation of an Incidence type.
+  \param type the IncidenceType to convert to string
+  \return the localized string representation of the incidence type
+*/
 [[nodiscard]] KCALUTILS_EXPORT QString incidenceType(KCalendarCore::Incidence::IncidenceType type);
 
 /*!
@@ -54,8 +59,23 @@ namespace Stringify
 */
 [[nodiscard]] KCALUTILS_EXPORT QStringList incidenceSecrecyList();
 
+/*!
+  Get a translated string representation of an Incidence status.
+  \param status the Incidence::Status to convert to string
+  \return the localized string representation of the incidence status
+*/
 [[nodiscard]] KCALUTILS_EXPORT QString incidenceStatus(KCalendarCore::Incidence::Status status);
+/*!
+  Get a translated string representation of an Incidence status.
+  \param incidence the Incidence from which to get the status
+  \return the localized string representation of the incidence status
+*/
 [[nodiscard]] KCALUTILS_EXPORT QString incidenceStatus(const KCalendarCore::Incidence::Ptr &incidence);
+/*!
+  Get a translated string representation of a ScheduleMessage status.
+  \param status the ScheduleMessage::Status to convert to string
+  \return the localized string representation of the schedule message status
+*/
 [[nodiscard]] KCALUTILS_EXPORT QString scheduleMessageStatus(KCalendarCore::ScheduleMessage::Status status);
 
 /*!
@@ -66,6 +86,11 @@ namespace Stringify
 [[nodiscard]] KCALUTILS_EXPORT QString todoCompletedDateTime(const KCalendarCore::Todo::Ptr &todo, bool shortfmt = false);
 
 [[nodiscard]] KCALUTILS_EXPORT QString attendeeRole(KCalendarCore::Attendee::Role role);
+/*!
+  Get a translated string representation of an Attendee participation status.
+  \param status the Attendee::PartStat to convert to string
+  \return the localized string representation of the attendee status
+*/
 [[nodiscard]] KCALUTILS_EXPORT QString attendeeStatus(KCalendarCore::Attendee::PartStat status);
 
 /*!
