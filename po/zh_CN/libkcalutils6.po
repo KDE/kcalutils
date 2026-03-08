@@ -997,7 +997,7 @@ msgid ""
 "Text of the journal:\n"
 "%1\n"
 msgstr ""
-"日记文字：\n"
+"日志文本：\n"
 "%1\n"
 
 #: src/incidenceformatter.cpp:2938 src/incidenceformatter.cpp:3012
