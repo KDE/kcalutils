@@ -244,10 +244,10 @@ QString Stringify::scheduleMessageStatus(ScheduleMessage::Status status)
 
 QString Stringify::tzUTCOffsetStr(const QTimeZone &tz)
 {
-    int currentOffset = tz.offsetFromUtc(QDateTime::currentDateTimeUtc());
-    int absOffset = qAbs(currentOffset);
-    int utcOffsetHrs = absOffset / 3600; // in hours
-    int utcOffsetMins = (absOffset % 3600) / 60; // in minutes
+    int const currentOffset = tz.offsetFromUtc(QDateTime::currentDateTimeUtc());
+    int const absOffset = qAbs(currentOffset);
+    int const utcOffsetHrs = absOffset / 3600; // in hours
+    int const utcOffsetMins = (absOffset % 3600) / 60; // in minutes
 
     const QString hrStr = QStringLiteral("%1").arg(utcOffsetHrs, 2, 10, QLatin1Char('0'));
     const QString mnStr = QStringLiteral("%1").arg(utcOffsetMins, 2, 10, QLatin1Char('0'));

@@ -70,11 +70,11 @@ void IncidenceFormatterTest::initTestCase()
 void IncidenceFormatterTest::testRecurrenceString()
 {
     // TEST: A daily recurrence with date exclusions //
-    Event::Ptr e1 = Event::Ptr(new Event());
+    const Event::Ptr e1 = Event::Ptr(new Event());
 
-    QDate day(2010, 10, 3);
-    QTime tim(12, 0, 0);
-    QDateTime kdt(day, tim, QTimeZone::utc());
+    const QDate day(2010, 10, 3);
+    const QTime tim(12, 0, 0);
+    const QDateTime kdt(day, tim, QTimeZone::utc());
     e1->setDtStart(kdt);
     e1->setDtEnd(kdt.addSecs(60 * 60)); // 1hr event
 
@@ -92,15 +92,15 @@ void IncidenceFormatterTest::testRecurrenceString()
     QCOMPARE(IncidenceFormatter::recurrenceString(e1), i18n("Recurs every 2 days until %1", endDateStr));
 
     r1->addExDate(kdt.addDays(1).date());
-    QString exDateStr = QLocale().toString(kdt.addDays(1).date(), QLocale::ShortFormat);
+    const QString exDateStr = QLocale().toString(kdt.addDays(1).date(), QLocale::ShortFormat);
     QCOMPARE(IncidenceFormatter::recurrenceString(e1), i18n("Recurs every 2 days until %1 (excluding %2)", endDateStr, exDateStr));
 
     r1->addExDate(kdt.addDays(3).date());
-    QString exDateStr2 = QLocale().toString(kdt.addDays(3).date(), QLocale::ShortFormat);
+    const QString exDateStr2 = QLocale().toString(kdt.addDays(3).date(), QLocale::ShortFormat);
     QCOMPARE(IncidenceFormatter::recurrenceString(e1), i18n("Recurs every 2 days until %1 (excluding %2,%3)", endDateStr, exDateStr, exDateStr2));
 
     // TEST: An daily recurrence, with datetime exclusions //
-    Event::Ptr e2 = Event::Ptr(new Event());
+    const Event::Ptr e2 = Event::Ptr(new Event());
     e2->setDtStart(kdt);
     e2->setDtEnd(kdt.addSecs(60 * 60)); // 1hr event
 
@@ -121,7 +121,7 @@ void IncidenceFormatterTest::testRecurrenceString()
     QCOMPARE(IncidenceFormatter::recurrenceString(e2), i18n("Recurs every 2 days until %1 (excluding %2,%3)", endDateStr, exDateStr, exDateStr2));
 
     // TEST: An hourly recurrence, with exclusions //
-    Event::Ptr e3 = Event::Ptr(new Event());
+    const Event::Ptr e3 = Event::Ptr(new Event());
     e3->setDtStart(kdt);
     e3->setDtEnd(kdt.addSecs(60 * 60)); // 1hr event
 
@@ -137,11 +137,11 @@ void IncidenceFormatterTest::testRecurrenceString()
     QCOMPARE(IncidenceFormatter::recurrenceString(e3), i18n("Recurs every 2 hours until %1", endDateStr));
 
     r3->addExDateTime(kdt.addSecs(1 * 60 * 60));
-    QString hourStr = QLocale().toString(QTime(13, 0), QLocale::ShortFormat);
+    const QString hourStr = QLocale().toString(QTime(13, 0), QLocale::ShortFormat);
     QCOMPARE(IncidenceFormatter::recurrenceString(e3), i18n("Recurs every 2 hours until %1 (excluding %2)", endDateStr, hourStr));
 
     r3->addExDateTime(kdt.addSecs(3 * 60 * 60));
-    QString hourStr2 = QLocale().toString(QTime(15, 0), QLocale::ShortFormat);
+    const QString hourStr2 = QLocale().toString(QTime(15, 0), QLocale::ShortFormat);
     QCOMPARE(IncidenceFormatter::recurrenceString(e3), i18n("Recurs every 2 hours until %1 (excluding %2,%3)", endDateStr, hourStr, hourStr2));
 
     //  qDebug() << "recurrenceString=" << IncidenceFormatter::recurrenceString( e3 );
@@ -161,14 +161,14 @@ KCalendarCore::Calendar::Ptr IncidenceFormatterTest::loadCalendar(const QString 
 
 bool IncidenceFormatterTest::validateHtml(const QString &name, const QString &_html)
 {
-    QString html = QStringLiteral(
-                       "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
-                       "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
-                       "  <head>\n"
-                       "    <title></title>\n"
-                       "    <style></style>\n"
-                       "  </head>\n"
-                       "<body>")
+    const QString html = QStringLiteral(
+                             "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
+                             "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+                             "  <head>\n"
+                             "    <title></title>\n"
+                             "    <style></style>\n"
+                             "  </head>\n"
+                             "<body>")
         + _html + QStringLiteral("</body>\n</html>");
 
     const QString outFileName = QStringLiteral(TEST_DATA_DIR "/%1.out").arg(name);
@@ -284,9 +284,9 @@ void IncidenceFormatterTest::testDisplayViewFormatEvent_data()
 
 void IncidenceFormatterTest::testDisplayViewFormatEvent()
 {
-    QFETCH(QString, name);
+    QFETCH(const QString, name);
 
-    KCalendarCore::Calendar::Ptr calendar = loadCalendar(name);
+    const KCalendarCore::Calendar::Ptr calendar = loadCalendar(name);
     QVERIFY(calendar);
 
     const auto events = calendar->events();
@@ -310,9 +310,9 @@ void IncidenceFormatterTest::testDisplayViewFormatTodo_data()
 
 void IncidenceFormatterTest::testDisplayViewFormatTodo()
 {
-    QFETCH(QString, name);
+    QFETCH(const QString, name);
 
-    KCalendarCore::Calendar::Ptr calendar = loadCalendar(name);
+    const KCalendarCore::Calendar::Ptr calendar = loadCalendar(name);
     QVERIFY(calendar);
 
     const auto todos = calendar->todos();
@@ -335,9 +335,9 @@ void IncidenceFormatterTest::testDisplayViewFormatJournal_data()
 
 void IncidenceFormatterTest::testDisplayViewFormatJournal()
 {
-    QFETCH(QString, name);
+    QFETCH(const QString, name);
 
-    KCalendarCore::Calendar::Ptr calendar = loadCalendar(name);
+    const KCalendarCore::Calendar::Ptr calendar = loadCalendar(name);
     QVERIFY(calendar);
 
     const auto journals = calendar->journals();
@@ -360,9 +360,9 @@ void IncidenceFormatterTest::testDisplayViewFreeBusy_data()
 
 void IncidenceFormatterTest::testDisplayViewFreeBusy()
 {
-    QFETCH(QString, name);
+    QFETCH(const QString, name);
 
-    KCalendarCore::Calendar::Ptr calendar = loadCalendar(name);
+    const KCalendarCore::Calendar::Ptr calendar = loadCalendar(name);
     QVERIFY(calendar);
 
     QFile file(QStringLiteral(TEST_DATA_DIR "/%1.ical").arg(name));
@@ -370,7 +370,7 @@ void IncidenceFormatterTest::testDisplayViewFreeBusy()
     const QByteArray fbData = file.readAll();
 
     KCalendarCore::ICalFormat format;
-    KCalendarCore::FreeBusy::Ptr freeBusy = format.parseFreeBusy(QString::fromUtf8(fbData));
+    const KCalendarCore::FreeBusy::Ptr freeBusy = format.parseFreeBusy(QString::fromUtf8(fbData));
     QVERIFY(freeBusy);
 
     const QString html = IncidenceFormatter::extensiveDisplayStr(calendar, freeBusy);
@@ -418,9 +418,9 @@ void IncidenceFormatterTest::testFormatIcalInvitation_data()
 
 void IncidenceFormatterTest::testFormatIcalInvitation()
 {
-    QFETCH(QString, name);
+    QFETCH(const QString, name);
 
-    KCalendarCore::MemoryCalendar::Ptr calendar(new KCalendarCore::MemoryCalendar(QTimeZone::utc()));
+    const KCalendarCore::MemoryCalendar::Ptr calendar(new KCalendarCore::MemoryCalendar(QTimeZone::utc()));
     InvitationFormatterHelper helper;
 
     QFile eventFile(QStringLiteral(TEST_DATA_DIR "/%1.ical").arg(name));

@@ -23,11 +23,11 @@ using namespace KCalUtils;
 
 void DndFactoryTest::testPasteAllDayEvent()
 {
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
+    const MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
     DndFactory factory(calendar);
 
-    Event::Ptr allDayEvent(new Event());
+    const Event::Ptr allDayEvent(new Event());
     allDayEvent->setSummary(QStringLiteral("Summary 1"));
     allDayEvent->setDtStart(QDateTime(QDate(2010, 8, 8), {}));
     allDayEvent->setDtEnd(QDateTime(QDate(2010, 8, 9), {}));
@@ -53,7 +53,7 @@ void DndFactoryTest::testPasteAllDayEvent()
     // we passed an invalid KDateTime to pasteIncidences() so dates don't change.
     QVERIFY(incidence->allDay() == originalIsAllDay);
 
-    Event::Ptr pastedEvent = incidence.staticCast<Event>();
+    const Event::Ptr pastedEvent = incidence.staticCast<Event>();
 
     QCOMPARE(pastedEvent->dtStart(), allDayEvent->dtStart());
     QCOMPARE(pastedEvent->dtEnd(), allDayEvent->dtEnd());
@@ -62,11 +62,11 @@ void DndFactoryTest::testPasteAllDayEvent()
 
 void DndFactoryTest::testPasteAllDayEvent2()
 {
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
+    const MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
     DndFactory factory(calendar);
 
-    Event::Ptr allDayEvent(new Event());
+    const Event::Ptr allDayEvent(new Event());
     allDayEvent->setSummary(QStringLiteral("Summary 2"));
     allDayEvent->setDtStart(QDateTime(QDate(2010, 8, 8), {}));
     allDayEvent->setDtEnd(QDateTime(QDate(2010, 8, 9), {}));
@@ -96,7 +96,7 @@ void DndFactoryTest::testPasteAllDayEvent2()
     // the new dateTime didn't have time component
     QVERIFY(incidence->allDay());
 
-    Event::Ptr pastedEvent = incidence.staticCast<Event>();
+    const Event::Ptr pastedEvent = incidence.staticCast<Event>();
     const uint newLength = pastedEvent->dtStart().secsTo(pastedEvent->dtEnd());
     /*
         qDebug() << "originalLength was " << originalLength << "; and newLength is "
@@ -112,11 +112,11 @@ void DndFactoryTest::testPasteAllDayEvent2()
 
 void DndFactoryTest::testPasteTodo()
 {
-    MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
+    const MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
     DndFactory factory(calendar);
 
-    Todo::Ptr todo(new Todo());
+    const Todo::Ptr todo(new Todo());
     todo->setSummary(QStringLiteral("Summary 1"));
     todo->setDtDue(QDateTime(QDate(2010, 8, 9), {}));
 
@@ -137,7 +137,7 @@ void DndFactoryTest::testPasteTodo()
     // check if a new uid was generated.
     QVERIFY(incidence->uid() != todo->uid());
 
-    Todo::Ptr pastedTodo = incidence.staticCast<Todo>();
+    const Todo::Ptr pastedTodo = incidence.staticCast<Todo>();
 
     QCOMPARE(newDateTime, pastedTodo->dtDue());
     QCOMPARE(todo->summary(), pastedTodo->summary());

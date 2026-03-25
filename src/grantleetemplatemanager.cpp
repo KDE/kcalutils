@@ -75,11 +75,11 @@ KTextTemplate::Context GrantleeTemplateManager::createContext(const QVariantHash
 
 QString GrantleeTemplateManager::errorTemplate(const QString &reason, const QString &origTemplateName, const KTextTemplate::Template &failedTemplate) const
 {
-    KTextTemplate::Template tpl = mEngine->newTemplate(QStringLiteral("<h1>{{ error }}</h1>\n"
-                                                                      "<b>%1:</b> {{ templateName }}<br>\n"
-                                                                      "<b>%2:</b> {{ errorMessage }}")
-                                                           .arg(i18n("Template"), i18n("Error message")),
-                                                       QStringLiteral("TemplateError"));
+    KTextTemplate::Template const tpl = mEngine->newTemplate(QStringLiteral("<h1>{{ error }}</h1>\n"
+                                                                            "<b>%1:</b> {{ templateName }}<br>\n"
+                                                                            "<b>%2:</b> {{ errorMessage }}")
+                                                                 .arg(i18n("Template"), i18n("Error message")),
+                                                             QStringLiteral("TemplateError"));
 
     KTextTemplate::Context ctx = createContext();
     ctx.insert(QStringLiteral("error"), reason);
@@ -94,14 +94,11 @@ QString GrantleeTemplateManager::render(const QString &templateName, const QVari
         qWarning() << "Cannot load template" << templateName << ", please check your installation";
         return QString();
     }
-    KTextTemplate::Template tpl = mLoader->loadByName(templateName, mEngine);
+    KTextTemplate::Template const tpl = mLoader->loadByName(templateName, mEngine);
     if (tpl->error()) {
         return errorTemplate(i18n("Template parsing error"), templateName, tpl);
     }
     KTextTemplate::Context ctx = createContext(data);
     const QString result = tpl->render(&ctx);
-    if (tpl->error()) {
-        return errorTemplate(i18n("Template rendering error"), templateName, tpl);
-    }
     return result;
 }

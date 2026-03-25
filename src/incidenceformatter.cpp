@@ -77,14 +77,14 @@ static QVariantHash inviteButton(const QString &id, const QString &text, const Q
 
 static QString htmlAddTag(const QString &tag, const QString &text)
 {
-    int numLineBreaks = text.count(u'\n');
+    int const numLineBreaks = text.count(u'\n');
     const QString str = u'<' + tag + u'>';
     QString tmpText = text;
     QString tmpStr = str;
     if (numLineBreaks >= 0) {
         if (numLineBreaks > 0) {
             for (int i = 0; i <= numLineBreaks; ++i) {
-                int pos = tmpText.indexOf(u'\n');
+                int const pos = tmpText.indexOf(u'\n');
                 QString tmp = tmpText.left(pos);
                 tmpText = tmpText.right(tmpText.length() - pos - 1);
                 tmpStr += tmp + QLatin1StringView("<br>");
@@ -242,7 +242,7 @@ struct IncidenceNameAndUid {
 [[nodiscard]] static QVariantHash displayViewFormatPerson(const QString &email, const QString &name, const QString &uid, const QString &iconName)
 {
     // Search for new print name or uid, if needed.
-    IncidenceNameAndUid s = searchNameAndUid(email, name, uid);
+    IncidenceNameAndUid const s = searchNameAndUid(email, name, uid);
     const QString printName = s.name;
     const QString printUid = s.uid;
 
@@ -254,7 +254,7 @@ struct IncidenceNameAndUid {
 
     // Make the mailto link
     if (!email.isEmpty()) {
-        Person person(name, email);
+        Person const person(name, email);
         QString path = person.fullName().simplified();
         if (path.isEmpty() || path.startsWith(u'"')) {
             path = email;
@@ -590,7 +590,7 @@ displayViewFormatFreeBusy([[maybe_unused]] const Calendar::Ptr &calendar, [[mayb
     fbData[QStringLiteral("start")] = fb->dtStart().toLocalTime().date();
     fbData[QStringLiteral("end")] = fb->dtEnd().toLocalTime().date();
 
-    Period::List periods = fb->busyPeriods();
+    Period::List const periods = fb->busyPeriods();
     QVariantList periodsData;
     periodsData.reserve(periods.size());
     for (auto it = periods.cbegin(), end = periods.cend(); it != end; ++it) {
@@ -740,9 +740,9 @@ QString IncidenceFormatter::extensiveDisplayStr(const QString &sourceName, const
 //@cond PRIVATE
 static QString cleanHtml(const QString &html)
 {
-    static QRegularExpression rx = QRegularExpression(QStringLiteral("<body[^>]*>(.*)</body>"), QRegularExpression::CaseInsensitiveOption);
-    static QRegularExpression rx2 = QRegularExpression(QStringLiteral("<[^>]*>"));
-    QRegularExpressionMatch match = rx.match(html);
+    static QRegularExpression const rx = QRegularExpression(QStringLiteral("<body[^>]*>(.*)</body>"), QRegularExpression::CaseInsensitiveOption);
+    static QRegularExpression const rx2 = QRegularExpression(QStringLiteral("<[^>]*>"));
+    QRegularExpressionMatch const match = rx.match(html);
     if (match.hasMatch()) {
         QString body = match.captured(1);
         return body.remove(rx2).trimmed().toHtmlEscaped();
@@ -883,7 +883,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
     // use a heuristic to determine if a response is requested.
 
     bool rsvp = true; // better send superfluously than not at all
-    Attendee::List attendees = incidence->attendees();
+    Attendee::List const attendees = incidence->attendees();
     Attendee::List::ConstIterator it;
     const Attendee::List::ConstIterator end(attendees.constEnd());
     for (it = attendees.constBegin(); it != end; ++it) {
@@ -1008,7 +1008,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
     startDay.setTime(QTime(0, 0, 0));
     endDay.setTime(QTime(23, 59, 59));
 
-    Event::List matchingEvents = helper->calendar()->events(startDay.date(), endDay.date(), QTimeZone::systemTimeZone());
+    Event::List const matchingEvents = helper->calendar()->events(startDay.date(), endDay.date(), QTimeZone::systemTimeZone());
     if (matchingEvents.isEmpty()) {
         return QVariantList();
     }
@@ -1306,7 +1306,7 @@ invitationHeaderEvent(const Event::Ptr &event, const Incidence::Ptr &existingInc
         return i18n("This invitation has been published.");
     case iTIPRequest:
         if (existingIncidence && event->revision() > 0) {
-            QString orgStr = organizerName(event, sender);
+            QString const orgStr = organizerName(event, sender);
             if (senderIsOrganizer(event, sender)) {
                 return i18n("This invitation has been updated by the organizer %1.", orgStr);
             } else {
@@ -1316,7 +1316,7 @@ invitationHeaderEvent(const Event::Ptr &event, const Incidence::Ptr &existingInc
         if (iamOrganizer(event)) {
             return i18n("I created this invitation.");
         } else {
-            QString orgStr = organizerName(event, sender);
+            QString const orgStr = organizerName(event, sender);
             if (senderIsOrganizer(event, sender)) {
                 return i18n("You received an invitation from %1.", orgStr);
             } else {
@@ -1347,7 +1347,7 @@ invitationHeaderEvent(const Event::Ptr &event, const Incidence::Ptr &existingInc
             qCDebug(KCALUTILS_LOG) << "Warning: attendeecount in the reply should be 1"
                                    << "but is" << attendees.count();
         }
-        QString attendeeName = firstAttendeeName(event, sender);
+        QString const attendeeName = firstAttendeeName(event, sender);
 
         QString delegatorName;
         QString dummyName;
@@ -1412,7 +1412,7 @@ invitationHeaderEvent(const Event::Ptr &event, const Incidence::Ptr &existingInc
         return i18n("%1 makes this counter proposal.", firstAttendeeName(event, i18n("Sender")));
 
     case iTIPDeclineCounter: {
-        QString orgStr = organizerName(event, sender);
+        QString const orgStr = organizerName(event, sender);
         if (senderIsOrganizer(event, sender)) {
             return i18n("%1 declines your counter proposal.", orgStr);
         } else {
@@ -1439,7 +1439,7 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
         return i18n("This to-do has been published.");
     case iTIPRequest:
         if (existingIncidence && todo->revision() > 0) {
-            QString orgStr = organizerName(todo, sender);
+            QString const orgStr = organizerName(todo, sender);
             if (senderIsOrganizer(todo, sender)) {
                 return i18n("This to-do has been updated by the organizer %1.", orgStr);
             } else {
@@ -1449,7 +1449,7 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
             if (iamOrganizer(todo)) {
                 return i18n("I created this to-do.");
             } else {
-                QString orgStr = organizerName(todo, sender);
+                QString const orgStr = organizerName(todo, sender);
                 if (senderIsOrganizer(todo, sender)) {
                     return i18n("You have been assigned this to-do by %1.", orgStr);
                 } else {
@@ -1481,7 +1481,7 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
             qCDebug(KCALUTILS_LOG) << "Warning: attendeecount in the reply should be 1."
                                    << "but is" << attendees.count();
         }
-        QString attendeeName = firstAttendeeName(todo, sender);
+        QString const attendeeName = firstAttendeeName(todo, sender);
 
         QString delegatorName;
         QString dummyName;
@@ -1746,7 +1746,7 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
     const Attachment::List lstAttachments = incidence->attachments();
     for (const Attachment &a : lstAttachments) {
         QVariantHash attachment;
-        QMimeDatabase mimeDb;
+        QMimeDatabase const mimeDb;
         auto mimeType = mimeDb.mimeTypeForName(a.mimeType());
         attachment[QStringLiteral("icon")] = (mimeType.isValid() ? mimeType.iconName() : QStringLiteral("application-octet-stream"));
         attachment[QStringLiteral("name")] = a.label();
@@ -1824,21 +1824,21 @@ public:
 protected:
     bool visit(const Event::Ptr &event) override
     {
-        Event::Ptr oldevent = mExistingIncidence.dynamicCast<Event>();
+        Event::Ptr const oldevent = mExistingIncidence.dynamicCast<Event>();
         mResult = invitationDetailsEvent(mHelper, event, oldevent, mMessage, mNoHtmlMode);
         return !mResult.isEmpty();
     }
 
     bool visit(const Todo::Ptr &todo) override
     {
-        Todo::Ptr oldtodo = mExistingIncidence.dynamicCast<Todo>();
+        Todo::Ptr const oldtodo = mExistingIncidence.dynamicCast<Todo>();
         mResult = invitationDetailsTodo(todo, oldtodo, mMessage, mNoHtmlMode);
         return !mResult.isEmpty();
     }
 
     bool visit(const Journal::Ptr &journal) override
     {
-        Journal::Ptr oldjournal = mExistingIncidence.dynamicCast<Journal>();
+        Journal::Ptr const oldjournal = mExistingIncidence.dynamicCast<Journal>();
         mResult = invitationDetailsJournal(journal, oldjournal, mNoHtmlMode);
         return !mResult.isEmpty();
     }
@@ -2040,7 +2040,7 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
     ICalFormat format;
     // parseScheduleMessage takes the tz from the calendar,
     // no need to set it manually here for the format!
-    ScheduleMessage::Ptr msg = format.parseScheduleMessage(mCalendar, invitation);
+    ScheduleMessage::Ptr const msg = format.parseScheduleMessage(mCalendar, invitation);
 
     if (!msg) {
         qCDebug(KCALUTILS_LOG) << "Failed to parse the scheduling message";
@@ -2049,7 +2049,7 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
         return QString();
     }
 
-    IncidenceBase::Ptr incBase = msg->event();
+    IncidenceBase::Ptr const incBase = msg->event();
 
     incBase->shiftTimes(mCalendar->timeZone(), QTimeZone::systemTimeZone());
 
@@ -2074,7 +2074,7 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
         }
     }
 
-    Incidence::Ptr inc = incBase.staticCast<Incidence>(); // the incidence in the invitation email
+    Incidence::Ptr const inc = incBase.staticCast<Incidence>(); // the incidence in the invitation email
 
     // If the IncidenceBase is a FreeBusy, then we cannot access the revision number in
     // the static-casted Incidence; so for sake of nothing better use 0 as the revision.
@@ -2112,7 +2112,7 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
     incidence[QStringLiteral("head")] = headerVisitor.result();
 
     // determine if I am the organizer for this invitation
-    bool myInc = iamOrganizer(inc);
+    bool const myInc = iamOrganizer(inc);
 
     // determine if the invitation response has already been recorded
     bool rsvpRec = false;
@@ -2553,7 +2553,7 @@ bool IncidenceFormatter::ToolTipVisitor::visit(const FreeBusy::Ptr &fb)
 
 [[nodiscard]] static QString tooltipFormatAttendeeRoleList(const Incidence::Ptr &incidence, Attendee::Role role, bool showStatus)
 {
-    int maxNumAtts = 8; // maximum number of people to print per attendee role
+    int const maxNumAtts = 8; // maximum number of people to print per attendee role
     const QString etc = i18nc("ellipsis", "...");
 
     int i = 0;
@@ -2665,7 +2665,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
         tmp += incidence->richLocation();
     }
 
-    QString durStr = durationString(incidence);
+    QString const durStr = durationString(incidence);
     if (!durStr.isEmpty()) {
         tmp += QLatin1StringView("<br>");
         tmp += QLatin1StringView("<i>") + i18n("Duration:") + QLatin1StringView("</i>") + QLatin1StringView("&nbsp;");
@@ -2687,7 +2687,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
     if (!incidence->description().isEmpty()) {
         QString desc(incidence->description());
         if (!incidence->descriptionIsRich()) {
-            int maxDescLen = 120; // maximum description chars to print (before ellipsis)
+            int const maxDescLen = 120; // maximum description chars to print (before ellipsis)
             if (desc.length() > maxDescLen) {
                 desc = desc.left(maxDescLen) + i18nc("ellipsis", "...");
             }
@@ -2723,7 +2723,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
         tmp += attendees;
     }
 
-    int categoryCount = incidence->categories().count();
+    int const categoryCount = incidence->categories().count();
     if (categoryCount > 0) {
         if (needAnHorizontalLine) {
             tmp += QLatin1StringView("<hr>");
@@ -2803,16 +2803,16 @@ protected:
 bool IncidenceFormatter::MailBodyVisitor::visit(const Event::Ptr &event)
 {
     /* cppcheck-suppress variableScope */
-    QString recurrence[] = {i18nc("no recurrence", "None"),
-                            i18nc("event recurs by minutes", "Minutely"),
-                            i18nc("event recurs by hours", "Hourly"),
-                            i18nc("event recurs by days", "Daily"),
-                            i18nc("event recurs by weeks", "Weekly"),
-                            i18nc("event recurs same position (e.g. first monday) each month", "Monthly Same Position"),
-                            i18nc("event recurs same day each month", "Monthly Same Day"),
-                            i18nc("event recurs same month each year", "Yearly Same Month"),
-                            i18nc("event recurs same day each year", "Yearly Same Day"),
-                            i18nc("event recurs same position (e.g. first monday) each year", "Yearly Same Position")};
+    QString const recurrence[] = {i18nc("no recurrence", "None"),
+                                  i18nc("event recurs by minutes", "Minutely"),
+                                  i18nc("event recurs by hours", "Hourly"),
+                                  i18nc("event recurs by days", "Daily"),
+                                  i18nc("event recurs by weeks", "Weekly"),
+                                  i18nc("event recurs same position (e.g. first monday) each month", "Monthly Same Position"),
+                                  i18nc("event recurs same day each month", "Monthly Same Day"),
+                                  i18nc("event recurs same month each year", "Yearly Same Month"),
+                                  i18nc("event recurs same day each year", "Yearly Same Day"),
+                                  i18nc("event recurs same position (e.g. first monday) each year", "Yearly Same Position")};
 
     mResult = mailBodyIncidence(event);
     mResult += i18n("Start Date: %1\n", dateToString(event->dtStart().toLocalTime().date(), true));
@@ -2826,7 +2826,7 @@ bool IncidenceFormatter::MailBodyVisitor::visit(const Event::Ptr &event)
         mResult += i18n("End Time: %1\n", timeToString(event->dtEnd().toLocalTime().time(), true));
     }
     if (event->recurs()) {
-        Recurrence *recur = event->recurrence();
+        Recurrence const *recur = event->recurrence();
         // TODO: Merge these two to one of the form "Recurs every 3 days"
         mResult += i18n("Recurs: %1\n", recurrence[recur->recurrenceType()]);
         mResult += i18n("Frequency: %1\n", event->recurrence()->frequency());
@@ -2880,7 +2880,7 @@ bool IncidenceFormatter::MailBodyVisitor::visit(const Todo::Ptr &todo)
             mResult += i18n("Due Time: %1\n", timeToString(todo->dtDue().toLocalTime().time(), true));
         }
     }
-    QString details = todo->richDescription();
+    QString const details = todo->richDescription();
     if (!details.isEmpty()) {
         mResult += i18n("Details:\n%1\n", details);
     }
@@ -3011,10 +3011,10 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
 
     const int weekStart = QLocale().firstDayOfWeek();
 
-    Recurrence *recur = incidence->recurrence();
+    Recurrence const *recur = incidence->recurrence();
 
     QString recurStr;
-    static QString noRecurrence = i18n("No recurrence");
+    static QString const noRecurrence = i18n("No recurrence");
     switch (recur->recurrenceType()) {
     case Recurrence::rNone:
         return noRecurrence;
@@ -3084,7 +3084,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
     }
     case Recurrence::rMonthlyPos:
         if (!recur->monthPositions().isEmpty()) {
-            RecurrenceRule::WDayPos rule = recur->monthPositions().at(0);
+            RecurrenceRule::WDayPos const rule = recur->monthPositions().at(0);
             if (recur->duration() != -1) {
                 recurStr = i18ncp(
                     "Recurs every N months on the [2nd|3rd|...]"
@@ -3110,7 +3110,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         break;
     case Recurrence::rMonthlyDay:
         if (!recur->monthDays().isEmpty()) {
-            int days = recur->monthDays().at(0);
+            int const days = recur->monthDays().at(0);
             if (recur->duration() != -1) {
                 recurStr = i18ncp("Recurs monthly on the [1st|2nd|...] day until end-date",
                                   "Recurs monthly on the %2 day until %3",
@@ -3194,7 +3194,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         break;
     case Recurrence::rYearlyPos:
         if (!recur->yearMonths().isEmpty() && !recur->yearPositions().isEmpty()) {
-            RecurrenceRule::WDayPos rule = recur->yearPositions().at(0);
+            RecurrenceRule::WDayPos const rule = recur->yearPositions().at(0);
             if (recur->duration() != -1) {
                 recurStr = i18ncp(
                     "Every N years on the [2nd|3rd|...] weekdayname "
@@ -3233,7 +3233,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
 
     // Now, append the EXDATEs
     const auto exDtList = recur->exDateTimes();
-    static int maxExDates = 7; // only print so many exceptions; after all, this is for tooltips and display purposes
+    static int const maxExDates = 7; // only print so many exceptions; after all, this is for tooltips and display purposes
     int count = 0;
     QStringList seen;
     QStringList exStrList;
@@ -3270,7 +3270,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         }
     }
 
-    DateList exDList = recur->exDates();
+    DateList const exDList = recur->exDates();
     DateList::ConstIterator dl;
     const DateList::ConstIterator dlEnd(exDList.constEnd());
     for (dl = exDList.constBegin(); count < maxExDates && dl != dlEnd; ++dl) {
@@ -3349,19 +3349,19 @@ QString IncidenceFormatter::resourceString([[maybe_unused]] const Calendar::Ptr 
 static QString secs2Duration(qint64 secs)
 {
     QString tmp;
-    qint64 days = secs / 86400;
+    qint64 const days = secs / 86400;
     if (days > 0) {
         tmp += i18np("1 day", "%1 days", days);
         tmp += u' ';
         secs -= (days * 86400);
     }
-    qint64 hours = secs / 3600;
+    qint64 const hours = secs / 3600;
     if (hours > 0) {
         tmp += i18np("1 hour", "%1 hours", hours);
         tmp += u' ';
         secs -= (hours * 3600);
     }
-    qint64 mins = secs / 60;
+    qint64 const mins = secs / 60;
     if (mins > 0) {
         tmp += i18np("1 minute", "%1 minutes", mins);
     }
@@ -3372,7 +3372,7 @@ QString IncidenceFormatter::durationString(const Incidence::Ptr &incidence)
 {
     QString tmp;
     if (incidence->type() == Incidence::TypeEvent) {
-        Event::Ptr event = incidence.staticCast<Event>();
+        Event::Ptr const event = incidence.staticCast<Event>();
         if (event->hasEndDate()) {
             if (!event->allDay()) {
                 tmp = secs2Duration(event->dtStart().secsTo(event->dtEnd()));
@@ -3383,7 +3383,7 @@ QString IncidenceFormatter::durationString(const Incidence::Ptr &incidence)
             tmp = i18n("forever");
         }
     } else if (incidence->type() == Incidence::TypeTodo) {
-        Todo::Ptr todo = incidence.staticCast<Todo>();
+        Todo::Ptr const todo = incidence.staticCast<Todo>();
         if (todo->hasDueDate()) {
             if (todo->hasStartDate()) {
                 if (!todo->allDay()) {
@@ -3403,7 +3403,7 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
     QStringList reminderStringList;
 
     if (incidence) {
-        Alarm::List alarms = incidence->alarms();
+        Alarm::List const alarms = incidence->alarms();
         Alarm::List::ConstIterator it;
         const Alarm::List::ConstIterator end(alarms.constEnd());
         reminderStringList.reserve(alarms.count());
@@ -3447,12 +3447,12 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
                     }
                 } else { // offset is 0
                     if (incidence->type() == Incidence::TypeTodo) {
-                        Todo::Ptr t = incidence.staticCast<Todo>();
+                        Todo::Ptr const t = incidence.staticCast<Todo>();
                         if (t->dtDue().isValid()) {
                             atStr = QLocale().toString(t->dtDue().toLocalTime(), QLocale::ShortFormat);
                         }
                     } else {
-                        Event::Ptr e = incidence.staticCast<Event>();
+                        Event::Ptr const e = incidence.staticCast<Event>();
                         if (e->dtEnd().isValid()) {
                             atStr = QLocale().toString(e->dtEnd().toLocalTime(), QLocale::ShortFormat);
                         }
@@ -3468,8 +3468,8 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
             }
 
             if (alarm->repeatCount() > 0) {
-                QString countStr = i18np("repeats once", "repeats %1 times", alarm->repeatCount());
-                QString intervalStr = i18nc("interval is N days/hours/minutes", "interval is %1", secs2Duration(alarm->snoozeTime().asSeconds()));
+                QString const countStr = i18np("repeats once", "repeats %1 times", alarm->repeatCount());
+                QString const intervalStr = i18nc("interval is N days/hours/minutes", "interval is %1", secs2Duration(alarm->snoozeTime().asSeconds()));
                 QString repeatStr = i18nc("(repeat string, interval string)", "(%1, %2)", countStr, intervalStr);
                 remStr = remStr + u' ' + repeatStr;
             }

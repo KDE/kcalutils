@@ -125,10 +125,10 @@ void TestTodoToolTip::testNonrecurring_data()
 // Test for the values of tool tip fields, or their absence, in non-recurring to-dos.
 void TestTodoToolTip::testNonrecurring()
 {
-    QFETCH(bool, allDay);
-    QFETCH(QDateTime, dtStart);
-    QFETCH(QDateTime, dtDue);
-    QFETCH(QDate, asOfDate);
+    QFETCH(const bool, allDay);
+    QFETCH(const QDateTime, dtStart);
+    QFETCH(const QDateTime, dtDue);
+    QFETCH(const QDate, asOfDate);
 
     auto todo = makeToDo(allDay, !RECURS, dtStart, dtDue);
     auto toolTip = plain(toolTipStr(CAL_NAME, todo, asOfDate, false));
@@ -255,13 +255,13 @@ void TestTodoToolTip::testRecurringOnDate_data()
 // in occurrences of recurring to-dos.
 void TestTodoToolTip::testRecurringOnDate()
 {
-    QFETCH(bool, allDay);
-    QFETCH(QDateTime, dtStart);
-    QFETCH(QDateTime, dtDue);
-    QFETCH(QDate, asOfDate);
-    QFETCH(QString, pct);
-    QFETCH(int, daysOffset);
-    QFETCH(QString, dur);
+    QFETCH(const bool, allDay);
+    QFETCH(const QDateTime, dtStart);
+    QFETCH(const QDateTime, dtDue);
+    QFETCH(const QDate, asOfDate);
+    QFETCH(const QString, pct);
+    QFETCH(const int, daysOffset);
+    QFETCH(const QString, dur);
 
     auto todo = makeToDo(allDay, RECURS, dtStart, dtDue);
     auto toolTip = plain(toolTipStr(CAL_NAME, todo, asOfDate, false));

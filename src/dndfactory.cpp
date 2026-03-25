@@ -81,7 +81,7 @@ public:
 
         if (inc && newDateTime.isValid()) {
             if (inc->type() == Incidence::TypeEvent) {
-                Event::Ptr event = inc.staticCast<Event>();
+                Event::Ptr const event = inc.staticCast<Event>();
                 if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
                     // Set date and preserve time and timezone stuff
                     const QDate date = newDateTime.date();
@@ -101,7 +101,7 @@ public:
                     event->setDtEnd(copyTimeSpec(newDateTime.addSecs(durationInSeconds), event->dtEnd()));
                 }
             } else if (inc->type() == Incidence::TypeTodo) {
-                Todo::Ptr aTodo = inc.staticCast<Todo>();
+                Todo::Ptr const aTodo = inc.staticCast<Todo>();
                 const bool pasteAtDtStart = (pasteOptions & DndFactory::FlagTodosPasteAtDtStart);
                 if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
                     // Set date and preserve time and timezone stuff
@@ -160,8 +160,8 @@ QDrag *DndFactory::createDrag(QObject *owner)
 
 QMimeData *DndFactory::createMimeData(const Incidence::Ptr &incidence)
 {
-    Calendar::Ptr cal(new MemoryCalendar(d->mCalendar->timeZone()));
-    Incidence::Ptr i(incidence->clone());
+    Calendar::Ptr const cal(new MemoryCalendar(d->mCalendar->timeZone()));
+    Incidence::Ptr const i(incidence->clone());
     // strip recurrence id's, We don't want to drag the exception but the occurrence.
     i->setRecurrenceId({});
     cal->addIncidence(i);
@@ -170,7 +170,7 @@ QMimeData *DndFactory::createMimeData(const Incidence::Ptr &incidence)
 
     ICalDrag::populateMimeData(mimeData, cal);
 
-    QUrl uri = i->uri();
+    QUrl const uri = i->uri();
     if (uri.isValid()) {
         QMap<QString, QString> metadata;
         metadata[QStringLiteral("labels")] = QLatin1StringView(QUrl::toPercentEncoding(i->summary()));
@@ -217,7 +217,7 @@ Event::Ptr DndFactory::createDropEvent(const QMimeData *mimeData)
 {
     // qCDebug(KCALUTILS_LOG);
     Event::Ptr event;
-    Calendar::Ptr calendar(createDropCalendar(mimeData));
+    Calendar::Ptr const calendar(createDropCalendar(mimeData));
 
     if (calendar) {
         Event::List events = calendar->events();
@@ -243,7 +243,7 @@ Todo::Ptr DndFactory::createDropTodo(const QMimeData *mimeData)
 {
     // qCDebug(KCALUTILS_LOG);
     Todo::Ptr todo;
-    Calendar::Ptr calendar(createDropCalendar(mimeData));
+    Calendar::Ptr const calendar(createDropCalendar(mimeData));
 
     if (calendar) {
         Todo::List todos = calendar->todos();
@@ -291,7 +291,7 @@ bool DndFactory::copyIncidences(const Incidence::List &incidences)
 {
     QClipboard *clipboard = QApplication::clipboard();
     Q_ASSERT(clipboard);
-    Calendar::Ptr calendar(new MemoryCalendar(d->mCalendar->timeZone()));
+    Calendar::Ptr const calendar(new MemoryCalendar(d->mCalendar->timeZone()));
 
     Incidence::List::ConstIterator it;
     const Incidence::List::ConstIterator end(incidences.constEnd());
@@ -322,9 +322,9 @@ bool DndFactory::copyIncidence(const Incidence::Ptr &selectedInc)
 
 Incidence::List DndFactory::pasteIncidences(const QDateTime &newDateTime, PasteFlags pasteOptions)
 {
-    QClipboard *clipboard = QApplication::clipboard();
+    QClipboard const *clipboard = QApplication::clipboard();
     Q_ASSERT(clipboard);
-    Calendar::Ptr calendar(createDropCalendar(clipboard->mimeData()));
+    Calendar::Ptr const calendar(createDropCalendar(clipboard->mimeData()));
     Incidence::List list;
 
     if (!calendar) {
@@ -340,7 +340,7 @@ Incidence::List DndFactory::pasteIncidences(const QDateTime &newDateTime, PasteF
     const Incidence::List incidences = calendar->incidences();
     Incidence::List::ConstIterator end(incidences.constEnd());
     for (it = incidences.constBegin(); it != end; ++it) {
-        Incidence::Ptr incidence = d->pasteIncidence(*it, newDateTime, pasteOptions);
+        Incidence::Ptr const incidence = d->pasteIncidence(*it, newDateTime, pasteOptions);
         if (incidence) {
             list.append(incidence);
             oldUidToNewInc[(*it)->uid()] = *it;
@@ -352,7 +352,7 @@ Incidence::List DndFactory::pasteIncidences(const QDateTime &newDateTime, PasteF
     for (it = list.constBegin(); it != end; ++it) {
         const Incidence::Ptr &incidence = *it;
         if (oldUidToNewInc.contains(incidence->relatedTo())) {
-            Incidence::Ptr parentInc = oldUidToNewInc[incidence->relatedTo()];
+            Incidence::Ptr const parentInc = oldUidToNewInc[incidence->relatedTo()];
             incidence->setRelatedTo(parentInc->uid());
         } else {
             // not related to anything in the clipboard
@@ -365,8 +365,8 @@ Incidence::List DndFactory::pasteIncidences(const QDateTime &newDateTime, PasteF
 
 Incidence::Ptr DndFactory::pasteIncidence(const QDateTime &newDateTime, PasteFlags pasteOptions)
 {
-    QClipboard *clipboard = QApplication::clipboard();
-    Calendar::Ptr calendar(createDropCalendar(clipboard->mimeData()));
+    QClipboard const *clipboard = QApplication::clipboard();
+    Calendar::Ptr const calendar(createDropCalendar(clipboard->mimeData()));
 
     if (!calendar) {
         qCDebug(KCALUTILS_LOG) << "Can't parse clipboard";
@@ -374,7 +374,7 @@ Incidence::Ptr DndFactory::pasteIncidence(const QDateTime &newDateTime, PasteFla
     }
 
     Incidence::List incidenceList = calendar->incidences();
-    Incidence::Ptr incidence = incidenceList.isEmpty() ? Incidence::Ptr() : incidenceList.first();
+    Incidence::Ptr const incidence = incidenceList.isEmpty() ? Incidence::Ptr() : incidenceList.first();
 
     return d->pasteIncidence(incidence, newDateTime, pasteOptions);
 }

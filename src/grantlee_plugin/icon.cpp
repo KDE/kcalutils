@@ -23,16 +23,16 @@ IconTag::~IconTag()
 }
 KTextTemplate::Node *IconTag::getNode(const QString &tagContent, [[maybe_unused]] KTextTemplate::Parser *p) const
 {
-    static QHash<QString, int> sizeOrGroupLookup = {{QStringLiteral("toolbar"), KIconLoader::Toolbar},
-                                                    {QStringLiteral("maintoolbar"), KIconLoader::MainToolbar},
-                                                    {QStringLiteral("small"), KIconLoader::Small},
-                                                    {QStringLiteral("dialog"), KIconLoader::Dialog},
-                                                    {QStringLiteral("sizesmall"), KIconLoader::SizeSmall},
-                                                    {QStringLiteral("sizesmallmedium"), KIconLoader::SizeSmallMedium},
-                                                    {QStringLiteral("sizemedium"), KIconLoader::SizeMedium},
-                                                    {QStringLiteral("sizelarge"), KIconLoader::SizeLarge},
-                                                    {QStringLiteral("sizehuge"), KIconLoader::SizeHuge},
-                                                    {QStringLiteral("sizeenormous"), KIconLoader::SizeEnormous}};
+    static const QHash<QString, int> sizeOrGroupLookup = {{QStringLiteral("toolbar"), KIconLoader::Toolbar},
+                                                          {QStringLiteral("maintoolbar"), KIconLoader::MainToolbar},
+                                                          {QStringLiteral("small"), KIconLoader::Small},
+                                                          {QStringLiteral("dialog"), KIconLoader::Dialog},
+                                                          {QStringLiteral("sizesmall"), KIconLoader::SizeSmall},
+                                                          {QStringLiteral("sizesmallmedium"), KIconLoader::SizeSmallMedium},
+                                                          {QStringLiteral("sizemedium"), KIconLoader::SizeMedium},
+                                                          {QStringLiteral("sizelarge"), KIconLoader::SizeLarge},
+                                                          {QStringLiteral("sizehuge"), KIconLoader::SizeHuge},
+                                                          {QStringLiteral("sizeenormous"), KIconLoader::SizeEnormous}};
 
     const QStringList parts = smartSplit(tagContent);
     const int partsSize = parts.size();
