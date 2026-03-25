@@ -741,10 +741,11 @@ QString IncidenceFormatter::extensiveDisplayStr(const QString &sourceName, const
 static QString cleanHtml(const QString &html)
 {
     static QRegularExpression rx = QRegularExpression(QStringLiteral("<body[^>]*>(.*)</body>"), QRegularExpression::CaseInsensitiveOption);
+    static QRegularExpression rx2 = QRegularExpression(QStringLiteral("<[^>]*>"));
     QRegularExpressionMatch match = rx.match(html);
     if (match.hasMatch()) {
         QString body = match.captured(1);
-        return body.remove(QRegularExpression(QStringLiteral("<[^>]*>"))).trimmed().toHtmlEscaped();
+        return body.remove(rx2).trimmed().toHtmlEscaped();
     }
     return html;
 }

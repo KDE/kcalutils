@@ -202,6 +202,7 @@ bool IncidenceFormatterTest::compareHtml(const QString &name)
         }
         QString content = QString::fromUtf8(f.readAll());
         f.close();
+        // clazy:excludeall=use-static-qregularexpression
         content.replace(QRegularExpression(QStringLiteral("\"file:[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("\"file:\\1\""));
         // since KF 6.3 we can also get icons with qrc paths
         content.replace(QRegularExpression(QStringLiteral("src=\"qrc:/[^\"]*[/(?:%2F)]([^\"/(?:%2F)]*)\"")), QStringLiteral("src=\"file:\\1\""));
