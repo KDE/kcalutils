@@ -74,12 +74,12 @@ public:
     /*!
       Create the calendar that is contained in the drop event's data.
      */
-    KCalendarCore::Calendar::Ptr createDropCalendar(QDropEvent *de);
+    KCalendarCore::Calendar::Ptr createDropCalendar(QDropEvent *dropEvent);
 
     /*!
      Create the calendar that is contained in the mime data.
     */
-    static KCalendarCore::Calendar::Ptr createDropCalendar(const QMimeData *md);
+    static KCalendarCore::Calendar::Ptr createDropCalendar(const QMimeData *mimeData);
 
     /*!
       Create the mime data for the whole calendar.
@@ -104,22 +104,22 @@ public:
     /*!
       Create Todo object from mime data.
     */
-    KCalendarCore::Todo::Ptr createDropTodo(const QMimeData *md);
+    KCalendarCore::Todo::Ptr createDropTodo(const QMimeData *mimeData);
 
     /*!
       Create Todo object from drop event.
     */
-    KCalendarCore::Todo::Ptr createDropTodo(QDropEvent *de);
+    KCalendarCore::Todo::Ptr createDropTodo(QDropEvent *dropEvent);
 
     /*!
       Create Event object from mime data.
     */
-    KCalendarCore::Event::Ptr createDropEvent(const QMimeData *md);
+    KCalendarCore::Event::Ptr createDropEvent(const QMimeData *mimeData);
 
     /*!
       Create Event object from drop event.
     */
-    KCalendarCore::Event::Ptr createDropEvent(QDropEvent *de);
+    KCalendarCore::Event::Ptr createDropEvent(QDropEvent *dropEvent);
 
     /*!
       Cut the incidence to the clipboard.

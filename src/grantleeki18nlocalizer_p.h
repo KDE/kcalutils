@@ -28,7 +28,7 @@ public:
 
     // Only exception, Grantlee's implementation is not using QLocale for this
     // for some reason
-    [[nodiscard]] QString localizeMonetaryValue(qreal value, const QString &currenctCode) const override;
+    [[nodiscard]] QString localizeMonetaryValue(qreal value, const QString &currencySymbol) const override;
 
 private:
     [[nodiscard]] QString processArguments(const KLocalizedString &str, const QVariantList &arguments) const;
