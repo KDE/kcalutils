@@ -197,7 +197,7 @@ struct IncidenceNameAndUid {
     if (incidence) {
         const Attendee::List attendees = incidence->attendees();
         if (!attendees.isEmpty()) {
-            const Attendee attendee = attendees.at(0);
+            const Attendee &attendee = attendees.at(0);
             name = attendee.name();
             if (name.isEmpty()) {
                 name = attendee.email();
@@ -594,7 +594,7 @@ displayViewFormatFreeBusy([[maybe_unused]] const Calendar::Ptr &calendar, [[mayb
     QVariantList periodsData;
     periodsData.reserve(periods.size());
     for (auto it = periods.cbegin(), end = periods.cend(); it != end; ++it) {
-        const Period per = *it;
+        const Period &per = *it;
         QVariantHash periodData;
         if (per.hasDuration()) {
             int dur = per.duration().asSeconds();
@@ -3408,7 +3408,7 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
         const Alarm::List::ConstIterator end(alarms.constEnd());
         reminderStringList.reserve(alarms.count());
         for (it = alarms.constBegin(); it != end; ++it) {
-            Alarm::Ptr alarm = *it;
+            const Alarm::Ptr &alarm = *it;
             int offset = 0;
             QString remStr;
             QString atStr;

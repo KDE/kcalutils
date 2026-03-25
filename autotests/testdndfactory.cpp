@@ -43,7 +43,7 @@ void DndFactoryTest::testPasteAllDayEvent()
     Incidence::List pastedIncidences = factory.pasteIncidences();
     QVERIFY(pastedIncidences.size() == 1);
 
-    Incidence::Ptr incidence = pastedIncidences.first();
+    const Incidence::Ptr &incidence = pastedIncidences.first();
 
     QVERIFY(incidence->type() == Incidence::TypeEvent);
 
@@ -86,7 +86,7 @@ void DndFactoryTest::testPasteAllDayEvent2()
     // we only copied one incidence
     QVERIFY(pastedIncidences.size() == 1);
 
-    Incidence::Ptr incidence = pastedIncidences.first();
+    const Incidence::Ptr &incidence = pastedIncidences.first();
 
     QVERIFY(incidence->type() == Incidence::TypeEvent);
 
@@ -130,7 +130,7 @@ void DndFactoryTest::testPasteTodo()
     Incidence::List pastedIncidences = factory.pasteIncidences(newDateTime);
     QVERIFY(pastedIncidences.size() == 1);
 
-    Incidence::Ptr incidence = pastedIncidences.first();
+    const Incidence::Ptr &incidence = pastedIncidences.first();
 
     QVERIFY(incidence->type() == Incidence::TypeTodo);
 

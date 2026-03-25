@@ -46,7 +46,7 @@ KTextTemplate::Node *IconTag::getNode(const QString &tagContent, [[maybe_unused]
     int sizeOrGroup = KIconLoader::Small;
     QString altText;
     if (partsSize >= 3) {
-        const QString sizeStr = parts.at(2);
+        const QString &sizeStr = parts.at(2);
         bool ok = false;
         // Try to convert to pixel size
         sizeOrGroup = sizeStr.toInt(&ok);

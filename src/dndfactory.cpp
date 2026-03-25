@@ -350,7 +350,7 @@ Incidence::List DndFactory::pasteIncidences(const QDateTime &newDateTime, PasteF
     // update relations
     end = list.constEnd();
     for (it = list.constBegin(); it != end; ++it) {
-        Incidence::Ptr incidence = *it;
+        const Incidence::Ptr &incidence = *it;
         if (oldUidToNewInc.contains(incidence->relatedTo())) {
             Incidence::Ptr parentInc = oldUidToNewInc[incidence->relatedTo()];
             incidence->setRelatedTo(parentInc->uid());
