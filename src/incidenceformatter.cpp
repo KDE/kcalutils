@@ -992,6 +992,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
     }
 
     // Are start and end both in this interval?
+    /* cppcheck-suppress knownConditionTrueFalse */
     return (closestStart >= startDt && closestStart <= endDt) && (closestEnd >= startDt && closestEnd <= endDt);
 }
 
@@ -2056,6 +2057,7 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
     if (incBase && helper->calendar()) {
         existingIncidence = helper->calendar()->incidence(incBase->uid(), incBase->recurrenceId());
 
+        /* cppcheck-suppress knownConditionTrueFalse */
         if (!incidenceOwnedByMe(helper->calendar(), existingIncidence)) {
             existingIncidence.clear();
         }
@@ -2700,6 +2702,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
     bool needAnHorizontalLine = true;
     const int reminderCount = incidence->alarms().count();
     if (reminderCount > 0 && incidence->hasEnabledAlarms()) {
+        /* cppcheck-suppress knownConditionTrueFalse */
         if (needAnHorizontalLine) {
             tmp += QLatin1StringView("<hr>");
             needAnHorizontalLine = false;
@@ -2798,6 +2801,7 @@ protected:
 
 bool IncidenceFormatter::MailBodyVisitor::visit(const Event::Ptr &event)
 {
+    /* cppcheck-suppress variableScope */
     QString recurrence[] = {i18nc("no recurrence", "None"),
                             i18nc("event recurs by minutes", "Minutely"),
                             i18nc("event recurs by hours", "Hourly"),

@@ -155,6 +155,7 @@ createDialog(QDialogButtonBox::StandardButtons buttons, const QString &caption, 
 
     mainLayout->addWidget(*buttonBox);
 
+    /* cppcheck-suppress CastIntegerToAddressAtReturn */
     return dialog;
 }
 
@@ -177,6 +178,7 @@ int RecurrenceActions::questionMultipleChoice(const QDateTime &selectedOccurrenc
     widget->setIcon(widget->style()->standardIcon(QStyle::SP_MessageBoxQuestion));
     widget->setCheckedChoices(preselectedChoices);
 
+    /* cppcheck-suppress nullPointerRedundantCheck */
     const int result = dialog->exec();
     if (dialog) {
         dialog->deleteLater();
