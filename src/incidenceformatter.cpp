@@ -1770,7 +1770,7 @@ public:
         return incidence->accept(*this, incidence);
     }
 
-    [[nodiscard]] T result() const
+    [[nodiscard]] const T &result() const
     {
         return mResult;
     }
@@ -2351,7 +2351,7 @@ public:
         return incidence ? incidence->accept(*this, incidence) : false;
     }
 
-    [[nodiscard]] QString result() const
+    [[nodiscard]] const QString &result() const
     {
         return mResult;
     }
@@ -2780,7 +2780,7 @@ public:
         return incidence ? incidence->accept(*this, incidence) : false;
     }
 
-    [[nodiscard]] QString result() const
+    [[nodiscard]] const QString &result() const
     {
         return mResult;
     }
