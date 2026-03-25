@@ -43,7 +43,7 @@
 using namespace KCalendarCore;
 using namespace KCalUtils;
 
-static QDateTime copyTimeSpec(QDateTime dt, const QDateTime &source)
+static QDateTime copyTimeSpec(const QDateTime &dt, const QDateTime &source)
 {
     switch (source.timeSpec()) {
     case Qt::TimeZone:
