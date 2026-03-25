@@ -995,7 +995,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
     return (closestStart >= startDt && closestStart <= endDt) && (closestEnd >= startDt && closestEnd <= endDt);
 }
 
-[[nodiscard]] static QVariantList eventsOnSameDays(InvitationFormatterHelper *helper, const Event::Ptr &event, bool noHtmlMode)
+[[nodiscard]] static QVariantList eventsOnSameDays(const InvitationFormatterHelper *helper, const Event::Ptr &event, bool noHtmlMode)
 {
     if (!event || !helper || !helper->calendar()) {
         return QVariantList();
