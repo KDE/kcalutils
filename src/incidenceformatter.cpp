@@ -3223,6 +3223,8 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
             }
         }
         break;
+    default: // make clang-tidy happy
+        break;
     }
 
     if (recurStr.isEmpty()) {
@@ -3257,6 +3259,8 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         case Recurrence::rYearlyDay:
         case Recurrence::rYearlyPos:
             exDt = QLocale().toString((*il).date(), QLocale::ShortFormat);
+            break;
+        default: // make clang-tidy happy
             break;
         }
         if (!seen.contains(exDt)) {
@@ -3296,6 +3300,8 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
             break;
         case Recurrence::rYearlyPos:
             exDt = QLocale().toString((*dl), QLocale::ShortFormat);
+            break;
+        default: // make clang-tidy happy
             break;
         }
         if (!seen.contains(exDt)) {
