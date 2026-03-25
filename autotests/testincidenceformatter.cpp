@@ -44,6 +44,7 @@ using namespace KCalUtils;
 using namespace Qt::StringLiterals;
 
 // Button colors.
+// clazy:excludeall=non-pod-global-static
 static QString btnBg;
 static QString btnFg;
 static QString btnBdr;

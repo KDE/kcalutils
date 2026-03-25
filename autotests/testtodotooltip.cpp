@@ -15,6 +15,7 @@
 // Standard values for to-dos.
 static const bool ALL_DAY = true;
 static const bool RECURS = true;
+// clazy:excludeall=non-pod-global-static
 static const QDateTime START_DT{QDate(2222, 6, 10), QTime(11, 0, 0)};
 static const QDateTime DUE_DT{QDate(2222, 6, 12), QTime(11, 30, 0)};
 static const QDate AS_OF_DATE{2222, 6, 12};
