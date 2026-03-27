@@ -2141,6 +2141,3 @@ msgstr "完成："
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "完成百分比："
-
-#~ msgid "Template rendering error"
-#~ msgstr "模板渲染错误"
