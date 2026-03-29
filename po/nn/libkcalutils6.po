@@ -2205,6 +2205,3 @@ msgstr "Fullført:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr ""
-
-#~ msgid "Template rendering error"
-#~ msgstr "Feil ved vising av mal"
