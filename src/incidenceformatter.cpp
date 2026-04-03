@@ -1712,7 +1712,7 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
             // use the attendee taken from the response incidence,
             // rather than the attendee from the calendar incidence.
             if (a.status() != sender.status()) {
-                attendee[QStringLiteral("status")] = i18n("%1 (<i>unrecorded</i>", Stringify::attendeeStatus(sender.status()));
+                attendee[QStringLiteral("status")] = i18n("%1 (<i>unrecorded</i>)", Stringify::attendeeStatus(sender.status()));
             }
             a = sender;
         }
