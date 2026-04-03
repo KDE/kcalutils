@@ -2481,7 +2481,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const FreeBusy::Ptr &f
 {
     // FIXME: support mRichText==false
     QString ret = QLatin1StringView("<br>") + i18n("<i>Period start:</i> %1", QLocale().toString(fb->dtStart(), QLocale::ShortFormat));
-    ret += QLatin1StringView("<br>") + i18n("<i>Period start:</i> %1", QLocale().toString(fb->dtEnd(), QLocale::ShortFormat));
+    ret += QLatin1StringView("<br>") + i18n("<i>Period end:</i> %1", QLocale().toString(fb->dtEnd(), QLocale::ShortFormat));
     return ret.replace(u' ', QLatin1StringView("&nbsp;"));
 }
 
