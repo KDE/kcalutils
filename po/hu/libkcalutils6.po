@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-26 00:45+0000\n"
+"POT-Creation-Date: 2026-04-04 00:46+0000\n"
 "PO-Revision-Date: 2025-04-18 22:22+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -541,8 +541,9 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "Hiba: iTIP foglaltsági információ üzenet ismeretlen metódussal."
 
 #: src/incidenceformatter.cpp:1715
-#, kde-format
-msgid "%1 (<i>unrecorded</i>"
+#, fuzzy, kde-format
+#| msgid "%1 (<i>unrecorded</i>"
+msgid "%1 (<i>unrecorded</i>)"
 msgstr "%1 (<i>nem rögzített</i>"
 
 #: src/incidenceformatter.cpp:1928
@@ -724,9 +725,15 @@ msgctxt "To-do's percent complete:"
 msgid "<i>Percent Done:</i> %1%"
 msgstr "<i>Befejezettség:</i> %1"
 
-#: src/incidenceformatter.cpp:2483 src/incidenceformatter.cpp:2484
+#: src/incidenceformatter.cpp:2483
 #, kde-format
 msgid "<i>Period start:</i> %1"
+msgstr "<i>Az időszak kezdete:</i> %1"
+
+#: src/incidenceformatter.cpp:2484
+#, fuzzy, kde-format
+#| msgid "<i>Period start:</i> %1"
+msgid "<i>Period end:</i> %1"
 msgstr "<i>Az időszak kezdete:</i> %1"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5

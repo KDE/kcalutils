@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-26 00:45+0000\n"
+"POT-Creation-Date: 2026-04-04 00:46+0000\n"
 "PO-Revision-Date: 2013-03-18 13:31+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -534,7 +534,7 @@ msgstr ""
 
 #: src/incidenceformatter.cpp:1715
 #, kde-format
-msgid "%1 (<i>unrecorded</i>"
+msgid "%1 (<i>unrecorded</i>)"
 msgstr ""
 
 #: src/incidenceformatter.cpp:1928
@@ -720,10 +720,15 @@ msgctxt "To-do's percent complete:"
 msgid "<i>Percent Done:</i> %1%"
 msgstr "अपेक्षित"
 
-#: src/incidenceformatter.cpp:2483 src/incidenceformatter.cpp:2484
+#: src/incidenceformatter.cpp:2483
 #, kde-format
 msgid "<i>Period start:</i> %1"
 msgstr ""
+
+#: src/incidenceformatter.cpp:2484
+#, fuzzy, kde-format
+msgid "<i>Period end:</i> %1"
+msgstr "पासून"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5
 #, kde-format

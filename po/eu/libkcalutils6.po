@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-26 00:45+0000\n"
+"POT-Creation-Date: 2026-04-04 00:46+0000\n"
 "PO-Revision-Date: 2025-03-04 13:18+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -538,8 +538,9 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "Errorea: Metodo ezezaguneko, libre/lanpetutako «iTIP» mezua."
 
 #: src/incidenceformatter.cpp:1715
-#, kde-format
-msgid "%1 (<i>unrecorded</i>"
+#, fuzzy, kde-format
+#| msgid "%1 (<i>unrecorded</i>"
+msgid "%1 (<i>unrecorded</i>)"
 msgstr "%1 (<i>grabatu gabe</i>"
 
 #: src/incidenceformatter.cpp:1928
@@ -721,9 +722,15 @@ msgctxt "To-do's percent complete:"
 msgid "<i>Percent Done:</i> %1%"
 msgstr "<i>Egindako ehunekoa:</i> %1%"
 
-#: src/incidenceformatter.cpp:2483 src/incidenceformatter.cpp:2484
+#: src/incidenceformatter.cpp:2483
 #, kde-format
 msgid "<i>Period start:</i> %1"
+msgstr "<i>Aldiaren hasiera:</i> %1"
+
+#: src/incidenceformatter.cpp:2484
+#, fuzzy, kde-format
+#| msgid "<i>Period start:</i> %1"
+msgid "<i>Period end:</i> %1"
 msgstr "<i>Aldiaren hasiera:</i> %1"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5

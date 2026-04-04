@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcal\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-26 00:45+0000\n"
+"POT-Creation-Date: 2026-04-04 00:46+0000\n"
 "PO-Revision-Date: 2014-09-25 01:12-0700\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -624,7 +624,7 @@ msgstr "エラー: 未知のメソッドを伴ったフリー/ビジー iTMIP �
 
 #: src/incidenceformatter.cpp:1715
 #, kde-format
-msgid "%1 (<i>unrecorded</i>"
+msgid "%1 (<i>unrecorded</i>)"
 msgstr ""
 
 #: src/incidenceformatter.cpp:1928
@@ -821,9 +821,15 @@ msgctxt "To-do's percent complete:"
 msgid "<i>Percent Done:</i> %1%"
 msgstr "完了パーセント:"
 
-#: src/incidenceformatter.cpp:2483 src/incidenceformatter.cpp:2484
+#: src/incidenceformatter.cpp:2483
 #, kde-format
 msgid "<i>Period start:</i> %1"
+msgstr "期間開始: %1"
+
+#: src/incidenceformatter.cpp:2484
+#, fuzzy, kde-format
+#| msgid "<i>Period start:</i> %1"
+msgid "<i>Period end:</i> %1"
 msgstr "期間開始: %1"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5
