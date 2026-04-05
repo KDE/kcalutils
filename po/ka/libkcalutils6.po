@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-04 00:46+0000\n"
-"PO-Revision-Date: 2025-02-14 03:30+0100\n"
+"PO-Revision-Date: 2026-04-04 05:15+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -539,10 +539,9 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "შეცდომა: თავისუფალი/დაკავებული iTIP შეტყობინება არასწორი მეთოდით."
 
 #: src/incidenceformatter.cpp:1715
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>"
+#, kde-format
 msgid "%1 (<i>unrecorded</i>)"
-msgstr "%1 (<i>ჩაწერილი არაა</i>"
+msgstr "%1 (<i>ჩაწერილი არაა</i>)"
 
 #: src/incidenceformatter.cpp:1928
 #, kde-format
@@ -729,10 +728,9 @@ msgid "<i>Period start:</i> %1"
 msgstr "<i>პერიოდის დასაწყისი:</i> %1"
 
 #: src/incidenceformatter.cpp:2484
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgid "<i>Period end:</i> %1"
-msgstr "<i>პერიოდის დასაწყისი:</i> %1"
+msgstr "<i>პერიოდის დასასრული:</i> %1"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5
 #, kde-format

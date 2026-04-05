@@ -529,10 +529,9 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "错误：忙/闲列表 iTIP 消息有未知的方法。"
 
 #: src/incidenceformatter.cpp:1715
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>"
+#, kde-format
 msgid "%1 (<i>unrecorded</i>)"
-msgstr "%1 (<i>未记录</i>"
+msgstr ""
 
 #: src/incidenceformatter.cpp:1928
 #, kde-format
@@ -719,10 +718,9 @@ msgid "<i>Period start:</i> %1"
 msgstr "<i>周期开始：</i> %1"
 
 #: src/incidenceformatter.cpp:2484
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgid "<i>Period end:</i> %1"
-msgstr "<i>周期开始：</i> %1"
+msgstr ""
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5
 #, kde-format

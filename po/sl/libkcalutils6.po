@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-04 00:46+0000\n"
-"PO-Revision-Date: 2025-02-14 07:26+0100\n"
+"PO-Revision-Date: 2026-04-04 07:19+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -548,15 +548,14 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "Napaka: sporočilo iTIP prostosti/zaposlenosti z neznano metodo."
 
 #: src/incidenceformatter.cpp:1715
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>"
+#, kde-format
 msgid "%1 (<i>unrecorded</i>)"
-msgstr "%1 (<i>nezapisano</i>"
+msgstr "%1 (<i>neposneto</i>"
 
 #: src/incidenceformatter.cpp:1928
 #, kde-format
 msgid "Record"
-msgstr "Zapiši"
+msgstr "Posnemi"
 
 #: src/incidenceformatter.cpp:1931
 #, kde-format
@@ -738,10 +737,9 @@ msgid "<i>Period start:</i> %1"
 msgstr "<i>Začetek obdobja:</i> %1"
 
 #: src/incidenceformatter.cpp:2484
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgid "<i>Period end:</i> %1"
-msgstr "<i>Začetek obdobja:</i> %1"
+msgstr "<i>Konec obdobja:</i> %1"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5
 #, kde-format
