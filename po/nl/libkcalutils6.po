@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2010, 2011, 2013, 2014, 2015, 2016, 2018, 2020, 2021, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2010, 2011, 2013, 2014, 2015, 2016, 2018, 2020, 2021, 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-04 00:46+0000\n"
-"PO-Revision-Date: 2025-02-14 14:05+0100\n"
+"PO-Revision-Date: 2026-04-05 17:41+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -538,10 +538,9 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "Fout: vrij/bezet-iTIP-bericht met onbekende methode."
 
 #: src/incidenceformatter.cpp:1715
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>"
+#, kde-format
 msgid "%1 (<i>unrecorded</i>)"
-msgstr "%1 (<i>niet geregistreerd</i>"
+msgstr "%1 (<i>niet opgenomen</i>"
 
 #: src/incidenceformatter.cpp:1928
 #, kde-format
@@ -728,10 +727,9 @@ msgid "<i>Period start:</i> %1"
 msgstr "<i>Begin periode:</i> %1"
 
 #: src/incidenceformatter.cpp:2484
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgid "<i>Period end:</i> %1"
-msgstr "<i>Begin periode:</i> %1"
+msgstr "<i>Einde periode:</i> %1"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5
 #, kde-format

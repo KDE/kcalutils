@@ -1,16 +1,16 @@
 # Translation of libkcalutils6.po to Catalan (Valencian)
-# Copyright (C) 2010-2025 This_file_is_part_of_KDE
+# Copyright (C) 2010-2026 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2013, 2014, 2015, 2016, 2018, 2020, 2021 Antoni Bella Pérez <antonibella5@yahoo.com>
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2016, 2020, 2021, 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2016, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-04 00:46+0000\n"
-"PO-Revision-Date: 2025-02-14 10:24+0100\n"
+"PO-Revision-Date: 2026-04-04 10:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -549,10 +549,9 @@ msgstr ""
 "desconegut."
 
 #: src/incidenceformatter.cpp:1715
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>"
+#, kde-format
 msgid "%1 (<i>unrecorded</i>)"
-msgstr "%1 (<i>sense registrar</i>"
+msgstr "%1 (<i>sense registrar</i>)"
 
 #: src/incidenceformatter.cpp:1928
 #, kde-format
@@ -701,7 +700,7 @@ msgstr "<i>Hora:</i> %1"
 #, kde-format
 msgctxt "time range for event"
 msgid "<i>Time:</i> %1 - %2"
-msgstr "<i>Hora:</i> %1 - %2"
+msgstr "<i>Hora:</i> %1 – %2"
 
 #: src/incidenceformatter.cpp:2439
 #, kde-format
@@ -739,10 +738,9 @@ msgid "<i>Period start:</i> %1"
 msgstr "<i>Període d'inici:</i> %1"
 
 #: src/incidenceformatter.cpp:2484
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgid "<i>Period end:</i> %1"
-msgstr "<i>Període d'inici:</i> %1"
+msgstr "<i>Període final:</i> %1"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5
 #, kde-format
@@ -1982,7 +1980,7 @@ msgstr "Data:"
 #, kde-format
 msgctxt "<beginDate> - <endDate>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: src/templates/event.html:34 src/templates/event.html:44
 #, kde-format
@@ -1998,7 +1996,7 @@ msgstr "Hora:"
 #, kde-format
 msgctxt "<beginTime> - <endTime>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: src/templates/event.html:51
 #, kde-format
@@ -2044,7 +2042,7 @@ msgstr "Revisió: %1"
 #: src/templates/freebusy.html:6
 #, kde-format
 msgid "Busy times in date range %1 - %2:"
-msgstr "Temps d'ocupat en l'interval de dates %1 - %2:"
+msgstr "Temps d'ocupat en l'interval de dates %1 – %2:"
 
 #: src/templates/freebusy.html:9
 msgctxt "tag for busy period list"
@@ -2061,13 +2059,13 @@ msgstr "%1 durant %2"
 #, kde-format
 msgctxt "date, fromTime - toTime"
 msgid "%1, %2 - %3"
-msgstr "%1, %2 - %3"
+msgstr "%1, %2 – %3"
 
 #: src/templates/freebusy.html:18
 #, kde-format
 msgctxt "fromDateTime - endDateTime"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: src/templates/incidence_header.html:10
 msgid "Recurring incidence"
@@ -2139,25 +2137,25 @@ msgstr "%1 durant %2"
 #, kde-format
 msgctxt "<startDate> - <endDate>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: src/templates/itip_freebusy.html:36
 #, kde-format
 msgctxt "<date>, <startTime> - <endTime>"
 msgid "%1, %2 - %3"
-msgstr "%1, %2 - %3"
+msgstr "%1, %2 – %3"
 
 #: src/templates/itip_todo.html:22
 #, kde-format
 msgctxt "<beginDateTime> - <endDateTime>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: src/templates/itip_todo.html:24
 #, kde-format
 msgctxt "<beginDateTime> - <endTime>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: src/templates/itip_todo.html:32
 msgid "Percent Done:"
@@ -2197,6 +2195,3 @@ msgstr "Finalitzada:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Percentatge completat:"
-
-#~ msgid "Template rendering error"
-#~ msgstr "S'ha produït un error mentre es renderitzava la plantilla"

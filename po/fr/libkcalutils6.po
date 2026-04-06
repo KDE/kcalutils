@@ -563,10 +563,9 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "Erreur : message « iTIP » de disponibilités avec une méthode inconnue."
 
 #: src/incidenceformatter.cpp:1715
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>"
+#, kde-format
 msgid "%1 (<i>unrecorded</i>)"
-msgstr "%1 (<i>non enregistré</i>"
+msgstr "%1 (<i>non enregistré</i>)"
 
 #: src/incidenceformatter.cpp:1928
 #, kde-format
