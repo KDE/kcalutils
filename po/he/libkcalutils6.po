@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-04 00:46+0000\n"
-"PO-Revision-Date: 2026-03-20 08:13+0200\n"
+"PO-Revision-Date: 2026-04-05 08:40+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -543,10 +543,9 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "שגיאה: הודעת iTIP של פנוי/עסוק עם שיטה לא מוכרת."
 
 #: src/incidenceformatter.cpp:1715
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>"
+#, kde-format
 msgid "%1 (<i>unrecorded</i>)"
-msgstr "%1 (<i>לא מתועד</i>"
+msgstr "%1 (<i>לא מתועד</i>)"
 
 #: src/incidenceformatter.cpp:1928
 #, kde-format
@@ -733,10 +732,9 @@ msgid "<i>Period start:</i> %1"
 msgstr "<i>התחלת תקופה:</i> %1"
 
 #: src/incidenceformatter.cpp:2484
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgid "<i>Period end:</i> %1"
-msgstr "<i>התחלת תקופה:</i> %1"
+msgstr "<i>סוף תקופה:</i> %1"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5
 #, kde-format

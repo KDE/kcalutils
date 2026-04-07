@@ -531,7 +531,7 @@ msgstr "错误：忙/闲列表 iTIP 消息有未知的方法。"
 #: src/incidenceformatter.cpp:1715
 #, kde-format
 msgid "%1 (<i>unrecorded</i>)"
-msgstr ""
+msgstr "%1 (<i>未记录</i>)"
 
 #: src/incidenceformatter.cpp:1928
 #, kde-format
@@ -720,7 +720,7 @@ msgstr "<i>周期开始：</i> %1"
 #: src/incidenceformatter.cpp:2484
 #, kde-format
 msgid "<i>Period end:</i> %1"
-msgstr ""
+msgstr "<i>周期结束：</i> %1"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5
 #, kde-format
