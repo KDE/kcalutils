@@ -13,8 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -56,27 +56,27 @@ msgstr "Zobraziť mail"
 msgctxt "hours part of duration"
 msgid "1 hour "
 msgid_plural "%1 hours "
-msgstr[0] "1 hodina"
-msgstr[1] "%1 hodiny"
-msgstr[2] "%1 hodín"
+msgstr[0] "1 hour "
+msgstr[1] "%1 hours "
+msgstr[2] "%1 hours "
 
 #: src/incidenceformatter.cpp:607
 #, kde-format
 msgctxt "minutes part duration"
 msgid "1 minute "
 msgid_plural "%1 minutes "
-msgstr[0] "1 minúta"
-msgstr[1] "%1 minúty"
-msgstr[2] "%1 minút"
+msgstr[0] "1 minute "
+msgstr[1] "%1 minutes "
+msgstr[2] "%1 minutes "
 
 #: src/incidenceformatter.cpp:611 src/incidenceformatter.cpp:1257
 #, kde-format
 msgctxt "seconds part of duration"
 msgid "1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "1 sekunda"
-msgstr[1] "%1 sekundy"
-msgstr[2] "%1 sekúnd"
+msgstr[0] "1 second"
+msgstr[1] "%1 seconds"
+msgstr[2] "%1 seconds"
 
 #: src/incidenceformatter.cpp:754
 #, kde-format
@@ -134,9 +134,9 @@ msgstr "%1%"
 msgctxt "minutes part of duration"
 msgid "1 minute"
 msgid_plural "%1 minutes "
-msgstr[0] "1 minúta"
-msgstr[1] "%1 minúty"
-msgstr[2] "%1 minút"
+msgstr[0] "1 minute"
+msgstr[1] "%1 minutes "
+msgstr[2] "%1 minutes "
 
 #: src/incidenceformatter.cpp:1304
 #, kde-format
@@ -961,9 +961,9 @@ msgstr "Frekvencia: %1\n"
 #, kde-format
 msgid "Repeats once"
 msgid_plural "Repeats %1 times"
-msgstr[0] "Opakuje sa raz"
-msgstr[1] "Opakuje sa %1 krát"
-msgstr[2] "Opakuje sa %1 krát"
+msgstr[0] "Repeats once"
+msgstr[1] "Repeats %1 times"
+msgstr[2] "Repeats %1 times"
 
 #: src/incidenceformatter.cpp:2841
 #, kde-format
@@ -1339,9 +1339,9 @@ msgstr "31."
 #, kde-format
 msgid "Recurs every minute until %2"
 msgid_plural "Recurs every %1 minutes until %2"
-msgstr[0] "Opakovanie každú minútu do %2"
-msgstr[1] "Opakovanie každé %1 minúty do %2"
-msgstr[2] "Opakovanie každých %1 minút do %2"
+msgstr[0] "Recurs every minute until %2"
+msgstr[1] "Recurs every %1 minutes until %2"
+msgstr[2] "Recurs every %1 minutes until %2"
 
 #: src/incidenceformatter.cpp:3021 src/incidenceformatter.cpp:3032
 #: src/incidenceformatter.cpp:3043 src/incidenceformatter.cpp:3073
@@ -1357,41 +1357,41 @@ msgstr " (%1 opakovaní)"
 #, kde-format
 msgid "Recurs every minute"
 msgid_plural "Recurs every %1 minutes"
-msgstr[0] "Opakuje sa každú minútu"
-msgstr[1] "Opakuje sa každé %1 minúty"
-msgstr[2] "Opakuje sa každých %1 minút"
+msgstr[0] "Recurs every minute"
+msgstr[1] "Recurs every %1 minutes"
+msgstr[2] "Recurs every %1 minutes"
 
 #: src/incidenceformatter.cpp:3030
 #, kde-format
 msgid "Recurs hourly until %2"
 msgid_plural "Recurs every %1 hours until %2"
-msgstr[0] "Opakuje sa každú hodinu do %2"
-msgstr[1] "Opakuje sa každé %1 hodiny do %2"
-msgstr[2] "Opakuje sa každých %1 hodín do %2"
+msgstr[0] "Recurs hourly until %2"
+msgstr[1] "Recurs every %1 hours until %2"
+msgstr[2] "Recurs every %1 hours until %2"
 
 #: src/incidenceformatter.cpp:3035
 #, kde-format
 msgid "Recurs hourly"
 msgid_plural "Recurs every %1 hours"
-msgstr[0] "Opakuje sa každú hodinu"
-msgstr[1] "Opakuje sa každé %1 hodiny"
-msgstr[2] "Opakuje sa každých %1 hodín"
+msgstr[0] "Recurs hourly"
+msgstr[1] "Recurs every %1 hours"
+msgstr[2] "Recurs every %1 hours"
 
 #: src/incidenceformatter.cpp:3041
 #, kde-format
 msgid "Recurs daily until %2"
 msgid_plural "Recurs every %1 days until %2"
-msgstr[0] "Opakuje sa každý deň do %2"
-msgstr[1] "Opakuje sa každé %1 dni do %2"
-msgstr[2] "Opakuje sa každých %1 dní do %2"
+msgstr[0] "Recurs daily until %2"
+msgstr[1] "Recurs every %1 days until %2"
+msgstr[2] "Recurs every %1 days until %2"
 
 #: src/incidenceformatter.cpp:3046
 #, kde-format
 msgid "Recurs daily"
 msgid_plural "Recurs every %1 days"
-msgstr[0] "Opakuje sa denne"
-msgstr[1] "Opakuje sa každé %1 dni"
-msgstr[2] "Opakuje sa každých %1 dní"
+msgstr[0] "Recurs daily"
+msgstr[1] "Recurs every %1 days"
+msgstr[2] "Recurs every %1 days"
 
 #: src/incidenceformatter.cpp:3056
 #, kde-format
@@ -1410,72 +1410,72 @@ msgstr "žiadne dni"
 msgctxt "Recurs weekly on [list of days] until end-date"
 msgid "Recurs weekly on %2 until %3"
 msgid_plural "Recurs every %1 weeks on %2 until %3"
-msgstr[0] "Opakuje sa týždenne v %2 do %3"
-msgstr[1] "Opakuje sa každé %1 týždne v %2 do %3"
-msgstr[2] "Opakuje sa každých %1 týždňov v %2 do %3"
+msgstr[0] "Recurs weekly on %2 until %3"
+msgstr[1] "Recurs every %1 weeks on %2 until %3"
+msgstr[2] "Recurs every %1 weeks on %2 until %3"
 
 #: src/incidenceformatter.cpp:3076
 #, kde-format
 msgctxt "Recurs weekly on [list of days]"
 msgid "Recurs weekly on %2"
 msgid_plural "Recurs every %1 weeks on %2"
-msgstr[0] "Opakuje sa týždenne v %2"
-msgstr[1] "Opakuje sa každé %1 týždne v %2"
-msgstr[2] "Opakuje sa každých %1 týždňov v %2"
+msgstr[0] "Recurs weekly on %2"
+msgstr[1] "Recurs every %1 weeks on %2"
+msgstr[2] "Recurs every %1 weeks on %2"
 
 #: src/incidenceformatter.cpp:3087
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
 msgid "Recurs every month on the %2 %3 until %4"
 msgid_plural "Recurs every %1 months on the %2 %3 until %4"
-msgstr[0] "Opakuje sa každý mesiac v %2 %3 do %4"
-msgstr[1] "Opakuje sa každé %1 mesiace v %2 %3 do %4"
-msgstr[2] "Opakuje sa každých %1 mesiacov v %2 %3 do %4"
+msgstr[0] "Recurs every month on the %2 %3 until %4"
+msgstr[1] "Recurs every %1 months on the %2 %3 until %4"
+msgstr[2] "Recurs every %1 months on the %2 %3 until %4"
 
 #: src/incidenceformatter.cpp:3098
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname"
 msgid "Recurs every month on the %2 %3"
 msgid_plural "Recurs every %1 months on the %2 %3"
-msgstr[0] "Opakuje sa každý mesiac v %2 %3"
-msgstr[1] "Opakuje sa každé %1 mesiace v %2 %3"
-msgstr[2] "Opakuje sa každých %1 mesiacov v %2 %3"
+msgstr[0] "Recurs every month on the %2 %3"
+msgstr[1] "Recurs every %1 months on the %2 %3"
+msgstr[2] "Recurs every %1 months on the %2 %3"
 
 #: src/incidenceformatter.cpp:3111
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day until end-date"
 msgid "Recurs monthly on the %2 day until %3"
 msgid_plural "Recurs every %1 months on the %2 day until %3"
-msgstr[0] "Opakuje sa každý mesiac dňa %2 do %3"
-msgstr[1] "Opakuje sa každé %1 mesiace dňa %2 do %3"
-msgstr[2] "Opakuje sa každých %1 mesiacov dňa %2 do %3"
+msgstr[0] "Recurs monthly on the %2 day until %3"
+msgstr[1] "Recurs every %1 months on the %2 day until %3"
+msgstr[2] "Recurs every %1 months on the %2 day until %3"
 
 #: src/incidenceformatter.cpp:3121
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day"
 msgid "Recurs monthly on the %2 day"
 msgid_plural "Recurs every %1 month on the %2 day"
-msgstr[0] "Opakuje sa každý mesiac dňa %2"
-msgstr[1] "Opakuje sa každé %1 mesiace dňa %2"
-msgstr[2] "Opakuje sa každých %1 mesiacov dňa %2"
+msgstr[0] "Recurs monthly on the %2 day"
+msgstr[1] "Recurs every %1 month on the %2 day"
+msgstr[2] "Recurs every %1 month on the %2 day"
 
 #: src/incidenceformatter.cpp:3134
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...] until end-date"
 msgid "Recurs yearly on %2 %3 until %4"
 msgid_plural "Recurs every %1 years on %2 %3 until %4"
-msgstr[0] "Opakuje sa ročne v %2 %3 do %4"
-msgstr[1] "Opakuje sa každé %1 roky v %2 %3 do %4"
-msgstr[2] "Opakuje sa každých %1 rokov v %2 %3 do %4"
+msgstr[0] "Recurs yearly on %2 %3 until %4"
+msgstr[1] "Recurs every %1 years on %2 %3 until %4"
+msgstr[2] "Recurs every %1 years on %2 %3 until %4"
 
 #: src/incidenceformatter.cpp:3147
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %2 %3"
 msgid_plural "Recurs every %1 years on %2 %3"
-msgstr[0] "Opakuje sa ročne v %2 %3"
-msgstr[1] "Opakuje sa každé %1 roky v %2 %3"
-msgstr[2] "Opakuje sa každých %1 rokov v %2 %3"
+msgstr[0] "Recurs yearly on %2 %3"
+msgstr[1] "Recurs every %1 years on %2 %3"
+msgstr[2] "Recurs every %1 years on %2 %3"
 
 #: src/incidenceformatter.cpp:3155 src/incidenceformatter.cpp:3160
 #, kde-format
@@ -1488,18 +1488,18 @@ msgstr "Opakuje sa ročne v %1 %2"
 msgctxt "Recurs every N years on day N until end-date"
 msgid "Recurs every year on day %2 until %3"
 msgid_plural "Recurs every %1 years on day %2 until %3"
-msgstr[0] "Opakuje sa ročne dňa %2 do %3"
-msgstr[1] "Opakuje sa každé %1 roky dňa %2 do %3"
-msgstr[2] "Opakuje sa každých %1 rokov dňa %2 do %3"
+msgstr[0] "Recurs every year on day %2 until %3"
+msgstr[1] "Recurs every %1 years on day %2 until %3"
+msgstr[2] "Recurs every %1 years on day %2 until %3"
 
 #: src/incidenceformatter.cpp:3182
 #, kde-format
 msgctxt "Recurs every N YEAR[S] on day N"
 msgid "Recurs every year on day %2"
 msgid_plural "Recurs every %1 years on day %2"
-msgstr[0] "Opakuje sa ročne dňa %2"
-msgstr[1] "Opakuje sa každé %1 roky dňa %2"
-msgstr[2] "Opakuje sa každých %1 rokov dňa %2"
+msgstr[0] "Recurs every year on day %2"
+msgstr[1] "Recurs every %1 years on day %2"
+msgstr[2] "Recurs every %1 years on day %2"
 
 #: src/incidenceformatter.cpp:3197
 #, kde-format
@@ -1507,18 +1507,18 @@ msgctxt ""
 "Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
 msgid "Every year on the %2 %3 of %4 until %5"
 msgid_plural "Every %1 years on the %2 %3 of %4 until %5"
-msgstr[0] "Každý rok v %2 %3 z %4 do %5"
-msgstr[1] "Každé %1 roky v %2 %3 z %4 do %5"
-msgstr[2] "Každých %1 rokov v %2 %3 z %4 do %5"
+msgstr[0] "Every year on the %2 %3 of %4 until %5"
+msgstr[1] "Every %1 years on the %2 %3 of %4 until %5"
+msgstr[2] "Every %1 years on the %2 %3 of %4 until %5"
 
 #: src/incidenceformatter.cpp:3212
 #, kde-kuit-format
 msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
 msgid "Every year on the %2 %3 of %4"
 msgid_plural "Every %1 years on the %2 %3 of %4"
-msgstr[0] "Každý rok v %2 %3 z %4"
-msgstr[1] "Každé %1 roky v %2 %3 z %4"
-msgstr[2] "Každých %1 rokov v %2 %3 z %4"
+msgstr[0] "Every year on the %2 %3 of %4"
+msgstr[1] "Every %1 years on the %2 %3 of %4"
+msgstr[2] "Every %1 years on the %2 %3 of %4"
 
 #: src/incidenceformatter.cpp:3224
 #, kde-format
@@ -1535,9 +1535,9 @@ msgstr "minúta %1"
 #, kde-format
 msgid "1 day"
 msgid_plural "%1 days"
-msgstr[0] "1 deň"
-msgstr[1] "%1 dni"
-msgstr[2] "%1 dní"
+msgstr[0] "1 day"
+msgstr[1] "%1 days"
+msgstr[2] "%1 days"
 
 #: src/incidenceformatter.cpp:3308
 #, kde-format
@@ -1548,17 +1548,17 @@ msgstr "%1 (okrem %2)"
 #, kde-format
 msgid "1 hour"
 msgid_plural "%1 hours"
-msgstr[0] "1 hodina"
-msgstr[1] "%1 hodiny"
-msgstr[2] "%1 hodín"
+msgstr[0] "1 hour"
+msgstr[1] "%1 hours"
+msgstr[2] "%1 hours"
 
 #: src/incidenceformatter.cpp:3355
 #, kde-format
 msgid "1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] "1 minúta"
-msgstr[1] "%1 minúty"
-msgstr[2] "%1 minút"
+msgstr[0] "1 minute"
+msgstr[1] "%1 minutes"
+msgstr[2] "%1 minutes"
 
 #: src/incidenceformatter.cpp:3372
 #, kde-format
@@ -1611,9 +1611,9 @@ msgstr "v %1"
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
-msgstr[0] "opakuje sa raz"
-msgstr[1] "opakuje sa %1 krát"
-msgstr[2] "opakuje sa %1 krát"
+msgstr[0] "repeats once"
+msgstr[1] "repeats %1 times"
+msgstr[2] "repeats %1 times"
 
 #: src/incidenceformatter.cpp:3461
 #, kde-format
@@ -2045,10 +2045,9 @@ msgstr "Dátum vytvorenia: %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
-#, fuzzy, kde-format
-#| msgid "Recurs: %1\n"
+#, kde-format
 msgid "Revision: %1"
-msgstr "Opakuje sa: %1\n"
+msgstr "Opakuje sa: %1"
 
 #: src/templates/freebusy.html:6
 #, kde-format
