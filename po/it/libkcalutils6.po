@@ -3,7 +3,7 @@
 # Alessandro Pasotti <ale.pas@tiscalinet.it>, 2003,2004, 2005, 2006.
 # Alessandro Pasotti <a.pasotti@itopen.it>, 2006.
 # Andrea Rizzi <rizzi@kde.org>, 2007.
-# SPDX-FileCopyrightText: 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2018, 2020, 2021, 2025 Luigi Toscano <luigi.toscano@tiscali.it>
+# SPDX-FileCopyrightText: 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2018, 2020, 2021, 2025, 2026 Luigi Toscano <luigi.toscano@tiscali.it>
 # Nicola Ruggero <nicola@nxnt.org>, 2011.
 #
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-04 00:46+0000\n"
-"PO-Revision-Date: 2025-02-14 13:40+0100\n"
+"PO-Revision-Date: 2026-04-09 00:09+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -544,10 +544,9 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "Errore: messaggio iTIP libero/occupato con metodo sconosciuto."
 
 #: src/incidenceformatter.cpp:1715
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>"
+#, kde-format
 msgid "%1 (<i>unrecorded</i>)"
-msgstr "%1 (<i>non registrato</i>"
+msgstr "%1 (<i>non registrato</i>)"
 
 #: src/incidenceformatter.cpp:1928
 #, kde-format
@@ -734,10 +733,9 @@ msgid "<i>Period start:</i> %1"
 msgstr "<i>Inizio periodo:</i> %1"
 
 #: src/incidenceformatter.cpp:2484
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgid "<i>Period end:</i> %1"
-msgstr "<i>Inizio periodo:</i> %1"
+msgstr "<i>Fine periodo:</i> %1"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5
 #, kde-format

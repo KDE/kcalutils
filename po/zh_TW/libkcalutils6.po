@@ -3,13 +3,13 @@
 # Franklin Weng <franklin@goodhorse.idv.tw>, 2010, 2011, 2013, 2015.
 #
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2010.
-# SPDX-FileCopyrightText: 2023, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2025-2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-04 00:46+0000\n"
-"PO-Revision-Date: 2025-02-18 15:57+0900\n"
+"PO-Revision-Date: 2026-04-08 23:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 26.07.70\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -531,10 +531,9 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "錯誤：行程資訊 iTIP 訊息使用未知的方法。"
 
 #: src/incidenceformatter.cpp:1715
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>"
+#, kde-format
 msgid "%1 (<i>unrecorded</i>)"
-msgstr "%1（<i>未記錄</i>"
+msgstr "%1（<i>未記錄</i>）"
 
 #: src/incidenceformatter.cpp:1928
 #, kde-format
@@ -721,10 +720,9 @@ msgid "<i>Period start:</i> %1"
 msgstr "<i>期間開始：</i>%1"
 
 #: src/incidenceformatter.cpp:2484
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgid "<i>Period end:</i> %1"
-msgstr "<i>期間開始：</i>%1"
+msgstr "<i>期間結束：</i>%1"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5
 #, kde-format
