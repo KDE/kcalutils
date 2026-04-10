@@ -3,13 +3,13 @@
 # Ahmad M. Zawawi <azawawi@emirates.net.ae>, 2004.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2018.
-# SPDX-FileCopyrightText: 2021, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkcal\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-04 00:46+0000\n"
-"PO-Revision-Date: 2025-06-28 17:34+0400\n"
+"PO-Revision-Date: 2026-04-09 11:23+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -553,10 +553,9 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "خطأ: رسالة iTIP متفرّغ/مشغول فيها طريقة مجهولة."
 
 #: src/incidenceformatter.cpp:1715
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>"
+#, kde-format
 msgid "%1 (<i>unrecorded</i>)"
-msgstr "%1 (غير مسجّل"
+msgstr "%1 (<i>غير مسجّل</i>)"
 
 #: src/incidenceformatter.cpp:1928
 #, kde-format
@@ -746,10 +745,9 @@ msgstr "بداية الفترة: %1"
 
 # بداية فترة متفرغ/مشغول
 #: src/incidenceformatter.cpp:2484
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgid "<i>Period end:</i> %1"
-msgstr "بداية الفترة: %1"
+msgstr "<i>نهاية الفترة</i>: %1"
 
 #: src/incidenceformatter.cpp:2509 src/templates/freebusy.html:5
 #, kde-format
