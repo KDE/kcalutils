@@ -49,6 +49,21 @@ QString Stringify::incidenceType(Incidence::IncidenceType type)
     }
 }
 
+QString Stringify::incidenceTypeCaps(Incidence::IncidenceType type)
+{
+    switch (type) {
+    case Incidence::TypeEvent:
+        return i18nc("@item incidence type is Event (capitalized)", "Event");
+    case Incidence::TypeTodo:
+        return i18nc("@item incidence type is To-do/Task (capitalized)", "To-do");
+    case Incidence::TypeJournal:
+        return i18nc("@item incidence type is Journal (capitalized)", "Journal");
+    case Incidence::TypeFreeBusy:
+        return i18nc("@item incidence type is Freebusy (capitalized)", "Free/Busy");
+    default:
+        return QString();
+    }
+}
 QString Stringify::todoCompletedDateTime(const Todo::Ptr &todo, bool shortfmt)
 {
     return QLocale().toString(todo->completed(), (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));

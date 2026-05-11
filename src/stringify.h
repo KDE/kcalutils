@@ -41,11 +41,21 @@ namespace KCalUtils
 namespace Stringify
 {
 /*!
-  Get a translated string representation of an Incidence type.
+  Returns a translated string representation of an Incidence type, in lower-case.
   \param type the IncidenceType to convert to string
   \return the localized string representation of the incidence type
+  \sa incidenceTypeCaps()
 */
 [[nodiscard]] KCALUTILS_EXPORT QString incidenceType(KCalendarCore::Incidence::IncidenceType type);
+
+/*!
+  Returns a translated string representation of an Incidence type, capitalized
+  \param type the IncidenceType to convert to string
+  \return the localized string representation of the incidence type, in capitals.
+  \sa incidenceType()
+  \since 6.8
+*/
+[[nodiscard]] KCALUTILS_EXPORT QString incidenceTypeCaps(KCalendarCore::Incidence::IncidenceType type);
 
 /*!
   Returns the incidence Secrecy as translated string.
