@@ -46,7 +46,7 @@ using namespace KCalendarCore;
 #include <QLocale>
 #include <QMimeDatabase>
 #include <QPalette>
-#include <QRegularExpression>
+#include <QTextDocumentFragment>
 
 using namespace KCalUtils;
 using namespace IncidenceFormatter;
@@ -58,6 +58,11 @@ using namespace IncidenceFormatter;
 static QVariantHash inviteButton(const QString &id, const QString &text, const QString &iconName, InvitationFormatterHelper *helper);
 
 //@cond PRIVATE
+static QString cleanHtml(const QString &html)
+{
+    return QTextDocumentFragment::fromHtml(html).toPlainText();
+}
+
 [[nodiscard]] static QString string2HTML(const QString &str)
 {
     // use convertToHtml so we get clickable links and other goodies
@@ -746,17 +751,6 @@ QString IncidenceFormatter::extensiveDisplayStr(const QString &sourceName, const
  ***********************************************************************/
 
 //@cond PRIVATE
-static QString cleanHtml(const QString &html)
-{
-    static QRegularExpression rx = QRegularExpression(QStringLiteral("<body[^>]*>(.*)</body>"), QRegularExpression::CaseInsensitiveOption);
-    QRegularExpressionMatch match = rx.match(html);
-    if (match.hasMatch()) {
-        QString body = match.captured(1);
-        return body.remove(QRegularExpression(QStringLiteral("<[^>]*>"))).trimmed().toHtmlEscaped();
-    }
-    return html;
-}
-
 static QString invitationSummary(const Incidence::Ptr &incidence, bool noHtmlMode)
 {
     QString summaryStr = i18n("Summary unspecified");
