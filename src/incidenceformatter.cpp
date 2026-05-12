@@ -291,7 +291,8 @@ struct IncidenceNameAndUid {
 {
     if (!incidence->description().isEmpty()) {
         if (!incidence->descriptionIsRich() && !incidence->description().startsWith(QLatin1StringView("<!DOCTYPE HTML"))) {
-            return string2HTML(incidence->description());
+            // cleanHtml first since non rich text might have html tags (like "<p>whatever</p>")
+            return string2HTML(cleanHtml(incidence->description()));
         } else if (!incidence->description().startsWith(QLatin1StringView("<!DOCTYPE HTML"))) {
             return incidence->richDescription();
         } else {
@@ -2687,7 +2688,8 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
             if (desc.length() > maxDescLen) {
                 desc = desc.left(maxDescLen) + i18nc("ellipsis", "...");
             }
-            desc = desc.toHtmlEscaped().replace(u'\n', QLatin1StringView("<br>"));
+            // cleanHtml first since non rich text might have html tags (like "<p>whatever</p>")
+            desc = cleanHtml(desc).replace(u'\n', QLatin1StringView("<br>"));
         } else {
             // TODO: truncate the description when it's rich text
         }
