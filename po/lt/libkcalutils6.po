@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-04 00:46+0000\n"
+"POT-Creation-Date: 2026-05-12 00:45+0000\n"
 "PO-Revision-Date: 2015-12-29 23:01+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -1789,284 +1789,316 @@ msgctxt "@item incidence type is freebusy"
 msgid "free/busy"
 msgstr "laisvas/užimtas"
 
-#: src/stringify.cpp:61
+#: src/stringify.cpp:56
+#, fuzzy, kde-format
+#| msgctxt "@title:column event description"
+#| msgid "Event"
+msgctxt "@item incidence type is Event (capitalized)"
+msgid "Event"
+msgstr "Įvykis"
+
+#: src/stringify.cpp:58
+#, fuzzy, kde-format
+#| msgctxt "@title:column"
+#| msgid "To-do"
+msgctxt "@item incidence type is To-do/Task (capitalized)"
+msgid "To-do"
+msgstr "Darbas"
+
+#: src/stringify.cpp:60
+#, fuzzy, kde-format
+#| msgctxt "@item incidence type is journal"
+#| msgid "journal"
+msgctxt "@item incidence type is Journal (capitalized)"
+msgid "Journal"
+msgstr "dienynas"
+
+#: src/stringify.cpp:62
+#, fuzzy, kde-format
+#| msgctxt "@item incidence type is freebusy"
+#| msgid "free/busy"
+msgctxt "@item incidence type is Freebusy (capitalized)"
+msgid "Free/Busy"
+msgstr "laisvas/užimtas"
+
+#: src/stringify.cpp:76
 #, kde-format
 msgctxt "@item incidence access if for everyone"
 msgid "Public"
 msgstr "Viešas"
 
-#: src/stringify.cpp:63
+#: src/stringify.cpp:78
 #, kde-format
 msgctxt "@item incidence access is by owner only"
 msgid "Private"
 msgstr "Privatus"
 
-#: src/stringify.cpp:65
+#: src/stringify.cpp:80
 #, kde-format
 msgctxt "@item incidence access is by owner and a controlled group"
 msgid "Confidential"
 msgstr "Konfidencialus"
 
-#: src/stringify.cpp:83
+#: src/stringify.cpp:98
 #, kde-format
 msgctxt "@item event is tentative"
 msgid "Tentative"
 msgstr "Negalutinis"
 
-#: src/stringify.cpp:85
+#: src/stringify.cpp:100
 #, kde-format
 msgctxt "@item event is definite"
 msgid "Confirmed"
 msgstr "Patvirtinta"
 
-#: src/stringify.cpp:87
+#: src/stringify.cpp:102
 #, kde-format
 msgctxt "@item to-do is complete"
 msgid "Completed"
 msgstr "Atlikta"
 
-#: src/stringify.cpp:89
+#: src/stringify.cpp:104
 #, kde-format
 msgctxt "@item to-do needs action"
 msgid "Needs-Action"
 msgstr "Reikalauja veiksmo"
 
-#: src/stringify.cpp:91
+#: src/stringify.cpp:106
 #, kde-format
 msgctxt "@item event orto-do is canceled; journal is removed"
 msgid "Canceled"
 msgstr "Atšaukta"
 
-#: src/stringify.cpp:93
+#: src/stringify.cpp:108
 #, kde-format
 msgctxt "@item to-do is in process"
 msgid "In-Process"
 msgstr "Procese"
 
-#: src/stringify.cpp:95
+#: src/stringify.cpp:110
 #, kde-format
 msgctxt "@item journal is in draft form"
 msgid "Draft"
 msgstr "Juodraštis"
 
-#: src/stringify.cpp:97
+#: src/stringify.cpp:112
 #, kde-format
 msgctxt "@item journal is in final form"
 msgid "Final"
 msgstr "Galutinis"
 
-#: src/stringify.cpp:118
+#: src/stringify.cpp:133
 #, kde-format
 msgctxt "@item chairperson"
 msgid "Chair"
 msgstr "Pirmininkas"
 
-#: src/stringify.cpp:120
+#: src/stringify.cpp:135
 #, kde-format
 msgctxt "@item participation is required"
 msgid "Participant"
 msgstr "Dalyvis"
 
-#: src/stringify.cpp:122
+#: src/stringify.cpp:137
 #, kde-format
 msgctxt "@item participation is optional"
 msgid "Optional Participant"
 msgstr "Nebūtinas dalyvis"
 
-#: src/stringify.cpp:124
+#: src/stringify.cpp:139
 #, kde-format
 msgctxt "@item non-participant copied for information"
 msgid "Observer"
 msgstr "Stebėtojas"
 
-#: src/stringify.cpp:133
+#: src/stringify.cpp:148
 #, kde-format
 msgctxt "@item event, to-do or journal needs action"
 msgid "Needs Action"
 msgstr "Reikia veiksmo"
 
-#: src/stringify.cpp:135
+#: src/stringify.cpp:150
 #, kde-format
 msgctxt "@item event, to-do or journal accepted"
 msgid "Accepted"
 msgstr "Priimtas"
 
-#: src/stringify.cpp:137
+#: src/stringify.cpp:152
 #, kde-format
 msgctxt "@item event, to-do or journal declined"
 msgid "Declined"
 msgstr "Atmestas"
 
-#: src/stringify.cpp:139
+#: src/stringify.cpp:154
 #, kde-format
 msgctxt "@item event or to-do tentatively accepted"
 msgid "Tentative"
 msgstr "Negalutinis"
 
-#: src/stringify.cpp:141
+#: src/stringify.cpp:156
 #, kde-format
 msgctxt "@item event or to-do delegated"
 msgid "Delegated"
 msgstr "Deleguotas"
 
-#: src/stringify.cpp:143
+#: src/stringify.cpp:158
 #, kde-format
 msgctxt "@item to-do completed"
 msgid "Completed"
 msgstr "Atlikta"
 
-#: src/stringify.cpp:145
+#: src/stringify.cpp:160
 #, kde-format
 msgctxt "@item to-do in process of being completed"
 msgid "In Process"
 msgstr "Procese"
 
-#: src/stringify.cpp:147
+#: src/stringify.cpp:162
 #, kde-format
 msgctxt "@item event or to-do status unknown"
 msgid "Unknown"
 msgstr "Nežinoma"
 
-#: src/stringify.cpp:158
+#: src/stringify.cpp:173
 #, kde-format
 msgctxt "@item"
 msgid "Load Error"
 msgstr "Įkėlimo klaida"
 
-#: src/stringify.cpp:161
+#: src/stringify.cpp:176
 #, kde-format
 msgctxt "@item"
 msgid "Save Error"
 msgstr "Įrašymo klaida"
 
-#: src/stringify.cpp:164
+#: src/stringify.cpp:179
 #, kde-format
 msgctxt "@item"
 msgid "Parse Error in libical"
 msgstr "Apdorojimo klaida bibliotekoje libical"
 
-#: src/stringify.cpp:167
+#: src/stringify.cpp:182
 #, kde-format
 msgctxt "@item"
 msgid "Parse Error in the kcalcore library"
 msgstr ""
 
-#: src/stringify.cpp:170
+#: src/stringify.cpp:185
 #, kde-format
 msgctxt "@item"
 msgid "No calendar component found."
 msgstr "Nerastas kalendoriaus komponentas."
 
-#: src/stringify.cpp:173 src/stringify.cpp:202
+#: src/stringify.cpp:188 src/stringify.cpp:217
 #, kde-format
 msgctxt "@item"
 msgid "Expected iCalendar, got vCalendar format"
 msgstr "Laukiama iCalendar formato, bet gautas vCalendar formatas"
 
-#: src/stringify.cpp:176
+#: src/stringify.cpp:191
 #, kde-format
 msgctxt "@item"
 msgid "iCalendar Version 2.0 detected."
 msgstr "Aptikta iCalendar versija 2.0."
 
-#: src/stringify.cpp:179 src/stringify.cpp:205
+#: src/stringify.cpp:194 src/stringify.cpp:220
 #, kde-format
 msgctxt "@item"
 msgid "Expected iCalendar, got unknown format"
 msgstr "Laukiama iCalendar formato, gautas kitas, nežinomas formatas"
 
-#: src/stringify.cpp:182
+#: src/stringify.cpp:197
 #, kde-format
 msgctxt "@item"
 msgid "Restriction violation"
 msgstr "Apribojimo pažeidimas"
 
-#: src/stringify.cpp:185
+#: src/stringify.cpp:200
 #, kde-format
 msgctxt "@item"
 msgid "No writable resource found"
 msgstr ""
 
-#: src/stringify.cpp:189
+#: src/stringify.cpp:204
 #, kde-format
 msgctxt "@item"
 msgid "Error saving to '%1'."
 msgstr "Klaida įrašant į „%1“."
 
-#: src/stringify.cpp:193
+#: src/stringify.cpp:208
 #, kde-format
 msgctxt "@item"
 msgid "Could not save '%1'"
 msgstr "Nepavyko įrašyti „%1“"
 
-#: src/stringify.cpp:196
+#: src/stringify.cpp:211
 #, kde-format
 msgctxt "@item"
 msgid "libical error"
 msgstr "libical klaida"
 
-#: src/stringify.cpp:199
+#: src/stringify.cpp:214
 #, kde-format
 msgctxt "@item"
 msgid "No VERSION property found"
 msgstr ""
 
-#: src/stringify.cpp:208
+#: src/stringify.cpp:223
 #, kde-format
 msgctxt "@item"
 msgid "object is not a freebusy, event, todo or journal"
 msgstr ""
 
-#: src/stringify.cpp:211
+#: src/stringify.cpp:226
 #, kde-format
 msgctxt "@item"
 msgid "messageText is empty, unable to parse into a ScheduleMessage"
 msgstr ""
 
-#: src/stringify.cpp:214
+#: src/stringify.cpp:229
 #, kde-format
 msgctxt "@item"
 msgid "icalparser is unable to parse messageText into a ScheduleMessage"
 msgstr ""
 
-#: src/stringify.cpp:217
+#: src/stringify.cpp:232
 #, kde-format
 msgctxt "@item"
 msgid "message does not contain ICAL_METHOD_PROPERTY"
 msgstr ""
 
-#: src/stringify.cpp:231
+#: src/stringify.cpp:246
 #, kde-format
 msgctxt "@item this is a new scheduling message"
 msgid "New Scheduling Message"
 msgstr ""
 
-#: src/stringify.cpp:233
+#: src/stringify.cpp:248
 #, kde-format
 msgctxt "@item this is an update to an existing scheduling message"
 msgid "Updated Scheduling Message"
 msgstr ""
 
-#: src/stringify.cpp:235
+#: src/stringify.cpp:250
 #, kde-format
 msgctxt "@item obsolete status"
 msgid "Obsolete"
 msgstr "Pasenęs"
 
-#: src/stringify.cpp:237
+#: src/stringify.cpp:252
 #, kde-format
 msgctxt "@item this is a request for a new scheduling message"
 msgid "New Scheduling Message Request"
 msgstr ""
 
-#: src/stringify.cpp:239
+#: src/stringify.cpp:254
 #, kde-format
 msgctxt ""
 "@item this is a request for an update to an existing scheduling message"
 msgid "Updated Scheduling Message Request"
 msgstr ""
 
-#: src/stringify.cpp:241
+#: src/stringify.cpp:256
 #, kde-format
 msgctxt "@item unknown status"
 msgid "Unknown Status: %1"
@@ -2413,10 +2445,6 @@ msgstr "Procentų užbaigta:"
 #~ msgctxt "@title:column event attendees"
 #~ msgid "Attendees"
 #~ msgstr "Dalyviai"
-
-#~ msgctxt "@title:column"
-#~ msgid "To-do"
-#~ msgstr "Darbas"
 
 #~ msgctxt "@title:column to-do priority"
 #~ msgid "Priority"

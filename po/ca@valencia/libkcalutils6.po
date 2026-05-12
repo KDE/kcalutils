@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-04 00:46+0000\n"
+"POT-Creation-Date: 2026-05-12 00:45+0000\n"
 "PO-Revision-Date: 2026-04-04 10:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1657,287 +1657,317 @@ msgctxt "@item incidence type is freebusy"
 msgid "free/busy"
 msgstr "lliure/ocupat"
 
-#: src/stringify.cpp:61
+#: src/stringify.cpp:56
+#, fuzzy, kde-format
+#| msgid "Event"
+msgctxt "@item incidence type is Event (capitalized)"
+msgid "Event"
+msgstr "Esdeveniment"
+
+#: src/stringify.cpp:58
+#, fuzzy, kde-format
+#| msgctxt "@item incidence type is to-do/task"
+#| msgid "to-do"
+msgctxt "@item incidence type is To-do/Task (capitalized)"
+msgid "To-do"
+msgstr "tasca pendent"
+
+#: src/stringify.cpp:60
+#, fuzzy, kde-format
+#| msgid "Journal"
+msgctxt "@item incidence type is Journal (capitalized)"
+msgid "Journal"
+msgstr "Diari"
+
+#: src/stringify.cpp:62
+#, fuzzy, kde-format
+#| msgctxt "@item incidence type is freebusy"
+#| msgid "free/busy"
+msgctxt "@item incidence type is Freebusy (capitalized)"
+msgid "Free/Busy"
+msgstr "lliure/ocupat"
+
+#: src/stringify.cpp:76
 #, kde-format
 msgctxt "@item incidence access if for everyone"
 msgid "Public"
 msgstr "Públic"
 
-#: src/stringify.cpp:63
+#: src/stringify.cpp:78
 #, kde-format
 msgctxt "@item incidence access is by owner only"
 msgid "Private"
 msgstr "Privat"
 
-#: src/stringify.cpp:65
+#: src/stringify.cpp:80
 #, kde-format
 msgctxt "@item incidence access is by owner and a controlled group"
 msgid "Confidential"
 msgstr "Confidencial"
 
-#: src/stringify.cpp:83
+#: src/stringify.cpp:98
 #, kde-format
 msgctxt "@item event is tentative"
 msgid "Tentative"
 msgstr "Provisional"
 
-#: src/stringify.cpp:85
+#: src/stringify.cpp:100
 #, kde-format
 msgctxt "@item event is definite"
 msgid "Confirmed"
 msgstr "Confirmat"
 
-#: src/stringify.cpp:87
+#: src/stringify.cpp:102
 #, kde-format
 msgctxt "@item to-do is complete"
 msgid "Completed"
 msgstr "Completada"
 
-#: src/stringify.cpp:89
+#: src/stringify.cpp:104
 #, kde-format
 msgctxt "@item to-do needs action"
 msgid "Needs-Action"
 msgstr "Es necessita una acció"
 
-#: src/stringify.cpp:91
+#: src/stringify.cpp:106
 #, kde-format
 msgctxt "@item event orto-do is canceled; journal is removed"
 msgid "Canceled"
 msgstr "Cancel·lada"
 
-#: src/stringify.cpp:93
+#: src/stringify.cpp:108
 #, kde-format
 msgctxt "@item to-do is in process"
 msgid "In-Process"
 msgstr "En procés"
 
-#: src/stringify.cpp:95
+#: src/stringify.cpp:110
 #, kde-format
 msgctxt "@item journal is in draft form"
 msgid "Draft"
 msgstr "Esborrany"
 
-#: src/stringify.cpp:97
+#: src/stringify.cpp:112
 #, kde-format
 msgctxt "@item journal is in final form"
 msgid "Final"
 msgstr "Final"
 
-#: src/stringify.cpp:118
+#: src/stringify.cpp:133
 #, kde-format
 msgctxt "@item chairperson"
 msgid "Chair"
 msgstr "Presidix"
 
-#: src/stringify.cpp:120
+#: src/stringify.cpp:135
 #, kde-format
 msgctxt "@item participation is required"
 msgid "Participant"
 msgstr "Participant"
 
-#: src/stringify.cpp:122
+#: src/stringify.cpp:137
 #, kde-format
 msgctxt "@item participation is optional"
 msgid "Optional Participant"
 msgstr "Participant opcional"
 
-#: src/stringify.cpp:124
+#: src/stringify.cpp:139
 #, kde-format
 msgctxt "@item non-participant copied for information"
 msgid "Observer"
 msgstr "Observador"
 
-#: src/stringify.cpp:133
+#: src/stringify.cpp:148
 #, kde-format
 msgctxt "@item event, to-do or journal needs action"
 msgid "Needs Action"
 msgstr "Es necessita una acció"
 
-#: src/stringify.cpp:135
+#: src/stringify.cpp:150
 #, kde-format
 msgctxt "@item event, to-do or journal accepted"
 msgid "Accepted"
 msgstr "Acceptat"
 
-#: src/stringify.cpp:137
+#: src/stringify.cpp:152
 #, kde-format
 msgctxt "@item event, to-do or journal declined"
 msgid "Declined"
 msgstr "Declinat"
 
-#: src/stringify.cpp:139
+#: src/stringify.cpp:154
 #, kde-format
 msgctxt "@item event or to-do tentatively accepted"
 msgid "Tentative"
 msgstr "Provisional"
 
-#: src/stringify.cpp:141
+#: src/stringify.cpp:156
 #, kde-format
 msgctxt "@item event or to-do delegated"
 msgid "Delegated"
 msgstr "Delegat"
 
-#: src/stringify.cpp:143
+#: src/stringify.cpp:158
 #, kde-format
 msgctxt "@item to-do completed"
 msgid "Completed"
 msgstr "Completada"
 
-#: src/stringify.cpp:145
+#: src/stringify.cpp:160
 #, kde-format
 msgctxt "@item to-do in process of being completed"
 msgid "In Process"
 msgstr "En procés"
 
-#: src/stringify.cpp:147
+#: src/stringify.cpp:162
 #, kde-format
 msgctxt "@item event or to-do status unknown"
 msgid "Unknown"
 msgstr "Desconegut"
 
-#: src/stringify.cpp:158
+#: src/stringify.cpp:173
 #, kde-format
 msgctxt "@item"
 msgid "Load Error"
 msgstr "S'ha produït un error mentre es carregava"
 
-#: src/stringify.cpp:161
+#: src/stringify.cpp:176
 #, kde-format
 msgctxt "@item"
 msgid "Save Error"
 msgstr "S'ha produït un error mentre es guardava"
 
-#: src/stringify.cpp:164
+#: src/stringify.cpp:179
 #, kde-format
 msgctxt "@item"
 msgid "Parse Error in libical"
 msgstr "S'ha produït un error d'anàlisi en la «libical»"
 
-#: src/stringify.cpp:167
+#: src/stringify.cpp:182
 #, kde-format
 msgctxt "@item"
 msgid "Parse Error in the kcalcore library"
 msgstr "S'ha produït un error d'anàlisi en la biblioteca «kcalcore»"
 
-#: src/stringify.cpp:170
+#: src/stringify.cpp:185
 #, kde-format
 msgctxt "@item"
 msgid "No calendar component found."
 msgstr "No s'ha trobat el component de calendari."
 
-#: src/stringify.cpp:173 src/stringify.cpp:202
+#: src/stringify.cpp:188 src/stringify.cpp:217
 #, kde-format
 msgctxt "@item"
 msgid "Expected iCalendar, got vCalendar format"
 msgstr "S'esperava iCalendar, s'ha obtingut el format vCalendar"
 
-#: src/stringify.cpp:176
+#: src/stringify.cpp:191
 #, kde-format
 msgctxt "@item"
 msgid "iCalendar Version 2.0 detected."
 msgstr "S'ha detectat iCalendar versió 2.0."
 
-#: src/stringify.cpp:179 src/stringify.cpp:205
+#: src/stringify.cpp:194 src/stringify.cpp:220
 #, kde-format
 msgctxt "@item"
 msgid "Expected iCalendar, got unknown format"
 msgstr "S'esperava iCalendar, s'ha obtingut un format desconegut"
 
-#: src/stringify.cpp:182
+#: src/stringify.cpp:197
 #, kde-format
 msgctxt "@item"
 msgid "Restriction violation"
 msgstr "Infracció de restricció"
 
-#: src/stringify.cpp:185
+#: src/stringify.cpp:200
 #, kde-format
 msgctxt "@item"
 msgid "No writable resource found"
 msgstr "No s'ha trobat cap recurs on es puga escriure"
 
-#: src/stringify.cpp:189
+#: src/stringify.cpp:204
 #, kde-format
 msgctxt "@item"
 msgid "Error saving to '%1'."
 msgstr "S'ha produït un error mentre es guardava a «%1»."
 
-#: src/stringify.cpp:193
+#: src/stringify.cpp:208
 #, kde-format
 msgctxt "@item"
 msgid "Could not save '%1'"
 msgstr "No s'ha pogut guardar «%1»"
 
-#: src/stringify.cpp:196
+#: src/stringify.cpp:211
 #, kde-format
 msgctxt "@item"
 msgid "libical error"
 msgstr "S'ha produït un error de «libical»"
 
-#: src/stringify.cpp:199
+#: src/stringify.cpp:214
 #, kde-format
 msgctxt "@item"
 msgid "No VERSION property found"
 msgstr "No s'ha trobat la propietat VERSION"
 
-#: src/stringify.cpp:208
+#: src/stringify.cpp:223
 #, kde-format
 msgctxt "@item"
 msgid "object is not a freebusy, event, todo or journal"
 msgstr ""
 "L'objecte no és cap lliure/ocupat, esdeveniment, tasca pendent, ni diari"
 
-#: src/stringify.cpp:211
+#: src/stringify.cpp:226
 #, kde-format
 msgctxt "@item"
 msgid "messageText is empty, unable to parse into a ScheduleMessage"
 msgstr ""
 "El «messageText» està buit, no s'ha pogut analitzar en un «ScheduleMessage»"
 
-#: src/stringify.cpp:214
+#: src/stringify.cpp:229
 #, kde-format
 msgctxt "@item"
 msgid "icalparser is unable to parse messageText into a ScheduleMessage"
 msgstr ""
 "«icalparser» no ha pogut analitzar «messageText» en un «ScheduleMessage»"
 
-#: src/stringify.cpp:217
+#: src/stringify.cpp:232
 #, kde-format
 msgctxt "@item"
 msgid "message does not contain ICAL_METHOD_PROPERTY"
 msgstr "El missatge no conté «ICAL_METHOD_PROPERTY»"
 
-#: src/stringify.cpp:231
+#: src/stringify.cpp:246
 #, kde-format
 msgctxt "@item this is a new scheduling message"
 msgid "New Scheduling Message"
 msgstr "Missatge de planificació nou"
 
-#: src/stringify.cpp:233
+#: src/stringify.cpp:248
 #, kde-format
 msgctxt "@item this is an update to an existing scheduling message"
 msgid "Updated Scheduling Message"
 msgstr "Missatge de planificació actualitzat"
 
-#: src/stringify.cpp:235
+#: src/stringify.cpp:250
 #, kde-format
 msgctxt "@item obsolete status"
 msgid "Obsolete"
 msgstr "Obsolet"
 
-#: src/stringify.cpp:237
+#: src/stringify.cpp:252
 #, kde-format
 msgctxt "@item this is a request for a new scheduling message"
 msgid "New Scheduling Message Request"
 msgstr "Sol·licitud nova de missatge de planificació"
 
-#: src/stringify.cpp:239
+#: src/stringify.cpp:254
 #, kde-format
 msgctxt ""
 "@item this is a request for an update to an existing scheduling message"
 msgid "Updated Scheduling Message Request"
 msgstr "Sol·licitud actualitzada de missatge de planificació"
 
-#: src/stringify.cpp:241
+#: src/stringify.cpp:256
 #, kde-format
 msgctxt "@item unknown status"
 msgid "Unknown Status: %1"

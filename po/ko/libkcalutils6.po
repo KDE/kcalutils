@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-04 00:46+0000\n"
+"POT-Creation-Date: 2026-05-12 00:45+0000\n"
 "PO-Revision-Date: 2026-04-26 21:42+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1612,284 +1612,314 @@ msgctxt "@item incidence type is freebusy"
 msgid "free/busy"
 msgstr "바쁨/한가함"
 
-#: src/stringify.cpp:61
+#: src/stringify.cpp:56
+#, fuzzy, kde-format
+#| msgid "Event"
+msgctxt "@item incidence type is Event (capitalized)"
+msgid "Event"
+msgstr "이벤트"
+
+#: src/stringify.cpp:58
+#, fuzzy, kde-format
+#| msgctxt "@title:column"
+#| msgid "To-do"
+msgctxt "@item incidence type is To-do/Task (capitalized)"
+msgid "To-do"
+msgstr "할 일"
+
+#: src/stringify.cpp:60
+#, fuzzy, kde-format
+#| msgid "Journal"
+msgctxt "@item incidence type is Journal (capitalized)"
+msgid "Journal"
+msgstr "저널"
+
+#: src/stringify.cpp:62
+#, fuzzy, kde-format
+#| msgctxt "@item incidence type is freebusy"
+#| msgid "free/busy"
+msgctxt "@item incidence type is Freebusy (capitalized)"
+msgid "Free/Busy"
+msgstr "바쁨/한가함"
+
+#: src/stringify.cpp:76
 #, kde-format
 msgctxt "@item incidence access if for everyone"
 msgid "Public"
 msgstr "공유"
 
-#: src/stringify.cpp:63
+#: src/stringify.cpp:78
 #, kde-format
 msgctxt "@item incidence access is by owner only"
 msgid "Private"
 msgstr "개인"
 
-#: src/stringify.cpp:65
+#: src/stringify.cpp:80
 #, kde-format
 msgctxt "@item incidence access is by owner and a controlled group"
 msgid "Confidential"
 msgstr "기밀"
 
-#: src/stringify.cpp:83
+#: src/stringify.cpp:98
 #, kde-format
 msgctxt "@item event is tentative"
 msgid "Tentative"
 msgstr "미확정"
 
-#: src/stringify.cpp:85
+#: src/stringify.cpp:100
 #, kde-format
 msgctxt "@item event is definite"
 msgid "Confirmed"
 msgstr "확정"
 
-#: src/stringify.cpp:87
+#: src/stringify.cpp:102
 #, kde-format
 msgctxt "@item to-do is complete"
 msgid "Completed"
 msgstr "완료됨"
 
-#: src/stringify.cpp:89
+#: src/stringify.cpp:104
 #, kde-format
 msgctxt "@item to-do needs action"
 msgid "Needs-Action"
 msgstr "작업 필요"
 
-#: src/stringify.cpp:91
+#: src/stringify.cpp:106
 #, kde-format
 msgctxt "@item event orto-do is canceled; journal is removed"
 msgid "Canceled"
 msgstr "취소됨"
 
-#: src/stringify.cpp:93
+#: src/stringify.cpp:108
 #, kde-format
 msgctxt "@item to-do is in process"
 msgid "In-Process"
 msgstr "진행 중"
 
-#: src/stringify.cpp:95
+#: src/stringify.cpp:110
 #, kde-format
 msgctxt "@item journal is in draft form"
 msgid "Draft"
 msgstr "초안"
 
-#: src/stringify.cpp:97
+#: src/stringify.cpp:112
 #, kde-format
 msgctxt "@item journal is in final form"
 msgid "Final"
 msgstr "최종"
 
-#: src/stringify.cpp:118
+#: src/stringify.cpp:133
 #, kde-format
 msgctxt "@item chairperson"
 msgid "Chair"
 msgstr "의장"
 
-#: src/stringify.cpp:120
+#: src/stringify.cpp:135
 #, kde-format
 msgctxt "@item participation is required"
 msgid "Participant"
 msgstr "참석자"
 
-#: src/stringify.cpp:122
+#: src/stringify.cpp:137
 #, kde-format
 msgctxt "@item participation is optional"
 msgid "Optional Participant"
 msgstr "선택적 참석자"
 
-#: src/stringify.cpp:124
+#: src/stringify.cpp:139
 #, kde-format
 msgctxt "@item non-participant copied for information"
 msgid "Observer"
 msgstr "관찰자"
 
-#: src/stringify.cpp:133
+#: src/stringify.cpp:148
 #, kde-format
 msgctxt "@item event, to-do or journal needs action"
 msgid "Needs Action"
 msgstr "작업 필요"
 
-#: src/stringify.cpp:135
+#: src/stringify.cpp:150
 #, kde-format
 msgctxt "@item event, to-do or journal accepted"
 msgid "Accepted"
 msgstr "수락함"
 
-#: src/stringify.cpp:137
+#: src/stringify.cpp:152
 #, kde-format
 msgctxt "@item event, to-do or journal declined"
 msgid "Declined"
 msgstr "거부함"
 
-#: src/stringify.cpp:139
+#: src/stringify.cpp:154
 #, kde-format
 msgctxt "@item event or to-do tentatively accepted"
 msgid "Tentative"
 msgstr "미확정"
 
-#: src/stringify.cpp:141
+#: src/stringify.cpp:156
 #, kde-format
 msgctxt "@item event or to-do delegated"
 msgid "Delegated"
 msgstr "위임함"
 
-#: src/stringify.cpp:143
+#: src/stringify.cpp:158
 #, kde-format
 msgctxt "@item to-do completed"
 msgid "Completed"
 msgstr "완료됨"
 
-#: src/stringify.cpp:145
+#: src/stringify.cpp:160
 #, kde-format
 msgctxt "@item to-do in process of being completed"
 msgid "In Process"
 msgstr "진행 중"
 
-#: src/stringify.cpp:147
+#: src/stringify.cpp:162
 #, kde-format
 msgctxt "@item event or to-do status unknown"
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: src/stringify.cpp:158
+#: src/stringify.cpp:173
 #, kde-format
 msgctxt "@item"
 msgid "Load Error"
 msgstr "불러오기 오류"
 
-#: src/stringify.cpp:161
+#: src/stringify.cpp:176
 #, kde-format
 msgctxt "@item"
 msgid "Save Error"
 msgstr "저장 오류"
 
-#: src/stringify.cpp:164
+#: src/stringify.cpp:179
 #, kde-format
 msgctxt "@item"
 msgid "Parse Error in libical"
 msgstr "libical 해석 오류"
 
-#: src/stringify.cpp:167
+#: src/stringify.cpp:182
 #, kde-format
 msgctxt "@item"
 msgid "Parse Error in the kcalcore library"
 msgstr "kcalcore 라이브러리 해석 오류"
 
-#: src/stringify.cpp:170
+#: src/stringify.cpp:185
 #, kde-format
 msgctxt "@item"
 msgid "No calendar component found."
 msgstr "달력 구성 요소를 찾을 수 없습니다."
 
-#: src/stringify.cpp:173 src/stringify.cpp:202
+#: src/stringify.cpp:188 src/stringify.cpp:217
 #, kde-format
 msgctxt "@item"
 msgid "Expected iCalendar, got vCalendar format"
 msgstr "iCalendar 형식을 예상했지만 vCalendar 형식을 받음"
 
-#: src/stringify.cpp:176
+#: src/stringify.cpp:191
 #, kde-format
 msgctxt "@item"
 msgid "iCalendar Version 2.0 detected."
 msgstr "iCalendar 버전 2.0을 감지했습니다."
 
-#: src/stringify.cpp:179 src/stringify.cpp:205
+#: src/stringify.cpp:194 src/stringify.cpp:220
 #, kde-format
 msgctxt "@item"
 msgid "Expected iCalendar, got unknown format"
 msgstr "iCalendar 형식을 예상했지만 알 수 없는 형식을 받음"
 
-#: src/stringify.cpp:182
+#: src/stringify.cpp:197
 #, kde-format
 msgctxt "@item"
 msgid "Restriction violation"
 msgstr "제한 위배"
 
-#: src/stringify.cpp:185
+#: src/stringify.cpp:200
 #, kde-format
 msgctxt "@item"
 msgid "No writable resource found"
 msgstr "기록할 수 있는 리소스를 찾을 수 없음"
 
-#: src/stringify.cpp:189
+#: src/stringify.cpp:204
 #, kde-format
 msgctxt "@item"
 msgid "Error saving to '%1'."
 msgstr "'%1'에 저장하는 중 오류가 발생했습니다."
 
-#: src/stringify.cpp:193
+#: src/stringify.cpp:208
 #, kde-format
 msgctxt "@item"
 msgid "Could not save '%1'"
 msgstr "'%1'을(를) 저장할 수 없음"
 
-#: src/stringify.cpp:196
+#: src/stringify.cpp:211
 #, kde-format
 msgctxt "@item"
 msgid "libical error"
 msgstr "libical 오류"
 
-#: src/stringify.cpp:199
+#: src/stringify.cpp:214
 #, kde-format
 msgctxt "@item"
 msgid "No VERSION property found"
 msgstr "VERSION 속성을 찾을 수 없음"
 
-#: src/stringify.cpp:208
+#: src/stringify.cpp:223
 #, kde-format
 msgctxt "@item"
 msgid "object is not a freebusy, event, todo or journal"
 msgstr "객체가 freebusy, event, todo, journal이 아님"
 
-#: src/stringify.cpp:211
+#: src/stringify.cpp:226
 #, kde-format
 msgctxt "@item"
 msgid "messageText is empty, unable to parse into a ScheduleMessage"
 msgstr "messageText가 비어 있어서 ScheduleMessage로 해석할 수 없음"
 
-#: src/stringify.cpp:214
+#: src/stringify.cpp:229
 #, kde-format
 msgctxt "@item"
 msgid "icalparser is unable to parse messageText into a ScheduleMessage"
 msgstr "icalparser에서 messageText를 ScheduleMessage로 해석할 수 없음"
 
-#: src/stringify.cpp:217
+#: src/stringify.cpp:232
 #, kde-format
 msgctxt "@item"
 msgid "message does not contain ICAL_METHOD_PROPERTY"
 msgstr "메시지에 ICAL_METHOD_PROPERTY가 없음"
 
-#: src/stringify.cpp:231
+#: src/stringify.cpp:246
 #, kde-format
 msgctxt "@item this is a new scheduling message"
 msgid "New Scheduling Message"
 msgstr "새 스케줄링 메시지"
 
-#: src/stringify.cpp:233
+#: src/stringify.cpp:248
 #, kde-format
 msgctxt "@item this is an update to an existing scheduling message"
 msgid "Updated Scheduling Message"
 msgstr "업데이트된 스케줄링 메시지"
 
-#: src/stringify.cpp:235
+#: src/stringify.cpp:250
 #, kde-format
 msgctxt "@item obsolete status"
 msgid "Obsolete"
 msgstr "오래됨"
 
-#: src/stringify.cpp:237
+#: src/stringify.cpp:252
 #, kde-format
 msgctxt "@item this is a request for a new scheduling message"
 msgid "New Scheduling Message Request"
 msgstr "새 스케줄링 메시지 요청"
 
-#: src/stringify.cpp:239
+#: src/stringify.cpp:254
 #, kde-format
 msgctxt ""
 "@item this is a request for an update to an existing scheduling message"
 msgid "Updated Scheduling Message Request"
 msgstr "업데이트된 스케줄링 메시지 요청"
 
-#: src/stringify.cpp:241
+#: src/stringify.cpp:256
 #, kde-format
 msgctxt "@item unknown status"
 msgid "Unknown Status: %1"
@@ -2177,10 +2207,6 @@ msgstr "진행률:"
 #~ msgctxt "@title:column event attendees"
 #~ msgid "Attendees"
 #~ msgstr "참석자"
-
-#~ msgctxt "@title:column"
-#~ msgid "To-do"
-#~ msgstr "할 일"
 
 #~ msgctxt "@title:column to-do priority"
 #~ msgid "Priority"

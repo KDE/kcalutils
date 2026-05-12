@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcal\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-04 00:46+0000\n"
+"POT-Creation-Date: 2026-05-12 00:45+0000\n"
 "PO-Revision-Date: 2025-12-01 10:04+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1675,284 +1675,314 @@ msgctxt "@item incidence type is freebusy"
 msgid "free/busy"
 msgstr "aktivita"
 
-#: src/stringify.cpp:61
+#: src/stringify.cpp:56
+#, fuzzy, kde-format
+#| msgid "Event"
+msgctxt "@item incidence type is Event (capitalized)"
+msgid "Event"
+msgstr "Událost"
+
+#: src/stringify.cpp:58
+#, fuzzy, kde-format
+#| msgctxt "@item incidence type is to-do/task"
+#| msgid "to-do"
+msgctxt "@item incidence type is To-do/Task (capitalized)"
+msgid "To-do"
+msgstr "úkol"
+
+#: src/stringify.cpp:60
+#, fuzzy, kde-format
+#| msgid "Journal"
+msgctxt "@item incidence type is Journal (capitalized)"
+msgid "Journal"
+msgstr "Deník"
+
+#: src/stringify.cpp:62
+#, fuzzy, kde-format
+#| msgctxt "@item incidence type is freebusy"
+#| msgid "free/busy"
+msgctxt "@item incidence type is Freebusy (capitalized)"
+msgid "Free/Busy"
+msgstr "aktivita"
+
+#: src/stringify.cpp:76
 #, kde-format
 msgctxt "@item incidence access if for everyone"
 msgid "Public"
 msgstr "Veřejný"
 
-#: src/stringify.cpp:63
+#: src/stringify.cpp:78
 #, kde-format
 msgctxt "@item incidence access is by owner only"
 msgid "Private"
 msgstr "Soukromý"
 
-#: src/stringify.cpp:65
+#: src/stringify.cpp:80
 #, kde-format
 msgctxt "@item incidence access is by owner and a controlled group"
 msgid "Confidential"
 msgstr "Důvěrný"
 
-#: src/stringify.cpp:83
+#: src/stringify.cpp:98
 #, kde-format
 msgctxt "@item event is tentative"
 msgid "Tentative"
 msgstr "Zkušební"
 
-#: src/stringify.cpp:85
+#: src/stringify.cpp:100
 #, kde-format
 msgctxt "@item event is definite"
 msgid "Confirmed"
 msgstr "Potvrzeno"
 
-#: src/stringify.cpp:87
+#: src/stringify.cpp:102
 #, kde-format
 msgctxt "@item to-do is complete"
 msgid "Completed"
 msgstr "Dokončeno"
 
-#: src/stringify.cpp:89
+#: src/stringify.cpp:104
 #, kde-format
 msgctxt "@item to-do needs action"
 msgid "Needs-Action"
 msgstr "Vyžaduje činnost"
 
-#: src/stringify.cpp:91
+#: src/stringify.cpp:106
 #, kde-format
 msgctxt "@item event orto-do is canceled; journal is removed"
 msgid "Canceled"
 msgstr "Zrušeno"
 
-#: src/stringify.cpp:93
+#: src/stringify.cpp:108
 #, kde-format
 msgctxt "@item to-do is in process"
 msgid "In-Process"
 msgstr "Probíhá"
 
-#: src/stringify.cpp:95
+#: src/stringify.cpp:110
 #, kde-format
 msgctxt "@item journal is in draft form"
 msgid "Draft"
 msgstr "Koncept"
 
-#: src/stringify.cpp:97
+#: src/stringify.cpp:112
 #, kde-format
 msgctxt "@item journal is in final form"
 msgid "Final"
 msgstr "Konečné"
 
-#: src/stringify.cpp:118
+#: src/stringify.cpp:133
 #, kde-format
 msgctxt "@item chairperson"
 msgid "Chair"
 msgstr "Vedoucí"
 
-#: src/stringify.cpp:120
+#: src/stringify.cpp:135
 #, kde-format
 msgctxt "@item participation is required"
 msgid "Participant"
 msgstr "Účastník"
 
-#: src/stringify.cpp:122
+#: src/stringify.cpp:137
 #, kde-format
 msgctxt "@item participation is optional"
 msgid "Optional Participant"
 msgstr "Volitelný účastník"
 
-#: src/stringify.cpp:124
+#: src/stringify.cpp:139
 #, kde-format
 msgctxt "@item non-participant copied for information"
 msgid "Observer"
 msgstr "Pozorovatel"
 
-#: src/stringify.cpp:133
+#: src/stringify.cpp:148
 #, kde-format
 msgctxt "@item event, to-do or journal needs action"
 msgid "Needs Action"
 msgstr "Vyžaduje činnost"
 
-#: src/stringify.cpp:135
+#: src/stringify.cpp:150
 #, kde-format
 msgctxt "@item event, to-do or journal accepted"
 msgid "Accepted"
 msgstr "Přijato"
 
-#: src/stringify.cpp:137
+#: src/stringify.cpp:152
 #, kde-format
 msgctxt "@item event, to-do or journal declined"
 msgid "Declined"
 msgstr "Odmítnuto"
 
-#: src/stringify.cpp:139
+#: src/stringify.cpp:154
 #, kde-format
 msgctxt "@item event or to-do tentatively accepted"
 msgid "Tentative"
 msgstr "Zkušební"
 
-#: src/stringify.cpp:141
+#: src/stringify.cpp:156
 #, kde-format
 msgctxt "@item event or to-do delegated"
 msgid "Delegated"
 msgstr "Delegováno"
 
-#: src/stringify.cpp:143
+#: src/stringify.cpp:158
 #, kde-format
 msgctxt "@item to-do completed"
 msgid "Completed"
 msgstr "Dokončeno"
 
-#: src/stringify.cpp:145
+#: src/stringify.cpp:160
 #, kde-format
 msgctxt "@item to-do in process of being completed"
 msgid "In Process"
 msgstr "Probíhá"
 
-#: src/stringify.cpp:147
+#: src/stringify.cpp:162
 #, kde-format
 msgctxt "@item event or to-do status unknown"
 msgid "Unknown"
 msgstr "Neznámé"
 
-#: src/stringify.cpp:158
+#: src/stringify.cpp:173
 #, kde-format
 msgctxt "@item"
 msgid "Load Error"
 msgstr "Chyba při načítání"
 
-#: src/stringify.cpp:161
+#: src/stringify.cpp:176
 #, kde-format
 msgctxt "@item"
 msgid "Save Error"
 msgstr "Chyba při ukládání"
 
-#: src/stringify.cpp:164
+#: src/stringify.cpp:179
 #, kde-format
 msgctxt "@item"
 msgid "Parse Error in libical"
 msgstr "Chyba při analýze v knihovně libical"
 
-#: src/stringify.cpp:167
+#: src/stringify.cpp:182
 #, kde-format
 msgctxt "@item"
 msgid "Parse Error in the kcalcore library"
 msgstr "Chyba při analýze v knihovně kcalcore"
 
-#: src/stringify.cpp:170
+#: src/stringify.cpp:185
 #, kde-format
 msgctxt "@item"
 msgid "No calendar component found."
 msgstr "Nenalezena žádná kalendářová komponenta."
 
-#: src/stringify.cpp:173 src/stringify.cpp:202
+#: src/stringify.cpp:188 src/stringify.cpp:217
 #, kde-format
 msgctxt "@item"
 msgid "Expected iCalendar, got vCalendar format"
 msgstr "Očekávaný formát iCalendar, obdržen formát vCalendar"
 
-#: src/stringify.cpp:176
+#: src/stringify.cpp:191
 #, kde-format
 msgctxt "@item"
 msgid "iCalendar Version 2.0 detected."
 msgstr "Detekován iCalendar verze 2.0."
 
-#: src/stringify.cpp:179 src/stringify.cpp:205
+#: src/stringify.cpp:194 src/stringify.cpp:220
 #, kde-format
 msgctxt "@item"
 msgid "Expected iCalendar, got unknown format"
 msgstr "Očekávaný formát iCalendar, obdržen neznámý formát"
 
-#: src/stringify.cpp:182
+#: src/stringify.cpp:197
 #, kde-format
 msgctxt "@item"
 msgid "Restriction violation"
 msgstr "Porušení restrikcí"
 
-#: src/stringify.cpp:185
+#: src/stringify.cpp:200
 #, kde-format
 msgctxt "@item"
 msgid "No writable resource found"
 msgstr "Nebyl nalezen žádný zapisovatelný zdroj"
 
-#: src/stringify.cpp:189
+#: src/stringify.cpp:204
 #, kde-format
 msgctxt "@item"
 msgid "Error saving to '%1'."
 msgstr "Chyba při ukládání do '%1'."
 
-#: src/stringify.cpp:193
+#: src/stringify.cpp:208
 #, kde-format
 msgctxt "@item"
 msgid "Could not save '%1'"
 msgstr "Nelze uložit '%1'"
 
-#: src/stringify.cpp:196
+#: src/stringify.cpp:211
 #, kde-format
 msgctxt "@item"
 msgid "libical error"
 msgstr "Chyba knihovny libical"
 
-#: src/stringify.cpp:199
+#: src/stringify.cpp:214
 #, kde-format
 msgctxt "@item"
 msgid "No VERSION property found"
 msgstr ""
 
-#: src/stringify.cpp:208
+#: src/stringify.cpp:223
 #, kde-format
 msgctxt "@item"
 msgid "object is not a freebusy, event, todo or journal"
 msgstr ""
 
-#: src/stringify.cpp:211
+#: src/stringify.cpp:226
 #, kde-format
 msgctxt "@item"
 msgid "messageText is empty, unable to parse into a ScheduleMessage"
 msgstr ""
 
-#: src/stringify.cpp:214
+#: src/stringify.cpp:229
 #, kde-format
 msgctxt "@item"
 msgid "icalparser is unable to parse messageText into a ScheduleMessage"
 msgstr ""
 
-#: src/stringify.cpp:217
+#: src/stringify.cpp:232
 #, kde-format
 msgctxt "@item"
 msgid "message does not contain ICAL_METHOD_PROPERTY"
 msgstr ""
 
-#: src/stringify.cpp:231
+#: src/stringify.cpp:246
 #, kde-format
 msgctxt "@item this is a new scheduling message"
 msgid "New Scheduling Message"
 msgstr "Nová plánovací zpráva"
 
-#: src/stringify.cpp:233
+#: src/stringify.cpp:248
 #, kde-format
 msgctxt "@item this is an update to an existing scheduling message"
 msgid "Updated Scheduling Message"
 msgstr "Plánovací zpráva byla aktualizována"
 
-#: src/stringify.cpp:235
+#: src/stringify.cpp:250
 #, kde-format
 msgctxt "@item obsolete status"
 msgid "Obsolete"
 msgstr "Zastaralé"
 
-#: src/stringify.cpp:237
+#: src/stringify.cpp:252
 #, kde-format
 msgctxt "@item this is a request for a new scheduling message"
 msgid "New Scheduling Message Request"
 msgstr "Požadavek na novou plánovací zprávu"
 
-#: src/stringify.cpp:239
+#: src/stringify.cpp:254
 #, kde-format
 msgctxt ""
 "@item this is a request for an update to an existing scheduling message"
 msgid "Updated Scheduling Message Request"
 msgstr ""
 
-#: src/stringify.cpp:241
+#: src/stringify.cpp:256
 #, kde-format
 msgctxt "@item unknown status"
 msgid "Unknown Status: %1"
