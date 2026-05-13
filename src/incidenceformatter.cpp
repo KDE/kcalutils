@@ -439,8 +439,16 @@ struct IncidenceNameAndUid {
     }
 
     const auto startDts = event->startDateTimesForDate(date, QTimeZone::systemTimeZone());
-    const auto startDt = startDts.empty() ? event->dtStart().toLocalTime() : startDts[0].toLocalTime();
-    const auto endDt = event->endDateForStart(startDt).toLocalTime();
+    QDateTime startDt;
+    QDateTime endDt;
+    if (startDts.isEmpty()) {
+        startDt = event->dtStart().toLocalTime();
+        endDt = event->endDateForStart(startDt).toLocalTime();
+    } else {
+        // timezone is already applied by startDateTimesForDate
+        startDt = startDts[0];
+        endDt = event->endDateForStart(startDt);
+    }
 
     incidence[QStringLiteral("isAllDay")] = event->allDay();
     incidence[QStringLiteral("isMultiDay")] = event->isMultiDay();
@@ -2382,8 +2390,16 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
     QString tmp;
 
     const auto startDts = event->startDateTimesForDate(date, QTimeZone::systemTimeZone());
-    const auto startDt = startDts.empty() ? event->dtStart().toLocalTime() : startDts[0].toLocalTime();
-    const auto endDt = event->endDateForStart(startDt).toLocalTime();
+    QDateTime startDt;
+    QDateTime endDt;
+    if (startDts.isEmpty()) {
+        startDt = event->dtStart().toLocalTime();
+        endDt = event->endDateForStart(startDt).toLocalTime();
+    } else {
+        // timezone is already applied by startDateTimesForDate
+        startDt = startDts[0];
+        endDt = event->endDateForStart(startDt);
+    }
 
     if (event->isMultiDay()) {
         tmp = dateToString(startDt.date(), true);
