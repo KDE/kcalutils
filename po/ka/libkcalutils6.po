@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-13 00:46+0000\n"
-"PO-Revision-Date: 2026-05-12 06:23+0200\n"
+"POT-Creation-Date: 2026-05-14 00:44+0000\n"
+"PO-Revision-Date: 2026-05-13 08:39+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -38,7 +38,7 @@ msgstr "ნიმუშის დამუშავების შეცდო�
 msgid "Organizer Unknown"
 msgstr "ორგანიზატორი უცნობია"
 
-#: src/incidenceformatter.cpp:198 src/incidenceformatter.cpp:1409
+#: src/incidenceformatter.cpp:198 src/incidenceformatter.cpp:1417
 #, kde-format
 msgid "Sender"
 msgstr "გამგზავნი"
@@ -48,7 +48,7 @@ msgstr "გამგზავნი"
 msgid "Show mail"
 msgstr "ელფოსტის ჩვენება"
 
-#: src/incidenceformatter.cpp:612 src/incidenceformatter.cpp:1248
+#: src/incidenceformatter.cpp:620 src/incidenceformatter.cpp:1256
 #, kde-format
 msgctxt "hours part of duration"
 msgid "1 hour "
@@ -56,7 +56,7 @@ msgid_plural "%1 hours "
 msgstr[0] "1 საათი "
 msgstr[1] "%1 საათი "
 
-#: src/incidenceformatter.cpp:616
+#: src/incidenceformatter.cpp:624
 #, kde-format
 msgctxt "minutes part duration"
 msgid "1 minute "
@@ -64,7 +64,7 @@ msgid_plural "%1 minutes "
 msgstr[0] "1 წუთი "
 msgstr[1] "%1 წუთი "
 
-#: src/incidenceformatter.cpp:620 src/incidenceformatter.cpp:1256
+#: src/incidenceformatter.cpp:628 src/incidenceformatter.cpp:1264
 #, kde-format
 msgctxt "seconds part of duration"
 msgid "1 second"
@@ -72,60 +72,60 @@ msgid_plural "%1 seconds"
 msgstr[0] "1 წამი"
 msgstr[1] "%1 წამი"
 
-#: src/incidenceformatter.cpp:752
+#: src/incidenceformatter.cpp:760
 #, kde-format
 msgid "Summary unspecified"
 msgstr "შეჯამება მიუთითებელია"
 
-#: src/incidenceformatter.cpp:768
+#: src/incidenceformatter.cpp:776
 #, kde-format
 msgid "Location unspecified"
 msgstr "მდებარეობა მიუთითებელია"
 
-#: src/incidenceformatter.cpp:903
+#: src/incidenceformatter.cpp:911
 #, kde-format
 msgid "Your response is requested."
 msgstr "თქვენი პასუხი მოთხოვნილია."
 
-#: src/incidenceformatter.cpp:905
+#: src/incidenceformatter.cpp:913
 #, kde-format
 msgid "Your response as <b>%1</b> is requested."
 msgstr "თქვენი პასუხი მოთხოვნილია, როგორც <b>%1</b>."
 
-#: src/incidenceformatter.cpp:909
+#: src/incidenceformatter.cpp:917
 #, kde-format
 msgid "No response is necessary."
 msgstr "პასუხი აუცილებელი არაა."
 
-#: src/incidenceformatter.cpp:911
+#: src/incidenceformatter.cpp:919
 #, kde-format
 msgid "No response as <b>%1</b> is necessary."
 msgstr "პასუხი, როგორც <b>%1</b>, აუცილებელი არაა."
 
-#: src/incidenceformatter.cpp:921
+#: src/incidenceformatter.cpp:929
 #, kde-format
 msgid "(<b>Note</b>: the Organizer preset your response to <b>%1</b>)"
 msgstr ""
 "(<b>შენიშვნა</b>: ორგანიზატორმა თქვენი პასუხი <b>%1</b>-სთვის წინასწარ "
 "დააყენა)"
 
-#: src/incidenceformatter.cpp:1061 src/incidenceformatter.cpp:1121
+#: src/incidenceformatter.cpp:1069 src/incidenceformatter.cpp:1129
 #, kde-format
 msgid "Check my calendar"
 msgstr "ჩემი კალენდრის შემოწმება"
 
-#: src/incidenceformatter.cpp:1106 src/incidenceformatter.cpp:1176
+#: src/incidenceformatter.cpp:1114 src/incidenceformatter.cpp:1184
 #, kde-format
 msgid "Please respond again to the original proposal."
 msgstr "ორიგინალ შემოთავაზებას, თავიდან უპასუხეთ, გეთაყვა."
 
-#: src/incidenceformatter.cpp:1157 src/incidenceformatter.cpp:1188
+#: src/incidenceformatter.cpp:1165 src/incidenceformatter.cpp:1196
 #: src/templates/todo.html:179
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: src/incidenceformatter.cpp:1252
+#: src/incidenceformatter.cpp:1260
 #, kde-format
 msgctxt "minutes part of duration"
 msgid "1 minute"
@@ -133,698 +133,698 @@ msgid_plural "%1 minutes "
 msgstr[0] "%1 წუთი"
 msgstr[1] "%1 წუთი "
 
-#: src/incidenceformatter.cpp:1303
+#: src/incidenceformatter.cpp:1311
 #, kde-format
 msgid "This invitation has been published."
 msgstr "ეს მოსაწვევი გამოქვეყნებულია."
 
-#: src/incidenceformatter.cpp:1308
+#: src/incidenceformatter.cpp:1316
 #, kde-format
 msgid "This invitation has been updated by the organizer %1."
 msgstr "ეს მოსაწვევი განახლდა ორგანიზატორის, %1, მიერ."
 
-#: src/incidenceformatter.cpp:1310
+#: src/incidenceformatter.cpp:1318
 #, kde-format
 msgid "This invitation has been updated by %1 as a representative of %2."
 msgstr "ეს მოსაწვევი განახლდა %1-ის, როგორც %2-ის წარმომადგენლის მიერ."
 
-#: src/incidenceformatter.cpp:1314
+#: src/incidenceformatter.cpp:1322
 #, kde-format
 msgid "I created this invitation."
 msgstr "ეს მოსაწვევი მე შევქმენი."
 
-#: src/incidenceformatter.cpp:1318
+#: src/incidenceformatter.cpp:1326
 #, kde-format
 msgid "You received an invitation from %1."
 msgstr "მიიღეთ მოსაწვევი %1-სგან."
 
-#: src/incidenceformatter.cpp:1320
+#: src/incidenceformatter.cpp:1328
 #, kde-format
 msgid "You received an invitation from %1 as a representative of %2."
 msgstr "მიიღეთ მოსაწვევი %1-ის, როგორც %2-ის წარმომადგენლისგან."
 
-#: src/incidenceformatter.cpp:1324
+#: src/incidenceformatter.cpp:1332
 #, kde-format
 msgid "This invitation was refreshed."
 msgstr "ეს მოსაწვევი განახლდა."
 
-#: src/incidenceformatter.cpp:1327
+#: src/incidenceformatter.cpp:1335
 #, kde-format
 msgid "This invitation has been canceled."
 msgstr "ეს მოსაწვევი გაუქმდა."
 
-#: src/incidenceformatter.cpp:1329
+#: src/incidenceformatter.cpp:1337
 #, kde-format
 msgid "The organizer has revoked the invitation."
 msgstr "ორგანიზატორმა ეს მოსაწვევი გააუქმა."
 
-#: src/incidenceformatter.cpp:1332
+#: src/incidenceformatter.cpp:1340
 #, kde-format
 msgid "Addition to the invitation."
 msgstr "მოსაწვევზე დამატებით."
 
-#: src/incidenceformatter.cpp:1335 src/incidenceformatter.cpp:1409
-#: src/incidenceformatter.cpp:1469 src/incidenceformatter.cpp:1551
+#: src/incidenceformatter.cpp:1343 src/incidenceformatter.cpp:1417
+#: src/incidenceformatter.cpp:1477 src/incidenceformatter.cpp:1559
 #, kde-format
 msgid "%1 makes this counter proposal."
 msgstr "%1 ამ პირიქით გთავაზობთ."
 
-#: src/incidenceformatter.cpp:1359
+#: src/incidenceformatter.cpp:1367
 #, kde-format
 msgid "%1 indicates this invitation still needs some action."
 msgstr "%1 მიუთითებს, რომ ამ მოსაწვევს ჯერ კიდევ სჭირდება ქმედებები."
 
-#: src/incidenceformatter.cpp:1363
+#: src/incidenceformatter.cpp:1371
 #, kde-format
 msgid "This invitation has been updated by attendee %1."
 msgstr "ეს მოსაწვევი განახლდა დამსწრის, %1-ის მიერ."
 
-#: src/incidenceformatter.cpp:1365
+#: src/incidenceformatter.cpp:1373
 #, kde-format
 msgid "This invitation has been updated by an attendee."
 msgstr "ეს მოსაწვევი განახლდა დამსწრის მიერ."
 
-#: src/incidenceformatter.cpp:1369
+#: src/incidenceformatter.cpp:1377
 #, kde-format
 msgid "%1 accepts this invitation."
 msgstr "%1 დაეთანხმა მოსაწვევს."
 
-#: src/incidenceformatter.cpp:1371
+#: src/incidenceformatter.cpp:1379
 #, kde-format
 msgid "%1 accepts this invitation on behalf of %2."
 msgstr "%1 დაეთანხმა ამ მოსაწვევს %2-ის მაგიერ."
 
-#: src/incidenceformatter.cpp:1376
+#: src/incidenceformatter.cpp:1384
 #, kde-format
 msgid "%1 tentatively accepts this invitation."
 msgstr "%1 მერყევად დაეთანხმა ამ მოსაწვევს."
 
-#: src/incidenceformatter.cpp:1378
+#: src/incidenceformatter.cpp:1386
 #, kde-format
 msgid "%1 tentatively accepts this invitation on behalf of %2."
 msgstr "%1 მერყევად დაეთანხმა ამ მოსაწვევს %2-ის მაგიერ."
 
-#: src/incidenceformatter.cpp:1382
+#: src/incidenceformatter.cpp:1390
 #, kde-format
 msgid "%1 declines this invitation."
 msgstr "%1-მა მოსაწვევი უარჰყო."
 
-#: src/incidenceformatter.cpp:1384
+#: src/incidenceformatter.cpp:1392
 #, kde-format
 msgid "%1 declines this invitation on behalf of %2."
 msgstr "%1-მა მოსაწვევი %2-ის მაგიერ უარჰყო."
 
-#: src/incidenceformatter.cpp:1394
+#: src/incidenceformatter.cpp:1402
 #, kde-format
 msgid "%1 has delegated this invitation to %2."
 msgstr "%1-მა მოსაწვევის დელეგაცია %2-სთან გააკეთა."
 
-#: src/incidenceformatter.cpp:1396
+#: src/incidenceformatter.cpp:1404
 #, kde-format
 msgid "%1 has delegated this invitation."
 msgstr "%1-მა მოსაწვევის დელეგაცია გააკეთა."
 
-#: src/incidenceformatter.cpp:1400
+#: src/incidenceformatter.cpp:1408
 #, kde-format
 msgid "This invitation is now completed."
 msgstr "ეს მოსაწვევი ახლა დასრულებულია."
 
-#: src/incidenceformatter.cpp:1402
+#: src/incidenceformatter.cpp:1410
 #, kde-format
 msgid "%1 is still processing the invitation."
 msgstr "%1 ჯერ კიდევ ამუშავებს მოსაწვევს."
 
-#: src/incidenceformatter.cpp:1404
+#: src/incidenceformatter.cpp:1412
 #, kde-format
 msgid "Unknown response to this invitation."
 msgstr "უცნობი პასუხი ამ მოსაწვევზე."
 
-#: src/incidenceformatter.cpp:1414
+#: src/incidenceformatter.cpp:1422
 #, kde-format
 msgid "%1 declines your counter proposal."
 msgstr "%1-მა უარჰყო თქვენი პირიქით შეთავაზება."
 
-#: src/incidenceformatter.cpp:1416
+#: src/incidenceformatter.cpp:1424
 #, kde-format
 msgid "%1 declines your counter proposal on behalf of %2."
 msgstr "%1-მა უარჰყო თქვენი პირიქით შეთავაზება %2-ის მაგიერ."
 
-#: src/incidenceformatter.cpp:1421
+#: src/incidenceformatter.cpp:1429
 #, kde-format
 msgid "Error: Event iTIP message with unknown method."
 msgstr "შეცდომა: მოვლენის iTIP შეტყობინება არასწორი მეთოდით."
 
-#: src/incidenceformatter.cpp:1436
+#: src/incidenceformatter.cpp:1444
 #, kde-format
 msgid "This to-do has been published."
 msgstr "ეს გასაკეთებელი გამოქვეყნდა."
 
-#: src/incidenceformatter.cpp:1441
+#: src/incidenceformatter.cpp:1449
 #, kde-format
 msgid "This to-do has been updated by the organizer %1."
 msgstr "ეს გასაკეთებელი განახლდა ორიგანიზატორის (%1) მიერ."
 
-#: src/incidenceformatter.cpp:1443
+#: src/incidenceformatter.cpp:1451
 #, kde-format
 msgid "This to-do has been updated by %1 as a representative of %2."
 msgstr "ეს გასაკეთებელი განახლდა %1-ის, როგორც %2-ის წარმომადგენლის მიერ."
 
-#: src/incidenceformatter.cpp:1447
+#: src/incidenceformatter.cpp:1455
 #, kde-format
 msgid "I created this to-do."
 msgstr "მე შევქმენი ეს გასაკეთებელი."
 
-#: src/incidenceformatter.cpp:1451
+#: src/incidenceformatter.cpp:1459
 #, kde-format
 msgid "You have been assigned this to-do by %1."
 msgstr "%1-მა ამ გასაკეთებელს მიგანიჭათ."
 
-#: src/incidenceformatter.cpp:1453
+#: src/incidenceformatter.cpp:1461
 #, kde-format
 msgid "You have been assigned this to-do by %1 as a representative of %2."
 msgstr "ამ გასაკეთებელს %1-მა, როგორც %2-ის წარმომადგენელმა, მიგანიჭათ."
 
-#: src/incidenceformatter.cpp:1458
+#: src/incidenceformatter.cpp:1466
 #, kde-format
 msgid "This to-do was refreshed."
 msgstr "ეს გასაკეთებელი განახლდა."
 
-#: src/incidenceformatter.cpp:1461
+#: src/incidenceformatter.cpp:1469
 #, kde-format
 msgid "This to-do was canceled."
 msgstr "ეს გასაკეთებელი გაუქმდა."
 
-#: src/incidenceformatter.cpp:1463
+#: src/incidenceformatter.cpp:1471
 #, kde-format
 msgid "The organizer has revoked this to-do."
 msgstr "ორგანიზატორმა ეს გასაკეთებელი გააუქმა."
 
-#: src/incidenceformatter.cpp:1466
+#: src/incidenceformatter.cpp:1474
 #, kde-format
 msgid "Addition to the to-do."
 msgstr "ამ გასაკეთებელზე დამატებით."
 
-#: src/incidenceformatter.cpp:1493
+#: src/incidenceformatter.cpp:1501
 #, kde-format
 msgid "%1 indicates this to-do assignment still needs some action."
 msgstr ""
 "%1 მიუთითებს, რომ ამ გასაკეთებელზე მინიჭებას ჯერ კიდევ სჭირდება ქმედებები."
 
-#: src/incidenceformatter.cpp:1498
+#: src/incidenceformatter.cpp:1506
 #, kde-format
 msgid "This to-do has been completed by assignee %1."
 msgstr "ეს გასაკეთებელი დასრულდა მინიჭებულის, %1-ის მიერ."
 
-#: src/incidenceformatter.cpp:1500
+#: src/incidenceformatter.cpp:1508
 #, kde-format
 msgid "This to-do has been updated by assignee %1."
 msgstr "ეს გასაკეთებელი განახლდა მინიჭებულის, %1-ის მიერ."
 
-#: src/incidenceformatter.cpp:1504
+#: src/incidenceformatter.cpp:1512
 #, kde-format
 msgid "This to-do has been completed by an assignee."
 msgstr "ეს გასაკეთებელი დასრულდა მინიჭებულის მიერ."
 
-#: src/incidenceformatter.cpp:1506
+#: src/incidenceformatter.cpp:1514
 #, kde-format
 msgid "This to-do has been updated by an assignee."
 msgstr "ეს გასაკეთებელი განახლდა მინიჭებულის მიერ."
 
-#: src/incidenceformatter.cpp:1511
+#: src/incidenceformatter.cpp:1519
 #, kde-format
 msgid "%1 accepts this to-do."
 msgstr "%1-მა მიიღო ეს გასაკეთებელი."
 
-#: src/incidenceformatter.cpp:1513
+#: src/incidenceformatter.cpp:1521
 #, kde-format
 msgid "%1 accepts this to-do on behalf of %2."
 msgstr "%1-მა მიიღო ეს გასაკეთებელი %2-ის მაგიერ."
 
-#: src/incidenceformatter.cpp:1518
+#: src/incidenceformatter.cpp:1526
 #, kde-format
 msgid "%1 tentatively accepts this to-do."
 msgstr "%1-მა მერყევად მიიღო ეს გასაკეთებელი."
 
-#: src/incidenceformatter.cpp:1520
+#: src/incidenceformatter.cpp:1528
 #, kde-format
 msgid "%1 tentatively accepts this to-do on behalf of %2."
 msgstr "%1-მა მერყევად მიიღო ეს გასაკეთებელი, %2-ის მაგიერ."
 
-#: src/incidenceformatter.cpp:1524
+#: src/incidenceformatter.cpp:1532
 #, kde-format
 msgid "%1 declines this to-do."
 msgstr "%1-მა უარჰყო ეს გასაკეთებელი."
 
-#: src/incidenceformatter.cpp:1526
+#: src/incidenceformatter.cpp:1534
 #, kde-format
 msgid "%1 declines this to-do on behalf of %2."
 msgstr "%1-მა უარჰყო ეს გასაკეთებელი %2-ის მაგიერ."
 
-#: src/incidenceformatter.cpp:1536
+#: src/incidenceformatter.cpp:1544
 #, kde-format
 msgid "%1 has delegated this to-do to %2."
 msgstr "%1-მა ამ გასაკეთებლის დელეგაცია %2-ზე გააკეთა."
 
-#: src/incidenceformatter.cpp:1538
+#: src/incidenceformatter.cpp:1546
 #, kde-format
 msgid "%1 has delegated this to-do."
 msgstr "%1-მა ამ გასაკეთებლის დელეგაცია გააკეთა."
 
-#: src/incidenceformatter.cpp:1542
+#: src/incidenceformatter.cpp:1550
 #, kde-format
 msgid "The request for this to-do is now completed."
 msgstr "მოთხოვნა ამ გასაკეთებლისთვის ახლა დასრულებულია."
 
-#: src/incidenceformatter.cpp:1544
+#: src/incidenceformatter.cpp:1552
 #, kde-format
 msgid "%1 is still processing the to-do."
 msgstr "%1 ჯერ კიდევ მუშაობს ამ გასაკეთებელზე."
 
-#: src/incidenceformatter.cpp:1546
+#: src/incidenceformatter.cpp:1554
 #, kde-format
 msgid "Unknown response to this to-do."
 msgstr "უცნობი პასუხი ამ გასაკეთებლისთვის."
 
-#: src/incidenceformatter.cpp:1556
+#: src/incidenceformatter.cpp:1564
 #, kde-format
 msgid "%1 declines the counter proposal."
 msgstr "%1-მა უარჰყო პირიქით შეთავაზება."
 
-#: src/incidenceformatter.cpp:1558
+#: src/incidenceformatter.cpp:1566
 #, kde-format
 msgid "%1 declines the counter proposal on behalf of %2."
 msgstr "%1-მა უარჰყო პირიქით შეთავაზება %2-ის მაგიერ."
 
-#: src/incidenceformatter.cpp:1563
+#: src/incidenceformatter.cpp:1571
 #, kde-format
 msgid "Error: To-do iTIP message with unknown method."
 msgstr "შეცდომა: გასაკეთებლის iTIP შეტყობინება არასწორი მეთოდით."
 
-#: src/incidenceformatter.cpp:1577
+#: src/incidenceformatter.cpp:1585
 #, kde-format
 msgid "This journal has been published."
 msgstr "ეს ჟურნალი გამოქვეყნდა."
 
-#: src/incidenceformatter.cpp:1579
+#: src/incidenceformatter.cpp:1587
 #, kde-format
 msgid "You have been assigned this journal."
 msgstr "თქვენ მიგანიჭეს ამ ჟურნალს."
 
-#: src/incidenceformatter.cpp:1581
+#: src/incidenceformatter.cpp:1589
 #, kde-format
 msgid "This journal was refreshed."
 msgstr "ეს ჟურნალი განაახლეს."
 
-#: src/incidenceformatter.cpp:1583
+#: src/incidenceformatter.cpp:1591
 #, kde-format
 msgid "This journal was canceled."
 msgstr "ეს ჟურნალი გააუქმეს."
 
-#: src/incidenceformatter.cpp:1585
+#: src/incidenceformatter.cpp:1593
 #, kde-format
 msgid "Addition to the journal."
 msgstr "ჟურნალის დამატება."
 
-#: src/incidenceformatter.cpp:1588 src/incidenceformatter.cpp:1623
-#: src/incidenceformatter.cpp:1653
+#: src/incidenceformatter.cpp:1596 src/incidenceformatter.cpp:1631
+#: src/incidenceformatter.cpp:1661
 #, kde-format
 msgid "Sender makes this counter proposal."
 msgstr "გამომგზავნმა ამ პირიქით შეთავაზებას გიკეთებთ."
 
-#: src/incidenceformatter.cpp:1604
+#: src/incidenceformatter.cpp:1612
 #, kde-format
 msgid "Sender indicates this journal assignment still needs some action."
 msgstr ""
 "გამომგზავნი მიუთითებს, რომ ამ ჟურნალის მინიჭებას ქმედებები ჯერ კიდევ "
 "სჭირდება."
 
-#: src/incidenceformatter.cpp:1606
+#: src/incidenceformatter.cpp:1614
 #, kde-format
 msgid "Sender accepts this journal."
 msgstr "გამომგზავნმა მიიღო ეს ჟურნალი."
 
-#: src/incidenceformatter.cpp:1608
+#: src/incidenceformatter.cpp:1616
 #, kde-format
 msgid "Sender tentatively accepts this journal."
 msgstr "გამომგზავნმა დაეჭვებით მიიღო ეს ჟურნალი."
 
-#: src/incidenceformatter.cpp:1610
+#: src/incidenceformatter.cpp:1618
 #, kde-format
 msgid "Sender declines this journal."
 msgstr "გამომგზავნმა უარყჰო ეს ჟურნალი."
 
-#: src/incidenceformatter.cpp:1612
+#: src/incidenceformatter.cpp:1620
 #, kde-format
 msgid "Sender has delegated this request for the journal."
 msgstr "გამომგზავნმა ამ ჟურნალის მოთხოვნის დელეგაცია გააკეთა."
 
-#: src/incidenceformatter.cpp:1614
+#: src/incidenceformatter.cpp:1622
 #, kde-format
 msgid "The request for this journal is now completed."
 msgstr "მოთხოვნა ამ ჟურნალისთვის ახლა დასრულებულია."
 
-#: src/incidenceformatter.cpp:1616
+#: src/incidenceformatter.cpp:1624
 #, kde-format
 msgid "Sender is still processing the invitation."
 msgstr "გამომგზავნი ჯერ კიდევ ამუშავებს მოსაწვევს."
 
-#: src/incidenceformatter.cpp:1618
+#: src/incidenceformatter.cpp:1626
 #, kde-format
 msgid "Unknown response to this journal."
 msgstr "უცნობი პასუხი ამ ჟურნალისთვის."
 
-#: src/incidenceformatter.cpp:1625 src/incidenceformatter.cpp:1655
+#: src/incidenceformatter.cpp:1633 src/incidenceformatter.cpp:1663
 #, kde-format
 msgid "Sender declines the counter proposal."
 msgstr "გამომგზავნმა უარჰყო თქვენი პირიქით შეთავაზება."
 
-#: src/incidenceformatter.cpp:1627
+#: src/incidenceformatter.cpp:1635
 #, kde-format
 msgid "Error: Journal iTIP message with unknown method."
 msgstr "შეცდომა: ჟურნალის iTIP შეტყობინება არასწორი მეთოდით."
 
-#: src/incidenceformatter.cpp:1641
+#: src/incidenceformatter.cpp:1649
 #, kde-format
 msgid "This free/busy list has been published."
 msgstr "ეს თავისუფალ/დაკავებულობის სია გამოქვეყნებულია."
 
-#: src/incidenceformatter.cpp:1643
+#: src/incidenceformatter.cpp:1651
 #, kde-format
 msgid "The free/busy list has been requested."
 msgstr "ეს თავისუფალ/დაკავებულობის სია მოთხოვნილია."
 
-#: src/incidenceformatter.cpp:1645
+#: src/incidenceformatter.cpp:1653
 #, kde-format
 msgid "This free/busy list was refreshed."
 msgstr "ეს თავისუფალ/დაკავებულობის სია განახლდა."
 
-#: src/incidenceformatter.cpp:1647
+#: src/incidenceformatter.cpp:1655
 #, kde-format
 msgid "This free/busy list was canceled."
 msgstr "ეს თავისუფალ/დაკავებულობის სია გაუქმდა."
 
-#: src/incidenceformatter.cpp:1649
+#: src/incidenceformatter.cpp:1657
 #, kde-format
 msgid "Addition to the free/busy list."
 msgstr "თავისუფალ/დაკავებულობის სიაში ჩამატება."
 
-#: src/incidenceformatter.cpp:1651
+#: src/incidenceformatter.cpp:1659
 #, kde-format
 msgid "Reply to the free/busy list."
 msgstr "თავისუფალ/დაკავებულობის სიაზე პასუხი."
 
-#: src/incidenceformatter.cpp:1657
+#: src/incidenceformatter.cpp:1665
 #, kde-format
 msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "შეცდომა: თავისუფალი/დაკავებული iTIP შეტყობინება არასწორი მეთოდით."
 
-#: src/incidenceformatter.cpp:1712
+#: src/incidenceformatter.cpp:1720
 #, kde-format
 msgid "%1 (<i>unrecorded</i>)"
 msgstr "%1 (<i>ჩაწერილი არაა</i>)"
 
-#: src/incidenceformatter.cpp:1925
+#: src/incidenceformatter.cpp:1933
 #, kde-format
 msgid "Record"
 msgstr "ჩაწერა"
 
-#: src/incidenceformatter.cpp:1928
+#: src/incidenceformatter.cpp:1936
 #, kde-format
 msgid "Move to Trash"
 msgstr "ნაგავში გადატანა"
 
-#: src/incidenceformatter.cpp:1932
+#: src/incidenceformatter.cpp:1940
 #, kde-format
 msgctxt "accept invitation"
 msgid "Accept"
 msgstr "დასტური"
 
-#: src/incidenceformatter.cpp:1938
+#: src/incidenceformatter.cpp:1946
 #, kde-format
 msgctxt "Accept invitation conditionally"
 msgid "Tentative"
 msgstr "სავარაუდო"
 
-#: src/incidenceformatter.cpp:1945
+#: src/incidenceformatter.cpp:1953
 #, kde-format
 msgctxt "decline invitation"
 msgid "Decline"
 msgstr "უარყოფა"
 
-#: src/incidenceformatter.cpp:1949
+#: src/incidenceformatter.cpp:1957
 #, kde-format
 msgctxt "invitation counter proposal"
 msgid "Counter proposal ..."
 msgstr "პირიქით შეთავაზება ..."
 
-#: src/incidenceformatter.cpp:1954
+#: src/incidenceformatter.cpp:1962
 #, kde-format
 msgctxt "delegate invitation to another"
 msgid "Delegate ..."
 msgstr "დელეგირება ..."
 
-#: src/incidenceformatter.cpp:1964
+#: src/incidenceformatter.cpp:1972
 #, kde-format
 msgid "Accept"
 msgstr "დასტური"
 
-#: src/incidenceformatter.cpp:1967
+#: src/incidenceformatter.cpp:1975
 #, kde-format
 msgid "Decline"
 msgstr "უარყოფა"
 
-#: src/incidenceformatter.cpp:1977
+#: src/incidenceformatter.cpp:1985
 #, kde-format
 msgid "Record invitation in my to-do list"
 msgstr "მოსაწვევის ჩაწერა ჩემი გასაკეთებლების სიაში"
 
-#: src/incidenceformatter.cpp:1978
+#: src/incidenceformatter.cpp:1986
 #, kde-format
 msgid "Record invitation in my calendar"
 msgstr "მოსაწვევის ჩაწერა ჩემს კალენდარში"
 
-#: src/incidenceformatter.cpp:1991
+#: src/incidenceformatter.cpp:1999
 #, kde-format
 msgid "Record response in my to-do list"
 msgstr "პასუხის ჩაწერა ჩემი გასაკეთებლების სიაში"
 
-#: src/incidenceformatter.cpp:1991
+#: src/incidenceformatter.cpp:1999
 #, kde-format
 msgid "Record response in my calendar"
 msgstr "პასუხის ჩემს კალენდარში ჩაწერა"
 
-#: src/incidenceformatter.cpp:2005
+#: src/incidenceformatter.cpp:2013
 #, kde-format
 msgid "Remove invitation from my to-do list"
 msgstr "მოსაწვევის წაშლა ჩემი გასაკეთებლების სიიდან"
 
-#: src/incidenceformatter.cpp:2006
+#: src/incidenceformatter.cpp:2014
 #, kde-format
 msgid "Remove invitation from my calendar"
 msgstr "მოსაწვევის წაშლა ჩემი კალენდრიდან"
 
-#: src/incidenceformatter.cpp:2155
+#: src/incidenceformatter.cpp:2163
 #, kde-format
 msgid "Your <b>%1</b> response has been recorded."
 msgstr "თქვენი <b>%1</b> პასუხი ჩაწერილია."
 
-#: src/incidenceformatter.cpp:2157
+#: src/incidenceformatter.cpp:2165
 #, kde-format
 msgid "Your status for this invitation is <b>%1</b>."
 msgstr "თქვენი სტატუსი ამ მოსაწვევისთვის არის <b>%1</b>."
 
-#: src/incidenceformatter.cpp:2161
+#: src/incidenceformatter.cpp:2169
 #, kde-format
 msgid "This invitation was canceled."
 msgstr "ეს მოსაწვევი გაუქმდა."
 
-#: src/incidenceformatter.cpp:2163
+#: src/incidenceformatter.cpp:2171
 #, kde-format
 msgid "This invitation was accepted."
 msgstr "ეს მოსაწვევი მიღებულია."
 
-#: src/incidenceformatter.cpp:2171
+#: src/incidenceformatter.cpp:2179
 #, kde-format
 msgid "Awaiting delegation response."
 msgstr "დელეგაციის პასუხის მოლოდინი."
 
-#: src/incidenceformatter.cpp:2243
+#: src/incidenceformatter.cpp:2251
 #, kde-format
 msgid "The <b>%1</b> response has been recorded"
 msgstr "<b>%1</b>-ის პასუხი ჩაიწერა"
 
-#: src/incidenceformatter.cpp:2270
+#: src/incidenceformatter.cpp:2278
 #, kde-format
 msgid "Assignees:"
 msgstr "მიმნიჭებლები:"
 
-#: src/incidenceformatter.cpp:2272
+#: src/incidenceformatter.cpp:2280
 #, kde-format
 msgid "Participants:"
 msgstr "მონაწილეები:"
 
-#: src/incidenceformatter.cpp:2390
+#: src/incidenceformatter.cpp:2406
 #, kde-format
 msgctxt "Event start"
 msgid "<i>From:</i> %1"
 msgstr "<i>ვისგან:</i> %1"
 
-#: src/incidenceformatter.cpp:2393
+#: src/incidenceformatter.cpp:2409
 #, kde-format
 msgctxt "Event end"
 msgid "<i>To:</i> %1"
 msgstr "<i>ვის:</i> %1"
 
-#: src/incidenceformatter.cpp:2395 src/incidenceformatter.cpp:2472
+#: src/incidenceformatter.cpp:2411 src/incidenceformatter.cpp:2488
 #, kde-format
 msgid "<i>Date:</i> %1"
 msgstr "<i>თარითი:</i> %1"
 
-#: src/incidenceformatter.cpp:2401
+#: src/incidenceformatter.cpp:2417
 #, kde-format
 msgctxt "time for event"
 msgid "<i>Time:</i> %1"
 msgstr "<i>დრო:</i> %1"
 
-#: src/incidenceformatter.cpp:2403
+#: src/incidenceformatter.cpp:2419
 #, kde-format
 msgctxt "time range for event"
 msgid "<i>Time:</i> %1 - %2"
 msgstr "<i>დრო:</i> %1 - %2"
 
-#: src/incidenceformatter.cpp:2436
+#: src/incidenceformatter.cpp:2452
 #, kde-format
 msgctxt "To-do's start date"
 msgid "<i>Start:</i> %1"
 msgstr "<i>დასაწყისი:</i> %1"
 
-#: src/incidenceformatter.cpp:2439
+#: src/incidenceformatter.cpp:2455
 #, kde-format
 msgctxt "To-do's due date"
 msgid "<i>Due:</i> %1"
 msgstr "<i>დასასრული:</i> %1"
 
-#: src/incidenceformatter.cpp:2445
+#: src/incidenceformatter.cpp:2461
 #, kde-format
 msgctxt "To-do's priority number"
 msgid "<i>Priority:</i> %1"
 msgstr "<i>პრიორიტეტი:</i> %1"
 
-#: src/incidenceformatter.cpp:2450
+#: src/incidenceformatter.cpp:2466
 #, kde-format
 msgctxt "To-do's completed date"
 msgid "<i>Completed:</i> %1"
 msgstr "<i>დასრულდა:</i> %1"
 
-#: src/incidenceformatter.cpp:2461
+#: src/incidenceformatter.cpp:2477
 #, kde-format
 msgctxt "To-do's percent complete:"
 msgid "<i>Percent Done:</i> %1%"
 msgstr "<i>დასრულების პროცენტი:</i> %1%"
 
-#: src/incidenceformatter.cpp:2480
+#: src/incidenceformatter.cpp:2496
 #, kde-format
 msgid "<i>Period start:</i> %1"
 msgstr "<i>პერიოდის დასაწყისი:</i> %1"
 
-#: src/incidenceformatter.cpp:2481
+#: src/incidenceformatter.cpp:2497
 #, kde-format
 msgid "<i>Period end:</i> %1"
 msgstr "<i>პერიოდის დასასრული:</i> %1"
 
-#: src/incidenceformatter.cpp:2506 src/templates/freebusy.html:5
+#: src/incidenceformatter.cpp:2522 src/templates/freebusy.html:5
 #, kde-format
 msgid "Free/Busy information for %1"
 msgstr "თავისუფალი/დაკავებულის ინფორმაცია %1-თვის"
 
-#: src/incidenceformatter.cpp:2526
+#: src/incidenceformatter.cpp:2542
 #, kde-format
 msgctxt "attendee name (attendee status)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/incidenceformatter.cpp:2528
+#: src/incidenceformatter.cpp:2544
 #, kde-format
 msgid "%1"
 msgstr "%1"
 
-#: src/incidenceformatter.cpp:2554 src/incidenceformatter.cpp:2689
-#: src/incidenceformatter.cpp:3315
+#: src/incidenceformatter.cpp:2570 src/incidenceformatter.cpp:2705
+#: src/incidenceformatter.cpp:3331
 #, kde-format
 msgctxt "ellipsis"
 msgid "..."
 msgstr "..."
 
-#: src/incidenceformatter.cpp:2574
+#: src/incidenceformatter.cpp:2590
 #, kde-format
 msgid " (delegated by %1)"
 msgstr " (დელეგაცია %1-ის მიერ)"
 
-#: src/incidenceformatter.cpp:2577
+#: src/incidenceformatter.cpp:2593
 #, kde-format
 msgid " (delegated to %1)"
 msgstr " (დელეგაცია %1-თვის)"
 
-#: src/incidenceformatter.cpp:2596 src/templates/event.html:112
+#: src/incidenceformatter.cpp:2612 src/templates/event.html:112
 #: src/templates/todo.html:93
 #, kde-format
 msgid "Organizer:"
 msgstr "ორგანიზატორი:"
 
-#: src/incidenceformatter.cpp:2607 src/templates/event.html:124
+#: src/incidenceformatter.cpp:2623 src/templates/event.html:124
 #: src/templates/todo.html:105
 #, kde-format
 msgid "Chair:"
 msgstr "სავარძელი:"
 
-#: src/incidenceformatter.cpp:2614 src/templates/event.html:137
+#: src/incidenceformatter.cpp:2630 src/templates/event.html:137
 #: src/templates/todo.html:118
 #, kde-format
 msgid "Required Participants:"
 msgstr "აუცილებელი მონაწილეები:"
 
-#: src/incidenceformatter.cpp:2621
+#: src/incidenceformatter.cpp:2637
 #, kde-format
 msgid "Optional Participants:"
 msgstr "არასავალდებულო მონაწილეები:"
 
-#: src/incidenceformatter.cpp:2628 src/templates/event.html:163
+#: src/incidenceformatter.cpp:2644 src/templates/event.html:163
 #: src/templates/todo.html:144
 #, kde-format
 msgid "Observers:"
 msgstr "დაკვირვებლები:"
 
-#: src/incidenceformatter.cpp:2653 src/templates/event.html:13
+#: src/incidenceformatter.cpp:2669 src/templates/event.html:13
 #: src/templates/journal.html:14 src/templates/todo.html:14
 #, kde-format
 msgid "Calendar:"
 msgstr "კალენდარი:"
 
-#: src/incidenceformatter.cpp:2661 src/templates/event.html:21
+#: src/incidenceformatter.cpp:2677 src/templates/event.html:21
 #: src/templates/todo.html:22
 #, kde-format
 msgid "Location:"
 msgstr "მდებარეობა:"
 
-#: src/incidenceformatter.cpp:2668 src/templates/event.html:60
+#: src/incidenceformatter.cpp:2684 src/templates/event.html:60
 #: src/templates/todo.html:54
 #, kde-format
 msgid "Duration:"
 msgstr "ხანგრძლივობა:"
 
-#: src/incidenceformatter.cpp:2674 src/incidenceformatter.cpp:2680
+#: src/incidenceformatter.cpp:2690 src/incidenceformatter.cpp:2696
 #: src/templates/event.html:68 src/templates/itip_event.html:22
 #: src/templates/itip_todo.html:46 src/templates/todo.html:62
 #, kde-format
 msgid "Recurrence:"
 msgstr "გამეორებადობა:"
 
-#: src/incidenceformatter.cpp:2681 src/templates/todo.html:64
+#: src/incidenceformatter.cpp:2697 src/templates/todo.html:64
 #, kde-format
 msgid "Exception"
 msgstr "გამონაკლისი"
 
-#: src/incidenceformatter.cpp:2697 src/templates/event.html:96
+#: src/incidenceformatter.cpp:2713 src/templates/event.html:96
 #: src/templates/itip_event.html:29 src/templates/itip_journal.html:11
 #: src/templates/itip_todo.html:53 src/templates/journal.html:30
 #: src/templates/todo.html:74
@@ -832,7 +832,7 @@ msgstr "გამონაკლისი"
 msgid "Description:"
 msgstr "აღწერა:"
 
-#: src/incidenceformatter.cpp:2710 src/templates/event.html:104
+#: src/incidenceformatter.cpp:2726 src/templates/event.html:104
 #: src/templates/todo.html:85
 #, kde-format
 msgid "Reminder:"
@@ -840,7 +840,7 @@ msgid_plural "Reminders:"
 msgstr[0] "შემხსენებელი:"
 msgstr[1] "შეხსენებები:"
 
-#: src/incidenceformatter.cpp:2730 src/templates/event.html:176
+#: src/incidenceformatter.cpp:2746 src/templates/event.html:176
 #: src/templates/journal.html:38 src/templates/todo.html:157
 #, kde-format
 msgid "Tag:"
@@ -848,134 +848,134 @@ msgid_plural "Tags:"
 msgstr[0] "ჭდე:"
 msgstr[1] "ჭდეები:"
 
-#: src/incidenceformatter.cpp:2759
+#: src/incidenceformatter.cpp:2775
 #, kde-format
 msgid "Summary: %1\n"
 msgstr "შეჯამება: %1\n"
 
-#: src/incidenceformatter.cpp:2762
+#: src/incidenceformatter.cpp:2778
 #, kde-format
 msgid "Organizer: %1\n"
 msgstr "ორგანიზატორი: %1\n"
 
-#: src/incidenceformatter.cpp:2765
+#: src/incidenceformatter.cpp:2781
 #, kde-format
 msgid "Location: %1\n"
 msgstr "მდებარეობა %1\n"
 
-#: src/incidenceformatter.cpp:2793
+#: src/incidenceformatter.cpp:2809
 #, kde-format
 msgid "This is a Free Busy Object"
 msgstr "ეს თავისუფალი/დაკავებულის ობიექტია"
 
-#: src/incidenceformatter.cpp:2804
+#: src/incidenceformatter.cpp:2820
 #, kde-format
 msgctxt "no recurrence"
 msgid "None"
 msgstr "არაფერი"
 
-#: src/incidenceformatter.cpp:2805
+#: src/incidenceformatter.cpp:2821
 #, kde-format
 msgctxt "event recurs by minutes"
 msgid "Minutely"
 msgstr "წუთში ერთხელ"
 
-#: src/incidenceformatter.cpp:2806
+#: src/incidenceformatter.cpp:2822
 #, kde-format
 msgctxt "event recurs by hours"
 msgid "Hourly"
 msgstr "საათობრივ"
 
-#: src/incidenceformatter.cpp:2807
+#: src/incidenceformatter.cpp:2823
 #, kde-format
 msgctxt "event recurs by days"
 msgid "Daily"
 msgstr "დღიურად"
 
-#: src/incidenceformatter.cpp:2808
+#: src/incidenceformatter.cpp:2824
 #, kde-format
 msgctxt "event recurs by weeks"
 msgid "Weekly"
 msgstr "კვირაში ერთხელ"
 
-#: src/incidenceformatter.cpp:2809
+#: src/incidenceformatter.cpp:2825
 #, kde-format
 msgctxt "event recurs same position (e.g. first monday) each month"
 msgid "Monthly Same Position"
 msgstr "თვეში ერთხელ იგივე ადგილას"
 
-#: src/incidenceformatter.cpp:2810
+#: src/incidenceformatter.cpp:2826
 #, kde-format
 msgctxt "event recurs same day each month"
 msgid "Monthly Same Day"
 msgstr "თვეში ერთხელ იგივე დღეს"
 
-#: src/incidenceformatter.cpp:2811
+#: src/incidenceformatter.cpp:2827
 #, kde-format
 msgctxt "event recurs same month each year"
 msgid "Yearly Same Month"
 msgstr "წლურად იგივე თვეში"
 
-#: src/incidenceformatter.cpp:2812
+#: src/incidenceformatter.cpp:2828
 #, kde-format
 msgctxt "event recurs same day each year"
 msgid "Yearly Same Day"
 msgstr "წლიურად იგივე დღეს"
 
-#: src/incidenceformatter.cpp:2813
+#: src/incidenceformatter.cpp:2829
 #, kde-format
 msgctxt "event recurs same position (e.g. first monday) each year"
 msgid "Yearly Same Position"
 msgstr "წლიურად იგივე ადგილას"
 
-#: src/incidenceformatter.cpp:2816 src/incidenceformatter.cpp:2870
+#: src/incidenceformatter.cpp:2832 src/incidenceformatter.cpp:2886
 #, kde-format
 msgid "Start Date: %1\n"
 msgstr "დაწყების თარიღი: %1\n"
 
-#: src/incidenceformatter.cpp:2818 src/incidenceformatter.cpp:2872
+#: src/incidenceformatter.cpp:2834 src/incidenceformatter.cpp:2888
 #, kde-format
 msgid "Start Time: %1\n"
 msgstr "დაწყების დრო: %1\n"
 
-#: src/incidenceformatter.cpp:2821
+#: src/incidenceformatter.cpp:2837
 #, kde-format
 msgid "End Date: %1\n"
 msgstr "დასრულების თარიღი: %1\n"
 
-#: src/incidenceformatter.cpp:2824
+#: src/incidenceformatter.cpp:2840
 #, kde-format
 msgid "End Time: %1\n"
 msgstr "დასრულების დრო: %1\n"
 
-#: src/incidenceformatter.cpp:2829
+#: src/incidenceformatter.cpp:2845
 #, kde-format
 msgid "Recurs: %1\n"
 msgstr "მეორდება: %1\n"
 
-#: src/incidenceformatter.cpp:2830
+#: src/incidenceformatter.cpp:2846
 #, kde-format
 msgid "Frequency: %1\n"
 msgstr "სიხშირე: %1\n"
 
-#: src/incidenceformatter.cpp:2833
+#: src/incidenceformatter.cpp:2849
 #, kde-format
 msgid "Repeats once"
 msgid_plural "Repeats %1 times"
 msgstr[0] "ერთხელ გამეორება"
 msgstr[1] "%1-ჯერ გამეორება"
 
-#: src/incidenceformatter.cpp:2844
+#: src/incidenceformatter.cpp:2860
 #, kde-format
 msgid "Repeat until: %1\n"
 msgstr "გამეორება დრომდე: %1\n"
 
-#: src/incidenceformatter.cpp:2846
+#: src/incidenceformatter.cpp:2862
 #, kde-format
 msgid "Repeats forever\n"
 msgstr "სამუდამოდ გამეორება\n"
 
-#: src/incidenceformatter.cpp:2859 src/incidenceformatter.cpp:2883
+#: src/incidenceformatter.cpp:2875 src/incidenceformatter.cpp:2899
 #, kde-format
 msgid ""
 "Details:\n"
@@ -984,27 +984,27 @@ msgstr ""
 "დეტალები:\n"
 "%1\n"
 
-#: src/incidenceformatter.cpp:2876
+#: src/incidenceformatter.cpp:2892
 #, kde-format
 msgid "Due Date: %1\n"
 msgstr "თარიღამდე: %1\n"
 
-#: src/incidenceformatter.cpp:2878
+#: src/incidenceformatter.cpp:2894
 #, kde-format
 msgid "Due Time: %1\n"
 msgstr "დრომდე: %1\n"
 
-#: src/incidenceformatter.cpp:2891
+#: src/incidenceformatter.cpp:2907
 #, kde-format
 msgid "Date: %1\n"
 msgstr "თარიღი: %1\n"
 
-#: src/incidenceformatter.cpp:2893
+#: src/incidenceformatter.cpp:2909
 #, kde-format
 msgid "Time: %1\n"
 msgstr "დრო: %1\n"
 
-#: src/incidenceformatter.cpp:2896
+#: src/incidenceformatter.cpp:2912
 #, kde-format
 msgid ""
 "Text of the journal:\n"
@@ -1013,393 +1013,393 @@ msgstr ""
 "ჟურნალის ტექსტი:\n"
 "%1\n"
 
-#: src/incidenceformatter.cpp:2941 src/incidenceformatter.cpp:3015
+#: src/incidenceformatter.cpp:2957 src/incidenceformatter.cpp:3031
 #, kde-format
 msgid "No recurrence"
 msgstr "არ მეორდება"
 
-#: src/incidenceformatter.cpp:2945
+#: src/incidenceformatter.cpp:2961
 #, kde-format
 msgid "31st Last"
 msgstr "ბოლო 31-ე"
 
-#: src/incidenceformatter.cpp:2946
+#: src/incidenceformatter.cpp:2962
 #, kde-format
 msgid "30th Last"
 msgstr "ბოლო 30-ე"
 
-#: src/incidenceformatter.cpp:2947
+#: src/incidenceformatter.cpp:2963
 #, kde-format
 msgid "29th Last"
 msgstr "ბოლო 29-ე"
 
-#: src/incidenceformatter.cpp:2948
+#: src/incidenceformatter.cpp:2964
 #, kde-format
 msgid "28th Last"
 msgstr "ბოლო 28-ე"
 
-#: src/incidenceformatter.cpp:2949
+#: src/incidenceformatter.cpp:2965
 #, kde-format
 msgid "27th Last"
 msgstr "ბოლო 27-ე"
 
-#: src/incidenceformatter.cpp:2950
+#: src/incidenceformatter.cpp:2966
 #, kde-format
 msgid "26th Last"
 msgstr "ბოლო 26-ე"
 
-#: src/incidenceformatter.cpp:2951
+#: src/incidenceformatter.cpp:2967
 #, kde-format
 msgid "25th Last"
 msgstr "ბოლო 25-ე"
 
-#: src/incidenceformatter.cpp:2952
+#: src/incidenceformatter.cpp:2968
 #, kde-format
 msgid "24th Last"
 msgstr "ბოლო 24-ე"
 
-#: src/incidenceformatter.cpp:2953
+#: src/incidenceformatter.cpp:2969
 #, kde-format
 msgid "23rd Last"
 msgstr "ბოლო 23-ე"
 
-#: src/incidenceformatter.cpp:2954
+#: src/incidenceformatter.cpp:2970
 #, kde-format
 msgid "22nd Last"
 msgstr "ბოლო 22-ე"
 
-#: src/incidenceformatter.cpp:2955
+#: src/incidenceformatter.cpp:2971
 #, kde-format
 msgid "21st Last"
 msgstr "ბოლო 21-ე"
 
-#: src/incidenceformatter.cpp:2956
+#: src/incidenceformatter.cpp:2972
 #, kde-format
 msgid "20th Last"
 msgstr "ბოლო 20-ე"
 
-#: src/incidenceformatter.cpp:2957
+#: src/incidenceformatter.cpp:2973
 #, kde-format
 msgid "19th Last"
 msgstr "ბოლო 19-ე"
 
-#: src/incidenceformatter.cpp:2958
+#: src/incidenceformatter.cpp:2974
 #, kde-format
 msgid "18th Last"
 msgstr "ბოლო 18-ე"
 
-#: src/incidenceformatter.cpp:2959
+#: src/incidenceformatter.cpp:2975
 #, kde-format
 msgid "17th Last"
 msgstr "ბოლო 17-ე"
 
-#: src/incidenceformatter.cpp:2960
+#: src/incidenceformatter.cpp:2976
 #, kde-format
 msgid "16th Last"
 msgstr "ბოლო 16-ე"
 
-#: src/incidenceformatter.cpp:2961
+#: src/incidenceformatter.cpp:2977
 #, kde-format
 msgid "15th Last"
 msgstr "ბოლო 15-ე"
 
-#: src/incidenceformatter.cpp:2962
+#: src/incidenceformatter.cpp:2978
 #, kde-format
 msgid "14th Last"
 msgstr "ბოლო 14-ე"
 
-#: src/incidenceformatter.cpp:2963
+#: src/incidenceformatter.cpp:2979
 #, kde-format
 msgid "13th Last"
 msgstr "ბოლო 13-ე"
 
-#: src/incidenceformatter.cpp:2964
+#: src/incidenceformatter.cpp:2980
 #, kde-format
 msgid "12th Last"
 msgstr "ბოლო 12-ე"
 
-#: src/incidenceformatter.cpp:2965
+#: src/incidenceformatter.cpp:2981
 #, kde-format
 msgid "11th Last"
 msgstr "ბოლო 11-ე"
 
-#: src/incidenceformatter.cpp:2966
+#: src/incidenceformatter.cpp:2982
 #, kde-format
 msgid "10th Last"
 msgstr "ბოლო მეათე"
 
-#: src/incidenceformatter.cpp:2967
+#: src/incidenceformatter.cpp:2983
 #, kde-format
 msgid "9th Last"
 msgstr "ბოლო მეცხრე"
 
-#: src/incidenceformatter.cpp:2968
+#: src/incidenceformatter.cpp:2984
 #, kde-format
 msgid "8th Last"
 msgstr "ბოლო მერვე"
 
-#: src/incidenceformatter.cpp:2969
+#: src/incidenceformatter.cpp:2985
 #, kde-format
 msgid "7th Last"
 msgstr "ბოლო მეშვიდე"
 
-#: src/incidenceformatter.cpp:2970
+#: src/incidenceformatter.cpp:2986
 #, kde-format
 msgid "6th Last"
 msgstr "ბოლო მეექვსე"
 
-#: src/incidenceformatter.cpp:2971
+#: src/incidenceformatter.cpp:2987
 #, kde-format
 msgid "5th Last"
 msgstr "ბოლო მეხუთე"
 
-#: src/incidenceformatter.cpp:2972
+#: src/incidenceformatter.cpp:2988
 #, kde-format
 msgid "4th Last"
 msgstr "ბოლო მეოთხე"
 
-#: src/incidenceformatter.cpp:2973
+#: src/incidenceformatter.cpp:2989
 #, kde-format
 msgid "3rd Last"
 msgstr "ბოლო მესამე"
 
-#: src/incidenceformatter.cpp:2974
+#: src/incidenceformatter.cpp:2990
 #, kde-format
 msgid "2nd Last"
 msgstr "ბოლო მეორე"
 
-#: src/incidenceformatter.cpp:2975
+#: src/incidenceformatter.cpp:2991
 #, kde-format
 msgctxt "last day of the month"
 msgid "Last"
 msgstr "ბოლო"
 
-#: src/incidenceformatter.cpp:2976
+#: src/incidenceformatter.cpp:2992
 #, kde-format
 msgctxt "unknown day of the month"
 msgid "unknown"
 msgstr "უცნობი"
 
-#: src/incidenceformatter.cpp:2977
+#: src/incidenceformatter.cpp:2993
 #, kde-format
 msgid "1st"
 msgstr "პირველი"
 
-#: src/incidenceformatter.cpp:2978
+#: src/incidenceformatter.cpp:2994
 #, kde-format
 msgid "2nd"
 msgstr "მეორე"
 
-#: src/incidenceformatter.cpp:2979
+#: src/incidenceformatter.cpp:2995
 #, kde-format
 msgid "3rd"
 msgstr "მესამე"
 
-#: src/incidenceformatter.cpp:2980
+#: src/incidenceformatter.cpp:2996
 #, kde-format
 msgid "4th"
 msgstr "მეოთხე"
 
-#: src/incidenceformatter.cpp:2981
+#: src/incidenceformatter.cpp:2997
 #, kde-format
 msgid "5th"
 msgstr "მეხუთე"
 
-#: src/incidenceformatter.cpp:2982
+#: src/incidenceformatter.cpp:2998
 #, kde-format
 msgid "6th"
 msgstr "მეექვსე"
 
-#: src/incidenceformatter.cpp:2983
+#: src/incidenceformatter.cpp:2999
 #, kde-format
 msgid "7th"
 msgstr "მეშვიდე"
 
-#: src/incidenceformatter.cpp:2984
+#: src/incidenceformatter.cpp:3000
 #, kde-format
 msgid "8th"
 msgstr "მერვე"
 
-#: src/incidenceformatter.cpp:2985
+#: src/incidenceformatter.cpp:3001
 #, kde-format
 msgid "9th"
 msgstr "მეცხრე"
 
-#: src/incidenceformatter.cpp:2986
+#: src/incidenceformatter.cpp:3002
 #, kde-format
 msgid "10th"
 msgstr "მეათე"
 
-#: src/incidenceformatter.cpp:2987
+#: src/incidenceformatter.cpp:3003
 #, kde-format
 msgid "11th"
 msgstr "მეთერთმეტე"
 
-#: src/incidenceformatter.cpp:2988
+#: src/incidenceformatter.cpp:3004
 #, kde-format
 msgid "12th"
 msgstr "მეთორმეტე"
 
-#: src/incidenceformatter.cpp:2989
+#: src/incidenceformatter.cpp:3005
 #, kde-format
 msgid "13th"
 msgstr "13-ე"
 
-#: src/incidenceformatter.cpp:2990
+#: src/incidenceformatter.cpp:3006
 #, kde-format
 msgid "14th"
 msgstr "14-ე"
 
-#: src/incidenceformatter.cpp:2991
+#: src/incidenceformatter.cpp:3007
 #, kde-format
 msgid "15th"
 msgstr "15-ე"
 
-#: src/incidenceformatter.cpp:2992
+#: src/incidenceformatter.cpp:3008
 #, kde-format
 msgid "16th"
 msgstr "16-ე"
 
-#: src/incidenceformatter.cpp:2993
+#: src/incidenceformatter.cpp:3009
 #, kde-format
 msgid "17th"
 msgstr "17-ე"
 
-#: src/incidenceformatter.cpp:2994
+#: src/incidenceformatter.cpp:3010
 #, kde-format
 msgid "18th"
 msgstr "18-ე"
 
-#: src/incidenceformatter.cpp:2995
+#: src/incidenceformatter.cpp:3011
 #, kde-format
 msgid "19th"
 msgstr "19-ე"
 
-#: src/incidenceformatter.cpp:2996
+#: src/incidenceformatter.cpp:3012
 #, kde-format
 msgid "20th"
 msgstr "20-ე"
 
-#: src/incidenceformatter.cpp:2997
+#: src/incidenceformatter.cpp:3013
 #, kde-format
 msgid "21st"
 msgstr "21-ე"
 
-#: src/incidenceformatter.cpp:2998
+#: src/incidenceformatter.cpp:3014
 #, kde-format
 msgid "22nd"
 msgstr "22-ე"
 
-#: src/incidenceformatter.cpp:2999
+#: src/incidenceformatter.cpp:3015
 #, kde-format
 msgid "23rd"
 msgstr "23-ე"
 
-#: src/incidenceformatter.cpp:3000
+#: src/incidenceformatter.cpp:3016
 #, kde-format
 msgid "24th"
 msgstr "24-ე"
 
-#: src/incidenceformatter.cpp:3001
+#: src/incidenceformatter.cpp:3017
 #, kde-format
 msgid "25th"
 msgstr "25-ე"
 
-#: src/incidenceformatter.cpp:3002
+#: src/incidenceformatter.cpp:3018
 #, kde-format
 msgid "26th"
 msgstr "26-ე"
 
-#: src/incidenceformatter.cpp:3003
+#: src/incidenceformatter.cpp:3019
 #, kde-format
 msgid "27th"
 msgstr "27-ე"
 
-#: src/incidenceformatter.cpp:3004
+#: src/incidenceformatter.cpp:3020
 #, kde-format
 msgid "28th"
 msgstr "28-ე"
 
-#: src/incidenceformatter.cpp:3005
+#: src/incidenceformatter.cpp:3021
 #, kde-format
 msgid "29th"
 msgstr "29-ე"
 
-#: src/incidenceformatter.cpp:3006
+#: src/incidenceformatter.cpp:3022
 #, kde-format
 msgid "30th"
 msgstr "30-ე"
 
-#: src/incidenceformatter.cpp:3007
+#: src/incidenceformatter.cpp:3023
 #, kde-format
 msgid "31st"
 msgstr "31-ე"
 
-#: src/incidenceformatter.cpp:3022
+#: src/incidenceformatter.cpp:3038
 #, kde-format
 msgid "Recurs every minute until %2"
 msgid_plural "Recurs every %1 minutes until %2"
 msgstr[0] "მეორდება ყოველ წუთში %2-მდე"
 msgstr[1] "მეორდება ყოველ %1 წუთში %2-მდე"
 
-#: src/incidenceformatter.cpp:3024 src/incidenceformatter.cpp:3035
-#: src/incidenceformatter.cpp:3046 src/incidenceformatter.cpp:3076
-#: src/incidenceformatter.cpp:3097 src/incidenceformatter.cpp:3120
-#: src/incidenceformatter.cpp:3144 src/incidenceformatter.cpp:3181
-#: src/incidenceformatter.cpp:3209
+#: src/incidenceformatter.cpp:3040 src/incidenceformatter.cpp:3051
+#: src/incidenceformatter.cpp:3062 src/incidenceformatter.cpp:3092
+#: src/incidenceformatter.cpp:3113 src/incidenceformatter.cpp:3136
+#: src/incidenceformatter.cpp:3160 src/incidenceformatter.cpp:3197
+#: src/incidenceformatter.cpp:3225
 #, kde-format, kde-kuit-format
 msgctxt "number of occurrences"
 msgid " (%1 occurrences)"
 msgstr " (%1 შემთხვევა)"
 
-#: src/incidenceformatter.cpp:3027
+#: src/incidenceformatter.cpp:3043
 #, kde-format
 msgid "Recurs every minute"
 msgid_plural "Recurs every %1 minutes"
 msgstr[0] "მეორდება ყოველ წუთში"
 msgstr[1] "მეორდება %1 ყოველ წუთში"
 
-#: src/incidenceformatter.cpp:3033
+#: src/incidenceformatter.cpp:3049
 #, kde-format
 msgid "Recurs hourly until %2"
 msgid_plural "Recurs every %1 hours until %2"
 msgstr[0] "მეორდება ყოველ საათში, %2-მდე"
 msgstr[1] "მეორდება ყოველ %1 საათში, %2-მდე"
 
-#: src/incidenceformatter.cpp:3038
+#: src/incidenceformatter.cpp:3054
 #, kde-format
 msgid "Recurs hourly"
 msgid_plural "Recurs every %1 hours"
 msgstr[0] "მეორდება ყოველ საათში"
 msgstr[1] "მეორდება ყოველ %1 საათში"
 
-#: src/incidenceformatter.cpp:3044
+#: src/incidenceformatter.cpp:3060
 #, kde-format
 msgid "Recurs daily until %2"
 msgid_plural "Recurs every %1 days until %2"
 msgstr[0] "მეორდება დღეში ერთხელ, %2-მდე"
 msgstr[1] "მეორდება ყოველ %1 დღეში ერთხელ, %2-მდე"
 
-#: src/incidenceformatter.cpp:3049
+#: src/incidenceformatter.cpp:3065
 #, kde-format
 msgid "Recurs daily"
 msgid_plural "Recurs every %1 days"
 msgstr[0] "მეორდება დღეში ერთხელ"
 msgstr[1] "მეორდება %1 დღეში ერთხელ"
 
-#: src/incidenceformatter.cpp:3059
+#: src/incidenceformatter.cpp:3075
 #, kde-format
 msgctxt "separator for list of days"
 msgid ", "
 msgstr ", "
 
-#: src/incidenceformatter.cpp:3066
+#: src/incidenceformatter.cpp:3082
 #, kde-format
 msgctxt "Recurs weekly on no days"
 msgid "no days"
 msgstr "დღეების გარეშე"
 
-#: src/incidenceformatter.cpp:3070
+#: src/incidenceformatter.cpp:3086
 #, kde-format
 msgctxt "Recurs weekly on [list of days] until end-date"
 msgid "Recurs weekly on %2 until %3"
@@ -1407,7 +1407,7 @@ msgid_plural "Recurs every %1 weeks on %2 until %3"
 msgstr[0] "მეორდება კვირაში ერთხელ %2-ზე %3-მდე"
 msgstr[1] "მეორდება %1 კვირაში ერთხელ %2-ზე %3-მდე"
 
-#: src/incidenceformatter.cpp:3079
+#: src/incidenceformatter.cpp:3095
 #, kde-format
 msgctxt "Recurs weekly on [list of days]"
 msgid "Recurs weekly on %2"
@@ -1415,7 +1415,7 @@ msgid_plural "Recurs every %1 weeks on %2"
 msgstr[0] "მეორდება კვირაში ერთხელ, %2-ზე"
 msgstr[1] "მეორდება %1 კვირაში ერთხელ, %2-ზე"
 
-#: src/incidenceformatter.cpp:3090
+#: src/incidenceformatter.cpp:3106
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
 msgid "Recurs every month on the %2 %3 until %4"
@@ -1423,7 +1423,7 @@ msgid_plural "Recurs every %1 months on the %2 %3 until %4"
 msgstr[0] "მეორდება თვეში ერთხელ %2 %3 %4-მდე"
 msgstr[1] "მეორდება %1 თვეში ერთხელ %2 %3 %4-მდე"
 
-#: src/incidenceformatter.cpp:3101
+#: src/incidenceformatter.cpp:3117
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname"
 msgid "Recurs every month on the %2 %3"
@@ -1431,7 +1431,7 @@ msgid_plural "Recurs every %1 months on the %2 %3"
 msgstr[0] "მეორდება თვეში ერთხელ, %2 %3"
 msgstr[1] "მეორდება %1 თვეში ერთხელ, %2 %3"
 
-#: src/incidenceformatter.cpp:3114
+#: src/incidenceformatter.cpp:3130
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day until end-date"
 msgid "Recurs monthly on the %2 day until %3"
@@ -1439,7 +1439,7 @@ msgid_plural "Recurs every %1 months on the %2 day until %3"
 msgstr[0] "მეორდება თვეში ერთხელ, %2-ე დღეს, %3-მდე"
 msgstr[1] "მეორდება %1 თვეში ერთხელ, %2-ე დღეს, %3-მდე"
 
-#: src/incidenceformatter.cpp:3124
+#: src/incidenceformatter.cpp:3140
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day"
 msgid "Recurs monthly on the %2 day"
@@ -1447,7 +1447,7 @@ msgid_plural "Recurs every %1 month on the %2 day"
 msgstr[0] "მეორდება თვეში ერთხელ, %2-ე დღეს"
 msgstr[1] "მეორდება %1 თვეში ერთხელ, %2-ე დღეს"
 
-#: src/incidenceformatter.cpp:3137
+#: src/incidenceformatter.cpp:3153
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...] until end-date"
 msgid "Recurs yearly on %2 %3 until %4"
@@ -1455,7 +1455,7 @@ msgid_plural "Recurs every %1 years on %2 %3 until %4"
 msgstr[0] "მეორდება წელიწადში ერთხელ, %2 %3, %4-მდე"
 msgstr[1] "მეორდება %1 წელიწადში ერთხელ, %2 %3, %4-მდე"
 
-#: src/incidenceformatter.cpp:3150
+#: src/incidenceformatter.cpp:3166
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %2 %3"
@@ -1463,13 +1463,13 @@ msgid_plural "Recurs every %1 years on %2 %3"
 msgstr[0] "მეორდება წელიწადში ერთხელ, %2 %3"
 msgstr[1] "მეორდება %1 წელიწადში ერთხელ, %2 %3"
 
-#: src/incidenceformatter.cpp:3158 src/incidenceformatter.cpp:3163
+#: src/incidenceformatter.cpp:3174 src/incidenceformatter.cpp:3179
 #, kde-format
 msgctxt "Recurs Every year on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %1 %2"
 msgstr "მეორდება წელიწადში ერთხელ, %1 %2"
 
-#: src/incidenceformatter.cpp:3174
+#: src/incidenceformatter.cpp:3190
 #, kde-format
 msgctxt "Recurs every N years on day N until end-date"
 msgid "Recurs every year on day %2 until %3"
@@ -1477,7 +1477,7 @@ msgid_plural "Recurs every %1 years on day %2 until %3"
 msgstr[0] "მეორდება წელიწადში ერთხელ, %2-ე დღეს, %3-მდე"
 msgstr[1] "მეორდება %1 წელიწადში ერთხელ, %2-ე დღეს, %3-მდე"
 
-#: src/incidenceformatter.cpp:3185
+#: src/incidenceformatter.cpp:3201
 #, kde-format
 msgctxt "Recurs every N YEAR[S] on day N"
 msgid "Recurs every year on day %2"
@@ -1485,7 +1485,7 @@ msgid_plural "Recurs every %1 years on day %2"
 msgstr[0] "მეორდება წელიწადში ერთხელ, %2-ე დღეს"
 msgstr[1] "მეორდება %1 წელიწადში ერთხელ, %2-ე დღეს"
 
-#: src/incidenceformatter.cpp:3200
+#: src/incidenceformatter.cpp:3216
 #, kde-format
 msgctxt ""
 "Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
@@ -1494,7 +1494,7 @@ msgid_plural "Every %1 years on the %2 %3 of %4 until %5"
 msgstr[0] "ყოველ წელიწადში, %2 %3 %4-დან, %5-მდე"
 msgstr[1] "ყოველ %1 წელიწადში, %2 %3 %4-დან, %5-მდე"
 
-#: src/incidenceformatter.cpp:3215
+#: src/incidenceformatter.cpp:3231
 #, kde-kuit-format
 msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
 msgid "Every year on the %2 %3 of %4"
@@ -1502,104 +1502,104 @@ msgid_plural "Every %1 years on the %2 %3 of %4"
 msgstr[0] "ყოველ წელიწადში, %2 %3 %4-დან"
 msgstr[1] "ყოველ %1 წელიწადში, %2 %3 %4-დან"
 
-#: src/incidenceformatter.cpp:3229
+#: src/incidenceformatter.cpp:3245
 #, kde-format
 msgid "Incidence recurs"
 msgstr "ინციდენტი მეორდება"
 
-#: src/incidenceformatter.cpp:3242
+#: src/incidenceformatter.cpp:3258
 #, kde-format
 msgid "minute %1"
 msgstr "წუთი %1"
 
-#: src/incidenceformatter.cpp:3284 src/incidenceformatter.cpp:3352
-#: src/incidenceformatter.cpp:3378 src/incidenceformatter.cpp:3390
+#: src/incidenceformatter.cpp:3300 src/incidenceformatter.cpp:3368
+#: src/incidenceformatter.cpp:3394 src/incidenceformatter.cpp:3406
 #, kde-format
 msgid "1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 დღე"
 msgstr[1] "%1 დღე"
 
-#: src/incidenceformatter.cpp:3317
+#: src/incidenceformatter.cpp:3333
 #, kde-format
 msgid "%1 (excluding %2)"
 msgstr "%1 (%2-ის გამოკლებით)"
 
-#: src/incidenceformatter.cpp:3358
+#: src/incidenceformatter.cpp:3374
 #, kde-format
 msgid "1 hour"
 msgid_plural "%1 hours"
 msgstr[0] "%1 საათი"
 msgstr[1] "%1 საათი"
 
-#: src/incidenceformatter.cpp:3364
+#: src/incidenceformatter.cpp:3380
 #, kde-format
 msgid "1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "%1 წუთი"
 msgstr[1] "%1 წუთი"
 
-#: src/incidenceformatter.cpp:3381
+#: src/incidenceformatter.cpp:3397
 #, kde-format
 msgid "forever"
 msgstr "სამუდამოდ"
 
-#: src/incidenceformatter.cpp:3423
+#: src/incidenceformatter.cpp:3439
 #, kde-format
 msgctxt "N days/hours/minutes before the start datetime"
 msgid "%1 before the start"
 msgstr "%1 დაწყებამდე"
 
-#: src/incidenceformatter.cpp:3425
+#: src/incidenceformatter.cpp:3441
 #, kde-format
 msgctxt "N days/hours/minutes after the start datetime"
 msgid "%1 after the start"
 msgstr "%1 დაწყების შემდეგ"
 
-#: src/incidenceformatter.cpp:3436
+#: src/incidenceformatter.cpp:3452
 #, kde-format
 msgctxt "N days/hours/minutes before the due datetime"
 msgid "%1 before the to-do is due"
 msgstr "%1, სანამ გასაკეთებლის დრო დადგება"
 
-#: src/incidenceformatter.cpp:3438
+#: src/incidenceformatter.cpp:3454
 #, kde-format
 msgctxt "N days/hours/minutes before the end datetime"
 msgid "%1 before the end"
 msgstr "%1 დასასრულამდე"
 
-#: src/incidenceformatter.cpp:3442
+#: src/incidenceformatter.cpp:3458
 #, kde-format
 msgctxt "N days/hours/minutes after the due datetime"
 msgid "%1 after the to-do is due"
 msgstr "%1, როცა გასაკეთებლის დრო დადგება"
 
-#: src/incidenceformatter.cpp:3444
+#: src/incidenceformatter.cpp:3460
 #, kde-format
 msgctxt "N days/hours/minutes after the end datetime"
 msgid "%1 after the end"
 msgstr "%1 დასრულების შემდეგ"
 
-#: src/incidenceformatter.cpp:3462
+#: src/incidenceformatter.cpp:3478
 #, kde-format
 msgctxt "reminder occurs at datetime"
 msgid "at %1"
 msgstr "%1-ზე"
 
-#: src/incidenceformatter.cpp:3469
+#: src/incidenceformatter.cpp:3485
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
 msgstr[0] "ერთხელ მეორდება"
 msgstr[1] "%1-ჯერ მეორდება"
 
-#: src/incidenceformatter.cpp:3470
+#: src/incidenceformatter.cpp:3486
 #, kde-format
 msgctxt "interval is N days/hours/minutes"
 msgid "interval is %1"
 msgstr "ინტერვალია %1"
 
-#: src/incidenceformatter.cpp:3471
+#: src/incidenceformatter.cpp:3487
 #, kde-format
 msgctxt "(repeat string, interval string)"
 msgid "(%1, %2)"
@@ -2040,8 +2040,7 @@ msgstr[1] "მიმაგრებული ფაილები:"
 
 #: src/templates/event.html:197 src/templates/journal.html:47
 #: src/templates/todo.html:200
-#, fuzzy, kde-format
-#| msgid "Creation date: %1"
+#, kde-format
 msgid "Created: %1"
 msgstr "შექმნის თარიღი: %1"
 
@@ -2049,7 +2048,7 @@ msgstr "შექმნის თარიღი: %1"
 #: src/templates/todo.html:201
 #, kde-format
 msgid "Last modified: %1"
-msgstr ""
+msgstr "ბოლო ცვლილება: %1"
 
 #: src/templates/event.html:199 src/templates/journal.html:49
 #: src/templates/todo.html:202
