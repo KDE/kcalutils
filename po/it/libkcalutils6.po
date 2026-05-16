@@ -3,7 +3,7 @@
 # Alessandro Pasotti <ale.pas@tiscalinet.it>, 2003,2004, 2005, 2006.
 # Alessandro Pasotti <a.pasotti@itopen.it>, 2006.
 # Andrea Rizzi <rizzi@kde.org>, 2007.
-# SPDX-FileCopyrightText: 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2018, 2020, 2021, 2025, 2026 Luigi Toscano <luigi.toscano@tiscali.it>
+# SPDX-FileCopyrightText: 2009-2010, 2012-2016, 2018, 2020-2021, 2025-2026 Luigi Toscano <luigi.toscano@tiscali.it>
 # Nicola Ruggero <nicola@nxnt.org>, 2011.
 #
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-15 00:45+0000\n"
-"PO-Revision-Date: 2026-04-09 00:09+0200\n"
+"PO-Revision-Date: 2026-05-15 15:50+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -1653,34 +1653,28 @@ msgid "free/busy"
 msgstr "libero/occupato"
 
 #: src/stringify.cpp:56
-#, fuzzy, kde-format
-#| msgid "Event"
+#, kde-format
 msgctxt "@item incidence type is Event (capitalized)"
 msgid "Event"
 msgstr "Evento"
 
 #: src/stringify.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "To-do"
+#, kde-format
 msgctxt "@item incidence type is To-do/Task (capitalized)"
 msgid "To-do"
 msgstr "Cosa da fare"
 
 #: src/stringify.cpp:60
-#, fuzzy, kde-format
-#| msgid "Journal"
+#, kde-format
 msgctxt "@item incidence type is Journal (capitalized)"
 msgid "Journal"
 msgstr "Diario"
 
 #: src/stringify.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "@item incidence type is freebusy"
-#| msgid "free/busy"
+#, kde-format
 msgctxt "@item incidence type is Freebusy (capitalized)"
 msgid "Free/Busy"
-msgstr "libero/occupato"
+msgstr "Libero/occupato"
 
 #: src/stringify.cpp:76
 #, kde-format
@@ -2055,17 +2049,15 @@ msgstr[1] "Allegati:"
 
 #: src/templates/event.html:197 src/templates/journal.html:47
 #: src/templates/todo.html:200
-#, fuzzy, kde-format
-#| msgid "Creation date: %1"
+#, kde-format
 msgid "Created: %1"
-msgstr "Data di creazione: %1"
+msgstr "Creazione: %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
-#, fuzzy, kde-format
-#| msgid "Last loaded: %1"
+#, kde-format
 msgid "Last modified: %1"
-msgstr "Ultimo caricamento: %1"
+msgstr "Ultima modifica: %1"
 
 #: src/templates/event.html:199 src/templates/journal.html:49
 #: src/templates/todo.html:202
