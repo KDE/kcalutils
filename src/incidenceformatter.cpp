@@ -461,7 +461,9 @@ struct IncidenceNameAndUid {
     }
     incidence[QStringLiteral("isAllDay")] = event->allDay();
     incidence[QStringLiteral("isMultiDay")] = event->isMultiDay();
+    incidence[QStringLiteral("startDateTime")] = startDt;
     incidence[QStringLiteral("startDate")] = startDt.date();
+    incidence[QStringLiteral("endDateTime")] = endDt;
     incidence[QStringLiteral("endDate")] = endDt.date();
     incidence[QStringLiteral("startTime")] = startDt.time();
     incidence[QStringLiteral("endTime")] = endDt.time();
@@ -2409,11 +2411,14 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
     }
 
     if (event->isMultiDay()) {
-        tmp = dateToString(startDt.date(), true);
-        ret += QLatin1StringView("<br>") + i18nc("Event start", "<i>From:</i> %1", tmp);
-
-        tmp = dateToString(endDt.date(), true);
-        ret += QLatin1StringView("<br>") + i18nc("Event end", "<i>To:</i> %1", tmp);
+        if (event->allDay()) {
+            tmp = dateToString(startDt.date(), true);
+            ret += QLatin1StringView("<br>") + i18nc("Event start", "<i>From:</i> %1", tmp);
+            tmp = dateToString(endDt.date(), true);
+            ret += QLatin1StringView("<br>") + i18nc("Event end", "<i>To:</i> %1", tmp);
+        } else {
+            ret += QLatin1StringView("<br>") + i18nc("datetime range for event", "<i>Date:</i> %1 - %2", dateTimeToString(startDt), dateTimeToString(endDt));
+        }
     } else {
         ret += QLatin1StringView("<br>") + i18n("<i>Date:</i> %1", dateToString(startDt.date(), false));
         if (!event->allDay()) {

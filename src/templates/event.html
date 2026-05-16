@@ -38,7 +38,7 @@
     <tr>
         {% if incidence.isMultiDay %}
         <th valign="top">{% i18n "Date:" %}</th>
-        <td>{% i18nc "<beginDate> - <endDate>" "%1 - %2" incidence.startDate|kdate incidence.endDate|kdate %}</td>
+        <td>{% i18nc "<beginDateTime> - <endDateTime>" "%1 - %2" incidence.startDateTime|kdatetime:"short" incidence.endDateTime|kdatetime:"short" %}</td>
         {% else %}
         <th valign="top">{% i18n "Date:" %}</th>
         <td>{% i18nc "Date as string" "%1" incidence.startDate|kdate %}</td>
