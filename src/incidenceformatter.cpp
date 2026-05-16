@@ -482,8 +482,7 @@ struct IncidenceNameAndUid {
     incidence[QStringLiteral("description")] = displayViewFormatDescription(event);
     // TODO: print comments?
 
-    incidence[QStringLiteral("reminders")] = reminderStringList(event);
-
+    incidence[QStringLiteral("reminders")] = reminderStringList(event).join(QLatin1StringView("; "));
     incidence[QStringLiteral("organizer")] = displayViewFormatOrganizer(event);
     const bool showStatus = incOrganizerOwnsCalendar(calendar, event);
     incidence[QStringLiteral("chair")] = displayViewFormatAttendeeRoleList(event, Attendee::Chair, showStatus);
@@ -491,7 +490,7 @@ struct IncidenceNameAndUid {
     incidence[QStringLiteral("optionalParticipants")] = displayViewFormatAttendeeRoleList(event, Attendee::OptParticipant, showStatus);
     incidence[QStringLiteral("observers")] = displayViewFormatAttendeeRoleList(event, Attendee::NonParticipant, showStatus);
 
-    incidence[QStringLiteral("categories")] = event->categories();
+    incidence[QStringLiteral("categories")] = event->categories().join(QLatin1StringView(", "));
 
     incidence[QStringLiteral("attachments")] = displayViewFormatAttachments(event);
     incidence[QStringLiteral("creationDate")] = event->created().toLocalTime();
@@ -558,7 +557,7 @@ struct IncidenceNameAndUid {
 
     // TODO: print comments?
 
-    incidence[QStringLiteral("reminders")] = reminderStringList(todo);
+    incidence[QStringLiteral("reminders")] = reminderStringList(todo).join(QLatin1StringView("; "));
 
     incidence[QStringLiteral("organizer")] = displayViewFormatOrganizer(todo);
     const bool showStatus = incOrganizerOwnsCalendar(calendar, todo);
@@ -567,7 +566,7 @@ struct IncidenceNameAndUid {
     incidence[QStringLiteral("optionalParticipants")] = displayViewFormatAttendeeRoleList(todo, Attendee::OptParticipant, showStatus);
     incidence[QStringLiteral("observers")] = displayViewFormatAttendeeRoleList(todo, Attendee::NonParticipant, showStatus);
 
-    incidence[QStringLiteral("categories")] = todo->categories();
+    incidence[QStringLiteral("categories")] = todo->categories().join(QLatin1StringView(", "));
     incidence[QStringLiteral("priority")] = todo->priority();
     if (todo->isCompleted()) {
         incidence[QStringLiteral("completedDate")] = todo->completed();
@@ -592,7 +591,7 @@ struct IncidenceNameAndUid {
     incidence[QStringLiteral("calendar")] = calendar ? resourceString(calendar, journal) : sourceName;
     incidence[QStringLiteral("date")] = journal->dtStart().toLocalTime();
     incidence[QStringLiteral("description")] = displayViewFormatDescription(journal);
-    incidence[QStringLiteral("categories")] = journal->categories();
+    incidence[QStringLiteral("categories")] = journal->categories().join(QLatin1StringView(", "));
     incidence[QStringLiteral("creationDate")] = journal->created().toLocalTime();
     incidence[QStringLiteral("modificationDate")] = journal->lastModified().toLocalTime();
     incidence[QStringLiteral("revision")] = journal->revision();
@@ -2733,10 +2732,11 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
         if (needAnHorizontalLine) {
             tmp += QLatin1StringView("<hr>");
             needAnHorizontalLine = false;
+        } else {
+            tmp += QLatin1StringView("<br>");
         }
-        tmp += QLatin1StringView("<br>");
         tmp += QLatin1StringView("<i>") + i18np("Reminder:", "Reminders:", reminderCount) + QLatin1StringView("</i>") + QLatin1StringView("&nbsp;");
-        tmp += reminderStringList(incidence).join(QLatin1StringView(", "));
+        tmp += reminderStringList(incidence).join(QLatin1StringView("; "));
     }
 
     const QString attendees = tooltipFormatAttendees(mCalendar, incidence);
@@ -2744,8 +2744,9 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
         if (needAnHorizontalLine) {
             tmp += QLatin1StringView("<hr>");
             needAnHorizontalLine = false;
+        } else {
+            tmp += QLatin1StringView("<br>");
         }
-        tmp += QLatin1StringView("<br>");
         tmp += attendees;
     }
 
@@ -2753,8 +2754,9 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
     if (categoryCount > 0) {
         if (needAnHorizontalLine) {
             tmp += QLatin1StringView("<hr>");
+        } else {
+            tmp += QLatin1StringView("<br>");
         }
-        tmp += QLatin1StringView("<br>");
         tmp += QLatin1StringView("<i>") + i18np("Tag:", "Tags:", categoryCount) + QLatin1StringView("</i>") + QLatin1StringView("&nbsp;");
         tmp += incidence->categories().join(QLatin1StringView(", "));
     }

@@ -35,8 +35,8 @@
     <!-- Categories -->
     {% if incidence.categories %}
     <tr>
-        <th>{% i18np "Tag:" "Tags:" incidence.categories|length %}</th>
-        <td>{{ incidence.categories|join:", " }}</td>
+        <th>{% i18n "Tags:" %}</th>
+        <td>{{ incidence.categories}</td>
     </tr>
     {% endif %}
 

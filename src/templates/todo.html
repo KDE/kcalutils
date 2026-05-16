@@ -82,8 +82,8 @@
     <!-- Reminders -->
     {% if incidence.reminders %}
     <tr>
-        <th valign="top">{% i18np "Reminder:" "Reminders:" incidence.reminders|length %}</th>
-        <td>{{ incidence.reminders|join:"<br/>" }}</td>
+        <th valign="top">{% i18n "Reminders:" %}</th>
+        <td>{{ incidence.reminders}}</td>
     </tr>
     {% endif %}
 
@@ -154,8 +154,8 @@
     <!-- Categories -->
     {% if incidence.categories %}
     <tr>
-        <th valign="top">{% i18np "Tag:" "Tags:" incidence.categories|length %}</th>
-        <td>{{ incidence.categories|join:", " }}</td>
+        <th valign="top">{% i18n "Tags:" %}</th>
+        <td>{{ incidence.categories}}</td>
     </tr>
     {% endif %}
 
