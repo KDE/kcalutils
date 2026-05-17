@@ -6,6 +6,8 @@
   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+// krazy:excludeall=i18ncheckarg
+
 #include "teststringify.h"
 #include "stringify.h"
 
