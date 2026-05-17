@@ -104,6 +104,13 @@ namespace Stringify
 [[nodiscard]] KCALUTILS_EXPORT QString attendeeStatus(KCalendarCore::Attendee::PartStat status);
 
 /*!
+ * Returns a string representation of an Alarm Type.
+ * \return the localized string representation of the specified Alarm type.
+ * \since 6.8
+ */
+[[nodiscard]] KCALUTILS_EXPORT QString alarmType(KCalendarCore::Alarm::Type alarmType);
+
+/*!
   Returns a string containing the UTC offset of the specified QTimeZone \a tz (relative to the current date).
   The format is [+-]HH::MM, according to standards.
   \since 5.8

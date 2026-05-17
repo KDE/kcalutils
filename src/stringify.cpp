@@ -164,6 +164,23 @@ QString Stringify::attendeeStatus(Attendee::PartStat status)
     return {};
 }
 
+QString Stringify::alarmType(Alarm::Type alarmType)
+{
+    switch (alarmType) {
+    case Alarm::Display:
+        return i18nc("@item alarm will pop-up a notification", "Display");
+    case Alarm::Procedure:
+        // FYI: we no longer support procedure alarms
+        return i18nc("@item alarm will run a command", "Procedure");
+    case Alarm::Email:
+        // FYI: we no longer support email alarms
+        return i18nc("@item alarm will send an email", "Email");
+    case Alarm::Audio:
+        return i18nc("@item alarm will play a sound", "Audio");
+    }
+    return {};
+}
+
 QString Stringify::errorMessage(const Exception &exception)
 {
     QString message;

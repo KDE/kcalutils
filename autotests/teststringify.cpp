@@ -65,6 +65,12 @@ void StringifyTest::testAttendeeStrings()
     QVERIFY(Stringify::attendeeStatus(Attendee::None) == i18n("Unknown"));
 }
 
+void StringifyTest::testAlarmStrings()
+{
+    QVERIFY(Stringify::alarmType(Alarm::Display) == i18n("Display"));
+    QVERIFY(Stringify::alarmType(Alarm::Invalid) == QString());
+}
+
 void StringifyTest::testDateTimeStrings()
 {
     // TODO

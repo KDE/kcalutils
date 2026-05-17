@@ -16,6 +16,7 @@ class StringifyTest : public QObject
 private Q_SLOTS:
     void testIncidenceStrings();
     void testAttendeeStrings();
+    void testAlarmStrings();
     void testDateTimeStrings();
     void testUTCoffsetStrings();
 };
