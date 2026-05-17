@@ -482,7 +482,12 @@ struct IncidenceNameAndUid {
     incidence[QStringLiteral("description")] = displayViewFormatDescription(event);
     // TODO: print comments?
 
-    incidence[QStringLiteral("reminders")] = reminderStringList(event).join(QLatin1StringView("; "));
+    QVariantList varList;
+    const QStringList strList = reminderStringList(event);
+    for (const QString &str : strList) {
+        varList.append(str);
+    }
+    incidence[QStringLiteral("reminders")] = varList;
     incidence[QStringLiteral("organizer")] = displayViewFormatOrganizer(event);
     const bool showStatus = incOrganizerOwnsCalendar(calendar, event);
     incidence[QStringLiteral("chair")] = displayViewFormatAttendeeRoleList(event, Attendee::Chair, showStatus);
@@ -557,7 +562,12 @@ struct IncidenceNameAndUid {
 
     // TODO: print comments?
 
-    incidence[QStringLiteral("reminders")] = reminderStringList(todo).join(QLatin1StringView("; "));
+    QVariantList varList;
+    const QStringList strList = reminderStringList(todo);
+    for (const QString &str : strList) {
+        varList.append(str);
+    }
+    incidence[QStringLiteral("reminders")] = varList;
 
     incidence[QStringLiteral("organizer")] = displayViewFormatOrganizer(todo);
     const bool showStatus = incOrganizerOwnsCalendar(calendar, todo);

@@ -82,8 +82,8 @@
     <!-- Reminders -->
     {% if incidence.reminders %}
     <tr>
-        <th valign="top">{% i18n "Reminders:" %}</th>
-        <td>{{ incidence.reminders}}</td>
+        <th valign="top">{% i18np "Reminder:" "Reminders:" incidence.reminders|length %}</th>
+        <td>{{ incidence.reminders|join:"<br/>" }}</td>
     </tr>
     {% endif %}
 
