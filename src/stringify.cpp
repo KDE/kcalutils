@@ -177,8 +177,9 @@ QString Stringify::alarmType(Alarm::Type alarmType)
         return i18nc("@item alarm will send an email", "Email");
     case Alarm::Audio:
         return i18nc("@item alarm will play a sound", "Audio");
+    default:
+        return {};
     }
-    return {};
 }
 
 QString Stringify::errorMessage(const Exception &exception)
