@@ -2479,7 +2479,8 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo,
     // Print priority and completed info here, for lack of a better place
 
     if (todo->priority() > 0) {
-        ret += QLatin1StringView("<br>") % i18nc("To-do's priority number", "<i>Priority:</i> %1", QString::number(todo->priority()));
+        ret += QLatin1StringView("<br>")
+            % i18nc("To-do's priority number", "<i>Priority:</i> %1", QString::number(todo->priority())); // krazy:exclude=i18ncheckarg
     }
 
     ret += QLatin1StringView("<br>");
@@ -3220,10 +3221,10 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                                   "Recurs every %1 years"
                                   " on day %2 until %3",
                                   recur->frequency(),
-                                  QString::number(recur->yearDays().at(0)),
+                                  QString::number(recur->yearDays().at(0)), // krazy:exclude=i18ncheckarg
                                   recurEnd(incidence));
                 if (recur->duration() > 0) {
-                    recurStr += i18nc("number of occurrences", " (%1 occurrences)", QString::number(recur->duration()));
+                    recurStr += i18nc("number of occurrences", " (%1 occurrences)", QString::number(recur->duration())); // krazy:exclude=i18ncheckarg
                 }
             } else {
                 recurStr = i18ncp("Recurs every N YEAR[S] on day N",
@@ -3231,7 +3232,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                                   "Recurs every %1 years"
                                   " on day %2",
                                   recur->frequency(),
-                                  QString::number(recur->yearDays().at(0)));
+                                  QString::number(recur->yearDays().at(0))); // krazy:exclude=i18ncheckarg
             }
         }
         break;
