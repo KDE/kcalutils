@@ -2736,7 +2736,12 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
             tmp += QLatin1StringView("<br>");
         }
         tmp += QLatin1StringView("<i>") + i18np("Reminder:", "Reminders:", reminderCount) + QLatin1StringView("</i>") + QLatin1StringView("&nbsp;");
-        tmp += reminderStringList(incidence).join(QLatin1StringView("; "));
+        if (reminderCount > 1) {
+            tmp += QLatin1StringView("<br> * ");
+            tmp += reminderStringList(incidence).join(QLatin1StringView("<br> * "));
+        } else {
+            tmp += reminderStringList(incidence).join(QLatin1StringView("<br>"));
+        }
     }
 
     const QString attendees = tooltipFormatAttendees(mCalendar, incidence);
@@ -3500,6 +3505,17 @@ QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &inciden
                 QString const intervalStr = i18nc("interval is N days/hours/minutes", "interval is %1", secs2Duration(alarm->snoozeTime().asSeconds()));
                 QString repeatStr = i18nc("(repeat string, interval string)", "(%1, %2)", countStr, intervalStr);
                 remStr = remStr + u' ' + repeatStr;
+            }
+            QStringList types;
+            if (!alarm->enabled()) {
+                types << i18nc("alarm is disabled", "disabled");
+            }
+            // FYI: we no longer support email or procedure alarms. and no need to pollute the output with "display"
+            if (alarm->type() == KCalendarCore::Alarm::Audio) {
+                types << i18nc("alarm will play a sound", "audio");
+            }
+            if (!types.isEmpty()) {
+                remStr = i18nc("the reminder string with its types list", "%1 (%2)", remStr, types.join(QLatin1StringView(", ")));
             }
             reminderStringList << remStr;
         }
