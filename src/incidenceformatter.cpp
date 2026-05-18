@@ -482,12 +482,12 @@ struct IncidenceNameAndUid {
     incidence[QStringLiteral("description")] = displayViewFormatDescription(event);
     // TODO: print comments?
 
-    QVariantList varList;
-    const QStringList strList = reminderStringList(event);
-    for (const QString &str : strList) {
-        varList.append(str);
+    QVariantList remVars;
+    const QStringList remList = reminderStringList(event);
+    for (const QString &rem : remList) {
+        remVars.append(rem);
     }
-    incidence[QStringLiteral("reminders")] = varList;
+    incidence[QStringLiteral("reminders")] = remVars;
     incidence[QStringLiteral("organizer")] = displayViewFormatOrganizer(event);
     const bool showStatus = incOrganizerOwnsCalendar(calendar, event);
     incidence[QStringLiteral("chair")] = displayViewFormatAttendeeRoleList(event, Attendee::Chair, showStatus);
@@ -495,7 +495,12 @@ struct IncidenceNameAndUid {
     incidence[QStringLiteral("optionalParticipants")] = displayViewFormatAttendeeRoleList(event, Attendee::OptParticipant, showStatus);
     incidence[QStringLiteral("observers")] = displayViewFormatAttendeeRoleList(event, Attendee::NonParticipant, showStatus);
 
-    incidence[QStringLiteral("categories")] = event->categories().join(QLatin1StringView(", "));
+    QVariantList catVars;
+    const QStringList catList = event->categories();
+    for (const QString &cat : catList) {
+        catVars.append(cat);
+    }
+    incidence[QStringLiteral("categories")] = catVars;
 
     incidence[QStringLiteral("attachments")] = displayViewFormatAttachments(event);
     incidence[QStringLiteral("creationDate")] = event->created().toLocalTime();
@@ -562,12 +567,12 @@ struct IncidenceNameAndUid {
 
     // TODO: print comments?
 
-    QVariantList varList;
-    const QStringList strList = reminderStringList(todo);
-    for (const QString &str : strList) {
-        varList.append(str);
+    QVariantList remVars;
+    const QStringList remList = reminderStringList(todo);
+    for (const QString &rem : remList) {
+        remVars.append(rem);
     }
-    incidence[QStringLiteral("reminders")] = varList;
+    incidence[QStringLiteral("reminders")] = remVars;
 
     incidence[QStringLiteral("organizer")] = displayViewFormatOrganizer(todo);
     const bool showStatus = incOrganizerOwnsCalendar(calendar, todo);
@@ -576,7 +581,12 @@ struct IncidenceNameAndUid {
     incidence[QStringLiteral("optionalParticipants")] = displayViewFormatAttendeeRoleList(todo, Attendee::OptParticipant, showStatus);
     incidence[QStringLiteral("observers")] = displayViewFormatAttendeeRoleList(todo, Attendee::NonParticipant, showStatus);
 
-    incidence[QStringLiteral("categories")] = todo->categories().join(QLatin1StringView(", "));
+    QVariantList catVars;
+    const QStringList catList = todo->categories();
+    for (const QString &cat : catList) {
+        catVars.append(cat);
+    }
+    incidence[QStringLiteral("categories")] = catVars;
     incidence[QStringLiteral("priority")] = todo->priority();
     if (todo->isCompleted()) {
         incidence[QStringLiteral("completedDate")] = todo->completed();
@@ -601,7 +611,12 @@ struct IncidenceNameAndUid {
     incidence[QStringLiteral("calendar")] = calendar ? resourceString(calendar, journal) : sourceName;
     incidence[QStringLiteral("date")] = journal->dtStart().toLocalTime();
     incidence[QStringLiteral("description")] = displayViewFormatDescription(journal);
-    incidence[QStringLiteral("categories")] = journal->categories().join(QLatin1StringView(", "));
+    QVariantList catVars;
+    const QStringList catList = journal->categories();
+    for (const QString &cat : catList) {
+        catVars.append(cat);
+    }
+    incidence[QStringLiteral("categories")] = catVars;
     incidence[QStringLiteral("creationDate")] = journal->created().toLocalTime();
     incidence[QStringLiteral("modificationDate")] = journal->lastModified().toLocalTime();
     incidence[QStringLiteral("revision")] = journal->revision();
