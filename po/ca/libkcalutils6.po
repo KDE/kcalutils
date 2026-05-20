@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:45+0000\n"
-"PO-Revision-Date: 2026-05-18 09:12+0200\n"
+"PO-Revision-Date: 2026-05-19 09:21+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2103,14 +2103,13 @@ msgstr[1] "Adjunts:"
 #: src/templates/todo.html:200
 #, kde-format
 msgid "Created: %1"
-msgstr "Creació: %1"
+msgstr "Creat: %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
-#, fuzzy, kde-format
-#| msgid "Last modified: %1"
+#, kde-format
 msgid "Modified: %1"
-msgstr "Última modificació: %1"
+msgstr "Modificat: %1"
 
 #: src/templates/event.html:199 src/templates/journal.html:49
 #: src/templates/todo.html:202

@@ -666,11 +666,10 @@ msgid "<i>To:</i> %1"
 msgstr "<i>到：</i> %1"
 
 #: src/incidenceformatter.cpp:2444
-#, fuzzy, kde-format
-#| msgid "<i>Date:</i> %1"
+#, kde-format
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
-msgstr "<i>日期：</i> %1"
+msgstr ""
 
 #: src/incidenceformatter.cpp:2447 src/incidenceformatter.cpp:2525
 #, kde-format
@@ -1590,12 +1589,10 @@ msgid "audio"
 msgstr ""
 
 #: src/incidenceformatter.cpp:3544
-#, fuzzy, kde-format
-#| msgctxt "attendee name (attendee status)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: src/recurrenceactions.cpp:46
 #, kde-format
@@ -2066,10 +2063,9 @@ msgstr "创建时间：%1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
-#, fuzzy, kde-format
-#| msgid "Last modified: %1"
+#, kde-format
 msgid "Modified: %1"
-msgstr "最后修改时间：%1"
+msgstr ""
 
 #: src/templates/event.html:199 src/templates/journal.html:49
 #: src/templates/todo.html:202
@@ -2227,9 +2223,3 @@ msgstr "完成："
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "完成百分比："
-
-#, fuzzy
-#~| msgid "Reminder:"
-#~| msgid_plural "Reminders:"
-#~ msgid "Reminders:"
-#~ msgstr "提醒人："
