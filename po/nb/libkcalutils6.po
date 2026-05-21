@@ -2272,9 +2272,3 @@ msgstr "Fullført:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Reminder:"
-#~| msgid_plural "Reminders:"
-#~ msgid "Reminders:"
-#~ msgstr "Påminnelse:"

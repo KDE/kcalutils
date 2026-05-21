@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:45+0000\n"
-"PO-Revision-Date: 2026-05-17 11:17+0200\n"
+"PO-Revision-Date: 2026-05-19 09:21+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1625,18 +1625,16 @@ msgstr "(%1, %2)"
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
-msgstr ""
+msgstr "desactivada"
 
 #: src/incidenceformatter.cpp:3541
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
-msgstr ""
+msgstr "àudio"
 
 #: src/incidenceformatter.cpp:3544
-#, fuzzy, kde-format
-#| msgctxt "attendee name (attendee status)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -1849,25 +1847,25 @@ msgstr "Desconegut"
 #, kde-format
 msgctxt "@item alarm will pop-up a notification"
 msgid "Display"
-msgstr ""
+msgstr "Visualització"
 
 #: src/stringify.cpp:174
 #, kde-format
 msgctxt "@item alarm will run a command"
 msgid "Procedure"
-msgstr ""
+msgstr "Procediment"
 
 #: src/stringify.cpp:177
 #, kde-format
 msgctxt "@item alarm will send an email"
 msgid "Email"
-msgstr ""
+msgstr "Correu electrònic"
 
 #: src/stringify.cpp:179
 #, kde-format
 msgctxt "@item alarm will play a sound"
 msgid "Audio"
-msgstr ""
+msgstr "Àudio"
 
 #: src/stringify.cpp:191
 #, kde-format
@@ -2110,14 +2108,13 @@ msgstr[1] "Adjunts:"
 #: src/templates/todo.html:200
 #, kde-format
 msgid "Created: %1"
-msgstr "Creació: %1"
+msgstr "Creat: %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
-#, fuzzy, kde-format
-#| msgid "Last modified: %1"
+#, kde-format
 msgid "Modified: %1"
-msgstr "Última modificació: %1"
+msgstr "Modificat: %1"
 
 #: src/templates/event.html:199 src/templates/journal.html:49
 #: src/templates/todo.html:202
@@ -2275,9 +2272,3 @@ msgstr "Finalitzada:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Percentatge completat:"
-
-#~ msgid "Tags:"
-#~ msgstr "Etiquetes:"
-
-#~ msgid "Reminders:"
-#~ msgstr "Recordatoris:"
