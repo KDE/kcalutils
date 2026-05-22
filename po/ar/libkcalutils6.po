@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libkcal\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:45+0000\n"
-"PO-Revision-Date: 2026-04-09 11:23+0400\n"
+"PO-Revision-Date: 2026-05-21 11:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -690,11 +690,10 @@ msgid "<i>To:</i> %1"
 msgstr "إلى: %1"
 
 #: src/incidenceformatter.cpp:2444
-#, fuzzy, kde-format
-#| msgid "<i>Date:</i> %1"
+#, kde-format
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
-msgstr "التاريخ: %1"
+msgstr "<i>التاريخ:</i> %1 - %2"
 
 #: src/incidenceformatter.cpp:2447 src/incidenceformatter.cpp:2525
 #, kde-format
@@ -1741,18 +1740,16 @@ msgstr "(%1 %2)"
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
-msgstr ""
+msgstr "معطّل"
 
 #: src/incidenceformatter.cpp:3541
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
-msgstr ""
+msgstr "صوت"
 
 #: src/incidenceformatter.cpp:3544
-#, fuzzy, kde-format
-#| msgctxt "attendee name (attendee status)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
 msgstr "‏⁨%1⁩ (⁨%2⁩)"
@@ -1800,34 +1797,28 @@ msgid "free/busy"
 msgstr "متفرّغ/مشغول"
 
 #: src/stringify.cpp:56
-#, fuzzy, kde-format
-#| msgid "Event"
+#, kde-format
 msgctxt "@item incidence type is Event (capitalized)"
 msgid "Event"
 msgstr "حدث"
 
 #: src/stringify.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "To-do"
+#, kde-format
 msgctxt "@item incidence type is To-do/Task (capitalized)"
 msgid "To-do"
-msgstr "المهمة"
+msgstr "مهمّة"
 
 #: src/stringify.cpp:60
-#, fuzzy, kde-format
-#| msgid "Journal"
+#, kde-format
 msgctxt "@item incidence type is Journal (capitalized)"
 msgid "Journal"
 msgstr "يوميّة"
 
 #: src/stringify.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "@item incidence type is freebusy"
-#| msgid "free/busy"
+#, kde-format
 msgctxt "@item incidence type is Freebusy (capitalized)"
 msgid "Free/Busy"
-msgstr "متفرّغ/مشغول"
+msgstr "حر/مشغول"
 
 #: src/stringify.cpp:76
 #, kde-format
@@ -1971,25 +1962,25 @@ msgstr "مجهولة"
 #, kde-format
 msgctxt "@item alarm will pop-up a notification"
 msgid "Display"
-msgstr ""
+msgstr "عرض"
 
 #: src/stringify.cpp:174
 #, kde-format
 msgctxt "@item alarm will run a command"
 msgid "Procedure"
-msgstr ""
+msgstr "إجراء"
 
 #: src/stringify.cpp:177
 #, kde-format
 msgctxt "@item alarm will send an email"
 msgid "Email"
-msgstr ""
+msgstr "بريد إلكتروني"
 
 #: src/stringify.cpp:179
 #, kde-format
 msgctxt "@item alarm will play a sound"
 msgid "Audio"
-msgstr ""
+msgstr "صوت"
 
 #: src/stringify.cpp:191
 #, kde-format
@@ -2231,16 +2222,15 @@ msgstr[5] "المرفقات:"
 
 #: src/templates/event.html:197 src/templates/journal.html:47
 #: src/templates/todo.html:200
-#, fuzzy, kde-format
-#| msgid "Creation date: %1"
+#, kde-format
 msgid "Created: %1"
-msgstr "تاريخ الإنشاء: %1"
+msgstr "أُنشئ: %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
 #, kde-format
 msgid "Modified: %1"
-msgstr ""
+msgstr "معدل: %1"
 
 #: src/templates/event.html:199 src/templates/journal.html:49
 #: src/templates/todo.html:202

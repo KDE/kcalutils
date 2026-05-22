@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:45+0000\n"
-"PO-Revision-Date: 2026-04-08 23:15+0900\n"
+"PO-Revision-Date: 2026-05-21 22:24+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -668,11 +668,10 @@ msgid "<i>To:</i> %1"
 msgstr "<i>收件者：</i>%1"
 
 #: src/incidenceformatter.cpp:2444
-#, fuzzy, kde-format
-#| msgid "<i>Date:</i> %1"
+#, kde-format
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
-msgstr "<i>日期：</i>%1"
+msgstr "<i>日期：</i>%1 - %2"
 
 #: src/incidenceformatter.cpp:2447 src/incidenceformatter.cpp:2525
 #, kde-format
@@ -1583,18 +1582,16 @@ msgstr "(%1, %2)"
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
-msgstr ""
+msgstr "已停用"
 
 #: src/incidenceformatter.cpp:3541
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
-msgstr ""
+msgstr "音效"
 
 #: src/incidenceformatter.cpp:3544
-#, fuzzy, kde-format
-#| msgctxt "attendee name (attendee status)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -1642,31 +1639,25 @@ msgid "free/busy"
 msgstr "行程資訊"
 
 #: src/stringify.cpp:56
-#, fuzzy, kde-format
-#| msgid "Event"
+#, kde-format
 msgctxt "@item incidence type is Event (capitalized)"
 msgid "Event"
 msgstr "事件"
 
 #: src/stringify.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "To-do"
+#, kde-format
 msgctxt "@item incidence type is To-do/Task (capitalized)"
 msgid "To-do"
 msgstr "待辦事項"
 
 #: src/stringify.cpp:60
-#, fuzzy, kde-format
-#| msgid "Journal"
+#, kde-format
 msgctxt "@item incidence type is Journal (capitalized)"
 msgid "Journal"
 msgstr "日誌"
 
 #: src/stringify.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "@item incidence type is freebusy"
-#| msgid "free/busy"
+#, kde-format
 msgctxt "@item incidence type is Freebusy (capitalized)"
 msgid "Free/Busy"
 msgstr "行程資訊"
@@ -1813,25 +1804,25 @@ msgstr "未知"
 #, kde-format
 msgctxt "@item alarm will pop-up a notification"
 msgid "Display"
-msgstr ""
+msgstr "顯示"
 
 #: src/stringify.cpp:174
 #, kde-format
 msgctxt "@item alarm will run a command"
 msgid "Procedure"
-msgstr ""
+msgstr "指令"
 
 #: src/stringify.cpp:177
 #, kde-format
 msgctxt "@item alarm will send an email"
 msgid "Email"
-msgstr ""
+msgstr "電子郵件"
 
 #: src/stringify.cpp:179
 #, kde-format
 msgctxt "@item alarm will play a sound"
 msgid "Audio"
-msgstr ""
+msgstr "音效"
 
 #: src/stringify.cpp:191
 #, kde-format
@@ -2068,16 +2059,15 @@ msgstr[0] "附檔："
 
 #: src/templates/event.html:197 src/templates/journal.html:47
 #: src/templates/todo.html:200
-#, fuzzy, kde-format
-#| msgid "Creation date: %1"
+#, kde-format
 msgid "Created: %1"
-msgstr "建立日期：%1"
+msgstr "已建立：%1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
 #, kde-format
 msgid "Modified: %1"
-msgstr ""
+msgstr "已修改：%1"
 
 #: src/templates/event.html:199 src/templates/journal.html:49
 #: src/templates/todo.html:202

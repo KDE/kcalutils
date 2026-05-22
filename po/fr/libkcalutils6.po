@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: libkcal\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:45+0000\n"
-"PO-Revision-Date: 2026-05-18 10:11+0200\n"
+"PO-Revision-Date: 2026-05-20 12:23+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -1644,18 +1644,16 @@ msgstr "(%1, %2)"
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
-msgstr ""
+msgstr "désactivée"
 
 #: src/incidenceformatter.cpp:3541
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
-msgstr ""
+msgstr "audio"
 
 #: src/incidenceformatter.cpp:3544
-#, fuzzy, kde-format
-#| msgctxt "attendee name (attendee status)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -1868,25 +1866,25 @@ msgstr "Inconnu"
 #, kde-format
 msgctxt "@item alarm will pop-up a notification"
 msgid "Display"
-msgstr ""
+msgstr "Afficher"
 
 #: src/stringify.cpp:174
 #, kde-format
 msgctxt "@item alarm will run a command"
 msgid "Procedure"
-msgstr ""
+msgstr "Procédure"
 
 #: src/stringify.cpp:177
 #, kde-format
 msgctxt "@item alarm will send an email"
 msgid "Email"
-msgstr ""
+msgstr "Courriel"
 
 #: src/stringify.cpp:179
 #, kde-format
 msgctxt "@item alarm will play a sound"
 msgid "Audio"
-msgstr ""
+msgstr "Audio"
 
 #: src/stringify.cpp:191
 #, kde-format
@@ -2138,8 +2136,7 @@ msgstr "Date de création : %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
-#, fuzzy, kde-format
-#| msgid "Last modified: %1"
+#, kde-format
 msgid "Modified: %1"
 msgstr "Dernier modification : %1"
 
