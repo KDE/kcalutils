@@ -669,7 +669,7 @@ msgstr "<i>到：</i> %1"
 #, kde-format
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
-msgstr ""
+msgstr "<i>日期：</i> %1 - %2"
 
 #: src/incidenceformatter.cpp:2447 src/incidenceformatter.cpp:2525
 #, kde-format
@@ -1580,19 +1580,19 @@ msgstr "(%1，%2)"
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
-msgstr ""
+msgstr "已禁用"
 
 #: src/incidenceformatter.cpp:3541
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
-msgstr ""
+msgstr "声音"
 
 #: src/incidenceformatter.cpp:3544
 #, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/recurrenceactions.cpp:46
 #, kde-format
@@ -1802,25 +1802,25 @@ msgstr "未知"
 #, kde-format
 msgctxt "@item alarm will pop-up a notification"
 msgid "Display"
-msgstr ""
+msgstr "显示"
 
 #: src/stringify.cpp:174
 #, kde-format
 msgctxt "@item alarm will run a command"
 msgid "Procedure"
-msgstr ""
+msgstr "命令"
 
 #: src/stringify.cpp:177
 #, kde-format
 msgctxt "@item alarm will send an email"
 msgid "Email"
-msgstr ""
+msgstr "邮件"
 
 #: src/stringify.cpp:179
 #, kde-format
 msgctxt "@item alarm will play a sound"
 msgid "Audio"
-msgstr ""
+msgstr "声音"
 
 #: src/stringify.cpp:191
 #, kde-format
@@ -2065,7 +2065,7 @@ msgstr "创建时间：%1"
 #: src/templates/todo.html:201
 #, kde-format
 msgid "Modified: %1"
-msgstr ""
+msgstr "修改时间：%1"
 
 #: src/templates/event.html:199 src/templates/journal.html:49
 #: src/templates/todo.html:202
