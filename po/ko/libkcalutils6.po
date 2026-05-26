@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:45+0000\n"
-"PO-Revision-Date: 2026-04-26 21:42+0200\n"
+"PO-Revision-Date: 2026-05-25 19:12+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -666,11 +666,10 @@ msgid "<i>To:</i> %1"
 msgstr "<i>끝:</i> %1"
 
 #: src/incidenceformatter.cpp:2444
-#, fuzzy, kde-format
-#| msgid "<i>Date:</i> %1"
+#, kde-format
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
-msgstr "<i>날짜:</i> %1"
+msgstr "<i>날짜:</i> %1 - %2"
 
 #: src/incidenceformatter.cpp:2447 src/incidenceformatter.cpp:2525
 #, kde-format
@@ -1581,18 +1580,16 @@ msgstr "(%1, %2)"
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
-msgstr ""
+msgstr "사용 안 함"
 
 #: src/incidenceformatter.cpp:3541
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
-msgstr ""
+msgstr "오디오"
 
 #: src/incidenceformatter.cpp:3544
-#, fuzzy, kde-format
-#| msgctxt "attendee name (attendee status)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
 msgstr "%1(%2)"
@@ -1640,31 +1637,25 @@ msgid "free/busy"
 msgstr "바쁨/한가함"
 
 #: src/stringify.cpp:56
-#, fuzzy, kde-format
-#| msgid "Event"
+#, kde-format
 msgctxt "@item incidence type is Event (capitalized)"
 msgid "Event"
 msgstr "이벤트"
 
 #: src/stringify.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "To-do"
+#, kde-format
 msgctxt "@item incidence type is To-do/Task (capitalized)"
 msgid "To-do"
 msgstr "할 일"
 
 #: src/stringify.cpp:60
-#, fuzzy, kde-format
-#| msgid "Journal"
+#, kde-format
 msgctxt "@item incidence type is Journal (capitalized)"
 msgid "Journal"
 msgstr "저널"
 
 #: src/stringify.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "@item incidence type is freebusy"
-#| msgid "free/busy"
+#, kde-format
 msgctxt "@item incidence type is Freebusy (capitalized)"
 msgid "Free/Busy"
 msgstr "바쁨/한가함"
@@ -1811,25 +1802,25 @@ msgstr "알 수 없음"
 #, kde-format
 msgctxt "@item alarm will pop-up a notification"
 msgid "Display"
-msgstr ""
+msgstr "표시"
 
 #: src/stringify.cpp:174
 #, kde-format
 msgctxt "@item alarm will run a command"
 msgid "Procedure"
-msgstr ""
+msgstr "명령 실행"
 
 #: src/stringify.cpp:177
 #, kde-format
 msgctxt "@item alarm will send an email"
 msgid "Email"
-msgstr ""
+msgstr "이메일"
 
 #: src/stringify.cpp:179
 #, kde-format
 msgctxt "@item alarm will play a sound"
 msgid "Audio"
-msgstr ""
+msgstr "오디오"
 
 #: src/stringify.cpp:191
 #, kde-format
@@ -2066,8 +2057,7 @@ msgstr[0] "첨부:"
 
 #: src/templates/event.html:197 src/templates/journal.html:47
 #: src/templates/todo.html:200
-#, fuzzy, kde-format
-#| msgid "Creation date: %1"
+#, kde-format
 msgid "Created: %1"
 msgstr "만든 날짜: %1"
 
@@ -2075,7 +2065,7 @@ msgstr "만든 날짜: %1"
 #: src/templates/todo.html:201
 #, kde-format
 msgid "Modified: %1"
-msgstr ""
+msgstr "수정한 날짜: %1"
 
 #: src/templates/event.html:199 src/templates/journal.html:49
 #: src/templates/todo.html:202
