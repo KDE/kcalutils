@@ -118,5 +118,17 @@ install(
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/KPim6/KCalUtils/KCalUtils/
     COMPONENT Devel
 )
+
+ecm_add_installed_library_check(KPim6CalendarUtils
+    PACKAGE_NAME "KPim6CalendarUtils"
+    PACKAGE_VERSION ${PROJECT_VERSION}
+    PACKAGE_TARGET_NAMESPACE "KPim6::"
+)
+
+ecm_installed_library_check_include_strings(KPim6CalendarUtils
+    HEADERS  ${KCalUtils_CamelCase_HEADERS}
+    PREFIX KCalUtils
+)
+
 ecm_qt_install_logging_categories(EXPORT KCALUTILS FILE kcalutils.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 ecm_generate_qdoc(KPim6CalendarUtils kcalutils.qdocconf)
