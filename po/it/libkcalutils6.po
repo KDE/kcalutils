@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-19 00:45+0000\n"
-"PO-Revision-Date: 2026-05-15 15:50+0200\n"
+"PO-Revision-Date: 2026-05-29 23:36+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -681,11 +681,10 @@ msgid "<i>To:</i> %1"
 msgstr "<i>A:</i> %1"
 
 #: src/incidenceformatter.cpp:2444
-#, fuzzy, kde-format
-#| msgid "<i>Date:</i> %1"
+#, kde-format
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
-msgstr "<b>Data:</b> %1"
+msgstr "<i>Data:</i> %1 - %2"
 
 #: src/incidenceformatter.cpp:2447 src/incidenceformatter.cpp:2525
 #, kde-format
