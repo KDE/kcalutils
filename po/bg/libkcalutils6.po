@@ -2256,12 +2256,3 @@ msgstr "Завършено:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Процент свършено:"
-
-#, fuzzy
-#~| msgid "Reminder:"
-#~| msgid_plural "Reminders:"
-#~ msgid "Reminders:"
-#~ msgstr "Напомняне:"
-
-#~ msgid "Template rendering error"
-#~ msgstr "Грешка при изобразяване на шаблон"
