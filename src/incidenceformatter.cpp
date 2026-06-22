@@ -1368,6 +1368,7 @@ invitationHeaderEvent(const Event::Ptr &event, const Incidence::Ptr &existingInc
     case iTIPAdd:
         return i18n("Addition to the invitation.");
     case iTIPReply: {
+        /* cppcheck-suppress knownConditionTrueFalse */
         if (replyMeansCounter(event)) {
             return i18n("%1 makes this counter proposal.", firstAttendeeName(event, sender));
         }
@@ -1502,6 +1503,7 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
     case iTIPAdd:
         return i18n("Addition to the to-do.");
     case iTIPReply: {
+        /* cppcheck-suppress knownConditionTrueFalse */
         if (replyMeansCounter(todo)) {
             return i18n("%1 makes this counter proposal.", firstAttendeeName(todo, sender));
         }
@@ -1621,6 +1623,7 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
     case iTIPAdd:
         return i18n("Addition to the journal.");
     case iTIPReply: {
+        /* cppcheck-suppress knownConditionTrueFalse */
         if (replyMeansCounter(journal)) {
             return i18n("Sender makes this counter proposal.");
         }
@@ -2099,6 +2102,7 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
         if (!existingIncidence) {
             const Incidence::List list = helper->calendar()->incidences();
             for (Incidence::List::ConstIterator it = list.begin(), end = list.end(); it != end; ++it) {
+                /* cppcheck-suppress knownConditionTrueFalse */
                 if ((*it)->schedulingID() == incBase->uid() && incidenceOwnedByMe(helper->calendar(), *it)
                     && (*it)->recurrenceId() == incBase->recurrenceId()) {
                     existingIncidence = *it;
@@ -2250,6 +2254,7 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
         Attendee ea;
         if (inc) {
             // First, determine if this reply is really a counter in disguise.
+            /* cppcheck-suppress knownConditionTrueFalse */
             if (replyMeansCounter(inc)) {
                 buttons = counterButtons(helper);
                 break;
