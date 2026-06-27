@@ -215,7 +215,7 @@ bool IncidenceFormatterTest::compareHtml(const QString &name)
         f.close();
     }
 
-#ifdef _WIN32
+#ifdef Q_OS_WIN
     const QStringList args = {
         u"Compare-Object"_s,
         u"(Get-Content %1)"_s.arg(referenceFileName),
