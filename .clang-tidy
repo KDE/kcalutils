@@ -13,7 +13,6 @@ Checks: -*,
         -bugprone-implicit-widening-of-multiplication-result,
         -bugprone-narrowing-conversions,
         -bugprone-suspicious-include,
-        -bugprone-branch-clone,
         clang-analyzer-*,
         -clang-analyzer-apiModeling.*,
         -clang-analyzer-optin.osx.*,
@@ -24,6 +23,7 @@ Checks: -*,
         misc-*,
         -misc-definitions-in-headers,
         -misc-include-cleaner,
+        -misc-multiple-inheritance,
         -misc-no-recursion,
         -misc-use-anonymous-namespace,
         -*-non-private-member-variables-in-classes,
@@ -44,18 +44,19 @@ Checks: -*,
         -readability-math-missing-parentheses,
         -readability-named-parameter,
         -readability-qualified-auto,
+        -readability-redundant-access-specifiers,
         -readability-redundant-casting,
         -readability-simplify-boolean-expr,
         -readability-static-accessed-through-instance,
         -readability-use-std-min-max,
         -readability-use-anyofallof,
-        -readability-redundant-access-specifiers,
 #WarningsAsErrors: bugprone-*,
 #                  clang-*,
 #                  google-*,
 #                  misc-*,
 #                  performance-*,
 #                  readability-*,
+HeaderFilterRegex: '/kcalutils/src/'
 CheckOptions:
     - key:  bugprone-assert-side-effects.AssertMacros
       value: 'Q_ASSERT;QVERIFY;QCOMPARE;AKVERIFY'
@@ -71,3 +72,5 @@ CheckOptions:
       value: true
     - key: VectorLikeClasses
       value: 'std::vector;QList'
+    - key: misc-override-with-different-visibility.DisallowedVisibilityChange
+      value: widening
