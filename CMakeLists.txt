@@ -92,7 +92,6 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMDeprecationSettings)
 include(ECMFeatureSummary)
 
-include(KPIMGrantleeMacros)
 include(ECMCheckOutboundLicense)
 file(
     GLOB_RECURSE ALL_SOURCE_FILES
