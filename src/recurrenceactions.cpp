@@ -29,6 +29,8 @@ using namespace KCalUtils;
 using namespace KCalUtils::RecurrenceActions;
 using namespace KCalendarCore;
 
+namespace
+{
 class ScopeWidget : public QWidget
 {
     Q_OBJECT
@@ -112,6 +114,7 @@ int ScopeWidget::checkedChoices() const
     }
 
     return result;
+}
 }
 
 int RecurrenceActions::availableOccurrences(const Incidence::Ptr &incidence, const QDateTime &selectedOccurrence)

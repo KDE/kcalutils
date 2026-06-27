@@ -102,10 +102,13 @@ static QString htmlAddTag(const QString &tag, const QString &text)
     return tmpStr;
 }
 
+namespace
+{
 struct IncidenceNameAndUid {
     QString name;
     QString uid;
 };
+}
 
 [[nodiscard]] static IncidenceNameAndUid searchNameAndUid(const QString &email, const QString &name, const QString &uid)
 {
