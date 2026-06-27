@@ -222,7 +222,7 @@ struct IncidenceNameAndUid {
         return QStringLiteral("dialog-ok-apply");
     case Attendee::Declined:
         return QStringLiteral("dialog-cancel");
-    case Attendee::NeedsAction:
+    case Attendee::NeedsAction: // NOLINT(bugprone-branch-clone)
         return QStringLiteral("help-about");
     case Attendee::InProcess:
         return QStringLiteral("help-about");
@@ -3350,7 +3350,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
                 exDt = i18np("1 day", "%1 days", recur->exDates().count());
             }
             break;
-        case Recurrence::rMonthlyPos:
+        case Recurrence::rMonthlyPos: // NOLINT(bugprone-branch-clone)
             exDt = QLocale().toString((*dl), QLocale::ShortFormat);
             break;
         case Recurrence::rMonthlyDay:
@@ -3359,7 +3359,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         case Recurrence::rYearlyMonth:
             exDt = QString::number((*dl).year());
             break;
-        case Recurrence::rYearlyDay:
+        case Recurrence::rYearlyDay: // NOLINT(bugprone-branch-clone)
             exDt = QLocale().toString((*dl), QLocale::ShortFormat);
             break;
         case Recurrence::rYearlyPos:
