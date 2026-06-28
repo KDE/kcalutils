@@ -705,7 +705,7 @@ msgstr "<i>Hora:</i> %1"
 #, kde-format
 msgctxt "time range for event"
 msgid "<i>Time:</i> %1 - %2"
-msgstr "<i>Hora:</i> %1 - %2"
+msgstr "<i>Hora:</i> %1 – %2"
 
 #: src/incidenceformatter.cpp:2454
 #, kde-format
@@ -1980,7 +1980,7 @@ msgstr "Data:"
 #, kde-format
 msgctxt "<beginDate> - <endDate>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: src/templates/event.html:34 src/templates/event.html:44
 #, kde-format
@@ -1996,7 +1996,7 @@ msgstr "Hora:"
 #, kde-format
 msgctxt "<beginTime> - <endTime>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: src/templates/event.html:51
 #, kde-format
@@ -2042,7 +2042,7 @@ msgstr "Revisió: %1"
 #: src/templates/freebusy.html:6
 #, kde-format
 msgid "Busy times in date range %1 - %2:"
-msgstr "Temps d'ocupat en l'interval de dates %1 - %2:"
+msgstr "Temps d'ocupat en l'interval de dates %1 – %2:"
 
 #: src/templates/freebusy.html:9
 msgctxt "tag for busy period list"
@@ -2059,13 +2059,13 @@ msgstr "%1 durant %2"
 #, kde-format
 msgctxt "date, fromTime - toTime"
 msgid "%1, %2 - %3"
-msgstr "%1, %2 - %3"
+msgstr "%1, %2 – %3"
 
 #: src/templates/freebusy.html:18
 #, kde-format
 msgctxt "fromDateTime - endDateTime"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: src/templates/incidence_header.html:10
 msgid "Recurring incidence"
@@ -2137,25 +2137,25 @@ msgstr "%1 durant %2"
 #, kde-format
 msgctxt "<startDate> - <endDate>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: src/templates/itip_freebusy.html:36
 #, kde-format
 msgctxt "<date>, <startTime> - <endTime>"
 msgid "%1, %2 - %3"
-msgstr "%1, %2 - %3"
+msgstr "%1, %2 – %3"
 
 #: src/templates/itip_todo.html:22
 #, kde-format
 msgctxt "<beginDateTime> - <endDateTime>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: src/templates/itip_todo.html:24
 #, kde-format
 msgctxt "<beginDateTime> - <endTime>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr "%1 – %2"
 
 #: src/templates/itip_todo.html:32
 msgid "Percent Done:"
