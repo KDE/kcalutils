@@ -19,7 +19,6 @@ target_sources(
         dndfactory.cpp
         grantleeki18nlocalizer.cpp
         grantleetemplatemanager.cpp
-        qtresourcetemplateloader.cpp
         templates.qrc
         vcaldrag.h
         kcalutils_private_export.h
@@ -27,7 +26,6 @@ target_sources(
         icaldrag.h
         grantleetemplatemanager_p.h
         grantleeki18nlocalizer_p.h
-        qtresourcetemplateloader.h
         incidenceformatter.h
         dndfactory.h
         recurrenceactions.h

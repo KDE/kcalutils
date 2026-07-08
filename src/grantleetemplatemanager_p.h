@@ -30,7 +30,6 @@ public:
 
     static GrantleeTemplateManager *instance();
 
-    void setTemplatePath(const QString &path);
     void setPluginPath(const QString &path);
 
     [[nodiscard]] QString render(const QString &templateName, const QVariantHash &data) const;

@@ -53,7 +53,6 @@ static QString btnHl;
 void IncidenceFormatterTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
-    GrantleeTemplateManager::instance()->setTemplatePath(QStringLiteral(TEST_TEMPLATE_PATH));
     GrantleeTemplateManager::instance()->setPluginPath(QStringLiteral(TEST_PLUGIN_PATH));
     QIcon::setThemeName(QStringLiteral("breeze"));
     QLocale::setDefault(QLocale(QStringLiteral("en_US")));
@@ -257,9 +256,7 @@ void IncidenceFormatterTest::cleanup(const QString &name)
 
 void IncidenceFormatterTest::testErrorTemplate()
 {
-    GrantleeTemplateManager::instance()->setTemplatePath(QStringLiteral(TEST_DATA_DIR));
     const QString html = GrantleeTemplateManager::instance()->render(QStringLiteral("broken-template.html"), QVariantHash());
-    GrantleeTemplateManager::instance()->setTemplatePath(QStringLiteral(TEST_TEMPLATE_PATH));
 
     const QString expected = QStringLiteral(
         "<h1>Template parsing error</h1>\n"

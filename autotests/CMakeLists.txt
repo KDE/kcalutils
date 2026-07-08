@@ -6,7 +6,6 @@ include(ECMAddTests)
 find_package(Qt6 ${QT_REQUIRED_VERSION} CONFIG REQUIRED COMPONENTS Test)
 
 set(TEST_DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/data")
-set(TEST_TEMPLATE_PATH "${CMAKE_SOURCE_DIR}/templates")
 set(TEST_PLUGIN_PATH "${CMAKE_BINARY_DIR}/grantlee")
 configure_file(test_config.h.in ${CMAKE_CURRENT_BINARY_DIR}/test_config.h @ONLY)
 
@@ -19,4 +18,7 @@ ecm_add_test(testincidenceformatter.cpp testincidenceformatter.h
     TEST_NAME "testincidenceformatter"
     NAME_PREFIX "kcalutils-"
     LINK_LIBRARIES KPim6CalendarUtils Qt::Core Qt::Test KF6::CalendarCore KF6::I18n KPim6::IdentityManagementCore KF6::TextTemplate
+)
+qt6_add_resources(testincidenceformatter testdata.qrc BASE data FILES
+    data/broken-template.html
 )

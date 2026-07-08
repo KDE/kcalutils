@@ -9,7 +9,6 @@
 
 #include "grantleeki18nlocalizer_p.h"
 #include "grantleetemplatemanager_p.h"
-#include "qtresourcetemplateloader.h"
 
 #include <KTextTemplate/Engine>
 #include <KTextTemplate/Template>
@@ -20,18 +19,16 @@
 
 #include <KLocalizedString>
 
+using namespace Qt::Literals;
+
 GrantleeTemplateManager *GrantleeTemplateManager::sInstance = nullptr;
 
 GrantleeTemplateManager::GrantleeTemplateManager()
     : mEngine(new KTextTemplate::Engine)
-    , mLoader(new KCalUtils::QtResourceTemplateLoader)
+    , mLoader(new KTextTemplate::FileSystemTemplateLoader)
     , mLocalizer(new GrantleeKi18nLocalizer)
 {
-    const QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kcalendar/templates"), QStandardPaths::LocateDirectory);
-    if (!path.isEmpty()) {
-        mLoader->setTemplateDirs({path});
-        mLoader->setTheme(QStringLiteral("default"));
-    }
+    mLoader->setTemplateDirs({u":/"_s});
 
     mEngine->addTemplateLoader(mLoader);
     mEngine->addPluginPath(QStringLiteral(GRANTLEE_PLUGIN_INSTALL_DIR));
@@ -51,12 +48,6 @@ GrantleeTemplateManager *GrantleeTemplateManager::instance()
         sInstance = new GrantleeTemplateManager;
     }
     return sInstance;
-}
-
-void GrantleeTemplateManager::setTemplatePath(const QString &path)
-{
-    mLoader->setTemplateDirs({path});
-    mLoader->setTheme(QString());
 }
 
 void GrantleeTemplateManager::setPluginPath(const QString &path)
