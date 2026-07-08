@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2010, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2010, 2025-2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 # Stefan Asserhall <stefan.asserhall@gmail.com>, 2011, 2013, 2014, 2015, 2016, 2018, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-28 00:44+0000\n"
-"PO-Revision-Date: 2025-02-14 08:07+0100\n"
+"PO-Revision-Date: 2026-07-07 10:11+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: src/grantleetemplatemanager.cpp:81
 #, kde-format
@@ -539,10 +539,9 @@ msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr "Fel: ledig-upptagen iTIP-meddelande med okänd metod."
 
 #: src/incidenceformatter.cpp:1755
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>"
+#, kde-format
 msgid "%1 (<i>unrecorded</i>)"
-msgstr "%1 (<i>oregistrerat</i>"
+msgstr "%1 (<i>oregistrerat</i>)"
 
 #: src/incidenceformatter.cpp:1968
 #, kde-format
@@ -677,11 +676,10 @@ msgid "<i>To:</i> %1"
 msgstr "<i>Till</i> %1:"
 
 #: src/incidenceformatter.cpp:2452
-#, fuzzy, kde-format
-#| msgid "<i>Date:</i> %1"
+#, kde-format
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
-msgstr "<i>Datum</i> %1"
+msgstr "<i>Datum:</i> %1 - %2"
 
 #: src/incidenceformatter.cpp:2455 src/incidenceformatter.cpp:2533
 #, kde-format
@@ -736,10 +734,9 @@ msgid "<i>Period start:</i> %1"
 msgstr "<i>Periodstart:</i> %1"
 
 #: src/incidenceformatter.cpp:2542
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgid "<i>Period end:</i> %1"
-msgstr "<i>Periodstart:</i> %1"
+msgstr "<i>Periodslut:</i> %1"
 
 #: src/incidenceformatter.cpp:2567 src/templates/freebusy.html:5
 #, kde-format
@@ -1618,18 +1615,16 @@ msgstr "(%1, %2)"
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
-msgstr ""
+msgstr "inaktiverat"
 
 #: src/incidenceformatter.cpp:3549
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
-msgstr ""
+msgstr "ljud"
 
 #: src/incidenceformatter.cpp:3552
-#, fuzzy, kde-format
-#| msgctxt "attendee name (attendee status)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -1677,34 +1672,28 @@ msgid "free/busy"
 msgstr "ledig/upptagen"
 
 #: src/stringify.cpp:56
-#, fuzzy, kde-format
-#| msgid "Event"
+#, kde-format
 msgctxt "@item incidence type is Event (capitalized)"
 msgid "Event"
 msgstr "Händelse"
 
 #: src/stringify.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "To-do"
+#, kde-format
 msgctxt "@item incidence type is To-do/Task (capitalized)"
 msgid "To-do"
 msgstr "Uppgift"
 
 #: src/stringify.cpp:60
-#, fuzzy, kde-format
-#| msgid "Journal"
+#, kde-format
 msgctxt "@item incidence type is Journal (capitalized)"
 msgid "Journal"
 msgstr "Journal"
 
 #: src/stringify.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "@item incidence type is freebusy"
-#| msgid "free/busy"
+#, kde-format
 msgctxt "@item incidence type is Freebusy (capitalized)"
 msgid "Free/Busy"
-msgstr "ledig/upptagen"
+msgstr "Ledig/upptagen"
 
 #: src/stringify.cpp:76
 #, kde-format
@@ -1848,25 +1837,25 @@ msgstr "Okänd"
 #, kde-format
 msgctxt "@item alarm will pop-up a notification"
 msgid "Display"
-msgstr ""
+msgstr "Visning"
 
 #: src/stringify.cpp:174
 #, kde-format
 msgctxt "@item alarm will run a command"
 msgid "Procedure"
-msgstr ""
+msgstr "Procedur"
 
 #: src/stringify.cpp:177
 #, kde-format
 msgctxt "@item alarm will send an email"
 msgid "Email"
-msgstr ""
+msgstr "E-post"
 
 #: src/stringify.cpp:179
 #, kde-format
 msgctxt "@item alarm will play a sound"
 msgid "Audio"
-msgstr ""
+msgstr "Ljud"
 
 #: src/stringify.cpp:191
 #, kde-format
@@ -2105,16 +2094,15 @@ msgstr[1] "Bilagor:"
 
 #: src/templates/event.html:197 src/templates/journal.html:47
 #: src/templates/todo.html:200
-#, fuzzy, kde-format
-#| msgid "Creation date: %1"
+#, kde-format
 msgid "Created: %1"
-msgstr "Skapad datum: %1"
+msgstr "Skapad: %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
 #, kde-format
 msgid "Modified: %1"
-msgstr ""
+msgstr "Ändrad: %1"
 
 #: src/templates/event.html:199 src/templates/journal.html:49
 #: src/templates/todo.html:202
