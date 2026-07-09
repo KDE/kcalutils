@@ -35,8 +35,6 @@ ecm_qt_declare_logging_category(KPim6CalendarUtils HEADER kcalutils_debug.h IDEN
         DESCRIPTION "kcalutils (pim lib)" EXPORT KCALUTILS
 )
 
-ki18n_wrap_ui(KPim6CalendarUtils recurrenceactionsscopewidget.ui)
-
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(
         KPim6CalendarUtils

@@ -81,32 +81,6 @@ enum Scope {
 [[nodiscard]] KCALUTILS_EXPORT int availableOccurrences(const KCalendarCore::Incidence::Ptr &incidence, const QDateTime &selectedOccurrence);
 
 /*!
-  \brief Presents a multiple choice scope selection dialog to the user
-
-  Shows a message box style question dialog with checkboxes for occurrence scope flags
-  so the user can be asked specifically which occurrences to apply actions to.
-
-  \a selectedOccurrence the date to use for telling the user which occurrence
-  is the selected one.
-  \a message the message which explains the change and selection options.
-  \a caption the dialog's caption.
-  \a action the GUI item to use for the "OK" button.
-  \a availableChoices combined #Scope values to select which options should be present.
-  \a preselectedChoices combined #Scope values to optionally preselect some of the options
-  specified with \a availableChoices.
-  \a parent QWidget parent for the dialog.
-
-  Returns the chosen #Scope options, OR'ed together
-*/
-[[nodiscard]] KCALUTILS_EXPORT int questionMultipleChoice(const QDateTime &selectedOccurrence,
-                                                          const QString &message,
-                                                          const QString &caption,
-                                                          const KGuiItem &action,
-                                                          int availableChoices,
-                                                          int preselectedChoices,
-                                                          QWidget *parent);
-
-/*!
   \brief Presents a message box with two action choices and cancel to the user
 
   Shows a message box style question dialog with two action scope buttons and cancel.
