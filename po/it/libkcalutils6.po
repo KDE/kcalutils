@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-28 00:44+0000\n"
+"POT-Creation-Date: 2026-07-10 00:45+0000\n"
 "PO-Revision-Date: 2026-05-30 23:08+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -21,17 +21,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 26.04.0\n"
 
-#: src/grantleetemplatemanager.cpp:81
+#: src/grantleetemplatemanager.cpp:72
 #, kde-format
 msgid "Template"
 msgstr "Modello"
 
-#: src/grantleetemplatemanager.cpp:81
+#: src/grantleetemplatemanager.cpp:72
 #, kde-format
 msgid "Error message"
 msgstr "Messaggio di errore"
 
-#: src/grantleetemplatemanager.cpp:99
+#: src/grantleetemplatemanager.cpp:90
 #, kde-format
 msgid "Template parsing error"
 msgstr "Errore nell'analisi del modello"

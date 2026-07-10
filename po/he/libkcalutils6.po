@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-28 00:44+0000\n"
+"POT-Creation-Date: 2026-07-10 00:45+0000\n"
 "PO-Revision-Date: 2026-05-19 08:42+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -18,17 +18,17 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 26.04.0\n"
 
-#: src/grantleetemplatemanager.cpp:81
+#: src/grantleetemplatemanager.cpp:72
 #, kde-format
 msgid "Template"
 msgstr "תבנית"
 
-#: src/grantleetemplatemanager.cpp:81
+#: src/grantleetemplatemanager.cpp:72
 #, kde-format
 msgid "Error message"
 msgstr "הודעת שגיאה"
 
-#: src/grantleetemplatemanager.cpp:99
+#: src/grantleetemplatemanager.cpp:90
 #, kde-format
 msgid "Template parsing error"
 msgstr "שגיאת פיענוח תבנית"

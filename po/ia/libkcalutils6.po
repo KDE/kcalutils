@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-28 00:44+0000\n"
+"POT-Creation-Date: 2026-07-10 00:45+0000\n"
 "PO-Revision-Date: 2026-05-19 12:34+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: src/grantleetemplatemanager.cpp:81
+#: src/grantleetemplatemanager.cpp:72
 #, kde-format
 msgid "Template"
 msgstr "Patrono"
 
-#: src/grantleetemplatemanager.cpp:81
+#: src/grantleetemplatemanager.cpp:72
 #, kde-format
 msgid "Error message"
 msgstr "Message de error"
 
-#: src/grantleetemplatemanager.cpp:99
+#: src/grantleetemplatemanager.cpp:90
 #, kde-format
 msgid "Template parsing error"
 msgstr "Error de analysator syntactic de patrono"

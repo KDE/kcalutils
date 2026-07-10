@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-28 00:44+0000\n"
+"POT-Creation-Date: 2026-07-10 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,17 +17,17 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/kcalutils/libkcalutils6.pot\n"
 "X-Crowdin-File-ID: 48990\n"
 
-#: src/grantleetemplatemanager.cpp:81
+#: src/grantleetemplatemanager.cpp:72
 #, kde-format
 msgid "Template"
 msgstr "模板"
 
-#: src/grantleetemplatemanager.cpp:81
+#: src/grantleetemplatemanager.cpp:72
 #, kde-format
 msgid "Error message"
 msgstr "错误讯息"
 
-#: src/grantleetemplatemanager.cpp:99
+#: src/grantleetemplatemanager.cpp:90
 #, kde-format
 msgid "Template parsing error"
 msgstr "模板解析错误"
