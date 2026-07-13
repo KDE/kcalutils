@@ -29,8 +29,6 @@
 
 #include <memory>
 
-class QDrag;
-class QDropEvent;
 class QMimeData;
 
 namespace KCalUtils
@@ -72,69 +70,19 @@ public:
     ~DndFactory();
 
     /*!
-      Create the calendar that is contained in the drop event's data.
-     */
-    KCalendarCore::Calendar::Ptr createDropCalendar(QDropEvent *dropEvent);
-
-    /*!
      Create the calendar that is contained in the mime data.
     */
     static KCalendarCore::Calendar::Ptr createDropCalendar(const QMimeData *mimeData);
 
     /*!
-      Create the mime data for the whole calendar.
-    */
-    [[nodiscard]] QMimeData *createMimeData();
-
-    /*!
-      Create a drag object for the whole calendar.
-    */
-    QDrag *createDrag(QObject *owner);
-
-    /*!
-      Create the mime data for a single incidence.
-    */
-    QMimeData *createMimeData(const KCalendarCore::Incidence::Ptr &incidence);
-
-    /*!
-      Create a drag object for a single incidence.
-    */
-    QDrag *createDrag(const KCalendarCore::Incidence::Ptr &incidence, QObject *owner);
-
-    /*!
       Create Todo object from mime data.
     */
-    KCalendarCore::Todo::Ptr createDropTodo(const QMimeData *mimeData);
-
-    /*!
-      Create Todo object from drop event.
-    */
-    KCalendarCore::Todo::Ptr createDropTodo(QDropEvent *dropEvent);
+    static KCalendarCore::Todo::Ptr createDropTodo(const QMimeData *mimeData);
 
     /*!
       Create Event object from mime data.
     */
-    KCalendarCore::Event::Ptr createDropEvent(const QMimeData *mimeData);
-
-    /*!
-      Create Event object from drop event.
-    */
-    KCalendarCore::Event::Ptr createDropEvent(QDropEvent *dropEvent);
-
-    /*!
-      Cut the incidence to the clipboard.
-    */
-    void cutIncidence(const KCalendarCore::Incidence::Ptr &);
-
-    /*!
-      Copy the incidence to clipboard/
-    */
-    bool copyIncidence(const KCalendarCore::Incidence::Ptr &);
-
-    /*!
-      Cuts a list of \a incidences to the clipboard.
-    */
-    bool cutIncidences(const KCalendarCore::Incidence::List &incidences);
+    static KCalendarCore::Event::Ptr createDropEvent(const QMimeData *mimeData);
 
     /*!
       Copies a list of \a incidences to the clipboard.
@@ -145,14 +93,6 @@ public:
       This function clones the incidences that are in the clipboard and sets the clone's
       date/time to the specified \a newDateTime.
 
-      \sa pasteIncidence()
-    */
-    KCalendarCore::Incidence::List pasteIncidences(const QDateTime &newDateTime = QDateTime(), PasteFlags pasteOptions = PasteFlags());
-
-    /*!
-      This function clones the incidence that's in the clipboard and sets the clone's
-      date/time to the specified \a newDateTime.
-
       \a newDateTime The new date/time that the incidence will have. If it's an event
       or journal, DTSTART will be set. If it's a to-do, DTDUE is set.
       If you wish another behaviour, like changing DTSTART on to-dos, specify
@@ -161,9 +101,9 @@ public:
 
       \a pasteOptions Control how \a newDateTime changes the incidence's dates. \sa PasteFlag.
 
-      Returns A pointer to the cloned incidence.
+      Returns the cloned incidence.
     */
-    KCalendarCore::Incidence::Ptr pasteIncidence(const QDateTime &newDateTime = QDateTime(), PasteFlags pasteOptions = PasteFlags());
+    static KCalendarCore::Incidence::List pasteIncidences(const QDateTime &newDateTime = QDateTime(), PasteFlags pasteOptions = PasteFlags());
 
 private:
     Q_DISABLE_COPY(DndFactory)
