@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:45+0000\n"
+"POT-Creation-Date: 2026-07-13 00:44+0000\n"
 "PO-Revision-Date: 2013-08-28 04:37+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -1737,24 +1737,6 @@ msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/recurrenceactions.cpp:48
-#, kde-format
-msgctxt "@option:check calendar items before a certain date"
-msgid "Items before %1"
-msgstr "%1алдындағылары"
-
-#: src/recurrenceactions.cpp:53
-#, kde-format
-msgctxt "@option:check currently selected calendar item"
-msgid "Selected item"
-msgstr "Таңдалғаның"
-
-#: src/recurrenceactions.cpp:59
-#, kde-format
-msgctxt "@option:check calendar items after a certain date"
-msgid "Items after %1"
-msgstr "%1 кейінгілерін"
-
 #: src/stringify.cpp:40
 #, kde-format
 msgctxt "@item incidence type is event"
@@ -2426,6 +2408,18 @@ msgstr "Біткен кезі:"
 #| msgid "Percent Done:"
 msgid "Percent done:"
 msgstr "Орындалу пайызы:"
+
+#~ msgctxt "@option:check calendar items before a certain date"
+#~ msgid "Items before %1"
+#~ msgstr "%1алдындағылары"
+
+#~ msgctxt "@option:check currently selected calendar item"
+#~ msgid "Selected item"
+#~ msgstr "Таңдалғаның"
+
+#~ msgctxt "@option:check calendar items after a certain date"
+#~ msgid "Items after %1"
+#~ msgstr "%1 кейінгілерін"
 
 #, fuzzy
 #~| msgid "Reminder:"

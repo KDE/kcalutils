@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:45+0000\n"
+"POT-Creation-Date: 2026-07-13 00:44+0000\n"
 "PO-Revision-Date: 2024-09-20 13:42+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1655,24 +1655,6 @@ msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/recurrenceactions.cpp:48
-#, kde-format
-msgctxt "@option:check calendar items before a certain date"
-msgid "Items before %1"
-msgstr "Αντικείμενα προ %1"
-
-#: src/recurrenceactions.cpp:53
-#, kde-format
-msgctxt "@option:check currently selected calendar item"
-msgid "Selected item"
-msgstr "Επιλεγμένο αντικείμενο"
-
-#: src/recurrenceactions.cpp:59
-#, kde-format
-msgctxt "@option:check calendar items after a certain date"
-msgid "Items after %1"
-msgstr "Αντικείμενα μετά %1"
-
 #: src/stringify.cpp:40
 #, kde-format
 msgctxt "@item incidence type is event"
@@ -2310,6 +2292,18 @@ msgstr "Ολοκληρώθηκε:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Ποσοστό ολοκλήρωσης:"
+
+#~ msgctxt "@option:check calendar items before a certain date"
+#~ msgid "Items before %1"
+#~ msgstr "Αντικείμενα προ %1"
+
+#~ msgctxt "@option:check currently selected calendar item"
+#~ msgid "Selected item"
+#~ msgstr "Επιλεγμένο αντικείμενο"
+
+#~ msgctxt "@option:check calendar items after a certain date"
+#~ msgid "Items after %1"
+#~ msgstr "Αντικείμενα μετά %1"
 
 #, fuzzy
 #~| msgid "Reminder:"

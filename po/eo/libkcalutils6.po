@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:45+0000\n"
+"POT-Creation-Date: 2026-07-13 00:44+0000\n"
 "PO-Revision-Date: 2025-02-16 17:10+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -1629,24 +1629,6 @@ msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/recurrenceactions.cpp:48
-#, kde-format
-msgctxt "@option:check calendar items before a certain date"
-msgid "Items before %1"
-msgstr "Eroj antaŭ %1"
-
-#: src/recurrenceactions.cpp:53
-#, kde-format
-msgctxt "@option:check currently selected calendar item"
-msgid "Selected item"
-msgstr "Elektita ero"
-
-#: src/recurrenceactions.cpp:59
-#, kde-format
-msgctxt "@option:check calendar items after a certain date"
-msgid "Items after %1"
-msgstr "Eroj post %1"
-
 #: src/stringify.cpp:40
 #, kde-format
 msgctxt "@item incidence type is event"
@@ -2266,6 +2248,18 @@ msgstr "Kompletigita:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Procento farita:"
+
+#~ msgctxt "@option:check calendar items before a certain date"
+#~ msgid "Items before %1"
+#~ msgstr "Eroj antaŭ %1"
+
+#~ msgctxt "@option:check currently selected calendar item"
+#~ msgid "Selected item"
+#~ msgstr "Elektita ero"
+
+#~ msgctxt "@option:check calendar items after a certain date"
+#~ msgid "Items after %1"
+#~ msgstr "Eroj post %1"
 
 #, fuzzy
 #~| msgid "Reminder:"

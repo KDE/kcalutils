@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:45+0000\n"
+"POT-Creation-Date: 2026-07-13 00:44+0000\n"
 "PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1630,24 +1630,6 @@ msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/recurrenceactions.cpp:48
-#, kde-format
-msgctxt "@option:check calendar items before a certain date"
-msgid "Items before %1"
-msgstr "%1 इत्यस्मात् पूर्वं वस्तूनि"
-
-#: src/recurrenceactions.cpp:53
-#, kde-format
-msgctxt "@option:check currently selected calendar item"
-msgid "Selected item"
-msgstr "चयनितं द्रव्यम्"
-
-#: src/recurrenceactions.cpp:59
-#, kde-format
-msgctxt "@option:check calendar items after a certain date"
-msgid "Items after %1"
-msgstr "%1 इत्यस्य अनन्तरं वस्तूनि"
-
 #: src/stringify.cpp:40
 #, kde-format
 msgctxt "@item incidence type is event"
@@ -2269,6 +2251,18 @@ msgstr "सम्पन्न :"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "कृतं प्रतिशतं :"
+
+#~ msgctxt "@option:check calendar items before a certain date"
+#~ msgid "Items before %1"
+#~ msgstr "%1 इत्यस्मात् पूर्वं वस्तूनि"
+
+#~ msgctxt "@option:check currently selected calendar item"
+#~ msgid "Selected item"
+#~ msgstr "चयनितं द्रव्यम्"
+
+#~ msgctxt "@option:check calendar items after a certain date"
+#~ msgid "Items after %1"
+#~ msgstr "%1 इत्यस्य अनन्तरं वस्तूनि"
 
 #, fuzzy
 #~| msgid "Reminder:"
