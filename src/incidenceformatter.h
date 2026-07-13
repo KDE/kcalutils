@@ -186,25 +186,6 @@ KCALUTILS_EXPORT QString recurrenceString(const KCalendarCore::Incidence::Ptr &i
 KCALUTILS_EXPORT QStringList reminderStringList(const KCalendarCore::Incidence::Ptr &incidence, bool shortfmt = true);
 
 /*!
-  Build a QString time representation of a QTime object.
-  \param time the time to be formatted
-  \param shortfmt if true, display info in short format; else use long format
-  \return the formatted time string
-  \sa dateToString(), dateTimeToString().
-*/
-KCALUTILS_EXPORT QString timeToString(QTime time, bool shortfmt = true);
-
-/*!
-  Build a QString date representation of a QDate object.
-  All dates and times are converted to local time for display.
-  \param date the date to be formatted
-  \param shortfmt if true, display info in short format; else use long format
-  \return the formatted date string
-  \sa timeToString(), dateTimeToString().
-*/
-KCALUTILS_EXPORT QString dateToString(QDate date, bool shortfmt = true);
-
-/*!
   Format the start and end dates/times of an incidence.
   \param start the start date/time
   \param end the end date/time

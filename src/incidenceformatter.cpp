@@ -1120,7 +1120,7 @@ QString IncidenceFormatter::formatStartEnd(const QDateTime &start, const QDateTi
         if (start.date() == end.date()) {
             // same day
             if (start.time().isValid()) {
-                tmpStr += QLatin1StringView(" - ") + IncidenceFormatter::timeToString(end.toLocalTime().time(), true);
+                tmpStr += QLatin1StringView(" - ") + QLocale().toString(end.toLocalTime().time(), QLocale::ShortFormat);
             }
         } else {
             tmpStr += QLatin1StringView(" - ") + IncidenceFormatter::dateTimeToString(end, isAllDay, false);
@@ -1180,16 +1180,16 @@ QString IncidenceFormatter::formatStartEnd(const QDateTime &start, const QDateTi
     bool isMultiDay = false;
     if (todo->hasStartDate()) {
         if (todo->allDay()) {
-            incidence[QStringLiteral("dtStartStr")] = dateToString(todo->dtStart().toLocalTime().date(), true);
+            incidence[QStringLiteral("dtStartStr")] = QLocale().toString(todo->dtStart().toLocalTime().date(), QLocale::ShortFormat);
         } else {
-            incidence[QStringLiteral("dtStartStr")] = dateTimeToString(todo->dtStart(), false, true);
+            incidence[QStringLiteral("dtStartStr")] = QLocale().toString(todo->dtStart(), QLocale::ShortFormat);
         }
         isMultiDay = todo->dtStart().date() != todo->dtDue().date();
     }
     if (todo->allDay()) {
-        incidence[QStringLiteral("dtDueStr")] = dateToString(todo->dtDue().toLocalTime().date(), true);
+        incidence[QStringLiteral("dtDueStr")] = QLocale().toString(todo->dtDue().toLocalTime().date(), QLocale::ShortFormat);
     } else {
-        incidence[QStringLiteral("dtDueStr")] = dateTimeToString(todo->dtDue(), false, true);
+        incidence[QStringLiteral("dtDueStr")] = QLocale().toString(todo->dtDue(), QLocale::ShortFormat);
     }
     incidence[QStringLiteral("isMultiDay")] = isMultiDay;
     incidence[QStringLiteral("duration")] = durationString(todo);
@@ -1258,8 +1258,8 @@ QString IncidenceFormatter::formatStartEnd(const QDateTime &start, const QDateTi
     QVariantHash incidence;
     incidence[QStringLiteral("iconName")] = QStringLiteral("view-pim-journal");
     incidence[QStringLiteral("summary")] = htmlCompare(invitationSummary(journal, noHtmlMode), invitationSummary(oldjournal, noHtmlMode));
-    incidence[QStringLiteral("dateStr")] =
-        htmlCompare(dateToString(journal->dtStart().toLocalTime().date(), false), dateToString(oldjournal->dtStart().toLocalTime().date(), false));
+    incidence[QStringLiteral("dateStr")] = htmlCompare(QLocale().toString(journal->dtStart().toLocalTime().date(), QLocale::LongFormat),
+                                                       QLocale().toString(oldjournal->dtStart().toLocalTime().date(), QLocale::LongFormat));
     incidence[QStringLiteral("description")] = invitationDescriptionIncidence(journal, noHtmlMode);
 
     return incidence;
@@ -2444,18 +2444,18 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
 
     if (event->isMultiDay()) {
         if (event->allDay()) {
-            tmp = dateToString(startDt.date(), true);
+            tmp = QLocale().toString(startDt.date(), QLocale::ShortFormat);
             ret += QLatin1StringView("<br>") + i18nc("Event start", "<i>From:</i> %1", tmp);
-            tmp = dateToString(endDt.date(), true);
+            tmp = QLocale().toString(endDt.date(), QLocale::ShortFormat);
             ret += QLatin1StringView("<br>") + i18nc("Event end", "<i>To:</i> %1", tmp);
         } else {
             ret += QLatin1StringView("<br>") + i18nc("datetime range for event", "<i>Date:</i> %1 - %2", dateTimeToString(startDt), dateTimeToString(endDt));
         }
     } else {
-        ret += QLatin1StringView("<br>") + i18n("<i>Date:</i> %1", dateToString(startDt.date(), false));
+        ret += QLatin1StringView("<br>") + i18n("<i>Date:</i> %1", QLocale().toString(startDt.date(), QLocale::LongFormat));
         if (!event->allDay()) {
-            const QString dtStartTime = timeToString(startDt.time(), true);
-            const QString dtEndTime = timeToString(endDt.time(), true);
+            const QString dtStartTime = QLocale().toString(startDt.time(), QLocale::ShortFormat);
+            const QString dtEndTime = QLocale().toString(endDt.time(), QLocale::ShortFormat);
             if (dtStartTime == dtEndTime) {
                 // to prevent 'Time: 17:00 - 17:00'
                 tmp = QLatin1StringView("<br>") + i18nc("time for event", "<i>Time:</i> %1", dtStartTime);
@@ -2508,7 +2508,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo,
 
     ret += QLatin1StringView("<br>");
     if (todo->hasCompletedDate()) {
-        ret += i18nc("To-do's completed date", "<i>Completed:</i> %1", dateTimeToString(todo->completed(), false, false));
+        ret += i18nc("To-do's completed date", "<i>Completed:</i> %1", QLocale().toString(todo->completed(), QLocale::LongFormat));
     } else {
         int pct = todo->percentComplete();
         if (todo->recurs() && asOfDate.isValid()) {
@@ -2530,7 +2530,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Journal::Ptr &jo
     // FIXME: support mRichText==false
     QString ret;
     if (journal->dtStart().isValid()) {
-        ret += QLatin1StringView("<br>") + i18n("<i>Date:</i> %1", dateToString(journal->dtStart().toLocalTime().date(), false));
+        ret += QLatin1StringView("<br>") + i18n("<i>Date:</i> %1", QLocale().toString(journal->dtStart().toLocalTime().date(), QLocale::LongFormat));
     }
     return ret.replace(u' ', QLatin1StringView("&nbsp;"));
 }
@@ -2882,15 +2882,15 @@ bool IncidenceFormatter::MailBodyVisitor::visit(const Event::Ptr &event)
                                   i18nc("event recurs same position (e.g. first monday) each year", "Yearly Same Position")};
 
     mResult = mailBodyIncidence(event);
-    mResult += i18n("Start Date: %1\n", dateToString(event->dtStart().toLocalTime().date(), true));
+    mResult += i18n("Start Date: %1\n", QLocale().toString(event->dtStart().toLocalTime().date(), QLocale::ShortFormat));
     if (!event->allDay()) {
-        mResult += i18n("Start Time: %1\n", timeToString(event->dtStart().toLocalTime().time(), true));
+        mResult += i18n("Start Time: %1\n", QLocale().toString(event->dtStart().toLocalTime().time(), QLocale::ShortFormat));
     }
     if (event->dtStart() != event->dtEnd()) {
-        mResult += i18n("End Date: %1\n", dateToString(event->dtEnd().toLocalTime().date(), true));
+        mResult += i18n("End Date: %1\n", QLocale().toString(event->dtEnd().toLocalTime().date(), QLocale::ShortFormat));
     }
     if (!event->allDay()) {
-        mResult += i18n("End Time: %1\n", timeToString(event->dtEnd().toLocalTime().time(), true));
+        mResult += i18n("End Time: %1\n", QLocale().toString(event->dtEnd().toLocalTime().time(), QLocale::ShortFormat));
     }
     if (event->recurs()) {
         Recurrence const *recur = event->recurrence();
@@ -2936,15 +2936,15 @@ bool IncidenceFormatter::MailBodyVisitor::visit(const Todo::Ptr &todo)
     mResult = mailBodyIncidence(todo);
 
     if (todo->hasStartDate() && todo->dtStart().isValid()) {
-        mResult += i18n("Start Date: %1\n", dateToString(todo->dtStart(false).toLocalTime().date(), true));
+        mResult += i18n("Start Date: %1\n", QLocale().toString(todo->dtStart(false).toLocalTime().date(), QLocale::ShortFormat));
         if (!todo->allDay()) {
-            mResult += i18n("Start Time: %1\n", timeToString(todo->dtStart(false).toLocalTime().time(), true));
+            mResult += i18n("Start Time: %1\n", QLocale().toString(todo->dtStart(false).toLocalTime().time(), QLocale::ShortFormat));
         }
     }
     if (todo->hasDueDate() && todo->dtDue().isValid()) {
-        mResult += i18n("Due Date: %1\n", dateToString(todo->dtDue().toLocalTime().date(), true));
+        mResult += i18n("Due Date: %1\n", QLocale().toString(todo->dtDue().toLocalTime().date(), QLocale::ShortFormat));
         if (!todo->allDay()) {
-            mResult += i18n("Due Time: %1\n", timeToString(todo->dtDue().toLocalTime().time(), true));
+            mResult += i18n("Due Time: %1\n", QLocale().toString(todo->dtDue().toLocalTime().time(), QLocale::ShortFormat));
         }
     }
     QString const details = todo->richDescription();
@@ -2957,9 +2957,9 @@ bool IncidenceFormatter::MailBodyVisitor::visit(const Todo::Ptr &todo)
 bool IncidenceFormatter::MailBodyVisitor::visit(const Journal::Ptr &journal)
 {
     mResult = mailBodyIncidence(journal);
-    mResult += i18n("Date: %1\n", dateToString(journal->dtStart().toLocalTime().date(), true));
+    mResult += i18n("Date: %1\n", QLocale().toString(journal->dtStart().toLocalTime().date(), QLocale::ShortFormat));
     if (!journal->allDay()) {
-        mResult += i18n("Time: %1\n", timeToString(journal->dtStart().toLocalTime().time(), true));
+        mResult += i18n("Time: %1\n", QLocale().toString(journal->dtStart().toLocalTime().time(), QLocale::ShortFormat));
     }
     if (!journal->description().isEmpty()) {
         mResult += i18n("Text of the journal:\n%1\n", journal->richDescription());
@@ -3389,20 +3389,10 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
     return recurStr;
 }
 
-QString IncidenceFormatter::timeToString(QTime time, bool shortfmt)
-{
-    return QLocale().toString(time, shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
-}
-
-QString IncidenceFormatter::dateToString(QDate date, bool shortfmt)
-{
-    return QLocale().toString(date, (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
-}
-
 QString IncidenceFormatter::dateTimeToString(const QDateTime &date, bool allDay, bool shortfmt)
 {
     if (allDay) {
-        return dateToString(date.toLocalTime().date(), shortfmt);
+        return QLocale().toString(date.toLocalTime().date(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
     }
 
     return QLocale().toString(date.toLocalTime(), (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));

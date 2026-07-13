@@ -31,7 +31,7 @@ QVariant KDateFilter::doFilter(const QVariant &input, const QVariant &argument, 
         return QString();
     }
     const bool shortFmt = (argument.value<KTextTemplate::SafeString>().get().compare(QLatin1StringView("short"), Qt::CaseInsensitive) == 0);
-    return KTextTemplate::SafeString(KCalUtils::IncidenceFormatter::dateToString(date, shortFmt));
+    return KTextTemplate::SafeString(QLocale().toString(date, shortFmt ? QLocale::ShortFormat : QLocale::LongFormat));
 }
 
 bool KDateFilter::isSafe() const
@@ -60,7 +60,7 @@ QVariant KTimeFilter::doFilter(const QVariant &input, const QVariant &argument, 
     }
 
     const bool shortFmt = (argument.value<KTextTemplate::SafeString>().get().compare(QLatin1StringView("short"), Qt::CaseInsensitive) == 0);
-    return KTextTemplate::SafeString(KCalUtils::IncidenceFormatter::timeToString(time, shortFmt));
+    return KTextTemplate::SafeString(QLocale().toString(time, shortFmt ? QLocale::ShortFormat : QLocale::LongFormat));
 }
 
 bool KTimeFilter::isSafe() const
