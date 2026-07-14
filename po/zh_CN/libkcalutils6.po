@@ -2205,15 +2205,3 @@ msgstr "完成："
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "完成百分比："
-
-#~ msgctxt "@option:check calendar items before a certain date"
-#~ msgid "Items before %1"
-#~ msgstr "%1 之前的项"
-
-#~ msgctxt "@option:check currently selected calendar item"
-#~ msgid "Selected item"
-#~ msgstr "选中项目"
-
-#~ msgctxt "@option:check calendar items after a certain date"
-#~ msgid "Items after %1"
-#~ msgstr "%1 之后的项"
