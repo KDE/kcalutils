@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcal\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-13 00:44+0000\n"
+"POT-Creation-Date: 2026-07-15 00:46+0000\n"
 "PO-Revision-Date: 2026-05-21 11:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1623,8 +1623,8 @@ msgstr "الحدوث يتكرّر"
 msgid "minute %1"
 msgstr "دقيقة %1"
 
-#: src/incidenceformatter.cpp:3353 src/incidenceformatter.cpp:3421
-#: src/incidenceformatter.cpp:3447 src/incidenceformatter.cpp:3459
+#: src/incidenceformatter.cpp:3353 src/incidenceformatter.cpp:3411
+#: src/incidenceformatter.cpp:3437 src/incidenceformatter.cpp:3449
 #, kde-format
 msgid "1 day"
 msgid_plural "%1 days"
@@ -1641,7 +1641,7 @@ msgstr[5] "%1 يوم"
 msgid "%1 (excluding %2)"
 msgstr "%1 (باستثناء %2)"
 
-#: src/incidenceformatter.cpp:3427
+#: src/incidenceformatter.cpp:3417
 #, kde-format
 msgid "1 hour"
 msgid_plural "%1 hours"
@@ -1652,7 +1652,7 @@ msgstr[3] "%1 ساعات"
 msgstr[4] "%1 ساعةً"
 msgstr[5] "%1 ساعة"
 
-#: src/incidenceformatter.cpp:3433
+#: src/incidenceformatter.cpp:3423
 #, kde-format
 msgid "1 minute"
 msgid_plural "%1 minutes"
@@ -1663,55 +1663,55 @@ msgstr[3] "%1 دقائق"
 msgstr[4] "%1 دقيقةً"
 msgstr[5] "%1 دقيقة"
 
-#: src/incidenceformatter.cpp:3450
+#: src/incidenceformatter.cpp:3440
 #, kde-format
 msgid "forever"
 msgstr "للأبد"
 
-#: src/incidenceformatter.cpp:3492
+#: src/incidenceformatter.cpp:3482
 #, kde-format
 msgctxt "N days/hours/minutes before the start datetime"
 msgid "%1 before the start"
 msgstr "قبل %1 من البدء"
 
-#: src/incidenceformatter.cpp:3494
+#: src/incidenceformatter.cpp:3484
 #, kde-format
 msgctxt "N days/hours/minutes after the start datetime"
 msgid "%1 after the start"
 msgstr "بعد %1 من البدء"
 
-#: src/incidenceformatter.cpp:3505
+#: src/incidenceformatter.cpp:3495
 #, kde-format
 msgctxt "N days/hours/minutes before the due datetime"
 msgid "%1 before the to-do is due"
 msgstr "قبل %1 من استحقاق المهمّة"
 
-#: src/incidenceformatter.cpp:3507
+#: src/incidenceformatter.cpp:3497
 #, kde-format
 msgctxt "N days/hours/minutes before the end datetime"
 msgid "%1 before the end"
 msgstr "قبل %1 من الانتهاء"
 
-#: src/incidenceformatter.cpp:3511
+#: src/incidenceformatter.cpp:3501
 #, kde-format
 msgctxt "N days/hours/minutes after the due datetime"
 msgid "%1 after the to-do is due"
 msgstr "بعد %1 من استحقاق المهمّة"
 
-#: src/incidenceformatter.cpp:3513
+#: src/incidenceformatter.cpp:3503
 #, kde-format
 msgctxt "N days/hours/minutes after the end datetime"
 msgid "%1 after the end"
 msgstr "بعد %1 من الانتهاء"
 
 # هو تاريخ ووقت لكن للتسهيل
-#: src/incidenceformatter.cpp:3531
+#: src/incidenceformatter.cpp:3521
 #, kde-format
 msgctxt "reminder occurs at datetime"
 msgid "at %1"
 msgstr "بتاريخ %1"
 
-#: src/incidenceformatter.cpp:3538
+#: src/incidenceformatter.cpp:3528
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
@@ -1722,7 +1722,7 @@ msgstr[3] "يتكرّر %1 مرات"
 msgstr[4] "يتكرّر %1 مرةً"
 msgstr[5] "يتكرّر %1 مرة"
 
-#: src/incidenceformatter.cpp:3539
+#: src/incidenceformatter.cpp:3529
 #, kde-format
 msgctxt "interval is N days/hours/minutes"
 msgid "interval is %1"
@@ -1730,25 +1730,25 @@ msgstr "بمعدّل %1"
 
 # %1 هي ”يتكرر 5 مرات“ و%2 هي ”بمعدّل %1“
 # ”يتكرر 5 مرات بمعدّل دقيقتين“
-#: src/incidenceformatter.cpp:3540
+#: src/incidenceformatter.cpp:3530
 #, kde-format
 msgctxt "(repeat string, interval string)"
 msgid "(%1, %2)"
 msgstr "(%1 %2)"
 
-#: src/incidenceformatter.cpp:3545
+#: src/incidenceformatter.cpp:3535
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
 msgstr "معطّل"
 
-#: src/incidenceformatter.cpp:3549
+#: src/incidenceformatter.cpp:3539
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
 msgstr "صوت"
 
-#: src/incidenceformatter.cpp:3552
+#: src/incidenceformatter.cpp:3542
 #, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"

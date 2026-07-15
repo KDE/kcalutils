@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-13 00:44+0000\n"
+"POT-Creation-Date: 2026-07-15 00:46+0000\n"
 "PO-Revision-Date: 2024-12-20 21:51+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1517,8 +1517,8 @@ msgstr "घटना पुनरावृत्तिः भवति"
 msgid "minute %1"
 msgstr "मिनट %1"
 
-#: src/incidenceformatter.cpp:3353 src/incidenceformatter.cpp:3421
-#: src/incidenceformatter.cpp:3447 src/incidenceformatter.cpp:3459
+#: src/incidenceformatter.cpp:3353 src/incidenceformatter.cpp:3411
+#: src/incidenceformatter.cpp:3437 src/incidenceformatter.cpp:3449
 #, kde-format
 msgid "1 day"
 msgid_plural "%1 days"
@@ -1530,99 +1530,99 @@ msgstr[1] "%1 दिवसाः"
 msgid "%1 (excluding %2)"
 msgstr "%1 (%2 विहाय)"
 
-#: src/incidenceformatter.cpp:3427
+#: src/incidenceformatter.cpp:3417
 #, kde-format
 msgid "1 hour"
 msgid_plural "%1 hours"
 msgstr[0] "१ घण्टा"
 msgstr[1] "%1 घण्टा"
 
-#: src/incidenceformatter.cpp:3433
+#: src/incidenceformatter.cpp:3423
 #, kde-format
 msgid "1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "१ मिनिट्"
 msgstr[1] "%1 निमेषाः"
 
-#: src/incidenceformatter.cpp:3450
+#: src/incidenceformatter.cpp:3440
 #, kde-format
 msgid "forever"
 msgstr "सदा"
 
-#: src/incidenceformatter.cpp:3492
+#: src/incidenceformatter.cpp:3482
 #, kde-format
 msgctxt "N days/hours/minutes before the start datetime"
 msgid "%1 before the start"
 msgstr "%1 आरम्भात् पूर्वं"
 
-#: src/incidenceformatter.cpp:3494
+#: src/incidenceformatter.cpp:3484
 #, kde-format
 msgctxt "N days/hours/minutes after the start datetime"
 msgid "%1 after the start"
 msgstr "%1 आरम्भस्य अनन्तरं"
 
-#: src/incidenceformatter.cpp:3505
+#: src/incidenceformatter.cpp:3495
 #, kde-format
 msgctxt "N days/hours/minutes before the due datetime"
 msgid "%1 before the to-do is due"
 msgstr "%1 कर्तव्यस्य देयत्वात् पूर्वम्"
 
-#: src/incidenceformatter.cpp:3507
+#: src/incidenceformatter.cpp:3497
 #, kde-format
 msgctxt "N days/hours/minutes before the end datetime"
 msgid "%1 before the end"
 msgstr "%1 अन्त्यात् पूर्वं"
 
-#: src/incidenceformatter.cpp:3511
+#: src/incidenceformatter.cpp:3501
 #, kde-format
 msgctxt "N days/hours/minutes after the due datetime"
 msgid "%1 after the to-do is due"
 msgstr "%1 कर्तव्यस्य देयस्य अनन्तरं"
 
-#: src/incidenceformatter.cpp:3513
+#: src/incidenceformatter.cpp:3503
 #, kde-format
 msgctxt "N days/hours/minutes after the end datetime"
 msgid "%1 after the end"
 msgstr "%1 समाप्तेः अनन्तरं"
 
-#: src/incidenceformatter.cpp:3531
+#: src/incidenceformatter.cpp:3521
 #, kde-format
 msgctxt "reminder occurs at datetime"
 msgid "at %1"
 msgstr "%1 इत्यत्र"
 
-#: src/incidenceformatter.cpp:3538
+#: src/incidenceformatter.cpp:3528
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
 msgstr[0] "एकवारं पुनरावृत्तिः भवति"
 msgstr[1] "%1 वारं पुनरावृत्तिं करोति"
 
-#: src/incidenceformatter.cpp:3539
+#: src/incidenceformatter.cpp:3529
 #, kde-format
 msgctxt "interval is N days/hours/minutes"
 msgid "interval is %1"
 msgstr "अन्तरालः %1 अस्ति"
 
-#: src/incidenceformatter.cpp:3540
+#: src/incidenceformatter.cpp:3530
 #, kde-format
 msgctxt "(repeat string, interval string)"
 msgid "(%1, %2)"
 msgstr "(%1, %2)"
 
-#: src/incidenceformatter.cpp:3545
+#: src/incidenceformatter.cpp:3535
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3549
+#: src/incidenceformatter.cpp:3539
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3552
+#: src/incidenceformatter.cpp:3542
 #, fuzzy, kde-format
 #| msgctxt "attendee name (attendee status)"
 #| msgid "%1 (%2)"

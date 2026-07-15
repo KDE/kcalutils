@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-13 00:44+0000\n"
+"POT-Creation-Date: 2026-07-15 00:46+0000\n"
 "PO-Revision-Date: 2026-05-19 08:18+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1571,8 +1571,8 @@ msgstr "Подія повторюється"
 msgid "minute %1"
 msgstr "хвилина %1"
 
-#: src/incidenceformatter.cpp:3353 src/incidenceformatter.cpp:3421
-#: src/incidenceformatter.cpp:3447 src/incidenceformatter.cpp:3459
+#: src/incidenceformatter.cpp:3353 src/incidenceformatter.cpp:3411
+#: src/incidenceformatter.cpp:3437 src/incidenceformatter.cpp:3449
 #, kde-format
 msgid "1 day"
 msgid_plural "%1 days"
@@ -1586,7 +1586,7 @@ msgstr[3] "%1 день"
 msgid "%1 (excluding %2)"
 msgstr "%1 (без %2)"
 
-#: src/incidenceformatter.cpp:3427
+#: src/incidenceformatter.cpp:3417
 #, kde-format
 msgid "1 hour"
 msgid_plural "%1 hours"
@@ -1595,7 +1595,7 @@ msgstr[1] "%1 години"
 msgstr[2] "%1 годин"
 msgstr[3] "%1 година"
 
-#: src/incidenceformatter.cpp:3433
+#: src/incidenceformatter.cpp:3423
 #, kde-format
 msgid "1 minute"
 msgid_plural "%1 minutes"
@@ -1604,54 +1604,54 @@ msgstr[1] "%1 хвилини"
 msgstr[2] "%1 хвилин"
 msgstr[3] "%1 хвилина"
 
-#: src/incidenceformatter.cpp:3450
+#: src/incidenceformatter.cpp:3440
 #, kde-format
 msgid "forever"
 msgstr "завжди"
 
-#: src/incidenceformatter.cpp:3492
+#: src/incidenceformatter.cpp:3482
 #, kde-format
 msgctxt "N days/hours/minutes before the start datetime"
 msgid "%1 before the start"
 msgstr "%1 до початку"
 
-#: src/incidenceformatter.cpp:3494
+#: src/incidenceformatter.cpp:3484
 #, kde-format
 msgctxt "N days/hours/minutes after the start datetime"
 msgid "%1 after the start"
 msgstr "%1 після початку"
 
-#: src/incidenceformatter.cpp:3505
+#: src/incidenceformatter.cpp:3495
 #, kde-format
 msgctxt "N days/hours/minutes before the due datetime"
 msgid "%1 before the to-do is due"
 msgstr "%1 до дати призначення завдання"
 
-#: src/incidenceformatter.cpp:3507
+#: src/incidenceformatter.cpp:3497
 #, kde-format
 msgctxt "N days/hours/minutes before the end datetime"
 msgid "%1 before the end"
 msgstr "%1 перед завершенням"
 
-#: src/incidenceformatter.cpp:3511
+#: src/incidenceformatter.cpp:3501
 #, kde-format
 msgctxt "N days/hours/minutes after the due datetime"
 msgid "%1 after the to-do is due"
 msgstr "%1 після дати призначення завдання"
 
-#: src/incidenceformatter.cpp:3513
+#: src/incidenceformatter.cpp:3503
 #, kde-format
 msgctxt "N days/hours/minutes after the end datetime"
 msgid "%1 after the end"
 msgstr "%1 після завершення"
 
-#: src/incidenceformatter.cpp:3531
+#: src/incidenceformatter.cpp:3521
 #, kde-format
 msgctxt "reminder occurs at datetime"
 msgid "at %1"
 msgstr "%1"
 
-#: src/incidenceformatter.cpp:3538
+#: src/incidenceformatter.cpp:3528
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
@@ -1660,31 +1660,31 @@ msgstr[1] "повторюється %1 рази"
 msgstr[2] "повторюється %1 разів"
 msgstr[3] "повторюється %1 раз"
 
-#: src/incidenceformatter.cpp:3539
+#: src/incidenceformatter.cpp:3529
 #, kde-format
 msgctxt "interval is N days/hours/minutes"
 msgid "interval is %1"
 msgstr "інтервал дорівнює %1"
 
-#: src/incidenceformatter.cpp:3540
+#: src/incidenceformatter.cpp:3530
 #, kde-format
 msgctxt "(repeat string, interval string)"
 msgid "(%1, %2)"
 msgstr "(%1, %2)"
 
-#: src/incidenceformatter.cpp:3545
+#: src/incidenceformatter.cpp:3535
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
 msgstr "вимкнено"
 
-#: src/incidenceformatter.cpp:3549
+#: src/incidenceformatter.cpp:3539
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
 msgstr "звук"
 
-#: src/incidenceformatter.cpp:3552
+#: src/incidenceformatter.cpp:3542
 #, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
