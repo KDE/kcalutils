@@ -62,11 +62,13 @@ public:
       Constructor of the DndFactory class.
       \param cal the calendar associated with the factory
      */
+    [[deprecated("no need to instantiate DndFactory anymore, only static methods left")]]
     explicit DndFactory(const KCalendarCore::Calendar::Ptr &cal);
 
     /*!
       Destructor of the DndFactory class.
      */
+    [[deprecated("no need to instantiate DndFactory anymore, only static methods left")]]
     ~DndFactory();
 
     /*!
@@ -87,7 +89,7 @@ public:
     /*!
       Copies a list of \a incidences to the clipboard.
     */
-    bool copyIncidences(const KCalendarCore::Incidence::List &incidences);
+    static bool copyIncidences(const KCalendarCore::Incidence::List &incidences);
 
     /*!
       This function clones the incidences that are in the clipboard and sets the clone's

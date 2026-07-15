@@ -60,11 +60,6 @@ static QDateTime copyTimeSpec(const QDateTime &dt, const QDateTime &source)
 class KCalUtils::DndFactoryPrivate
 {
 public:
-    explicit DndFactoryPrivate(const Calendar::Ptr &calendar)
-        : mCalendar(calendar)
-    {
-    }
-
     static Incidence::Ptr pasteIncidence(const Incidence::Ptr &incidence, QDateTime newDateTime, DndFactory::PasteFlags pasteOptions)
     {
         Incidence::Ptr inc(incidence);
@@ -124,13 +119,10 @@ public:
 
         return inc;
     }
-
-    const Calendar::Ptr mCalendar;
 };
 //@endcond
 
-DndFactory::DndFactory(const Calendar::Ptr &calendar)
-    : d(new KCalUtils::DndFactoryPrivate(calendar))
+DndFactory::DndFactory([[maybe_unused]] const Calendar::Ptr &calendar)
 {
 }
 
@@ -184,7 +176,7 @@ bool DndFactory::copyIncidences(const Incidence::List &incidences)
 {
     QClipboard *clipboard = QGuiApplication::clipboard();
     Q_ASSERT(clipboard);
-    Calendar::Ptr const calendar(new MemoryCalendar(d->mCalendar->timeZone()));
+    Calendar::Ptr const calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
     Incidence::List::ConstIterator it;
     const Incidence::List::ConstIterator end(incidences.constEnd());
