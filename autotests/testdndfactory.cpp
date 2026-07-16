@@ -23,10 +23,6 @@ using namespace KCalUtils;
 
 void DndFactoryTest::testPasteAllDayEvent()
 {
-    const MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
-
-    DndFactory factory(calendar);
-
     const Event::Ptr allDayEvent(new Event());
     allDayEvent->setSummary(QStringLiteral("Summary 1"));
     allDayEvent->setDtStart(QDateTime(QDate(2010, 8, 8), {}));
@@ -38,9 +34,9 @@ void DndFactoryTest::testPasteAllDayEvent()
     Incidence::List incidencesToPaste;
     incidencesToPaste.append(allDayEvent);
 
-    QVERIFY(factory.copyIncidences(incidencesToPaste));
+    QVERIFY(DndFactory::copyIncidences(incidencesToPaste));
 
-    Incidence::List pastedIncidences = factory.pasteIncidences();
+    Incidence::List pastedIncidences = DndFactory::pasteIncidences();
     QVERIFY(pastedIncidences.size() == 1);
 
     const Incidence::Ptr &incidence = pastedIncidences.first();
@@ -62,10 +58,6 @@ void DndFactoryTest::testPasteAllDayEvent()
 
 void DndFactoryTest::testPasteAllDayEvent2()
 {
-    const MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
-
-    DndFactory factory(calendar);
-
     const Event::Ptr allDayEvent(new Event());
     allDayEvent->setSummary(QStringLiteral("Summary 2"));
     allDayEvent->setDtStart(QDateTime(QDate(2010, 8, 8), {}));
@@ -76,12 +68,12 @@ void DndFactoryTest::testPasteAllDayEvent2()
     Incidence::List incidencesToPaste;
     incidencesToPaste.append(allDayEvent);
 
-    QVERIFY(factory.copyIncidences(incidencesToPaste));
+    QVERIFY(DndFactory::copyIncidences(incidencesToPaste));
     const QDateTime newDateTime(QDate(2011, 1, 1).startOfDay());
     const uint originalLength = allDayEvent->dtStart().secsTo(allDayEvent->dtEnd());
 
     // paste at the new time
-    Incidence::List pastedIncidences = factory.pasteIncidences(newDateTime);
+    Incidence::List pastedIncidences = DndFactory::pasteIncidences(newDateTime);
 
     // we only copied one incidence
     QVERIFY(pastedIncidences.size() == 1);
@@ -112,10 +104,6 @@ void DndFactoryTest::testPasteAllDayEvent2()
 
 void DndFactoryTest::testPasteTodo()
 {
-    const MemoryCalendar::Ptr calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
-
-    DndFactory factory(calendar);
-
     const Todo::Ptr todo(new Todo());
     todo->setSummary(QStringLiteral("Summary 1"));
     todo->setDtDue(QDateTime(QDate(2010, 8, 9), {}));
@@ -123,11 +111,11 @@ void DndFactoryTest::testPasteTodo()
     Incidence::List incidencesToPaste;
     incidencesToPaste.append(todo);
 
-    QVERIFY(factory.copyIncidences(incidencesToPaste));
+    QVERIFY(DndFactory::copyIncidences(incidencesToPaste));
 
     const QDateTime newDateTime(QDate(2011, 1, 1), QTime(10, 10));
 
-    Incidence::List pastedIncidences = factory.pasteIncidences(newDateTime);
+    Incidence::List pastedIncidences = DndFactory::pasteIncidences(newDateTime);
     QVERIFY(pastedIncidences.size() == 1);
 
     const Incidence::Ptr &incidence = pastedIncidences.first();

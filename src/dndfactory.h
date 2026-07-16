@@ -27,13 +27,10 @@
 
 #include <QDateTime>
 
-#include <memory>
-
 class QMimeData;
 
 namespace KCalUtils
 {
-class DndFactoryPrivate;
 /*!
  \class KCalUtils::DndFactory
  \inmodule KCalUtils
@@ -57,19 +54,6 @@ public:
     };
 
     Q_DECLARE_FLAGS(PasteFlags, PasteFlag)
-
-    /*!
-      Constructor of the DndFactory class.
-      \param cal the calendar associated with the factory
-     */
-    [[deprecated("no need to instantiate DndFactory anymore, only static methods left")]]
-    explicit DndFactory(const KCalendarCore::Calendar::Ptr &cal);
-
-    /*!
-      Destructor of the DndFactory class.
-     */
-    [[deprecated("no need to instantiate DndFactory anymore, only static methods left")]]
-    ~DndFactory();
 
     /*!
      Create the calendar that is contained in the mime data.
@@ -106,9 +90,5 @@ public:
       Returns the cloned incidence.
     */
     static KCalendarCore::Incidence::List pasteIncidences(const QDateTime &newDateTime = QDateTime(), PasteFlags pasteOptions = PasteFlags());
-
-private:
-    Q_DISABLE_COPY(DndFactory)
-    std::unique_ptr<DndFactoryPrivate> const d;
 };
 }

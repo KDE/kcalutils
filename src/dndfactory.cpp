@@ -52,81 +52,67 @@ static QDateTime copyTimeSpec(const QDateTime &dt, const QDateTime &source)
     Q_UNREACHABLE();
 }
 
-/**
-  DndFactoryPrivate class that helps to provide binary compatibility between releases.
-  @internal
-*/
 //@cond PRIVATE
-class KCalUtils::DndFactoryPrivate
+static Incidence::Ptr pasteIncidence(const Incidence::Ptr &incidence, QDateTime newDateTime, DndFactory::PasteFlags pasteOptions)
 {
-public:
-    static Incidence::Ptr pasteIncidence(const Incidence::Ptr &incidence, QDateTime newDateTime, DndFactory::PasteFlags pasteOptions)
-    {
-        Incidence::Ptr inc(incidence);
+    Incidence::Ptr inc(incidence);
 
-        if (inc) {
-            inc = Incidence::Ptr(inc->clone());
-            inc->recreate();
-        }
-
-        if (inc && newDateTime.isValid()) {
-            if (inc->type() == Incidence::TypeEvent) {
-                Event::Ptr const event = inc.staticCast<Event>();
-                if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
-                    // Set date and preserve time and timezone stuff
-                    const QDate date = newDateTime.date();
-                    newDateTime = event->dtStart();
-                    newDateTime.setDate(date);
-                }
-
-                // in seconds
-                const qint64 durationInSeconds = event->dtStart().secsTo(event->dtEnd());
-                const qint64 durationInDays = event->dtStart().daysTo(event->dtEnd());
-
-                if (incidence->allDay()) {
-                    event->setDtStart(QDateTime(newDateTime.date(), {}));
-                    event->setDtEnd(newDateTime.addDays(durationInDays));
-                } else {
-                    event->setDtStart(copyTimeSpec(newDateTime, event->dtStart()));
-                    event->setDtEnd(copyTimeSpec(newDateTime.addSecs(durationInSeconds), event->dtEnd()));
-                }
-            } else if (inc->type() == Incidence::TypeTodo) {
-                Todo::Ptr const aTodo = inc.staticCast<Todo>();
-                const bool pasteAtDtStart = (pasteOptions & DndFactory::FlagTodosPasteAtDtStart);
-                if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
-                    // Set date and preserve time and timezone stuff
-                    const QDate date = newDateTime.date();
-                    newDateTime = pasteAtDtStart ? aTodo->dtStart() : aTodo->dtDue();
-                    newDateTime.setDate(date);
-                }
-                if (pasteAtDtStart) {
-                    aTodo->setDtStart(copyTimeSpec(newDateTime, aTodo->dtStart()));
-                } else {
-                    aTodo->setDtDue(copyTimeSpec(newDateTime, aTodo->dtDue()));
-                }
-            } else if (inc->type() == Incidence::TypeJournal) {
-                if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
-                    // Set date and preserve time and timezone stuff
-                    const QDate date = newDateTime.date();
-                    newDateTime = inc->dtStart();
-                    newDateTime.setDate(date);
-                }
-                inc->setDtStart(copyTimeSpec(newDateTime, inc->dtStart()));
-            } else {
-                qCDebug(KCALUTILS_LOG) << "Trying to paste unknown incidence of type" << int(inc->type());
-            }
-        }
-
-        return inc;
+    if (inc) {
+        inc = Incidence::Ptr(inc->clone());
+        inc->recreate();
     }
-};
-//@endcond
 
-DndFactory::DndFactory([[maybe_unused]] const Calendar::Ptr &calendar)
-{
+    if (inc && newDateTime.isValid()) {
+        if (inc->type() == Incidence::TypeEvent) {
+            Event::Ptr const event = inc.staticCast<Event>();
+            if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
+                // Set date and preserve time and timezone stuff
+                const QDate date = newDateTime.date();
+                newDateTime = event->dtStart();
+                newDateTime.setDate(date);
+            }
+
+            // in seconds
+            const qint64 durationInSeconds = event->dtStart().secsTo(event->dtEnd());
+            const qint64 durationInDays = event->dtStart().daysTo(event->dtEnd());
+
+            if (incidence->allDay()) {
+                event->setDtStart(QDateTime(newDateTime.date(), {}));
+                event->setDtEnd(newDateTime.addDays(durationInDays));
+            } else {
+                event->setDtStart(copyTimeSpec(newDateTime, event->dtStart()));
+                event->setDtEnd(copyTimeSpec(newDateTime.addSecs(durationInSeconds), event->dtEnd()));
+            }
+        } else if (inc->type() == Incidence::TypeTodo) {
+            Todo::Ptr const aTodo = inc.staticCast<Todo>();
+            const bool pasteAtDtStart = (pasteOptions & DndFactory::FlagTodosPasteAtDtStart);
+            if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
+                // Set date and preserve time and timezone stuff
+                const QDate date = newDateTime.date();
+                newDateTime = pasteAtDtStart ? aTodo->dtStart() : aTodo->dtDue();
+                newDateTime.setDate(date);
+            }
+            if (pasteAtDtStart) {
+                aTodo->setDtStart(copyTimeSpec(newDateTime, aTodo->dtStart()));
+            } else {
+                aTodo->setDtDue(copyTimeSpec(newDateTime, aTodo->dtDue()));
+            }
+        } else if (inc->type() == Incidence::TypeJournal) {
+            if (pasteOptions & DndFactory::FlagPasteAtOriginalTime) {
+                // Set date and preserve time and timezone stuff
+                const QDate date = newDateTime.date();
+                newDateTime = inc->dtStart();
+                newDateTime.setDate(date);
+            }
+            inc->setDtStart(copyTimeSpec(newDateTime, inc->dtStart()));
+        } else {
+            qCDebug(KCALUTILS_LOG) << "Trying to paste unknown incidence of type" << int(inc->type());
+        }
+    }
+
+    return inc;
 }
-
-DndFactory::~DndFactory() = default;
+//@endcond
 
 Calendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData)
 {
@@ -218,7 +204,7 @@ Incidence::List DndFactory::pasteIncidences(const QDateTime &newDateTime, PasteF
     const Incidence::List incidences = calendar->incidences();
     Incidence::List::ConstIterator end(incidences.constEnd());
     for (it = incidences.constBegin(); it != end; ++it) {
-        Incidence::Ptr const incidence = DndFactoryPrivate::pasteIncidence(*it, newDateTime, pasteOptions);
+        Incidence::Ptr const incidence = pasteIncidence(*it, newDateTime, pasteOptions);
         if (incidence) {
             list.append(incidence);
             oldUidToNewInc[(*it)->uid()] = *it;
