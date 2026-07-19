@@ -11,6 +11,7 @@
 #include "kcalutils_export.h"
 #include <KCalendarCore/Calendar>
 
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 29, 0)
 class QMimeData;
 
 namespace KCalUtils
@@ -45,3 +46,4 @@ namespace VCalDrag
 [[nodiscard]] KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalendarCore::Calendar::Ptr &cal);
 }
 }
+#endif

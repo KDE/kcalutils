@@ -8,6 +8,7 @@
 */
 #include "vcaldrag.h"
 
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 29, 0)
 #include <KCalendarCore/VCalFormat>
 using namespace KCalendarCore;
 
@@ -48,3 +49,4 @@ bool VCalDrag::fromMimeData(const QMimeData *de, const Calendar::Ptr &cal)
 
     return success;
 }
+#endif

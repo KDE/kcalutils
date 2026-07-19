@@ -12,6 +12,9 @@
 #include "dndfactory.h"
 
 #include <KCalendarCore/MemoryCalendar>
+#if KCALENDARCORE_VERSION >= QT_VERSION_CHECK(6, 29, 0)
+#include <KCalendarCore/MimeData>
+#endif
 
 #include <QTest>
 #include <QTimeZone>
