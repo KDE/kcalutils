@@ -55,6 +55,7 @@ public:
 
     Q_DECLARE_FLAGS(PasteFlags, PasteFlag)
 
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 29, 0)
     /*!
      Create the calendar that is contained in the mime data.
     */
@@ -69,6 +70,7 @@ public:
       Create Event object from mime data.
     */
     static KCalendarCore::Event::Ptr createDropEvent(const QMimeData *mimeData);
+#endif
 
     /*!
       Copies a list of \a incidences to the clipboard.

@@ -12,6 +12,7 @@
 
 #include <KCalendarCore/Calendar>
 
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 29, 0)
 class QMimeData;
 
 namespace KCalUtils
@@ -54,3 +55,4 @@ KCALUTILS_EXPORT bool populateMimeData(QMimeData *e, const KCalendarCore::Calend
 [[nodiscard]] KCALUTILS_EXPORT bool fromMimeData(const QMimeData *e, const KCalendarCore::Calendar::Ptr &cal);
 }
 }
+#endif

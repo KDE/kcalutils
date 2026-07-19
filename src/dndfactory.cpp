@@ -27,6 +27,9 @@
 
 #include "kcalutils_debug.h"
 #include <KCalendarCore/MemoryCalendar>
+#if KCALENDARCORE_VERSION >= QT_VERSION_CHECK(6, 29, 0)
+#include <KCalendarCore/MimeData>
+#endif
 #include <QUrl>
 
 #include <QClipboard>
@@ -114,6 +117,7 @@ static Incidence::Ptr pasteIncidence(const Incidence::Ptr &incidence, QDateTime 
 }
 //@endcond
 
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 29, 0)
 Calendar::Ptr DndFactory::createDropCalendar(const QMimeData *mimeData)
 {
     if (mimeData) {
@@ -157,11 +161,13 @@ Todo::Ptr DndFactory::createDropTodo(const QMimeData *mimeData)
 
     return todo;
 }
+#endif
 
 bool DndFactory::copyIncidences(const Incidence::List &incidences)
 {
     QClipboard *clipboard = QGuiApplication::clipboard();
     Q_ASSERT(clipboard);
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 29, 0)
     Calendar::Ptr const calendar(new MemoryCalendar(QTimeZone::systemTimeZone()));
 
     Incidence::List::ConstIterator it;
@@ -182,13 +188,26 @@ bool DndFactory::copyIncidences(const Incidence::List &incidences)
         clipboard->setMimeData(mimeData);
         return true;
     }
+#else
+    auto mimeData = new QMimeData;
+    KCalendarCore::MimeData::populate(mimeData, incidences);
+    if (KCalendarCore::MimeData::canDecode(mimeData)) {
+        clipboard->setMimeData(mimeData);
+        return true;
+    }
+    return false;
+#endif
 }
 
 Incidence::List DndFactory::pasteIncidences(const QDateTime &newDateTime, PasteFlags pasteOptions)
 {
     QClipboard const *clipboard = QGuiApplication::clipboard();
     Q_ASSERT(clipboard);
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 29, 0)
     Calendar::Ptr const calendar(createDropCalendar(clipboard->mimeData()));
+#else
+    Calendar::Ptr const calendar(KCalendarCore::MimeData::decodeCalendar(clipboard->mimeData()));
+#endif
     Incidence::List list;
 
     if (!calendar) {
