@@ -81,19 +81,6 @@ namespace Stringify
   \return the localized string representation of the incidence status
 */
 [[nodiscard]] KCALUTILS_EXPORT QString incidenceStatus(const KCalendarCore::Incidence::Ptr &incidence);
-/*!
-  Get a translated string representation of a ScheduleMessage status.
-  \param status the ScheduleMessage::Status to convert to string
-  \return the localized string representation of the schedule message status
-*/
-[[nodiscard]] KCALUTILS_EXPORT QString scheduleMessageStatus(KCalendarCore::ScheduleMessage::Status status);
-
-/*!
-  Returns string containing the date/time when the to-do was completed,
-  formatted according to the user's locale settings.
-  \a shortfmt If true, use a short date format; else use a long format.
-*/
-[[nodiscard]] KCALUTILS_EXPORT QString todoCompletedDateTime(const KCalendarCore::Todo::Ptr &todo, bool shortfmt = false);
 
 [[nodiscard]] KCALUTILS_EXPORT QString attendeeRole(KCalendarCore::Attendee::Role role);
 /*!
