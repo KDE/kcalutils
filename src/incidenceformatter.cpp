@@ -35,6 +35,7 @@ using namespace KCalendarCore;
 #include <KIdentityManagementCore/Utils>
 
 #include <KEmailAddress>
+#include <ktexttemplate_version.h>
 #include <ktexttohtml.h>
 
 #include "kcalutils_debug.h"
@@ -485,26 +486,32 @@ struct IncidenceNameAndUid {
     incidence[QStringLiteral("description")] = displayViewFormatDescription(event);
     // TODO: print comments?
 
+#if KTEXTTEMPLATE_VERSION < QT_VERSION_CHECK(6, 29, 0)
     QVariantList remVars;
     const QStringList remList = reminderStringList(event);
     for (const QString &rem : remList) {
         remVars.append(rem);
     }
     incidence[QStringLiteral("reminders")] = remVars;
+#else
+    incidence[QStringLiteral("reminders")] = reminderStringList(event);
+#endif
     incidence[QStringLiteral("organizer")] = displayViewFormatOrganizer(event);
     const bool showStatus = incOrganizerOwnsCalendar(calendar, event);
     incidence[QStringLiteral("chair")] = displayViewFormatAttendeeRoleList(event, Attendee::Chair, showStatus);
     incidence[QStringLiteral("requiredParticipants")] = displayViewFormatAttendeeRoleList(event, Attendee::ReqParticipant, showStatus);
     incidence[QStringLiteral("optionalParticipants")] = displayViewFormatAttendeeRoleList(event, Attendee::OptParticipant, showStatus);
     incidence[QStringLiteral("observers")] = displayViewFormatAttendeeRoleList(event, Attendee::NonParticipant, showStatus);
-
+#if KTEXTTEMPLATE_VERSION < QT_VERSION_CHECK(6, 29, 0)
     QVariantList catVars;
     const QStringList catList = event->categories();
     for (const QString &cat : catList) {
         catVars.append(cat);
     }
     incidence[QStringLiteral("categories")] = catVars;
-
+#else
+    incidence[QStringLiteral("categories")] = event->categories();
+#endif
     incidence[QStringLiteral("attachments")] = displayViewFormatAttachments(event);
     incidence[QStringLiteral("creationDate")] = event->created().toLocalTime();
     incidence[QStringLiteral("modificationDate")] = event->lastModified().toLocalTime();
@@ -570,26 +577,32 @@ struct IncidenceNameAndUid {
 
     // TODO: print comments?
 
+#if KTEXTTEMPLATE_VERSION < QT_VERSION_CHECK(6, 29, 0)
     QVariantList remVars;
     const QStringList remList = reminderStringList(todo);
     for (const QString &rem : remList) {
         remVars.append(rem);
     }
     incidence[QStringLiteral("reminders")] = remVars;
-
+#else
+    incidence[QStringLiteral("reminders")] = reminderStringList(todo);
+#endif
     incidence[QStringLiteral("organizer")] = displayViewFormatOrganizer(todo);
     const bool showStatus = incOrganizerOwnsCalendar(calendar, todo);
     incidence[QStringLiteral("chair")] = displayViewFormatAttendeeRoleList(todo, Attendee::Chair, showStatus);
     incidence[QStringLiteral("requiredParticipants")] = displayViewFormatAttendeeRoleList(todo, Attendee::ReqParticipant, showStatus);
     incidence[QStringLiteral("optionalParticipants")] = displayViewFormatAttendeeRoleList(todo, Attendee::OptParticipant, showStatus);
     incidence[QStringLiteral("observers")] = displayViewFormatAttendeeRoleList(todo, Attendee::NonParticipant, showStatus);
-
+#if KTEXTTEMPLATE_VERSION < QT_VERSION_CHECK(6, 29, 0)
     QVariantList catVars;
     const QStringList catList = todo->categories();
     for (const QString &cat : catList) {
         catVars.append(cat);
     }
     incidence[QStringLiteral("categories")] = catVars;
+#else
+    incidence[QStringLiteral("categories")] = todo->categories();
+#endif
     incidence[QStringLiteral("priority")] = todo->priority();
     if (todo->isCompleted()) {
         incidence[QStringLiteral("completedDate")] = todo->completed();
@@ -614,12 +627,16 @@ struct IncidenceNameAndUid {
     incidence[QStringLiteral("calendar")] = calendar ? resourceString(calendar, journal) : sourceName;
     incidence[QStringLiteral("date")] = journal->dtStart().toLocalTime();
     incidence[QStringLiteral("description")] = displayViewFormatDescription(journal);
+#if KTEXTTEMPLATE_VERSION < QT_VERSION_CHECK(6, 29, 0)
     QVariantList catVars;
     const QStringList catList = journal->categories();
     for (const QString &cat : catList) {
         catVars.append(cat);
     }
     incidence[QStringLiteral("categories")] = catVars;
+#else
+    incidence[QStringLiteral("categories")] = journal->categories();
+#endif
     incidence[QStringLiteral("creationDate")] = journal->created().toLocalTime();
     incidence[QStringLiteral("modificationDate")] = journal->lastModified().toLocalTime();
     incidence[QStringLiteral("revision")] = journal->revision();

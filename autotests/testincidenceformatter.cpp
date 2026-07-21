@@ -277,6 +277,7 @@ void IncidenceFormatterTest::testDisplayViewFormatEvent_data()
     QTest::newRow("event-allday-multiday") << QStringLiteral("event-allday-multiday");
     QTest::newRow("event-allday") << QStringLiteral("event-allday");
     QTest::newRow("event-multiday") << QStringLiteral("event-multiday");
+    QTest::newRow("event-categories") << QStringLiteral("event-categories");
 }
 
 void IncidenceFormatterTest::testDisplayViewFormatEvent()
