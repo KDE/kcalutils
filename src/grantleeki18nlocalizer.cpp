@@ -13,14 +13,8 @@
 
 #include <KLocalizedString>
 
-GrantleeKi18nLocalizer::GrantleeKi18nLocalizer()
-
-{
-}
-
-GrantleeKi18nLocalizer::~GrantleeKi18nLocalizer()
-{
-}
+GrantleeKi18nLocalizer::GrantleeKi18nLocalizer() = default;
+GrantleeKi18nLocalizer::~GrantleeKi18nLocalizer() = default;
 
 QString GrantleeKi18nLocalizer::processArguments(const KLocalizedString &kstr, const QVariantList &arguments) const
 {
@@ -89,9 +83,4 @@ QString GrantleeKi18nLocalizer::localizePluralString(const QString &string, cons
 {
     const KLocalizedString str = kxi18np(qPrintable(string), qPrintable(pluralForm));
     return processArguments(str, arguments);
-}
-
-QString GrantleeKi18nLocalizer::localizeMonetaryValue(qreal value, const QString &currencySymbol) const
-{
-    return QLocale(currentLocale()).toCurrencyString(value, currencySymbol);
 }

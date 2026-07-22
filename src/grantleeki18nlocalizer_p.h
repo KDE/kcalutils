@@ -26,10 +26,6 @@ public:
     localizePluralContextString(const QString &string, const QString &pluralForm, const QString &context, const QVariantList &arguments) const override;
     [[nodiscard]] QString localizePluralString(const QString &string, const QString &pluralForm, const QVariantList &arguments) const override;
 
-    // Only exception, Grantlee's implementation is not using QLocale for this
-    // for some reason
-    [[nodiscard]] QString localizeMonetaryValue(qreal value, const QString &currencySymbol) const override;
-
 private:
     [[nodiscard]] QString processArguments(const KLocalizedString &str, const QVariantList &arguments) const;
 };
