@@ -282,7 +282,7 @@ struct IncidenceNameAndUid {
     return displayViewFormatPerson(email, name, uid, rsvpStatusIconName(status));
 }
 
-[[nodiscard]] static bool incOrganizerOwnsCalendar([[maybe_unused]] const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
+[[nodiscard]] static bool incOrganizerOwnsCalendar(const Incidence::Ptr &incidence)
 {
     // PORTME!  Look at e35's CalHelper::incOrganizerOwnsCalendar
 
@@ -431,7 +431,7 @@ struct IncidenceNameAndUid {
     return incidenceData;
 }
 
-[[nodiscard]] static QString displayViewFormatEvent(const Calendar::Ptr &calendar, const QString &sourceName, const Event::Ptr &event, QDate date)
+[[nodiscard]] static QString displayViewFormatEvent(const QString &sourceName, const Event::Ptr &event, QDate date)
 {
     if (!event) {
         return QString();
@@ -439,7 +439,7 @@ struct IncidenceNameAndUid {
 
     QVariantHash incidence = incidenceTemplateHeader(event);
 
-    incidence[QStringLiteral("calendar")] = calendar ? resourceString(calendar, event) : sourceName;
+    incidence[QStringLiteral("calendar")] = sourceName;
     const QString richLocation = event->richLocation();
     if (richLocation.startsWith(QLatin1StringView("http:/")) || richLocation.startsWith(QLatin1StringView("https:/"))) {
         incidence[QStringLiteral("location")] = QStringLiteral("<a href=\"%1\">%1</a>").arg(richLocation);
@@ -492,7 +492,7 @@ struct IncidenceNameAndUid {
     }
     incidence[QStringLiteral("reminders")] = remVars;
     incidence[QStringLiteral("organizer")] = displayViewFormatOrganizer(event);
-    const bool showStatus = incOrganizerOwnsCalendar(calendar, event);
+    const bool showStatus = incOrganizerOwnsCalendar(event);
     incidence[QStringLiteral("chair")] = displayViewFormatAttendeeRoleList(event, Attendee::Chair, showStatus);
     incidence[QStringLiteral("requiredParticipants")] = displayViewFormatAttendeeRoleList(event, Attendee::ReqParticipant, showStatus);
     incidence[QStringLiteral("optionalParticipants")] = displayViewFormatAttendeeRoleList(event, Attendee::OptParticipant, showStatus);
@@ -513,7 +513,7 @@ struct IncidenceNameAndUid {
     return GrantleeTemplateManager::instance()->render(QStringLiteral("org.kde.pim/kcalutils/event.html"), incidence);
 }
 
-[[nodiscard]] static QString displayViewFormatTodo(const Calendar::Ptr &calendar, const QString &sourceName, const Todo::Ptr &todo, QDate ocurrenceDueDate)
+[[nodiscard]] static QString displayViewFormatTodo(const QString &sourceName, const Todo::Ptr &todo, QDate ocurrenceDueDate)
 {
     if (!todo) {
         qCDebug(KCALUTILS_LOG) << "IncidenceFormatter::displayViewFormatTodo was called without to-do, quitting";
@@ -522,7 +522,7 @@ struct IncidenceNameAndUid {
 
     QVariantHash incidence = incidenceTemplateHeader(todo);
 
-    incidence[QStringLiteral("calendar")] = calendar ? resourceString(calendar, todo) : sourceName;
+    incidence[QStringLiteral("calendar")] = sourceName;
     incidence[QStringLiteral("location")] = todo->richLocation();
 
     const bool hastStartDate = todo->hasStartDate();
@@ -578,7 +578,7 @@ struct IncidenceNameAndUid {
     incidence[QStringLiteral("reminders")] = remVars;
 
     incidence[QStringLiteral("organizer")] = displayViewFormatOrganizer(todo);
-    const bool showStatus = incOrganizerOwnsCalendar(calendar, todo);
+    const bool showStatus = incOrganizerOwnsCalendar(todo);
     incidence[QStringLiteral("chair")] = displayViewFormatAttendeeRoleList(todo, Attendee::Chair, showStatus);
     incidence[QStringLiteral("requiredParticipants")] = displayViewFormatAttendeeRoleList(todo, Attendee::ReqParticipant, showStatus);
     incidence[QStringLiteral("optionalParticipants")] = displayViewFormatAttendeeRoleList(todo, Attendee::OptParticipant, showStatus);
@@ -604,14 +604,14 @@ struct IncidenceNameAndUid {
     return GrantleeTemplateManager::instance()->render(QStringLiteral("org.kde.pim/kcalutils/todo.html"), incidence);
 }
 
-[[nodiscard]] static QString displayViewFormatJournal(const Calendar::Ptr &calendar, const QString &sourceName, const Journal::Ptr &journal)
+[[nodiscard]] static QString displayViewFormatJournal(const QString &sourceName, const Journal::Ptr &journal)
 {
     if (!journal) {
         return QString();
     }
 
     QVariantHash incidence = incidenceTemplateHeader(journal);
-    incidence[QStringLiteral("calendar")] = calendar ? resourceString(calendar, journal) : sourceName;
+    incidence[QStringLiteral("calendar")] = sourceName;
     incidence[QStringLiteral("date")] = journal->dtStart().toLocalTime();
     incidence[QStringLiteral("description")] = displayViewFormatDescription(journal);
     QVariantList catVars;
@@ -627,8 +627,7 @@ struct IncidenceNameAndUid {
     return GrantleeTemplateManager::instance()->render(QStringLiteral("org.kde.pim/kcalutils/journal.html"), incidence);
 }
 
-[[nodiscard]] static QString
-displayViewFormatFreeBusy([[maybe_unused]] const Calendar::Ptr &calendar, [[maybe_unused]] const QString &sourceName, const FreeBusy::Ptr &fb)
+[[nodiscard]] static QString displayViewFormatFreeBusy([[maybe_unused]] const QString &sourceName, const FreeBusy::Ptr &fb)
 {
     if (!fb) {
         return QString();
@@ -688,21 +687,8 @@ displayViewFormatFreeBusy([[maybe_unused]] const Calendar::Ptr &calendar, [[mayb
 class KCalUtils::IncidenceFormatter::EventViewerVisitor : public Visitor
 {
 public:
-    EventViewerVisitor()
-        : mCalendar(nullptr)
-    {
-    }
-
+    EventViewerVisitor() = default;
     ~EventViewerVisitor() override;
-
-    bool act(const Calendar::Ptr &calendar, const IncidenceBase::Ptr &incidence, QDate date)
-    {
-        mCalendar = calendar;
-        mSourceName.clear();
-        mDate = date;
-        mResult = QLatin1StringView("");
-        return incidence->accept(*this, incidence);
-    }
 
     bool act(const QString &sourceName, const IncidenceBase::Ptr &incidence, QDate date)
     {
@@ -720,53 +706,36 @@ public:
 protected:
     bool visit(const Event::Ptr &event) override
     {
-        mResult = displayViewFormatEvent(mCalendar, mSourceName, event, mDate);
+        mResult = displayViewFormatEvent(mSourceName, event, mDate);
         return !mResult.isEmpty();
     }
 
     bool visit(const Todo::Ptr &todo) override
     {
-        mResult = displayViewFormatTodo(mCalendar, mSourceName, todo, mDate);
+        mResult = displayViewFormatTodo(mSourceName, todo, mDate);
         return !mResult.isEmpty();
     }
 
     bool visit(const Journal::Ptr &journal) override
     {
-        mResult = displayViewFormatJournal(mCalendar, mSourceName, journal);
+        mResult = displayViewFormatJournal(mSourceName, journal);
         return !mResult.isEmpty();
     }
 
     bool visit(const FreeBusy::Ptr &fb) override
     {
-        mResult = displayViewFormatFreeBusy(mCalendar, mSourceName, fb);
+        mResult = displayViewFormatFreeBusy(mSourceName, fb);
         return !mResult.isEmpty();
     }
 
 protected:
-    Calendar::Ptr mCalendar;
     QString mSourceName;
     QDate mDate;
     QString mResult;
 };
 //@endcond
 
-EventViewerVisitor::~EventViewerVisitor()
-{
-}
-
-QString IncidenceFormatter::extensiveDisplayStr(const Calendar::Ptr &calendar, const IncidenceBase::Ptr &incidence, QDate date)
-{
-    if (!incidence) {
-        return QString();
-    }
-
-    EventViewerVisitor v;
-    if (v.act(calendar, incidence, date)) {
-        return v.result();
-    } else {
-        return QString();
-    }
-}
+EventViewerVisitor::~EventViewerVisitor() = default;
 
 QString IncidenceFormatter::extensiveDisplayStr(const QString &sourceName, const IncidenceBase::Ptr &incidence, QDate date)
 {
@@ -2375,16 +2344,6 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
 public:
     ToolTipVisitor() = default;
 
-    bool act(const Calendar::Ptr &calendar, const IncidenceBase::Ptr &incidence, QDate date = QDate(), bool richText = true)
-    {
-        mCalendar = calendar;
-        mLocation.clear();
-        mDate = date;
-        mRichText = richText;
-        mResult = QLatin1StringView("");
-        return incidence ? incidence->accept(*this, incidence) : false;
-    }
-
     bool act(const QString &location, const IncidenceBase::Ptr &incidence, QDate date = QDate(), bool richText = true)
     {
         mLocation = location;
@@ -2413,7 +2372,6 @@ protected:
     [[nodiscard]] QString generateToolTip(const Incidence::Ptr &incidence, const QString &dtRangeText);
 
 protected:
-    Calendar::Ptr mCalendar;
     QString mLocation;
     QDate mDate;
     bool mRichText = true;
@@ -2646,7 +2604,7 @@ bool IncidenceFormatter::ToolTipVisitor::visit(const FreeBusy::Ptr &fb)
     return tmpStr;
 }
 
-[[nodiscard]] static QString tooltipFormatAttendees(const Calendar::Ptr &calendar, const Incidence::Ptr &incidence)
+[[nodiscard]] static QString tooltipFormatAttendees(const Incidence::Ptr &incidence)
 {
     QString tmpStr;
     QString str;
@@ -2660,7 +2618,7 @@ bool IncidenceFormatter::ToolTipVisitor::visit(const FreeBusy::Ptr &fb)
 
     // Show the attendee status if the incidence's organizer owns the resource calendar,
     // which means they are running the show and have all the up-to-date response info.
-    const bool showStatus = attendeeCount > 0 && incOrganizerOwnsCalendar(calendar, incidence);
+    const bool showStatus = attendeeCount > 0 && incOrganizerOwnsCalendar(incidence);
 
     // Add "chair"
     str = tooltipFormatAttendeeRoleList(incidence, Attendee::Chair, showStatus);
@@ -2707,9 +2665,6 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
     tmp += QLatin1StringView("<hr>");
 
     QString calStr = mLocation;
-    if (mCalendar) {
-        calStr = resourceString(mCalendar, incidence);
-    }
     if (!calStr.isEmpty()) {
         tmp += QLatin1StringView("<i>") + i18n("Calendar:") + QLatin1StringView("</i>") + QLatin1StringView("&nbsp;");
         tmp += calStr;
@@ -2778,7 +2733,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
         }
     }
 
-    const QString attendees = tooltipFormatAttendees(mCalendar, incidence);
+    const QString attendees = tooltipFormatAttendees(incidence);
     if (!attendees.isEmpty()) {
         if (needAnHorizontalLine) {
             tmp += QLatin1StringView("<hr>");
@@ -3396,11 +3351,6 @@ QString IncidenceFormatter::dateTimeToString(const QDateTime &date, bool allDay,
     }
 
     return QLocale().toString(date.toLocalTime(), (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
-}
-
-QString IncidenceFormatter::resourceString([[maybe_unused]] const Calendar::Ptr &calendar, [[maybe_unused]] const Incidence::Ptr &incidence)
-{
-    return QString();
 }
 
 static QString secs2Duration(qint64 secs)

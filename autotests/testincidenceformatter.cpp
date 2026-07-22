@@ -289,7 +289,7 @@ void IncidenceFormatterTest::testDisplayViewFormatEvent()
     const auto events = calendar->events();
     QCOMPARE(events.size(), 1);
 
-    const QString html = IncidenceFormatter::extensiveDisplayStr(calendar, events[0]);
+    const QString html = IncidenceFormatter::extensiveDisplayStr(QString(), events[0]);
 
     QVERIFY(validateHtml(name, html));
     QVERIFY(compareHtml(name));
@@ -315,7 +315,7 @@ void IncidenceFormatterTest::testDisplayViewFormatTodo()
     const auto todos = calendar->todos();
     QCOMPARE(todos.size(), 1);
 
-    const QString html = IncidenceFormatter::extensiveDisplayStr(calendar, todos[0]);
+    const QString html = IncidenceFormatter::extensiveDisplayStr(QString(), todos[0]);
 
     QVERIFY(validateHtml(name, html));
     QVERIFY(compareHtml(name));
@@ -340,7 +340,7 @@ void IncidenceFormatterTest::testDisplayViewFormatJournal()
     const auto journals = calendar->journals();
     QCOMPARE(journals.size(), 1);
 
-    const QString html = IncidenceFormatter::extensiveDisplayStr(calendar, journals[0]);
+    const QString html = IncidenceFormatter::extensiveDisplayStr(QString(), journals[0]);
 
     QVERIFY(validateHtml(name, html));
     QVERIFY(compareHtml(name));
@@ -370,7 +370,7 @@ void IncidenceFormatterTest::testDisplayViewFreeBusy()
     const KCalendarCore::FreeBusy::Ptr freeBusy = format.parseFreeBusy(QString::fromUtf8(fbData));
     QVERIFY(freeBusy);
 
-    const QString html = IncidenceFormatter::extensiveDisplayStr(calendar, freeBusy);
+    const QString html = IncidenceFormatter::extensiveDisplayStr(QString(), freeBusy);
 
     QVERIFY(validateHtml(name, html));
     QVERIFY(compareHtml(name));

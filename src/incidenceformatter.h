@@ -105,19 +105,6 @@ KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalendarCo
   Create a RichText QString representation of an Incidence in a nice format
   suitable for using in a viewer widget.
   All dates and times are converted to local time for display.
-  \a calendar is a pointer to the Calendar that owns the specified Incidence.
-  \a incidence is a pointer to the Incidence to be formatted.
-  \a date is the QDate for which the string representation should be computed;
-  used mainly for recurring incidences.
-*/
-KCALUTILS_EXPORT QString extensiveDisplayStr(const KCalendarCore::Calendar::Ptr &calendar,
-                                             const KCalendarCore::IncidenceBase::Ptr &incidence,
-                                             QDate date = QDate());
-
-/*!
-  Create a RichText QString representation of an Incidence in a nice format
-  suitable for using in a viewer widget.
-  All dates and times are converted to local time for display.
   \a sourceName where the incidence is from (e.g. resource name)
   \a incidence is a pointer to the Incidence to be formatted.
   \a date is the QDate for which the string representation should be computed;
@@ -204,14 +191,6 @@ KCALUTILS_EXPORT QString formatStartEnd(const QDateTime &start, const QDateTime 
   \sa dateToString(), timeToString().
 */
 KCALUTILS_EXPORT QString dateTimeToString(const QDateTime &date, bool dateOnly = false, bool shortfmt = true);
-
-/*!
-  Returns a Calendar Resource label name for the specified Incidence.
-  \param calendar a pointer to the Calendar
-  \param incidence a pointer to the Incidence
-  \return the resource string
-*/
-KCALUTILS_EXPORT QString resourceString(const KCalendarCore::Calendar::Ptr &calendar, const KCalendarCore::Incidence::Ptr &incidence);
 
 /*!
   Returns a duration string computed for the specified Incidence.
