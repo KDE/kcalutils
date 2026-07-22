@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdepimlibs-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-15 00:46+0000\n"
-"PO-Revision-Date: 2026-05-19 13:24+0300\n"
+"PO-Revision-Date: 2026-07-21 21:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: src/grantleetemplatemanager.cpp:72
 #, kde-format
@@ -506,37 +506,37 @@ msgstr "Hata: Bilinmeyen yöntemli iTIP günce iletisi."
 #: src/incidenceformatter.cpp:1684
 #, kde-format
 msgid "This free/busy list has been published."
-msgstr "Bu Uygun/Meşgul listesi yayımlandı."
+msgstr "Bu Uygun/Meşgûl listesi yayımlandı."
 
 #: src/incidenceformatter.cpp:1686
 #, kde-format
 msgid "The free/busy list has been requested."
-msgstr "Uygun/Meşgul listesi isteniyor."
+msgstr "Uygun/Meşgûl listesi isteniyor."
 
 #: src/incidenceformatter.cpp:1688
 #, kde-format
 msgid "This free/busy list was refreshed."
-msgstr "Uygun/Meşgul listesi yenilendi."
+msgstr "Uygun/Meşgûl listesi yenilendi."
 
 #: src/incidenceformatter.cpp:1690
 #, kde-format
 msgid "This free/busy list was canceled."
-msgstr "Uygun/Meşgul listesi iptal edildi."
+msgstr "Uygun/Meşgûl listesi iptal edildi."
 
 #: src/incidenceformatter.cpp:1692
 #, kde-format
 msgid "Addition to the free/busy list."
-msgstr "Uygun/Meşgul listesine ek yapıldı."
+msgstr "Uygun/Meşgûl listesine ek yapıldı."
 
 #: src/incidenceformatter.cpp:1694
 #, kde-format
 msgid "Reply to the free/busy list."
-msgstr "Uygun/Meşgul listesine yanıt gönder."
+msgstr "Uygun/Meşgûl listesine yanıt gönder."
 
 #: src/incidenceformatter.cpp:1700
 #, kde-format
 msgid "Error: Free/Busy iTIP message with unknown method."
-msgstr "Hata: Bilinmeyen yöntemli Uygun/Meşgul iTIP iletisi."
+msgstr "Hata: Bilinmeyen yöntemli Uygun/Meşgûl iTIP iletisi."
 
 #: src/incidenceformatter.cpp:1755
 #, kde-format
@@ -741,7 +741,7 @@ msgstr "<i>Dönem bitişi:</i> %1"
 #: src/incidenceformatter.cpp:2567 src/templates/freebusy.html:5
 #, kde-format
 msgid "Free/Busy information for %1"
-msgstr "%1 için Uygun/Meşgul bilgisi"
+msgstr "%1 için Uygun/Meşgûl bilgisi"
 
 #: src/incidenceformatter.cpp:2587
 #, kde-format
@@ -1651,7 +1651,7 @@ msgstr "günce"
 #, kde-format
 msgctxt "@item incidence type is freebusy"
 msgid "free/busy"
-msgstr "uygun/meşgul"
+msgstr "uygun/meşgûl"
 
 #: src/stringify.cpp:56
 #, kde-format
@@ -1675,7 +1675,7 @@ msgstr "Günce"
 #, kde-format
 msgctxt "@item incidence type is Freebusy (capitalized)"
 msgid "Free/Busy"
-msgstr "Uygun/Meşgul"
+msgstr "Uygun/Meşgûl"
 
 #: src/stringify.cpp:76
 #, kde-format
@@ -1927,7 +1927,7 @@ msgstr "SÜRÜM özelliği bulunamadı"
 #, kde-format
 msgctxt "@item"
 msgid "object is not a freebusy, event, todo or journal"
-msgstr "nesne bir uygun–meşgul, olay, yapılacak veya günce değil"
+msgstr "nesne bir uygun/meşgûl, olay, yapılacak veya günce değil"
 
 #: src/stringify.cpp:244
 #, kde-format
@@ -2099,7 +2099,7 @@ msgstr "%1–%2 tarihleri arasındaki dolu zamanlar:"
 #: src/templates/freebusy.html:9
 msgctxt "tag for busy period list"
 msgid "Busy:"
-msgstr "Meşgul:"
+msgstr "Meşgûl:"
 
 #: src/templates/freebusy.html:13
 #, kde-format
@@ -2177,7 +2177,7 @@ msgstr "Bitiş tarihi:"
 
 #: src/templates/itip_freebusy.html:23
 msgid "Busy periods given in this free/busy object:"
-msgstr "Bu serbest/meşgul nesnesinde belirtilmiş meşgul dönemleri:"
+msgstr "Bu serbest/meşgûl nesnesinde belirtilmiş meşgûl dönemleri:"
 
 #: src/templates/itip_freebusy.html:31
 #, kde-format
