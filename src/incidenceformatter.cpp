@@ -1312,25 +1312,6 @@ QString IncidenceFormatter::formatStartEnd(const QDateTime &start, const QDateTi
     return invitationDetailsFreeBusy(fb, noHtmlMode);
 }
 
-[[nodiscard]] static bool replyMeansCounter([[maybe_unused]] const Incidence::Ptr &incidence)
-{
-    return false;
-    /**
-      see kolab/issue 3665 for an example of when we might use this for something
-
-      bool status = false;
-      if ( incidence ) {
-        // put code here that looks at the incidence and determines that
-        // the reply is meant to be a counter proposal.  We think this happens
-        // with Outlook counter proposals, but we aren't sure how yet.
-        if ( condition ) {
-          status = true;
-        }
-      }
-      return status;
-    */
-}
-
 [[nodiscard]] static QString
 invitationHeaderEvent(const Event::Ptr &event, const Incidence::Ptr &existingIncidence, const ScheduleMessage::Ptr &msg, const QString &sender)
 {
@@ -1371,11 +1352,6 @@ invitationHeaderEvent(const Event::Ptr &event, const Incidence::Ptr &existingInc
     case iTIPAdd:
         return i18n("Addition to the invitation.");
     case iTIPReply: {
-        /* cppcheck-suppress knownConditionTrueFalse */
-        if (replyMeansCounter(event)) {
-            return i18n("%1 makes this counter proposal.", firstAttendeeName(event, sender));
-        }
-
         Attendee::List attendees = event->attendees();
         if (attendees.isEmpty()) {
             qCDebug(KCALUTILS_LOG) << "No attendees in the iCal reply!";
@@ -1506,11 +1482,6 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
     case iTIPAdd:
         return i18n("Addition to the to-do.");
     case iTIPReply: {
-        /* cppcheck-suppress knownConditionTrueFalse */
-        if (replyMeansCounter(todo)) {
-            return i18n("%1 makes this counter proposal.", firstAttendeeName(todo, sender));
-        }
-
         Attendee::List attendees = todo->attendees();
         if (attendees.isEmpty()) {
             qCDebug(KCALUTILS_LOG) << "No attendees in the iCal reply!";
@@ -1626,11 +1597,6 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
     case iTIPAdd:
         return i18n("Addition to the journal.");
     case iTIPReply: {
-        /* cppcheck-suppress knownConditionTrueFalse */
-        if (replyMeansCounter(journal)) {
-            return i18n("Sender makes this counter proposal.");
-        }
-
         Attendee::List attendees = journal->attendees();
         if (attendees.isEmpty()) {
             qCDebug(KCALUTILS_LOG) << "No attendees in the iCal reply!";
@@ -2256,13 +2222,6 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
         Attendee a;
         Attendee ea;
         if (inc) {
-            // First, determine if this reply is really a counter in disguise.
-            /* cppcheck-suppress knownConditionTrueFalse */
-            if (replyMeansCounter(inc)) {
-                buttons = counterButtons(helper);
-                break;
-            }
-
             // Next, maybe this is a declined reply that was delegated from me?
             // find first attendee who is delegated-from me
             // look a their PARTSTAT response, if the response is declined,
