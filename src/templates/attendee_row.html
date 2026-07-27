@@ -2,7 +2,6 @@
     {% icon attendee.icon small attendee.status %}
 {% endif %}
 
-{% if attendee.uid %}
     <a href="mailto:{{ attendee.email }}" title="{{ attendee.email }}">
     {% if attendee.name %}
         {{ attendee.name }}
@@ -10,15 +9,6 @@
         {{ attendee.email }}
     {% endif %}
     </a>
-{% else %}
-    <a href="mailto:{{ attendee.email }}" title="{{ attendee.email }}">
-    {% if attendee.name %}
-        {{ attendee.name }}
-    {% else %}
-        {{ attendee.email }}
-    {% endif %}
-    </a>
-{% endif %}
 
 
 {% if attendee.isOrganizer or attendee.isMyself or attendee.delegator or attendee.delegate %}

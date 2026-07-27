@@ -102,28 +102,6 @@ static QString htmlAddTag(const QString &tag, const QString &text)
     return tmpStr;
 }
 
-namespace
-{
-struct IncidenceNameAndUid {
-    QString name;
-    QString uid;
-};
-}
-
-[[nodiscard]] static IncidenceNameAndUid searchNameAndUid(const QString &email, const QString &name, const QString &uid)
-{
-    // Yes, this is a silly method now, but it's predecessor was quite useful in e35.
-    // For now, please keep this sillyness until e35 is frozen to ease forward porting.
-    // -Allen
-    IncidenceNameAndUid s;
-    s.name = name;
-    s.uid = uid;
-    if (!email.isEmpty() && (name.isEmpty() || uid.isEmpty())) {
-        s.uid.clear();
-    }
-    return s;
-}
-
 [[nodiscard]] static QString searchName(const QString &email, const QString &name)
 {
     const QString printName = name.isEmpty() ? email : name;
@@ -247,17 +225,11 @@ struct IncidenceNameAndUid {
  *******************************************************************/
 
 //@cond PRIVATE
-[[nodiscard]] static QVariantHash displayViewFormatPerson(const QString &email, const QString &name, const QString &uid, const QString &iconName)
+[[nodiscard]] static QVariantHash displayViewFormatPerson(const QString &email, const QString &name, const QString &iconName)
 {
-    // Search for new print name or uid, if needed.
-    IncidenceNameAndUid const s = searchNameAndUid(email, name, uid);
-    const QString printName = s.name;
-    const QString printUid = s.uid;
-
     QVariantHash personData;
     personData[QStringLiteral("icon")] = iconName;
-    personData[QStringLiteral("uid")] = printUid;
-    personData[QStringLiteral("name")] = printName;
+    personData[QStringLiteral("name")] = name;
     personData[QStringLiteral("email")] = email;
 
     // Make the mailto link
@@ -277,9 +249,9 @@ struct IncidenceNameAndUid {
     return personData;
 }
 
-[[nodiscard]] static QVariantHash displayViewFormatPerson(const QString &email, const QString &name, const QString &uid, Attendee::PartStat status)
+[[nodiscard]] static QVariantHash displayViewFormatPerson(const QString &email, const QString &name, Attendee::PartStat status)
 {
-    return displayViewFormatPerson(email, name, uid, rsvpStatusIconName(status));
+    return displayViewFormatPerson(email, name, rsvpStatusIconName(status));
 }
 
 [[nodiscard]] static bool incOrganizerOwnsCalendar(const Incidence::Ptr &incidence)
@@ -321,7 +293,7 @@ struct IncidenceNameAndUid {
             // skip attendee that is also the organizer
             continue;
         }
-        QVariantHash attendeeData = displayViewFormatPerson(a.email(), a.name(), a.uid(), showStatus ? a.status() : Attendee::None);
+        QVariantHash attendeeData = displayViewFormatPerson(a.email(), a.name(), showStatus ? a.status() : Attendee::None);
         if (!a.delegator().isEmpty()) {
             attendeeData[QStringLiteral("delegator")] = a.delegator();
         }
@@ -343,8 +315,7 @@ struct IncidenceNameAndUid {
     // Add organizer link
     const int attendeeCount = incidence->attendees().count();
     if (attendeeCount > 1 || (attendeeCount == 1 && !attendeeIsOrganizer(incidence, incidence->attendees().at(0)))) {
-        const IncidenceNameAndUid s = searchNameAndUid(incidence->organizer().email(), incidence->organizer().name(), QString());
-        return displayViewFormatPerson(incidence->organizer().email(), s.name, s.uid, QStringLiteral("meeting-organizer"));
+        return displayViewFormatPerson(incidence->organizer().email(), incidence->organizer().name(), QStringLiteral("meeting-organizer"));
     }
 
     return QVariantHash();
@@ -390,11 +361,10 @@ struct IncidenceNameAndUid {
     // It's callees duty to ensure this
     Q_ASSERT(event->customProperty("KABC", "BIRTHDAY") == QLatin1StringView("YES") || event->customProperty("KABC", "ANNIVERSARY") == QLatin1StringView("YES"));
 
-    const QString uid_1 = event->customProperty("KABC", "UID-1");
     const QString name_1 = event->customProperty("KABC", "NAME-1");
     const QString email_1 = event->customProperty("KABC", "EMAIL-1");
     const KCalendarCore::Person p = Person::fromFullName(email_1);
-    return displayViewFormatPerson(p.email(), name_1, uid_1, QString());
+    return displayViewFormatPerson(p.email(), name_1, QString());
 }
 
 [[nodiscard]] static QVariantHash incidenceTemplateHeader(const Incidence::Ptr &incidence)
