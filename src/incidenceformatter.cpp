@@ -48,6 +48,7 @@ using namespace KCalendarCore;
 #include <QPalette>
 #include <QTextDocumentFragment>
 
+using namespace Qt::Literals;
 using namespace KCalUtils;
 using namespace IncidenceFormatter;
 
@@ -80,26 +81,9 @@ static QString cleanHtml(const QString &html)
     return thatIsMe(attendee.email());
 }
 
-static QString htmlAddTag(const QString &tag, const QString &text)
+static QString htmlAddTag(QStringView tag, QString text)
 {
-    int const numLineBreaks = text.count(u'\n');
-    const QString str = u'<' + tag + u'>';
-    QString tmpText = text;
-    QString tmpStr = str;
-    if (numLineBreaks >= 0) {
-        if (numLineBreaks > 0) {
-            for (int i = 0; i <= numLineBreaks; ++i) {
-                int const pos = tmpText.indexOf(u'\n');
-                QString tmp = tmpText.left(pos);
-                tmpText = tmpText.right(tmpText.length() - pos - 1);
-                tmpStr += tmp + QLatin1StringView("<br>");
-            }
-        } else {
-            tmpStr += tmpText;
-        }
-    }
-    tmpStr += QLatin1StringView("</") + tag + u'>';
-    return tmpStr;
+    return '<'_L1 + tag + '>'_L1 + std::move(text).replace("\n"_L1, "<br>"_L1) + "</"_L1 + tag + '>'_L1;
 }
 
 [[nodiscard]] static QString searchName(const QString &email, const QString &name)
