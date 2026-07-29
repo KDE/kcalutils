@@ -163,25 +163,6 @@ KCALUTILS_EXPORT QString formatICalInvitationNoHtml(const QString &invitation,
 KCALUTILS_EXPORT QString recurrenceString(const KCalendarCore::Incidence::Ptr &incidence);
 
 /*!
-  Returns a reminder string list computed for the specified Incidence.
-  Each item of the returning QStringList corresponds to a string
-  representation of a reminder belonging to this incidence.
-  \param incidence a pointer to the Incidence
-  \param shortfmt if true, a short version of each reminder is printed; else a longer version
-  \return a list of formatted reminder strings
-*/
-KCALUTILS_EXPORT QStringList reminderStringList(const KCalendarCore::Incidence::Ptr &incidence, bool shortfmt = true);
-
-/*!
-  Format the start and end dates/times of an incidence.
-  \param start the start date/time
-  \param end the end date/time
-  \param isAllDay if true, the incidence is all-day; otherwise time information is included
-  \return the formatted start and end string
-*/
-KCALUTILS_EXPORT QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllDay);
-
-/*!
   Build a QString date/time representation of a QDateTime object.
   All dates and times are converted to local time for display.
   \param date the date/time to be formatted
@@ -191,13 +172,6 @@ KCALUTILS_EXPORT QString formatStartEnd(const QDateTime &start, const QDateTime 
   \sa dateToString(), timeToString().
 */
 KCALUTILS_EXPORT QString dateTimeToString(const QDateTime &date, bool dateOnly = false, bool shortfmt = true);
-
-/*!
-  Returns a duration string computed for the specified Incidence.
-  \param incidence a pointer to the Incidence
-  \return the duration string
-*/
-KCALUTILS_EXPORT QString durationString(const KCalendarCore::Incidence::Ptr &incidence);
 
 class EventViewerVisitor;
 template<typename T>

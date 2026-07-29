@@ -56,6 +56,32 @@ using namespace IncidenceFormatter;
  *  General helpers
  *******************/
 
+/*!
+  Returns a reminder string list computed for the specified Incidence.
+  Each item of the returning QStringList corresponds to a string
+  representation of a reminder belonging to this incidence.
+  \param incidence a pointer to the Incidence
+  \param shortfmt if true, a short version of each reminder is printed; else a longer version
+  \return a list of formatted reminder strings
+*/
+static QStringList reminderStringList(const KCalendarCore::Incidence::Ptr &incidence, bool shortfmt = true);
+
+/*!
+  Format the start and end dates/times of an incidence.
+  \param start the start date/time
+  \param end the end date/time
+  \param isAllDay if true, the incidence is all-day; otherwise time information is included
+  \return the formatted start and end string
+*/
+static QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllDay);
+
+/*!
+  Returns a duration string computed for the specified Incidence.
+  \param incidence a pointer to the Incidence
+  \return the duration string
+*/
+static QString durationString(const KCalendarCore::Incidence::Ptr &incidence);
+
 static QVariantHash inviteButton(const QString &id, const QString &text, const QString &iconName, InvitationFormatterHelper *helper);
 
 //@cond PRIVATE
@@ -991,7 +1017,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
         ++count;
         QVariantHash ev;
         ev[QStringLiteral("summary")] = invitationSummary(*it, noHtmlMode);
-        ev[QStringLiteral("dateTime")] = IncidenceFormatter::formatStartEnd((*it)->dtStart(), (*it)->dtEnd(), (*it)->allDay());
+        ev[QStringLiteral("dateTime")] = formatStartEnd((*it)->dtStart(), (*it)->dtEnd(), (*it)->allDay());
         events.push_back(ev);
     }
     if (count == 50) {
@@ -1016,7 +1042,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
     incidence[QStringLiteral("recurrence")] = recurrenceString(event);
     incidence[QStringLiteral("isMultiDay")] = event->isMultiDay(QTimeZone::systemTimeZone());
     incidence[QStringLiteral("isAllDay")] = event->allDay();
-    incidence[QStringLiteral("dateTime")] = IncidenceFormatter::formatStartEnd(event->dtStart(), event->dtEnd(), event->allDay());
+    incidence[QStringLiteral("dateTime")] = formatStartEnd(event->dtStart(), event->dtEnd(), event->allDay());
     incidence[QStringLiteral("duration")] = durationString(event);
     incidence[QStringLiteral("description")] = invitationDescriptionIncidence(event, noHtmlMode);
 
@@ -1027,7 +1053,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
     return incidence;
 }
 
-QString IncidenceFormatter::formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllDay)
+QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllDay)
 {
     QString tmpStr;
     // <startDate[time> [- <[endDate][Time]>]
@@ -1075,8 +1101,8 @@ QString IncidenceFormatter::formatStartEnd(const QDateTime &start, const QDateTi
     incidence[QStringLiteral("location")] = htmlCompare(invitationLocation(event, noHtmlMode), invitationLocation(oldevent, noHtmlMode));
     incidence[QStringLiteral("recurs")] = event->recurs() || oldevent->recurs();
     incidence[QStringLiteral("recurrence")] = htmlCompare(recurrenceString(event), recurrenceString(oldevent));
-    incidence[QStringLiteral("dateTime")] = htmlCompare(IncidenceFormatter::formatStartEnd(event->dtStart(), event->dtEnd(), event->allDay()),
-                                                        IncidenceFormatter::formatStartEnd(oldevent->dtStart(), oldevent->dtEnd(), oldevent->allDay()));
+    incidence[QStringLiteral("dateTime")] = htmlCompare(formatStartEnd(event->dtStart(), event->dtEnd(), event->allDay()),
+                                                        formatStartEnd(oldevent->dtStart(), oldevent->dtEnd(), oldevent->allDay()));
     incidence[QStringLiteral("duration")] = htmlCompare(durationString(event), durationString(oldevent));
     incidence[QStringLiteral("description")] = invitationDescriptionIncidence(event, noHtmlMode);
 
@@ -3288,7 +3314,7 @@ static QString secs2Duration(qint64 secs)
     return tmp;
 }
 
-QString IncidenceFormatter::durationString(const Incidence::Ptr &incidence)
+QString durationString(const Incidence::Ptr &incidence)
 {
     QString tmp;
     if (incidence->type() == Incidence::TypeEvent) {
@@ -3317,7 +3343,7 @@ QString IncidenceFormatter::durationString(const Incidence::Ptr &incidence)
     return tmp;
 }
 
-QStringList IncidenceFormatter::reminderStringList(const Incidence::Ptr &incidence, [[maybe_unused]] bool shortfmt)
+QStringList reminderStringList(const Incidence::Ptr &incidence, [[maybe_unused]] bool shortfmt)
 {
     // TODO: implement shortfmt=false
     QStringList reminderStringList;
