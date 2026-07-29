@@ -73,11 +73,6 @@ public:
 #endif
 
     /*!
-      Copies a list of \a incidences to the clipboard.
-    */
-    static bool copyIncidences(const KCalendarCore::Incidence::List &incidences);
-
-    /*!
       This function clones the incidences that are in the clipboard and sets the clone's
       date/time to the specified \a newDateTime.
 

@@ -12,7 +12,13 @@
 #include "dndfactory.h"
 
 #include <KCalendarCore/MemoryCalendar>
+#if KCALENDARCORE_VERSION >= QT_VERSION_CHECK(6, 29, 0)
+#include <KCalendarCore/MimeData>
+#endif
 
+#include <QClipboard>
+#include <QGuiApplication>
+#include <QMimeData>
 #include <QTest>
 #include <QTimeZone>
 
@@ -23,6 +29,7 @@ using namespace KCalUtils;
 
 void DndFactoryTest::testPasteAllDayEvent()
 {
+#if KCALENDARCORE_VERSION >= QT_VERSION_CHECK(6, 29, 0)
     const Event::Ptr allDayEvent(new Event());
     allDayEvent->setSummary(QStringLiteral("Summary 1"));
     allDayEvent->setDtStart(QDateTime(QDate(2010, 8, 8), {}));
@@ -34,7 +41,9 @@ void DndFactoryTest::testPasteAllDayEvent()
     Incidence::List incidencesToPaste;
     incidencesToPaste.append(allDayEvent);
 
-    QVERIFY(DndFactory::copyIncidences(incidencesToPaste));
+    auto mimeData = new QMimeData;
+    KCalendarCore::MimeData::populate(mimeData, incidencesToPaste);
+    qGuiApp->clipboard()->setMimeData(mimeData);
 
     Incidence::List pastedIncidences = DndFactory::pasteIncidences();
     QVERIFY(pastedIncidences.size() == 1);
@@ -54,10 +63,13 @@ void DndFactoryTest::testPasteAllDayEvent()
     QCOMPARE(pastedEvent->dtStart(), allDayEvent->dtStart());
     QCOMPARE(pastedEvent->dtEnd(), allDayEvent->dtEnd());
     QCOMPARE(pastedEvent->summary(), allDayEvent->summary());
+#endif
 }
 
 void DndFactoryTest::testPasteAllDayEvent2()
 {
+#if KCALENDARCORE_VERSION >= QT_VERSION_CHECK(6, 29, 0)
+
     const Event::Ptr allDayEvent(new Event());
     allDayEvent->setSummary(QStringLiteral("Summary 2"));
     allDayEvent->setDtStart(QDateTime(QDate(2010, 8, 8), {}));
@@ -68,7 +80,10 @@ void DndFactoryTest::testPasteAllDayEvent2()
     Incidence::List incidencesToPaste;
     incidencesToPaste.append(allDayEvent);
 
-    QVERIFY(DndFactory::copyIncidences(incidencesToPaste));
+    auto mimeData = new QMimeData;
+    KCalendarCore::MimeData::populate(mimeData, incidencesToPaste);
+    qGuiApp->clipboard()->setMimeData(mimeData);
+
     const QDateTime newDateTime(QDate(2011, 1, 1).startOfDay());
     const uint originalLength = allDayEvent->dtStart().secsTo(allDayEvent->dtEnd());
 
@@ -100,10 +115,12 @@ void DndFactoryTest::testPasteAllDayEvent2()
     QCOMPARE(newLength, originalLength);
     QCOMPARE(newDateTime, pastedEvent->dtStart());
     QCOMPARE(allDayEvent->summary(), pastedEvent->summary());
+#endif
 }
 
 void DndFactoryTest::testPasteTodo()
 {
+#if KCALENDARCORE_VERSION >= QT_VERSION_CHECK(6, 29, 0)
     const Todo::Ptr todo(new Todo());
     todo->setSummary(QStringLiteral("Summary 1"));
     todo->setDtDue(QDateTime(QDate(2010, 8, 9), {}));
@@ -111,7 +128,9 @@ void DndFactoryTest::testPasteTodo()
     Incidence::List incidencesToPaste;
     incidencesToPaste.append(todo);
 
-    QVERIFY(DndFactory::copyIncidences(incidencesToPaste));
+    auto mimeData = new QMimeData;
+    KCalendarCore::MimeData::populate(mimeData, incidencesToPaste);
+    qGuiApp->clipboard()->setMimeData(mimeData);
 
     const QDateTime newDateTime(QDate(2011, 1, 1), QTime(10, 10));
 
@@ -129,6 +148,7 @@ void DndFactoryTest::testPasteTodo()
 
     QCOMPARE(newDateTime, pastedTodo->dtDue());
     QCOMPARE(todo->summary(), pastedTodo->summary());
+#endif
 }
 
 #include "moc_testdndfactory.cpp"
