@@ -33,38 +33,6 @@ using namespace KCalendarCore;
 using namespace KCalUtils;
 using namespace Stringify;
 
-QString Stringify::incidenceType(Incidence::IncidenceType type)
-{
-    switch (type) {
-    case Incidence::TypeEvent:
-        return i18nc("@item incidence type is event", "event");
-    case Incidence::TypeTodo:
-        return i18nc("@item incidence type is to-do/task", "to-do");
-    case Incidence::TypeJournal:
-        return i18nc("@item incidence type is journal", "journal");
-    case Incidence::TypeFreeBusy:
-        return i18nc("@item incidence type is freebusy", "free/busy");
-    default:
-        return QString();
-    }
-}
-
-QString Stringify::incidenceTypeCaps(Incidence::IncidenceType type)
-{
-    switch (type) {
-    case Incidence::TypeEvent:
-        return i18nc("@item incidence type is Event (capitalized)", "Event");
-    case Incidence::TypeTodo:
-        return i18nc("@item incidence type is To-do/Task (capitalized)", "To-do");
-    case Incidence::TypeJournal:
-        return i18nc("@item incidence type is Journal (capitalized)", "Journal");
-    case Incidence::TypeFreeBusy:
-        return i18nc("@item incidence type is Freebusy (capitalized)", "Free/Busy");
-    default:
-        return QString();
-    }
-}
-
 QString Stringify::incidenceSecrecy(Incidence::Secrecy secrecy)
 {
     switch (secrecy) {

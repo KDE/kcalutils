@@ -28,11 +28,6 @@ using namespace KCalUtils;
 
 void StringifyTest::testIncidenceStrings()
 {
-    QVERIFY(Stringify::incidenceType(Incidence::TypeEvent) == i18n("event"));
-    QVERIFY(Stringify::incidenceType(Incidence::TypeTodo) == i18n("to-do"));
-    QVERIFY(Stringify::incidenceType(Incidence::TypeJournal) == i18n("journal"));
-    QVERIFY(Stringify::incidenceType(Incidence::TypeFreeBusy) == i18n("free/busy"));
-
     QVERIFY(Stringify::incidenceSecrecy(Incidence::SecrecyPublic) == i18n("Public"));
     QVERIFY(Stringify::incidenceSecrecy(Incidence::SecrecyPrivate) == i18n("Private"));
     QVERIFY(Stringify::incidenceSecrecy(Incidence::SecrecyConfidential) == i18n("Confidential"));
