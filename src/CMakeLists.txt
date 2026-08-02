@@ -13,7 +13,6 @@ target_sources(
     PRIVATE
         icaldrag.cpp
         incidenceformatter.cpp
-        recurrenceactions.cpp
         stringify.cpp
         vcaldrag.cpp
         dndfactory.cpp
@@ -28,7 +27,6 @@ target_sources(
         grantleeki18nlocalizer_p.h
         incidenceformatter.h
         dndfactory.h
-        recurrenceactions.h
 )
 ecm_qt_declare_logging_category(KPim6CalendarUtils HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME org.kde.pim.kcalutils
         OLD_CATEGORY_NAMES log_kcalutils
@@ -95,7 +93,6 @@ ecm_generate_headers(KCalUtils_CamelCase_HEADERS
   DndFactory
   ICalDrag
   IncidenceFormatter
-  RecurrenceActions
   Stringify
   VCalDrag
   PREFIX KCalUtils
