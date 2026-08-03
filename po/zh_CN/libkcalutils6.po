@@ -2166,28 +2166,3 @@ msgstr "完成："
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "完成百分比："
-
-#~ msgctxt "@item this is a new scheduling message"
-#~ msgid "New Scheduling Message"
-#~ msgstr "新建计划信件"
-
-#~ msgctxt "@item this is an update to an existing scheduling message"
-#~ msgid "Updated Scheduling Message"
-#~ msgstr "更新计划信件"
-
-#~ msgctxt "@item obsolete status"
-#~ msgid "Obsolete"
-#~ msgstr "遗弃"
-
-#~ msgctxt "@item this is a request for a new scheduling message"
-#~ msgid "New Scheduling Message Request"
-#~ msgstr "新建计划信件请求"
-
-#~ msgctxt ""
-#~ "@item this is a request for an update to an existing scheduling message"
-#~ msgid "Updated Scheduling Message Request"
-#~ msgstr "更新计划信件请求"
-
-#~ msgctxt "@item unknown status"
-#~ msgid "Unknown Status: %1"
-#~ msgstr "未知状态：%1"
