@@ -78,15 +78,6 @@ QString Stringify::incidenceSecrecy(Incidence::Secrecy secrecy)
     return QString();
 }
 
-QStringList Stringify::incidenceSecrecyList()
-{
-    const QStringList list{incidenceSecrecy(Incidence::SecrecyPublic),
-                           incidenceSecrecy(Incidence::SecrecyPrivate),
-                           incidenceSecrecy(Incidence::SecrecyConfidential)};
-
-    return list;
-}
-
 QString Stringify::incidenceStatus(Incidence::Status status)
 {
     switch (status) {

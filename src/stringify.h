@@ -64,12 +64,6 @@ namespace Stringify
 [[nodiscard]] KCALUTILS_EXPORT QString incidenceSecrecy(KCalendarCore::Incidence::Secrecy secrecy);
 
 /*!
-  Returns a list of all available Secrecy types as a list of translated strings.
-  \sa incidenceSecrecy().
-*/
-[[nodiscard]] KCALUTILS_EXPORT QStringList incidenceSecrecyList();
-
-/*!
   Get a translated string representation of an Incidence status.
   \param status the Incidence::Status to convert to string
   \return the localized string representation of the incidence status
