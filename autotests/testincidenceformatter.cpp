@@ -425,7 +425,11 @@ void IncidenceFormatterTest::testFormatIcalInvitation()
     QVERIFY(eventFile.open(QIODevice::ReadOnly));
     const QByteArray data = eventFile.readAll();
 
-    const QString html = IncidenceFormatter::formatICalInvitation(QString::fromUtf8(data), calendar, &helper)
+    KCalendarCore::ICalFormat format;
+    const ScheduleMessage::Ptr message = format.parseScheduleMessage(calendar, QString::fromUtf8(data));
+    QVERIFY(message);
+
+    const QString html = IncidenceFormatter::formatICalInvitation(message, &helper, QString())
                              .replace(btnBg, QStringLiteral("btnBg"))
                              .replace(btnFg, QStringLiteral("btnFg"))
                              .replace(btnBdr, QStringLiteral("btnBdr"));

@@ -25,6 +25,7 @@
 #include "stringify.h"
 
 #include <KCalendarCore/Event>
+#include <KCalendarCore/Exceptions>
 #include <KCalendarCore/FreeBusy>
 #include <KCalendarCore/ICalFormat>
 #include <KCalendarCore/Journal>
@@ -1986,6 +1987,9 @@ Calendar::Ptr InvitationFormatterHelper::calendar() const
 }
 
 static QString
+formatICalInvitationHelper(const KCalendarCore::ScheduleMessage::Ptr &msg, InvitationFormatterHelper *helper, bool noHtmlMode, const QString &sender);
+
+static QString
 formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCalendar, InvitationFormatterHelper *helper, bool noHtmlMode, const QString &sender)
 {
     if (invitation.isEmpty()) {
@@ -2007,6 +2011,14 @@ formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCale
     IncidenceBase::Ptr const incBase = msg->event();
 
     incBase->shiftTimes(mCalendar->timeZone(), QTimeZone::systemTimeZone());
+
+    return formatICalInvitationHelper(msg, helper, noHtmlMode, sender);
+}
+
+static QString
+formatICalInvitationHelper(const KCalendarCore::ScheduleMessage::Ptr &msg, InvitationFormatterHelper *helper, bool noHtmlMode, const QString &sender)
+{
+    IncidenceBase::Ptr const incBase = msg->event();
 
     // Determine if this incidence is in my calendar (and owned by me)
     Incidence::Ptr existingIncidence;
@@ -2271,6 +2283,11 @@ QString IncidenceFormatter::formatICalInvitationNoHtml(const QString &invitation
                                                        const QString &sender)
 {
     return formatICalInvitationHelper(invitation, calendar, helper, true, sender);
+}
+
+QString IncidenceFormatter::formatICalInvitation(const KCalendarCore::ScheduleMessage::Ptr &message, InvitationFormatterHelper *helper, const QString &sender)
+{
+    return formatICalInvitationHelper(message, helper, true, sender);
 }
 
 /*******************************************************************

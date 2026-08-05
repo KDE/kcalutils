@@ -22,6 +22,7 @@
 
 #include <KCalendarCore/Calendar>
 #include <KCalendarCore/Incidence>
+#include <KCalendarCore/ScheduleMessage>
 
 #include <QDate>
 
@@ -133,6 +134,7 @@ KCALUTILS_EXPORT QString mailBodyStr(const KCalendarCore::IncidenceBase::Ptr &in
 
   \since 5.23.0
 */
+[[deprecated("use the KCalendarCore::ScheduleMessage overload")]]
 KCALUTILS_EXPORT QString formatICalInvitation(const QString &invitation, const KCalendarCore::Calendar::Ptr &calendar, InvitationFormatterHelper *helper);
 
 /*!
@@ -150,10 +152,22 @@ KCALUTILS_EXPORT QString formatICalInvitation(const QString &invitation, const K
 
   \since 5.23.0
 */
-KCALUTILS_EXPORT QString formatICalInvitationNoHtml(const QString &invitation,
-                                                    const KCalendarCore::Calendar::Ptr &calendar,
-                                                    InvitationFormatterHelper *helper,
-                                                    const QString &sender);
+[[deprecated("use the KCalendarCore::ScheduleMessage overload")]]
+KCALUTILS_EXPORT QString
+formatICalInvitationNoHtml(const QString &invitation, const KCalendarCore::Calendar::Ptr &calendar, InvitationFormatterHelper *helper, const QString &sender);
+
+/*!
+  Deliver an HTML formatted string displaying an invitation.
+
+  \param message an iCal schedule message ("invitation")
+  \param calendar a pointer to the Calendar that owns the invitation.
+  \param helper a pointer to an InvitationFormatterHelper.
+  \param sender a QString containing the email address of the person sending the invitation.
+  \return the formatted HTML invitation string
+
+  \since 26.12
+*/
+KCALUTILS_EXPORT QString formatICalInvitation(const KCalendarCore::ScheduleMessage::Ptr &message, InvitationFormatterHelper *helper, const QString &sender);
 
 /*!
   Build a pretty QString representation of an Incidence's recurrence info.
