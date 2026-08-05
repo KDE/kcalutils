@@ -2620,7 +2620,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
     tmp += QLatin1StringView("<b>") + incidence->richSummary() + QLatin1StringView("</b>");
     tmp += QLatin1StringView("<hr>");
 
-    QString calStr = mLocation;
+    const QString calStr = mLocation;
     if (!calStr.isEmpty()) {
         tmp += QLatin1StringView("<i>") + i18n("Calendar:") + QLatin1StringView("</i>") + QLatin1StringView("&nbsp;");
         tmp += calStr;
