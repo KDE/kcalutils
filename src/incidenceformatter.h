@@ -115,40 +115,6 @@ KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KC
 
 /*!
   Deliver an HTML formatted string displaying an invitation.
-  Use the time zone from mCalendar.
-
-  \param invitation a QString containing a string representation of a calendar Incidence
-  which will be interpreted as an invitation.
-  \param calendar a pointer to the Calendar that owns the invitation.
-  \param helper a pointer to an InvitationFormatterHelper.
-  \return the formatted HTML invitation string
-
-  \since 5.23.0
-*/
-[[deprecated("use the KCalendarCore::ScheduleMessage overload")]]
-KCALUTILS_EXPORT QString formatICalInvitation(const QString &invitation, const KCalendarCore::Calendar::Ptr &calendar, InvitationFormatterHelper *helper);
-
-/*!
-  Deliver an HTML formatted string displaying an invitation.
-  Differs from formatICalInvitation() in that invitation details (summary, location, etc)
-  have HTML formatting cleaned.
-  Use the time zone from calendar.
-
-  \param invitation a QString containing a string representation of a calendar Incidence
-  which will be interpreted as an invitation.
-  \param calendar a pointer to the Calendar that owns the invitation.
-  \param helper a pointer to an InvitationFormatterHelper.
-  \param sender a QString containing the email address of the person sending the invitation.
-  \return the formatted HTML invitation string
-
-  \since 5.23.0
-*/
-[[deprecated("use the KCalendarCore::ScheduleMessage overload")]]
-KCALUTILS_EXPORT QString
-formatICalInvitationNoHtml(const QString &invitation, const KCalendarCore::Calendar::Ptr &calendar, InvitationFormatterHelper *helper, const QString &sender);
-
-/*!
-  Deliver an HTML formatted string displaying an invitation.
 
   \param message an iCal schedule message ("invitation")
   \param calendar a pointer to the Calendar that owns the invitation.

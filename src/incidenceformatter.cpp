@@ -737,36 +737,28 @@ QString IncidenceFormatter::extensiveDisplayStr(const QString &sourceName, const
  ***********************************************************************/
 
 //@cond PRIVATE
-static QString invitationSummary(const Incidence::Ptr &incidence, bool noHtmlMode)
+static QString invitationSummary(const Incidence::Ptr &incidence)
 {
-    QString summaryStr = i18n("Summary unspecified");
     if (!incidence->summary().isEmpty()) {
         if (!incidence->summaryIsRich()) {
-            summaryStr = incidence->summary().toHtmlEscaped();
+            return incidence->summary().toHtmlEscaped();
         } else {
-            summaryStr = incidence->richSummary();
-            if (noHtmlMode) {
-                summaryStr = cleanHtml(summaryStr);
-            }
+            return cleanHtml(incidence->richSummary());
         }
     }
-    return summaryStr;
+    return i18n("Summary unspecified");
 }
 
-static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMode)
+static QString invitationLocation(const Incidence::Ptr &incidence)
 {
-    QString locationStr = i18n("Location unspecified");
     if (!incidence->location().isEmpty()) {
         if (!incidence->locationIsRich()) {
-            locationStr = incidence->location().toHtmlEscaped();
+            return incidence->location().toHtmlEscaped();
         } else {
-            locationStr = incidence->richLocation();
-            if (noHtmlMode) {
-                locationStr = cleanHtml(locationStr);
-            }
+            return cleanHtml(incidence->richLocation());
         }
     }
-    return locationStr;
+    return i18n("Location unspecified");
 }
 
 [[nodiscard]] static QString diffColor()
@@ -926,7 +918,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
     return noteHash;
 }
 
-[[nodiscard]] static QString invitationDescriptionIncidence(const Incidence::Ptr &incidence, bool noHtmlMode)
+[[nodiscard]] static QString invitationDescriptionIncidence(const Incidence::Ptr &incidence)
 {
     if (!incidence->description().isEmpty()) {
         // use description too
@@ -939,9 +931,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
             } else {
                 descr = incidence->description();
             }
-            if (noHtmlMode) {
-                descr = cleanHtml(descr);
-            }
+            descr = cleanHtml(descr);
             return htmlAddTag(QStringLiteral("p"), descr);
         }
     }
@@ -984,7 +974,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
     return (closestStart >= startDt && closestStart <= endDt) && (closestEnd >= startDt && closestEnd <= endDt);
 }
 
-[[nodiscard]] static QVariantList eventsOnSameDays(const InvitationFormatterHelper *helper, const Event::Ptr &event, bool noHtmlMode)
+[[nodiscard]] static QVariantList eventsOnSameDays(const InvitationFormatterHelper *helper, const Event::Ptr &event)
 {
     if (!event || !helper || !helper->calendar()) {
         return QVariantList();
@@ -1017,7 +1007,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
         }
         ++count;
         QVariantHash ev;
-        ev[QStringLiteral("summary")] = invitationSummary(*it, noHtmlMode);
+        ev[QStringLiteral("summary")] = invitationSummary(*it);
         ev[QStringLiteral("dateTime")] = formatStartEnd((*it)->dtStart(), (*it)->dtEnd(), (*it)->allDay());
         events.push_back(ev);
     }
@@ -1028,7 +1018,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
     return events;
 }
 
-[[nodiscard]] static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper, const Event::Ptr &event, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper, const Event::Ptr &event)
 {
     // Invitation details are formatted into an HTML table
     if (!event) {
@@ -1037,19 +1027,19 @@ static QString invitationLocation(const Incidence::Ptr &incidence, bool noHtmlMo
 
     QVariantHash incidence;
     incidence[QStringLiteral("iconName")] = QStringLiteral("view-pim-calendar");
-    incidence[QStringLiteral("summary")] = invitationSummary(event, noHtmlMode);
-    incidence[QStringLiteral("location")] = invitationLocation(event, noHtmlMode);
+    incidence[QStringLiteral("summary")] = invitationSummary(event);
+    incidence[QStringLiteral("location")] = invitationLocation(event);
     incidence[QStringLiteral("recurs")] = event->recurs();
     incidence[QStringLiteral("recurrence")] = recurrenceString(event);
     incidence[QStringLiteral("isMultiDay")] = event->isMultiDay(QTimeZone::systemTimeZone());
     incidence[QStringLiteral("isAllDay")] = event->allDay();
     incidence[QStringLiteral("dateTime")] = formatStartEnd(event->dtStart(), event->dtEnd(), event->allDay());
     incidence[QStringLiteral("duration")] = durationString(event);
-    incidence[QStringLiteral("description")] = invitationDescriptionIncidence(event, noHtmlMode);
+    incidence[QStringLiteral("description")] = invitationDescriptionIncidence(event);
 
     incidence[QStringLiteral("checkCalendarButton")] =
         inviteButton(QStringLiteral("check_calendar"), i18n("Check my calendar"), QStringLiteral("go-jump-today"), helper);
-    incidence[QStringLiteral("eventsOnSameDays")] = eventsOnSameDays(helper, event, noHtmlMode);
+    incidence[QStringLiteral("eventsOnSameDays")] = eventsOnSameDays(helper, event);
 
     return incidence;
 }
@@ -1079,14 +1069,11 @@ QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllD
     return tmpStr;
 }
 
-[[nodiscard]] static QVariantHash invitationDetailsEvent(InvitationFormatterHelper *helper,
-                                                         const Event::Ptr &event,
-                                                         const Event::Ptr &oldevent,
-                                                         const ScheduleMessage::Ptr &message,
-                                                         bool noHtmlMode)
+[[nodiscard]] static QVariantHash
+invitationDetailsEvent(InvitationFormatterHelper *helper, const Event::Ptr &event, const Event::Ptr &oldevent, const ScheduleMessage::Ptr &message)
 {
     if (!oldevent) {
-        return invitationDetailsEvent(helper, event, noHtmlMode);
+        return invitationDetailsEvent(helper, event);
     }
 
     QVariantHash incidence;
@@ -1098,23 +1085,23 @@ QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllD
 
     incidence[QStringLiteral("isDiff")] = true;
     incidence[QStringLiteral("iconName")] = QStringLiteral("view-pim-calendar");
-    incidence[QStringLiteral("summary")] = htmlCompare(invitationSummary(event, noHtmlMode), invitationSummary(oldevent, noHtmlMode));
-    incidence[QStringLiteral("location")] = htmlCompare(invitationLocation(event, noHtmlMode), invitationLocation(oldevent, noHtmlMode));
+    incidence[QStringLiteral("summary")] = htmlCompare(invitationSummary(event), invitationSummary(oldevent));
+    incidence[QStringLiteral("location")] = htmlCompare(invitationLocation(event), invitationLocation(oldevent));
     incidence[QStringLiteral("recurs")] = event->recurs() || oldevent->recurs();
     incidence[QStringLiteral("recurrence")] = htmlCompare(recurrenceString(event), recurrenceString(oldevent));
     incidence[QStringLiteral("dateTime")] = htmlCompare(formatStartEnd(event->dtStart(), event->dtEnd(), event->allDay()),
                                                         formatStartEnd(oldevent->dtStart(), oldevent->dtEnd(), oldevent->allDay()));
     incidence[QStringLiteral("duration")] = htmlCompare(durationString(event), durationString(oldevent));
-    incidence[QStringLiteral("description")] = invitationDescriptionIncidence(event, noHtmlMode);
+    incidence[QStringLiteral("description")] = invitationDescriptionIncidence(event);
 
     incidence[QStringLiteral("checkCalendarButton")] =
         inviteButton(QStringLiteral("check_calendar"), i18n("Check my calendar"), QStringLiteral("go-jump-today"), helper);
-    incidence[QStringLiteral("eventsOnSameDays")] = eventsOnSameDays(helper, event, noHtmlMode);
+    incidence[QStringLiteral("eventsOnSameDays")] = eventsOnSameDays(helper, event);
 
     return incidence;
 }
 
-[[nodiscard]] static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo)
 {
     // To-do details are formatted into an HTML table
     if (!todo) {
@@ -1123,8 +1110,8 @@ QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllD
 
     QVariantHash incidence;
     incidence[QStringLiteral("iconName")] = QStringLiteral("view-pim-tasks");
-    incidence[QStringLiteral("summary")] = invitationSummary(todo, noHtmlMode);
-    incidence[QStringLiteral("location")] = invitationLocation(todo, noHtmlMode);
+    incidence[QStringLiteral("summary")] = invitationSummary(todo);
+    incidence[QStringLiteral("location")] = invitationLocation(todo);
     incidence[QStringLiteral("isAllDay")] = todo->allDay();
     incidence[QStringLiteral("hasStartDate")] = todo->hasStartDate();
     bool isMultiDay = false;
@@ -1148,15 +1135,15 @@ QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllD
     }
     incidence[QStringLiteral("recurs")] = todo->recurs();
     incidence[QStringLiteral("recurrence")] = recurrenceString(todo);
-    incidence[QStringLiteral("description")] = invitationDescriptionIncidence(todo, noHtmlMode);
+    incidence[QStringLiteral("description")] = invitationDescriptionIncidence(todo);
 
     return incidence;
 }
 
-[[nodiscard]] static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo, const Todo::Ptr &oldtodo, const ScheduleMessage::Ptr &message, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsTodo(const Todo::Ptr &todo, const Todo::Ptr &oldtodo, const ScheduleMessage::Ptr &message)
 {
     if (!oldtodo) {
-        return invitationDetailsTodo(todo, noHtmlMode);
+        return invitationDetailsTodo(todo);
     }
 
     QVariantHash incidence;
@@ -1168,8 +1155,8 @@ QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllD
 
     incidence[QStringLiteral("iconName")] = QStringLiteral("view-pim-tasks");
     incidence[QStringLiteral("isDiff")] = true;
-    incidence[QStringLiteral("summary")] = htmlCompare(invitationSummary(todo, noHtmlMode), invitationSummary(oldtodo, noHtmlMode));
-    incidence[QStringLiteral("location")] = htmlCompare(invitationLocation(todo, noHtmlMode), invitationLocation(oldtodo, noHtmlMode));
+    incidence[QStringLiteral("summary")] = htmlCompare(invitationSummary(todo), invitationSummary(oldtodo));
+    incidence[QStringLiteral("location")] = htmlCompare(invitationLocation(todo), invitationLocation(oldtodo));
     incidence[QStringLiteral("isAllDay")] = todo->allDay();
     incidence[QStringLiteral("hasStartDate")] = todo->hasStartDate();
     incidence[QStringLiteral("dtStartStr")] = htmlCompare(dateTimeToString(todo->dtStart(), false, false), dateTimeToString(oldtodo->dtStart(), false, false));
@@ -1179,12 +1166,12 @@ QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllD
 
     incidence[QStringLiteral("recurs")] = todo->recurs() || oldtodo->recurs();
     incidence[QStringLiteral("recurrence")] = htmlCompare(recurrenceString(todo), recurrenceString(oldtodo));
-    incidence[QStringLiteral("description")] = invitationDescriptionIncidence(todo, noHtmlMode);
+    incidence[QStringLiteral("description")] = invitationDescriptionIncidence(todo);
 
     return incidence;
 }
 
-[[nodiscard]] static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal)
 {
     if (!journal) {
         return QVariantHash();
@@ -1192,30 +1179,30 @@ QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllD
 
     QVariantHash incidence;
     incidence[QStringLiteral("iconName")] = QStringLiteral("view-pim-journal");
-    incidence[QStringLiteral("summary")] = invitationSummary(journal, noHtmlMode);
+    incidence[QStringLiteral("summary")] = invitationSummary(journal);
     incidence[QStringLiteral("date")] = journal->dtStart();
-    incidence[QStringLiteral("description")] = invitationDescriptionIncidence(journal, noHtmlMode);
+    incidence[QStringLiteral("description")] = invitationDescriptionIncidence(journal);
 
     return incidence;
 }
 
-[[nodiscard]] static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, const Journal::Ptr &oldjournal, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsJournal(const Journal::Ptr &journal, const Journal::Ptr &oldjournal)
 {
     if (!oldjournal) {
-        return invitationDetailsJournal(journal, noHtmlMode);
+        return invitationDetailsJournal(journal);
     }
 
     QVariantHash incidence;
     incidence[QStringLiteral("iconName")] = QStringLiteral("view-pim-journal");
-    incidence[QStringLiteral("summary")] = htmlCompare(invitationSummary(journal, noHtmlMode), invitationSummary(oldjournal, noHtmlMode));
+    incidence[QStringLiteral("summary")] = htmlCompare(invitationSummary(journal), invitationSummary(oldjournal));
     incidence[QStringLiteral("dateStr")] = htmlCompare(QLocale().toString(journal->dtStart().toLocalTime().date(), QLocale::LongFormat),
                                                        QLocale().toString(oldjournal->dtStart().toLocalTime().date(), QLocale::LongFormat));
-    incidence[QStringLiteral("description")] = invitationDescriptionIncidence(journal, noHtmlMode);
+    incidence[QStringLiteral("description")] = invitationDescriptionIncidence(journal);
 
     return incidence;
 }
 
-[[nodiscard]] static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, [[maybe_unused]] bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb)
 {
     if (!fb) {
         return QVariantHash();
@@ -1257,9 +1244,9 @@ QString formatStartEnd(const QDateTime &start, const QDateTime &end, bool isAllD
     return incidence;
 }
 
-[[nodiscard]] static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, [[maybe_unused]] const FreeBusy::Ptr &oldfb, bool noHtmlMode)
+[[nodiscard]] static QVariantHash invitationDetailsFreeBusy(const FreeBusy::Ptr &fb, [[maybe_unused]] const FreeBusy::Ptr &oldfb)
 {
-    return invitationDetailsFreeBusy(fb, noHtmlMode);
+    return invitationDetailsFreeBusy(fb);
 }
 
 [[nodiscard]] static QString
@@ -1770,10 +1757,9 @@ protected:
 class KCalUtils::IncidenceFormatter::InvitationBodyVisitor : public IncidenceFormatter::ScheduleMessageVisitor<QVariantHash>
 {
 public:
-    InvitationBodyVisitor(InvitationFormatterHelper *helper, bool noHtmlMode)
+    explicit InvitationBodyVisitor(InvitationFormatterHelper *helper)
         : ScheduleMessageVisitor()
         , mHelper(helper)
-        , mNoHtmlMode(noHtmlMode)
     {
     }
 
@@ -1781,33 +1767,32 @@ protected:
     bool visit(const Event::Ptr &event) override
     {
         Event::Ptr const oldevent = mExistingIncidence.dynamicCast<Event>();
-        mResult = invitationDetailsEvent(mHelper, event, oldevent, mMessage, mNoHtmlMode);
+        mResult = invitationDetailsEvent(mHelper, event, oldevent, mMessage);
         return !mResult.isEmpty();
     }
 
     bool visit(const Todo::Ptr &todo) override
     {
         Todo::Ptr const oldtodo = mExistingIncidence.dynamicCast<Todo>();
-        mResult = invitationDetailsTodo(todo, oldtodo, mMessage, mNoHtmlMode);
+        mResult = invitationDetailsTodo(todo, oldtodo, mMessage);
         return !mResult.isEmpty();
     }
 
     bool visit(const Journal::Ptr &journal) override
     {
         Journal::Ptr const oldjournal = mExistingIncidence.dynamicCast<Journal>();
-        mResult = invitationDetailsJournal(journal, oldjournal, mNoHtmlMode);
+        mResult = invitationDetailsJournal(journal, oldjournal);
         return !mResult.isEmpty();
     }
 
     bool visit(const FreeBusy::Ptr &fb) override
     {
-        mResult = invitationDetailsFreeBusy(fb, FreeBusy::Ptr(), mNoHtmlMode);
+        mResult = invitationDetailsFreeBusy(fb, FreeBusy::Ptr());
         return !mResult.isEmpty();
     }
 
 private:
     InvitationFormatterHelper *mHelper;
-    bool mNoHtmlMode;
 };
 //@endcond
 
@@ -1986,39 +1971,9 @@ Calendar::Ptr InvitationFormatterHelper::calendar() const
     return Calendar::Ptr();
 }
 
-static QString
-formatICalInvitationHelper(const KCalendarCore::ScheduleMessage::Ptr &msg, InvitationFormatterHelper *helper, bool noHtmlMode, const QString &sender);
-
-static QString
-formatICalInvitationHelper(const QString &invitation, const Calendar::Ptr &mCalendar, InvitationFormatterHelper *helper, bool noHtmlMode, const QString &sender)
+QString IncidenceFormatter::formatICalInvitation(const KCalendarCore::ScheduleMessage::Ptr &message, InvitationFormatterHelper *helper, const QString &sender)
 {
-    if (invitation.isEmpty()) {
-        return QString();
-    }
-
-    ICalFormat format;
-    // parseScheduleMessage takes the tz from the calendar,
-    // no need to set it manually here for the format!
-    ScheduleMessage::Ptr const msg = format.parseScheduleMessage(mCalendar, invitation);
-
-    if (!msg) {
-        qCDebug(KCALUTILS_LOG) << "Failed to parse the scheduling message";
-        Q_ASSERT(format.exception());
-        qCDebug(KCALUTILS_LOG) << Stringify::errorMessage(*format.exception());
-        return QString();
-    }
-
-    IncidenceBase::Ptr const incBase = msg->event();
-
-    incBase->shiftTimes(mCalendar->timeZone(), QTimeZone::systemTimeZone());
-
-    return formatICalInvitationHelper(msg, helper, noHtmlMode, sender);
-}
-
-static QString
-formatICalInvitationHelper(const KCalendarCore::ScheduleMessage::Ptr &msg, InvitationFormatterHelper *helper, bool noHtmlMode, const QString &sender)
-{
-    IncidenceBase::Ptr const incBase = msg->event();
+    IncidenceBase::Ptr const incBase = message->event();
 
     // Determine if this incidence is in my calendar (and owned by me)
     Incidence::Ptr existingIncidence;
@@ -2053,23 +2008,23 @@ formatICalInvitationHelper(const KCalendarCore::ScheduleMessage::Ptr &msg, Invit
 
     IncidenceFormatter::InvitationHeaderVisitor headerVisitor;
     // The InvitationHeaderVisitor returns false if the incidence is somehow invalid, or not handled
-    if (!headerVisitor.act(inc, existingIncidence, msg, sender)) {
+    if (!headerVisitor.act(inc, existingIncidence, message, sender)) {
         return QString();
     }
 
     QVariantHash incidence;
 
     // use the Outlook 2007 Comparison Style
-    IncidenceFormatter::InvitationBodyVisitor bodyVisitor(helper, noHtmlMode);
+    IncidenceFormatter::InvitationBodyVisitor bodyVisitor(helper);
     bool bodyOk;
-    if (msg->method() == iTIPRequest || msg->method() == iTIPReply || msg->method() == iTIPDeclineCounter) {
+    if (message->method() == iTIPRequest || message->method() == iTIPReply || message->method() == iTIPDeclineCounter) {
         if (inc && existingIncidence && incRevision < existingIncidence->revision()) {
-            bodyOk = bodyVisitor.act(existingIncidence, inc, msg, sender);
+            bodyOk = bodyVisitor.act(existingIncidence, inc, message, sender);
         } else {
-            bodyOk = bodyVisitor.act(inc, existingIncidence, msg, sender);
+            bodyOk = bodyVisitor.act(inc, existingIncidence, message, sender);
         }
     } else {
-        bodyOk = bodyVisitor.act(inc, Incidence::Ptr(), msg, sender);
+        bodyOk = bodyVisitor.act(inc, Incidence::Ptr(), message, sender);
     }
     if (!bodyOk) {
         return QString();
@@ -2128,11 +2083,11 @@ formatICalInvitationHelper(const KCalendarCore::ScheduleMessage::Ptr &msg, Invit
                 eventInfo = i18n("Your status for this invitation is <b>%1</b>.", Stringify::attendeeStatus(eattendee.status()));
             }
             rsvpReq = false;
-        } else if (msg->method() == iTIPCancel) {
+        } else if (message->method() == iTIPCancel) {
             eventInfo = i18n("This invitation was canceled.");
-        } else if (msg->method() == iTIPAdd) {
+        } else if (message->method() == iTIPAdd) {
             eventInfo = i18n("This invitation was accepted.");
-        } else if (msg->method() == iTIPDeclineCounter) {
+        } else if (message->method() == iTIPDeclineCounter) {
             rsvpReq = true;
             eventInfo = rsvpRequestedStr(rsvpReq, role);
         } else {
@@ -2156,7 +2111,7 @@ formatICalInvitationHelper(const KCalendarCore::ScheduleMessage::Ptr &msg, Invit
 
     // Add groupware links
     QVariantList buttons;
-    switch (msg->method()) {
+    switch (message->method()) {
     case iTIPPublish:
     case iTIPRequest:
     case iTIPRefresh:
@@ -2271,24 +2226,6 @@ formatICalInvitationHelper(const KCalendarCore::ScheduleMessage::Ptr &msg, Invit
 }
 
 //@endcond
-
-QString IncidenceFormatter::formatICalInvitation(const QString &invitation, const Calendar::Ptr &calendar, InvitationFormatterHelper *helper)
-{
-    return formatICalInvitationHelper(invitation, calendar, helper, false, QString());
-}
-
-QString IncidenceFormatter::formatICalInvitationNoHtml(const QString &invitation,
-                                                       const Calendar::Ptr &calendar,
-                                                       InvitationFormatterHelper *helper,
-                                                       const QString &sender)
-{
-    return formatICalInvitationHelper(invitation, calendar, helper, true, sender);
-}
-
-QString IncidenceFormatter::formatICalInvitation(const KCalendarCore::ScheduleMessage::Ptr &message, InvitationFormatterHelper *helper, const QString &sender)
-{
-    return formatICalInvitationHelper(message, helper, true, sender);
-}
 
 /*******************************************************************
  *  Helper functions for the Incidence tooltips
