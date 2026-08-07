@@ -2146,15 +2146,3 @@ msgstr ""
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Event"
-#~ msgctxt "@item incidence type is Event (capitalized)"
-#~ msgid "Event"
-#~ msgstr "Dáhpáhus"
-
-#, fuzzy
-#~| msgid "Journal"
-#~ msgctxt "@item incidence type is Journal (capitalized)"
-#~ msgid "Journal"
-#~ msgstr "Journála"

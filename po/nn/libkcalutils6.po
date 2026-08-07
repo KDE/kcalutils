@@ -2183,9 +2183,3 @@ msgstr "Fullført:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Event"
-#~ msgctxt "@item incidence type is Event (capitalized)"
-#~ msgid "Event"
-#~ msgstr "Hending"
