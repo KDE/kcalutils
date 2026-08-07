@@ -114,15 +114,6 @@ KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalendarCo
 KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KCalendarCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
 
 /*!
-  Create a QString representation of an Incidence in format suitable for
-  including inside a mail message.
-  All dates and times are converted to local time for display.
-  \param incidence a pointer to the Incidence to be formatted
-  \return the formatted string representation of the incidence
-*/
-KCALUTILS_EXPORT QString mailBodyStr(const KCalendarCore::IncidenceBase::Ptr &incidence);
-
-/*!
   Deliver an HTML formatted string displaying an invitation.
   Use the time zone from mCalendar.
 
