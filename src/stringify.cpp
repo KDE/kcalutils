@@ -211,20 +211,3 @@ QString Stringify::errorMessage(const Exception &exception)
 
     return message;
 }
-
-QString Stringify::tzUTCOffsetStr(const QTimeZone &tz)
-{
-    int const currentOffset = tz.offsetFromUtc(QDateTime::currentDateTimeUtc());
-    int const absOffset = qAbs(currentOffset);
-    int const utcOffsetHrs = absOffset / 3600; // in hours
-    int const utcOffsetMins = (absOffset % 3600) / 60; // in minutes
-
-    const QString hrStr = QStringLiteral("%1").arg(utcOffsetHrs, 2, 10, QLatin1Char('0'));
-    const QString mnStr = QStringLiteral("%1").arg(utcOffsetMins, 2, 10, QLatin1Char('0'));
-
-    if (currentOffset < 0) {
-        return QStringLiteral("-%1:%2").arg(hrStr, mnStr);
-    } else {
-        return QStringLiteral("+%1:%2").arg(hrStr, mnStr);
-    }
-}

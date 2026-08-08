@@ -75,13 +75,6 @@ namespace Stringify
 [[nodiscard]] KCALUTILS_EXPORT QString alarmType(KCalendarCore::Alarm::Type alarmType);
 
 /*!
-  Returns a string containing the UTC offset of the specified QTimeZone \a tz (relative to the current date).
-  The format is [+-]HH::MM, according to standards.
-  \since 5.8
-*/
-[[nodiscard]] KCALUTILS_EXPORT QString tzUTCOffsetStr(const QTimeZone &tz);
-
-/*!
    Build a translated message representing an exception
 */
 [[nodiscard]] KCALUTILS_EXPORT QString errorMessage(const KCalendarCore::Exception &exception);

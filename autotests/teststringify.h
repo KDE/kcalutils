@@ -18,5 +18,4 @@ private Q_SLOTS:
     void testAttendeeStrings();
     void testAlarmStrings();
     void testDateTimeStrings();
-    void testUTCoffsetStrings();
 };
