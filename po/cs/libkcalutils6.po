@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcal\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:45+0000\n"
+"POT-Creation-Date: 2026-08-09 00:46+0000\n"
 "PO-Revision-Date: 2026-07-18 23:49+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -755,7 +755,7 @@ msgid "%1"
 msgstr "%1"
 
 #: src/incidenceformatter.cpp:2529 src/incidenceformatter.cpp:2661
-#: src/incidenceformatter.cpp:3295
+#: src/incidenceformatter.cpp:3133
 #, kde-format
 msgctxt "ellipsis"
 msgid "..."
@@ -856,495 +856,329 @@ msgstr[0] "Značka:"
 msgstr[1] "Značka:"
 msgstr[2] "Značky:"
 
-#: src/incidenceformatter.cpp:2739
-#, kde-format
-msgid "Summary: %1\n"
-msgstr "Souhrn: %1\n"
-
-#: src/incidenceformatter.cpp:2742
-#, kde-format
-msgid "Organizer: %1\n"
-msgstr "Organizátor: %1\n"
-
-#: src/incidenceformatter.cpp:2745
-#, kde-format
-msgid "Location: %1\n"
-msgstr "Umístění: %1\n"
-
-#: src/incidenceformatter.cpp:2773
-#, kde-format
-msgid "This is a Free Busy Object"
-msgstr "Toto je objekt 'aktivity'"
-
-#: src/incidenceformatter.cpp:2784
-#, kde-format
-msgctxt "no recurrence"
-msgid "None"
-msgstr "Žádné"
-
-#: src/incidenceformatter.cpp:2785
-#, kde-format
-msgctxt "event recurs by minutes"
-msgid "Minutely"
-msgstr "Minutově"
-
-#: src/incidenceformatter.cpp:2786
-#, kde-format
-msgctxt "event recurs by hours"
-msgid "Hourly"
-msgstr "Hodinově"
-
-#: src/incidenceformatter.cpp:2787
-#, kde-format
-msgctxt "event recurs by days"
-msgid "Daily"
-msgstr "Denně"
-
-#: src/incidenceformatter.cpp:2788
-#, kde-format
-msgctxt "event recurs by weeks"
-msgid "Weekly"
-msgstr "Týdně"
-
-#: src/incidenceformatter.cpp:2789
-#, kde-format
-msgctxt "event recurs same position (e.g. first monday) each month"
-msgid "Monthly Same Position"
-msgstr "Měsíčně ve stejnou dobu"
-
-#: src/incidenceformatter.cpp:2790
-#, kde-format
-msgctxt "event recurs same day each month"
-msgid "Monthly Same Day"
-msgstr "Měsíčně ve stejný den"
-
-#: src/incidenceformatter.cpp:2791
-#, kde-format
-msgctxt "event recurs same month each year"
-msgid "Yearly Same Month"
-msgstr "Ročně ve stejný měsíc"
-
-#: src/incidenceformatter.cpp:2792
-#, kde-format
-msgctxt "event recurs same day each year"
-msgid "Yearly Same Day"
-msgstr "Ročně ve stejný den"
-
-#: src/incidenceformatter.cpp:2793
-#, kde-format
-msgctxt "event recurs same position (e.g. first monday) each year"
-msgid "Yearly Same Position"
-msgstr "Ročně ve stejnou dobu"
-
-#: src/incidenceformatter.cpp:2796 src/incidenceformatter.cpp:2850
-#, kde-format
-msgid "Start Date: %1\n"
-msgstr "Datum zahájení: %1\n"
-
-#: src/incidenceformatter.cpp:2798 src/incidenceformatter.cpp:2852
-#, kde-format
-msgid "Start Time: %1\n"
-msgstr "Čas zahájení: %1\n"
-
-#: src/incidenceformatter.cpp:2801
-#, kde-format
-msgid "End Date: %1\n"
-msgstr "Datum ukončení: %1\n"
-
-#: src/incidenceformatter.cpp:2804
-#, kde-format
-msgid "End Time: %1\n"
-msgstr "Čas ukončení: %1\n"
-
-#: src/incidenceformatter.cpp:2809
-#, kde-format
-msgid "Recurs: %1\n"
-msgstr "Opakuje se: %1\n"
-
-#: src/incidenceformatter.cpp:2810
-#, kde-format
-msgid "Frequency: %1\n"
-msgstr "Frekvence: %1\n"
-
-#: src/incidenceformatter.cpp:2813
-#, kde-format
-msgid "Repeats once"
-msgid_plural "Repeats %1 times"
-msgstr[0] "Opakuje se jednou"
-msgstr[1] "Opakuje se %1 krát"
-msgstr[2] "Opakuje se %1 krát"
-
-#: src/incidenceformatter.cpp:2824
-#, kde-format
-msgid "Repeat until: %1\n"
-msgstr "Opakovat do: %1\n"
-
-#: src/incidenceformatter.cpp:2826
-#, kde-format
-msgid "Repeats forever\n"
-msgstr "Opakuje se napořád\n"
-
-#: src/incidenceformatter.cpp:2839 src/incidenceformatter.cpp:2863
-#, kde-format
-msgid ""
-"Details:\n"
-"%1\n"
-msgstr ""
-"Podrobnosti:\n"
-"%1\n"
-
-#: src/incidenceformatter.cpp:2856
-#, kde-format
-msgid "Due Date: %1\n"
-msgstr "Datum splnění: %1\n"
-
-#: src/incidenceformatter.cpp:2858
-#, kde-format
-msgid "Due Time: %1\n"
-msgstr "Čas splnění: %1\n"
-
-#: src/incidenceformatter.cpp:2871
-#, kde-format
-msgid "Date: %1\n"
-msgstr "Datum: %1\n"
-
-#: src/incidenceformatter.cpp:2873
-#, kde-format
-msgid "Time: %1\n"
-msgstr "Čas: %1\n"
-
-#: src/incidenceformatter.cpp:2876
-#, kde-format
-msgid ""
-"Text of the journal:\n"
-"%1\n"
-msgstr ""
-"Text deníku:\n"
-"%1\n"
-
-#: src/incidenceformatter.cpp:2921 src/incidenceformatter.cpp:2995
+#: src/incidenceformatter.cpp:2759 src/incidenceformatter.cpp:2833
 #, kde-format
 msgid "No recurrence"
 msgstr "Žádné opakování"
 
-#: src/incidenceformatter.cpp:2925
+#: src/incidenceformatter.cpp:2763
 #, kde-format
 msgid "31st Last"
 msgstr "31. od konce"
 
-#: src/incidenceformatter.cpp:2926
+#: src/incidenceformatter.cpp:2764
 #, kde-format
 msgid "30th Last"
 msgstr "30. od konce"
 
-#: src/incidenceformatter.cpp:2927
+#: src/incidenceformatter.cpp:2765
 #, kde-format
 msgid "29th Last"
 msgstr "29. od konce"
 
-#: src/incidenceformatter.cpp:2928
+#: src/incidenceformatter.cpp:2766
 #, kde-format
 msgid "28th Last"
 msgstr "28. od konce"
 
-#: src/incidenceformatter.cpp:2929
+#: src/incidenceformatter.cpp:2767
 #, kde-format
 msgid "27th Last"
 msgstr "27. od konce"
 
-#: src/incidenceformatter.cpp:2930
+#: src/incidenceformatter.cpp:2768
 #, kde-format
 msgid "26th Last"
 msgstr "26. od konce"
 
-#: src/incidenceformatter.cpp:2931
+#: src/incidenceformatter.cpp:2769
 #, kde-format
 msgid "25th Last"
 msgstr "25. od konce"
 
-#: src/incidenceformatter.cpp:2932
+#: src/incidenceformatter.cpp:2770
 #, kde-format
 msgid "24th Last"
 msgstr "24. od konce"
 
-#: src/incidenceformatter.cpp:2933
+#: src/incidenceformatter.cpp:2771
 #, kde-format
 msgid "23rd Last"
 msgstr "23. od konce"
 
-#: src/incidenceformatter.cpp:2934
+#: src/incidenceformatter.cpp:2772
 #, kde-format
 msgid "22nd Last"
 msgstr "22. od konce"
 
-#: src/incidenceformatter.cpp:2935
+#: src/incidenceformatter.cpp:2773
 #, kde-format
 msgid "21st Last"
 msgstr "21. od konce"
 
-#: src/incidenceformatter.cpp:2936
+#: src/incidenceformatter.cpp:2774
 #, kde-format
 msgid "20th Last"
 msgstr "20. od konce"
 
-#: src/incidenceformatter.cpp:2937
+#: src/incidenceformatter.cpp:2775
 #, kde-format
 msgid "19th Last"
 msgstr "19. od konce"
 
-#: src/incidenceformatter.cpp:2938
+#: src/incidenceformatter.cpp:2776
 #, kde-format
 msgid "18th Last"
 msgstr "18. od konce"
 
-#: src/incidenceformatter.cpp:2939
+#: src/incidenceformatter.cpp:2777
 #, kde-format
 msgid "17th Last"
 msgstr "17. od konce"
 
-#: src/incidenceformatter.cpp:2940
+#: src/incidenceformatter.cpp:2778
 #, kde-format
 msgid "16th Last"
 msgstr "16. od konce"
 
-#: src/incidenceformatter.cpp:2941
+#: src/incidenceformatter.cpp:2779
 #, kde-format
 msgid "15th Last"
 msgstr "15. od konce"
 
-#: src/incidenceformatter.cpp:2942
+#: src/incidenceformatter.cpp:2780
 #, kde-format
 msgid "14th Last"
 msgstr "14. od konce"
 
-#: src/incidenceformatter.cpp:2943
+#: src/incidenceformatter.cpp:2781
 #, kde-format
 msgid "13th Last"
 msgstr "13. od konce"
 
-#: src/incidenceformatter.cpp:2944
+#: src/incidenceformatter.cpp:2782
 #, kde-format
 msgid "12th Last"
 msgstr "12. od konce"
 
-#: src/incidenceformatter.cpp:2945
+#: src/incidenceformatter.cpp:2783
 #, kde-format
 msgid "11th Last"
 msgstr "11. od konce"
 
-#: src/incidenceformatter.cpp:2946
+#: src/incidenceformatter.cpp:2784
 #, kde-format
 msgid "10th Last"
 msgstr "10. od konce"
 
-#: src/incidenceformatter.cpp:2947
+#: src/incidenceformatter.cpp:2785
 #, kde-format
 msgid "9th Last"
 msgstr "9. od konce"
 
-#: src/incidenceformatter.cpp:2948
+#: src/incidenceformatter.cpp:2786
 #, kde-format
 msgid "8th Last"
 msgstr "8. od konce"
 
-#: src/incidenceformatter.cpp:2949
+#: src/incidenceformatter.cpp:2787
 #, kde-format
 msgid "7th Last"
 msgstr "7. od konce"
 
-#: src/incidenceformatter.cpp:2950
+#: src/incidenceformatter.cpp:2788
 #, kde-format
 msgid "6th Last"
 msgstr "6. od konce"
 
-#: src/incidenceformatter.cpp:2951
+#: src/incidenceformatter.cpp:2789
 #, kde-format
 msgid "5th Last"
 msgstr "5. od konce"
 
-#: src/incidenceformatter.cpp:2952
+#: src/incidenceformatter.cpp:2790
 #, kde-format
 msgid "4th Last"
 msgstr "4. od konce"
 
-#: src/incidenceformatter.cpp:2953
+#: src/incidenceformatter.cpp:2791
 #, kde-format
 msgid "3rd Last"
 msgstr "3. od konce"
 
-#: src/incidenceformatter.cpp:2954
+#: src/incidenceformatter.cpp:2792
 #, kde-format
 msgid "2nd Last"
 msgstr "2. od konce"
 
-#: src/incidenceformatter.cpp:2955
+#: src/incidenceformatter.cpp:2793
 #, kde-format
 msgctxt "last day of the month"
 msgid "Last"
 msgstr "Poslední"
 
-#: src/incidenceformatter.cpp:2956
+#: src/incidenceformatter.cpp:2794
 #, kde-format
 msgctxt "unknown day of the month"
 msgid "unknown"
 msgstr "neznámý"
 
-#: src/incidenceformatter.cpp:2957
+#: src/incidenceformatter.cpp:2795
 #, kde-format
 msgid "1st"
 msgstr "1."
 
-#: src/incidenceformatter.cpp:2958
+#: src/incidenceformatter.cpp:2796
 #, kde-format
 msgid "2nd"
 msgstr "2."
 
-#: src/incidenceformatter.cpp:2959
+#: src/incidenceformatter.cpp:2797
 #, kde-format
 msgid "3rd"
 msgstr "3."
 
-#: src/incidenceformatter.cpp:2960
+#: src/incidenceformatter.cpp:2798
 #, kde-format
 msgid "4th"
 msgstr "4."
 
-#: src/incidenceformatter.cpp:2961
+#: src/incidenceformatter.cpp:2799
 #, kde-format
 msgid "5th"
 msgstr "5."
 
-#: src/incidenceformatter.cpp:2962
+#: src/incidenceformatter.cpp:2800
 #, kde-format
 msgid "6th"
 msgstr "6."
 
-#: src/incidenceformatter.cpp:2963
+#: src/incidenceformatter.cpp:2801
 #, kde-format
 msgid "7th"
 msgstr "7."
 
-#: src/incidenceformatter.cpp:2964
+#: src/incidenceformatter.cpp:2802
 #, kde-format
 msgid "8th"
 msgstr "8."
 
-#: src/incidenceformatter.cpp:2965
+#: src/incidenceformatter.cpp:2803
 #, kde-format
 msgid "9th"
 msgstr "9."
 
-#: src/incidenceformatter.cpp:2966
+#: src/incidenceformatter.cpp:2804
 #, kde-format
 msgid "10th"
 msgstr "10."
 
-#: src/incidenceformatter.cpp:2967
+#: src/incidenceformatter.cpp:2805
 #, kde-format
 msgid "11th"
 msgstr "11."
 
-#: src/incidenceformatter.cpp:2968
+#: src/incidenceformatter.cpp:2806
 #, kde-format
 msgid "12th"
 msgstr "12."
 
-#: src/incidenceformatter.cpp:2969
+#: src/incidenceformatter.cpp:2807
 #, kde-format
 msgid "13th"
 msgstr "13."
 
-#: src/incidenceformatter.cpp:2970
+#: src/incidenceformatter.cpp:2808
 #, kde-format
 msgid "14th"
 msgstr "14."
 
-#: src/incidenceformatter.cpp:2971
+#: src/incidenceformatter.cpp:2809
 #, kde-format
 msgid "15th"
 msgstr "15."
 
-#: src/incidenceformatter.cpp:2972
+#: src/incidenceformatter.cpp:2810
 #, kde-format
 msgid "16th"
 msgstr "16."
 
-#: src/incidenceformatter.cpp:2973
+#: src/incidenceformatter.cpp:2811
 #, kde-format
 msgid "17th"
 msgstr "17."
 
-#: src/incidenceformatter.cpp:2974
+#: src/incidenceformatter.cpp:2812
 #, kde-format
 msgid "18th"
 msgstr "18."
 
-#: src/incidenceformatter.cpp:2975
+#: src/incidenceformatter.cpp:2813
 #, kde-format
 msgid "19th"
 msgstr "19."
 
-#: src/incidenceformatter.cpp:2976
+#: src/incidenceformatter.cpp:2814
 #, kde-format
 msgid "20th"
 msgstr "20."
 
-#: src/incidenceformatter.cpp:2977
+#: src/incidenceformatter.cpp:2815
 #, kde-format
 msgid "21st"
 msgstr "21."
 
-#: src/incidenceformatter.cpp:2978
+#: src/incidenceformatter.cpp:2816
 #, kde-format
 msgid "22nd"
 msgstr "22."
 
-#: src/incidenceformatter.cpp:2979
+#: src/incidenceformatter.cpp:2817
 #, kde-format
 msgid "23rd"
 msgstr "23."
 
-#: src/incidenceformatter.cpp:2980
+#: src/incidenceformatter.cpp:2818
 #, kde-format
 msgid "24th"
 msgstr "24."
 
-#: src/incidenceformatter.cpp:2981
+#: src/incidenceformatter.cpp:2819
 #, kde-format
 msgid "25th"
 msgstr "25."
 
-#: src/incidenceformatter.cpp:2982
+#: src/incidenceformatter.cpp:2820
 #, kde-format
 msgid "26th"
 msgstr "26."
 
-#: src/incidenceformatter.cpp:2983
+#: src/incidenceformatter.cpp:2821
 #, kde-format
 msgid "27th"
 msgstr "27."
 
-#: src/incidenceformatter.cpp:2984
+#: src/incidenceformatter.cpp:2822
 #, kde-format
 msgid "28th"
 msgstr "28."
 
-#: src/incidenceformatter.cpp:2985
+#: src/incidenceformatter.cpp:2823
 #, kde-format
 msgid "29th"
 msgstr "29."
 
-#: src/incidenceformatter.cpp:2986
+#: src/incidenceformatter.cpp:2824
 #, kde-format
 msgid "30th"
 msgstr "30."
 
-#: src/incidenceformatter.cpp:2987
+#: src/incidenceformatter.cpp:2825
 #, kde-format
 msgid "31st"
 msgstr "31."
 
-#: src/incidenceformatter.cpp:3002
+#: src/incidenceformatter.cpp:2840
 #, kde-format
 msgid "Recurs every minute until %2"
 msgid_plural "Recurs every %1 minutes until %2"
@@ -1352,17 +1186,17 @@ msgstr[0] "Opakuje se každou minutu do %2"
 msgstr[1] "Opakuje se každé %1 minuty do %2"
 msgstr[2] "Opakuje se každých %1 minut do %2"
 
-#: src/incidenceformatter.cpp:3004 src/incidenceformatter.cpp:3015
-#: src/incidenceformatter.cpp:3026 src/incidenceformatter.cpp:3056
-#: src/incidenceformatter.cpp:3077 src/incidenceformatter.cpp:3100
-#: src/incidenceformatter.cpp:3124 src/incidenceformatter.cpp:3161
-#: src/incidenceformatter.cpp:3189
+#: src/incidenceformatter.cpp:2842 src/incidenceformatter.cpp:2853
+#: src/incidenceformatter.cpp:2864 src/incidenceformatter.cpp:2894
+#: src/incidenceformatter.cpp:2915 src/incidenceformatter.cpp:2938
+#: src/incidenceformatter.cpp:2962 src/incidenceformatter.cpp:2999
+#: src/incidenceformatter.cpp:3027
 #, kde-format, kde-kuit-format
 msgctxt "number of occurrences"
 msgid " (%1 occurrences)"
 msgstr " (%1 výskytů)"
 
-#: src/incidenceformatter.cpp:3007
+#: src/incidenceformatter.cpp:2845
 #, kde-format
 msgid "Recurs every minute"
 msgid_plural "Recurs every %1 minutes"
@@ -1370,7 +1204,7 @@ msgstr[0] "Opakuje se každou minutu"
 msgstr[1] "Opakuje se každé %1 minuty"
 msgstr[2] "Opakuje se každých %1 minut"
 
-#: src/incidenceformatter.cpp:3013
+#: src/incidenceformatter.cpp:2851
 #, kde-format
 msgid "Recurs hourly until %2"
 msgid_plural "Recurs every %1 hours until %2"
@@ -1378,7 +1212,7 @@ msgstr[0] "Opakuje se každou hodinu do %2"
 msgstr[1] "Opakuje se každé %1 hodiny do %2"
 msgstr[2] "Opakuje se každých %1 hodin do %2"
 
-#: src/incidenceformatter.cpp:3018
+#: src/incidenceformatter.cpp:2856
 #, kde-format
 msgid "Recurs hourly"
 msgid_plural "Recurs every %1 hours"
@@ -1386,7 +1220,7 @@ msgstr[0] "Opakuje se každou hodinu"
 msgstr[1] "Opakuje se každé %1 hodiny"
 msgstr[2] "Opakuje se každých %1 hodin"
 
-#: src/incidenceformatter.cpp:3024
+#: src/incidenceformatter.cpp:2862
 #, kde-format
 msgid "Recurs daily until %2"
 msgid_plural "Recurs every %1 days until %2"
@@ -1394,7 +1228,7 @@ msgstr[0] "Opakuje se každý den do %2"
 msgstr[1] "Opakuje se každé %1 dny do %2"
 msgstr[2] "Opakuje se každých %1 dnů do %2"
 
-#: src/incidenceformatter.cpp:3029
+#: src/incidenceformatter.cpp:2867
 #, kde-format
 msgid "Recurs daily"
 msgid_plural "Recurs every %1 days"
@@ -1402,19 +1236,19 @@ msgstr[0] "Opakuje se každý den"
 msgstr[1] "Opakuje se každé %1 dny"
 msgstr[2] "Opakuje se každých %1 dnů"
 
-#: src/incidenceformatter.cpp:3039
+#: src/incidenceformatter.cpp:2877
 #, kde-format
 msgctxt "separator for list of days"
 msgid ", "
 msgstr ", "
 
-#: src/incidenceformatter.cpp:3046
+#: src/incidenceformatter.cpp:2884
 #, kde-format
 msgctxt "Recurs weekly on no days"
 msgid "no days"
 msgstr "žádné dny"
 
-#: src/incidenceformatter.cpp:3050
+#: src/incidenceformatter.cpp:2888
 #, kde-format
 msgctxt "Recurs weekly on [list of days] until end-date"
 msgid "Recurs weekly on %2 until %3"
@@ -1423,7 +1257,7 @@ msgstr[0] "Opakuje se týdně v %2 do %3"
 msgstr[1] "Opakuje se každé %1 týdny v %2 do %3"
 msgstr[2] "Opakuje se každých %1 týdnů v %2 do %3"
 
-#: src/incidenceformatter.cpp:3059
+#: src/incidenceformatter.cpp:2897
 #, kde-format
 msgctxt "Recurs weekly on [list of days]"
 msgid "Recurs weekly on %2"
@@ -1432,7 +1266,7 @@ msgstr[0] "Opakuje se týdně v %2"
 msgstr[1] "Opakuje se každé %1 týdny v %2"
 msgstr[2] "Opakuje se každých %1 týdnů v %2"
 
-#: src/incidenceformatter.cpp:3070
+#: src/incidenceformatter.cpp:2908
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
 msgid "Recurs every month on the %2 %3 until %4"
@@ -1441,7 +1275,7 @@ msgstr[0] "Opakuje se každý měsíc v %2 %3 do %4"
 msgstr[1] "Opakuje se každé %1 měsíce v %2 %3 do %4"
 msgstr[2] "Opakuje se každých %1 měsíců v %2 %3 do %4"
 
-#: src/incidenceformatter.cpp:3081
+#: src/incidenceformatter.cpp:2919
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname"
 msgid "Recurs every month on the %2 %3"
@@ -1450,7 +1284,7 @@ msgstr[0] "Opakuje se každý měsíc v %2 %3"
 msgstr[1] "Opakuje se každé %1 měsíce v %2 %3"
 msgstr[2] "Opakuje se každých %1 měsíců v %2 %3"
 
-#: src/incidenceformatter.cpp:3094
+#: src/incidenceformatter.cpp:2932
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day until end-date"
 msgid "Recurs monthly on the %2 day until %3"
@@ -1459,7 +1293,7 @@ msgstr[0] "Opakuje se měsíčně v %2 den do %3"
 msgstr[1] "Opakuje se každé %1 měsíce v %2 den do %3"
 msgstr[2] "Opakuje se každých %1 měsíců v %2 den do %3"
 
-#: src/incidenceformatter.cpp:3104
+#: src/incidenceformatter.cpp:2942
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day"
 msgid "Recurs monthly on the %2 day"
@@ -1468,7 +1302,7 @@ msgstr[0] "Opakuje se měsíčně v %2 den"
 msgstr[1] "Opakuje se každé %1 měsíce v %2 den"
 msgstr[2] "Opakuje se každých %1 měsíců v %2 den"
 
-#: src/incidenceformatter.cpp:3117
+#: src/incidenceformatter.cpp:2955
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...] until end-date"
 msgid "Recurs yearly on %2 %3 until %4"
@@ -1477,7 +1311,7 @@ msgstr[0] "Opakuje se ročně v %2 %3 do %4"
 msgstr[1] "Opakuje se každé <numid>%1</numid> roky v %2 %3 do %4"
 msgstr[2] "Opakuje se každých <numid>%1</numid> let v %2 %3 do %4"
 
-#: src/incidenceformatter.cpp:3130
+#: src/incidenceformatter.cpp:2968
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %2 %3"
@@ -1486,13 +1320,13 @@ msgstr[0] "Opakuje se ročně v %2 %3"
 msgstr[1] "Opakuje se každé %1 roky v %2 %3"
 msgstr[2] "Opakuje se každých %1 let v %2 %3"
 
-#: src/incidenceformatter.cpp:3138 src/incidenceformatter.cpp:3143
+#: src/incidenceformatter.cpp:2976 src/incidenceformatter.cpp:2981
 #, kde-format
 msgctxt "Recurs Every year on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %1 %2"
 msgstr "Opakuje se ročně v %1 %2"
 
-#: src/incidenceformatter.cpp:3154
+#: src/incidenceformatter.cpp:2992
 #, kde-format
 msgctxt "Recurs every N years on day N until end-date"
 msgid "Recurs every year on day %2 until %3"
@@ -1501,7 +1335,7 @@ msgstr[0] "Opakuje se každý rok v %2 až do %3"
 msgstr[1] "Opakuje se každé %1 roky v %2 až do %3"
 msgstr[2] "Opakuje se každých %1 let v %2 až do %3"
 
-#: src/incidenceformatter.cpp:3165
+#: src/incidenceformatter.cpp:3003
 #, kde-format
 msgctxt "Recurs every N YEAR[S] on day N"
 msgid "Recurs every year on day %2"
@@ -1510,7 +1344,7 @@ msgstr[0] "Opakuje se každý rok v %2"
 msgstr[1] "Opakuje se každé %1 roky v %2"
 msgstr[2] "Opakuje se každých %1 let v %2"
 
-#: src/incidenceformatter.cpp:3180
+#: src/incidenceformatter.cpp:3018
 #, kde-format
 msgctxt ""
 "Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
@@ -1520,7 +1354,7 @@ msgstr[0] "Každý rok v %2. %3 měsíce %4 až do %5"
 msgstr[1] "Každé %1 roky v %2. %3 měsíce %4 až do %5"
 msgstr[2] "Každých %1 let v %2. %3 měsíce %4 až do %5"
 
-#: src/incidenceformatter.cpp:3195
+#: src/incidenceformatter.cpp:3033
 #, kde-kuit-format
 msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
 msgid "Every year on the %2 %3 of %4"
@@ -1529,18 +1363,18 @@ msgstr[0] "Každý rok v %2 %3 měsíce %4"
 msgstr[1] "Každé %1 roky v %2 %3 měsíce %4"
 msgstr[2] "Každých %1 let v %2 %3 měsíce %4"
 
-#: src/incidenceformatter.cpp:3209
+#: src/incidenceformatter.cpp:3047
 #, kde-format
 msgid "Incidence recurs"
 msgstr "Událost se opakuje"
 
-#: src/incidenceformatter.cpp:3222
+#: src/incidenceformatter.cpp:3060
 #, kde-format
 msgid "minute %1"
 msgstr "minuta %1"
 
-#: src/incidenceformatter.cpp:3264 src/incidenceformatter.cpp:3317
-#: src/incidenceformatter.cpp:3343 src/incidenceformatter.cpp:3355
+#: src/incidenceformatter.cpp:3102 src/incidenceformatter.cpp:3155
+#: src/incidenceformatter.cpp:3181 src/incidenceformatter.cpp:3193
 #, kde-format
 msgid "1 day"
 msgid_plural "%1 days"
@@ -1548,12 +1382,12 @@ msgstr[0] "1 den"
 msgstr[1] "%1 dny"
 msgstr[2] "%1 dnů"
 
-#: src/incidenceformatter.cpp:3297
+#: src/incidenceformatter.cpp:3135
 #, kde-format
 msgid "%1 (excluding %2)"
 msgstr "%1 (vyjma %2)"
 
-#: src/incidenceformatter.cpp:3323
+#: src/incidenceformatter.cpp:3161
 #, kde-format
 msgid "1 hour"
 msgid_plural "%1 hours"
@@ -1561,7 +1395,7 @@ msgstr[0] "1 hodina"
 msgstr[1] "%1 hodiny"
 msgstr[2] "%1 hodin"
 
-#: src/incidenceformatter.cpp:3329
+#: src/incidenceformatter.cpp:3167
 #, kde-format
 msgid "1 minute"
 msgid_plural "%1 minutes"
@@ -1569,54 +1403,54 @@ msgstr[0] "1 minuta"
 msgstr[1] "%1 minuty"
 msgstr[2] "%1 minut"
 
-#: src/incidenceformatter.cpp:3346
+#: src/incidenceformatter.cpp:3184
 #, kde-format
 msgid "forever"
 msgstr "pořád"
 
-#: src/incidenceformatter.cpp:3388
+#: src/incidenceformatter.cpp:3226
 #, kde-format
 msgctxt "N days/hours/minutes before the start datetime"
 msgid "%1 before the start"
 msgstr "%1 před zahájením"
 
-#: src/incidenceformatter.cpp:3390
+#: src/incidenceformatter.cpp:3228
 #, kde-format
 msgctxt "N days/hours/minutes after the start datetime"
 msgid "%1 after the start"
 msgstr "%1 po zahájení"
 
-#: src/incidenceformatter.cpp:3401
+#: src/incidenceformatter.cpp:3239
 #, kde-format
 msgctxt "N days/hours/minutes before the due datetime"
 msgid "%1 before the to-do is due"
 msgstr "%1 před termínem úkolu"
 
-#: src/incidenceformatter.cpp:3403
+#: src/incidenceformatter.cpp:3241
 #, kde-format
 msgctxt "N days/hours/minutes before the end datetime"
 msgid "%1 before the end"
 msgstr "%1 před ukončením"
 
-#: src/incidenceformatter.cpp:3407
+#: src/incidenceformatter.cpp:3245
 #, kde-format
 msgctxt "N days/hours/minutes after the due datetime"
 msgid "%1 after the to-do is due"
 msgstr "%1 po termínu úkolu"
 
-#: src/incidenceformatter.cpp:3409
+#: src/incidenceformatter.cpp:3247
 #, kde-format
 msgctxt "N days/hours/minutes after the end datetime"
 msgid "%1 after the end"
 msgstr "%1 po ukončení"
 
-#: src/incidenceformatter.cpp:3427
+#: src/incidenceformatter.cpp:3265
 #, kde-format
 msgctxt "reminder occurs at datetime"
 msgid "at %1"
 msgstr "v %1"
 
-#: src/incidenceformatter.cpp:3434
+#: src/incidenceformatter.cpp:3272
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
@@ -1624,31 +1458,31 @@ msgstr[0] "opakuje se jednou"
 msgstr[1] "opakuje se %1 krát"
 msgstr[2] "opakuje se %1 krát"
 
-#: src/incidenceformatter.cpp:3435
+#: src/incidenceformatter.cpp:3273
 #, kde-format
 msgctxt "interval is N days/hours/minutes"
 msgid "interval is %1"
 msgstr "interval je %1"
 
-#: src/incidenceformatter.cpp:3436
+#: src/incidenceformatter.cpp:3274
 #, kde-format
 msgctxt "(repeat string, interval string)"
 msgid "(%1, %2)"
 msgstr "(%1, %2)"
 
-#: src/incidenceformatter.cpp:3441
+#: src/incidenceformatter.cpp:3279
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
 msgstr "zakázáno"
 
-#: src/incidenceformatter.cpp:3445
+#: src/incidenceformatter.cpp:3283
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
 msgstr "audio"
 
-#: src/incidenceformatter.cpp:3448
+#: src/incidenceformatter.cpp:3286
 #, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
@@ -2184,6 +2018,114 @@ msgstr "Dokončeno:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Procent hotovo:"
+
+#~ msgid "Summary: %1\n"
+#~ msgstr "Souhrn: %1\n"
+
+#~ msgid "Organizer: %1\n"
+#~ msgstr "Organizátor: %1\n"
+
+#~ msgid "Location: %1\n"
+#~ msgstr "Umístění: %1\n"
+
+#~ msgid "This is a Free Busy Object"
+#~ msgstr "Toto je objekt 'aktivity'"
+
+#~ msgctxt "no recurrence"
+#~ msgid "None"
+#~ msgstr "Žádné"
+
+#~ msgctxt "event recurs by minutes"
+#~ msgid "Minutely"
+#~ msgstr "Minutově"
+
+#~ msgctxt "event recurs by hours"
+#~ msgid "Hourly"
+#~ msgstr "Hodinově"
+
+#~ msgctxt "event recurs by days"
+#~ msgid "Daily"
+#~ msgstr "Denně"
+
+#~ msgctxt "event recurs by weeks"
+#~ msgid "Weekly"
+#~ msgstr "Týdně"
+
+#~ msgctxt "event recurs same position (e.g. first monday) each month"
+#~ msgid "Monthly Same Position"
+#~ msgstr "Měsíčně ve stejnou dobu"
+
+#~ msgctxt "event recurs same day each month"
+#~ msgid "Monthly Same Day"
+#~ msgstr "Měsíčně ve stejný den"
+
+#~ msgctxt "event recurs same month each year"
+#~ msgid "Yearly Same Month"
+#~ msgstr "Ročně ve stejný měsíc"
+
+#~ msgctxt "event recurs same day each year"
+#~ msgid "Yearly Same Day"
+#~ msgstr "Ročně ve stejný den"
+
+#~ msgctxt "event recurs same position (e.g. first monday) each year"
+#~ msgid "Yearly Same Position"
+#~ msgstr "Ročně ve stejnou dobu"
+
+#~ msgid "Start Date: %1\n"
+#~ msgstr "Datum zahájení: %1\n"
+
+#~ msgid "Start Time: %1\n"
+#~ msgstr "Čas zahájení: %1\n"
+
+#~ msgid "End Date: %1\n"
+#~ msgstr "Datum ukončení: %1\n"
+
+#~ msgid "End Time: %1\n"
+#~ msgstr "Čas ukončení: %1\n"
+
+#~ msgid "Recurs: %1\n"
+#~ msgstr "Opakuje se: %1\n"
+
+#~ msgid "Frequency: %1\n"
+#~ msgstr "Frekvence: %1\n"
+
+#~ msgid "Repeats once"
+#~ msgid_plural "Repeats %1 times"
+#~ msgstr[0] "Opakuje se jednou"
+#~ msgstr[1] "Opakuje se %1 krát"
+#~ msgstr[2] "Opakuje se %1 krát"
+
+#~ msgid "Repeat until: %1\n"
+#~ msgstr "Opakovat do: %1\n"
+
+#~ msgid "Repeats forever\n"
+#~ msgstr "Opakuje se napořád\n"
+
+#~ msgid ""
+#~ "Details:\n"
+#~ "%1\n"
+#~ msgstr ""
+#~ "Podrobnosti:\n"
+#~ "%1\n"
+
+#~ msgid "Due Date: %1\n"
+#~ msgstr "Datum splnění: %1\n"
+
+#~ msgid "Due Time: %1\n"
+#~ msgstr "Čas splnění: %1\n"
+
+#~ msgid "Date: %1\n"
+#~ msgstr "Datum: %1\n"
+
+#~ msgid "Time: %1\n"
+#~ msgstr "Čas: %1\n"
+
+#~ msgid ""
+#~ "Text of the journal:\n"
+#~ "%1\n"
+#~ msgstr ""
+#~ "Text deníku:\n"
+#~ "%1\n"
 
 #~ msgctxt "@item incidence type is event"
 #~ msgid "event"
