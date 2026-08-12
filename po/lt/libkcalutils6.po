@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-09 00:46+0000\n"
+"POT-Creation-Date: 2026-08-12 00:47+0000\n"
 "PO-Revision-Date: 2015-12-29 23:01+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Organizer Unknown"
 msgstr ""
 
-#: src/incidenceformatter.cpp:190 src/incidenceformatter.cpp:1376
+#: src/incidenceformatter.cpp:190 src/incidenceformatter.cpp:1363
 #, kde-format
 msgid "Sender"
 msgstr "Siuntėjas"
@@ -52,7 +52,7 @@ msgstr "Siuntėjas"
 msgid "Show mail"
 msgstr "Rodyti paštą"
 
-#: src/incidenceformatter.cpp:632 src/incidenceformatter.cpp:1238
+#: src/incidenceformatter.cpp:632 src/incidenceformatter.cpp:1225
 #, kde-format
 msgctxt "hours part of duration"
 msgid "1 hour "
@@ -72,7 +72,7 @@ msgstr[1] "%1 minutės"
 msgstr[2] "%1 minučių"
 msgstr[3] "%1 minutė"
 
-#: src/incidenceformatter.cpp:640 src/incidenceformatter.cpp:1246
+#: src/incidenceformatter.cpp:640 src/incidenceformatter.cpp:1233
 #, kde-format
 msgctxt "seconds part of duration"
 msgid "1 second"
@@ -82,58 +82,58 @@ msgstr[1] "%1 sekundės"
 msgstr[2] "%1 sekundžių"
 msgstr[3] "%1 sekundė"
 
-#: src/incidenceformatter.cpp:742
+#: src/incidenceformatter.cpp:749
 #, kde-format
 msgid "Summary unspecified"
 msgstr "Santrauka nenurodyta"
 
-#: src/incidenceformatter.cpp:758
+#: src/incidenceformatter.cpp:761
 #, kde-format
 msgid "Location unspecified"
 msgstr "Vieta nenurodyta"
 
-#: src/incidenceformatter.cpp:893
+#: src/incidenceformatter.cpp:885
 #, kde-format
 msgid "Your response is requested."
 msgstr ""
 
-#: src/incidenceformatter.cpp:895
+#: src/incidenceformatter.cpp:887
 #, kde-format
 msgid "Your response as <b>%1</b> is requested."
 msgstr ""
 
-#: src/incidenceformatter.cpp:899
+#: src/incidenceformatter.cpp:891
 #, kde-format
 msgid "No response is necessary."
 msgstr ""
 
-#: src/incidenceformatter.cpp:901
+#: src/incidenceformatter.cpp:893
 #, kde-format
 msgid "No response as <b>%1</b> is necessary."
 msgstr ""
 
-#: src/incidenceformatter.cpp:911
+#: src/incidenceformatter.cpp:903
 #, kde-format
 msgid "(<b>Note</b>: the Organizer preset your response to <b>%1</b>)"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1051 src/incidenceformatter.cpp:1111
+#: src/incidenceformatter.cpp:1041 src/incidenceformatter.cpp:1098
 #, kde-format
 msgid "Check my calendar"
 msgstr "Patikrinti mano kalendorių"
 
-#: src/incidenceformatter.cpp:1096 src/incidenceformatter.cpp:1166
+#: src/incidenceformatter.cpp:1083 src/incidenceformatter.cpp:1153
 #, kde-format
 msgid "Please respond again to the original proposal."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1147 src/incidenceformatter.cpp:1178
+#: src/incidenceformatter.cpp:1134 src/incidenceformatter.cpp:1165
 #: src/templates/todo.html:179
 #, kde-format
 msgid "%1%"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1242
+#: src/incidenceformatter.cpp:1229
 #, kde-format
 msgctxt "minutes part of duration"
 msgid "1 minute"
@@ -143,492 +143,492 @@ msgstr[1] "%1 minutės"
 msgstr[2] "%1 minučių"
 msgstr[3] "%1 minutė"
 
-#: src/incidenceformatter.cpp:1274
+#: src/incidenceformatter.cpp:1261
 #, fuzzy, kde-format
 #| msgid "This journal has been published"
 msgid "This invitation has been published."
 msgstr "Dienynas buvo paskelbtas"
 
-#: src/incidenceformatter.cpp:1279
+#: src/incidenceformatter.cpp:1266
 #, kde-format
 msgid "This invitation has been updated by the organizer %1."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1281
+#: src/incidenceformatter.cpp:1268
 #, kde-format
 msgid "This invitation has been updated by %1 as a representative of %2."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1285
+#: src/incidenceformatter.cpp:1272
 #, fuzzy, kde-format
 #| msgid "%1 accepts this invitation"
 msgid "I created this invitation."
 msgstr "%1 priima pakvietimą į šį susitikimą"
 
-#: src/incidenceformatter.cpp:1289
+#: src/incidenceformatter.cpp:1276
 #, kde-format
 msgid "You received an invitation from %1."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1291
+#: src/incidenceformatter.cpp:1278
 #, kde-format
 msgid "You received an invitation from %1 as a representative of %2."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1295
+#: src/incidenceformatter.cpp:1282
 #, fuzzy, kde-format
 #| msgid "This invitation was refreshed"
 msgid "This invitation was refreshed."
 msgstr "Šis pakvietimas buvo atnaujintas"
 
-#: src/incidenceformatter.cpp:1298
+#: src/incidenceformatter.cpp:1285
 #, fuzzy, kde-format
 #| msgid "This invitation was accepted"
 msgid "This invitation has been canceled."
 msgstr "Šis pakvietimas buvo priimtas"
 
-#: src/incidenceformatter.cpp:1300
+#: src/incidenceformatter.cpp:1287
 #, fuzzy, kde-format
 #| msgid "Sender is still processing the invitation"
 msgid "The organizer has revoked the invitation."
 msgstr "Siuntėjas vis dar tvarko kvietimą"
 
-#: src/incidenceformatter.cpp:1303
+#: src/incidenceformatter.cpp:1290
 #, fuzzy, kde-format
 #| msgid "Addition to the journal"
 msgid "Addition to the invitation."
 msgstr "Dienyno papildymas"
 
-#: src/incidenceformatter.cpp:1326
+#: src/incidenceformatter.cpp:1313
 #, fuzzy, kde-format
 #| msgid "%1 indicates this invitation still needs some action"
 msgid "%1 indicates this invitation still needs some action."
 msgstr "%1 nurodo, kad šis pakvietimas vis dar reikalauja veiksmo"
 
-#: src/incidenceformatter.cpp:1330
+#: src/incidenceformatter.cpp:1317
 #, fuzzy, kde-format
 #| msgid "This invitation was accepted"
 msgid "This invitation has been updated by attendee %1."
 msgstr "Šis pakvietimas buvo priimtas"
 
-#: src/incidenceformatter.cpp:1332
+#: src/incidenceformatter.cpp:1319
 #, fuzzy, kde-format
 #| msgid "This invitation was accepted"
 msgid "This invitation has been updated by an attendee."
 msgstr "Šis pakvietimas buvo priimtas"
 
-#: src/incidenceformatter.cpp:1336
+#: src/incidenceformatter.cpp:1323
 #, fuzzy, kde-format
 #| msgid "%1 accepts this invitation"
 msgid "%1 accepts this invitation."
 msgstr "%1 priima pakvietimą į šį susitikimą"
 
-#: src/incidenceformatter.cpp:1338
+#: src/incidenceformatter.cpp:1325
 #, fuzzy, kde-format
 #| msgid "%1 accepts this invitation on behalf of %2"
 msgid "%1 accepts this invitation on behalf of %2."
 msgstr "%1 priima pakvietimą į šį susitikimą pavaduodamas %2"
 
-#: src/incidenceformatter.cpp:1343
+#: src/incidenceformatter.cpp:1330
 #, fuzzy, kde-format
 #| msgid "%1 tentatively accepts this invitation"
 msgid "%1 tentatively accepts this invitation."
 msgstr "%1 sąlyginai priima pakvietimą į šį susitikimą"
 
-#: src/incidenceformatter.cpp:1345
+#: src/incidenceformatter.cpp:1332
 #, fuzzy, kde-format
 #| msgid "%1 tentatively accepts this invitation on behalf of %2"
 msgid "%1 tentatively accepts this invitation on behalf of %2."
 msgstr "%1 sąlyginai priima pakvietimą į šį susitikimą pavaduodamas %2"
 
-#: src/incidenceformatter.cpp:1349
+#: src/incidenceformatter.cpp:1336
 #, fuzzy, kde-format
 #| msgid "%1 declines this invitation"
 msgid "%1 declines this invitation."
 msgstr "%1 atmetė pakvietimą į šį susitikimą"
 
-#: src/incidenceformatter.cpp:1351
+#: src/incidenceformatter.cpp:1338
 #, fuzzy, kde-format
 #| msgid "%1 declines this invitation on behalf of %2"
 msgid "%1 declines this invitation on behalf of %2."
 msgstr "%1 atmetė pakvietimą į šį susitikimą, kur turėjo pavaduoti %2"
 
-#: src/incidenceformatter.cpp:1361
+#: src/incidenceformatter.cpp:1348
 #, fuzzy, kde-format
 #| msgid "%1 has delegated this invitation to %2"
 msgid "%1 has delegated this invitation to %2."
 msgstr "%1 šį kvietimą į susitikimą delegavo %2"
 
-#: src/incidenceformatter.cpp:1363
+#: src/incidenceformatter.cpp:1350
 #, fuzzy, kde-format
 #| msgid "%1 has delegated this invitation to %2"
 msgid "%1 has delegated this invitation."
 msgstr "%1 šį kvietimą į susitikimą delegavo %2"
 
-#: src/incidenceformatter.cpp:1367
+#: src/incidenceformatter.cpp:1354
 #, fuzzy, kde-format
 #| msgid "This invitation was accepted"
 msgid "This invitation is now completed."
 msgstr "Šis pakvietimas buvo priimtas"
 
-#: src/incidenceformatter.cpp:1369
+#: src/incidenceformatter.cpp:1356
 #, fuzzy, kde-format
 #| msgid "Sender is still processing the invitation"
 msgid "%1 is still processing the invitation."
 msgstr "Siuntėjas vis dar tvarko kvietimą"
 
-#: src/incidenceformatter.cpp:1371
+#: src/incidenceformatter.cpp:1358
 #, fuzzy, kde-format
 #| msgid "Unknown response to this invitation"
 msgid "Unknown response to this invitation."
 msgstr "Nepavyksta suprasti atsakymo į pakvietimą į susitikimą"
 
-#: src/incidenceformatter.cpp:1376 src/incidenceformatter.cpp:1514
+#: src/incidenceformatter.cpp:1363 src/incidenceformatter.cpp:1501
 #, fuzzy, kde-format
 #| msgid "Sender makes this counter proposal"
 msgid "%1 makes this counter proposal."
 msgstr "Siuntėjas pateikia alternatyvų pasiūlymą"
 
-#: src/incidenceformatter.cpp:1381
+#: src/incidenceformatter.cpp:1368
 #, fuzzy, kde-format
 #| msgid "Sender declines the counter proposal"
 msgid "%1 declines your counter proposal."
 msgstr "Siuntėjas atmeta alternatyvų pasiūlymą"
 
-#: src/incidenceformatter.cpp:1383
+#: src/incidenceformatter.cpp:1370
 #, fuzzy, kde-format
 #| msgid "%1 declines this invitation on behalf of %2"
 msgid "%1 declines your counter proposal on behalf of %2."
 msgstr "%1 atmetė pakvietimą į šį susitikimą, kur turėjo pavaduoti %2"
 
-#: src/incidenceformatter.cpp:1388
+#: src/incidenceformatter.cpp:1375
 #, kde-format
 msgid "Error: Event iTIP message with unknown method."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1403
+#: src/incidenceformatter.cpp:1390
 #, fuzzy, kde-format
 #| msgid "This journal has been published"
 msgid "This to-do has been published."
 msgstr "Dienynas buvo paskelbtas"
 
-#: src/incidenceformatter.cpp:1408
+#: src/incidenceformatter.cpp:1395
 #, kde-format
 msgid "This to-do has been updated by the organizer %1."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1410
+#: src/incidenceformatter.cpp:1397
 #, kde-format
 msgid "This to-do has been updated by %1 as a representative of %2."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1414
+#: src/incidenceformatter.cpp:1401
 #, kde-format
 msgid "I created this to-do."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1418
+#: src/incidenceformatter.cpp:1405
 #, fuzzy, kde-format
 #| msgid "You have been assigned this journal"
 msgid "You have been assigned this to-do by %1."
 msgstr "Jūs buvote priskirtas šiam dienynui"
 
-#: src/incidenceformatter.cpp:1420
+#: src/incidenceformatter.cpp:1407
 #, fuzzy, kde-format
 #| msgid "You have been assigned this journal"
 msgid "You have been assigned this to-do by %1 as a representative of %2."
 msgstr "Jūs buvote priskirtas šiam dienynui"
 
-#: src/incidenceformatter.cpp:1425
+#: src/incidenceformatter.cpp:1412
 #, fuzzy, kde-format
 #| msgid "This to-do was refreshed"
 msgid "This to-do was refreshed."
 msgstr "Šis darbas yra atnaujintas"
 
-#: src/incidenceformatter.cpp:1428
+#: src/incidenceformatter.cpp:1415
 #, fuzzy, kde-format
 #| msgid "This to-do was canceled"
 msgid "This to-do was canceled."
 msgstr "Šis darbas yra atšauktas"
 
-#: src/incidenceformatter.cpp:1430
+#: src/incidenceformatter.cpp:1417
 #, kde-format
 msgid "The organizer has revoked this to-do."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1433
+#: src/incidenceformatter.cpp:1420
 #, fuzzy, kde-format
 #| msgid "Addition to the journal"
 msgid "Addition to the to-do."
 msgstr "Dienyno papildymas"
 
-#: src/incidenceformatter.cpp:1456
+#: src/incidenceformatter.cpp:1443
 #, fuzzy, kde-format
 #| msgid "Sender indicates this journal assignment still needs some action"
 msgid "%1 indicates this to-do assignment still needs some action."
 msgstr "Siuntėjas nurodo, kad dienyno užduotis vis dar reikalauja veiksmo"
 
-#: src/incidenceformatter.cpp:1461
+#: src/incidenceformatter.cpp:1448
 #, kde-format
 msgid "This to-do has been completed by assignee %1."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1463
+#: src/incidenceformatter.cpp:1450
 #, kde-format
 msgid "This to-do has been updated by assignee %1."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1467
+#: src/incidenceformatter.cpp:1454
 #, kde-format
 msgid "This to-do has been completed by an assignee."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1469
+#: src/incidenceformatter.cpp:1456
 #, kde-format
 msgid "This to-do has been updated by an assignee."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1474
+#: src/incidenceformatter.cpp:1461
 #, fuzzy, kde-format
 #| msgid "%1 accepts this invitation"
 msgid "%1 accepts this to-do."
 msgstr "%1 priima pakvietimą į šį susitikimą"
 
-#: src/incidenceformatter.cpp:1476
+#: src/incidenceformatter.cpp:1463
 #, fuzzy, kde-format
 #| msgid "%1 accepts this invitation on behalf of %2"
 msgid "%1 accepts this to-do on behalf of %2."
 msgstr "%1 priima pakvietimą į šį susitikimą pavaduodamas %2"
 
-#: src/incidenceformatter.cpp:1481
+#: src/incidenceformatter.cpp:1468
 #, fuzzy, kde-format
 #| msgid "%1 tentatively accepts this invitation"
 msgid "%1 tentatively accepts this to-do."
 msgstr "%1 sąlyginai priima pakvietimą į šį susitikimą"
 
-#: src/incidenceformatter.cpp:1483
+#: src/incidenceformatter.cpp:1470
 #, fuzzy, kde-format
 #| msgid "%1 tentatively accepts this invitation on behalf of %2"
 msgid "%1 tentatively accepts this to-do on behalf of %2."
 msgstr "%1 sąlyginai priima pakvietimą į šį susitikimą pavaduodamas %2"
 
-#: src/incidenceformatter.cpp:1487
+#: src/incidenceformatter.cpp:1474
 #, fuzzy, kde-format
 #| msgid "%1 declines this invitation"
 msgid "%1 declines this to-do."
 msgstr "%1 atmetė pakvietimą į šį susitikimą"
 
-#: src/incidenceformatter.cpp:1489
+#: src/incidenceformatter.cpp:1476
 #, fuzzy, kde-format
 #| msgid "%1 declines this invitation on behalf of %2"
 msgid "%1 declines this to-do on behalf of %2."
 msgstr "%1 atmetė pakvietimą į šį susitikimą, kur turėjo pavaduoti %2"
 
-#: src/incidenceformatter.cpp:1499
+#: src/incidenceformatter.cpp:1486
 #, fuzzy, kde-format
 #| msgid "%1 has delegated this invitation to %2"
 msgid "%1 has delegated this to-do to %2."
 msgstr "%1 šį kvietimą į susitikimą delegavo %2"
 
-#: src/incidenceformatter.cpp:1501
+#: src/incidenceformatter.cpp:1488
 #, fuzzy, kde-format
 #| msgid "%1 has delegated this invitation to %2"
 msgid "%1 has delegated this to-do."
 msgstr "%1 šį kvietimą į susitikimą delegavo %2"
 
-#: src/incidenceformatter.cpp:1505
+#: src/incidenceformatter.cpp:1492
 #, fuzzy, kde-format
 #| msgid "The request for this journal is now completed"
 msgid "The request for this to-do is now completed."
 msgstr "Prašymas šiam dienynui atlikti yra užbaigtas"
 
-#: src/incidenceformatter.cpp:1507
+#: src/incidenceformatter.cpp:1494
 #, fuzzy, kde-format
 #| msgid "Sender is still processing the invitation"
 msgid "%1 is still processing the to-do."
 msgstr "Siuntėjas vis dar tvarko kvietimą"
 
-#: src/incidenceformatter.cpp:1509
+#: src/incidenceformatter.cpp:1496
 #, fuzzy, kde-format
 #| msgid "Unknown response to this to-do"
 msgid "Unknown response to this to-do."
 msgstr "Nežinomas atsakymas į šį darbą"
 
-#: src/incidenceformatter.cpp:1519
+#: src/incidenceformatter.cpp:1506
 #, fuzzy, kde-format
 #| msgid "Sender declines the counter proposal"
 msgid "%1 declines the counter proposal."
 msgstr "Siuntėjas atmeta alternatyvų pasiūlymą"
 
-#: src/incidenceformatter.cpp:1521
+#: src/incidenceformatter.cpp:1508
 #, fuzzy, kde-format
 #| msgid "%1 declines this invitation on behalf of %2"
 msgid "%1 declines the counter proposal on behalf of %2."
 msgstr "%1 atmetė pakvietimą į šį susitikimą, kur turėjo pavaduoti %2"
 
-#: src/incidenceformatter.cpp:1526
+#: src/incidenceformatter.cpp:1513
 #, kde-format
 msgid "Error: To-do iTIP message with unknown method."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1540
+#: src/incidenceformatter.cpp:1527
 #, fuzzy, kde-format
 #| msgid "This journal has been published"
 msgid "This journal has been published."
 msgstr "Dienynas buvo paskelbtas"
 
-#: src/incidenceformatter.cpp:1542
+#: src/incidenceformatter.cpp:1529
 #, fuzzy, kde-format
 #| msgid "You have been assigned this journal"
 msgid "You have been assigned this journal."
 msgstr "Jūs buvote priskirtas šiam dienynui"
 
-#: src/incidenceformatter.cpp:1544
+#: src/incidenceformatter.cpp:1531
 #, fuzzy, kde-format
 #| msgid "This journal was refreshed"
 msgid "This journal was refreshed."
 msgstr "Šis dienynas yra atnaujintas"
 
-#: src/incidenceformatter.cpp:1546
+#: src/incidenceformatter.cpp:1533
 #, fuzzy, kde-format
 #| msgid "This journal was canceled"
 msgid "This journal was canceled."
 msgstr "Šis dienynas yra atšauktas"
 
-#: src/incidenceformatter.cpp:1548
+#: src/incidenceformatter.cpp:1535
 #, fuzzy, kde-format
 #| msgid "Addition to the journal"
 msgid "Addition to the journal."
 msgstr "Dienyno papildymas"
 
-#: src/incidenceformatter.cpp:1563
+#: src/incidenceformatter.cpp:1550
 #, fuzzy, kde-format
 #| msgid "Sender indicates this journal assignment still needs some action"
 msgid "Sender indicates this journal assignment still needs some action."
 msgstr "Siuntėjas nurodo, kad dienyno užduotis vis dar reikalauja veiksmo"
 
-#: src/incidenceformatter.cpp:1565
+#: src/incidenceformatter.cpp:1552
 #, fuzzy, kde-format
 #| msgid "Sender accepts this journal"
 msgid "Sender accepts this journal."
 msgstr "Siuntėjas priima šį dienyną"
 
-#: src/incidenceformatter.cpp:1567
+#: src/incidenceformatter.cpp:1554
 #, fuzzy, kde-format
 #| msgid "Sender tentatively accepts this journal"
 msgid "Sender tentatively accepts this journal."
 msgstr "Siuntėjas sąlyginai priima šį dienyną"
 
-#: src/incidenceformatter.cpp:1569
+#: src/incidenceformatter.cpp:1556
 #, fuzzy, kde-format
 #| msgid "Sender declines this journal"
 msgid "Sender declines this journal."
 msgstr "Siuntėjas atmeta šį dienyną"
 
-#: src/incidenceformatter.cpp:1571
+#: src/incidenceformatter.cpp:1558
 #, fuzzy, kde-format
 #| msgid "Sender has delegated this request for the journal"
 msgid "Sender has delegated this request for the journal."
 msgstr "Siuntėjas delegavo dienyno darbą"
 
-#: src/incidenceformatter.cpp:1573
+#: src/incidenceformatter.cpp:1560
 #, fuzzy, kde-format
 #| msgid "The request for this journal is now completed"
 msgid "The request for this journal is now completed."
 msgstr "Prašymas šiam dienynui atlikti yra užbaigtas"
 
-#: src/incidenceformatter.cpp:1575
+#: src/incidenceformatter.cpp:1562
 #, fuzzy, kde-format
 #| msgid "Sender is still processing the invitation"
 msgid "Sender is still processing the invitation."
 msgstr "Siuntėjas vis dar tvarko kvietimą"
 
-#: src/incidenceformatter.cpp:1577
+#: src/incidenceformatter.cpp:1564
 #, fuzzy, kde-format
 #| msgid "Unknown response to this journal"
 msgid "Unknown response to this journal."
 msgstr "Nežinomas atsakymas į šį dienyną"
 
-#: src/incidenceformatter.cpp:1582 src/incidenceformatter.cpp:1612
+#: src/incidenceformatter.cpp:1569 src/incidenceformatter.cpp:1599
 #, fuzzy, kde-format
 #| msgid "Sender makes this counter proposal"
 msgid "Sender makes this counter proposal."
 msgstr "Siuntėjas pateikia alternatyvų pasiūlymą"
 
-#: src/incidenceformatter.cpp:1584 src/incidenceformatter.cpp:1614
+#: src/incidenceformatter.cpp:1571 src/incidenceformatter.cpp:1601
 #, fuzzy, kde-format
 #| msgid "Sender declines the counter proposal"
 msgid "Sender declines the counter proposal."
 msgstr "Siuntėjas atmeta alternatyvų pasiūlymą"
 
-#: src/incidenceformatter.cpp:1586
+#: src/incidenceformatter.cpp:1573
 #, kde-format
 msgid "Error: Journal iTIP message with unknown method."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1600
+#: src/incidenceformatter.cpp:1587
 #, fuzzy, kde-format
 #| msgid "This free/busy list has been published"
 msgid "This free/busy list has been published."
 msgstr "Šis užimtumo sąrašas buvo paskelbtas"
 
-#: src/incidenceformatter.cpp:1602
+#: src/incidenceformatter.cpp:1589
 #, fuzzy, kde-format
 #| msgid "The free/busy list has been requested"
 msgid "The free/busy list has been requested."
 msgstr "Užimtumo sąrašo buvo paprašyta"
 
-#: src/incidenceformatter.cpp:1604
+#: src/incidenceformatter.cpp:1591
 #, fuzzy, kde-format
 #| msgid "This free/busy list was refreshed"
 msgid "This free/busy list was refreshed."
 msgstr "Šis užimtumo sąrašas buvo atnaujintas"
 
-#: src/incidenceformatter.cpp:1606
+#: src/incidenceformatter.cpp:1593
 #, fuzzy, kde-format
 #| msgid "This free/busy list was canceled"
 msgid "This free/busy list was canceled."
 msgstr "Šis užimtumo sąrašas buvo atšauktas"
 
-#: src/incidenceformatter.cpp:1608
+#: src/incidenceformatter.cpp:1595
 #, fuzzy, kde-format
 #| msgid "Addition to the free/busy list"
 msgid "Addition to the free/busy list."
 msgstr "Užimtumo sąrašo papildymas"
 
-#: src/incidenceformatter.cpp:1610
+#: src/incidenceformatter.cpp:1597
 #, fuzzy, kde-format
 #| msgid "Title of the free/busy list"
 msgid "Reply to the free/busy list."
 msgstr "Užimtumo sąrašo pavadinimas"
 
-#: src/incidenceformatter.cpp:1616
+#: src/incidenceformatter.cpp:1603
 #, kde-format
 msgid "Error: Free/Busy iTIP message with unknown method."
 msgstr ""
 
-#: src/incidenceformatter.cpp:1671
+#: src/incidenceformatter.cpp:1658
 #, kde-format
 msgid "%1 (<i>unrecorded</i>)"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1884
+#: src/incidenceformatter.cpp:1869
 #, kde-format
 msgid "Record"
 msgstr "Įrašyti"
 
-#: src/incidenceformatter.cpp:1887
+#: src/incidenceformatter.cpp:1872
 #, kde-format
 msgid "Move to Trash"
 msgstr "Perkelti į šiukšlinę"
 
-#: src/incidenceformatter.cpp:1891
+#: src/incidenceformatter.cpp:1876
 #, kde-format
 msgctxt "accept invitation"
 msgid "Accept"
 msgstr "Priimti"
 
-#: src/incidenceformatter.cpp:1897
+#: src/incidenceformatter.cpp:1882
 #, fuzzy, kde-format
 #| msgctxt "@item event is tentative"
 #| msgid "Tentative"
@@ -636,13 +636,13 @@ msgctxt "Accept invitation conditionally"
 msgid "Tentative"
 msgstr "Negalutinis"
 
-#: src/incidenceformatter.cpp:1904
+#: src/incidenceformatter.cpp:1889
 #, kde-format
 msgctxt "decline invitation"
 msgid "Decline"
 msgstr "Atmesti"
 
-#: src/incidenceformatter.cpp:1908
+#: src/incidenceformatter.cpp:1893
 #, fuzzy, kde-format
 #| msgctxt "invitation counter proposal"
 #| msgid "Counter proposal"
@@ -650,7 +650,7 @@ msgctxt "invitation counter proposal"
 msgid "Counter proposal ..."
 msgstr "Kontrapasiūlymas"
 
-#: src/incidenceformatter.cpp:1913
+#: src/incidenceformatter.cpp:1898
 #, fuzzy, kde-format
 #| msgctxt "delegate inviation to another"
 #| msgid "Delegate"
@@ -658,265 +658,265 @@ msgctxt "delegate invitation to another"
 msgid "Delegate ..."
 msgstr "Deleguotas"
 
-#: src/incidenceformatter.cpp:1923
+#: src/incidenceformatter.cpp:1908
 #, kde-format
 msgid "Accept"
 msgstr "Priimti"
 
-#: src/incidenceformatter.cpp:1926
+#: src/incidenceformatter.cpp:1911
 #, kde-format
 msgid "Decline"
 msgstr "Atmesti"
 
-#: src/incidenceformatter.cpp:1936
+#: src/incidenceformatter.cpp:1921
 #, kde-format
 msgid "Record invitation in my to-do list"
 msgstr "Įrašyti pakvietimą į mano užduočių sąrašą"
 
-#: src/incidenceformatter.cpp:1937
+#: src/incidenceformatter.cpp:1922
 #, kde-format
 msgid "Record invitation in my calendar"
 msgstr "Įrašyti pakvietimą į mano kalendorių"
 
-#: src/incidenceformatter.cpp:1950
+#: src/incidenceformatter.cpp:1935
 #, kde-format
 msgid "Record response in my to-do list"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1950
+#: src/incidenceformatter.cpp:1935
 #, kde-format
 msgid "Record response in my calendar"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1964
+#: src/incidenceformatter.cpp:1949
 #, kde-format
 msgid "Remove invitation from my to-do list"
 msgstr "Pašalinti tai iš mano kalendoriaus"
 
-#: src/incidenceformatter.cpp:1965
+#: src/incidenceformatter.cpp:1950
 #, kde-format
 msgid "Remove invitation from my calendar"
 msgstr ""
 
-#: src/incidenceformatter.cpp:2126
+#: src/incidenceformatter.cpp:2081
 #, kde-format
 msgid "Your <b>%1</b> response has been recorded."
 msgstr ""
 
-#: src/incidenceformatter.cpp:2128
+#: src/incidenceformatter.cpp:2083
 #, kde-format
 msgid "Your status for this invitation is <b>%1</b>."
 msgstr ""
 
-#: src/incidenceformatter.cpp:2132
+#: src/incidenceformatter.cpp:2087
 #, fuzzy, kde-format
 #| msgid "This invitation was accepted"
 msgid "This invitation was canceled."
 msgstr "Šis pakvietimas buvo priimtas"
 
-#: src/incidenceformatter.cpp:2134
+#: src/incidenceformatter.cpp:2089
 #, fuzzy, kde-format
 #| msgid "This invitation was accepted"
 msgid "This invitation was accepted."
 msgstr "Šis pakvietimas buvo priimtas"
 
-#: src/incidenceformatter.cpp:2142
+#: src/incidenceformatter.cpp:2097
 #, kde-format
 msgid "Awaiting delegation response."
 msgstr ""
 
-#: src/incidenceformatter.cpp:2208
+#: src/incidenceformatter.cpp:2163
 #, kde-format
 msgid "The <b>%1</b> response has been recorded"
 msgstr ""
 
-#: src/incidenceformatter.cpp:2235
+#: src/incidenceformatter.cpp:2190
 #, kde-format
 msgid "Assignees:"
 msgstr ""
 
-#: src/incidenceformatter.cpp:2237
+#: src/incidenceformatter.cpp:2192
 #, fuzzy, kde-format
 #| msgctxt "@item participation is required"
 #| msgid "Participant"
 msgid "Participants:"
 msgstr "Dalyvis"
 
-#: src/incidenceformatter.cpp:2362
+#: src/incidenceformatter.cpp:2299
 #, kde-format
 msgctxt "Event start"
 msgid "<i>From:</i> %1"
 msgstr "<i>Nuo:</i> %1"
 
-#: src/incidenceformatter.cpp:2364
+#: src/incidenceformatter.cpp:2301
 #, kde-format
 msgctxt "Event end"
 msgid "<i>To:</i> %1"
 msgstr "<i>Iki:</i> %1"
 
-#: src/incidenceformatter.cpp:2366
+#: src/incidenceformatter.cpp:2303
 #, fuzzy, kde-format
 #| msgid "<i>Date:</i> %1"
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
 msgstr "<i>Data:</i> %1"
 
-#: src/incidenceformatter.cpp:2369 src/incidenceformatter.cpp:2447
+#: src/incidenceformatter.cpp:2306 src/incidenceformatter.cpp:2384
 #, kde-format
 msgid "<i>Date:</i> %1"
 msgstr "<i>Data:</i> %1"
 
-#: src/incidenceformatter.cpp:2375
+#: src/incidenceformatter.cpp:2312
 #, kde-format
 msgctxt "time for event"
 msgid "<i>Time:</i> %1"
 msgstr "<i>Laikas:</i> %1"
 
-#: src/incidenceformatter.cpp:2377
+#: src/incidenceformatter.cpp:2314
 #, kde-format
 msgctxt "time range for event"
 msgid "<i>Time:</i> %1 - %2"
 msgstr "<i>Laikas:</i> %1 – %2"
 
-#: src/incidenceformatter.cpp:2410
+#: src/incidenceformatter.cpp:2347
 #, fuzzy, kde-format
 #| msgid "<i>Start:</i> %1"
 msgctxt "To-do's start date"
 msgid "<i>Start:</i> %1"
 msgstr "<i>Pradžia:</i> %1"
 
-#: src/incidenceformatter.cpp:2413
+#: src/incidenceformatter.cpp:2350
 #, fuzzy, kde-format
 #| msgid "<i>Due:</i> %1"
 msgctxt "To-do's due date"
 msgid "<i>Due:</i> %1"
 msgstr "<i>Atlikti iki:</i> %1"
 
-#: src/incidenceformatter.cpp:2420
+#: src/incidenceformatter.cpp:2357
 #, fuzzy, kde-format
 #| msgid "<i>Period start:</i> %1"
 msgctxt "To-do's priority number"
 msgid "<i>Priority:</i> %1"
 msgstr "<i>Periodo pradžia:</i> %1"
 
-#: src/incidenceformatter.cpp:2425
+#: src/incidenceformatter.cpp:2362
 #, fuzzy, kde-format
 #| msgid "<i>Date:</i> %1"
 msgctxt "To-do's completed date"
 msgid "<i>Completed:</i> %1"
 msgstr "<i>Data:</i> %1"
 
-#: src/incidenceformatter.cpp:2436
+#: src/incidenceformatter.cpp:2373
 #, fuzzy, kde-format
 #| msgid "Percent Done:"
 msgctxt "To-do's percent complete:"
 msgid "<i>Percent Done:</i> %1%"
 msgstr "Procentų užbaigta:"
 
-#: src/incidenceformatter.cpp:2455
+#: src/incidenceformatter.cpp:2392
 #, kde-format
 msgid "<i>Period start:</i> %1"
 msgstr "<i>Periodo pradžia:</i> %1"
 
-#: src/incidenceformatter.cpp:2456
+#: src/incidenceformatter.cpp:2393
 #, fuzzy, kde-format
 #| msgid "<i>Period start:</i> %1"
 msgid "<i>Period end:</i> %1"
 msgstr "<i>Periodo pradžia:</i> %1"
 
-#: src/incidenceformatter.cpp:2481 src/templates/freebusy.html:5
+#: src/incidenceformatter.cpp:2418 src/templates/freebusy.html:5
 #, kde-format
 msgid "Free/Busy information for %1"
 msgstr "%1 užimtumo informacija"
 
-#: src/incidenceformatter.cpp:2501
+#: src/incidenceformatter.cpp:2438
 #, kde-format
 msgctxt "attendee name (attendee status)"
 msgid "%1 (%2)"
 msgstr ""
 
-#: src/incidenceformatter.cpp:2503
+#: src/incidenceformatter.cpp:2440
 #, kde-format
 msgid "%1"
 msgstr ""
 
-#: src/incidenceformatter.cpp:2529 src/incidenceformatter.cpp:2661
-#: src/incidenceformatter.cpp:3133
+#: src/incidenceformatter.cpp:2466 src/incidenceformatter.cpp:2598
+#: src/incidenceformatter.cpp:3070
 #, kde-format
 msgctxt "ellipsis"
 msgid "..."
 msgstr ""
 
-#: src/incidenceformatter.cpp:2549
+#: src/incidenceformatter.cpp:2486
 #, kde-format
 msgid " (delegated by %1)"
 msgstr " (delegavo %1)"
 
-#: src/incidenceformatter.cpp:2552
+#: src/incidenceformatter.cpp:2489
 #, kde-format
 msgid " (delegated to %1)"
 msgstr " (deleguota %1)"
 
-#: src/incidenceformatter.cpp:2571 src/templates/event.html:112
+#: src/incidenceformatter.cpp:2508 src/templates/event.html:112
 #: src/templates/todo.html:93
 #, kde-format
 msgid "Organizer:"
 msgstr "Organizatorius:"
 
-#: src/incidenceformatter.cpp:2582 src/templates/event.html:124
+#: src/incidenceformatter.cpp:2519 src/templates/event.html:124
 #: src/templates/todo.html:105
 #, kde-format
 msgid "Chair:"
 msgstr "Pirmininkas:"
 
-#: src/incidenceformatter.cpp:2589 src/templates/event.html:137
+#: src/incidenceformatter.cpp:2526 src/templates/event.html:137
 #: src/templates/todo.html:118
 #, kde-format
 msgid "Required Participants:"
 msgstr "Būtini dalyviai:"
 
-#: src/incidenceformatter.cpp:2596
+#: src/incidenceformatter.cpp:2533
 #, kde-format
 msgid "Optional Participants:"
 msgstr "Nebūtini dalyviai"
 
-#: src/incidenceformatter.cpp:2603 src/templates/event.html:163
+#: src/incidenceformatter.cpp:2540 src/templates/event.html:163
 #: src/templates/todo.html:144
 #, kde-format
 msgid "Observers:"
 msgstr "Stebėtojai:"
 
-#: src/incidenceformatter.cpp:2625 src/templates/event.html:13
+#: src/incidenceformatter.cpp:2562 src/templates/event.html:13
 #: src/templates/journal.html:14 src/templates/todo.html:14
 #, kde-format
 msgid "Calendar:"
 msgstr "Kalendorius:"
 
-#: src/incidenceformatter.cpp:2633 src/templates/event.html:21
+#: src/incidenceformatter.cpp:2570 src/templates/event.html:21
 #: src/templates/todo.html:22
 #, kde-format
 msgid "Location:"
 msgstr "Vieta:"
 
-#: src/incidenceformatter.cpp:2640 src/templates/event.html:60
+#: src/incidenceformatter.cpp:2577 src/templates/event.html:60
 #: src/templates/todo.html:54
 #, kde-format
 msgid "Duration:"
 msgstr "Trukmė:"
 
-#: src/incidenceformatter.cpp:2646 src/incidenceformatter.cpp:2652
+#: src/incidenceformatter.cpp:2583 src/incidenceformatter.cpp:2589
 #: src/templates/event.html:68 src/templates/itip_event.html:22
 #: src/templates/itip_todo.html:46 src/templates/todo.html:62
 #, kde-format
 msgid "Recurrence:"
 msgstr "Pasikartojimas:"
 
-#: src/incidenceformatter.cpp:2653 src/templates/todo.html:64
+#: src/incidenceformatter.cpp:2590 src/templates/todo.html:64
 #, kde-format
 msgid "Exception"
 msgstr "Išimtis"
 
-#: src/incidenceformatter.cpp:2669 src/templates/event.html:96
+#: src/incidenceformatter.cpp:2606 src/templates/event.html:96
 #: src/templates/itip_event.html:29 src/templates/itip_journal.html:11
 #: src/templates/itip_todo.html:53 src/templates/journal.html:30
 #: src/templates/todo.html:74
@@ -924,7 +924,7 @@ msgstr "Išimtis"
 msgid "Description:"
 msgstr "Aprašymas:"
 
-#: src/incidenceformatter.cpp:2683 src/templates/event.html:104
+#: src/incidenceformatter.cpp:2620 src/templates/event.html:104
 #: src/templates/todo.html:85
 #, fuzzy, kde-format
 #| msgid "Reminder:"
@@ -936,7 +936,7 @@ msgstr[1] "%1 priminimai:"
 msgstr[2] "%1 priminimų:"
 msgstr[3] "%1 priminimas:"
 
-#: src/incidenceformatter.cpp:2710 src/templates/event.html:176
+#: src/incidenceformatter.cpp:2647 src/templates/event.html:176
 #: src/templates/journal.html:38 src/templates/todo.html:157
 #, kde-format
 msgid "Tag:"
@@ -946,329 +946,329 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2759 src/incidenceformatter.cpp:2833
+#: src/incidenceformatter.cpp:2696 src/incidenceformatter.cpp:2770
 #, kde-format
 msgid "No recurrence"
 msgstr "Be pasikartojimo"
 
-#: src/incidenceformatter.cpp:2763
+#: src/incidenceformatter.cpp:2700
 #, kde-format
 msgid "31st Last"
 msgstr "31-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2764
+#: src/incidenceformatter.cpp:2701
 #, kde-format
 msgid "30th Last"
 msgstr "30-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2765
+#: src/incidenceformatter.cpp:2702
 #, kde-format
 msgid "29th Last"
 msgstr "29-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2766
+#: src/incidenceformatter.cpp:2703
 #, kde-format
 msgid "28th Last"
 msgstr "28-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2767
+#: src/incidenceformatter.cpp:2704
 #, kde-format
 msgid "27th Last"
 msgstr "27-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2768
+#: src/incidenceformatter.cpp:2705
 #, kde-format
 msgid "26th Last"
 msgstr "26-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2769
+#: src/incidenceformatter.cpp:2706
 #, kde-format
 msgid "25th Last"
 msgstr "25-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2770
+#: src/incidenceformatter.cpp:2707
 #, kde-format
 msgid "24th Last"
 msgstr "24-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2771
+#: src/incidenceformatter.cpp:2708
 #, kde-format
 msgid "23rd Last"
 msgstr "23-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2772
+#: src/incidenceformatter.cpp:2709
 #, kde-format
 msgid "22nd Last"
 msgstr "22-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2773
+#: src/incidenceformatter.cpp:2710
 #, kde-format
 msgid "21st Last"
 msgstr "21-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2774
+#: src/incidenceformatter.cpp:2711
 #, kde-format
 msgid "20th Last"
 msgstr "20-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2775
+#: src/incidenceformatter.cpp:2712
 #, kde-format
 msgid "19th Last"
 msgstr "19-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2776
+#: src/incidenceformatter.cpp:2713
 #, kde-format
 msgid "18th Last"
 msgstr "18-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2777
+#: src/incidenceformatter.cpp:2714
 #, kde-format
 msgid "17th Last"
 msgstr "17-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2778
+#: src/incidenceformatter.cpp:2715
 #, kde-format
 msgid "16th Last"
 msgstr "16-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2779
+#: src/incidenceformatter.cpp:2716
 #, kde-format
 msgid "15th Last"
 msgstr "15-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2780
+#: src/incidenceformatter.cpp:2717
 #, kde-format
 msgid "14th Last"
 msgstr "14-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2781
+#: src/incidenceformatter.cpp:2718
 #, kde-format
 msgid "13th Last"
 msgstr "13-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2782
+#: src/incidenceformatter.cpp:2719
 #, kde-format
 msgid "12th Last"
 msgstr "12-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2783
+#: src/incidenceformatter.cpp:2720
 #, kde-format
 msgid "11th Last"
 msgstr "11-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2784
+#: src/incidenceformatter.cpp:2721
 #, kde-format
 msgid "10th Last"
 msgstr "10-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2785
+#: src/incidenceformatter.cpp:2722
 #, kde-format
 msgid "9th Last"
 msgstr "9-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2786
+#: src/incidenceformatter.cpp:2723
 #, kde-format
 msgid "8th Last"
 msgstr "8-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2787
+#: src/incidenceformatter.cpp:2724
 #, kde-format
 msgid "7th Last"
 msgstr "7-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2788
+#: src/incidenceformatter.cpp:2725
 #, kde-format
 msgid "6th Last"
 msgstr "6-a nuo pabaigos"
 
-#: src/incidenceformatter.cpp:2789
+#: src/incidenceformatter.cpp:2726
 #, kde-format
 msgid "5th Last"
 msgstr "5-as nuo galo"
 
-#: src/incidenceformatter.cpp:2790
+#: src/incidenceformatter.cpp:2727
 #, kde-format
 msgid "4th Last"
 msgstr "4-as nuo galo"
 
-#: src/incidenceformatter.cpp:2791
+#: src/incidenceformatter.cpp:2728
 #, kde-format
 msgid "3rd Last"
 msgstr "3-ias nuo galo"
 
-#: src/incidenceformatter.cpp:2792
+#: src/incidenceformatter.cpp:2729
 #, kde-format
 msgid "2nd Last"
 msgstr "2-as nuo galo"
 
-#: src/incidenceformatter.cpp:2793
+#: src/incidenceformatter.cpp:2730
 #, kde-format
 msgctxt "last day of the month"
 msgid "Last"
 msgstr "Paskutinė"
 
-#: src/incidenceformatter.cpp:2794
+#: src/incidenceformatter.cpp:2731
 #, kde-format
 msgctxt "unknown day of the month"
 msgid "unknown"
 msgstr "Nežinoma"
 
-#: src/incidenceformatter.cpp:2795
+#: src/incidenceformatter.cpp:2732
 #, kde-format
 msgid "1st"
 msgstr "1-mą"
 
-#: src/incidenceformatter.cpp:2796
+#: src/incidenceformatter.cpp:2733
 #, kde-format
 msgid "2nd"
 msgstr "2-ą"
 
-#: src/incidenceformatter.cpp:2797
+#: src/incidenceformatter.cpp:2734
 #, kde-format
 msgid "3rd"
 msgstr "3-čią"
 
-#: src/incidenceformatter.cpp:2798
+#: src/incidenceformatter.cpp:2735
 #, kde-format
 msgid "4th"
 msgstr "4-tą"
 
-#: src/incidenceformatter.cpp:2799
+#: src/incidenceformatter.cpp:2736
 #, kde-format
 msgid "5th"
 msgstr "5-tą"
 
-#: src/incidenceformatter.cpp:2800
+#: src/incidenceformatter.cpp:2737
 #, kde-format
 msgid "6th"
 msgstr "6-tą"
 
-#: src/incidenceformatter.cpp:2801
+#: src/incidenceformatter.cpp:2738
 #, kde-format
 msgid "7th"
 msgstr "7-tą"
 
-#: src/incidenceformatter.cpp:2802
+#: src/incidenceformatter.cpp:2739
 #, kde-format
 msgid "8th"
 msgstr "8-tą"
 
-#: src/incidenceformatter.cpp:2803
+#: src/incidenceformatter.cpp:2740
 #, kde-format
 msgid "9th"
 msgstr "9-tą"
 
-#: src/incidenceformatter.cpp:2804
+#: src/incidenceformatter.cpp:2741
 #, kde-format
 msgid "10th"
 msgstr "10-tą"
 
-#: src/incidenceformatter.cpp:2805
+#: src/incidenceformatter.cpp:2742
 #, kde-format
 msgid "11th"
 msgstr "11-tą"
 
-#: src/incidenceformatter.cpp:2806
+#: src/incidenceformatter.cpp:2743
 #, kde-format
 msgid "12th"
 msgstr "12-tą"
 
-#: src/incidenceformatter.cpp:2807
+#: src/incidenceformatter.cpp:2744
 #, kde-format
 msgid "13th"
 msgstr "13-tą"
 
-#: src/incidenceformatter.cpp:2808
+#: src/incidenceformatter.cpp:2745
 #, kde-format
 msgid "14th"
 msgstr "14-tą"
 
-#: src/incidenceformatter.cpp:2809
+#: src/incidenceformatter.cpp:2746
 #, kde-format
 msgid "15th"
 msgstr "15-tą"
 
-#: src/incidenceformatter.cpp:2810
+#: src/incidenceformatter.cpp:2747
 #, kde-format
 msgid "16th"
 msgstr "16-tą"
 
-#: src/incidenceformatter.cpp:2811
+#: src/incidenceformatter.cpp:2748
 #, kde-format
 msgid "17th"
 msgstr "17-tą"
 
-#: src/incidenceformatter.cpp:2812
+#: src/incidenceformatter.cpp:2749
 #, kde-format
 msgid "18th"
 msgstr "18-tą"
 
-#: src/incidenceformatter.cpp:2813
+#: src/incidenceformatter.cpp:2750
 #, kde-format
 msgid "19th"
 msgstr "19-tą"
 
-#: src/incidenceformatter.cpp:2814
+#: src/incidenceformatter.cpp:2751
 #, kde-format
 msgid "20th"
 msgstr "20-tą"
 
-#: src/incidenceformatter.cpp:2815
+#: src/incidenceformatter.cpp:2752
 #, kde-format
 msgid "21st"
 msgstr "21-mą"
 
-#: src/incidenceformatter.cpp:2816
+#: src/incidenceformatter.cpp:2753
 #, kde-format
 msgid "22nd"
 msgstr "22-rą"
 
-#: src/incidenceformatter.cpp:2817
+#: src/incidenceformatter.cpp:2754
 #, kde-format
 msgid "23rd"
 msgstr "23-čią"
 
-#: src/incidenceformatter.cpp:2818
+#: src/incidenceformatter.cpp:2755
 #, kde-format
 msgid "24th"
 msgstr "24-tą"
 
-#: src/incidenceformatter.cpp:2819
+#: src/incidenceformatter.cpp:2756
 #, kde-format
 msgid "25th"
 msgstr "25-tą"
 
-#: src/incidenceformatter.cpp:2820
+#: src/incidenceformatter.cpp:2757
 #, kde-format
 msgid "26th"
 msgstr "26-tą"
 
-#: src/incidenceformatter.cpp:2821
+#: src/incidenceformatter.cpp:2758
 #, kde-format
 msgid "27th"
 msgstr "27-tą"
 
-#: src/incidenceformatter.cpp:2822
+#: src/incidenceformatter.cpp:2759
 #, kde-format
 msgid "28th"
 msgstr "28-tą"
 
-#: src/incidenceformatter.cpp:2823
+#: src/incidenceformatter.cpp:2760
 #, kde-format
 msgid "29th"
 msgstr "29-tą"
 
-#: src/incidenceformatter.cpp:2824
+#: src/incidenceformatter.cpp:2761
 #, kde-format
 msgid "30th"
 msgstr "30-tą"
 
-#: src/incidenceformatter.cpp:2825
+#: src/incidenceformatter.cpp:2762
 #, kde-format
 msgid "31st"
 msgstr "31-mą"
 
-#: src/incidenceformatter.cpp:2840
+#: src/incidenceformatter.cpp:2777
 #, kde-format
 msgid "Recurs every minute until %2"
 msgid_plural "Recurs every %1 minutes until %2"
@@ -1277,17 +1277,17 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2842 src/incidenceformatter.cpp:2853
-#: src/incidenceformatter.cpp:2864 src/incidenceformatter.cpp:2894
-#: src/incidenceformatter.cpp:2915 src/incidenceformatter.cpp:2938
-#: src/incidenceformatter.cpp:2962 src/incidenceformatter.cpp:2999
-#: src/incidenceformatter.cpp:3027
+#: src/incidenceformatter.cpp:2779 src/incidenceformatter.cpp:2790
+#: src/incidenceformatter.cpp:2801 src/incidenceformatter.cpp:2831
+#: src/incidenceformatter.cpp:2852 src/incidenceformatter.cpp:2875
+#: src/incidenceformatter.cpp:2899 src/incidenceformatter.cpp:2936
+#: src/incidenceformatter.cpp:2964
 #, kde-format, kde-kuit-format
 msgctxt "number of occurrences"
 msgid " (%1 occurrences)"
 msgstr " (%1 pasikartojimai)"
 
-#: src/incidenceformatter.cpp:2845
+#: src/incidenceformatter.cpp:2782
 #, kde-format
 msgid "Recurs every minute"
 msgid_plural "Recurs every %1 minutes"
@@ -1296,7 +1296,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2851
+#: src/incidenceformatter.cpp:2788
 #, kde-format
 msgid "Recurs hourly until %2"
 msgid_plural "Recurs every %1 hours until %2"
@@ -1305,7 +1305,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2856
+#: src/incidenceformatter.cpp:2793
 #, kde-format
 msgid "Recurs hourly"
 msgid_plural "Recurs every %1 hours"
@@ -1314,7 +1314,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2862
+#: src/incidenceformatter.cpp:2799
 #, kde-format
 msgid "Recurs daily until %2"
 msgid_plural "Recurs every %1 days until %2"
@@ -1323,7 +1323,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2867
+#: src/incidenceformatter.cpp:2804
 #, kde-format
 msgid "Recurs daily"
 msgid_plural "Recurs every %1 days"
@@ -1332,19 +1332,19 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2877
+#: src/incidenceformatter.cpp:2814
 #, kde-format
 msgctxt "separator for list of days"
 msgid ", "
 msgstr ""
 
-#: src/incidenceformatter.cpp:2884
+#: src/incidenceformatter.cpp:2821
 #, kde-format
 msgctxt "Recurs weekly on no days"
 msgid "no days"
 msgstr "neliko dienų"
 
-#: src/incidenceformatter.cpp:2888
+#: src/incidenceformatter.cpp:2825
 #, kde-format
 msgctxt "Recurs weekly on [list of days] until end-date"
 msgid "Recurs weekly on %2 until %3"
@@ -1354,7 +1354,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2897
+#: src/incidenceformatter.cpp:2834
 #, kde-format
 msgctxt "Recurs weekly on [list of days]"
 msgid "Recurs weekly on %2"
@@ -1364,7 +1364,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2908
+#: src/incidenceformatter.cpp:2845
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
 msgid "Recurs every month on the %2 %3 until %4"
@@ -1374,7 +1374,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2919
+#: src/incidenceformatter.cpp:2856
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname"
 msgid "Recurs every month on the %2 %3"
@@ -1384,7 +1384,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2932
+#: src/incidenceformatter.cpp:2869
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day until end-date"
 msgid "Recurs monthly on the %2 day until %3"
@@ -1394,7 +1394,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2942
+#: src/incidenceformatter.cpp:2879
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day"
 msgid "Recurs monthly on the %2 day"
@@ -1404,7 +1404,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2955
+#: src/incidenceformatter.cpp:2892
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...] until end-date"
 msgid "Recurs yearly on %2 %3 until %4"
@@ -1414,7 +1414,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2968
+#: src/incidenceformatter.cpp:2905
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %2 %3"
@@ -1424,13 +1424,13 @@ msgstr[1] "Kartojasi kas %1 metai %3 %2 "
 msgstr[2] "Kartojasi kas %1 metų %3 %2 "
 msgstr[3] "Kartojasi kas %1 metai %3 %2 "
 
-#: src/incidenceformatter.cpp:2976 src/incidenceformatter.cpp:2981
+#: src/incidenceformatter.cpp:2913 src/incidenceformatter.cpp:2918
 #, kde-format
 msgctxt "Recurs Every year on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %1 %2"
 msgstr "Kartojasi kas metai %2  %1"
 
-#: src/incidenceformatter.cpp:2992
+#: src/incidenceformatter.cpp:2929
 #, fuzzy, kde-format
 msgctxt "Recurs every N years on day N until end-date"
 msgid "Recurs every year on day %2 until %3"
@@ -1443,7 +1443,7 @@ msgstr[2] ""
 msgstr[3] ""
 "Pasikartoja kas <numid>%1</numid> metai <numid>%2</numid> dieną iki %3"
 
-#: src/incidenceformatter.cpp:3003
+#: src/incidenceformatter.cpp:2940
 #, fuzzy, kde-format
 msgctxt "Recurs every N YEAR[S] on day N"
 msgid "Recurs every year on day %2"
@@ -1453,7 +1453,7 @@ msgstr[1] "Pasikartoja kas <numid>%1</numid> metai <numid>%2</numid> dieną"
 msgstr[2] "Pasikartoja kas <numid>%1</numid> metų <numid>%2</numid> dieną"
 msgstr[3] "Pasikartoja kas <numid>%1</numid> metai <numid>%2</numid> dieną"
 
-#: src/incidenceformatter.cpp:3018
+#: src/incidenceformatter.cpp:2955
 #, kde-format
 msgctxt ""
 "Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
@@ -1464,7 +1464,7 @@ msgstr[1] "Kas <numid>%1 metai</numid> metai %4 %3 %2 iki %5"
 msgstr[2] "Kas <numid>%1 metų</numid> metai %4 %3 %2 iki %5"
 msgstr[3] "Kas <numid>%1 metai</numid> metai %4 %3 %2 iki %5"
 
-#: src/incidenceformatter.cpp:3033
+#: src/incidenceformatter.cpp:2970
 #, kde-kuit-format
 msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
 msgid "Every year on the %2 %3 of %4"
@@ -1474,18 +1474,18 @@ msgstr[1] "Kas <numid>%1 metai</numid> %4 %3 %2"
 msgstr[2] "Kas <numid>%1 metų</numid> metai %4 %3 %2"
 msgstr[3] "Kas <numid>%1 metai</numid> metai %4 %3 %2"
 
-#: src/incidenceformatter.cpp:3047
+#: src/incidenceformatter.cpp:2984
 #, kde-format
 msgid "Incidence recurs"
 msgstr "Atvejis kartojasi"
 
-#: src/incidenceformatter.cpp:3060
+#: src/incidenceformatter.cpp:2997
 #, fuzzy, kde-format
 msgid "minute %1"
 msgstr " minutė"
 
-#: src/incidenceformatter.cpp:3102 src/incidenceformatter.cpp:3155
-#: src/incidenceformatter.cpp:3181 src/incidenceformatter.cpp:3193
+#: src/incidenceformatter.cpp:3039 src/incidenceformatter.cpp:3092
+#: src/incidenceformatter.cpp:3118 src/incidenceformatter.cpp:3130
 #, fuzzy, kde-format
 msgid "1 day"
 msgid_plural "%1 days"
@@ -1494,12 +1494,12 @@ msgstr[1] "%1 dienos"
 msgstr[2] "%1 dienų"
 msgstr[3] "%1 dienos"
 
-#: src/incidenceformatter.cpp:3135
+#: src/incidenceformatter.cpp:3072
 #, kde-format
 msgid "%1 (excluding %2)"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3161
+#: src/incidenceformatter.cpp:3098
 #, fuzzy, kde-format
 msgid "1 hour"
 msgid_plural "%1 hours"
@@ -1508,7 +1508,7 @@ msgstr[1] "%1 valandos"
 msgstr[2] "%1 valandų"
 msgstr[3] "%1 valanda"
 
-#: src/incidenceformatter.cpp:3167
+#: src/incidenceformatter.cpp:3104
 #, fuzzy, kde-format
 msgid "1 minute"
 msgid_plural "%1 minutes"
@@ -1517,54 +1517,54 @@ msgstr[1] "%1 minutės"
 msgstr[2] "%1 minučių"
 msgstr[3] "%1 minutė"
 
-#: src/incidenceformatter.cpp:3184
+#: src/incidenceformatter.cpp:3121
 #, fuzzy, kde-format
 msgid "forever"
 msgstr "visam laikui"
 
-#: src/incidenceformatter.cpp:3226
+#: src/incidenceformatter.cpp:3163
 #, kde-format
 msgctxt "N days/hours/minutes before the start datetime"
 msgid "%1 before the start"
 msgstr "%1 prieš pradžią"
 
-#: src/incidenceformatter.cpp:3228
+#: src/incidenceformatter.cpp:3165
 #, kde-format
 msgctxt "N days/hours/minutes after the start datetime"
 msgid "%1 after the start"
 msgstr "%1 po pradžios"
 
-#: src/incidenceformatter.cpp:3239
+#: src/incidenceformatter.cpp:3176
 #, kde-format
 msgctxt "N days/hours/minutes before the due datetime"
 msgid "%1 before the to-do is due"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3241
+#: src/incidenceformatter.cpp:3178
 #, kde-format
 msgctxt "N days/hours/minutes before the end datetime"
 msgid "%1 before the end"
 msgstr "%1 iki pabaigos"
 
-#: src/incidenceformatter.cpp:3245
+#: src/incidenceformatter.cpp:3182
 #, kde-format
 msgctxt "N days/hours/minutes after the due datetime"
 msgid "%1 after the to-do is due"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3247
+#: src/incidenceformatter.cpp:3184
 #, kde-format
 msgctxt "N days/hours/minutes after the end datetime"
 msgid "%1 after the end"
 msgstr "%1 po pabaigos"
 
-#: src/incidenceformatter.cpp:3265
+#: src/incidenceformatter.cpp:3202
 #, kde-format
 msgctxt "reminder occurs at datetime"
 msgid "at %1"
 msgstr "vietovėje %1"
 
-#: src/incidenceformatter.cpp:3272
+#: src/incidenceformatter.cpp:3209
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
@@ -1573,31 +1573,31 @@ msgstr[1] "Pasikartoja %1 kartus"
 msgstr[2] "Pasikartoja %1 kartų"
 msgstr[3] "Pasikartoja %1 kartą"
 
-#: src/incidenceformatter.cpp:3273
+#: src/incidenceformatter.cpp:3210
 #, kde-format
 msgctxt "interval is N days/hours/minutes"
 msgid "interval is %1"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3274
+#: src/incidenceformatter.cpp:3211
 #, kde-format
 msgctxt "(repeat string, interval string)"
 msgid "(%1, %2)"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3279
+#: src/incidenceformatter.cpp:3216
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3283
+#: src/incidenceformatter.cpp:3220
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3286
+#: src/incidenceformatter.cpp:3223
 #, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
