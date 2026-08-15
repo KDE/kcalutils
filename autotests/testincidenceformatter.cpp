@@ -426,7 +426,11 @@ void IncidenceFormatterTest::testFormatIcalInvitation()
     const QByteArray data = eventFile.readAll();
 
     KCalendarCore::ICalFormat format;
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
     const ScheduleMessage::Ptr message = format.parseScheduleMessage(calendar, QString::fromUtf8(data));
+#else
+    const ScheduleMessage::Ptr message = format.parseScheduleMessage(calendar, data);
+#endif
     QVERIFY(message);
 
     const QString html = IncidenceFormatter::formatICalInvitation(message, &helper, QString())

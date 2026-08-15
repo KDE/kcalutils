@@ -23,6 +23,7 @@
 */
 #include "stringify.h"
 
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
 #include <KCalendarCore/Exceptions>
 using namespace KCalendarCore;
 
@@ -211,3 +212,4 @@ QString Stringify::errorMessage(const Exception &exception)
 
     return message;
 }
+#endif

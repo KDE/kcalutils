@@ -9,7 +9,7 @@ set(TEST_DATA_DIR "${CMAKE_CURRENT_SOURCE_DIR}/data")
 set(TEST_PLUGIN_PATH "${CMAKE_BINARY_DIR}/grantlee")
 configure_file(test_config.h.in ${CMAKE_CURRENT_BINARY_DIR}/test_config.h @ONLY)
 
-ecm_add_tests(teststringify.cpp testtodotooltip.cpp
+ecm_add_tests(testtodotooltip.cpp
     NAME_PREFIX "kcalutils-"
     LINK_LIBRARIES KPim6CalendarUtils KF6::I18n Qt::Test
 )

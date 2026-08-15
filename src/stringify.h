@@ -18,6 +18,10 @@
 */
 #pragma once
 
+#include <kcalendarcore_version.h>
+#include <qglobal.h>
+
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
 #include "kcalutils_export.h"
 
 #include <KCalendarCore/ScheduleMessage>
@@ -80,3 +84,4 @@ namespace Stringify
 [[nodiscard]] KCALUTILS_EXPORT QString errorMessage(const KCalendarCore::Exception &exception);
 } // namespace Stringify
 } // namespace KCalUtils
+#endif

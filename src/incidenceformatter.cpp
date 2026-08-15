@@ -312,7 +312,11 @@ static QString htmlAddTag(QStringView tag, QString text)
             attendeeData[QStringLiteral("delegate")] = a.delegate();
         }
         if (showStatus) {
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
             attendeeData[QStringLiteral("status")] = Stringify::attendeeStatus(a.status());
+#else
+            attendeeData[QStringLiteral("status")] = Attendee::statusName(a.status());
+#endif
         }
 
         attendeeDataList << attendeeData;
@@ -900,7 +904,11 @@ static QString invitationLocation(const Incidence::Ptr &incidence)
     QString ret;
     const Attendee a = findMyAttendee(incidence);
     if (!a.isNull() && a.status() != Attendee::NeedsAction && a.status() != Attendee::Delegated) {
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
         ret = i18n("(<b>Note</b>: the Organizer preset your response to <b>%1</b>)", Stringify::attendeeStatus(a.status()));
+#else
+        ret = i18n("(<b>Note</b>: the Organizer preset your response to <b>%1</b>)", Attendee::statusName(a.status()));
+#endif
     }
     return ret;
 }
@@ -1627,7 +1635,11 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
         attendee[QStringLiteral("delegator")] = a.delegator();
         attendee[QStringLiteral("delegate")] = a.delegate();
         attendee[QStringLiteral("isOrganizer")] = attendeeIsOrganizer(incidence, a);
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
         attendee[QStringLiteral("status")] = Stringify::attendeeStatus(a.status());
+#else
+        attendee[QStringLiteral("status")] = Attendee::statusName(a.status());
+#endif
         attendee[QStringLiteral("icon")] = rsvpStatusIconName(a.status());
 
         attendees.push_back(attendee);
@@ -1650,12 +1662,20 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
             continue;
         }
         QVariantHash attendee;
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
         attendee[QStringLiteral("status")] = Stringify::attendeeStatus(a.status());
+#else
+        attendee[QStringLiteral("status")] = Attendee::statusName(a.status());
+#endif
         if (!sender.isNull() && (a.email() == sender.email())) {
             // use the attendee taken from the response incidence,
             // rather than the attendee from the calendar incidence.
             if (a.status() != sender.status()) {
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
                 attendee[QStringLiteral("status")] = i18n("%1 (<i>unrecorded</i>)", Stringify::attendeeStatus(sender.status()));
+#else
+                attendee[QStringLiteral("status")] = i18n("%1 (<i>unrecorded</i>)", Attendee::statusName(sender.status()));
+#endif
             }
             a = sender;
         }
@@ -2065,7 +2085,11 @@ QString IncidenceFormatter::formatICalInvitation(const KCalendarCore::ScheduleMe
     }
     if (!firstAtt.isNull()) {
         isDelegated = (firstAtt.status() == Attendee::Delegated);
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
         role = Stringify::attendeeRole(firstAtt.role());
+#else
+        role = Attendee::roleName(firstAtt.role());
+#endif
     }
 
     // determine if RSVP needed, not-needed, or response already recorded
@@ -2078,9 +2102,15 @@ QString IncidenceFormatter::formatICalInvitation(const KCalendarCore::ScheduleMe
     if (!myInc && !firstAtt.isNull()) {
         if (rsvpRec && inc) {
             if (incRevision == 0) {
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
                 eventInfo = i18n("Your <b>%1</b> response has been recorded.", Stringify::attendeeStatus(eattendee.status()));
             } else {
                 eventInfo = i18n("Your status for this invitation is <b>%1</b>.", Stringify::attendeeStatus(eattendee.status()));
+#else
+                eventInfo = i18n("Your <b>%1</b> response has been recorded.", Attendee::statusName(eattendee.status()));
+            } else {
+                eventInfo = i18n("Your status for this invitation is <b>%1</b>.", Attendee::statusName(eattendee.status()));
+#endif
             }
             rsvpReq = false;
         } else if (message->method() == iTIPCancel) {
@@ -2160,7 +2190,11 @@ QString IncidenceFormatter::formatICalInvitation(const KCalendarCore::ScheduleMe
             }
         }
         if (!ea.isNull() && (ea.status() != Attendee::NeedsAction) && (ea.status() == a.status())) {
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
             const QString tStr = i18n("The <b>%1</b> response has been recorded", Stringify::attendeeStatus(ea.status()));
+#else
+            const QString tStr = i18n("The <b>%1</b> response has been recorded", Attendee::statusName(ea.status()));
+#endif
             buttons << inviteButton(QString(), tStr, QString(), helper);
         } else {
             if (inc) {
@@ -2435,7 +2469,11 @@ bool IncidenceFormatter::ToolTipVisitor::visit(const FreeBusy::Ptr &fb)
         personString += QLatin1StringView(R"(<img valign="top" src=")") + iconPath + QLatin1StringView("\">") + QLatin1StringView("&nbsp;");
     }
     if (status != Attendee::None) {
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
         personString += i18nc("attendee name (attendee status)", "%1 (%2)", printName.isEmpty() ? email : printName, Stringify::attendeeStatus(status));
+#else
+        personString += i18nc("attendee name (attendee status)", "%1 (%2)", printName.isEmpty() ? email : printName, Attendee::statusName(status));
+#endif
     } else {
         personString += i18n("%1", printName.isEmpty() ? email : printName);
     }
