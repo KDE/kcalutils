@@ -458,7 +458,11 @@ static QString htmlAddTag(QStringView tag, QString text)
     incidence[QStringLiteral("endTime")] = endDt.time();
     incidence[QStringLiteral("duration")] = durationString(event);
     incidence[QStringLiteral("isException")] = event->hasRecurrenceId();
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
     incidence[QStringLiteral("recurrence")] = recurrenceString(event);
+#else
+    incidence[QStringLiteral("recurrence")] = event->recurrenceDescription();
+#endif
 
     if (event->customProperty("KABC", "BIRTHDAY") == QLatin1StringView("YES")) {
         incidence[QStringLiteral("birthday")] = displayViewFormatBirthday(event);
@@ -555,7 +559,11 @@ static QString htmlAddTag(QStringView tag, QString text)
     incidence[QStringLiteral("duration")] = durationString(todo);
     incidence[QStringLiteral("isException")] = todo->hasRecurrenceId();
     if (todo->recurs()) {
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
         incidence[QStringLiteral("recurrence")] = recurrenceString(todo);
+#else
+        incidence[QStringLiteral("recurrence")] = todo->recurrenceDescription();
+#endif
     }
 
     incidence[QStringLiteral("description")] = displayViewFormatDescription(todo);
@@ -1055,7 +1063,11 @@ static QString invitationLocation(const Incidence::Ptr &incidence)
     incidence[QStringLiteral("summary")] = invitationSummary(event);
     incidence[QStringLiteral("location")] = invitationLocation(event);
     incidence[QStringLiteral("recurs")] = event->recurs();
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
     incidence[QStringLiteral("recurrence")] = recurrenceString(event);
+#else
+    incidence[QStringLiteral("recurrence")] = event->recurrenceDescription();
+#endif
     incidence[QStringLiteral("isMultiDay")] = event->isMultiDay(QTimeZone::systemTimeZone());
     incidence[QStringLiteral("isAllDay")] = event->allDay();
     incidence[QStringLiteral("dateTime")] = formatStartEnd(event->dtStart(), event->dtEnd(), event->allDay());
@@ -1113,7 +1125,11 @@ invitationDetailsEvent(InvitationFormatterHelper *helper, const Event::Ptr &even
     incidence[QStringLiteral("summary")] = htmlCompare(invitationSummary(event), invitationSummary(oldevent));
     incidence[QStringLiteral("location")] = htmlCompare(invitationLocation(event), invitationLocation(oldevent));
     incidence[QStringLiteral("recurs")] = event->recurs() || oldevent->recurs();
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
     incidence[QStringLiteral("recurrence")] = htmlCompare(recurrenceString(event), recurrenceString(oldevent));
+#else
+    incidence[QStringLiteral("recurrence")] = htmlCompare(event->recurrenceDescription(), oldevent->recurrenceDescription());
+#endif
     incidence[QStringLiteral("dateTime")] = htmlCompare(formatStartEnd(event->dtStart(), event->dtEnd(), event->allDay()),
                                                         formatStartEnd(oldevent->dtStart(), oldevent->dtEnd(), oldevent->allDay()));
     incidence[QStringLiteral("duration")] = htmlCompare(durationString(event), durationString(oldevent));
@@ -1159,7 +1175,11 @@ invitationDetailsEvent(InvitationFormatterHelper *helper, const Event::Ptr &even
         incidence[QStringLiteral("percentComplete")] = i18n("%1%", todo->percentComplete());
     }
     incidence[QStringLiteral("recurs")] = todo->recurs();
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
     incidence[QStringLiteral("recurrence")] = recurrenceString(todo);
+#else
+    incidence[QStringLiteral("recurrence")] = todo->recurrenceDescription();
+#endif
     incidence[QStringLiteral("description")] = invitationDescriptionIncidence(todo);
 
     return incidence;
@@ -1190,7 +1210,11 @@ invitationDetailsEvent(InvitationFormatterHelper *helper, const Event::Ptr &even
     incidence[QStringLiteral("percentComplete")] = htmlCompare(i18n("%1%", todo->percentComplete()), i18n("%1%", oldtodo->percentComplete()));
 
     incidence[QStringLiteral("recurs")] = todo->recurs() || oldtodo->recurs();
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
     incidence[QStringLiteral("recurrence")] = htmlCompare(recurrenceString(todo), recurrenceString(oldtodo));
+#else
+    incidence[QStringLiteral("recurrence")] = htmlCompare(todo->recurrenceDescription(), oldtodo->recurrenceDescription());
+#endif
     incidence[QStringLiteral("description")] = invitationDescriptionIncidence(todo);
 
     return incidence;
@@ -2642,7 +2666,11 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
     if (incidence->recurs()) {
         tmp += QLatin1StringView("<br>");
         tmp += QLatin1StringView("<i>") + i18n("Recurrence:") + QLatin1StringView("</i>") + QLatin1StringView("&nbsp;");
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
         tmp += recurrenceString(incidence);
+#else
+        tmp += incidence->recurrenceDescription();
+#endif
     }
 
     if (incidence->hasRecurrenceId()) {
@@ -2725,6 +2753,7 @@ QString IncidenceFormatter::toolTipStr(const QString &sourceName, const Incidenc
     }
 }
 
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
 /*******************************************************************
  *  Helper functions for the Incidence tooltips
  *******************************************************************/
@@ -3135,6 +3164,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
 
     return recurStr;
 }
+#endif
 
 QString IncidenceFormatter::dateTimeToString(const QDateTime &date, bool allDay, bool shortfmt)
 {

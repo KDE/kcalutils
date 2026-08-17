@@ -26,8 +26,6 @@ private:
 private Q_SLOTS:
     void initTestCase();
 
-    void testRecurrenceString();
-
     void testErrorTemplate();
 
     void testDisplayViewFormatEvent_data();

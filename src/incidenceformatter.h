@@ -125,12 +125,14 @@ KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KC
 */
 KCALUTILS_EXPORT QString formatICalInvitation(const KCalendarCore::ScheduleMessage::Ptr &message, InvitationFormatterHelper *helper, const QString &sender);
 
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
 /*!
   Build a pretty QString representation of an Incidence's recurrence info.
   \param incidence a pointer to the Incidence whose recurrence info is to be formatted
   \return the formatted recurrence string
 */
 KCALUTILS_EXPORT QString recurrenceString(const KCalendarCore::Incidence::Ptr &incidence);
+#endif
 
 /*!
   Build a QString date/time representation of a QDateTime object.
