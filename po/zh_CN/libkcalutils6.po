@@ -1652,7 +1652,7 @@ msgstr "待办事项"
 #, kde-format
 msgctxt "@item incidence type is Journal (capitalized)"
 msgid "Journal"
-msgstr "日志"
+msgstr "日记"
 
 #: src/stringify.cpp:62
 #, kde-format
