@@ -162,7 +162,7 @@
     <tr>
         <th valign="top">{% i18n "Observers:" %}</th>
         <td>
-        {% for attendee in incidence.chair %}
+        {% for attendee in incidence.observers %}
             {% include "org.kde.pim/kcalutils/attendee_row.html" %}
             {% if not forloop.last %}<br/>{% endif %}
         {% endfor %}
