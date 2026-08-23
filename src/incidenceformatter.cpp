@@ -1458,7 +1458,7 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
         QString delegatorName;
         QString dummyName;
         const Attendee attendee = *attendees.begin();
-        KEmailAddress::extractEmailAddressAndName(attendee.delegate(), dummyName, delegatorName);
+        KEmailAddress::extractEmailAddressAndName(attendee.delegator(), dummyName, delegatorName);
         if (delegatorName.isEmpty()) {
             delegatorName = attendee.delegator();
         }
