@@ -3,7 +3,7 @@
 {% block incidenceDetail %}
   <tr>
     <th valign="top">{% i18n "Date:" %}</th>
-    <td>{{ incidence.date|kdatetime }}</td>
+    <td>{{ incidence.dateStr|kdatetime }}</td>
   </tr>
 
   {% if incidence.description %}
