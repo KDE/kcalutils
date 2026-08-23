@@ -796,7 +796,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence)
     return qApp->palette().color(QPalette::Active, QPalette::Highlight).name();
 }
 
-[[nodiscard]] static QString htmlCompare(const QString &value, const QString &oldvalue)
+[[nodiscard]] static QString htmlCompare(QString value, const QString &oldvalue)
 {
     // if 'value' is empty, then print nothing
     if (value.isEmpty()) {
@@ -957,7 +957,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence)
                 descr = incidence->description();
             }
             descr = cleanHtml(descr);
-            return htmlAddTag(QStringLiteral("p"), descr);
+            return htmlAddTag(QStringLiteral("p"), std::move(descr));
         }
     }
 
@@ -1756,6 +1756,11 @@ public:
         return mResult;
     }
 
+    [[nodiscard]] T takeResult()
+    {
+        return std::move(mResult);
+    }
+
 protected:
     T mResult;
     Incidence::Ptr mExistingIncidence;
@@ -2067,7 +2072,7 @@ QString IncidenceFormatter::formatICalInvitation(const KCalendarCore::ScheduleMe
         return QString();
     }
 
-    incidence = bodyVisitor.result();
+    incidence = bodyVisitor.takeResult();
     incidence[QStringLiteral("style")] = invitationStyle();
     incidence[QStringLiteral("head")] = headerVisitor.result();
 
@@ -3074,7 +3079,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         if (!seen.contains(exDt)) {
             count++;
             seen << exDt;
-            exStrList << exDt;
+            exStrList << std::move(exDt);
         }
     }
 
@@ -3115,7 +3120,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
         if (!seen.contains(exDt)) {
             count++;
             seen << exDt;
-            exStrList << exDt;
+            exStrList << std::move(exDt);
         }
     }
 
@@ -3257,7 +3262,7 @@ QStringList reminderStringList(const Incidence::Ptr &incidence, [[maybe_unused]]
                     remStr = i18nc("reminder occurs at datetime", "at %1", atStr);
                 }
             } else {
-                remStr = offsetStr;
+                remStr = std::move(offsetStr);
             }
 
             if (alarm->repeatCount() > 0) {
@@ -3277,7 +3282,7 @@ QStringList reminderStringList(const Incidence::Ptr &incidence, [[maybe_unused]]
             if (!types.isEmpty()) {
                 remStr = i18nc("the reminder string with its types list", "%1 (%2)", remStr, types.join(QLatin1StringView(", ")));
             }
-            reminderStringList << remStr;
+            reminderStringList << std::move(remStr);
         }
     }
 

@@ -48,7 +48,7 @@ class IconNode : public KTextTemplate::Node
     Q_OBJECT
 public:
     explicit IconNode(QObject *parent = nullptr);
-    IconNode(const QString &iconName, int sizeOrGroup, const QString &altText, QObject *parent = nullptr);
+    IconNode(QString iconName, int sizeOrGroup, QString altText, QObject *parent = nullptr);
     ~IconNode() override;
     void render(KTextTemplate::OutputStream *stream, KTextTemplate::Context *c) const override;
 
