@@ -870,137 +870,137 @@ msgstr "Sense recurrència"
 #: src/incidenceformatter.cpp:2755
 #, kde-format
 msgid "31st Last"
-msgstr "31è per la cua"
+msgstr "31é per la cua"
 
 #: src/incidenceformatter.cpp:2756
 #, kde-format
 msgid "30th Last"
-msgstr "30è per la cua"
+msgstr "30é per la cua"
 
 #: src/incidenceformatter.cpp:2757
 #, kde-format
 msgid "29th Last"
-msgstr "29è per la cua"
+msgstr "29é per la cua"
 
 #: src/incidenceformatter.cpp:2758
 #, kde-format
 msgid "28th Last"
-msgstr "28è per la cua"
+msgstr "28é per la cua"
 
 #: src/incidenceformatter.cpp:2759
 #, kde-format
 msgid "27th Last"
-msgstr "27è per la cua"
+msgstr "27é per la cua"
 
 #: src/incidenceformatter.cpp:2760
 #, kde-format
 msgid "26th Last"
-msgstr "26è per la cua"
+msgstr "26é per la cua"
 
 #: src/incidenceformatter.cpp:2761
 #, kde-format
 msgid "25th Last"
-msgstr "25è per la cua"
+msgstr "25é per la cua"
 
 #: src/incidenceformatter.cpp:2762
 #, kde-format
 msgid "24th Last"
-msgstr "24è per la cua"
+msgstr "24é per la cua"
 
 #: src/incidenceformatter.cpp:2763
 #, kde-format
 msgid "23rd Last"
-msgstr "23è per la cua"
+msgstr "23é per la cua"
 
 #: src/incidenceformatter.cpp:2764
 #, kde-format
 msgid "22nd Last"
-msgstr "22è per la cua"
+msgstr "22é per la cua"
 
 #: src/incidenceformatter.cpp:2765
 #, kde-format
 msgid "21st Last"
-msgstr "21è per la cua"
+msgstr "21é per la cua"
 
 #: src/incidenceformatter.cpp:2766
 #, kde-format
 msgid "20th Last"
-msgstr "20è per la cua"
+msgstr "20é per la cua"
 
 #: src/incidenceformatter.cpp:2767
 #, kde-format
 msgid "19th Last"
-msgstr "19è per la cua"
+msgstr "19é per la cua"
 
 #: src/incidenceformatter.cpp:2768
 #, kde-format
 msgid "18th Last"
-msgstr "18è per la cua"
+msgstr "18é per la cua"
 
 #: src/incidenceformatter.cpp:2769
 #, kde-format
 msgid "17th Last"
-msgstr "17è per la cua"
+msgstr "17é per la cua"
 
 #: src/incidenceformatter.cpp:2770
 #, kde-format
 msgid "16th Last"
-msgstr "16è per la cua"
+msgstr "16é per la cua"
 
 #: src/incidenceformatter.cpp:2771
 #, kde-format
 msgid "15th Last"
-msgstr "15è per la cua"
+msgstr "15é per la cua"
 
 #: src/incidenceformatter.cpp:2772
 #, kde-format
 msgid "14th Last"
-msgstr "14è per la cua"
+msgstr "14é per la cua"
 
 #: src/incidenceformatter.cpp:2773
 #, kde-format
 msgid "13th Last"
-msgstr "13è per la cua"
+msgstr "13é per la cua"
 
 #: src/incidenceformatter.cpp:2774
 #, kde-format
 msgid "12th Last"
-msgstr "12è per la cua"
+msgstr "12é per la cua"
 
 #: src/incidenceformatter.cpp:2775
 #, kde-format
 msgid "11th Last"
-msgstr "11è per la cua"
+msgstr "11é per la cua"
 
 #: src/incidenceformatter.cpp:2776
 #, kde-format
 msgid "10th Last"
-msgstr "10è per la cua"
+msgstr "10é per la cua"
 
 #: src/incidenceformatter.cpp:2777
 #, kde-format
 msgid "9th Last"
-msgstr "9è per la cua"
+msgstr "9é per la cua"
 
 #: src/incidenceformatter.cpp:2778
 #, kde-format
 msgid "8th Last"
-msgstr "8è per la cua"
+msgstr "8é per la cua"
 
 #: src/incidenceformatter.cpp:2779
 #, kde-format
 msgid "7th Last"
-msgstr "7è per la cua"
+msgstr "7é per la cua"
 
 #: src/incidenceformatter.cpp:2780
 #, kde-format
 msgid "6th Last"
-msgstr "6è per la cua"
+msgstr "6é per la cua"
 
 #: src/incidenceformatter.cpp:2781
 #, kde-format
 msgid "5th Last"
-msgstr "5è últim"
+msgstr "5é últim"
 
 #: src/incidenceformatter.cpp:2782
 #, kde-format
@@ -1052,137 +1052,137 @@ msgstr "4t"
 #: src/incidenceformatter.cpp:2791
 #, kde-format
 msgid "5th"
-msgstr "5è"
+msgstr "5é"
 
 #: src/incidenceformatter.cpp:2792
 #, kde-format
 msgid "6th"
-msgstr "6è"
+msgstr "6é"
 
 #: src/incidenceformatter.cpp:2793
 #, kde-format
 msgid "7th"
-msgstr "7è"
+msgstr "7é"
 
 #: src/incidenceformatter.cpp:2794
 #, kde-format
 msgid "8th"
-msgstr "8è"
+msgstr "8é"
 
 #: src/incidenceformatter.cpp:2795
 #, kde-format
 msgid "9th"
-msgstr "9è"
+msgstr "9é"
 
 #: src/incidenceformatter.cpp:2796
 #, kde-format
 msgid "10th"
-msgstr "10è"
+msgstr "10é"
 
 #: src/incidenceformatter.cpp:2797
 #, kde-format
 msgid "11th"
-msgstr "11è"
+msgstr "11é"
 
 #: src/incidenceformatter.cpp:2798
 #, kde-format
 msgid "12th"
-msgstr "12è"
+msgstr "12é"
 
 #: src/incidenceformatter.cpp:2799
 #, kde-format
 msgid "13th"
-msgstr "13è"
+msgstr "13é"
 
 #: src/incidenceformatter.cpp:2800
 #, kde-format
 msgid "14th"
-msgstr "14è"
+msgstr "14é"
 
 #: src/incidenceformatter.cpp:2801
 #, kde-format
 msgid "15th"
-msgstr "15è"
+msgstr "15é"
 
 #: src/incidenceformatter.cpp:2802
 #, kde-format
 msgid "16th"
-msgstr "16è"
+msgstr "16é"
 
 #: src/incidenceformatter.cpp:2803
 #, kde-format
 msgid "17th"
-msgstr "17è"
+msgstr "17é"
 
 #: src/incidenceformatter.cpp:2804
 #, kde-format
 msgid "18th"
-msgstr "18è"
+msgstr "18é"
 
 #: src/incidenceformatter.cpp:2805
 #, kde-format
 msgid "19th"
-msgstr "19è"
+msgstr "19é"
 
 #: src/incidenceformatter.cpp:2806
 #, kde-format
 msgid "20th"
-msgstr "20è"
+msgstr "20é"
 
 #: src/incidenceformatter.cpp:2807
 #, kde-format
 msgid "21st"
-msgstr "21è"
+msgstr "21é"
 
 #: src/incidenceformatter.cpp:2808
 #, kde-format
 msgid "22nd"
-msgstr "22è"
+msgstr "22é"
 
 #: src/incidenceformatter.cpp:2809
 #, kde-format
 msgid "23rd"
-msgstr "23è"
+msgstr "23é"
 
 #: src/incidenceformatter.cpp:2810
 #, kde-format
 msgid "24th"
-msgstr "24è"
+msgstr "24é"
 
 #: src/incidenceformatter.cpp:2811
 #, kde-format
 msgid "25th"
-msgstr "25è"
+msgstr "25é"
 
 #: src/incidenceformatter.cpp:2812
 #, kde-format
 msgid "26th"
-msgstr "26è"
+msgstr "26é"
 
 #: src/incidenceformatter.cpp:2813
 #, kde-format
 msgid "27th"
-msgstr "27è"
+msgstr "27é"
 
 #: src/incidenceformatter.cpp:2814
 #, kde-format
 msgid "28th"
-msgstr "28è"
+msgstr "28é"
 
 #: src/incidenceformatter.cpp:2815
 #, kde-format
 msgid "29th"
-msgstr "29è"
+msgstr "29é"
 
 #: src/incidenceformatter.cpp:2816
 #, kde-format
 msgid "30th"
-msgstr "30è"
+msgstr "30é"
 
 #: src/incidenceformatter.cpp:2817
 #, kde-format
 msgid "31st"
-msgstr "31è"
+msgstr "31é"
 
 #: src/incidenceformatter.cpp:2832
 #, kde-format
@@ -2002,179 +2002,3 @@ msgstr "Finalitzada:"
 #: src/templates/todo.html:178
 msgid "Percent done:"
 msgstr "Percentatge completat:"
-
-#~ msgid "Summary: %1\n"
-#~ msgstr "Resum: %1\n"
-
-#~ msgid "Organizer: %1\n"
-#~ msgstr "Organitzador: %1\n"
-
-#~ msgid "Location: %1\n"
-#~ msgstr "Ubicació: %1\n"
-
-#~ msgid "This is a Free Busy Object"
-#~ msgstr "Este és un objecte de lliure/ocupat"
-
-#~ msgctxt "no recurrence"
-#~ msgid "None"
-#~ msgstr "Sense"
-
-#~ msgctxt "event recurs by minutes"
-#~ msgid "Minutely"
-#~ msgstr "Cada minut"
-
-#~ msgctxt "event recurs by hours"
-#~ msgid "Hourly"
-#~ msgstr "Cada hora"
-
-#~ msgctxt "event recurs by days"
-#~ msgid "Daily"
-#~ msgstr "Diàriament"
-
-#~ msgctxt "event recurs by weeks"
-#~ msgid "Weekly"
-#~ msgstr "Setmanal"
-
-#~ msgctxt "event recurs same position (e.g. first monday) each month"
-#~ msgid "Monthly Same Position"
-#~ msgstr "Mensualment en la mateixa posició"
-
-#~ msgctxt "event recurs same day each month"
-#~ msgid "Monthly Same Day"
-#~ msgstr "Mensualment en el mateix dia"
-
-#~ msgctxt "event recurs same month each year"
-#~ msgid "Yearly Same Month"
-#~ msgstr "Anualment en el mateix mes"
-
-#~ msgctxt "event recurs same day each year"
-#~ msgid "Yearly Same Day"
-#~ msgstr "Anualment en el mateix dia"
-
-#~ msgctxt "event recurs same position (e.g. first monday) each year"
-#~ msgid "Yearly Same Position"
-#~ msgstr "Anualment en la mateixa posició"
-
-#~ msgid "Start Date: %1\n"
-#~ msgstr "Data d'inici: %1\n"
-
-#~ msgid "Start Time: %1\n"
-#~ msgstr "Hora d'inici: %1\n"
-
-#~ msgid "End Date: %1\n"
-#~ msgstr "Data final: %1\n"
-
-#~ msgid "End Time: %1\n"
-#~ msgstr "Hora final: %1\n"
-
-#~ msgid "Recurs: %1\n"
-#~ msgstr "Recurrència: %1\n"
-
-#~ msgid "Frequency: %1\n"
-#~ msgstr "Freqüència: %1\n"
-
-#~ msgid "Repeats once"
-#~ msgid_plural "Repeats %1 times"
-#~ msgstr[0] "Es repetix una vegada"
-#~ msgstr[1] "Es repetix %1 vegades"
-
-#~ msgid "Repeat until: %1\n"
-#~ msgstr "Repetix fins: %1\n"
-
-#~ msgid "Repeats forever\n"
-#~ msgstr "Es repetix per sempre\n"
-
-#~ msgid ""
-#~ "Details:\n"
-#~ "%1\n"
-#~ msgstr ""
-#~ "Detalls:\n"
-#~ "%1\n"
-
-#~ msgid "Due Date: %1\n"
-#~ msgstr "Data de venciment: %1\n"
-
-#~ msgid "Due Time: %1\n"
-#~ msgstr "Hora de venciment: %1\n"
-
-#~ msgid "Date: %1\n"
-#~ msgstr "Data: %1\n"
-
-#~ msgid "Time: %1\n"
-#~ msgstr "Hora: %1\n"
-
-#~ msgid ""
-#~ "Text of the journal:\n"
-#~ "%1\n"
-#~ msgstr ""
-#~ "Text del diari:\n"
-#~ "%1\n"
-
-#~ msgctxt "@item incidence type is event"
-#~ msgid "event"
-#~ msgstr "esdeveniment"
-
-#~ msgctxt "@item incidence type is to-do/task"
-#~ msgid "to-do"
-#~ msgstr "tasca pendent"
-
-#~ msgctxt "@item incidence type is journal"
-#~ msgid "journal"
-#~ msgstr "diari"
-
-#~ msgctxt "@item incidence type is freebusy"
-#~ msgid "free/busy"
-#~ msgstr "lliure/ocupat"
-
-#~ msgctxt "@item incidence type is Event (capitalized)"
-#~ msgid "Event"
-#~ msgstr "Esdeveniment"
-
-#~ msgctxt "@item incidence type is To-do/Task (capitalized)"
-#~ msgid "To-do"
-#~ msgstr "Tasca pendent"
-
-#~ msgctxt "@item incidence type is Journal (capitalized)"
-#~ msgid "Journal"
-#~ msgstr "Diari"
-
-#~ msgctxt "@item incidence type is Freebusy (capitalized)"
-#~ msgid "Free/Busy"
-#~ msgstr "Lliure/ocupat"
-
-#~ msgctxt "@item this is a new scheduling message"
-#~ msgid "New Scheduling Message"
-#~ msgstr "Missatge de planificació nou"
-
-#~ msgctxt "@item this is an update to an existing scheduling message"
-#~ msgid "Updated Scheduling Message"
-#~ msgstr "Missatge de planificació actualitzat"
-
-#~ msgctxt "@item obsolete status"
-#~ msgid "Obsolete"
-#~ msgstr "Obsolet"
-
-#~ msgctxt "@item this is a request for a new scheduling message"
-#~ msgid "New Scheduling Message Request"
-#~ msgstr "Sol·licitud nova de missatge de planificació"
-
-#~ msgctxt ""
-#~ "@item this is a request for an update to an existing scheduling message"
-#~ msgid "Updated Scheduling Message Request"
-#~ msgstr "Sol·licitud actualitzada de missatge de planificació"
-
-#~ msgctxt "@item unknown status"
-#~ msgid "Unknown Status: %1"
-#~ msgstr "Estat desconegut: %1"
-
-#~ msgctxt "@option:check calendar items before a certain date"
-#~ msgid "Items before %1"
-#~ msgstr "Elements abans de %1"
-
-#~ msgctxt "@option:check currently selected calendar item"
-#~ msgid "Selected item"
-#~ msgstr "Element seleccionat"
-
-#~ msgctxt "@option:check calendar items after a certain date"
-#~ msgid "Items after %1"
-#~ msgstr "Elements després de %1"
