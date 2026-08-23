@@ -2074,6 +2074,7 @@ QString IncidenceFormatter::formatICalInvitation(const KCalendarCore::ScheduleMe
 
     incidence = bodyVisitor.takeResult();
     incidence[QStringLiteral("style")] = invitationStyle();
+    incidence[QStringLiteral("ltr")] = QApplication::isRightToLeft() ? QStringLiteral("rtl") : QStringLiteral("ltr");
     incidence[QStringLiteral("head")] = headerVisitor.result();
 
     // determine if I am the organizer for this invitation
