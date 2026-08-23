@@ -117,7 +117,6 @@ KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KC
   Deliver an HTML formatted string displaying an invitation.
 
   \param message an iCal schedule message ("invitation")
-  \param calendar a pointer to the Calendar that owns the invitation.
   \param helper a pointer to an InvitationFormatterHelper.
   \param sender a QString containing the email address of the person sending the invitation.
   \return the formatted HTML invitation string
