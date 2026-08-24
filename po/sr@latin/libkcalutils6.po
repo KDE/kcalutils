@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 16:07+0000\n"
+"POT-Creation-Date: 2026-08-24 00:46+0000\n"
 "PO-Revision-Date: 2017-09-28 18:00+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -602,41 +602,41 @@ msgstr "Greška: iTIP poruka slobodnog-zauzetog sa nepoznatim metodom."
 msgid "%1 (<i>unrecorded</i>)"
 msgstr "%1 (<i>nezabeležen</i>"
 
-#: src/incidenceformatter.cpp:1906
+#: src/incidenceformatter.cpp:1911
 #, kde-format
 msgid "Record"
 msgstr "Zabeleži"
 
-#: src/incidenceformatter.cpp:1909
+#: src/incidenceformatter.cpp:1914
 #, kde-format
 msgid "Move to Trash"
 msgstr "U smeće"
 
-#: src/incidenceformatter.cpp:1913
+#: src/incidenceformatter.cpp:1918
 #, kde-format
 msgctxt "accept invitation"
 msgid "Accept"
 msgstr "Prihvati"
 
-#: src/incidenceformatter.cpp:1919
+#: src/incidenceformatter.cpp:1924
 #, kde-format
 msgctxt "Accept invitation conditionally"
 msgid "Tentative"
 msgstr "Uslovno"
 
-#: src/incidenceformatter.cpp:1926
+#: src/incidenceformatter.cpp:1931
 #, kde-format
 msgctxt "decline invitation"
 msgid "Decline"
 msgstr "Odbij"
 
-#: src/incidenceformatter.cpp:1930
+#: src/incidenceformatter.cpp:1935
 #, kde-format
 msgctxt "invitation counter proposal"
 msgid "Counter proposal ..."
 msgstr "Protivpredlog..."
 
-#: src/incidenceformatter.cpp:1935
+#: src/incidenceformatter.cpp:1940
 #, fuzzy, kde-format
 #| msgctxt "delegate inviation to another"
 #| msgid "Delegate ..."
@@ -644,187 +644,187 @@ msgctxt "delegate invitation to another"
 msgid "Delegate ..."
 msgstr "Delegiraj..."
 
-#: src/incidenceformatter.cpp:1945
+#: src/incidenceformatter.cpp:1950
 #, kde-format
 msgid "Accept"
 msgstr "Prihvati"
 
-#: src/incidenceformatter.cpp:1948
+#: src/incidenceformatter.cpp:1953
 #, kde-format
 msgid "Decline"
 msgstr "Odbij"
 
-#: src/incidenceformatter.cpp:1958
+#: src/incidenceformatter.cpp:1963
 #, kde-format
 msgid "Record invitation in my to-do list"
 msgstr "Ubeleži pozivnicu u moj spisak obaveza"
 
-#: src/incidenceformatter.cpp:1959
+#: src/incidenceformatter.cpp:1964
 #, kde-format
 msgid "Record invitation in my calendar"
 msgstr "Ubeleži pozivnicu u moj kalendar"
 
-#: src/incidenceformatter.cpp:1972
+#: src/incidenceformatter.cpp:1977
 #, kde-format
 msgid "Record response in my to-do list"
 msgstr "Ubeleži odgovor u moj spisak obaveza"
 
-#: src/incidenceformatter.cpp:1972
+#: src/incidenceformatter.cpp:1977
 #, kde-format
 msgid "Record response in my calendar"
 msgstr "Ubeleži odgovor u moj kalendar"
 
-#: src/incidenceformatter.cpp:1986
+#: src/incidenceformatter.cpp:1991
 #, kde-format
 msgid "Remove invitation from my to-do list"
 msgstr "Ukloni pozivnicu sa mog spiska obaveza"
 
-#: src/incidenceformatter.cpp:1987
+#: src/incidenceformatter.cpp:1992
 #, kde-format
 msgid "Remove invitation from my calendar"
 msgstr "Ukloni pozivnicu iz mog kalendara"
 
-#: src/incidenceformatter.cpp:2123 src/incidenceformatter.cpp:2127
+#: src/incidenceformatter.cpp:2129 src/incidenceformatter.cpp:2133
 #, kde-format
 msgid "Your <b>%1</b> response has been recorded."
 msgstr "Vaš odgovor <b>%1</b> je ubeležen."
 
-#: src/incidenceformatter.cpp:2125 src/incidenceformatter.cpp:2129
+#: src/incidenceformatter.cpp:2131 src/incidenceformatter.cpp:2135
 #, kde-format
 msgid "Your status for this invitation is <b>%1</b>."
 msgstr "Vaše stanje za ovu pozivnicu je <b>%1</b>."
 
-#: src/incidenceformatter.cpp:2134
+#: src/incidenceformatter.cpp:2140
 #, kde-format
 msgid "This invitation was canceled."
 msgstr "Pozivnica je otkazana."
 
-#: src/incidenceformatter.cpp:2136
+#: src/incidenceformatter.cpp:2142
 #, kde-format
 msgid "This invitation was accepted."
 msgstr "Pozivnica je prihvaćena."
 
-#: src/incidenceformatter.cpp:2144
+#: src/incidenceformatter.cpp:2150
 #, kde-format
 msgid "Awaiting delegation response."
 msgstr "Očekuje se odgovor na delegiranje."
 
-#: src/incidenceformatter.cpp:2211 src/incidenceformatter.cpp:2213
+#: src/incidenceformatter.cpp:2217 src/incidenceformatter.cpp:2219
 #, kde-format
 msgid "The <b>%1</b> response has been recorded"
 msgstr "Odgovor <b>%1</b> je ubeležen."
 
-#: src/incidenceformatter.cpp:2241
+#: src/incidenceformatter.cpp:2247
 #, kde-format
 msgid "Assignees:"
 msgstr "Zaduženi:"
 
-#: src/incidenceformatter.cpp:2243
+#: src/incidenceformatter.cpp:2249
 #, kde-format
 msgid "Participants:"
 msgstr "Učesnici:"
 
-#: src/incidenceformatter.cpp:2350
+#: src/incidenceformatter.cpp:2356
 #, kde-format
 msgctxt "Event start"
 msgid "<i>From:</i> %1"
 msgstr "<i>Od:</i> %1"
 
-#: src/incidenceformatter.cpp:2352
+#: src/incidenceformatter.cpp:2358
 #, kde-format
 msgctxt "Event end"
 msgid "<i>To:</i> %1"
 msgstr "<i>Do:</i> %1"
 
-#: src/incidenceformatter.cpp:2354
+#: src/incidenceformatter.cpp:2360
 #, fuzzy, kde-format
 #| msgid "<i>Date:</i> %1"
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
 msgstr "<i>Datum:</i> %1"
 
-#: src/incidenceformatter.cpp:2357 src/incidenceformatter.cpp:2435
+#: src/incidenceformatter.cpp:2363 src/incidenceformatter.cpp:2441
 #, kde-format
 msgid "<i>Date:</i> %1"
 msgstr "<i>Datum:</i> %1"
 
-#: src/incidenceformatter.cpp:2363
+#: src/incidenceformatter.cpp:2369
 #, kde-format
 msgctxt "time for event"
 msgid "<i>Time:</i> %1"
 msgstr "<i>Vreme:</i> %1"
 
-#: src/incidenceformatter.cpp:2365
+#: src/incidenceformatter.cpp:2371
 #, kde-format
 msgctxt "time range for event"
 msgid "<i>Time:</i> %1 - %2"
 msgstr "<i>Vreme:</i> %1-%2"
 
-#: src/incidenceformatter.cpp:2398
+#: src/incidenceformatter.cpp:2404
 #, fuzzy, kde-format
 #| msgid "<i>Start:</i> %1"
 msgctxt "To-do's start date"
 msgid "<i>Start:</i> %1"
 msgstr "<i>Početak:</i> %1"
 
-#: src/incidenceformatter.cpp:2401
+#: src/incidenceformatter.cpp:2407
 #, fuzzy, kde-format
 #| msgid "<i>Due:</i> %1"
 msgctxt "To-do's due date"
 msgid "<i>Due:</i> %1"
 msgstr "<i>Rok:</i> %1"
 
-#: src/incidenceformatter.cpp:2408
+#: src/incidenceformatter.cpp:2414
 #, fuzzy, kde-format
 #| msgid "<i>Period start:</i> %1"
 msgctxt "To-do's priority number"
 msgid "<i>Priority:</i> %1"
 msgstr "<i>Početak perioda:</i> %1"
 
-#: src/incidenceformatter.cpp:2413
+#: src/incidenceformatter.cpp:2419
 #, fuzzy, kde-format
 #| msgid "<i>Date:</i> %1"
 msgctxt "To-do's completed date"
 msgid "<i>Completed:</i> %1"
 msgstr "<i>Datum:</i> %1"
 
-#: src/incidenceformatter.cpp:2424
+#: src/incidenceformatter.cpp:2430
 #, fuzzy, kde-format
 #| msgid "Percent Done:"
 msgctxt "To-do's percent complete:"
 msgid "<i>Percent Done:</i> %1%"
 msgstr "Dovršenost:"
 
-#: src/incidenceformatter.cpp:2443
+#: src/incidenceformatter.cpp:2449
 #, kde-format
 msgid "<i>Period start:</i> %1"
 msgstr "<i>Početak perioda:</i> %1"
 
-#: src/incidenceformatter.cpp:2444
+#: src/incidenceformatter.cpp:2450
 #, fuzzy, kde-format
 #| msgid "<i>Period start:</i> %1"
 msgid "<i>Period end:</i> %1"
 msgstr "<i>Početak perioda:</i> %1"
 
 # >> %1 is person's name
-#: src/incidenceformatter.cpp:2469 src/templates/freebusy.html:5
+#: src/incidenceformatter.cpp:2475 src/templates/freebusy.html:5
 #, kde-format
 msgid "Free/Busy information for %1"
 msgstr "Slobodno-zauzeto za %1"
 
-#: src/incidenceformatter.cpp:2490 src/incidenceformatter.cpp:2492
+#: src/incidenceformatter.cpp:2496 src/incidenceformatter.cpp:2498
 #, kde-format
 msgctxt "attendee name (attendee status)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/incidenceformatter.cpp:2495
+#: src/incidenceformatter.cpp:2501
 #, kde-format
 msgid "%1"
 msgstr "%1"
 
-#: src/incidenceformatter.cpp:2521 src/incidenceformatter.cpp:2653
-#: src/incidenceformatter.cpp:3125
+#: src/incidenceformatter.cpp:2527 src/incidenceformatter.cpp:2659
+#: src/incidenceformatter.cpp:3131
 #, fuzzy, kde-format
 #| msgctxt "elipsis"
 #| msgid "..."
@@ -832,76 +832,76 @@ msgctxt "ellipsis"
 msgid "..."
 msgstr "..."
 
-#: src/incidenceformatter.cpp:2541
+#: src/incidenceformatter.cpp:2547
 #, kde-format
 msgid " (delegated by %1)"
 msgstr " (delegira %1)"
 
-#: src/incidenceformatter.cpp:2544
+#: src/incidenceformatter.cpp:2550
 #, kde-format
 msgid " (delegated to %1)"
 msgstr " (zadužen/a %1)"
 
-#: src/incidenceformatter.cpp:2563 src/templates/event.html:112
+#: src/incidenceformatter.cpp:2569 src/templates/event.html:112
 #: src/templates/todo.html:93
 #, kde-format
 msgid "Organizer:"
 msgstr "Organizator:"
 
-#: src/incidenceformatter.cpp:2574 src/templates/event.html:124
+#: src/incidenceformatter.cpp:2580 src/templates/event.html:124
 #: src/templates/todo.html:105
 #, kde-format
 msgid "Chair:"
 msgstr "Predsedavajući:"
 
-#: src/incidenceformatter.cpp:2581 src/templates/event.html:137
+#: src/incidenceformatter.cpp:2587 src/templates/event.html:137
 #: src/templates/todo.html:118
 #, kde-format
 msgid "Required Participants:"
 msgstr "Obavezni učesnici:"
 
-#: src/incidenceformatter.cpp:2588
+#: src/incidenceformatter.cpp:2594
 #, kde-format
 msgid "Optional Participants:"
 msgstr "Mogući učesnici:"
 
-#: src/incidenceformatter.cpp:2595 src/templates/event.html:163
+#: src/incidenceformatter.cpp:2601 src/templates/event.html:163
 #: src/templates/todo.html:144
 #, kde-format
 msgid "Observers:"
 msgstr "Posmatrači:"
 
-#: src/incidenceformatter.cpp:2617 src/templates/event.html:13
+#: src/incidenceformatter.cpp:2623 src/templates/event.html:13
 #: src/templates/journal.html:14 src/templates/todo.html:14
 #, kde-format
 msgid "Calendar:"
 msgstr "Kalendar:"
 
-#: src/incidenceformatter.cpp:2625 src/templates/event.html:21
+#: src/incidenceformatter.cpp:2631 src/templates/event.html:21
 #: src/templates/todo.html:22
 #, kde-format
 msgid "Location:"
 msgstr "Lokacija:"
 
-#: src/incidenceformatter.cpp:2632 src/templates/event.html:60
+#: src/incidenceformatter.cpp:2638 src/templates/event.html:60
 #: src/templates/todo.html:54
 #, kde-format
 msgid "Duration:"
 msgstr "Trajanje:"
 
-#: src/incidenceformatter.cpp:2638 src/incidenceformatter.cpp:2644
+#: src/incidenceformatter.cpp:2644 src/incidenceformatter.cpp:2650
 #: src/templates/event.html:68 src/templates/itip_event.html:22
 #: src/templates/itip_todo.html:46 src/templates/todo.html:62
 #, kde-format
 msgid "Recurrence:"
 msgstr "Ponavljanje:"
 
-#: src/incidenceformatter.cpp:2645 src/templates/todo.html:64
+#: src/incidenceformatter.cpp:2651 src/templates/todo.html:64
 #, kde-format
 msgid "Exception"
 msgstr "Izuzetak"
 
-#: src/incidenceformatter.cpp:2661 src/templates/event.html:96
+#: src/incidenceformatter.cpp:2667 src/templates/event.html:96
 #: src/templates/itip_event.html:29 src/templates/itip_journal.html:11
 #: src/templates/itip_todo.html:53 src/templates/journal.html:30
 #: src/templates/todo.html:74
@@ -909,7 +909,7 @@ msgstr "Izuzetak"
 msgid "Description:"
 msgstr "Opis:"
 
-#: src/incidenceformatter.cpp:2675 src/templates/event.html:104
+#: src/incidenceformatter.cpp:2681 src/templates/event.html:104
 #: src/templates/todo.html:85
 #, kde-format
 msgid "Reminder:"
@@ -919,7 +919,7 @@ msgstr[1] "Podsetnici:"
 msgstr[2] "Podsetnici:"
 msgstr[3] "Podsetnik:"
 
-#: src/incidenceformatter.cpp:2702 src/templates/event.html:176
+#: src/incidenceformatter.cpp:2708 src/templates/event.html:176
 #: src/templates/journal.html:38 src/templates/todo.html:157
 #, kde-format
 msgid "Tag:"
@@ -929,222 +929,222 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/incidenceformatter.cpp:2751 src/incidenceformatter.cpp:2825
+#: src/incidenceformatter.cpp:2757 src/incidenceformatter.cpp:2831
 #, kde-format
 msgid "No recurrence"
 msgstr "Bez ponavljanja"
 
-#: src/incidenceformatter.cpp:2755
+#: src/incidenceformatter.cpp:2761
 #, kde-format
 msgid "31st Last"
 msgstr ""
 "31. poslednjeg|/|$[svojstva gen-m '31. poslednjeg' gen-ž '31. poslednje' aku-"
 "m '31. poslednji' aku-ž '31. poslednju']"
 
-#: src/incidenceformatter.cpp:2756
+#: src/incidenceformatter.cpp:2762
 #, kde-format
 msgid "30th Last"
 msgstr ""
 "30. poslednjeg|/|$[svojstva gen-m '30. poslednjeg' gen-ž '30. poslednje' aku-"
 "m '30. poslednji' aku-ž '30. poslednju']"
 
-#: src/incidenceformatter.cpp:2757
+#: src/incidenceformatter.cpp:2763
 #, kde-format
 msgid "29th Last"
 msgstr ""
 "29. poslednjeg|/|$[svojstva gen-m '29. poslednjeg' gen-ž '29. poslednje' aku-"
 "m '29. poslednji' aku-ž '29. poslednju']"
 
-#: src/incidenceformatter.cpp:2758
+#: src/incidenceformatter.cpp:2764
 #, kde-format
 msgid "28th Last"
 msgstr ""
 "28. poslednjeg|/|$[svojstva gen-m '28. poslednjeg' gen-ž '28. poslednje' aku-"
 "m '28. poslednji' aku-ž '28. poslednju']"
 
-#: src/incidenceformatter.cpp:2759
+#: src/incidenceformatter.cpp:2765
 #, kde-format
 msgid "27th Last"
 msgstr ""
 "27. poslednjeg|/|$[svojstva gen-m '27. poslednjeg' gen-ž '27. poslednje' aku-"
 "m '27. poslednji' aku-ž '27. poslednju']"
 
-#: src/incidenceformatter.cpp:2760
+#: src/incidenceformatter.cpp:2766
 #, kde-format
 msgid "26th Last"
 msgstr ""
 "26. poslednjeg|/|$[svojstva gen-m '26. poslednjeg' gen-ž '26. poslednje' aku-"
 "m '26. poslednji' aku-ž '26. poslednju']"
 
-#: src/incidenceformatter.cpp:2761
+#: src/incidenceformatter.cpp:2767
 #, kde-format
 msgid "25th Last"
 msgstr ""
 "25. poslednjeg|/|$[svojstva gen-m '25. poslednjeg' gen-ž '25. poslednje' aku-"
 "m '25. poslednji' aku-ž '25. poslednju']"
 
-#: src/incidenceformatter.cpp:2762
+#: src/incidenceformatter.cpp:2768
 #, kde-format
 msgid "24th Last"
 msgstr ""
 "24. poslednjeg|/|$[svojstva gen-m '24. poslednjeg' gen-ž '24. poslednje' aku-"
 "m '24. poslednji' aku-ž '24. poslednju']"
 
-#: src/incidenceformatter.cpp:2763
+#: src/incidenceformatter.cpp:2769
 #, kde-format
 msgid "23rd Last"
 msgstr ""
 "23. poslednjeg|/|$[svojstva gen-m '23. poslednjeg' gen-ž '23. poslednje' aku-"
 "m '23. poslednji' aku-ž '23. poslednju']"
 
-#: src/incidenceformatter.cpp:2764
+#: src/incidenceformatter.cpp:2770
 #, kde-format
 msgid "22nd Last"
 msgstr ""
 "22. poslednjeg|/|$[svojstva gen-m '22. poslednjeg' gen-ž '22. poslednje' aku-"
 "m '22. poslednji' aku-ž '22. poslednju']"
 
-#: src/incidenceformatter.cpp:2765
+#: src/incidenceformatter.cpp:2771
 #, kde-format
 msgid "21st Last"
 msgstr ""
 "21. poslednjeg|/|$[svojstva gen-m '21. poslednjeg' gen-ž '21. poslednje' aku-"
 "m '21. poslednji' aku-ž '21. poslednju']"
 
-#: src/incidenceformatter.cpp:2766
+#: src/incidenceformatter.cpp:2772
 #, kde-format
 msgid "20th Last"
 msgstr ""
 "20. poslednjeg|/|$[svojstva gen-m '20. poslednjeg' gen-ž '20. poslednje' aku-"
 "m '20. poslednji' aku-ž '20. poslednju']"
 
-#: src/incidenceformatter.cpp:2767
+#: src/incidenceformatter.cpp:2773
 #, kde-format
 msgid "19th Last"
 msgstr ""
 "19. poslednjeg|/|$[svojstva gen-m '19. poslednjeg' gen-ž '19. poslednje' aku-"
 "m '19. poslednji' aku-ž '19. poslednju']"
 
-#: src/incidenceformatter.cpp:2768
+#: src/incidenceformatter.cpp:2774
 #, kde-format
 msgid "18th Last"
 msgstr ""
 "18. poslednjeg|/|$[svojstva gen-m '18. poslednjeg' gen-ž '18. poslednje' aku-"
 "m '18. poslednji' aku-ž '18. poslednju']"
 
-#: src/incidenceformatter.cpp:2769
+#: src/incidenceformatter.cpp:2775
 #, kde-format
 msgid "17th Last"
 msgstr ""
 "17. poslednjeg|/|$[svojstva gen-m '17. poslednjeg' gen-ž '17. poslednje' aku-"
 "m '17. poslednji' aku-ž '17. poslednju']"
 
-#: src/incidenceformatter.cpp:2770
+#: src/incidenceformatter.cpp:2776
 #, kde-format
 msgid "16th Last"
 msgstr ""
 "16. poslednjeg|/|$[svojstva gen-m '16. poslednjeg' gen-ž '16. poslednje' aku-"
 "m '16. poslednji' aku-ž '16. poslednju']"
 
-#: src/incidenceformatter.cpp:2771
+#: src/incidenceformatter.cpp:2777
 #, kde-format
 msgid "15th Last"
 msgstr ""
 "15. poslednjeg|/|$[svojstva gen-m '15. poslednjeg' gen-ž '15. poslednje' aku-"
 "m '15. poslednji' aku-ž '15. poslednju']"
 
-#: src/incidenceformatter.cpp:2772
+#: src/incidenceformatter.cpp:2778
 #, kde-format
 msgid "14th Last"
 msgstr ""
 "14. poslednjeg|/|$[svojstva gen-m '14. poslednjeg' gen-ž '14. poslednje' aku-"
 "m '14. poslednji' aku-ž '14. poslednju']"
 
-#: src/incidenceformatter.cpp:2773
+#: src/incidenceformatter.cpp:2779
 #, kde-format
 msgid "13th Last"
 msgstr ""
 "13. poslednjeg|/|$[svojstva gen-m '13. poslednjeg' gen-ž '13. poslednje' aku-"
 "m '13. poslednji' aku-ž '13. poslednju']"
 
-#: src/incidenceformatter.cpp:2774
+#: src/incidenceformatter.cpp:2780
 #, kde-format
 msgid "12th Last"
 msgstr ""
 "12. poslednjeg|/|$[svojstva gen-m '12. poslednjeg' gen-ž '12. poslednje' aku-"
 "m '12. poslednji' aku-ž '12. poslednju']"
 
-#: src/incidenceformatter.cpp:2775
+#: src/incidenceformatter.cpp:2781
 #, kde-format
 msgid "11th Last"
 msgstr ""
 "11. poslednjeg|/|$[svojstva gen-m '11. poslednjeg' gen-ž '11. poslednje' aku-"
 "m '11. poslednji' aku-ž '11. poslednju']"
 
-#: src/incidenceformatter.cpp:2776
+#: src/incidenceformatter.cpp:2782
 #, kde-format
 msgid "10th Last"
 msgstr ""
 "10. poslednjeg|/|$[svojstva gen-m '10. poslednjeg' gen-ž '10. poslednje' aku-"
 "m '10. poslednji' aku-ž '10. poslednju']"
 
-#: src/incidenceformatter.cpp:2777
+#: src/incidenceformatter.cpp:2783
 #, kde-format
 msgid "9th Last"
 msgstr ""
 "9. poslednjeg|/|$[svojstva gen-m '9. poslednjeg' gen-ž '9. poslednje' aku-m "
 "'9. poslednji' aku-ž '9. poslednju']"
 
-#: src/incidenceformatter.cpp:2778
+#: src/incidenceformatter.cpp:2784
 #, kde-format
 msgid "8th Last"
 msgstr ""
 "8. poslednjeg|/|$[svojstva gen-m '8. poslednjeg' gen-ž '8. poslednje' aku-m "
 "'8. poslednji' aku-ž '8. poslednju']"
 
-#: src/incidenceformatter.cpp:2779
+#: src/incidenceformatter.cpp:2785
 #, kde-format
 msgid "7th Last"
 msgstr ""
 "7. poslednjeg|/|$[svojstva gen-m '7. poslednjeg' gen-ž '7. poslednje' aku-m "
 "'7. poslednji' aku-ž '7. poslednju']"
 
-#: src/incidenceformatter.cpp:2780
+#: src/incidenceformatter.cpp:2786
 #, kde-format
 msgid "6th Last"
 msgstr ""
 "6. poslednjeg|/|$[svojstva gen-m '6. poslednjeg' gen-ž '6. poslednje' aku-m "
 "'6. poslednji' aku-ž '6. poslednju']"
 
-#: src/incidenceformatter.cpp:2781
+#: src/incidenceformatter.cpp:2787
 #, kde-format
 msgid "5th Last"
 msgstr ""
 "5. poslednjeg|/|$[svojstva gen-m '5. poslednjeg' gen-ž '5. poslednje' aku-m "
 "'5. poslednji' aku-ž '5. poslednju']"
 
-#: src/incidenceformatter.cpp:2782
+#: src/incidenceformatter.cpp:2788
 #, kde-format
 msgid "4th Last"
 msgstr ""
 "4. poslednjeg|/|$[svojstva gen-m '4. poslednjeg' gen-ž '4. poslednje' aku-m "
 "'4. poslednji' aku-ž '4. poslednju']"
 
-#: src/incidenceformatter.cpp:2783
+#: src/incidenceformatter.cpp:2789
 #, kde-format
 msgid "3rd Last"
 msgstr ""
 "3. poslednjeg|/|$[svojstva gen-m '3. poslednjeg' gen-ž '3. poslednje' aku-m "
 "'3. poslednji' aku-ž '3. poslednju']"
 
-#: src/incidenceformatter.cpp:2784
+#: src/incidenceformatter.cpp:2790
 #, kde-format
 msgid "2nd Last"
 msgstr ""
 "pretposlednji|/|$[svojstva gen-m pretposlednjeg gen-ž pretposlednje aku-m "
 "pretposlednji aku-ž pretposlednju]"
 
-#: src/incidenceformatter.cpp:2785
+#: src/incidenceformatter.cpp:2791
 #, kde-format
 msgctxt "last day of the month"
 msgid "Last"
@@ -1152,7 +1152,7 @@ msgstr ""
 "poslednji|/|$[svojstva gen-m poslednjeg gen-ž poslednje aku-m poslednji aku-"
 "ž poslednju]"
 
-#: src/incidenceformatter.cpp:2786
+#: src/incidenceformatter.cpp:2792
 #, kde-format
 msgctxt "unknown day of the month"
 msgid "unknown"
@@ -1160,162 +1160,162 @@ msgstr ""
 "nepoznat|/|$[svojstva gen-m nepoznatog gen-ž nepoznate aku-m nepoznat aku-ž "
 "nepoznatu]"
 
-#: src/incidenceformatter.cpp:2787
+#: src/incidenceformatter.cpp:2793
 #, kde-format
 msgid "1st"
 msgstr "1.|/|$[svojstva gen-m 1. gen-ž 1. aku-m 1. aku-ž 1.]"
 
-#: src/incidenceformatter.cpp:2788
+#: src/incidenceformatter.cpp:2794
 #, kde-format
 msgid "2nd"
 msgstr "2.|/|$[svojstva gen-m 2. gen-ž 2. aku-m 2. aku-ž 2.]"
 
-#: src/incidenceformatter.cpp:2789
+#: src/incidenceformatter.cpp:2795
 #, kde-format
 msgid "3rd"
 msgstr "3.|/|$[svojstva gen-m 3. gen-ž 3. aku-m 3. aku-ž 3.]"
 
-#: src/incidenceformatter.cpp:2790
+#: src/incidenceformatter.cpp:2796
 #, kde-format
 msgid "4th"
 msgstr "4.|/|$[svojstva gen-m 4. gen-ž 4. aku-m 4. aku-ž 4.]"
 
-#: src/incidenceformatter.cpp:2791
+#: src/incidenceformatter.cpp:2797
 #, kde-format
 msgid "5th"
 msgstr "5.|/|$[svojstva gen-m 5. gen-ž 5. aku-m 5. aku-ž 5.]"
 
-#: src/incidenceformatter.cpp:2792
+#: src/incidenceformatter.cpp:2798
 #, kde-format
 msgid "6th"
 msgstr "6.|/|$[svojstva gen-m 6. gen-ž 6. aku-m 6. aku-ž 6.]"
 
-#: src/incidenceformatter.cpp:2793
+#: src/incidenceformatter.cpp:2799
 #, kde-format
 msgid "7th"
 msgstr "7.|/|$[svojstva gen-m 7. gen-ž 7. aku-m 7. aku-ž 7.]"
 
-#: src/incidenceformatter.cpp:2794
+#: src/incidenceformatter.cpp:2800
 #, kde-format
 msgid "8th"
 msgstr "8.|/|$[svojstva gen-m 8. gen-ž 8. aku-m 8. aku-ž 8.]"
 
-#: src/incidenceformatter.cpp:2795
+#: src/incidenceformatter.cpp:2801
 #, kde-format
 msgid "9th"
 msgstr "9.|/|$[svojstva gen-m 9. gen-ž 9. aku-m 9. aku-ž 9.]"
 
-#: src/incidenceformatter.cpp:2796
+#: src/incidenceformatter.cpp:2802
 #, kde-format
 msgid "10th"
 msgstr "10.|/|$[svojstva gen-m 10. gen-ž 10. aku-m 10. aku-ž 10.]"
 
-#: src/incidenceformatter.cpp:2797
+#: src/incidenceformatter.cpp:2803
 #, kde-format
 msgid "11th"
 msgstr "11.|/|$[svojstva gen-m 11. gen-ž 11. aku-m 11. aku-ž 11.]"
 
-#: src/incidenceformatter.cpp:2798
+#: src/incidenceformatter.cpp:2804
 #, kde-format
 msgid "12th"
 msgstr "12.|/|$[svojstva gen-m 12. gen-ž 12. aku-m 12. aku-ž 12.]"
 
-#: src/incidenceformatter.cpp:2799
+#: src/incidenceformatter.cpp:2805
 #, kde-format
 msgid "13th"
 msgstr "13.|/|$[svojstva gen-m 13. gen-ž 13. aku-m 13. aku-ž 13.]"
 
-#: src/incidenceformatter.cpp:2800
+#: src/incidenceformatter.cpp:2806
 #, kde-format
 msgid "14th"
 msgstr "14.|/|$[svojstva gen-m 14. gen-ž 14. aku-m 14. aku-ž 14.]"
 
-#: src/incidenceformatter.cpp:2801
+#: src/incidenceformatter.cpp:2807
 #, kde-format
 msgid "15th"
 msgstr "15.|/|$[svojstva gen-m 15. gen-ž 15. aku-m 15. aku-ž 15.]"
 
-#: src/incidenceformatter.cpp:2802
+#: src/incidenceformatter.cpp:2808
 #, kde-format
 msgid "16th"
 msgstr "16.|/|$[svojstva gen-m 16. gen-ž 16. aku-m 16. aku-ž 16.]"
 
-#: src/incidenceformatter.cpp:2803
+#: src/incidenceformatter.cpp:2809
 #, kde-format
 msgid "17th"
 msgstr "17.|/|$[svojstva gen-m 17. gen-ž 17. aku-m 17. aku-ž 17.]"
 
-#: src/incidenceformatter.cpp:2804
+#: src/incidenceformatter.cpp:2810
 #, kde-format
 msgid "18th"
 msgstr "18.|/|$[svojstva gen-m 18. gen-ž 18. aku-m 18. aku-ž 18.]"
 
-#: src/incidenceformatter.cpp:2805
+#: src/incidenceformatter.cpp:2811
 #, kde-format
 msgid "19th"
 msgstr "19.|/|$[svojstva gen-m 19. gen-ž 19. aku-m 19. aku-ž 19.]"
 
-#: src/incidenceformatter.cpp:2806
+#: src/incidenceformatter.cpp:2812
 #, kde-format
 msgid "20th"
 msgstr "20.|/|$[svojstva gen-m 20. gen-ž 20. aku-m 20. aku-ž 20.]"
 
-#: src/incidenceformatter.cpp:2807
+#: src/incidenceformatter.cpp:2813
 #, kde-format
 msgid "21st"
 msgstr "21.|/|$[svojstva gen-m 21. gen-ž 21. aku-m 21. aku-ž 21.]"
 
-#: src/incidenceformatter.cpp:2808
+#: src/incidenceformatter.cpp:2814
 #, kde-format
 msgid "22nd"
 msgstr "22.|/|$[svojstva gen-m 22. gen-ž 22. aku-m 22. aku-ž 22.]"
 
-#: src/incidenceformatter.cpp:2809
+#: src/incidenceformatter.cpp:2815
 #, kde-format
 msgid "23rd"
 msgstr "23.|/|$[svojstva gen-m 23. gen-ž 23. aku-m 23. aku-ž 23.]"
 
-#: src/incidenceformatter.cpp:2810
+#: src/incidenceformatter.cpp:2816
 #, kde-format
 msgid "24th"
 msgstr "24.|/|$[svojstva gen-m 24. gen-ž 24. aku-m 24. aku-ž 24.]"
 
-#: src/incidenceformatter.cpp:2811
+#: src/incidenceformatter.cpp:2817
 #, kde-format
 msgid "25th"
 msgstr "25.|/|$[svojstva gen-m 25. gen-ž 25. aku-m 25. aku-ž 25.]"
 
-#: src/incidenceformatter.cpp:2812
+#: src/incidenceformatter.cpp:2818
 #, kde-format
 msgid "26th"
 msgstr "26.|/|$[svojstva gen-m 26. gen-ž 26. aku-m 26. aku-ž 26.]"
 
-#: src/incidenceformatter.cpp:2813
+#: src/incidenceformatter.cpp:2819
 #, kde-format
 msgid "27th"
 msgstr "27.|/|$[svojstva gen-m 27. gen-ž 27. aku-m 27. aku-ž 27.]"
 
-#: src/incidenceformatter.cpp:2814
+#: src/incidenceformatter.cpp:2820
 #, kde-format
 msgid "28th"
 msgstr "28.|/|$[svojstva gen-m 28. gen-ž 28. aku-m 28. aku-ž 28.]"
 
-#: src/incidenceformatter.cpp:2815
+#: src/incidenceformatter.cpp:2821
 #, kde-format
 msgid "29th"
 msgstr "29.|/|$[svojstva gen-m 29. gen-ž 29. aku-m 29. aku-ž 29.]"
 
-#: src/incidenceformatter.cpp:2816
+#: src/incidenceformatter.cpp:2822
 #, kde-format
 msgid "30th"
 msgstr "30.|/|$[svojstva gen-m 30. gen-ž 30. aku-m 30. aku-ž 30.]"
 
-#: src/incidenceformatter.cpp:2817
+#: src/incidenceformatter.cpp:2823
 #, kde-format
 msgid "31st"
 msgstr "31.|/|$[svojstva gen-m 31. gen-ž 31. aku-m 31. aku-ž 31.]"
 
-#: src/incidenceformatter.cpp:2832
+#: src/incidenceformatter.cpp:2838
 #, kde-format
 msgid "Recurs every minute until %2"
 msgid_plural "Recurs every %1 minutes until %2"
@@ -1333,18 +1333,18 @@ msgstr[3] ""
 "gen]"
 
 # >! Needs plurals (even although n always >1).
-#: src/incidenceformatter.cpp:2834 src/incidenceformatter.cpp:2845
-#: src/incidenceformatter.cpp:2856 src/incidenceformatter.cpp:2886
-#: src/incidenceformatter.cpp:2907 src/incidenceformatter.cpp:2930
-#: src/incidenceformatter.cpp:2954 src/incidenceformatter.cpp:2991
-#: src/incidenceformatter.cpp:3019
+#: src/incidenceformatter.cpp:2840 src/incidenceformatter.cpp:2851
+#: src/incidenceformatter.cpp:2862 src/incidenceformatter.cpp:2892
+#: src/incidenceformatter.cpp:2913 src/incidenceformatter.cpp:2936
+#: src/incidenceformatter.cpp:2960 src/incidenceformatter.cpp:2997
+#: src/incidenceformatter.cpp:3025
 #, kde-format, kde-kuit-format
 msgctxt "number of occurrences"
 msgid " (%1 occurrences)"
 msgstr ""
 " (%1 ponavljanja)|/| (%1 $[množ ^1 ponavljanje ponavljanja ponavljanja])"
 
-#: src/incidenceformatter.cpp:2837
+#: src/incidenceformatter.cpp:2843
 #, kde-format
 msgid "Recurs every minute"
 msgid_plural "Recurs every %1 minutes"
@@ -1353,7 +1353,7 @@ msgstr[1] "Ponavlja se svaka %1 minuta"
 msgstr[2] "Ponavlja se svakih %1 minuta"
 msgstr[3] "Ponavlja se svakog minuta"
 
-#: src/incidenceformatter.cpp:2843
+#: src/incidenceformatter.cpp:2849
 #, kde-format
 msgid "Recurs hourly until %2"
 msgid_plural "Recurs every %1 hours until %2"
@@ -1369,7 +1369,7 @@ msgstr[2] ""
 msgstr[3] ""
 "Ponavlja se svaki sat, do %2|/|Ponavlja se svakog sata, do $[na-reč %2 gen]"
 
-#: src/incidenceformatter.cpp:2848
+#: src/incidenceformatter.cpp:2854
 #, kde-format
 msgid "Recurs hourly"
 msgid_plural "Recurs every %1 hours"
@@ -1378,7 +1378,7 @@ msgstr[1] "Ponavlja se svaka %1 sata"
 msgstr[2] "Ponavlja se svakih %1 sati"
 msgstr[3] "Ponavlja se svakog sata"
 
-#: src/incidenceformatter.cpp:2854
+#: src/incidenceformatter.cpp:2860
 #, kde-format
 msgid "Recurs daily until %2"
 msgid_plural "Recurs every %1 days until %2"
@@ -1393,7 +1393,7 @@ msgstr[2] ""
 "%2 gen]"
 msgstr[3] "Ponavlja se dnevno do %2|/|Ponavlja se dnevno do $[na-reč %2 gen]"
 
-#: src/incidenceformatter.cpp:2859
+#: src/incidenceformatter.cpp:2865
 #, kde-format
 msgid "Recurs daily"
 msgid_plural "Recurs every %1 days"
@@ -1402,19 +1402,19 @@ msgstr[1] "Ponavlja se svaka %1 dana"
 msgstr[2] "Ponavlja se svakih %1 dana"
 msgstr[3] "Ponavlja se dnevno"
 
-#: src/incidenceformatter.cpp:2869
+#: src/incidenceformatter.cpp:2875
 #, kde-format
 msgctxt "separator for list of days"
 msgid ", "
 msgstr ", "
 
-#: src/incidenceformatter.cpp:2876
+#: src/incidenceformatter.cpp:2882
 #, kde-format
 msgctxt "Recurs weekly on no days"
 msgid "no days"
 msgstr "nijednog dana|/|$[svojstva gen 'nijednog dana' aku 'nijedan dan']"
 
-#: src/incidenceformatter.cpp:2880
+#: src/incidenceformatter.cpp:2886
 #, kde-format
 msgctxt "Recurs weekly on [list of days] until end-date"
 msgid "Recurs weekly on %2 until %3"
@@ -1432,7 +1432,7 @@ msgstr[3] ""
 "Ponavlja se svaku sedmicu u %2, do %3|/|Ponavlja se sedmično u $[na-reč %2 "
 "aku], do $[na-reč %3 gen]"
 
-#: src/incidenceformatter.cpp:2889
+#: src/incidenceformatter.cpp:2895
 #, kde-format
 msgctxt "Recurs weekly on [list of days]"
 msgid "Recurs weekly on %2"
@@ -1448,7 +1448,7 @@ msgstr[2] ""
 "reč %2 aku]"
 msgstr[3] "Ponavlja se sedmično u %2|/|Ponavlja se sedmično u $[na-reč %2 aku]"
 
-#: src/incidenceformatter.cpp:2900
+#: src/incidenceformatter.cpp:2906
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
 msgid "Recurs every month on the %2 %3 until %4"
@@ -1466,7 +1466,7 @@ msgstr[3] ""
 "Ponavlja se mesečno u %2 %3, do %4|/|Ponavlja se mesečno u $[po-padežu-rodu "
 "aku %3 %2] $[aku %3], do $[na-reč %4 gen]"
 
-#: src/incidenceformatter.cpp:2911
+#: src/incidenceformatter.cpp:2917
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname"
 msgid "Recurs every month on the %2 %3"
@@ -1484,7 +1484,7 @@ msgstr[3] ""
 "Ponavlja se mesečno u %2 %3|/|Ponavlja se mesečno u $[po-padežu-rodu aku %3 "
 "%2] $[aku %3]"
 
-#: src/incidenceformatter.cpp:2924
+#: src/incidenceformatter.cpp:2930
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day until end-date"
 msgid "Recurs monthly on the %2 day until %3"
@@ -1502,7 +1502,7 @@ msgstr[3] ""
 "Ponavlja se %2 dana svakog meseca, do %3|/|Ponavlja se $[na-reč %2 gen-m] "
 "dana svakog meseca, do $[na-reč %3 gen]"
 
-#: src/incidenceformatter.cpp:2934
+#: src/incidenceformatter.cpp:2940
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day"
 msgid "Recurs monthly on the %2 day"
@@ -1520,7 +1520,7 @@ msgstr[3] ""
 "Ponavlja se %2 dana svakog meseca|/|Ponavlja se $[na-reč %2 gen-m] dana "
 "svakog meseca"
 
-#: src/incidenceformatter.cpp:2947
+#: src/incidenceformatter.cpp:2953
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...] until end-date"
 msgid "Recurs yearly on %2 %3 until %4"
@@ -1538,7 +1538,7 @@ msgstr[3] ""
 "Ponavlja se godišnje %3 %2, do %4|/|Ponavlja se godišnje $[po-padežu-rodu "
 "gen %2 %3] $[gen %2], do $[na-reč %4 gen]"
 
-#: src/incidenceformatter.cpp:2960
+#: src/incidenceformatter.cpp:2966
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %2 %3"
@@ -1556,13 +1556,13 @@ msgstr[3] ""
 "Ponavlja se godišnje %3 %2|/|Ponavlja se godišnje $[po-padežu-rodu gen %2 "
 "%3] $[gen %2]"
 
-#: src/incidenceformatter.cpp:2968 src/incidenceformatter.cpp:2973
+#: src/incidenceformatter.cpp:2974 src/incidenceformatter.cpp:2979
 #, kde-format
 msgctxt "Recurs Every year on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %1 %2"
 msgstr "Ponavlja se godišnje $[po‑padežu‑rodu gen %2 %1] $[gen %1]"
 
-#: src/incidenceformatter.cpp:2984
+#: src/incidenceformatter.cpp:2990
 #, kde-format
 msgctxt "Recurs every N years on day N until end-date"
 msgid "Recurs every year on day %2 until %3"
@@ -1580,7 +1580,7 @@ msgstr[3] ""
 "Ponavlja se %2. dana svake godine, do %3|/|Ponavlja se %2. dana svake "
 "godine, do $[na-reč %3 gen]"
 
-#: src/incidenceformatter.cpp:2995
+#: src/incidenceformatter.cpp:3001
 #, kde-format
 msgctxt "Recurs every N YEAR[S] on day N"
 msgid "Recurs every year on day %2"
@@ -1590,7 +1590,7 @@ msgstr[1] "Ponavlja se %2. dana svake %1 godine"
 msgstr[2] "Ponavlja se %2. dana svakih %1 godina"
 msgstr[3] "Ponavlja se %2. dana svake godine"
 
-#: src/incidenceformatter.cpp:3010
+#: src/incidenceformatter.cpp:3016
 #, kde-format
 msgctxt ""
 "Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
@@ -1609,7 +1609,7 @@ msgstr[3] ""
 "Svake godine %2 %3 u %4, do %5|/|Svake godine $[po-padežu-rodu gen %3 %2] "
 "$[gen %3] u $[lok %4], do $[na-reč %5 gen]"
 
-#: src/incidenceformatter.cpp:3025
+#: src/incidenceformatter.cpp:3031
 #, kde-kuit-format
 msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
 msgid "Every year on the %2 %3 of %4"
@@ -1627,18 +1627,18 @@ msgstr[3] ""
 "Svake godine %2 %3 u %4|/|Svake godine $[po-padežu-rodu gen %3 %2] $[gen %3] "
 "u $[lok %4]"
 
-#: src/incidenceformatter.cpp:3039
+#: src/incidenceformatter.cpp:3045
 #, kde-format
 msgid "Incidence recurs"
 msgstr "Slučaj se ponavlja"
 
-#: src/incidenceformatter.cpp:3052
+#: src/incidenceformatter.cpp:3058
 #, kde-format
 msgid "minute %1"
 msgstr "minut %1"
 
-#: src/incidenceformatter.cpp:3094 src/incidenceformatter.cpp:3147
-#: src/incidenceformatter.cpp:3173 src/incidenceformatter.cpp:3185
+#: src/incidenceformatter.cpp:3100 src/incidenceformatter.cpp:3153
+#: src/incidenceformatter.cpp:3179 src/incidenceformatter.cpp:3191
 #, kde-format
 msgid "1 day"
 msgid_plural "%1 days"
@@ -1648,12 +1648,12 @@ msgstr[2] "%1 dana"
 msgstr[3] "1 dan"
 
 # >> %1 is a recurring date, %2 a list of exception dates.
-#: src/incidenceformatter.cpp:3127
+#: src/incidenceformatter.cpp:3133
 #, kde-format
 msgid "%1 (excluding %2)"
 msgstr "%1 (osim %2)|/|%1 (osim $[na-reč %2 gen])"
 
-#: src/incidenceformatter.cpp:3153
+#: src/incidenceformatter.cpp:3159
 #, kde-format
 msgid "1 hour"
 msgid_plural "%1 hours"
@@ -1662,7 +1662,7 @@ msgstr[1] "%1 sata"
 msgstr[2] "%1 sati"
 msgstr[3] "1 sat"
 
-#: src/incidenceformatter.cpp:3159
+#: src/incidenceformatter.cpp:3165
 #, kde-format
 msgid "1 minute"
 msgid_plural "%1 minutes"
@@ -1671,54 +1671,54 @@ msgstr[1] "%1 minuta"
 msgstr[2] "%1 minuta"
 msgstr[3] "1 minut"
 
-#: src/incidenceformatter.cpp:3176
+#: src/incidenceformatter.cpp:3182
 #, kde-format
 msgid "forever"
 msgstr "zauvek"
 
-#: src/incidenceformatter.cpp:3218
+#: src/incidenceformatter.cpp:3224
 #, kde-format
 msgctxt "N days/hours/minutes before the start datetime"
 msgid "%1 before the start"
 msgstr "%1 pre početka"
 
-#: src/incidenceformatter.cpp:3220
+#: src/incidenceformatter.cpp:3226
 #, kde-format
 msgctxt "N days/hours/minutes after the start datetime"
 msgid "%1 after the start"
 msgstr "%1 posle početka"
 
-#: src/incidenceformatter.cpp:3231
+#: src/incidenceformatter.cpp:3237
 #, kde-format
 msgctxt "N days/hours/minutes before the due datetime"
 msgid "%1 before the to-do is due"
 msgstr "%1 pre roka obaveze"
 
-#: src/incidenceformatter.cpp:3233
+#: src/incidenceformatter.cpp:3239
 #, kde-format
 msgctxt "N days/hours/minutes before the end datetime"
 msgid "%1 before the end"
 msgstr "%1 pre kraja"
 
-#: src/incidenceformatter.cpp:3237
+#: src/incidenceformatter.cpp:3243
 #, kde-format
 msgctxt "N days/hours/minutes after the due datetime"
 msgid "%1 after the to-do is due"
 msgstr "%1 posle roka obaveze"
 
-#: src/incidenceformatter.cpp:3239
+#: src/incidenceformatter.cpp:3245
 #, kde-format
 msgctxt "N days/hours/minutes after the end datetime"
 msgid "%1 after the end"
 msgstr "%1 posle kraja"
 
-#: src/incidenceformatter.cpp:3257
+#: src/incidenceformatter.cpp:3263
 #, kde-format
 msgctxt "reminder occurs at datetime"
 msgid "at %1"
 msgstr "%1|/|$[na-reč %1 gen]"
 
-#: src/incidenceformatter.cpp:3264
+#: src/incidenceformatter.cpp:3270
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
@@ -1727,31 +1727,31 @@ msgstr[1] "ponavlja se %1 puta"
 msgstr[2] "ponavlja se %1 puta"
 msgstr[3] "ponavlja se jednom"
 
-#: src/incidenceformatter.cpp:3265
+#: src/incidenceformatter.cpp:3271
 #, kde-format
 msgctxt "interval is N days/hours/minutes"
 msgid "interval is %1"
 msgstr "period je %1"
 
-#: src/incidenceformatter.cpp:3266
+#: src/incidenceformatter.cpp:3272
 #, kde-format
 msgctxt "(repeat string, interval string)"
 msgid "(%1, %2)"
 msgstr "(%1, %2)"
 
-#: src/incidenceformatter.cpp:3271
+#: src/incidenceformatter.cpp:3277
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3275
+#: src/incidenceformatter.cpp:3281
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3278
+#: src/incidenceformatter.cpp:3284
 #, fuzzy, kde-format
 #| msgctxt "attendee name (attendee status)"
 #| msgid "%1 (%2)"
