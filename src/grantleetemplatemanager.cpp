@@ -90,6 +90,5 @@ QString GrantleeTemplateManager::render(const QString &templateName, const QVari
         return errorTemplate(i18n("Template parsing error"), templateName, tpl);
     }
     KTextTemplate::Context ctx = createContext(data);
-    const QString result = tpl->render(&ctx);
-    return result;
+    return tpl->render(&ctx);
 }

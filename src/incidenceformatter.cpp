@@ -276,14 +276,15 @@ static QString htmlAddTag(QStringView tag, QString text)
 
 [[nodiscard]] static QString displayViewFormatDescription(const Incidence::Ptr &incidence)
 {
-    if (!incidence->description().isEmpty()) {
-        if (!incidence->descriptionIsRich() && !incidence->description().startsWith(QLatin1StringView("<!DOCTYPE HTML"))) {
+    const QString description = incidence->description();
+    if (!description.isEmpty()) {
+        if (!incidence->descriptionIsRich() && !description.startsWith(QLatin1StringView("<!DOCTYPE HTML"))) {
             // cleanHtml first since non rich text might have html tags (like "<p>whatever</p>")
-            return string2HTML(cleanHtml(incidence->description()));
-        } else if (!incidence->description().startsWith(QLatin1StringView("<!DOCTYPE HTML"))) {
+            return string2HTML(cleanHtml(description));
+        } else if (!description.startsWith(QLatin1StringView("<!DOCTYPE HTML"))) {
             return incidence->richDescription();
         } else {
-            return incidence->description();
+            return description;
         }
     }
 
@@ -1747,10 +1748,10 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
     }
 
     QVariantList attachments;
+    QMimeDatabase const mimeDb;
     const Attachment::List lstAttachments = incidence->attachments();
     for (const Attachment &a : lstAttachments) {
         QVariantHash attachment;
-        QMimeDatabase const mimeDb;
         auto mimeType = mimeDb.mimeTypeForName(a.mimeType());
         attachment[QStringLiteral("icon")] = (mimeType.isValid() ? mimeType.iconName() : QStringLiteral("application-octet-stream"));
         attachment[QStringLiteral("name")] = a.label();
@@ -2281,8 +2282,9 @@ QString IncidenceFormatter::formatICalInvitation(const KCalendarCore::ScheduleMe
     // Add the attachment list
     incidence[QStringLiteral("attachments")] = invitationAttachments(inc, helper);
 
-    if (!inc->comments().isEmpty()) {
-        incidence[QStringLiteral("comments")] = inc->comments();
+    const QStringList comments = inc->comments();
+    if (!comments.isEmpty()) {
+        incidence[QStringLiteral("comments")] = comments;
     }
 
     QString templateName;
@@ -2588,8 +2590,9 @@ bool IncidenceFormatter::ToolTipVisitor::visit(const FreeBusy::Ptr &fb)
     QString str;
 
     // Add organizer link
-    const int attendeeCount = incidence->attendees().count();
-    if (attendeeCount > 1 || (attendeeCount == 1 && !attendeeIsOrganizer(incidence, incidence->attendees().at(0)))) {
+    const auto attendees = incidence->attendees();
+    const int attendeeCount = attendees.count();
+    if (attendeeCount > 1 || (attendeeCount == 1 && !attendeeIsOrganizer(incidence, attendees.at(0)))) {
         tmpStr += QLatin1StringView("<i>") + i18n("Organizer:") + QLatin1StringView("</i>") + QLatin1StringView("<br>");
         tmpStr += QLatin1StringView("&nbsp;&nbsp;") + tooltipFormatOrganizer(incidence->organizer().email(), incidence->organizer().name());
     }
