@@ -22,6 +22,9 @@
 */
 #include "incidenceformatter.h"
 #include "grantleetemplatemanager_p.h"
+#if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
+#include "stringify.h"
+#endif
 
 #include <KCalendarCore/Event>
 #include <KCalendarCore/Exceptions>
