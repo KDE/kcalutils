@@ -740,12 +740,13 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
 
     if (event->isMultiDay()) {
         if (event->allDay()) {
-            tmp = QLocale().toString(startDt.date(), QLocale::ShortFormat);
+            tmp = QLocale().toString(startDt.date(), QLocale::LongFormat);
             ret += QLatin1StringView("<br>") + i18nc("Event start", "<i>From:</i> %1", tmp);
-            tmp = QLocale().toString(endDt.date(), QLocale::ShortFormat);
+            tmp = QLocale().toString(endDt.date(), QLocale::LongFormat);
             ret += QLatin1StringView("<br>") + i18nc("Event end", "<i>To:</i> %1", tmp);
         } else {
-            ret += QLatin1StringView("<br>") + i18nc("datetime range for event", "<i>Date:</i> %1 - %2", dateTimeToString(startDt), dateTimeToString(endDt));
+            ret += QLatin1StringView("<br>")
+                + i18nc("datetime range for event", "<i>Date:</i> %1 - %2", dateTimeToString(startDt, false, true), dateTimeToString(endDt, false, true));
         }
     } else {
         ret += QLatin1StringView("<br>") + i18n("<i>Date:</i> %1", QLocale().toString(startDt.date(), QLocale::LongFormat));
@@ -789,10 +790,10 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo,
 
     QString ret;
     if (startDt.isValid()) {
-        ret = QLatin1StringView("<br>") % i18nc("To-do's start date", "<i>Start:</i> %1", dateTimeToString(startDt, todo->allDay(), false));
+        ret = QLatin1StringView("<br>") % i18nc("To-do's start date", "<i>Start:</i> %1", dateTimeToString(startDt, todo->allDay(), true));
     }
     if (dueDt.isValid()) {
-        ret += QLatin1StringView("<br>") % i18nc("To-do's due date", "<i>Due:</i> %1", dateTimeToString(dueDt, todo->allDay(), false));
+        ret += QLatin1StringView("<br>") % i18nc("To-do's due date", "<i>Due:</i> %1", dateTimeToString(dueDt, todo->allDay(), true));
     }
 
     // Print priority and completed info here, for lack of a better place
@@ -804,7 +805,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo,
 
     ret += QLatin1StringView("<br>");
     if (todo->hasCompletedDate()) {
-        ret += i18nc("To-do's completed date", "<i>Completed:</i> %1", QLocale().toString(todo->completed().toLocalTime(), QLocale::LongFormat));
+        ret += i18nc("To-do's completed date", "<i>Completed:</i> %1", QLocale().toString(todo->completed().toLocalTime(), QLocale::ShortFormat));
     } else {
         int pct = todo->percentComplete();
         if (todo->recurs() && asOfDate.isValid()) {
@@ -1535,7 +1536,7 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
 QString IncidenceFormatter::dateTimeToString(const QDateTime &date, bool dateOnly, bool shortfmt)
 {
     if (dateOnly) {
-        return QLocale().toString(date.toLocalTime().date(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
+        return QLocale().toString(date.toLocalTime().date(), (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
     }
 
     return QLocale().toString(date.toLocalTime(), (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));

@@ -31,7 +31,7 @@
         {% if incidence.allDay %}
         <td>{{ incidence.startDate|kdatetime:"dateonly" }}</td>
         {% else %}
-        <td>{{ incidence.startDate|kdatetime }}</td>
+        <td>{{ incidence.startDate|kdatetime:"short" }}</td>
         {% endif %}
     </tr>
     {% endif %}
@@ -43,7 +43,7 @@
         {% if incidence.allDay %}
         <td>{{ incidence.dueDate|kdatetime:"dateonly" }}</td>
         {% else %}
-        <td>{{ incidence.dueDate|kdatetime }}</td>
+        <td>{{ incidence.dueDate|kdatetime:"short" }}</td>
         {% endif %}
     </tr>
     {% endif %}
@@ -171,7 +171,7 @@
     {% if incidence.completedDate %}
     <tr>
         <th valign="top">{% i18nc "Completed: date" "Completed:" %}</th>
-        <td>{{ incidence.completedDate|kdatetime }}</td>
+        <td>{{ incidence.completedDate|kdatetime:"short" }}</td>
     </tr>
     {% else %}
     <tr>
@@ -197,8 +197,8 @@
 
 <!-- Creation date -->
 <p>
-<em>{% i18n "Created: %1" incidence.creationDate|kdatetime %}</em><br/>
-<em>{% i18n "Modified: %1" incidence.modificationDate|kdatetime %}</em><br/>
+<em>{% i18n "Created: %1" incidence.creationDate|kdatetime:"short" %}</em><br/>
+<em>{% i18n "Modified: %1" incidence.modificationDate|kdatetime:"short" %}</em><br/>
 <em>{% i18n "Revision: %1" incidence.revision %}</em>
 </p>
 
