@@ -12,7 +12,6 @@ using namespace Qt::Literals::StringLiterals;
 #include <KTextTemplate/SafeString>
 
 KDateFilter::KDateFilter()
-    : KTextTemplate::Filter()
 {
 }
 
@@ -40,7 +39,6 @@ bool KDateFilter::isSafe() const
 }
 
 KTimeFilter::KTimeFilter()
-    : KTextTemplate::Filter()
 {
 }
 
@@ -69,7 +67,6 @@ bool KTimeFilter::isSafe() const
 }
 
 KDateTimeFilter::KDateTimeFilter()
-    : KTextTemplate::Filter()
 {
 }
 

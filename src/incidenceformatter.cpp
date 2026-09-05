@@ -22,7 +22,6 @@
 */
 #include "incidenceformatter.h"
 #include "grantleetemplatemanager_p.h"
-#include "stringify.h"
 
 #include <KCalendarCore/Event>
 #include <KCalendarCore/Exceptions>
@@ -3169,9 +3168,9 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
 }
 #endif
 
-QString IncidenceFormatter::dateTimeToString(const QDateTime &date, bool allDay, bool shortfmt)
+QString IncidenceFormatter::dateTimeToString(const QDateTime &date, bool dateOnly, bool shortfmt)
 {
-    if (allDay) {
+    if (dateOnly) {
         return QLocale().toString(date.toLocalTime().date(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
     }
 
