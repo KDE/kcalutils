@@ -2508,7 +2508,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo,
 
     ret += QLatin1StringView("<br>");
     if (todo->hasCompletedDate()) {
-        ret += i18nc("To-do's completed date", "<i>Completed:</i> %1", dateTimeToString(todo->completed(), false, false));
+        ret += i18nc("To-do's completed date", "<i>Completed:</i> %1", dateTimeToString(todo->completed().toLocalTime(), false, false));
     } else {
         int pct = todo->percentComplete();
         if (todo->recurs() && asOfDate.isValid()) {
