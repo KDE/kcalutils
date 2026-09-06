@@ -25,6 +25,7 @@
 #if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
 #include "stringify.h"
 #endif
+#include "kcalutils_debug.h"
 
 #include <KCalendarCore/Event>
 #include <KCalendarCore/Exceptions>
@@ -35,15 +36,13 @@
 #include <KCalendarCore/Visitor>
 using namespace KCalendarCore;
 
-#include <KIdentityManagementCore/Utils>
-
 #include <KEmailAddress>
-#include <ktexttemplate_version.h>
-#include <ktexttohtml.h>
-
-#include "kcalutils_debug.h"
+#include <KFormat>
 #include <KIconLoader>
+#include <KIdentityManagementCore/Utils>
 #include <KLocalizedString>
+#include <KTextToHTML>
+#include <ktexttemplate_version.h>
 
 #include <QApplication>
 #include <QBitArray>
@@ -1538,7 +1537,12 @@ QString IncidenceFormatter::dateTimeToString(const QDateTime &date, bool dateOnl
         return QLocale().toString(date.toLocalTime().date(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
     }
 
-    return QLocale().toString(date.toLocalTime(), (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
+    if (shortfmt) {
+        return QLocale().toString(date.toLocalTime(), QLocale::ShortFormat);
+    } else {
+        const KFormat format;
+        return format.formatDateTime(date.toLocalTime(), QLocale::LongFormat, KFormat::AddTimezoneAbbreviationIfNeeded);
+    }
 }
 
 static QString secs2Duration(qint64 secs)
