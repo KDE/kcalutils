@@ -9,6 +9,8 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "../incidenceformatter.h"
+
+#include <KFormat>
 #include <KTextTemplate/SafeString>
 
 KDateFilter::KDateFilter()
@@ -83,7 +85,13 @@ QVariant KDateTimeFilter::doFilter(const QVariant &input, const QVariant &argume
     const QStringList arguments = argument.value<KTextTemplate::SafeString>().get().split(u',');
     const bool shortFmt = arguments.contains(QLatin1StringView("short"), Qt::CaseInsensitive);
     const bool dateOnly = arguments.contains(QLatin1StringView("dateonly"), Qt::CaseInsensitive);
-    return KTextTemplate::SafeString(KCalUtils::IncidenceFormatter::dateTimeToString(dt, dateOnly, shortFmt));
+    const bool smartTz = arguments.contains(QLatin1StringView("smarttz"), Qt::CaseInsensitive);
+    if (smartTz) {
+        const KFormat format;
+        return KTextTemplate::SafeString(format.formatDateTime(dt, QLocale::LongFormat, KFormat::AddTimezoneAbbreviationIfNeeded));
+    } else {
+        return KTextTemplate::SafeString(KCalUtils::IncidenceFormatter::dateTimeToString(dt, dateOnly, shortFmt));
+    }
 }
 
 bool KDateTimeFilter::isSafe() const
