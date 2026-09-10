@@ -1029,7 +1029,9 @@ static QString invitationLocation(const Incidence::Ptr &incidence)
 
     QVariantList events;
     int count = 0;
-    for (auto it = matchingEvents.cbegin(), end = matchingEvents.cend(); it != end && count < 50; ++it) {
+    auto it = matchingEvents.cbegin();
+    const auto end = matchingEvents.cend();
+    for (; it != end && count < 50; ++it) {
         if ((*it)->schedulingID() == event->uid()) {
             // Exclude the same event from the list.
             continue;
@@ -1048,7 +1050,7 @@ static QString invitationLocation(const Incidence::Ptr &incidence)
         ev[QStringLiteral("dateTime")] = formatStartEnd((*it)->dtStart(), (*it)->dtEnd(), (*it)->allDay());
         events.push_back(ev);
     }
-    if (count == 50) {
+    if (count == 50 && it == end) {
         /* Abort after 50 entries to limit resource usage */
         events.push_back({});
     }
