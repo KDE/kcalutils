@@ -1701,10 +1701,10 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
     QVariantList attendees;
     const Attendee::List lstAttendees = incidence->attendees();
     for (const Attendee &a_ : lstAttendees) {
-        Attendee a = a_;
-        if (!attendeeIsOrganizer(incidence, a)) {
+        if (!attendeeIsOrganizer(incidence, a_)) {
             continue;
         }
+        Attendee a = a_;
         QVariantHash attendee;
 #if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
         attendee[QStringLiteral("status")] = Stringify::attendeeStatus(a.status());
