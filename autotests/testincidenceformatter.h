@@ -39,7 +39,4 @@ private Q_SLOTS:
 
     void testDisplayViewFreeBusy_data();
     void testDisplayViewFreeBusy();
-
-    void testFormatIcalInvitation_data();
-    void testFormatIcalInvitation();
 };

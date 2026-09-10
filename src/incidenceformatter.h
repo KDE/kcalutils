@@ -26,54 +26,8 @@
 
 #include <QDate>
 
-#include <memory>
-
 namespace KCalUtils
 {
-class InvitationFormatterHelperPrivate;
-
-/*!
- * \class KCalUtils::InvitationFormatterHelper
- * \inmodule KCalUtils
- * \inheaderfile KCalUtils/IncidenceFormatter
- *
- * \brief The InvitationFormatterHelper class
- */
-class KCALUTILS_EXPORT InvitationFormatterHelper
-{
-public:
-    /*!
-      Constructor of the InvitationFormatterHelper class.
-     */
-    InvitationFormatterHelper();
-    /*!
-      Destructor of the InvitationFormatterHelper class.
-     */
-    virtual ~InvitationFormatterHelper();
-    /*!
-      Generate a URL link for the specified ID.
-      \param id the identifier for which to generate the link
-      \return the generated link URL
-     */
-    [[nodiscard]] virtual QString generateLinkURL(const QString &id);
-    /*!
-      Make a formatted link with the specified ID and text.
-      \param id the identifier for the link
-      \param text the text to display for the link
-      \return the formatted link
-     */
-    [[nodiscard]] virtual QString makeLink(const QString &id, const QString &text);
-    /*!
-      Get the calendar associated with this formatter helper.
-      \return a pointer to the calendar
-     */
-    [[nodiscard]] virtual KCalendarCore::Calendar::Ptr calendar() const;
-
-private:
-    Q_DISABLE_COPY(InvitationFormatterHelper)
-    std::unique_ptr<InvitationFormatterHelperPrivate> const d;
-};
-
 /*!
  \class KCalUtils::IncidenceFormatter
  \inmodule KCalUtils
@@ -113,18 +67,6 @@ KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalendarCo
 */
 KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KCalendarCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
 
-/*!
-  Deliver an HTML formatted string displaying an invitation.
-
-  \param message an iCal schedule message ("invitation")
-  \param helper a pointer to an InvitationFormatterHelper.
-  \param sender a QString containing the email address of the person sending the invitation.
-  \return the formatted HTML invitation string
-
-  \since 26.12
-*/
-KCALUTILS_EXPORT QString formatICalInvitation(const KCalendarCore::ScheduleMessage::Ptr &message, InvitationFormatterHelper *helper, const QString &sender);
-
 #if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
 /*!
   Build a pretty QString representation of an Incidence's recurrence info.
@@ -146,10 +88,6 @@ KCALUTILS_EXPORT QString recurrenceString(const KCalendarCore::Incidence::Ptr &i
 KCALUTILS_EXPORT QString dateTimeToString(const QDateTime &date, bool dateOnly = false, bool shortfmt = true);
 
 class EventViewerVisitor;
-template<typename T>
-class ScheduleMessageVisitor;
-class InvitationHeaderVisitor;
-class InvitationBodyVisitor;
 class ToolTipVisitor;
 class MailBodyVisitor;
 }
