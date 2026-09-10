@@ -1669,6 +1669,7 @@ invitationHeaderTodo(const Todo::Ptr &todo, const Incidence::Ptr &existingIncide
 
     QVariantList attendees;
     const Attendee::List lstAttendees = incidence->attendees();
+    attendees.reserve(lstAttendees.count());
     for (const Attendee &a : lstAttendees) {
         if (iamAttendee(a)) {
             continue;
