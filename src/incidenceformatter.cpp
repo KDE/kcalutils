@@ -956,16 +956,17 @@ static QString invitationLocation(const Incidence::Ptr &incidence)
 
 [[nodiscard]] static QString invitationDescriptionIncidence(const Incidence::Ptr &incidence)
 {
-    if (!incidence->description().isEmpty()) {
+    const QString description = incidence->description();
+    if (!description.isEmpty()) {
         // use description too
-        if (!incidence->descriptionIsRich() && !incidence->description().startsWith(QLatin1StringView("<!DOCTYPE HTML"))) {
-            return string2HTML(incidence->description());
+        if (!incidence->descriptionIsRich() && !description.startsWith(QLatin1StringView("<!DOCTYPE HTML"))) {
+            return string2HTML(description);
         } else {
             QString descr;
-            if (!incidence->description().startsWith(QLatin1StringView("<!DOCTYPE HTML"))) {
+            if (!description.startsWith(QLatin1StringView("<!DOCTYPE HTML"))) {
                 descr = incidence->richDescription();
             } else {
-                descr = incidence->description();
+                descr = description;
             }
             descr = cleanHtml(descr);
             return htmlAddTag(QStringLiteral("p"), std::move(descr));
@@ -2731,7 +2732,8 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
         tmp += attendees;
     }
 
-    int const categoryCount = incidence->categories().count();
+    const QStringList categories = incidence->categories();
+    int const categoryCount = categories.count();
     if (categoryCount > 0) {
         if (needAnHorizontalLine) {
             tmp += QLatin1StringView("<hr>");
@@ -2739,7 +2741,7 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
             tmp += QLatin1StringView("<br>");
         }
         tmp += QLatin1StringView("<i>") + i18np("Tag:", "Tags:", categoryCount) + QLatin1StringView("</i>") + QLatin1StringView("&nbsp;");
-        tmp += incidence->categories().join(QLatin1StringView(", "));
+        tmp += categories.join(QLatin1StringView(", "));
     }
 
     tmp += QLatin1StringView("</qt>");
