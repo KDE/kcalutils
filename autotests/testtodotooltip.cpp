@@ -131,7 +131,7 @@ void TestTodoToolTip::testNonrecurring()
     QFETCH(const QDate, asOfDate);
 
     auto todo = makeToDo(allDay, !RECURS, dtStart, dtDue);
-    auto toolTip = plain(toolTipStr(CAL_NAME, todo, asOfDate, false));
+    auto toolTip = plain(toolTipStr(CAL_NAME, todo, asOfDate));
 
     QVERIFY(toolTip.contains(QRegularExpression(SUMMARY)));
     QVERIFY(toolTip.contains(field(CALENDAR, CAL_NAME))); // NOLINT(readability-suspicious-call-argument)
@@ -166,11 +166,11 @@ void TestTodoToolTip::testAlldayNonrecurringDone()
     auto todo = makeToDo(ALL_DAY, !RECURS, START_DT, DUE_DT);
     todo->setCompleted(START_DT);
 
-    auto toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE, false));
+    auto toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE));
     QVERIFY(toolTip.contains(field(COMPLETED, dateTimeToString(START_DT, ALL_DAY, false))));
     QVERIFY(!toolTip.contains(field(PERCENT)));
 
-    toolTip = plain(toolTipStr(CAL_NAME, todo, QDate(), false));
+    toolTip = plain(toolTipStr(CAL_NAME, todo, QDate()));
     QVERIFY(toolTip.contains(field(COMPLETED, dateTimeToString(START_DT, ALL_DAY, false))));
     QVERIFY(!toolTip.contains(field(PERCENT)));
 }
@@ -182,11 +182,11 @@ void TestTodoToolTip::testTimedNonrecurringDone()
     auto todo = makeToDo(!ALL_DAY, !RECURS, START_DT, DUE_DT);
     todo->setCompleted(START_DT);
 
-    auto toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE, false));
+    auto toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE));
     QVERIFY(toolTip.contains(field(COMPLETED, dateTimeToString(START_DT, !ALL_DAY, false))));
     QVERIFY(!toolTip.contains(field(PERCENT)));
 
-    toolTip = plain(toolTipStr(CAL_NAME, todo, QDate(), false));
+    toolTip = plain(toolTipStr(CAL_NAME, todo, QDate()));
     QVERIFY(toolTip.contains(field(COMPLETED, dateTimeToString(START_DT, !ALL_DAY, false))));
     QVERIFY(!toolTip.contains(field(PERCENT)));
 }
@@ -264,7 +264,7 @@ void TestTodoToolTip::testRecurringOnDate()
     QFETCH(const QString, dur);
 
     auto todo = makeToDo(allDay, RECURS, dtStart, dtDue);
-    auto toolTip = plain(toolTipStr(CAL_NAME, todo, asOfDate, false));
+    auto toolTip = plain(toolTipStr(CAL_NAME, todo, asOfDate));
     QVERIFY(toolTip.contains(QRegularExpression(SUMMARY)));
     QVERIFY(toolTip.contains(field(CALENDAR, CAL_NAME))); // NOLINT(readability-suspicious-call-argument)
     QVERIFY(toolTip.contains(field(PERCENT, pct)));
@@ -279,7 +279,7 @@ void TestTodoToolTip::testRecurringOnDate()
 void TestTodoToolTip::testAlldayRecurringNoDate()
 {
     auto todo = makeToDo(ALL_DAY, RECURS, START_DT, DUE_DT);
-    auto toolTip = plain(toolTipStr(CAL_NAME, todo, QDate(), false));
+    auto toolTip = plain(toolTipStr(CAL_NAME, todo, QDate()));
 
     QVERIFY(toolTip.contains(QRegularExpression(SUMMARY)));
     QVERIFY(toolTip.contains(field(CALENDAR, CAL_NAME))); // NOLINT(readability-suspicious-call-argument)
@@ -295,7 +295,7 @@ void TestTodoToolTip::testAlldayRecurringNoDate()
 void TestTodoToolTip::testTimedRecurringNoDate()
 {
     auto todo = makeToDo(!ALL_DAY, RECURS, START_DT, DUE_DT);
-    auto toolTip = plain(toolTipStr(CAL_NAME, todo, QDate(), false));
+    auto toolTip = plain(toolTipStr(CAL_NAME, todo, QDate()));
 
     QVERIFY(toolTip.contains(QRegularExpression(SUMMARY)));
     QVERIFY(toolTip.contains(field(CALENDAR, CAL_NAME))); // NOLINT(readability-suspicious-call-argument)
@@ -312,7 +312,7 @@ void TestTodoToolTip::testTimedRecurringNoDate()
 void TestTodoToolTip::testAlldayRecurringNeverDue()
 {
     auto todo = makeToDo(ALL_DAY, RECURS, START_DT, QDateTime());
-    auto toolTip = plain(toolTipStr(CAL_NAME, todo, QDate(), false));
+    auto toolTip = plain(toolTipStr(CAL_NAME, todo, QDate()));
 
     QVERIFY(toolTip.contains(QRegularExpression(SUMMARY)));
     QVERIFY(toolTip.contains(field(CALENDAR, CAL_NAME))); // NOLINT(readability-suspicious-call-argument)
@@ -329,7 +329,7 @@ void TestTodoToolTip::testAlldayRecurringNeverDue()
 void TestTodoToolTip::testTimedRecurringNeverDue()
 {
     auto todo = makeToDo(!ALL_DAY, RECURS, START_DT, QDateTime());
-    auto toolTip = plain(toolTipStr(CAL_NAME, todo, QDate(), false));
+    auto toolTip = plain(toolTipStr(CAL_NAME, todo, QDate()));
 
     QVERIFY(toolTip.contains(QRegularExpression(SUMMARY)));
     QVERIFY(toolTip.contains(field(CALENDAR, CAL_NAME))); // NOLINT(readability-suspicious-call-argument)
@@ -348,11 +348,11 @@ void TestTodoToolTip::testAlldayRecurringDone()
     todo->setCompleted(START_DT.addDays(14)); // Complete the second occurrence.
     todo->setCompleted(START_DT.addMonths(1)); // Complete the third occurrence.
 
-    auto toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE, false));
+    auto toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE));
     QVERIFY(toolTip.contains(field(COMPLETED, dateTimeToString(START_DT.addMonths(1), ALL_DAY, false))));
     QVERIFY(!toolTip.contains(field(PERCENT)));
 
-    toolTip = plain(toolTipStr(CAL_NAME, todo, QDate(), false));
+    toolTip = plain(toolTipStr(CAL_NAME, todo, QDate()));
     QVERIFY(toolTip.contains(field(COMPLETED, dateTimeToString(START_DT.addMonths(1), ALL_DAY, false))));
     QVERIFY(!toolTip.contains(field(PERCENT)));
 }
@@ -365,11 +365,11 @@ void TestTodoToolTip::testTimedRecurringDone()
     todo->setCompleted(START_DT.addDays(14)); // Complete the second occurrence.
     todo->setCompleted(START_DT.addMonths(1)); // Complete the third occurrence.
 
-    auto toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE, false));
+    auto toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE));
     QVERIFY(toolTip.contains(field(COMPLETED, dateTimeToString(START_DT.addMonths(1), !ALL_DAY, false))));
     QVERIFY(!toolTip.contains(field(PERCENT)));
 
-    toolTip = plain(toolTipStr(CAL_NAME, todo, QDate(), false));
+    toolTip = plain(toolTipStr(CAL_NAME, todo, QDate()));
     QVERIFY(toolTip.contains(field(COMPLETED, dateTimeToString(START_DT.addMonths(1), !ALL_DAY, false))));
     QVERIFY(!toolTip.contains(field(PERCENT)));
 }
@@ -379,11 +379,11 @@ void TestTodoToolTip::testPriority()
 {
     auto todo = makeToDo(!ALL_DAY, RECURS, START_DT, DUE_DT);
 
-    auto toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE, false));
+    auto toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE));
     QVERIFY(!toolTip.contains(field(PRIORITY)));
 
     todo->setPriority(5);
-    toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE, false));
+    toolTip = plain(toolTipStr(CAL_NAME, todo, AS_OF_DATE));
     QVERIFY(toolTip.contains(field(PRIORITY, QStringLiteral("5"))));
 }
 

@@ -684,11 +684,10 @@ class KCalUtils::IncidenceFormatter::ToolTipVisitor : public Visitor
 public:
     ToolTipVisitor() = default;
 
-    bool act(const QString &location, const IncidenceBase::Ptr &incidence, QDate date = QDate(), bool richText = true)
+    bool act(const QString &location, const IncidenceBase::Ptr &incidence, QDate date = QDate())
     {
         mLocation = location;
         mDate = date;
-        mRichText = richText;
         mResult = QLatin1StringView("");
         return incidence ? incidence->accept(*this, incidence) : false;
     }
@@ -714,7 +713,6 @@ protected:
 protected:
     QString mLocation;
     QDate mDate;
-    bool mRichText = true;
     QString mResult;
 };
 
@@ -1111,10 +1109,10 @@ QString IncidenceFormatter::ToolTipVisitor::generateToolTip(const Incidence::Ptr
 
 //@endcond
 
-QString IncidenceFormatter::toolTipStr(const QString &sourceName, const IncidenceBase::Ptr &incidence, QDate date, bool richText)
+QString IncidenceFormatter::toolTipStr(const QString &sourceName, const IncidenceBase::Ptr &incidence, QDate date)
 {
     ToolTipVisitor v;
-    if (incidence && v.act(sourceName, incidence, date, richText)) {
+    if (incidence && v.act(sourceName, incidence, date)) {
         return v.result();
     } else {
         return QString();

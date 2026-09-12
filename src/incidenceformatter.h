@@ -54,7 +54,7 @@ namespace IncidenceFormatter
   start date and the due date (inclusive) of the occurrence.
   \a richText if yes, the QString will be created as RichText.
 */
-KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalendarCore::IncidenceBase::Ptr &incidence, QDate date = QDate(), bool richText = true);
+KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalendarCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
 
 /*!
   Create a RichText QString representation of an Incidence in a nice format
