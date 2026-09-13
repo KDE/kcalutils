@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-11 00:47+0000\n"
+"POT-Creation-Date: 2026-09-13 00:45+0000\n"
 "PO-Revision-Date: 2012-07-11 10:24+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -34,836 +34,132 @@ msgstr ""
 msgid "Template parsing error"
 msgstr ""
 
-#: src/incidenceformatter.cpp:171
-#, kde-format
-msgid "Organizer Unknown"
-msgstr "មិន​ស្គាល់​អ្នក​រៀបចំ"
-
-#: src/incidenceformatter.cpp:193 src/incidenceformatter.cpp:1418
-#, kde-format
-msgid "Sender"
-msgstr "អ្នកផ្ញើ"
-
-#: src/incidenceformatter.cpp:355
+#: src/incidenceformatter.cpp:265
 #, kde-format
 msgid "Show mail"
 msgstr "បង្ហាញ​សំបុត្រ"
 
-#: src/incidenceformatter.cpp:664 src/incidenceformatter.cpp:1280
+#: src/incidenceformatter.cpp:574
 #, kde-format
 msgctxt "hours part of duration"
 msgid "1 hour "
 msgid_plural "%1 hours "
 msgstr[0] "%1 ម៉ោង"
 
-#: src/incidenceformatter.cpp:668
+#: src/incidenceformatter.cpp:578
 #, kde-format
 msgctxt "minutes part duration"
 msgid "1 minute "
 msgid_plural "%1 minutes "
 msgstr[0] "%1 នាទី"
 
-#: src/incidenceformatter.cpp:672 src/incidenceformatter.cpp:1288
+#: src/incidenceformatter.cpp:582
 #, kde-format
 msgctxt "seconds part of duration"
 msgid "1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 វិនាទី"
 
-#: src/incidenceformatter.cpp:781
-#, kde-format
-msgid "Summary unspecified"
-msgstr "សេចក្ដី​សង្ខេប​ដែល​មិន​បាន​បញ្ជាក់"
-
-#: src/incidenceformatter.cpp:793
-#, kde-format
-msgid "Location unspecified"
-msgstr "ទីតាំង​ដែល​មិន​បាន​បញ្ជាក់"
-
-#: src/incidenceformatter.cpp:917
-#, fuzzy, kde-format
-#| msgid "Your response is requested"
-msgid "Your response is requested."
-msgstr "ចម្លើយ​តប​របស់​អ្នក​ត្រូវ​បាន​ស្នើ"
-
-#: src/incidenceformatter.cpp:919
-#, fuzzy, kde-format
-#| msgid "Your response as <b>%1</b> is requested"
-msgid "Your response as <b>%1</b> is requested."
-msgstr "ចម្លើយ​ត​ប​របស់​អ្នក​ជា <b>%1</b> ត្រូវ​បាន​ស្នើ"
-
-#: src/incidenceformatter.cpp:923
-#, fuzzy, kde-format
-#| msgid "No response is necessary"
-msgid "No response is necessary."
-msgstr "មិន​មាន​ចម្លើយ​តប​ដែល​ចាំបាច់"
-
-#: src/incidenceformatter.cpp:925
-#, fuzzy, kde-format
-#| msgid "No response as <b>%1</b> is necessary"
-msgid "No response as <b>%1</b> is necessary."
-msgstr "មិន​មាន​ចម្លើយ​តប​ជា <b>%1</b> ដែល​ចាំបាច់"
-
-#: src/incidenceformatter.cpp:936 src/incidenceformatter.cpp:938
-#, kde-format
-msgid "(<b>Note</b>: the Organizer preset your response to <b>%1</b>)"
-msgstr "(<b>ចំណាំ</b> ៖ អ្នក​រៀបចំ​បាន​កំណត់​ចម្លើយ​តប​របស់​អ្នក​ជាមុន​ទៅ <b>%1</b>)"
-
-#: src/incidenceformatter.cpp:1084 src/incidenceformatter.cpp:1145
-#, fuzzy, kde-format
-#| msgctxt "look for scheduling conflicts"
-#| msgid "Check my calendar"
-msgid "Check my calendar"
-msgstr "ពិនិត្យមើល​ប្រតិទិន​របស់ខ្ញុំ"
-
-#: src/incidenceformatter.cpp:1126 src/incidenceformatter.cpp:1204
-#, kde-format
-msgid "Please respond again to the original proposal."
-msgstr "សូម​ឆ្លើយតប​ម្ដងទៀត​ទៅកាន់​សំណើ​ដើម ។"
-
-#: src/incidenceformatter.cpp:1181 src/incidenceformatter.cpp:1216
-#: src/templates/todo.html:179
-#, kde-format
-msgid "%1%"
-msgstr "%1%"
-
-#: src/incidenceformatter.cpp:1284
-#, kde-format
-msgctxt "minutes part of duration"
-msgid "1 minute"
-msgid_plural "%1 minutes "
-msgstr[0] "%1 នាទី"
-
-#: src/incidenceformatter.cpp:1316
-#, fuzzy, kde-format
-#| msgid "This invitation has been published"
-msgid "This invitation has been published."
-msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​បោះពុម្ពផ្សាយ"
-
-#: src/incidenceformatter.cpp:1321
-#, fuzzy, kde-format
-#| msgid "This invitation has been updated by the organizer %1"
-msgid "This invitation has been updated by the organizer %1."
-msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ​អ្នករៀបចំ %1"
-
-#: src/incidenceformatter.cpp:1323
-#, fuzzy, kde-format
-#| msgid "This invitation has been updated by %1 as a representative of %2"
-msgid "This invitation has been updated by %1 as a representative of %2."
-msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ %1 ជា​តំណាង​របស់ %2"
-
-#: src/incidenceformatter.cpp:1327
-#, fuzzy, kde-format
-#| msgid "I created this invitation"
-msgid "I created this invitation."
-msgstr "ខ្ញុំ​បាន​បង្កើត​ការ​អញ្ជើញ​នេះ"
-
-#: src/incidenceformatter.cpp:1331
-#, fuzzy, kde-format
-#| msgid "You received an invitation from %1"
-msgid "You received an invitation from %1."
-msgstr "អ្នក​បាន​ទទួល​ការ​អញ្ជើញ​ពី %1"
-
-#: src/incidenceformatter.cpp:1333
-#, fuzzy, kde-format
-#| msgid "You received an invitation from %1 as a representative of %2"
-msgid "You received an invitation from %1 as a representative of %2."
-msgstr "អ្នក​បាន​ទទួល​ការ​អញ្ជើញ​ពី %1 ជា​តំណាង​របស់ %2"
-
-#: src/incidenceformatter.cpp:1337
-#, fuzzy, kde-format
-#| msgid "This invitation was refreshed"
-msgid "This invitation was refreshed."
-msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​ធ្វើឲ្យ​ស្រស់"
-
-#: src/incidenceformatter.cpp:1340
-#, fuzzy, kde-format
-#| msgid "This invitation has been canceled"
-msgid "This invitation has been canceled."
-msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​បោះបង់"
-
-#: src/incidenceformatter.cpp:1342
-#, fuzzy, kde-format
-#| msgid "The organizer has revoked the invitation"
-msgid "The organizer has revoked the invitation."
-msgstr "អ្នក​រៀបចំ​បាន​ដកហូត​ការ​អញ្ជើញ​នេះ"
-
-#: src/incidenceformatter.cpp:1345
-#, fuzzy, kde-format
-#| msgid "Addition to the invitation"
-msgid "Addition to the invitation."
-msgstr "ការ​បន្ថែម​ទៅកាន់​ការ​អញ្ជើញ"
-
-#: src/incidenceformatter.cpp:1368
-#, fuzzy, kde-format
-#| msgid "%1 indicates this invitation still needs some action"
-msgid "%1 indicates this invitation still needs some action."
-msgstr "%1 បង្ហាញ​ថា​ការ​អញ្ជើញ​នេះ​នៅតែ​ត្រូវការ​សកម្មភាព​មួយ​ចំនួន"
-
-#: src/incidenceformatter.cpp:1372
-#, fuzzy, kde-format
-#| msgid "This invitation has been updated by attendee %1"
-msgid "This invitation has been updated by attendee %1."
-msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ​អ្នកចូលរួម %1"
-
-#: src/incidenceformatter.cpp:1374
-#, fuzzy, kde-format
-#| msgid "This invitation has been updated by an attendee"
-msgid "This invitation has been updated by an attendee."
-msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ​អ្នក​ចូលរួម"
-
-#: src/incidenceformatter.cpp:1378
-#, fuzzy, kde-format
-#| msgid "%1 accepts this invitation"
-msgid "%1 accepts this invitation."
-msgstr "%1 ព្រម​ទទួល​ការ​អញ្ជើញ​នេះ"
-
-#: src/incidenceformatter.cpp:1380
-#, fuzzy, kde-format
-#| msgid "%1 accepts this invitation on behalf of %2"
-msgid "%1 accepts this invitation on behalf of %2."
-msgstr "%1 ព្រម​ទទួល​ការ​អញ្ជើញ​នេះ​ជំនួស %2"
-
-#: src/incidenceformatter.cpp:1385
-#, fuzzy, kde-format
-#| msgid "%1 tentatively accepts this invitation"
-msgid "%1 tentatively accepts this invitation."
-msgstr "%1 ព្រម​ទទួល​ការ​អញ្ជើញ​នេះ​បណ្ដោះអាសន្ន"
-
-#: src/incidenceformatter.cpp:1387
-#, fuzzy, kde-format
-#| msgid "%1 tentatively accepts this invitation on behalf of %2"
-msgid "%1 tentatively accepts this invitation on behalf of %2."
-msgstr "%1 ព្រម​ទទួល​ការ​អញ្ជើញ​នេះ​បណ្ដោះអាសន្ន​ជំនួស %2"
-
-#: src/incidenceformatter.cpp:1391
-#, fuzzy, kde-format
-#| msgid "%1 declines this invitation"
-msgid "%1 declines this invitation."
-msgstr "%1 បដិសេធ​ការ​អញ្ជើញ​នេះ"
-
-#: src/incidenceformatter.cpp:1393
-#, fuzzy, kde-format
-#| msgid "%1 declines this invitation on behalf of %2"
-msgid "%1 declines this invitation on behalf of %2."
-msgstr "%1 បដិសេធ​ការ​អញ្ជើញ​នេះ​ជំនួស %2"
-
-#: src/incidenceformatter.cpp:1403
-#, fuzzy, kde-format
-#| msgid "%1 has delegated this invitation to %2"
-msgid "%1 has delegated this invitation to %2."
-msgstr "%1 បាន​ផ្ទេរ​ការ​អញ្ជើញ​នេះ​ទៅ %2"
-
-#: src/incidenceformatter.cpp:1405
-#, fuzzy, kde-format
-#| msgid "%1 has delegated this invitation"
-msgid "%1 has delegated this invitation."
-msgstr "%1 បាន​ផ្ទេរ​ការ​អញ្ជើញ​នេះ"
-
-#: src/incidenceformatter.cpp:1409
-#, fuzzy, kde-format
-#| msgid "This invitation is now completed"
-msgid "This invitation is now completed."
-msgstr "ការ​អញ្ជើញ​នេះ​ឥឡូវ​ត្រូវ​បាន​បញ្ចប់"
-
-#: src/incidenceformatter.cpp:1411
-#, fuzzy, kde-format
-#| msgid "%1 is still processing the invitation"
-msgid "%1 is still processing the invitation."
-msgstr "%1 នៅតែ​ដំណើរការ​ការ​អញ្ជើញ​"
-
-#: src/incidenceformatter.cpp:1413
-#, fuzzy, kde-format
-#| msgid "Unknown response to this invitation"
-msgid "Unknown response to this invitation."
-msgstr "មិន​ស្គាល់​ចម្លើយ​តប​ទៅកាន់​ការ​អញ្ជើញ​នេះ"
-
-#: src/incidenceformatter.cpp:1418 src/incidenceformatter.cpp:1556
-#, fuzzy, kde-format
-#| msgid "%1 makes this counter proposal"
-msgid "%1 makes this counter proposal."
-msgstr "%1 បង្កើត​សំណើ​ច្រាស​នេះ"
-
-#: src/incidenceformatter.cpp:1423
-#, fuzzy, kde-format
-#| msgid "%1 declines your counter proposal"
-msgid "%1 declines your counter proposal."
-msgstr "%1 បដិសេធ​សំណើ​ច្រាស​របស់​អ្នក"
-
-#: src/incidenceformatter.cpp:1425
-#, fuzzy, kde-format
-#| msgid "%1 declines your counter proposal on behalf of %2"
-msgid "%1 declines your counter proposal on behalf of %2."
-msgstr "%1 បដិសេធ​សំណើ​ច្រាស​របស់​អ្នក​ជំនួស %2"
-
-#: src/incidenceformatter.cpp:1430
-#, fuzzy, kde-format
-#| msgid "Error: Event iTIP message with unknown method"
-msgid "Error: Event iTIP message with unknown method."
-msgstr "កំហុស ៖ សារ​ព្រឹត្តិការណ៍ iTIP ដែល​មាន​វិធីសាស្ត្រ​ដែល​មិន​ស្គាល់"
-
-#: src/incidenceformatter.cpp:1445
-#, fuzzy, kde-format
-#| msgid "This to-do has been published"
-msgid "This to-do has been published."
-msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​បោះពុម្ពផ្សាយ"
-
-#: src/incidenceformatter.cpp:1450
-#, fuzzy, kde-format
-#| msgid "This to-do has been updated by the organizer %1"
-msgid "This to-do has been updated by the organizer %1."
-msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ​អ្នក​រៀបចំ %1"
-
-#: src/incidenceformatter.cpp:1452
-#, fuzzy, kde-format
-#| msgid "This to-do has been updated by %1 as a representative of %2"
-msgid "This to-do has been updated by %1 as a representative of %2."
-msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ %1 ជា​តំណាង​របស់ %2"
-
-#: src/incidenceformatter.cpp:1456
-#, fuzzy, kde-format
-#| msgid "I created this to-do"
-msgid "I created this to-do."
-msgstr "ខ្ញុំ​បាន​បង្កើត​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ"
-
-#: src/incidenceformatter.cpp:1460
-#, fuzzy, kde-format
-#| msgid "You have been assigned this to-do by %1"
-msgid "You have been assigned this to-do by %1."
-msgstr "អ្នក​ត្រូវ​បាន​ផ្ដល់​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ដោយ %1"
-
-#: src/incidenceformatter.cpp:1462
-#, fuzzy, kde-format
-#| msgid "You have been assigned this to-do by %1 as a representative of %2"
-msgid "You have been assigned this to-do by %1 as a representative of %2."
-msgstr "អ្នក​ត្រូវ​បាន​ផ្ដល់​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ដោយ %1 ជា​តំណាង​របស់ %2"
-
-#: src/incidenceformatter.cpp:1467
-#, fuzzy, kde-format
-#| msgid "This to-do was refreshed"
-msgid "This to-do was refreshed."
-msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​ធ្វើឲ្យ​ស្រស់"
-
-#: src/incidenceformatter.cpp:1470
-#, fuzzy, kde-format
-#| msgid "This to-do was canceled"
-msgid "This to-do was canceled."
-msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​បោះបង់"
-
-#: src/incidenceformatter.cpp:1472
-#, fuzzy, kde-format
-#| msgid "The organizer has revoked this to-do"
-msgid "The organizer has revoked this to-do."
-msgstr "អ្នក​រៀបចំ​បាន​ដកហូត​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ"
-
-#: src/incidenceformatter.cpp:1475
-#, fuzzy, kde-format
-#| msgid "Addition to the to-do"
-msgid "Addition to the to-do."
-msgstr "ការ​បន្ថែម​ទៅកាន់​​កិច្ចការ​ត្រូវ​ធ្វើ"
-
-#: src/incidenceformatter.cpp:1498
-#, fuzzy, kde-format
-#| msgid "%1 indicates this to-do assignment still needs some action"
-msgid "%1 indicates this to-do assignment still needs some action."
-msgstr "%1 បង្ហាញ​ថា កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​នៅតែ​ត្រូវការ​សកម្មភាព​មួយ​ចំនួន"
-
-#: src/incidenceformatter.cpp:1503
-#, fuzzy, kde-format
-#| msgid "This to-do has been completed by assignee %1"
-msgid "This to-do has been completed by assignee %1."
-msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​បញ្ចប់​ដោយ​អ្នកផ្ដល់ %1"
-
-#: src/incidenceformatter.cpp:1505
-#, fuzzy, kde-format
-#| msgid "This to-do has been updated by assignee %1"
-msgid "This to-do has been updated by assignee %1."
-msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ​អ្នកផ្ដល់ %1"
-
-#: src/incidenceformatter.cpp:1509
-#, fuzzy, kde-format
-#| msgid "This to-do has been completed by an assignee"
-msgid "This to-do has been completed by an assignee."
-msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​បញ្ចប់​ដោយ​អ្នក​ផ្ដល់"
-
-#: src/incidenceformatter.cpp:1511
-#, fuzzy, kde-format
-#| msgid "This to-do has been updated by an assignee"
-msgid "This to-do has been updated by an assignee."
-msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ​អ្នក​ផ្ដល់"
-
-#: src/incidenceformatter.cpp:1516
-#, fuzzy, kde-format
-#| msgid "%1 accepts this to-do"
-msgid "%1 accepts this to-do."
-msgstr "%1 ព្រម​ទទួល​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ"
-
-#: src/incidenceformatter.cpp:1518
-#, fuzzy, kde-format
-#| msgid "%1 accepts this to-do on behalf of %2"
-msgid "%1 accepts this to-do on behalf of %2."
-msgstr "%1 ព្រម​ទទួល​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ជំនួស %2"
-
-#: src/incidenceformatter.cpp:1523
-#, fuzzy, kde-format
-#| msgid "%1 tentatively accepts this to-do"
-msgid "%1 tentatively accepts this to-do."
-msgstr "%1 ព្រម​ទទួល​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​បណ្ដោះអាសន្ន"
-
-#: src/incidenceformatter.cpp:1525
-#, fuzzy, kde-format
-#| msgid "%1 tentatively accepts this to-do on behalf of %2"
-msgid "%1 tentatively accepts this to-do on behalf of %2."
-msgstr "%1 ព្រម​ទទួល​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​បណ្ដោះអាសន្ន​ជំនួស %2"
-
-#: src/incidenceformatter.cpp:1529
-#, fuzzy, kde-format
-#| msgid "%1 declines this to-do"
-msgid "%1 declines this to-do."
-msgstr "%1 បដិសេធ​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ"
-
-#: src/incidenceformatter.cpp:1531
-#, fuzzy, kde-format
-#| msgid "%1 declines this to-do on behalf of %2"
-msgid "%1 declines this to-do on behalf of %2."
-msgstr "%1 បដិសេធ​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ជំនួស %2"
-
-#: src/incidenceformatter.cpp:1541
-#, fuzzy, kde-format
-#| msgid "%1 has delegated this to-do to %2"
-msgid "%1 has delegated this to-do to %2."
-msgstr "%1 បាន​ផ្ទេរ​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ទៅ %2"
-
-#: src/incidenceformatter.cpp:1543
-#, fuzzy, kde-format
-#| msgid "%1 has delegated this to-do"
-msgid "%1 has delegated this to-do."
-msgstr "%1 បាន​ផ្ទេរ​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ"
-
-#: src/incidenceformatter.cpp:1547
-#, fuzzy, kde-format
-#| msgid "The request for this to-do is now completed"
-msgid "The request for this to-do is now completed."
-msgstr "សំណើ​សម្រាប់​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ឥឡូវ​ត្រូវ​បាន​បញ្ចប់"
-
-#: src/incidenceformatter.cpp:1549
-#, fuzzy, kde-format
-#| msgid "%1 is still processing the to-do"
-msgid "%1 is still processing the to-do."
-msgstr "%1 នៅតែ​ដំណើរការ​កិច្ចការ​ត្រូវ​ធ្វើ"
-
-#: src/incidenceformatter.cpp:1551
-#, fuzzy, kde-format
-#| msgid "Unknown response to this to-do"
-msgid "Unknown response to this to-do."
-msgstr "មិន​ស្គាល់​ចម្លើយ​តប​ចំពោះ​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ"
-
-#: src/incidenceformatter.cpp:1561
-#, fuzzy, kde-format
-#| msgid "%1 declines the counter proposal"
-msgid "%1 declines the counter proposal."
-msgstr "%1 បដិសេធ​សំណើ​ច្រាស"
-
-#: src/incidenceformatter.cpp:1563
-#, fuzzy, kde-format
-#| msgid "%1 declines the counter proposal on behalf of %2"
-msgid "%1 declines the counter proposal on behalf of %2."
-msgstr "%1 បដិសេធ​សំណើ​ច្រាស​ជំនួស %2"
-
-#: src/incidenceformatter.cpp:1568
-#, fuzzy, kde-format
-#| msgid "Error: To-do iTIP message with unknown method"
-msgid "Error: To-do iTIP message with unknown method."
-msgstr "កំហុស ៖ សារ​កិច្ចការ​ត្រូវ​ធ្វើ iTIP ដែល​មាន​វិធីសាស្ត្រ​ដែល​មិន​ស្គាល់"
-
-#: src/incidenceformatter.cpp:1582
-#, fuzzy, kde-format
-#| msgid "This journal has been published"
-msgid "This journal has been published."
-msgstr "ទិនានុប្បវត្តិ​នេះ​ត្រូវ​បាន​បោះពុម្ពផ្សាយ"
-
-#: src/incidenceformatter.cpp:1584
-#, fuzzy, kde-format
-#| msgid "You have been assigned this journal"
-msgid "You have been assigned this journal."
-msgstr "អ្នក​បាន​កំណត់​ទិនានុប្បវត្តិ​នេះ"
-
-#: src/incidenceformatter.cpp:1586
-#, fuzzy, kde-format
-#| msgid "This journal was refreshed"
-msgid "This journal was refreshed."
-msgstr "ទិនានុប្បវត្តិ​នេះ​ត្រូវ​បាន​ធ្វើឲ្យ​ស្រស់"
-
-#: src/incidenceformatter.cpp:1588
-#, fuzzy, kde-format
-#| msgid "This journal was canceled"
-msgid "This journal was canceled."
-msgstr "ទិនានុប្បវត្តិ​នេះ​ត្រូវ​បាន​បោះបង់"
-
-#: src/incidenceformatter.cpp:1590
-#, fuzzy, kde-format
-#| msgid "Addition to the journal"
-msgid "Addition to the journal."
-msgstr "ការ​បន្ថែម​ទៅកាន់​ទិនានុប្បវត្តិ"
-
-#: src/incidenceformatter.cpp:1605
-#, fuzzy, kde-format
-#| msgid "Sender indicates this journal assignment still needs some action"
-msgid "Sender indicates this journal assignment still needs some action."
-msgstr "អ្នក​ផ្ញើ​បង្ហាញ​ថា ទិនានុប្បវត្តិ​នេះ​នៅតែ​ត្រូវការ​សកម្មភាព​មួយចំនួន"
-
-#: src/incidenceformatter.cpp:1607
-#, fuzzy, kde-format
-#| msgid "Sender accepts this journal"
-msgid "Sender accepts this journal."
-msgstr "អ្នក​ផ្ញើ​ព្រម​ទទួល​ទិនានុប្បវត្តិ​នេះ"
-
-#: src/incidenceformatter.cpp:1609
-#, fuzzy, kde-format
-#| msgid "Sender tentatively accepts this journal"
-msgid "Sender tentatively accepts this journal."
-msgstr "អ្នក​ផ្ញើ​ព្រម​ទទួល​ទិនានុប្បវត្តិ​នេះ​បណ្ដោះអាសន្ន"
-
-#: src/incidenceformatter.cpp:1611
-#, fuzzy, kde-format
-#| msgid "Sender declines this journal"
-msgid "Sender declines this journal."
-msgstr "អ្នក​ផ្ញើ​បដិសេធ​ទិនានុប្បវត្តិ​នេះ"
-
-#: src/incidenceformatter.cpp:1613
-#, fuzzy, kde-format
-#| msgid "Sender has delegated this request for the journal"
-msgid "Sender has delegated this request for the journal."
-msgstr "អ្នក​ផ្ញើ​បាន​ផ្ទេរ​សំណើ​នេះ​សម្រាប់​ទិនានុប្បវត្តិ"
-
-#: src/incidenceformatter.cpp:1615
-#, fuzzy, kde-format
-#| msgid "The request for this journal is now completed"
-msgid "The request for this journal is now completed."
-msgstr "សំណើ​សម្រាប់​ទិនានុប្បវត្តិ​នេះ ឥឡូវ​បាន​បញ្ចប់"
-
-#: src/incidenceformatter.cpp:1617
-#, fuzzy, kde-format
-#| msgid "Sender is still processing the invitation"
-msgid "Sender is still processing the invitation."
-msgstr "អ្នក​ផ្ញើ​នៅតែ​ដំណើរការ​ការ​អញ្ជើញ​នេះ"
-
-#: src/incidenceformatter.cpp:1619
-#, fuzzy, kde-format
-#| msgid "Unknown response to this journal"
-msgid "Unknown response to this journal."
-msgstr "មិន​ស្គាល់​ចម្លើយ​តប​ទៅកាន់​ទិនានុប្បវត្តិ​នេះ"
-
-#: src/incidenceformatter.cpp:1624 src/incidenceformatter.cpp:1654
-#, fuzzy, kde-format
-#| msgid "Sender makes this counter proposal"
-msgid "Sender makes this counter proposal."
-msgstr "អ្នក​ផ្ញើ​បង្កើត​សំណើ​ច្រាស​នេះ"
-
-#: src/incidenceformatter.cpp:1626 src/incidenceformatter.cpp:1656
-#, fuzzy, kde-format
-#| msgid "Sender declines the counter proposal"
-msgid "Sender declines the counter proposal."
-msgstr "អ្នក​ផ្ញើ​បដិសេធ​សំណើ​ច្រាស"
-
-#: src/incidenceformatter.cpp:1628
-#, fuzzy, kde-format
-#| msgid "Error: Journal iTIP message with unknown method"
-msgid "Error: Journal iTIP message with unknown method."
-msgstr "កំហុស ៖ សារ​ទិនានុប្បវត្តិ iTIP ​មាន​វិធីសាស្ត្រ​ដែល​មិន​ស្គាល់"
-
-#: src/incidenceformatter.cpp:1642
-#, fuzzy, kde-format
-#| msgid "This free/busy list has been published"
-msgid "This free/busy list has been published."
-msgstr "បញ្ជី​ទំនេរ/រវល់​នេះ​​ត្រូវ​បាន​បោះពុម្ពផ្សាយ"
-
-#: src/incidenceformatter.cpp:1644
-#, fuzzy, kde-format
-#| msgid "The free/busy list has been requested"
-msgid "The free/busy list has been requested."
-msgstr "បញ្ជី​ទំនេរ/រវល់​ត្រូវ​បាន​ស្នើ"
-
-#: src/incidenceformatter.cpp:1646
-#, fuzzy, kde-format
-#| msgid "This free/busy list was refreshed"
-msgid "This free/busy list was refreshed."
-msgstr "បញ្ជី​ទំនេរ/រវល់​​ត្រូវ​បាន​ធ្វើឲ្យ​ស្រស់"
-
-#: src/incidenceformatter.cpp:1648
-#, fuzzy, kde-format
-#| msgid "This free/busy list was canceled"
-msgid "This free/busy list was canceled."
-msgstr "បញ្ជី​ទំនេរ/រវល់​នេះ​ត្រូវ​បាន​បោះបង់"
-
-#: src/incidenceformatter.cpp:1650
-#, fuzzy, kde-format
-#| msgid "Addition to the free/busy list"
-msgid "Addition to the free/busy list."
-msgstr "ការ​បន្ថែម​ទៅកាន់​បញ្ជី​ទំនេរ/រវល់"
-
-#: src/incidenceformatter.cpp:1652
-#, fuzzy, kde-format
-#| msgid "Reply to the free/busy list"
-msgid "Reply to the free/busy list."
-msgstr "ឆ្លើយតប​ទៅកាន់​បញ្ជី​ទំនេរ/រវល់"
-
-#: src/incidenceformatter.cpp:1658
-#, fuzzy, kde-format
-#| msgid "Error: Free/Busy iTIP message with unknown method"
-msgid "Error: Free/Busy iTIP message with unknown method."
-msgstr "កំហុស ៖សារ​ទំនេរ/រវល់ iTIP មាន​វិធីសាស្ត្រ​ដែល​មិន​ស្គាល់"
-
-#: src/incidenceformatter.cpp:1723 src/incidenceformatter.cpp:1725
-#, fuzzy, kde-format
-#| msgid "%1 (<i>unrecorded</i>)"
-msgid "%1 (<i>unrecorded</i>)"
-msgstr "%1 (<i>មិន​បាន​កត់ត្រា</i>)"
-
-#: src/incidenceformatter.cpp:1942
-#, fuzzy, kde-format
-#| msgid "[Record]"
-msgid "Record"
-msgstr "[Record]"
-
-#: src/incidenceformatter.cpp:1945
-#, fuzzy, kde-format
-#| msgid "[Move to Trash]"
-msgid "Move to Trash"
-msgstr "[ផ្លាស់ទី​ទៅ​ធុងសំរាម]"
-
-#: src/incidenceformatter.cpp:1949
-#, kde-format
-msgctxt "accept invitation"
-msgid "Accept"
-msgstr "ព្រម​ទទួល"
-
-#: src/incidenceformatter.cpp:1955
-#, fuzzy, kde-format
-#| msgctxt "@item event is tentative"
-#| msgid "Tentative"
-msgctxt "Accept invitation conditionally"
-msgid "Tentative"
-msgstr "បណ្ដោះអាសន្ន"
-
-#: src/incidenceformatter.cpp:1962
-#, kde-format
-msgctxt "decline invitation"
-msgid "Decline"
-msgstr "បដិសេធ"
-
-#: src/incidenceformatter.cpp:1966
-#, fuzzy, kde-format
-#| msgctxt "invitation counter proposal"
-#| msgid "Counter proposal"
-msgctxt "invitation counter proposal"
-msgid "Counter proposal ..."
-msgstr "សំណើ​ច្រាស"
-
-#: src/incidenceformatter.cpp:1971
-#, fuzzy, kde-format
-#| msgctxt "delegate inviation to another"
-#| msgid "Delegate"
-msgctxt "delegate invitation to another"
-msgid "Delegate ..."
-msgstr "ផ្ទេរ"
-
-#: src/incidenceformatter.cpp:1981
-#, fuzzy, kde-format
-#| msgctxt "accept invitation"
-#| msgid "Accept"
-msgid "Accept"
-msgstr "ព្រម​ទទួល"
-
-#: src/incidenceformatter.cpp:1984
-#, fuzzy, kde-format
-#| msgctxt "decline invitation"
-#| msgid "Decline"
-msgid "Decline"
-msgstr "បដិសេធ"
-
-#: src/incidenceformatter.cpp:1994
-#, fuzzy, kde-format
-#| msgid "[Record invitation in my to-do list]"
-msgid "Record invitation in my to-do list"
-msgstr "[កត់ត្រា​ការ​អញ្ជើញ​នៅ​ក្នុង​បញ្ជី​កិច្ចការ​ត្រូវ​ធ្វើ​របស់ខ្ញុំ]"
-
-#: src/incidenceformatter.cpp:1995
-#, fuzzy, kde-format
-#| msgid "[Record invitation in my calendar]"
-msgid "Record invitation in my calendar"
-msgstr "[កត់ត្រា​ការ​អញ្ជើញ​នៅ​ក្នុង​ប្រតិទិន​របស់ខ្ញុំ]"
-
-#: src/incidenceformatter.cpp:2008
-#, fuzzy, kde-format
-#| msgid "[Record response in my to-do list]"
-msgid "Record response in my to-do list"
-msgstr "[កត់ត្រា​ចម្លើយ​តប​នៅ​ក្នុង​បញ្ជី​កិច្ចការ​ត្រូវ​ធ្វើ​របស់ខ្ញុំ]"
-
-#: src/incidenceformatter.cpp:2008
-#, fuzzy, kde-format
-#| msgid "[Record response in my calendar]"
-msgid "Record response in my calendar"
-msgstr "[កត់ត្រា​ចម្លើយ​តប​នៅ​ក្នុង​ប្រតិទិន​របស់ខ្ញុំ]"
-
-#: src/incidenceformatter.cpp:2022
-#, kde-format
-msgid "Remove invitation from my to-do list"
-msgstr "យក​ការ​អញ្ជើញ​ចេញពី​បញ្ជី​កិច្ចការ​ត្រូវ​ធ្វើ​របស់ខ្ញុំ"
-
-#: src/incidenceformatter.cpp:2023
-#, kde-format
-msgid "Remove invitation from my calendar"
-msgstr "យក​ការ​អញ្ជើញ​ចេញពី​ប្រតិទិន​របស់ខ្ញុំ"
-
-#: src/incidenceformatter.cpp:2160 src/incidenceformatter.cpp:2164
-#, fuzzy, kde-format
-#| msgid "Your <b>%1</b> response has been recorded"
-msgid "Your <b>%1</b> response has been recorded."
-msgstr "ចម្លើយ​តប <b>%1</b> របស់​អ្នក​ត្រូវ​បាន​កត់ត្រា"
-
-#: src/incidenceformatter.cpp:2162 src/incidenceformatter.cpp:2166
-#, fuzzy, kde-format
-#| msgid "Your status for this invitation is <b>%1</b>"
-msgid "Your status for this invitation is <b>%1</b>."
-msgstr "ស្ថានភាព​របស់​អ្នក​សម្រាប់​ការ​អញ្ជើញ​នេះ​គឺ <b>%1</b>"
-
-#: src/incidenceformatter.cpp:2171
-#, fuzzy, kde-format
-#| msgid "This invitation was canceled"
-msgid "This invitation was canceled."
-msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​បោះបង់"
-
-#: src/incidenceformatter.cpp:2173
-#, fuzzy, kde-format
-#| msgid "This invitation was accepted"
-msgid "This invitation was accepted."
-msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​ទទួលយក"
-
-#: src/incidenceformatter.cpp:2181
-#, fuzzy, kde-format
-#| msgid "Awaiting delegation response"
-msgid "Awaiting delegation response."
-msgstr "រង់ចាំ​ចម្លើយ​តប​ក្នុង​ការ​ផ្ទេរ"
-
-#: src/incidenceformatter.cpp:2248 src/incidenceformatter.cpp:2250
-#, kde-format
-msgid "The <b>%1</b> response has been recorded"
-msgstr "ចម្លើយ​តប <b>%1</b> ត្រូវ​បាន​កត់ត្រា"
-
-#: src/incidenceformatter.cpp:2278
-#, fuzzy, kde-format
-#| msgid "Assignees"
-msgid "Assignees:"
-msgstr "អ្នក​ផ្ដល់"
-
-#: src/incidenceformatter.cpp:2280
-#, fuzzy, kde-format
-#| msgctxt "@item participation is required"
-#| msgid "Participant"
-msgid "Participants:"
-msgstr "អ្នកចូលរួម"
-
-#: src/incidenceformatter.cpp:2388
+#: src/incidenceformatter.cpp:746
 #, kde-format
 msgctxt "Event start"
 msgid "<i>From:</i> %1"
 msgstr "<i>ពី ៖</i> %1"
 
-#: src/incidenceformatter.cpp:2390
+#: src/incidenceformatter.cpp:748
 #, kde-format
 msgctxt "Event end"
 msgid "<i>To:</i> %1"
 msgstr "<i>ដល់ ៖</i> %1"
 
-#: src/incidenceformatter.cpp:2392
+#: src/incidenceformatter.cpp:750
 #, fuzzy, kde-format
 #| msgid "<i>Date:</i> %1"
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
 msgstr "<i>កាលបរិច្ឆេទ ៖</i> %1"
 
-#: src/incidenceformatter.cpp:2395 src/incidenceformatter.cpp:2473
+#: src/incidenceformatter.cpp:753 src/incidenceformatter.cpp:831
 #, kde-format
 msgid "<i>Date:</i> %1"
 msgstr "<i>កាលបរិច្ឆេទ ៖</i> %1"
 
-#: src/incidenceformatter.cpp:2401
+#: src/incidenceformatter.cpp:759
 #, kde-format
 msgctxt "time for event"
 msgid "<i>Time:</i> %1"
 msgstr "<i>ពេលវេលា ៖</i> %1"
 
-#: src/incidenceformatter.cpp:2403
+#: src/incidenceformatter.cpp:761
 #, kde-format
 msgctxt "time range for event"
 msgid "<i>Time:</i> %1 - %2"
 msgstr "<i>ពេលវេលា ៖</i> %1 - %2"
 
-#: src/incidenceformatter.cpp:2436
+#: src/incidenceformatter.cpp:794
 #, fuzzy, kde-format
 #| msgid "<i>Start:</i> %1"
 msgctxt "To-do's start date"
 msgid "<i>Start:</i> %1"
 msgstr "<i>ចាប់ផ្ដើម ៖</i> %1"
 
-#: src/incidenceformatter.cpp:2439
+#: src/incidenceformatter.cpp:797
 #, fuzzy, kde-format
 #| msgid "<i>Due:</i> %1"
 msgctxt "To-do's due date"
 msgid "<i>Due:</i> %1"
 msgstr "<i>ដល់កំណត់ ៖</i> %1"
 
-#: src/incidenceformatter.cpp:2446
+#: src/incidenceformatter.cpp:804
 #, fuzzy, kde-format
 #| msgid "<i>Period start:</i> %1"
 msgctxt "To-do's priority number"
 msgid "<i>Priority:</i> %1"
 msgstr "<i>អំឡុង​ពេល​ចាប់ផ្ដើម ៖</i> %1"
 
-#: src/incidenceformatter.cpp:2451
+#: src/incidenceformatter.cpp:809
 #, fuzzy, kde-format
 #| msgid "<i>Date:</i> %1"
 msgctxt "To-do's completed date"
 msgid "<i>Completed:</i> %1"
 msgstr "<i>កាលបរិច្ឆេទ ៖</i> %1"
 
-#: src/incidenceformatter.cpp:2462
+#: src/incidenceformatter.cpp:820
 #, fuzzy, kde-format
 #| msgid "Percent Done:"
 msgctxt "To-do's percent complete:"
 msgid "<i>Percent Done:</i> %1%"
 msgstr "ភាគរយ​ដែល​ធ្វើ​រួច ៖"
 
-#: src/incidenceformatter.cpp:2481
+#: src/incidenceformatter.cpp:839
 #, kde-format
 msgid "<i>Period start:</i> %1"
 msgstr "<i>អំឡុង​ពេល​ចាប់ផ្ដើម ៖</i> %1"
 
-#: src/incidenceformatter.cpp:2482
+#: src/incidenceformatter.cpp:840
 #, fuzzy, kde-format
 #| msgid "<i>Period start:</i> %1"
 msgid "<i>Period end:</i> %1"
 msgstr "<i>អំឡុង​ពេល​ចាប់ផ្ដើម ៖</i> %1"
 
-#: src/incidenceformatter.cpp:2507 src/templates/freebusy.html:5
+#: src/incidenceformatter.cpp:865 src/templates/freebusy.html:5
 #, kde-format
 msgid "Free/Busy information for %1"
 msgstr "ព័ត៌មាន​ទំនេរ/រវល់​សម្រាប់ %1"
 
-#: src/incidenceformatter.cpp:2528 src/incidenceformatter.cpp:2530
+#: src/incidenceformatter.cpp:886 src/incidenceformatter.cpp:888
 #, kde-format
 msgctxt "attendee name (attendee status)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/incidenceformatter.cpp:2533
+#: src/incidenceformatter.cpp:891
 #, kde-format
 msgid "%1"
 msgstr "%1"
 
-#: src/incidenceformatter.cpp:2559 src/incidenceformatter.cpp:2696
-#: src/incidenceformatter.cpp:3170
+#: src/incidenceformatter.cpp:917 src/incidenceformatter.cpp:1054
+#: src/incidenceformatter.cpp:1528
 #, fuzzy, kde-format
 #| msgctxt "elipsis"
 #| msgid "..."
@@ -871,430 +167,427 @@ msgctxt "ellipsis"
 msgid "..."
 msgstr "..."
 
-#: src/incidenceformatter.cpp:2579
+#: src/incidenceformatter.cpp:937
 #, kde-format
 msgid " (delegated by %1)"
 msgstr " (បាន​ផ្ទេរ​ដោយ %1)"
 
-#: src/incidenceformatter.cpp:2582
+#: src/incidenceformatter.cpp:940
 #, kde-format
 msgid " (delegated to %1)"
 msgstr " (បាន​ផ្ទេរ​ទៅកាន់ %1)"
 
-#: src/incidenceformatter.cpp:2602 src/templates/event.html:112
+#: src/incidenceformatter.cpp:960 src/templates/event.html:112
 #: src/templates/todo.html:93
 #, kde-format
 msgid "Organizer:"
 msgstr "កម្មវិធី​រៀបចំ ៖"
 
-#: src/incidenceformatter.cpp:2613 src/templates/event.html:124
+#: src/incidenceformatter.cpp:971 src/templates/event.html:124
 #: src/templates/todo.html:105
 #, kde-format
 msgid "Chair:"
 msgstr "ប្រធាន ៖"
 
-#: src/incidenceformatter.cpp:2620 src/templates/event.html:137
+#: src/incidenceformatter.cpp:978 src/templates/event.html:137
 #: src/templates/todo.html:118
 #, kde-format
 msgid "Required Participants:"
 msgstr "អ្នក​ចូលរួម​ចាំបាច់ ៖"
 
-#: src/incidenceformatter.cpp:2627
+#: src/incidenceformatter.cpp:985
 #, kde-format
 msgid "Optional Participants:"
 msgstr "អ្នក​ចូលរួម​ស្រេចចិត្ត ៖"
 
-#: src/incidenceformatter.cpp:2634 src/templates/event.html:163
+#: src/incidenceformatter.cpp:992 src/templates/event.html:163
 #: src/templates/todo.html:144
 #, kde-format
 msgid "Observers:"
 msgstr "អ្នក​សង្កេតការណ៍ ៖"
 
-#: src/incidenceformatter.cpp:2656 src/templates/event.html:13
+#: src/incidenceformatter.cpp:1014 src/templates/event.html:13
 #: src/templates/journal.html:14 src/templates/todo.html:14
 #, kde-format
 msgid "Calendar:"
 msgstr "ប្រតិទិន ៖"
 
-#: src/incidenceformatter.cpp:2664 src/templates/event.html:21
+#: src/incidenceformatter.cpp:1022 src/templates/event.html:21
 #: src/templates/todo.html:22
 #, kde-format
 msgid "Location:"
 msgstr "ទីតាំង ៖"
 
-#: src/incidenceformatter.cpp:2671 src/templates/event.html:60
+#: src/incidenceformatter.cpp:1029 src/templates/event.html:60
 #: src/templates/todo.html:54
 #, kde-format
 msgid "Duration:"
 msgstr "ថិរវេលា ៖"
 
-#: src/incidenceformatter.cpp:2677 src/incidenceformatter.cpp:2687
-#: src/templates/event.html:68 src/templates/itip_event.html:22
-#: src/templates/itip_todo.html:46 src/templates/todo.html:62
+#: src/incidenceformatter.cpp:1035 src/incidenceformatter.cpp:1045
+#: src/templates/event.html:68 src/templates/todo.html:62
 #, kde-format
 msgid "Recurrence:"
 msgstr "ការ​កើតឡើង​វិញ ៖"
 
-#: src/incidenceformatter.cpp:2688 src/templates/todo.html:64
+#: src/incidenceformatter.cpp:1046 src/templates/todo.html:64
 #, kde-format
 msgid "Exception"
 msgstr ""
 
-#: src/incidenceformatter.cpp:2704 src/templates/event.html:96
-#: src/templates/itip_event.html:29 src/templates/itip_journal.html:11
-#: src/templates/itip_todo.html:53 src/templates/journal.html:30
-#: src/templates/todo.html:74
+#: src/incidenceformatter.cpp:1062 src/templates/event.html:96
+#: src/templates/journal.html:30 src/templates/todo.html:74
 #, kde-format
 msgid "Description:"
 msgstr "សេចក្ដី​ពិពណ៌នា ៖"
 
-#: src/incidenceformatter.cpp:2718 src/templates/event.html:104
+#: src/incidenceformatter.cpp:1076 src/templates/event.html:104
 #: src/templates/todo.html:85
 #, kde-format
 msgid "Reminder:"
 msgid_plural "Reminders:"
 msgstr[0] "កម្មវិធី​រំលឹក ៖"
 
-#: src/incidenceformatter.cpp:2746 src/templates/event.html:176
+#: src/incidenceformatter.cpp:1104 src/templates/event.html:176
 #: src/templates/journal.html:38 src/templates/todo.html:157
 #, kde-format
 msgid "Tag:"
 msgid_plural "Tags:"
 msgstr[0] ""
 
-#: src/incidenceformatter.cpp:2796 src/incidenceformatter.cpp:2870
+#: src/incidenceformatter.cpp:1154 src/incidenceformatter.cpp:1228
 #, kde-format
 msgid "No recurrence"
 msgstr "គ្មាន​ការ​កើតឡើងវិញ"
 
-#: src/incidenceformatter.cpp:2800
+#: src/incidenceformatter.cpp:1158
 #, kde-format
 msgid "31st Last"
 msgstr "ទី ៣១ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2801
+#: src/incidenceformatter.cpp:1159
 #, kde-format
 msgid "30th Last"
 msgstr "ទី ៣០ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2802
+#: src/incidenceformatter.cpp:1160
 #, kde-format
 msgid "29th Last"
 msgstr "ទី ២៩ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2803
+#: src/incidenceformatter.cpp:1161
 #, kde-format
 msgid "28th Last"
 msgstr "ទី ២៨ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2804
+#: src/incidenceformatter.cpp:1162
 #, kde-format
 msgid "27th Last"
 msgstr "ទី ២៧ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2805
+#: src/incidenceformatter.cpp:1163
 #, kde-format
 msgid "26th Last"
 msgstr "ទី ២៦ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2806
+#: src/incidenceformatter.cpp:1164
 #, kde-format
 msgid "25th Last"
 msgstr "ទី ២៥ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2807
+#: src/incidenceformatter.cpp:1165
 #, kde-format
 msgid "24th Last"
 msgstr "ទី ២៤ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2808
+#: src/incidenceformatter.cpp:1166
 #, kde-format
 msgid "23rd Last"
 msgstr "ទី ២៣ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2809
+#: src/incidenceformatter.cpp:1167
 #, kde-format
 msgid "22nd Last"
 msgstr "ទី ២២ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2810
+#: src/incidenceformatter.cpp:1168
 #, kde-format
 msgid "21st Last"
 msgstr "ទី ២១ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2811
+#: src/incidenceformatter.cpp:1169
 #, kde-format
 msgid "20th Last"
 msgstr "ទី ២០ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2812
+#: src/incidenceformatter.cpp:1170
 #, kde-format
 msgid "19th Last"
 msgstr "ទី ១៩ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2813
+#: src/incidenceformatter.cpp:1171
 #, kde-format
 msgid "18th Last"
 msgstr "ទី ១៨ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2814
+#: src/incidenceformatter.cpp:1172
 #, kde-format
 msgid "17th Last"
 msgstr "ទី ១៧ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2815
+#: src/incidenceformatter.cpp:1173
 #, kde-format
 msgid "16th Last"
 msgstr "ទី ១៦ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2816
+#: src/incidenceformatter.cpp:1174
 #, kde-format
 msgid "15th Last"
 msgstr "ទី ១៥ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2817
+#: src/incidenceformatter.cpp:1175
 #, kde-format
 msgid "14th Last"
 msgstr "ទី ១៤ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2818
+#: src/incidenceformatter.cpp:1176
 #, kde-format
 msgid "13th Last"
 msgstr "ទី ១៣ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2819
+#: src/incidenceformatter.cpp:1177
 #, kde-format
 msgid "12th Last"
 msgstr "ទី ១២ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2820
+#: src/incidenceformatter.cpp:1178
 #, kde-format
 msgid "11th Last"
 msgstr "ទី ១១ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2821
+#: src/incidenceformatter.cpp:1179
 #, kde-format
 msgid "10th Last"
 msgstr "ទី ១០ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2822
+#: src/incidenceformatter.cpp:1180
 #, kde-format
 msgid "9th Last"
 msgstr "ទី ៩ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2823
+#: src/incidenceformatter.cpp:1181
 #, kde-format
 msgid "8th Last"
 msgstr "ទី ៨ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2824
+#: src/incidenceformatter.cpp:1182
 #, kde-format
 msgid "7th Last"
 msgstr "ទី ៧ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2825
+#: src/incidenceformatter.cpp:1183
 #, kde-format
 msgid "6th Last"
 msgstr "ទី ៦ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2826
+#: src/incidenceformatter.cpp:1184
 #, kde-format
 msgid "5th Last"
 msgstr "ទី ៥ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2827
+#: src/incidenceformatter.cpp:1185
 #, kde-format
 msgid "4th Last"
 msgstr "ទី ៤ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2828
+#: src/incidenceformatter.cpp:1186
 #, kde-format
 msgid "3rd Last"
 msgstr "ទី ៣ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2829
+#: src/incidenceformatter.cpp:1187
 #, kde-format
 msgid "2nd Last"
 msgstr "ទី ២ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2830
+#: src/incidenceformatter.cpp:1188
 #, kde-format
 msgctxt "last day of the month"
 msgid "Last"
 msgstr "ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:2831
+#: src/incidenceformatter.cpp:1189
 #, kde-format
 msgctxt "unknown day of the month"
 msgid "unknown"
 msgstr "មិន​ស្គាល់"
 
-#: src/incidenceformatter.cpp:2832
+#: src/incidenceformatter.cpp:1190
 #, kde-format
 msgid "1st"
 msgstr "ទី ១"
 
-#: src/incidenceformatter.cpp:2833
+#: src/incidenceformatter.cpp:1191
 #, kde-format
 msgid "2nd"
 msgstr "ទី ២"
 
-#: src/incidenceformatter.cpp:2834
+#: src/incidenceformatter.cpp:1192
 #, kde-format
 msgid "3rd"
 msgstr "ទី ៣"
 
-#: src/incidenceformatter.cpp:2835
+#: src/incidenceformatter.cpp:1193
 #, kde-format
 msgid "4th"
 msgstr "ទី ៤"
 
-#: src/incidenceformatter.cpp:2836
+#: src/incidenceformatter.cpp:1194
 #, kde-format
 msgid "5th"
 msgstr "ទី ៥"
 
-#: src/incidenceformatter.cpp:2837
+#: src/incidenceformatter.cpp:1195
 #, kde-format
 msgid "6th"
 msgstr "ទី ៦"
 
-#: src/incidenceformatter.cpp:2838
+#: src/incidenceformatter.cpp:1196
 #, kde-format
 msgid "7th"
 msgstr "ទី ៧"
 
-#: src/incidenceformatter.cpp:2839
+#: src/incidenceformatter.cpp:1197
 #, kde-format
 msgid "8th"
 msgstr "ទី ៨"
 
-#: src/incidenceformatter.cpp:2840
+#: src/incidenceformatter.cpp:1198
 #, kde-format
 msgid "9th"
 msgstr "ទី ៩"
 
-#: src/incidenceformatter.cpp:2841
+#: src/incidenceformatter.cpp:1199
 #, kde-format
 msgid "10th"
 msgstr "ទី ១០"
 
-#: src/incidenceformatter.cpp:2842
+#: src/incidenceformatter.cpp:1200
 #, kde-format
 msgid "11th"
 msgstr "ទី ១១"
 
-#: src/incidenceformatter.cpp:2843
+#: src/incidenceformatter.cpp:1201
 #, kde-format
 msgid "12th"
 msgstr "ទី ១២"
 
-#: src/incidenceformatter.cpp:2844
+#: src/incidenceformatter.cpp:1202
 #, kde-format
 msgid "13th"
 msgstr "ទី ១៣"
 
-#: src/incidenceformatter.cpp:2845
+#: src/incidenceformatter.cpp:1203
 #, kde-format
 msgid "14th"
 msgstr "ទី ១៤"
 
-#: src/incidenceformatter.cpp:2846
+#: src/incidenceformatter.cpp:1204
 #, kde-format
 msgid "15th"
 msgstr "ទី ១៥"
 
-#: src/incidenceformatter.cpp:2847
+#: src/incidenceformatter.cpp:1205
 #, kde-format
 msgid "16th"
 msgstr "ទី ១៦"
 
-#: src/incidenceformatter.cpp:2848
+#: src/incidenceformatter.cpp:1206
 #, kde-format
 msgid "17th"
 msgstr "ទី ១៧"
 
-#: src/incidenceformatter.cpp:2849
+#: src/incidenceformatter.cpp:1207
 #, kde-format
 msgid "18th"
 msgstr "ទី ១៨"
 
-#: src/incidenceformatter.cpp:2850
+#: src/incidenceformatter.cpp:1208
 #, kde-format
 msgid "19th"
 msgstr "ទី ១៩"
 
-#: src/incidenceformatter.cpp:2851
+#: src/incidenceformatter.cpp:1209
 #, kde-format
 msgid "20th"
 msgstr "ទី ២០"
 
-#: src/incidenceformatter.cpp:2852
+#: src/incidenceformatter.cpp:1210
 #, kde-format
 msgid "21st"
 msgstr "ទី ២១"
 
-#: src/incidenceformatter.cpp:2853
+#: src/incidenceformatter.cpp:1211
 #, kde-format
 msgid "22nd"
 msgstr "ទី ២២"
 
-#: src/incidenceformatter.cpp:2854
+#: src/incidenceformatter.cpp:1212
 #, kde-format
 msgid "23rd"
 msgstr "ទី ២៣"
 
-#: src/incidenceformatter.cpp:2855
+#: src/incidenceformatter.cpp:1213
 #, kde-format
 msgid "24th"
 msgstr "ទី ២៤"
 
-#: src/incidenceformatter.cpp:2856
+#: src/incidenceformatter.cpp:1214
 #, kde-format
 msgid "25th"
 msgstr "ទី ២៥"
 
-#: src/incidenceformatter.cpp:2857
+#: src/incidenceformatter.cpp:1215
 #, kde-format
 msgid "26th"
 msgstr "ទី ២៦"
 
-#: src/incidenceformatter.cpp:2858
+#: src/incidenceformatter.cpp:1216
 #, kde-format
 msgid "27th"
 msgstr "ទី ២៧"
 
-#: src/incidenceformatter.cpp:2859
+#: src/incidenceformatter.cpp:1217
 #, kde-format
 msgid "28th"
 msgstr "ទី ២៨"
 
-#: src/incidenceformatter.cpp:2860
+#: src/incidenceformatter.cpp:1218
 #, kde-format
 msgid "29th"
 msgstr "ទី ២៩"
 
-#: src/incidenceformatter.cpp:2861
+#: src/incidenceformatter.cpp:1219
 #, kde-format
 msgid "30th"
 msgstr "ទី ៣០"
 
-#: src/incidenceformatter.cpp:2862
+#: src/incidenceformatter.cpp:1220
 #, kde-format
 msgid "31st"
 msgstr "ទី ៣១"
 
-#: src/incidenceformatter.cpp:2877
+#: src/incidenceformatter.cpp:1235
 #, kde-format
 msgid "Recurs every minute until %2"
 msgid_plural "Recurs every %1 minutes until %2"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 នាទី រហូតដល់ %2"
 
-#: src/incidenceformatter.cpp:2879 src/incidenceformatter.cpp:2890
-#: src/incidenceformatter.cpp:2901 src/incidenceformatter.cpp:2931
-#: src/incidenceformatter.cpp:2952 src/incidenceformatter.cpp:2975
-#: src/incidenceformatter.cpp:2999 src/incidenceformatter.cpp:3036
-#: src/incidenceformatter.cpp:3064
+#: src/incidenceformatter.cpp:1237 src/incidenceformatter.cpp:1248
+#: src/incidenceformatter.cpp:1259 src/incidenceformatter.cpp:1289
+#: src/incidenceformatter.cpp:1310 src/incidenceformatter.cpp:1333
+#: src/incidenceformatter.cpp:1357 src/incidenceformatter.cpp:1394
+#: src/incidenceformatter.cpp:1422
 #, fuzzy, kde-format, kde-kuit-format
 #| msgctxt "number of occurrences"
 #| msgid " (<numid>%1</numid> occurrences)"
@@ -1302,49 +595,49 @@ msgctxt "number of occurrences"
 msgid " (%1 occurrences)"
 msgstr " (ការ​កើតឡើងវិញ<numid>%1</numid>)"
 
-#: src/incidenceformatter.cpp:2882
+#: src/incidenceformatter.cpp:1240
 #, kde-format
 msgid "Recurs every minute"
 msgid_plural "Recurs every %1 minutes"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 នាទី"
 
-#: src/incidenceformatter.cpp:2888
+#: src/incidenceformatter.cpp:1246
 #, kde-format
 msgid "Recurs hourly until %2"
 msgid_plural "Recurs every %1 hours until %2"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ម៉ោង​រហូតដល់ %2"
 
-#: src/incidenceformatter.cpp:2893
+#: src/incidenceformatter.cpp:1251
 #, kde-format
 msgid "Recurs hourly"
 msgid_plural "Recurs every %1 hours"
 msgstr[0] "កើតឡើងវិញរៀងរាល់ %1 ម៉ោង"
 
-#: src/incidenceformatter.cpp:2899
+#: src/incidenceformatter.cpp:1257
 #, kde-format
 msgid "Recurs daily until %2"
 msgid_plural "Recurs every %1 days until %2"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ថ្ងៃ​រហូតដល់ %2"
 
-#: src/incidenceformatter.cpp:2904
+#: src/incidenceformatter.cpp:1262
 #, kde-format
 msgid "Recurs daily"
 msgid_plural "Recurs every %1 days"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ថ្ងៃ"
 
-#: src/incidenceformatter.cpp:2914
+#: src/incidenceformatter.cpp:1272
 #, kde-format
 msgctxt "separator for list of days"
 msgid ", "
 msgstr ", "
 
-#: src/incidenceformatter.cpp:2921
+#: src/incidenceformatter.cpp:1279
 #, kde-format
 msgctxt "Recurs weekly on no days"
 msgid "no days"
 msgstr "គ្មាន​ថ្ងៃ"
 
-#: src/incidenceformatter.cpp:2925
+#: src/incidenceformatter.cpp:1283
 #, fuzzy, kde-format
 #| msgctxt "Recurs weekly on [list of days] until end-date"
 #| msgid "Recurs weekly on %2 until %3"
@@ -1354,7 +647,7 @@ msgid "Recurs weekly on %2 until %3"
 msgid_plural "Recurs every %1 weeks on %2 until %3"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ <numid>%1</numid> សប្ដាហ៍​នៅថ្ងៃ %2 រហូតដល់ %3"
 
-#: src/incidenceformatter.cpp:2934
+#: src/incidenceformatter.cpp:1292
 #, fuzzy, kde-format
 #| msgctxt "Recurs weekly on [list of days]"
 #| msgid "Recurs weekly on %2"
@@ -1364,7 +657,7 @@ msgid "Recurs weekly on %2"
 msgid_plural "Recurs every %1 weeks on %2"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ <numid>%1</numid> សប្ដាហ៍​នៅថ្ងៃ %2"
 
-#: src/incidenceformatter.cpp:2945
+#: src/incidenceformatter.cpp:1303
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
@@ -1375,21 +668,21 @@ msgid "Recurs every month on the %2 %3 until %4"
 msgid_plural "Recurs every %1 months on the %2 %3 until %4"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ <numid>%1</numid> ខែ​នៅ​ថ្ងៃ %2 %3 រហូតដល់ %4"
 
-#: src/incidenceformatter.cpp:2956
+#: src/incidenceformatter.cpp:1314
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname"
 msgid "Recurs every month on the %2 %3"
 msgid_plural "Recurs every %1 months on the %2 %3"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ខែ​នៅថ្ងៃ %2 %3"
 
-#: src/incidenceformatter.cpp:2969
+#: src/incidenceformatter.cpp:1327
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day until end-date"
 msgid "Recurs monthly on the %2 day until %3"
 msgid_plural "Recurs every %1 months on the %2 day until %3"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ខែ​នៅ​ថ្ងៃ %2 រហូតដល់ %3"
 
-#: src/incidenceformatter.cpp:2979
+#: src/incidenceformatter.cpp:1337
 #, fuzzy, kde-format
 #| msgctxt "Recurs monthly on the [1st|2nd|...] day"
 #| msgid "Recurs monthly on the %2 day"
@@ -1399,27 +692,27 @@ msgid "Recurs monthly on the %2 day"
 msgid_plural "Recurs every %1 month on the %2 day"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ <numid>%1</numid> ខែ​នៅ​ថ្ងៃ %2"
 
-#: src/incidenceformatter.cpp:2992
+#: src/incidenceformatter.cpp:1350
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...] until end-date"
 msgid "Recurs yearly on %2 %3 until %4"
 msgid_plural "Recurs every %1 years on %2 %3 until %4"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ឆ្នាំ​នៅថ្ងៃ %2 %3 រហូតដល់ %4"
 
-#: src/incidenceformatter.cpp:3005
+#: src/incidenceformatter.cpp:1363
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %2 %3"
 msgid_plural "Recurs every %1 years on %2 %3"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ឆ្នាំ​នៅ​ថ្ងៃ %2 %3"
 
-#: src/incidenceformatter.cpp:3013 src/incidenceformatter.cpp:3018
+#: src/incidenceformatter.cpp:1371 src/incidenceformatter.cpp:1376
 #, kde-format
 msgctxt "Recurs Every year on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %1 %2"
 msgstr "កើតឡើងវិញ​រៀងរាល់​ឆ្នាំ​នៅ​ថ្ងៃ %1 %2"
 
-#: src/incidenceformatter.cpp:3029
+#: src/incidenceformatter.cpp:1387
 #, fuzzy, kde-format
 #| msgctxt "Recurs every N years on day N until end-date"
 #| msgid "Recurs every year on day <numid>%2</numid> until %3"
@@ -1431,7 +724,7 @@ msgid_plural "Recurs every %1 years on day %2 until %3"
 msgstr[0] ""
 "កើតឡើងវិញ​រៀងរាល់ <numid>%1</numid> ឆ្នាំ​នៅថ្ងៃ <numid>%2</numid> រហូតដល់ %3"
 
-#: src/incidenceformatter.cpp:3040
+#: src/incidenceformatter.cpp:1398
 #, fuzzy, kde-format
 #| msgctxt "Recurs every N YEAR[S] on day N"
 #| msgid "Recurs every year on day <numid>%2</numid>"
@@ -1441,7 +734,7 @@ msgid "Recurs every year on day %2"
 msgid_plural "Recurs every %1 years on day %2"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ <numid>%1</numid> ឆ្នាំ​នៅ​ថ្ងៃ <numid>%2</numid>"
 
-#: src/incidenceformatter.cpp:3055
+#: src/incidenceformatter.cpp:1413
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
@@ -1453,7 +746,7 @@ msgid "Every year on the %2 %3 of %4 until %5"
 msgid_plural "Every %1 years on the %2 %3 of %4 until %5"
 msgstr[0] "រៀងរាល់ <numid>%1</numid> ឆ្នាំ​នៅ​ថ្ងៃ %2 %3 នៃ %4 រហូតដល់ %5"
 
-#: src/incidenceformatter.cpp:3070
+#: src/incidenceformatter.cpp:1428
 #, fuzzy, kde-kuit-format
 #| msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
 #| msgid "Every year on the %2 %3 of %4"
@@ -1463,118 +756,118 @@ msgid "Every year on the %2 %3 of %4"
 msgid_plural "Every %1 years on the %2 %3 of %4"
 msgstr[0] "រៀងរាល់ <numid>%1</numid> ឆ្នាំ​នៅ​ថ្ងៃ %2 %3 នៃ %4"
 
-#: src/incidenceformatter.cpp:3084
+#: src/incidenceformatter.cpp:1442
 #, kde-format
 msgid "Incidence recurs"
 msgstr "ការ​កើតឡើងវិញ"
 
-#: src/incidenceformatter.cpp:3097
+#: src/incidenceformatter.cpp:1455
 #, kde-format
 msgid "minute %1"
 msgstr " %1 នាទី"
 
-#: src/incidenceformatter.cpp:3139 src/incidenceformatter.cpp:3193
-#: src/incidenceformatter.cpp:3219 src/incidenceformatter.cpp:3231
+#: src/incidenceformatter.cpp:1497 src/incidenceformatter.cpp:1551
+#: src/incidenceformatter.cpp:1577 src/incidenceformatter.cpp:1589
 #, kde-format
 msgid "1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 ថ្ងៃ"
 
-#: src/incidenceformatter.cpp:3172
+#: src/incidenceformatter.cpp:1530
 #, kde-format
 msgid "%1 (excluding %2)"
 msgstr "%1 (មិនរួមបញ្ចូល %2)"
 
-#: src/incidenceformatter.cpp:3199
+#: src/incidenceformatter.cpp:1557
 #, kde-format
 msgid "1 hour"
 msgid_plural "%1 hours"
 msgstr[0] "%1 ម៉ោង"
 
-#: src/incidenceformatter.cpp:3205
+#: src/incidenceformatter.cpp:1563
 #, kde-format
 msgid "1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "%1 នាទី"
 
-#: src/incidenceformatter.cpp:3222
+#: src/incidenceformatter.cpp:1580
 #, kde-format
 msgid "forever"
 msgstr "រៀងរហូត"
 
-#: src/incidenceformatter.cpp:3264
+#: src/incidenceformatter.cpp:1622
 #, kde-format
 msgctxt "N days/hours/minutes before the start datetime"
 msgid "%1 before the start"
 msgstr "%1 មុន​កាលបរិច្ឆេទ​ចាប់ផ្ដើម"
 
-#: src/incidenceformatter.cpp:3266
+#: src/incidenceformatter.cpp:1624
 #, kde-format
 msgctxt "N days/hours/minutes after the start datetime"
 msgid "%1 after the start"
 msgstr "%1 ក្រោយ​កាលបរិច្ឆេទ​ចាប់ផ្ដើម"
 
-#: src/incidenceformatter.cpp:3277
+#: src/incidenceformatter.cpp:1635
 #, kde-format
 msgctxt "N days/hours/minutes before the due datetime"
 msgid "%1 before the to-do is due"
 msgstr "%1 មុន​កិច្ចការ​ត្រូវ​ធ្វើ​ដល់​កំណត់"
 
-#: src/incidenceformatter.cpp:3279
+#: src/incidenceformatter.cpp:1637
 #, kde-format
 msgctxt "N days/hours/minutes before the end datetime"
 msgid "%1 before the end"
 msgstr "%1 មុន​កាលបរិច្ឆេទ​បញ្ចប់"
 
-#: src/incidenceformatter.cpp:3283
+#: src/incidenceformatter.cpp:1641
 #, kde-format
 msgctxt "N days/hours/minutes after the due datetime"
 msgid "%1 after the to-do is due"
 msgstr "%1 ក្រោយ​កិច្ចការ​ត្រូវ​ធ្វើ​ដល់​កំណត់"
 
-#: src/incidenceformatter.cpp:3285
+#: src/incidenceformatter.cpp:1643
 #, kde-format
 msgctxt "N days/hours/minutes after the end datetime"
 msgid "%1 after the end"
 msgstr "%1 ក្រោយ​កាលបរិច្ឆេទ​បញ្ចប់"
 
-#: src/incidenceformatter.cpp:3303
+#: src/incidenceformatter.cpp:1661
 #, kde-format
 msgctxt "reminder occurs at datetime"
 msgid "at %1"
 msgstr "នៅ %1"
 
-#: src/incidenceformatter.cpp:3310
+#: src/incidenceformatter.cpp:1668
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
 msgstr[0] "កើតឡើងវិញ %1 ដង"
 
-#: src/incidenceformatter.cpp:3311
+#: src/incidenceformatter.cpp:1669
 #, kde-format
 msgctxt "interval is N days/hours/minutes"
 msgid "interval is %1"
 msgstr "ចន្លោះ​ពេល​គឺ %1"
 
-#: src/incidenceformatter.cpp:3312
+#: src/incidenceformatter.cpp:1670
 #, kde-format
 msgctxt "(repeat string, interval string)"
 msgid "(%1, %2)"
 msgstr "(%1, %2)"
 
-#: src/incidenceformatter.cpp:3317
+#: src/incidenceformatter.cpp:1675
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3321
+#: src/incidenceformatter.cpp:1679
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
 msgstr ""
 
-#: src/incidenceformatter.cpp:3324
+#: src/incidenceformatter.cpp:1682
 #, fuzzy, kde-format
 #| msgctxt "attendee name (attendee status)"
 #| msgid "%1 (%2)"
@@ -1887,11 +1180,11 @@ msgstr "ព្រឹត្តិការណ៍"
 
 #: src/templates/event.html:30 src/templates/event.html:33
 #: src/templates/event.html:40 src/templates/event.html:43
-#: src/templates/itip_journal.html:5 src/templates/journal.html:22
+#: src/templates/journal.html:22
 msgid "Date:"
 msgstr "កាលបរិច្ឆេទ ៖"
 
-#: src/templates/event.html:31 src/templates/itip_todo.html:16
+#: src/templates/event.html:31
 #, fuzzy, kde-format
 #| msgctxt "<beginTime> - <endTime>"
 #| msgid "%1 - %2"
@@ -1906,7 +1199,7 @@ msgctxt "Date as string"
 msgid "%1"
 msgstr "%1"
 
-#: src/templates/event.html:41 src/templates/itip_todo.html:22
+#: src/templates/event.html:41
 #, fuzzy, kde-format
 #| msgctxt "<beginTime> - <endTime>"
 #| msgid "%1 - %2"
@@ -2045,85 +1338,6 @@ msgstr "សេចក្ដី​អធិប្បាយ ៖"
 msgid "Attachments:"
 msgstr "ឯកសារ​ភ្ជាប់ ៖"
 
-#: src/templates/itip_event.html:6
-msgid "First event:"
-msgstr ""
-
-#: src/templates/itip_event.html:8 src/templates/itip_todo.html:13
-msgid "When:"
-msgstr ""
-
-#: src/templates/itip_event.html:15 src/templates/itip_todo.html:6
-msgid "Where:"
-msgstr "ទីកន្លែង ៖"
-
-#: src/templates/itip_event.html:42
-msgid "Events on these days:"
-msgstr ""
-
-#: src/templates/itip_event.html:44
-msgid "Events on this day:"
-msgstr ""
-
-#: src/templates/itip_freebusy.html:5
-msgid "Person:"
-msgstr "មនុស្ស ៖"
-
-#: src/templates/itip_freebusy.html:10
-msgid "Start date:"
-msgstr "កាលបរិច្ឆេទ​ចាប់ផ្ដើម ៖"
-
-#: src/templates/itip_freebusy.html:15
-msgid "End date:"
-msgstr "កាលបរិច្ឆេទ​បញ្ចប់ ៖"
-
-#: src/templates/itip_freebusy.html:23
-msgid "Busy periods given in this free/busy object:"
-msgstr ""
-
-#: src/templates/itip_freebusy.html:31
-#, fuzzy, kde-format
-#| msgctxt "startDate for duration"
-#| msgid "%1 for %2"
-msgctxt "<startDate> for <duration>"
-msgid "%1 for %2"
-msgstr "%1 សម្រាប់ %2"
-
-#: src/templates/itip_freebusy.html:34
-#, fuzzy, kde-format
-#| msgctxt "<beginTime> - <endTime>"
-#| msgid "%1 - %2"
-msgctxt "<startDate> - <endDate>"
-msgid "%1 - %2"
-msgstr "%1 - %2"
-
-#: src/templates/itip_freebusy.html:36
-#, fuzzy, kde-format
-#| msgctxt "date, fromTime - toTime "
-#| msgid "%1, %2 - %3"
-msgctxt "<date>, <startTime> - <endTime>"
-msgid "%1, %2 - %3"
-msgstr "%1, %2 - %3"
-
-#: src/templates/itip_todo.html:24
-#, fuzzy, kde-format
-#| msgctxt "<beginTime> - <endTime>"
-#| msgid "%1 - %2"
-msgctxt "<beginDateTime> - <endTime>"
-msgid "%1 - %2"
-msgstr "%1 - %2"
-
-#: src/templates/itip_todo.html:32
-msgid "Percent Done:"
-msgstr "ភាគរយ​ដែល​ធ្វើ​រួច ៖"
-
-#: src/templates/itip_todo.html:39
-#, fuzzy
-#| msgctxt "to-do due date/time"
-#| msgid "Due:"
-msgid "Due:"
-msgstr "ដល់​ពេល​កំណត់ ៖"
-
 #: src/templates/journal.html:5
 #, fuzzy
 #| msgid "Journals"
@@ -2158,6 +1372,630 @@ msgstr "បាន​បញ្ចប់ ៖"
 #| msgid "Percent Done:"
 msgid "Percent done:"
 msgstr "ភាគរយ​ដែល​ធ្វើ​រួច ៖"
+
+#: src/templates/todo.html:179
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#~ msgid "Organizer Unknown"
+#~ msgstr "មិន​ស្គាល់​អ្នក​រៀបចំ"
+
+#~ msgid "Sender"
+#~ msgstr "អ្នកផ្ញើ"
+
+#~ msgid "Summary unspecified"
+#~ msgstr "សេចក្ដី​សង្ខេប​ដែល​មិន​បាន​បញ្ជាក់"
+
+#~ msgid "Location unspecified"
+#~ msgstr "ទីតាំង​ដែល​មិន​បាន​បញ្ជាក់"
+
+#, fuzzy
+#~| msgid "Your response is requested"
+#~ msgid "Your response is requested."
+#~ msgstr "ចម្លើយ​តប​របស់​អ្នក​ត្រូវ​បាន​ស្នើ"
+
+#, fuzzy
+#~| msgid "Your response as <b>%1</b> is requested"
+#~ msgid "Your response as <b>%1</b> is requested."
+#~ msgstr "ចម្លើយ​ត​ប​របស់​អ្នក​ជា <b>%1</b> ត្រូវ​បាន​ស្នើ"
+
+#, fuzzy
+#~| msgid "No response is necessary"
+#~ msgid "No response is necessary."
+#~ msgstr "មិន​មាន​ចម្លើយ​តប​ដែល​ចាំបាច់"
+
+#, fuzzy
+#~| msgid "No response as <b>%1</b> is necessary"
+#~ msgid "No response as <b>%1</b> is necessary."
+#~ msgstr "មិន​មាន​ចម្លើយ​តប​ជា <b>%1</b> ដែល​ចាំបាច់"
+
+#~ msgid "(<b>Note</b>: the Organizer preset your response to <b>%1</b>)"
+#~ msgstr "(<b>ចំណាំ</b> ៖ អ្នក​រៀបចំ​បាន​កំណត់​ចម្លើយ​តប​របស់​អ្នក​ជាមុន​ទៅ <b>%1</b>)"
+
+#, fuzzy
+#~| msgctxt "look for scheduling conflicts"
+#~| msgid "Check my calendar"
+#~ msgid "Check my calendar"
+#~ msgstr "ពិនិត្យមើល​ប្រតិទិន​របស់ខ្ញុំ"
+
+#~ msgid "Please respond again to the original proposal."
+#~ msgstr "សូម​ឆ្លើយតប​ម្ដងទៀត​ទៅកាន់​សំណើ​ដើម ។"
+
+#~ msgctxt "minutes part of duration"
+#~ msgid "1 minute"
+#~ msgid_plural "%1 minutes "
+#~ msgstr[0] "%1 នាទី"
+
+#, fuzzy
+#~| msgid "This invitation has been published"
+#~ msgid "This invitation has been published."
+#~ msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​បោះពុម្ពផ្សាយ"
+
+#, fuzzy
+#~| msgid "This invitation has been updated by the organizer %1"
+#~ msgid "This invitation has been updated by the organizer %1."
+#~ msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ​អ្នករៀបចំ %1"
+
+#, fuzzy
+#~| msgid "This invitation has been updated by %1 as a representative of %2"
+#~ msgid "This invitation has been updated by %1 as a representative of %2."
+#~ msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ %1 ជា​តំណាង​របស់ %2"
+
+#, fuzzy
+#~| msgid "I created this invitation"
+#~ msgid "I created this invitation."
+#~ msgstr "ខ្ញុំ​បាន​បង្កើត​ការ​អញ្ជើញ​នេះ"
+
+#, fuzzy
+#~| msgid "You received an invitation from %1"
+#~ msgid "You received an invitation from %1."
+#~ msgstr "អ្នក​បាន​ទទួល​ការ​អញ្ជើញ​ពី %1"
+
+#, fuzzy
+#~| msgid "You received an invitation from %1 as a representative of %2"
+#~ msgid "You received an invitation from %1 as a representative of %2."
+#~ msgstr "អ្នក​បាន​ទទួល​ការ​អញ្ជើញ​ពី %1 ជា​តំណាង​របស់ %2"
+
+#, fuzzy
+#~| msgid "This invitation was refreshed"
+#~ msgid "This invitation was refreshed."
+#~ msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​ធ្វើឲ្យ​ស្រស់"
+
+#, fuzzy
+#~| msgid "This invitation has been canceled"
+#~ msgid "This invitation has been canceled."
+#~ msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​បោះបង់"
+
+#, fuzzy
+#~| msgid "The organizer has revoked the invitation"
+#~ msgid "The organizer has revoked the invitation."
+#~ msgstr "អ្នក​រៀបចំ​បាន​ដកហូត​ការ​អញ្ជើញ​នេះ"
+
+#, fuzzy
+#~| msgid "Addition to the invitation"
+#~ msgid "Addition to the invitation."
+#~ msgstr "ការ​បន្ថែម​ទៅកាន់​ការ​អញ្ជើញ"
+
+#, fuzzy
+#~| msgid "%1 indicates this invitation still needs some action"
+#~ msgid "%1 indicates this invitation still needs some action."
+#~ msgstr "%1 បង្ហាញ​ថា​ការ​អញ្ជើញ​នេះ​នៅតែ​ត្រូវការ​សកម្មភាព​មួយ​ចំនួន"
+
+#, fuzzy
+#~| msgid "This invitation has been updated by attendee %1"
+#~ msgid "This invitation has been updated by attendee %1."
+#~ msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ​អ្នកចូលរួម %1"
+
+#, fuzzy
+#~| msgid "This invitation has been updated by an attendee"
+#~ msgid "This invitation has been updated by an attendee."
+#~ msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ​អ្នក​ចូលរួម"
+
+#, fuzzy
+#~| msgid "%1 accepts this invitation"
+#~ msgid "%1 accepts this invitation."
+#~ msgstr "%1 ព្រម​ទទួល​ការ​អញ្ជើញ​នេះ"
+
+#, fuzzy
+#~| msgid "%1 accepts this invitation on behalf of %2"
+#~ msgid "%1 accepts this invitation on behalf of %2."
+#~ msgstr "%1 ព្រម​ទទួល​ការ​អញ្ជើញ​នេះ​ជំនួស %2"
+
+#, fuzzy
+#~| msgid "%1 tentatively accepts this invitation"
+#~ msgid "%1 tentatively accepts this invitation."
+#~ msgstr "%1 ព្រម​ទទួល​ការ​អញ្ជើញ​នេះ​បណ្ដោះអាសន្ន"
+
+#, fuzzy
+#~| msgid "%1 tentatively accepts this invitation on behalf of %2"
+#~ msgid "%1 tentatively accepts this invitation on behalf of %2."
+#~ msgstr "%1 ព្រម​ទទួល​ការ​អញ្ជើញ​នេះ​បណ្ដោះអាសន្ន​ជំនួស %2"
+
+#, fuzzy
+#~| msgid "%1 declines this invitation"
+#~ msgid "%1 declines this invitation."
+#~ msgstr "%1 បដិសេធ​ការ​អញ្ជើញ​នេះ"
+
+#, fuzzy
+#~| msgid "%1 declines this invitation on behalf of %2"
+#~ msgid "%1 declines this invitation on behalf of %2."
+#~ msgstr "%1 បដិសេធ​ការ​អញ្ជើញ​នេះ​ជំនួស %2"
+
+#, fuzzy
+#~| msgid "%1 has delegated this invitation to %2"
+#~ msgid "%1 has delegated this invitation to %2."
+#~ msgstr "%1 បាន​ផ្ទេរ​ការ​អញ្ជើញ​នេះ​ទៅ %2"
+
+#, fuzzy
+#~| msgid "%1 has delegated this invitation"
+#~ msgid "%1 has delegated this invitation."
+#~ msgstr "%1 បាន​ផ្ទេរ​ការ​អញ្ជើញ​នេះ"
+
+#, fuzzy
+#~| msgid "This invitation is now completed"
+#~ msgid "This invitation is now completed."
+#~ msgstr "ការ​អញ្ជើញ​នេះ​ឥឡូវ​ត្រូវ​បាន​បញ្ចប់"
+
+#, fuzzy
+#~| msgid "%1 is still processing the invitation"
+#~ msgid "%1 is still processing the invitation."
+#~ msgstr "%1 នៅតែ​ដំណើរការ​ការ​អញ្ជើញ​"
+
+#, fuzzy
+#~| msgid "Unknown response to this invitation"
+#~ msgid "Unknown response to this invitation."
+#~ msgstr "មិន​ស្គាល់​ចម្លើយ​តប​ទៅកាន់​ការ​អញ្ជើញ​នេះ"
+
+#, fuzzy
+#~| msgid "%1 makes this counter proposal"
+#~ msgid "%1 makes this counter proposal."
+#~ msgstr "%1 បង្កើត​សំណើ​ច្រាស​នេះ"
+
+#, fuzzy
+#~| msgid "%1 declines your counter proposal"
+#~ msgid "%1 declines your counter proposal."
+#~ msgstr "%1 បដិសេធ​សំណើ​ច្រាស​របស់​អ្នក"
+
+#, fuzzy
+#~| msgid "%1 declines your counter proposal on behalf of %2"
+#~ msgid "%1 declines your counter proposal on behalf of %2."
+#~ msgstr "%1 បដិសេធ​សំណើ​ច្រាស​របស់​អ្នក​ជំនួស %2"
+
+#, fuzzy
+#~| msgid "Error: Event iTIP message with unknown method"
+#~ msgid "Error: Event iTIP message with unknown method."
+#~ msgstr "កំហុស ៖ សារ​ព្រឹត្តិការណ៍ iTIP ដែល​មាន​វិធីសាស្ត្រ​ដែល​មិន​ស្គាល់"
+
+#, fuzzy
+#~| msgid "This to-do has been published"
+#~ msgid "This to-do has been published."
+#~ msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​បោះពុម្ពផ្សាយ"
+
+#, fuzzy
+#~| msgid "This to-do has been updated by the organizer %1"
+#~ msgid "This to-do has been updated by the organizer %1."
+#~ msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ​អ្នក​រៀបចំ %1"
+
+#, fuzzy
+#~| msgid "This to-do has been updated by %1 as a representative of %2"
+#~ msgid "This to-do has been updated by %1 as a representative of %2."
+#~ msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ %1 ជា​តំណាង​របស់ %2"
+
+#, fuzzy
+#~| msgid "I created this to-do"
+#~ msgid "I created this to-do."
+#~ msgstr "ខ្ញុំ​បាន​បង្កើត​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ"
+
+#, fuzzy
+#~| msgid "You have been assigned this to-do by %1"
+#~ msgid "You have been assigned this to-do by %1."
+#~ msgstr "អ្នក​ត្រូវ​បាន​ផ្ដល់​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ដោយ %1"
+
+#, fuzzy
+#~| msgid "You have been assigned this to-do by %1 as a representative of %2"
+#~ msgid "You have been assigned this to-do by %1 as a representative of %2."
+#~ msgstr "អ្នក​ត្រូវ​បាន​ផ្ដល់​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ដោយ %1 ជា​តំណាង​របស់ %2"
+
+#, fuzzy
+#~| msgid "This to-do was refreshed"
+#~ msgid "This to-do was refreshed."
+#~ msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​ធ្វើឲ្យ​ស្រស់"
+
+#, fuzzy
+#~| msgid "This to-do was canceled"
+#~ msgid "This to-do was canceled."
+#~ msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​បោះបង់"
+
+#, fuzzy
+#~| msgid "The organizer has revoked this to-do"
+#~ msgid "The organizer has revoked this to-do."
+#~ msgstr "អ្នក​រៀបចំ​បាន​ដកហូត​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ"
+
+#, fuzzy
+#~| msgid "Addition to the to-do"
+#~ msgid "Addition to the to-do."
+#~ msgstr "ការ​បន្ថែម​ទៅកាន់​​កិច្ចការ​ត្រូវ​ធ្វើ"
+
+#, fuzzy
+#~| msgid "%1 indicates this to-do assignment still needs some action"
+#~ msgid "%1 indicates this to-do assignment still needs some action."
+#~ msgstr "%1 បង្ហាញ​ថា កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​នៅតែ​ត្រូវការ​សកម្មភាព​មួយ​ចំនួន"
+
+#, fuzzy
+#~| msgid "This to-do has been completed by assignee %1"
+#~ msgid "This to-do has been completed by assignee %1."
+#~ msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​បញ្ចប់​ដោយ​អ្នកផ្ដល់ %1"
+
+#, fuzzy
+#~| msgid "This to-do has been updated by assignee %1"
+#~ msgid "This to-do has been updated by assignee %1."
+#~ msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ​អ្នកផ្ដល់ %1"
+
+#, fuzzy
+#~| msgid "This to-do has been completed by an assignee"
+#~ msgid "This to-do has been completed by an assignee."
+#~ msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​បញ្ចប់​ដោយ​អ្នក​ផ្ដល់"
+
+#, fuzzy
+#~| msgid "This to-do has been updated by an assignee"
+#~ msgid "This to-do has been updated by an assignee."
+#~ msgstr "កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព​ដោយ​អ្នក​ផ្ដល់"
+
+#, fuzzy
+#~| msgid "%1 accepts this to-do"
+#~ msgid "%1 accepts this to-do."
+#~ msgstr "%1 ព្រម​ទទួល​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ"
+
+#, fuzzy
+#~| msgid "%1 accepts this to-do on behalf of %2"
+#~ msgid "%1 accepts this to-do on behalf of %2."
+#~ msgstr "%1 ព្រម​ទទួល​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ជំនួស %2"
+
+#, fuzzy
+#~| msgid "%1 tentatively accepts this to-do"
+#~ msgid "%1 tentatively accepts this to-do."
+#~ msgstr "%1 ព្រម​ទទួល​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​បណ្ដោះអាសន្ន"
+
+#, fuzzy
+#~| msgid "%1 tentatively accepts this to-do on behalf of %2"
+#~ msgid "%1 tentatively accepts this to-do on behalf of %2."
+#~ msgstr "%1 ព្រម​ទទួល​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​បណ្ដោះអាសន្ន​ជំនួស %2"
+
+#, fuzzy
+#~| msgid "%1 declines this to-do"
+#~ msgid "%1 declines this to-do."
+#~ msgstr "%1 បដិសេធ​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ"
+
+#, fuzzy
+#~| msgid "%1 declines this to-do on behalf of %2"
+#~ msgid "%1 declines this to-do on behalf of %2."
+#~ msgstr "%1 បដិសេធ​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ជំនួស %2"
+
+#, fuzzy
+#~| msgid "%1 has delegated this to-do to %2"
+#~ msgid "%1 has delegated this to-do to %2."
+#~ msgstr "%1 បាន​ផ្ទេរ​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ទៅ %2"
+
+#, fuzzy
+#~| msgid "%1 has delegated this to-do"
+#~ msgid "%1 has delegated this to-do."
+#~ msgstr "%1 បាន​ផ្ទេរ​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ"
+
+#, fuzzy
+#~| msgid "The request for this to-do is now completed"
+#~ msgid "The request for this to-do is now completed."
+#~ msgstr "សំណើ​សម្រាប់​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ​ឥឡូវ​ត្រូវ​បាន​បញ្ចប់"
+
+#, fuzzy
+#~| msgid "%1 is still processing the to-do"
+#~ msgid "%1 is still processing the to-do."
+#~ msgstr "%1 នៅតែ​ដំណើរការ​កិច្ចការ​ត្រូវ​ធ្វើ"
+
+#, fuzzy
+#~| msgid "Unknown response to this to-do"
+#~ msgid "Unknown response to this to-do."
+#~ msgstr "មិន​ស្គាល់​ចម្លើយ​តប​ចំពោះ​កិច្ចការ​ត្រូវ​ធ្វើ​នេះ"
+
+#, fuzzy
+#~| msgid "%1 declines the counter proposal"
+#~ msgid "%1 declines the counter proposal."
+#~ msgstr "%1 បដិសេធ​សំណើ​ច្រាស"
+
+#, fuzzy
+#~| msgid "%1 declines the counter proposal on behalf of %2"
+#~ msgid "%1 declines the counter proposal on behalf of %2."
+#~ msgstr "%1 បដិសេធ​សំណើ​ច្រាស​ជំនួស %2"
+
+#, fuzzy
+#~| msgid "Error: To-do iTIP message with unknown method"
+#~ msgid "Error: To-do iTIP message with unknown method."
+#~ msgstr "កំហុស ៖ សារ​កិច្ចការ​ត្រូវ​ធ្វើ iTIP ដែល​មាន​វិធីសាស្ត្រ​ដែល​មិន​ស្គាល់"
+
+#, fuzzy
+#~| msgid "This journal has been published"
+#~ msgid "This journal has been published."
+#~ msgstr "ទិនានុប្បវត្តិ​នេះ​ត្រូវ​បាន​បោះពុម្ពផ្សាយ"
+
+#, fuzzy
+#~| msgid "You have been assigned this journal"
+#~ msgid "You have been assigned this journal."
+#~ msgstr "អ្នក​បាន​កំណត់​ទិនានុប្បវត្តិ​នេះ"
+
+#, fuzzy
+#~| msgid "This journal was refreshed"
+#~ msgid "This journal was refreshed."
+#~ msgstr "ទិនានុប្បវត្តិ​នេះ​ត្រូវ​បាន​ធ្វើឲ្យ​ស្រស់"
+
+#, fuzzy
+#~| msgid "This journal was canceled"
+#~ msgid "This journal was canceled."
+#~ msgstr "ទិនានុប្បវត្តិ​នេះ​ត្រូវ​បាន​បោះបង់"
+
+#, fuzzy
+#~| msgid "Addition to the journal"
+#~ msgid "Addition to the journal."
+#~ msgstr "ការ​បន្ថែម​ទៅកាន់​ទិនានុប្បវត្តិ"
+
+#, fuzzy
+#~| msgid "Sender indicates this journal assignment still needs some action"
+#~ msgid "Sender indicates this journal assignment still needs some action."
+#~ msgstr "អ្នក​ផ្ញើ​បង្ហាញ​ថា ទិនានុប្បវត្តិ​នេះ​នៅតែ​ត្រូវការ​សកម្មភាព​មួយចំនួន"
+
+#, fuzzy
+#~| msgid "Sender accepts this journal"
+#~ msgid "Sender accepts this journal."
+#~ msgstr "អ្នក​ផ្ញើ​ព្រម​ទទួល​ទិនានុប្បវត្តិ​នេះ"
+
+#, fuzzy
+#~| msgid "Sender tentatively accepts this journal"
+#~ msgid "Sender tentatively accepts this journal."
+#~ msgstr "អ្នក​ផ្ញើ​ព្រម​ទទួល​ទិនានុប្បវត្តិ​នេះ​បណ្ដោះអាសន្ន"
+
+#, fuzzy
+#~| msgid "Sender declines this journal"
+#~ msgid "Sender declines this journal."
+#~ msgstr "អ្នក​ផ្ញើ​បដិសេធ​ទិនានុប្បវត្តិ​នេះ"
+
+#, fuzzy
+#~| msgid "Sender has delegated this request for the journal"
+#~ msgid "Sender has delegated this request for the journal."
+#~ msgstr "អ្នក​ផ្ញើ​បាន​ផ្ទេរ​សំណើ​នេះ​សម្រាប់​ទិនានុប្បវត្តិ"
+
+#, fuzzy
+#~| msgid "The request for this journal is now completed"
+#~ msgid "The request for this journal is now completed."
+#~ msgstr "សំណើ​សម្រាប់​ទិនានុប្បវត្តិ​នេះ ឥឡូវ​បាន​បញ្ចប់"
+
+#, fuzzy
+#~| msgid "Sender is still processing the invitation"
+#~ msgid "Sender is still processing the invitation."
+#~ msgstr "អ្នក​ផ្ញើ​នៅតែ​ដំណើរការ​ការ​អញ្ជើញ​នេះ"
+
+#, fuzzy
+#~| msgid "Unknown response to this journal"
+#~ msgid "Unknown response to this journal."
+#~ msgstr "មិន​ស្គាល់​ចម្លើយ​តប​ទៅកាន់​ទិនានុប្បវត្តិ​នេះ"
+
+#, fuzzy
+#~| msgid "Sender makes this counter proposal"
+#~ msgid "Sender makes this counter proposal."
+#~ msgstr "អ្នក​ផ្ញើ​បង្កើត​សំណើ​ច្រាស​នេះ"
+
+#, fuzzy
+#~| msgid "Sender declines the counter proposal"
+#~ msgid "Sender declines the counter proposal."
+#~ msgstr "អ្នក​ផ្ញើ​បដិសេធ​សំណើ​ច្រាស"
+
+#, fuzzy
+#~| msgid "Error: Journal iTIP message with unknown method"
+#~ msgid "Error: Journal iTIP message with unknown method."
+#~ msgstr "កំហុស ៖ សារ​ទិនានុប្បវត្តិ iTIP ​មាន​វិធីសាស្ត្រ​ដែល​មិន​ស្គាល់"
+
+#, fuzzy
+#~| msgid "This free/busy list has been published"
+#~ msgid "This free/busy list has been published."
+#~ msgstr "បញ្ជី​ទំនេរ/រវល់​នេះ​​ត្រូវ​បាន​បោះពុម្ពផ្សាយ"
+
+#, fuzzy
+#~| msgid "The free/busy list has been requested"
+#~ msgid "The free/busy list has been requested."
+#~ msgstr "បញ្ជី​ទំនេរ/រវល់​ត្រូវ​បាន​ស្នើ"
+
+#, fuzzy
+#~| msgid "This free/busy list was refreshed"
+#~ msgid "This free/busy list was refreshed."
+#~ msgstr "បញ្ជី​ទំនេរ/រវល់​​ត្រូវ​បាន​ធ្វើឲ្យ​ស្រស់"
+
+#, fuzzy
+#~| msgid "This free/busy list was canceled"
+#~ msgid "This free/busy list was canceled."
+#~ msgstr "បញ្ជី​ទំនេរ/រវល់​នេះ​ត្រូវ​បាន​បោះបង់"
+
+#, fuzzy
+#~| msgid "Addition to the free/busy list"
+#~ msgid "Addition to the free/busy list."
+#~ msgstr "ការ​បន្ថែម​ទៅកាន់​បញ្ជី​ទំនេរ/រវល់"
+
+#, fuzzy
+#~| msgid "Reply to the free/busy list"
+#~ msgid "Reply to the free/busy list."
+#~ msgstr "ឆ្លើយតប​ទៅកាន់​បញ្ជី​ទំនេរ/រវល់"
+
+#, fuzzy
+#~| msgid "Error: Free/Busy iTIP message with unknown method"
+#~ msgid "Error: Free/Busy iTIP message with unknown method."
+#~ msgstr "កំហុស ៖សារ​ទំនេរ/រវល់ iTIP មាន​វិធីសាស្ត្រ​ដែល​មិន​ស្គាល់"
+
+#, fuzzy
+#~| msgid "%1 (<i>unrecorded</i>)"
+#~ msgid "%1 (<i>unrecorded</i>)"
+#~ msgstr "%1 (<i>មិន​បាន​កត់ត្រា</i>)"
+
+#, fuzzy
+#~| msgid "[Record]"
+#~ msgid "Record"
+#~ msgstr "[Record]"
+
+#, fuzzy
+#~| msgid "[Move to Trash]"
+#~ msgid "Move to Trash"
+#~ msgstr "[ផ្លាស់ទី​ទៅ​ធុងសំរាម]"
+
+#~ msgctxt "accept invitation"
+#~ msgid "Accept"
+#~ msgstr "ព្រម​ទទួល"
+
+#, fuzzy
+#~| msgctxt "@item event is tentative"
+#~| msgid "Tentative"
+#~ msgctxt "Accept invitation conditionally"
+#~ msgid "Tentative"
+#~ msgstr "បណ្ដោះអាសន្ន"
+
+#~ msgctxt "decline invitation"
+#~ msgid "Decline"
+#~ msgstr "បដិសេធ"
+
+#, fuzzy
+#~| msgctxt "invitation counter proposal"
+#~| msgid "Counter proposal"
+#~ msgctxt "invitation counter proposal"
+#~ msgid "Counter proposal ..."
+#~ msgstr "សំណើ​ច្រាស"
+
+#, fuzzy
+#~| msgctxt "delegate inviation to another"
+#~| msgid "Delegate"
+#~ msgctxt "delegate invitation to another"
+#~ msgid "Delegate ..."
+#~ msgstr "ផ្ទេរ"
+
+#, fuzzy
+#~| msgctxt "accept invitation"
+#~| msgid "Accept"
+#~ msgid "Accept"
+#~ msgstr "ព្រម​ទទួល"
+
+#, fuzzy
+#~| msgctxt "decline invitation"
+#~| msgid "Decline"
+#~ msgid "Decline"
+#~ msgstr "បដិសេធ"
+
+#, fuzzy
+#~| msgid "[Record invitation in my to-do list]"
+#~ msgid "Record invitation in my to-do list"
+#~ msgstr "[កត់ត្រា​ការ​អញ្ជើញ​នៅ​ក្នុង​បញ្ជី​កិច្ចការ​ត្រូវ​ធ្វើ​របស់ខ្ញុំ]"
+
+#, fuzzy
+#~| msgid "[Record invitation in my calendar]"
+#~ msgid "Record invitation in my calendar"
+#~ msgstr "[កត់ត្រា​ការ​អញ្ជើញ​នៅ​ក្នុង​ប្រតិទិន​របស់ខ្ញុំ]"
+
+#, fuzzy
+#~| msgid "[Record response in my to-do list]"
+#~ msgid "Record response in my to-do list"
+#~ msgstr "[កត់ត្រា​ចម្លើយ​តប​នៅ​ក្នុង​បញ្ជី​កិច្ចការ​ត្រូវ​ធ្វើ​របស់ខ្ញុំ]"
+
+#, fuzzy
+#~| msgid "[Record response in my calendar]"
+#~ msgid "Record response in my calendar"
+#~ msgstr "[កត់ត្រា​ចម្លើយ​តប​នៅ​ក្នុង​ប្រតិទិន​របស់ខ្ញុំ]"
+
+#~ msgid "Remove invitation from my to-do list"
+#~ msgstr "យក​ការ​អញ្ជើញ​ចេញពី​បញ្ជី​កិច្ចការ​ត្រូវ​ធ្វើ​របស់ខ្ញុំ"
+
+#~ msgid "Remove invitation from my calendar"
+#~ msgstr "យក​ការ​អញ្ជើញ​ចេញពី​ប្រតិទិន​របស់ខ្ញុំ"
+
+#, fuzzy
+#~| msgid "Your <b>%1</b> response has been recorded"
+#~ msgid "Your <b>%1</b> response has been recorded."
+#~ msgstr "ចម្លើយ​តប <b>%1</b> របស់​អ្នក​ត្រូវ​បាន​កត់ត្រា"
+
+#, fuzzy
+#~| msgid "Your status for this invitation is <b>%1</b>"
+#~ msgid "Your status for this invitation is <b>%1</b>."
+#~ msgstr "ស្ថានភាព​របស់​អ្នក​សម្រាប់​ការ​អញ្ជើញ​នេះ​គឺ <b>%1</b>"
+
+#, fuzzy
+#~| msgid "This invitation was canceled"
+#~ msgid "This invitation was canceled."
+#~ msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​បោះបង់"
+
+#, fuzzy
+#~| msgid "This invitation was accepted"
+#~ msgid "This invitation was accepted."
+#~ msgstr "ការ​អញ្ជើញ​នេះ​ត្រូវ​បាន​ទទួលយក"
+
+#, fuzzy
+#~| msgid "Awaiting delegation response"
+#~ msgid "Awaiting delegation response."
+#~ msgstr "រង់ចាំ​ចម្លើយ​តប​ក្នុង​ការ​ផ្ទេរ"
+
+#~ msgid "The <b>%1</b> response has been recorded"
+#~ msgstr "ចម្លើយ​តប <b>%1</b> ត្រូវ​បាន​កត់ត្រា"
+
+#, fuzzy
+#~| msgid "Assignees"
+#~ msgid "Assignees:"
+#~ msgstr "អ្នក​ផ្ដល់"
+
+#, fuzzy
+#~| msgctxt "@item participation is required"
+#~| msgid "Participant"
+#~ msgid "Participants:"
+#~ msgstr "អ្នកចូលរួម"
+
+#~ msgid "Where:"
+#~ msgstr "ទីកន្លែង ៖"
+
+#~ msgid "Person:"
+#~ msgstr "មនុស្ស ៖"
+
+#~ msgid "Start date:"
+#~ msgstr "កាលបរិច្ឆេទ​ចាប់ផ្ដើម ៖"
+
+#~ msgid "End date:"
+#~ msgstr "កាលបរិច្ឆេទ​បញ្ចប់ ៖"
+
+#, fuzzy
+#~| msgctxt "startDate for duration"
+#~| msgid "%1 for %2"
+#~ msgctxt "<startDate> for <duration>"
+#~ msgid "%1 for %2"
+#~ msgstr "%1 សម្រាប់ %2"
+
+#, fuzzy
+#~| msgctxt "<beginTime> - <endTime>"
+#~| msgid "%1 - %2"
+#~ msgctxt "<startDate> - <endDate>"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#, fuzzy
+#~| msgctxt "date, fromTime - toTime "
+#~| msgid "%1, %2 - %3"
+#~ msgctxt "<date>, <startTime> - <endTime>"
+#~ msgid "%1, %2 - %3"
+#~ msgstr "%1, %2 - %3"
+
+#, fuzzy
+#~| msgctxt "<beginTime> - <endTime>"
+#~| msgid "%1 - %2"
+#~ msgctxt "<beginDateTime> - <endTime>"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgid "Percent Done:"
+#~ msgstr "ភាគរយ​ដែល​ធ្វើ​រួច ៖"
+
+#, fuzzy
+#~| msgctxt "to-do due date/time"
+#~| msgid "Due:"
+#~ msgid "Due:"
+#~ msgstr "ដល់​ពេល​កំណត់ ៖"
 
 #~ msgid "Summary: %1\n"
 #~ msgstr "សេចក្ដី​សង្ខេប ៖ %1\n"
