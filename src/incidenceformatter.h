@@ -52,7 +52,6 @@ namespace IncidenceFormatter
   \a date is the QDate for which the toolTip should be computed; used
   mainly for recurring incidences. Note For to-dos, this a date between the
   start date and the due date (inclusive) of the occurrence.
-  \a richText if yes, the QString will be created as RichText.
 */
 KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalendarCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
 
