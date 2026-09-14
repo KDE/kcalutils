@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 00:45+0000\n"
+"POT-Creation-Date: 2026-09-14 00:44+0000\n"
 "PO-Revision-Date: 2020-09-16 01:57+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -65,57 +65,57 @@ msgstr[0] "1 secundă"
 msgstr[1] "%1 secunde"
 msgstr[2] "%1 de secunde"
 
-#: src/incidenceformatter.cpp:746
+#: src/incidenceformatter.cpp:744
 #, kde-format
 msgctxt "Event start"
 msgid "<i>From:</i> %1"
 msgstr "<i>De la:</i> %1"
 
-#: src/incidenceformatter.cpp:748
+#: src/incidenceformatter.cpp:746
 #, kde-format
 msgctxt "Event end"
 msgid "<i>To:</i> %1"
 msgstr "<i>Până la:</i> %1"
 
-#: src/incidenceformatter.cpp:750
+#: src/incidenceformatter.cpp:748
 #, fuzzy, kde-format
 #| msgid "<i>Date:</i> %1"
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
 msgstr "<i>Data:</i> %1"
 
-#: src/incidenceformatter.cpp:753 src/incidenceformatter.cpp:831
+#: src/incidenceformatter.cpp:751 src/incidenceformatter.cpp:829
 #, kde-format
 msgid "<i>Date:</i> %1"
 msgstr "<i>Data:</i> %1"
 
-#: src/incidenceformatter.cpp:759
+#: src/incidenceformatter.cpp:757
 #, kde-format
 msgctxt "time for event"
 msgid "<i>Time:</i> %1"
 msgstr "<i>Ora:</i> %1"
 
-#: src/incidenceformatter.cpp:761
+#: src/incidenceformatter.cpp:759
 #, kde-format
 msgctxt "time range for event"
 msgid "<i>Time:</i> %1 - %2"
 msgstr "<i>Ora:</i> %1 - %2"
 
-#: src/incidenceformatter.cpp:794
+#: src/incidenceformatter.cpp:792
 #, fuzzy, kde-format
 #| msgid "<i>Start:</i> %1"
 msgctxt "To-do's start date"
 msgid "<i>Start:</i> %1"
 msgstr "<i>Început:</i> %1"
 
-#: src/incidenceformatter.cpp:797
+#: src/incidenceformatter.cpp:795
 #, fuzzy, kde-format
 #| msgid "<i>Date:</i> %1"
 msgctxt "To-do's due date"
 msgid "<i>Due:</i> %1"
 msgstr "<i>Data:</i> %1"
 
-#: src/incidenceformatter.cpp:804
+#: src/incidenceformatter.cpp:802
 #, fuzzy, kde-format
 #| msgctxt "Event start"
 #| msgid "<i>From:</i> %1"
@@ -123,50 +123,50 @@ msgctxt "To-do's priority number"
 msgid "<i>Priority:</i> %1"
 msgstr "<i>De la:</i> %1"
 
-#: src/incidenceformatter.cpp:809
+#: src/incidenceformatter.cpp:807
 #, fuzzy, kde-format
 #| msgid "<i>Date:</i> %1"
 msgctxt "To-do's completed date"
 msgid "<i>Completed:</i> %1"
 msgstr "<i>Data:</i> %1"
 
-#: src/incidenceformatter.cpp:820
+#: src/incidenceformatter.cpp:818
 #, fuzzy, kde-format
 #| msgid "Percent Done:"
 msgctxt "To-do's percent complete:"
 msgid "<i>Percent Done:</i> %1%"
 msgstr "Procente finalizat:"
 
-#: src/incidenceformatter.cpp:839
+#: src/incidenceformatter.cpp:837
 #, kde-format
 msgid "<i>Period start:</i> %1"
 msgstr ""
 
-#: src/incidenceformatter.cpp:840
+#: src/incidenceformatter.cpp:838
 #, fuzzy, kde-format
 #| msgctxt "Event start"
 #| msgid "<i>From:</i> %1"
 msgid "<i>Period end:</i> %1"
 msgstr "<i>De la:</i> %1"
 
-#: src/incidenceformatter.cpp:865 src/templates/freebusy.html:5
+#: src/incidenceformatter.cpp:863 src/templates/freebusy.html:5
 #, kde-format
 msgid "Free/Busy information for %1"
 msgstr "Informații Liber/Ocupat pentru %1"
 
-#: src/incidenceformatter.cpp:886 src/incidenceformatter.cpp:888
+#: src/incidenceformatter.cpp:884 src/incidenceformatter.cpp:886
 #, kde-format
 msgctxt "attendee name (attendee status)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/incidenceformatter.cpp:891
+#: src/incidenceformatter.cpp:889
 #, kde-format
 msgid "%1"
 msgstr "%1"
 
-#: src/incidenceformatter.cpp:917 src/incidenceformatter.cpp:1054
-#: src/incidenceformatter.cpp:1528
+#: src/incidenceformatter.cpp:915 src/incidenceformatter.cpp:1052
+#: src/incidenceformatter.cpp:1526
 #, fuzzy, kde-format
 #| msgctxt "elipsis"
 #| msgid "..."
@@ -174,81 +174,81 @@ msgctxt "ellipsis"
 msgid "..."
 msgstr "..."
 
-#: src/incidenceformatter.cpp:937
+#: src/incidenceformatter.cpp:935
 #, kde-format
 msgid " (delegated by %1)"
 msgstr " (delegat de %1)"
 
-#: src/incidenceformatter.cpp:940
+#: src/incidenceformatter.cpp:938
 #, kde-format
 msgid " (delegated to %1)"
 msgstr " (delegat către %1)"
 
-#: src/incidenceformatter.cpp:960 src/templates/event.html:112
+#: src/incidenceformatter.cpp:958 src/templates/event.html:112
 #: src/templates/todo.html:93
 #, fuzzy, kde-format
 msgid "Organizer:"
 msgstr "Organizator"
 
-#: src/incidenceformatter.cpp:971 src/templates/event.html:124
+#: src/incidenceformatter.cpp:969 src/templates/event.html:124
 #: src/templates/todo.html:105
 #, fuzzy, kde-format
 msgid "Chair:"
 msgstr "Director"
 
-#: src/incidenceformatter.cpp:978 src/templates/event.html:137
+#: src/incidenceformatter.cpp:976 src/templates/event.html:137
 #: src/templates/todo.html:118
 #, kde-format
 msgid "Required Participants:"
 msgstr ""
 
-#: src/incidenceformatter.cpp:985
+#: src/incidenceformatter.cpp:983
 #, kde-format
 msgid "Optional Participants:"
 msgstr ""
 
-#: src/incidenceformatter.cpp:992 src/templates/event.html:163
+#: src/incidenceformatter.cpp:990 src/templates/event.html:163
 #: src/templates/todo.html:144
 #, kde-format
 msgid "Observers:"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1014 src/templates/event.html:13
+#: src/incidenceformatter.cpp:1012 src/templates/event.html:13
 #: src/templates/journal.html:14 src/templates/todo.html:14
 #, fuzzy, kde-format
 msgid "Calendar:"
 msgstr "Calendar"
 
-#: src/incidenceformatter.cpp:1022 src/templates/event.html:21
+#: src/incidenceformatter.cpp:1020 src/templates/event.html:21
 #: src/templates/todo.html:22
 #, fuzzy, kde-format
 msgid "Location:"
 msgstr "Amplasare:"
 
-#: src/incidenceformatter.cpp:1029 src/templates/event.html:60
+#: src/incidenceformatter.cpp:1027 src/templates/event.html:60
 #: src/templates/todo.html:54
 #, kde-format
 msgid "Duration:"
 msgstr "Durată:"
 
-#: src/incidenceformatter.cpp:1035 src/incidenceformatter.cpp:1045
+#: src/incidenceformatter.cpp:1033 src/incidenceformatter.cpp:1043
 #: src/templates/event.html:68 src/templates/todo.html:62
 #, kde-format
 msgid "Recurrence:"
 msgstr "Repetiție:"
 
-#: src/incidenceformatter.cpp:1046 src/templates/todo.html:64
+#: src/incidenceformatter.cpp:1044 src/templates/todo.html:64
 #, kde-format
 msgid "Exception"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1062 src/templates/event.html:96
+#: src/incidenceformatter.cpp:1060 src/templates/event.html:96
 #: src/templates/journal.html:30 src/templates/todo.html:74
 #, kde-format
 msgid "Description:"
 msgstr "Descriere:"
 
-#: src/incidenceformatter.cpp:1076 src/templates/event.html:104
+#: src/incidenceformatter.cpp:1074 src/templates/event.html:104
 #: src/templates/todo.html:85
 #, kde-format
 msgid "Reminder:"
@@ -257,7 +257,7 @@ msgstr[0] "Memento:"
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1104 src/templates/event.html:176
+#: src/incidenceformatter.cpp:1102 src/templates/event.html:176
 #: src/templates/journal.html:38 src/templates/todo.html:157
 #, kde-format
 msgid "Tag:"
@@ -266,329 +266,329 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1154 src/incidenceformatter.cpp:1228
+#: src/incidenceformatter.cpp:1152 src/incidenceformatter.cpp:1226
 #, kde-format
 msgid "No recurrence"
 msgstr "Fără recurență"
 
-#: src/incidenceformatter.cpp:1158
+#: src/incidenceformatter.cpp:1156
 #, kde-format
 msgid "31st Last"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1159
+#: src/incidenceformatter.cpp:1157
 #, fuzzy, kde-format
 msgid "30th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1160
+#: src/incidenceformatter.cpp:1158
 #, fuzzy, kde-format
 msgid "29th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1161
+#: src/incidenceformatter.cpp:1159
 #, fuzzy, kde-format
 msgid "28th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1162
+#: src/incidenceformatter.cpp:1160
 #, fuzzy, kde-format
 msgid "27th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1163
+#: src/incidenceformatter.cpp:1161
 #, fuzzy, kde-format
 msgid "26th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1164
+#: src/incidenceformatter.cpp:1162
 #, fuzzy, kde-format
 msgid "25th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1165
+#: src/incidenceformatter.cpp:1163
 #, fuzzy, kde-format
 msgid "24th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1166
+#: src/incidenceformatter.cpp:1164
 #, fuzzy, kde-format
 msgid "23rd Last"
 msgstr "a 3-a ultima"
 
-#: src/incidenceformatter.cpp:1167
+#: src/incidenceformatter.cpp:1165
 #, fuzzy, kde-format
 msgid "22nd Last"
 msgstr "a 2-a ultima"
 
-#: src/incidenceformatter.cpp:1168
+#: src/incidenceformatter.cpp:1166
 #, kde-format
 msgid "21st Last"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1169
+#: src/incidenceformatter.cpp:1167
 #, fuzzy, kde-format
 msgid "20th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1170
+#: src/incidenceformatter.cpp:1168
 #, fuzzy, kde-format
 msgid "19th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1171
+#: src/incidenceformatter.cpp:1169
 #, fuzzy, kde-format
 msgid "18th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1172
+#: src/incidenceformatter.cpp:1170
 #, fuzzy, kde-format
 msgid "17th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1173
+#: src/incidenceformatter.cpp:1171
 #, fuzzy, kde-format
 msgid "16th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1174
+#: src/incidenceformatter.cpp:1172
 #, fuzzy, kde-format
 msgid "15th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1175
+#: src/incidenceformatter.cpp:1173
 #, fuzzy, kde-format
 msgid "14th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1176
+#: src/incidenceformatter.cpp:1174
 #, fuzzy, kde-format
 msgid "13th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1177
+#: src/incidenceformatter.cpp:1175
 #, fuzzy, kde-format
 msgid "12th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1178
+#: src/incidenceformatter.cpp:1176
 #, fuzzy, kde-format
 msgid "11th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1179
+#: src/incidenceformatter.cpp:1177
 #, fuzzy, kde-format
 msgid "10th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1180
+#: src/incidenceformatter.cpp:1178
 #, fuzzy, kde-format
 msgid "9th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1181
+#: src/incidenceformatter.cpp:1179
 #, fuzzy, kde-format
 msgid "8th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1182
+#: src/incidenceformatter.cpp:1180
 #, fuzzy, kde-format
 msgid "7th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1183
+#: src/incidenceformatter.cpp:1181
 #, fuzzy, kde-format
 msgid "6th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1184
+#: src/incidenceformatter.cpp:1182
 #, kde-format
 msgid "5th Last"
 msgstr "a 5-a ultima"
 
-#: src/incidenceformatter.cpp:1185
+#: src/incidenceformatter.cpp:1183
 #, kde-format
 msgid "4th Last"
 msgstr "a 4-a ultima"
 
-#: src/incidenceformatter.cpp:1186
+#: src/incidenceformatter.cpp:1184
 #, kde-format
 msgid "3rd Last"
 msgstr "a 3-a ultima"
 
-#: src/incidenceformatter.cpp:1187
+#: src/incidenceformatter.cpp:1185
 #, kde-format
 msgid "2nd Last"
 msgstr "a 2-a ultima"
 
-#: src/incidenceformatter.cpp:1188
+#: src/incidenceformatter.cpp:1186
 #, fuzzy, kde-format
 msgctxt "last day of the month"
 msgid "Last"
 msgstr "Ultima"
 
-#: src/incidenceformatter.cpp:1189
+#: src/incidenceformatter.cpp:1187
 #, fuzzy, kde-format
 msgctxt "unknown day of the month"
 msgid "unknown"
 msgstr "necunoscut"
 
-#: src/incidenceformatter.cpp:1190
+#: src/incidenceformatter.cpp:1188
 #, kde-format
 msgid "1st"
 msgstr "1-a"
 
-#: src/incidenceformatter.cpp:1191
+#: src/incidenceformatter.cpp:1189
 #, kde-format
 msgid "2nd"
 msgstr "a 2-a"
 
-#: src/incidenceformatter.cpp:1192
+#: src/incidenceformatter.cpp:1190
 #, kde-format
 msgid "3rd"
 msgstr "a 3-a"
 
-#: src/incidenceformatter.cpp:1193
+#: src/incidenceformatter.cpp:1191
 #, kde-format
 msgid "4th"
 msgstr "a 4-a"
 
-#: src/incidenceformatter.cpp:1194
+#: src/incidenceformatter.cpp:1192
 #, kde-format
 msgid "5th"
 msgstr "a 5-a"
 
-#: src/incidenceformatter.cpp:1195
+#: src/incidenceformatter.cpp:1193
 #, kde-format
 msgid "6th"
 msgstr "a 6-a"
 
-#: src/incidenceformatter.cpp:1196
+#: src/incidenceformatter.cpp:1194
 #, kde-format
 msgid "7th"
 msgstr "a 7-a"
 
-#: src/incidenceformatter.cpp:1197
+#: src/incidenceformatter.cpp:1195
 #, kde-format
 msgid "8th"
 msgstr "a 8-a"
 
-#: src/incidenceformatter.cpp:1198
+#: src/incidenceformatter.cpp:1196
 #, kde-format
 msgid "9th"
 msgstr "a 9-a"
 
-#: src/incidenceformatter.cpp:1199
+#: src/incidenceformatter.cpp:1197
 #, kde-format
 msgid "10th"
 msgstr "a 10-a"
 
-#: src/incidenceformatter.cpp:1200
+#: src/incidenceformatter.cpp:1198
 #, kde-format
 msgid "11th"
 msgstr "a 11-a"
 
-#: src/incidenceformatter.cpp:1201
+#: src/incidenceformatter.cpp:1199
 #, kde-format
 msgid "12th"
 msgstr "a 12-a"
 
-#: src/incidenceformatter.cpp:1202
+#: src/incidenceformatter.cpp:1200
 #, kde-format
 msgid "13th"
 msgstr "a 13-a"
 
-#: src/incidenceformatter.cpp:1203
+#: src/incidenceformatter.cpp:1201
 #, kde-format
 msgid "14th"
 msgstr "a 14-a"
 
-#: src/incidenceformatter.cpp:1204
+#: src/incidenceformatter.cpp:1202
 #, kde-format
 msgid "15th"
 msgstr "a 15-a"
 
-#: src/incidenceformatter.cpp:1205
+#: src/incidenceformatter.cpp:1203
 #, kde-format
 msgid "16th"
 msgstr "a 16-a"
 
-#: src/incidenceformatter.cpp:1206
+#: src/incidenceformatter.cpp:1204
 #, kde-format
 msgid "17th"
 msgstr "a 17-a"
 
-#: src/incidenceformatter.cpp:1207
+#: src/incidenceformatter.cpp:1205
 #, kde-format
 msgid "18th"
 msgstr "a 18-a"
 
-#: src/incidenceformatter.cpp:1208
+#: src/incidenceformatter.cpp:1206
 #, kde-format
 msgid "19th"
 msgstr "a 19-a"
 
-#: src/incidenceformatter.cpp:1209
+#: src/incidenceformatter.cpp:1207
 #, kde-format
 msgid "20th"
 msgstr "a 20-a"
 
-#: src/incidenceformatter.cpp:1210
+#: src/incidenceformatter.cpp:1208
 #, kde-format
 msgid "21st"
 msgstr "a 21-a"
 
-#: src/incidenceformatter.cpp:1211
+#: src/incidenceformatter.cpp:1209
 #, kde-format
 msgid "22nd"
 msgstr "a 22-a"
 
-#: src/incidenceformatter.cpp:1212
+#: src/incidenceformatter.cpp:1210
 #, kde-format
 msgid "23rd"
 msgstr "a 23-a"
 
-#: src/incidenceformatter.cpp:1213
+#: src/incidenceformatter.cpp:1211
 #, kde-format
 msgid "24th"
 msgstr "a 24-a"
 
-#: src/incidenceformatter.cpp:1214
+#: src/incidenceformatter.cpp:1212
 #, kde-format
 msgid "25th"
 msgstr "a 25-a"
 
-#: src/incidenceformatter.cpp:1215
+#: src/incidenceformatter.cpp:1213
 #, kde-format
 msgid "26th"
 msgstr "a 27-a"
 
-#: src/incidenceformatter.cpp:1216
+#: src/incidenceformatter.cpp:1214
 #, kde-format
 msgid "27th"
 msgstr "a 27-a"
 
-#: src/incidenceformatter.cpp:1217
+#: src/incidenceformatter.cpp:1215
 #, kde-format
 msgid "28th"
 msgstr "a 28-a"
 
-#: src/incidenceformatter.cpp:1218
+#: src/incidenceformatter.cpp:1216
 #, kde-format
 msgid "29th"
 msgstr "a 29-a"
 
-#: src/incidenceformatter.cpp:1219
+#: src/incidenceformatter.cpp:1217
 #, kde-format
 msgid "30th"
 msgstr "a 30-a"
 
-#: src/incidenceformatter.cpp:1220
+#: src/incidenceformatter.cpp:1218
 #, kde-format
 msgid "31st"
 msgstr "a 31-a"
 
-#: src/incidenceformatter.cpp:1235
+#: src/incidenceformatter.cpp:1233
 #, kde-format
 msgid "Recurs every minute until %2"
 msgid_plural "Recurs every %1 minutes until %2"
@@ -596,17 +596,17 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1237 src/incidenceformatter.cpp:1248
-#: src/incidenceformatter.cpp:1259 src/incidenceformatter.cpp:1289
-#: src/incidenceformatter.cpp:1310 src/incidenceformatter.cpp:1333
-#: src/incidenceformatter.cpp:1357 src/incidenceformatter.cpp:1394
-#: src/incidenceformatter.cpp:1422
+#: src/incidenceformatter.cpp:1235 src/incidenceformatter.cpp:1246
+#: src/incidenceformatter.cpp:1257 src/incidenceformatter.cpp:1287
+#: src/incidenceformatter.cpp:1308 src/incidenceformatter.cpp:1331
+#: src/incidenceformatter.cpp:1355 src/incidenceformatter.cpp:1392
+#: src/incidenceformatter.cpp:1420
 #, fuzzy, kde-format, kde-kuit-format
 msgctxt "number of occurrences"
 msgid " (%1 occurrences)"
 msgstr "(%1 de ocurențe.)"
 
-#: src/incidenceformatter.cpp:1240
+#: src/incidenceformatter.cpp:1238
 #, kde-format
 msgid "Recurs every minute"
 msgid_plural "Recurs every %1 minutes"
@@ -614,7 +614,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1246
+#: src/incidenceformatter.cpp:1244
 #, kde-format
 msgid "Recurs hourly until %2"
 msgid_plural "Recurs every %1 hours until %2"
@@ -622,7 +622,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1251
+#: src/incidenceformatter.cpp:1249
 #, kde-format
 msgid "Recurs hourly"
 msgid_plural "Recurs every %1 hours"
@@ -630,7 +630,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1257
+#: src/incidenceformatter.cpp:1255
 #, kde-format
 msgid "Recurs daily until %2"
 msgid_plural "Recurs every %1 days until %2"
@@ -638,7 +638,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1262
+#: src/incidenceformatter.cpp:1260
 #, kde-format
 msgid "Recurs daily"
 msgid_plural "Recurs every %1 days"
@@ -646,19 +646,19 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1272
+#: src/incidenceformatter.cpp:1270
 #, kde-format
 msgctxt "separator for list of days"
 msgid ", "
 msgstr ", "
 
-#: src/incidenceformatter.cpp:1279
+#: src/incidenceformatter.cpp:1277
 #, kde-format
 msgctxt "Recurs weekly on no days"
 msgid "no days"
 msgstr "fără zile"
 
-#: src/incidenceformatter.cpp:1283
+#: src/incidenceformatter.cpp:1281
 #, kde-format
 msgctxt "Recurs weekly on [list of days] until end-date"
 msgid "Recurs weekly on %2 until %3"
@@ -667,7 +667,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1292
+#: src/incidenceformatter.cpp:1290
 #, kde-format
 msgctxt "Recurs weekly on [list of days]"
 msgid "Recurs weekly on %2"
@@ -676,7 +676,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1303
+#: src/incidenceformatter.cpp:1301
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
 msgid "Recurs every month on the %2 %3 until %4"
@@ -685,7 +685,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1314
+#: src/incidenceformatter.cpp:1312
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname"
 msgid "Recurs every month on the %2 %3"
@@ -694,7 +694,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1327
+#: src/incidenceformatter.cpp:1325
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day until end-date"
 msgid "Recurs monthly on the %2 day until %3"
@@ -703,7 +703,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1337
+#: src/incidenceformatter.cpp:1335
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day"
 msgid "Recurs monthly on the %2 day"
@@ -712,7 +712,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1350
+#: src/incidenceformatter.cpp:1348
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...] until end-date"
 msgid "Recurs yearly on %2 %3 until %4"
@@ -721,7 +721,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1363
+#: src/incidenceformatter.cpp:1361
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %2 %3"
@@ -730,13 +730,13 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1371 src/incidenceformatter.cpp:1376
+#: src/incidenceformatter.cpp:1369 src/incidenceformatter.cpp:1374
 #, kde-format
 msgctxt "Recurs Every year on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %1 %2"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1387
+#: src/incidenceformatter.cpp:1385
 #, kde-format
 msgctxt "Recurs every N years on day N until end-date"
 msgid "Recurs every year on day %2 until %3"
@@ -745,7 +745,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1398
+#: src/incidenceformatter.cpp:1396
 #, kde-format
 msgctxt "Recurs every N YEAR[S] on day N"
 msgid "Recurs every year on day %2"
@@ -754,7 +754,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1413
+#: src/incidenceformatter.cpp:1411
 #, kde-format
 msgctxt ""
 "Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
@@ -764,7 +764,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1428
+#: src/incidenceformatter.cpp:1426
 #, kde-kuit-format
 msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
 msgid "Every year on the %2 %3 of %4"
@@ -773,18 +773,18 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/incidenceformatter.cpp:1442
+#: src/incidenceformatter.cpp:1440
 #, kde-format
 msgid "Incidence recurs"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1455
+#: src/incidenceformatter.cpp:1453
 #, fuzzy, kde-format
 msgid "minute %1"
 msgstr " minut"
 
-#: src/incidenceformatter.cpp:1497 src/incidenceformatter.cpp:1551
-#: src/incidenceformatter.cpp:1577 src/incidenceformatter.cpp:1589
+#: src/incidenceformatter.cpp:1495 src/incidenceformatter.cpp:1549
+#: src/incidenceformatter.cpp:1575 src/incidenceformatter.cpp:1587
 #, kde-format
 msgid "1 day"
 msgid_plural "%1 days"
@@ -792,12 +792,12 @@ msgstr[0] "1 zi"
 msgstr[1] "%1 zile"
 msgstr[2] "%1 de zile"
 
-#: src/incidenceformatter.cpp:1530
+#: src/incidenceformatter.cpp:1528
 #, kde-format
 msgid "%1 (excluding %2)"
 msgstr "%1 (excluzând %2)"
 
-#: src/incidenceformatter.cpp:1557
+#: src/incidenceformatter.cpp:1555
 #, kde-format
 msgid "1 hour"
 msgid_plural "%1 hours"
@@ -805,7 +805,7 @@ msgstr[0] "1 oră"
 msgstr[1] "%1 ore"
 msgstr[2] "%1 de ore"
 
-#: src/incidenceformatter.cpp:1563
+#: src/incidenceformatter.cpp:1561
 #, kde-format
 msgid "1 minute"
 msgid_plural "%1 minutes"
@@ -813,54 +813,54 @@ msgstr[0] "1 minut"
 msgstr[1] "%1 minute"
 msgstr[2] "%1 de minute"
 
-#: src/incidenceformatter.cpp:1580
+#: src/incidenceformatter.cpp:1578
 #, kde-format
 msgid "forever"
 msgstr "permanent"
 
-#: src/incidenceformatter.cpp:1622
+#: src/incidenceformatter.cpp:1620
 #, kde-format
 msgctxt "N days/hours/minutes before the start datetime"
 msgid "%1 before the start"
 msgstr "%1 înainte de început"
 
-#: src/incidenceformatter.cpp:1624
+#: src/incidenceformatter.cpp:1622
 #, kde-format
 msgctxt "N days/hours/minutes after the start datetime"
 msgid "%1 after the start"
 msgstr "%1 după început"
 
-#: src/incidenceformatter.cpp:1635
+#: src/incidenceformatter.cpp:1633
 #, kde-format
 msgctxt "N days/hours/minutes before the due datetime"
 msgid "%1 before the to-do is due"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1637
+#: src/incidenceformatter.cpp:1635
 #, kde-format
 msgctxt "N days/hours/minutes before the end datetime"
 msgid "%1 before the end"
 msgstr "%1 înainte de sfârșit"
 
-#: src/incidenceformatter.cpp:1641
+#: src/incidenceformatter.cpp:1639
 #, fuzzy, kde-format
 msgctxt "N days/hours/minutes after the due datetime"
 msgid "%1 after the to-do is due"
 msgstr "După termenul-limită"
 
-#: src/incidenceformatter.cpp:1643
+#: src/incidenceformatter.cpp:1641
 #, kde-format
 msgctxt "N days/hours/minutes after the end datetime"
 msgid "%1 after the end"
 msgstr "%1 după sfârșit"
 
-#: src/incidenceformatter.cpp:1661
+#: src/incidenceformatter.cpp:1659
 #, kde-format
 msgctxt "reminder occurs at datetime"
 msgid "at %1"
 msgstr "la %1"
 
-#: src/incidenceformatter.cpp:1668
+#: src/incidenceformatter.cpp:1666
 #, kde-format
 msgid "repeats once"
 msgid_plural "repeats %1 times"
@@ -868,31 +868,31 @@ msgstr[0] "se repetă o dată"
 msgstr[1] "se repetă de %1 ori"
 msgstr[2] "se repetă de %1 de ori"
 
-#: src/incidenceformatter.cpp:1669
+#: src/incidenceformatter.cpp:1667
 #, kde-format
 msgctxt "interval is N days/hours/minutes"
 msgid "interval is %1"
 msgstr "intervalul e %1"
 
-#: src/incidenceformatter.cpp:1670
+#: src/incidenceformatter.cpp:1668
 #, kde-format
 msgctxt "(repeat string, interval string)"
 msgid "(%1, %2)"
 msgstr "(%1, %2)"
 
-#: src/incidenceformatter.cpp:1675
+#: src/incidenceformatter.cpp:1673
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1679
+#: src/incidenceformatter.cpp:1677
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
 msgstr ""
 
-#: src/incidenceformatter.cpp:1682
+#: src/incidenceformatter.cpp:1680
 #, fuzzy, kde-format
 #| msgctxt "attendee name (attendee status)"
 #| msgid "%1 (%2)"
