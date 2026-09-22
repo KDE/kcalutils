@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:44+0000\n"
-"PO-Revision-Date: 2026-05-30 17:07-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +43,7 @@ msgstr "خەت كۆرسەت"
 msgctxt "hours part of duration"
 msgid "1 hour "
 msgid_plural "%1 hours "
-msgstr[0] "‏%1‎‏ سائەت "
+msgstr[0] "%1 سائەت "
 
 #: src/incidenceformatter.cpp:578
 #, kde-format
@@ -143,12 +143,12 @@ msgstr "%1 نىڭ بىكار/ئالدىراش ئۇچۇرى"
 #, kde-format
 msgctxt "attendee name (attendee status)"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: src/incidenceformatter.cpp:889
 #, kde-format
 msgid "%1"
-msgstr "%1"
+msgstr ""
 
 #: src/incidenceformatter.cpp:915 src/incidenceformatter.cpp:1052
 #: src/incidenceformatter.cpp:1526
@@ -742,7 +742,7 @@ msgstr ""
 #, kde-format
 msgid "1 hour"
 msgid_plural "%1 hours"
-msgstr[0] "‏%1‎‏ سائەت"
+msgstr[0] "%1 سائەت"
 
 #: src/incidenceformatter.cpp:1561
 #, kde-format
@@ -831,7 +831,7 @@ msgstr ""
 #, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: src/stringify.cpp:41
 #, kde-format
@@ -1139,19 +1139,19 @@ msgstr "چېسلا:"
 #, kde-format
 msgctxt "<beginDate> - <endDate>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr ""
 
 #: src/templates/event.html:34 src/templates/event.html:44
 #, kde-format
 msgctxt "Date as string"
 msgid "%1"
-msgstr "%1"
+msgstr ""
 
 #: src/templates/event.html:41
 #, kde-format
 msgctxt "<beginDateTime> - <endDateTime>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr ""
 
 #: src/templates/event.html:47
 msgid "Time:"
@@ -1161,13 +1161,13 @@ msgstr "ۋاقتى:"
 #, kde-format
 msgctxt "<beginTime> - <endTime>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr ""
 
 #: src/templates/event.html:51
 #, kde-format
 msgctxt "Time as string"
 msgid "%1"
-msgstr "%1"
+msgstr ""
 
 #: src/templates/event.html:70
 msgctxt "Exception in event recurrence"
@@ -1189,7 +1189,7 @@ msgstr ""
 #: src/templates/event.html:184 src/templates/todo.html:186
 msgid "Attachment:"
 msgid_plural "Attachments:"
-msgstr[0] "قوشۇلمىلار:"
+msgstr[0] "قوشۇلما:"
 
 #: src/templates/event.html:197 src/templates/journal.html:47
 #: src/templates/todo.html:200
@@ -1235,7 +1235,7 @@ msgstr "%1، %2 - %3"
 #, kde-format
 msgctxt "fromDateTime - endDateTime"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr ""
 
 #: src/templates/incidence_header.html:10
 msgid "Recurring incidence"
@@ -1295,7 +1295,7 @@ msgstr ""
 #: src/templates/todo.html:179
 #, kde-format
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #~ msgid "Sender"
 #~ msgstr "يوللىغۇچى"
