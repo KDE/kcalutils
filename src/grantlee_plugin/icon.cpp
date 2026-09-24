@@ -87,7 +87,7 @@ IconNode::IconNode(QString iconName, int sizeOrGroup, QString altText, QObject *
 IconNode::~IconNode()
 {
 }
-void IconNode::render(KTextTemplate::OutputStream *stream, [[maybe_unused]] KTextTemplate::Context *c) const
+void IconNode::render(KTextTemplate::OutputStream *stream, KTextTemplate::Context *c) const
 {
     QString iconName = mIconName;
     if (iconName.startsWith(u'"') && iconName.endsWith(u'"')) {
