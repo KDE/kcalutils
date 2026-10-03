@@ -1,6 +1,6 @@
 # Copyright © 2011, 2012 This_file_is_part_of_KDE
 # This file is distributed under the same license as the kdepim package.
-# SPDX-FileCopyrightText: 2011, 2012, 2015, 2016, 2018, 2020, 2021, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2011, 2012, 2015, 2016, 2018, 2020, 2021, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Lasse Liehu <lasse.liehu@gmail.com>, 2012, 2013, 2014, 2015.
 #
 # KDE Finnish translation sprint participants:
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:44+0000\n"
-"PO-Revision-Date: 2025-02-16 10:39+0200\n"
+"PO-Revision-Date: 2026-09-05 10:57+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/grantleetemplatemanager.cpp:72
 #, kde-format
@@ -78,11 +78,10 @@ msgid "<i>To:</i> %1"
 msgstr "<i>Mihin:</i> %1"
 
 #: src/incidenceformatter.cpp:748
-#, fuzzy, kde-format
-#| msgid "<i>Date:</i> %1"
+#, kde-format
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
-msgstr "<i>Päivä:</i> %1"
+msgstr "<i>Päivä:</i> %1–%2"
 
 #: src/incidenceformatter.cpp:751 src/incidenceformatter.cpp:829
 #, kde-format
@@ -137,8 +136,7 @@ msgid "<i>Period start:</i> %1"
 msgstr "<i>Jakson alku:</i> %1"
 
 #: src/incidenceformatter.cpp:838
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
+#, kde-format
 msgid "<i>Period end:</i> %1"
 msgstr "<i>Jakson alku:</i> %1"
 
@@ -862,18 +860,16 @@ msgstr "(%1, %2)"
 #, kde-format
 msgctxt "alarm is disabled"
 msgid "disabled"
-msgstr ""
+msgstr "ei käytössä"
 
 #: src/incidenceformatter.cpp:1677
 #, kde-format
 msgctxt "alarm will play a sound"
 msgid "audio"
-msgstr ""
+msgstr "ääni"
 
 #: src/incidenceformatter.cpp:1680
-#, fuzzy, kde-format
-#| msgctxt "attendee name (attendee status)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "the reminder string with its types list"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -1020,25 +1016,25 @@ msgstr "Tuntematon"
 #, kde-format
 msgctxt "@item alarm will pop-up a notification"
 msgid "Display"
-msgstr ""
+msgstr "Näyttö"
 
 #: src/stringify.cpp:130
 #, kde-format
 msgctxt "@item alarm will run a command"
 msgid "Procedure"
-msgstr ""
+msgstr "Proseduuri"
 
 #: src/stringify.cpp:133
 #, kde-format
 msgctxt "@item alarm will send an email"
 msgid "Email"
-msgstr ""
+msgstr "Sähköposti"
 
 #: src/stringify.cpp:135
 #, kde-format
 msgctxt "@item alarm will play a sound"
 msgid "Audio"
-msgstr ""
+msgstr "Ääni"
 
 #: src/stringify.cpp:147
 #, kde-format
@@ -1239,16 +1235,15 @@ msgstr[1] "Liitteet:"
 
 #: src/templates/event.html:197 src/templates/journal.html:47
 #: src/templates/todo.html:200
-#, fuzzy, kde-format
-#| msgid "Creation date: %1"
+#, kde-format
 msgid "Created: %1"
-msgstr "Luontipäivä: %1"
+msgstr "Luotu: %1"
 
 #: src/templates/event.html:198 src/templates/journal.html:48
 #: src/templates/todo.html:201
 #, kde-format
 msgid "Modified: %1"
-msgstr ""
+msgstr "Muutettu: %1"
 
 #: src/templates/event.html:199 src/templates/journal.html:49
 #: src/templates/todo.html:202
