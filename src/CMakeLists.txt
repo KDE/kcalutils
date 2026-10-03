@@ -11,22 +11,16 @@ configure_file(config-kcalutils.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutil
 target_sources(
     KPim6CalendarUtils
     PRIVATE
-        icaldrag.cpp
         incidenceformatter.cpp
         stringify.cpp
-        vcaldrag.cpp
-        dndfactory.cpp
         grantleeki18nlocalizer.cpp
         grantleetemplatemanager.cpp
         templates.qrc
-        vcaldrag.h
         kcalutils_private_export.h
         stringify.h
-        icaldrag.h
         grantleetemplatemanager_p.h
         grantleeki18nlocalizer_p.h
         incidenceformatter.h
-        dndfactory.h
 )
 ecm_qt_declare_logging_category(KPim6CalendarUtils HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME org.kde.pim.kcalutils
         OLD_CATEGORY_NAMES log_kcalutils
@@ -90,11 +84,8 @@ install(TARGETS KPim6CalendarUtils EXPORT KPim6CalendarUtilsTargets ${KDE_INSTAL
 ########### Generate Headers ###############
 ecm_generate_headers(KCalUtils_CamelCase_HEADERS
   HEADER_NAMES
-  DndFactory
-  ICalDrag
   IncidenceFormatter
   Stringify
-  VCalDrag
   PREFIX KCalUtils
   REQUIRED_HEADERS KCalUtils_HEADERS
 )
