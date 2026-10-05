@@ -91,7 +91,7 @@ msgstr "<i>Окончание:</i> %1"
 #, kde-format
 msgctxt "datetime range for event"
 msgid "<i>Date:</i> %1 - %2"
-msgstr "<i>Дата:</i> %1 - %2"
+msgstr "<i>Дата:</i> %1 — %2"
 
 #: src/incidenceformatter.cpp:705 src/incidenceformatter.cpp:783
 #, kde-format
@@ -171,7 +171,7 @@ msgstr "%1"
 #, kde-format
 msgctxt "ellipsis"
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #: src/incidenceformatter.cpp:889
 #, kde-format
@@ -838,7 +838,7 @@ msgstr[3] "1 минута"
 #: src/incidenceformatter.cpp:1532
 #, kde-format
 msgid "forever"
-msgstr "постоянно"
+msgstr "бессрочно"
 
 #: src/incidenceformatter.cpp:1574
 #, kde-format
@@ -926,13 +926,13 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "@item incidence access if for everyone"
 msgid "Public"
-msgstr "Общий"
+msgstr "Общедоступно"
 
 #: src/stringify.cpp:43
 #, kde-format
 msgctxt "@item incidence access is by owner only"
 msgid "Private"
-msgstr "Закрытый"
+msgstr "Приватно"
 
 #: src/stringify.cpp:45
 #, kde-format
@@ -1136,7 +1136,7 @@ msgstr "Ожидался формат iCalendar, обнаружен неизве
 #, kde-format
 msgctxt "@item"
 msgid "Restriction violation"
-msgstr "Нарушения ограничений"
+msgstr "Нарушение ограничений"
 
 #: src/stringify.cpp:174
 #, kde-format
@@ -1306,7 +1306,7 @@ msgstr "Изменено: %1"
 #: src/templates/todo.html:202
 #, kde-format
 msgid "Revision: %1"
-msgstr "Модификация: %1"
+msgstr "Редакция: %1"
 
 # Используем N-dash (–) для диапазонов времени и дат. --aspotashev
 #: src/templates/freebusy.html:6
