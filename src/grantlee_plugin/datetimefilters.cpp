@@ -6,10 +6,11 @@
  */
 
 #include "datetimefilters.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "../incidenceformatter.h"
 #include <KTextTemplate/SafeString>
+
+using namespace Qt::Literals::StringLiterals;
 
 KDateFilter::KDateFilter()
 {
