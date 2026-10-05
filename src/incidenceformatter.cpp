@@ -697,9 +697,9 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Event::Ptr &even
 
     if (event->isMultiDay()) {
         if (event->allDay()) {
-            tmp = QLocale().toString(startDt.date(), QLocale::ShortFormat);
+            tmp = QLocale().toString(startDt.date(), QLocale::LongFormat);
             ret += QLatin1StringView("<br>") + i18nc("Event start", "<i>From:</i> %1", tmp);
-            tmp = QLocale().toString(endDt.date(), QLocale::ShortFormat);
+            tmp = QLocale().toString(endDt.date(), QLocale::LongFormat);
             ret += QLatin1StringView("<br>") + i18nc("Event end", "<i>To:</i> %1", tmp);
         } else {
             ret += QLatin1StringView("<br>") + i18nc("datetime range for event", "<i>Date:</i> %1 - %2", dateTimeToString(startDt), dateTimeToString(endDt));
