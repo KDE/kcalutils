@@ -41,6 +41,9 @@ using namespace KCalendarCore;
 #include <ktexttohtml.h>
 
 #include "kcalutils_debug.h"
+#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(6, 31, 0)
+#include <KFormat>
+#endif
 #include <KIconLoader>
 #include <KLocalizedString>
 
@@ -758,7 +761,7 @@ QString IncidenceFormatter::ToolTipVisitor::dateRangeText(const Todo::Ptr &todo,
 
     ret += QLatin1StringView("<br>");
     if (todo->hasCompletedDate()) {
-        ret += i18nc("To-do's completed date", "<i>Completed:</i> %1", QLocale().toString(todo->completed().toLocalTime(), QLocale::LongFormat));
+        ret += i18nc("To-do's completed date", "<i>Completed:</i> %1", dateTimeToString(todo->completed().toLocalTime(), false, false));
     } else {
         int pct = todo->percentComplete();
         if (todo->recurs() && asOfDate.isValid()) {
@@ -1492,7 +1495,12 @@ QString IncidenceFormatter::dateTimeToString(const QDateTime &date, bool dateOnl
         return QLocale().toString(date.toLocalTime().date(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
     }
 
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 31, 0)
     return QLocale().toString(date.toLocalTime(), (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
+#else
+    const KFormat format;
+    return format.formatDateTime(date.toLocalTime(), (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat), KFormat::AddTimezoneAbbreviationIfNeeded);
+#endif
 }
 
 static QString secs2Duration(qint64 secs)

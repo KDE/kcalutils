@@ -20,6 +20,7 @@
 #include <KCalendarCore/Todo>
 
 #include <KLocalizedString>
+#include <kcoreaddons_version.h> //remove when KF_MIN_VERSION is "6.31"
 
 #include <QDebug>
 #include <QIcon>
@@ -239,7 +240,9 @@ void IncidenceFormatterTest::testDisplayViewFormatTodo()
     const QString html = IncidenceFormatter::extensiveDisplayStr(QString(), todos[0]);
 
     QVERIFY(validateHtml(name, html));
+#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(6, 31, 0)
     QVERIFY(compareHtml(name));
+#endif
 
     cleanup(name);
 }
@@ -264,8 +267,9 @@ void IncidenceFormatterTest::testDisplayViewFormatJournal()
     const QString html = IncidenceFormatter::extensiveDisplayStr(QString(), journals[0]);
 
     QVERIFY(validateHtml(name, html));
+#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(6, 31, 0)
     QVERIFY(compareHtml(name));
-
+#endif
     cleanup(name);
 }
 
