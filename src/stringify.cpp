@@ -29,8 +29,6 @@ using namespace KCalendarCore;
 
 #include <KLocalizedString>
 
-#include <QLocale>
-
 using namespace KCalUtils;
 using namespace Stringify;
 

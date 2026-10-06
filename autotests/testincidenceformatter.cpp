@@ -19,7 +19,6 @@
 #include <KCalendarCore/MemoryCalendar>
 #include <KCalendarCore/Todo>
 
-#include <KLocalizedString>
 #include <kcoreaddons_version.h> //remove when KF_MIN_VERSION is "6.31"
 
 #include <QDebug>

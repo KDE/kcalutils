@@ -29,7 +29,6 @@
 #include <KCalendarCore/Event>
 #include <KCalendarCore/Exceptions>
 #include <KCalendarCore/FreeBusy>
-#include <KCalendarCore/ICalFormat>
 #include <KCalendarCore/Journal>
 #include <KCalendarCore/Todo>
 #include <KCalendarCore/Visitor>
@@ -37,7 +36,6 @@ using namespace KCalendarCore;
 
 #include <KIdentityManagementCore/Utils>
 
-#include <KEmailAddress>
 #include <ktexttohtml.h>
 
 #include "kcalutils_debug.h"
@@ -47,11 +45,8 @@ using namespace KCalendarCore;
 #include <KIconLoader>
 #include <KLocalizedString>
 
-#include <QApplication>
 #include <QBitArray>
 #include <QLocale>
-#include <QMimeDatabase>
-#include <QPalette>
 #include <QTextDocumentFragment>
 
 using namespace Qt::Literals;

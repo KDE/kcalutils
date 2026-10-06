@@ -13,8 +13,6 @@
 #include <KTextTemplate/Engine>
 #include <KTextTemplate/Template>
 #include <KTextTemplate/TemplateLoader>
-#include <QDebug>
-#include <QStandardPaths>
 #include <QString>
 
 #include <KLocalizedString>

@@ -9,7 +9,6 @@
 #include "kcalutils_debug.h"
 
 #include <KTextTemplate/SafeString>
-#include <QLocale>
 
 #include <KLocalizedString>
 
