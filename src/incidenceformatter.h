@@ -43,28 +43,6 @@ namespace KCalUtils
 */
 namespace IncidenceFormatter
 {
-/*!
-  Create a QString representation of an Incidence in a nice format
-  suitable for using in a tooltip.
-  All dates and times are converted to local time for display.
-  \a sourceName where the incidence is from (e.g. resource name)
-  \a incidence is a pointer to the Incidence to be formatted.
-  \a date is the QDate for which the toolTip should be computed; used
-  mainly for recurring incidences. Note For to-dos, this a date between the
-  start date and the due date (inclusive) of the occurrence.
-*/
-KCALUTILS_EXPORT QString toolTipStr(const QString &sourceName, const KCalendarCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
-
-/*!
-  Create a RichText QString representation of an Incidence in a nice format
-  suitable for using in a viewer widget.
-  All dates and times are converted to local time for display.
-  \a sourceName where the incidence is from (e.g. resource name)
-  \a incidence is a pointer to the Incidence to be formatted.
-  \a date is the QDate for which the string representation should be computed;
-  used mainly for recurring incidences.
-*/
-KCALUTILS_EXPORT QString extensiveDisplayStr(const QString &sourceName, const KCalendarCore::IncidenceBase::Ptr &incidence, QDate date = QDate());
 
 #if KCALENDARCORE_VERSION < QT_VERSION_CHECK(6, 30, 0)
 /*!
@@ -85,9 +63,5 @@ KCALUTILS_EXPORT QString recurrenceString(const KCalendarCore::Incidence::Ptr &i
   \sa dateToString(), timeToString().
 */
 KCALUTILS_EXPORT QString dateTimeToString(const QDateTime &date, bool dateOnly = false, bool shortfmt = true);
-
-class EventViewerVisitor;
-class ToolTipVisitor;
-class MailBodyVisitor;
 }
 }

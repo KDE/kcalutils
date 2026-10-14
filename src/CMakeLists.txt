@@ -1,25 +1,15 @@
 # SPDX-FileCopyrightText: none
 # SPDX-License-Identifier: BSD-3-Clause
 
-add_subdirectory(grantlee_plugin)
-
 add_library(KPim6CalendarUtils)
 add_library(KPim6::CalendarUtils ALIAS KPim6CalendarUtils)
-
-configure_file(config-kcalutils.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kcalutils.h)
 
 target_sources(
     KPim6CalendarUtils
     PRIVATE
         incidenceformatter.cpp
         stringify.cpp
-        grantleeki18nlocalizer.cpp
-        grantleetemplatemanager.cpp
-        templates.qrc
-        kcalutils_private_export.h
         stringify.h
-        grantleetemplatemanager_p.h
-        grantleeki18nlocalizer_p.h
         incidenceformatter.h
 )
 ecm_qt_declare_logging_category(KPim6CalendarUtils HEADER kcalutils_debug.h IDENTIFIER KCALUTILS_LOG CATEGORY_NAME org.kde.pim.kcalutils
@@ -56,16 +46,10 @@ target_include_directories(
 target_link_libraries(
     KPim6CalendarUtils
     PUBLIC
-        Qt::Widgets
         KF6::CalendarCore
-        KF6::CoreAddons
     PRIVATE
-        KF6::WidgetsAddons
-        KF6::IconThemes
+        KF6::CoreAddons
         KF6::I18n
-        KPim6::IdentityManagementCore
-        KF6::Codecs
-        KF6::TextTemplate
 )
 
 set_target_properties(

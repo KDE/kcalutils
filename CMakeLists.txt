@@ -115,14 +115,8 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
 ########### Find packages ###########
 find_package(KF6CoreAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6I18n ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF6Codecs ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF6WidgetsAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF6IconThemes ${KF_MIN_VERSION} CONFIG REQUIRED)
-
-find_package(KF6TextTemplate ${KF_MIN_VERSION} CONFIG REQUIRED)
 
 find_package(KF6CalendarCore ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KPim6IdentityManagementCore ${IDENTITYMANAGER_LIB_VERSION} CONFIG REQUIRED)
 add_definitions(-DTRANSLATION_DOMAIN=\"libkcalutils6\")
 
 add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
@@ -157,10 +151,6 @@ if(WARNINGS_AS_ERRORS)
 endif()
 add_compile_definitions(QT_ENABLE_STRICT_MODE_UP_TO=0x060B00)
 add_subdirectory(src)
-
-if(BUILD_TESTING)
-    add_subdirectory(autotests)
-endif()
 
 ########### CMake Config Files ###########
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KPim6CalendarUtils")
