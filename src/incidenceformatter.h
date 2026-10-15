@@ -52,16 +52,5 @@ namespace IncidenceFormatter
 */
 KCALUTILS_EXPORT QString recurrenceString(const KCalendarCore::Incidence::Ptr &incidence);
 #endif
-
-/*!
-  Build a QString date/time representation of a QDateTime object.
-  All dates and times are converted to local time for display.
-  \param date the date/time to be formatted
-  \param dateOnly if true, don't print the time fields; print the date fields only
-  \param shortfmt if true, display info in short format; else use long format
-  \return the formatted date/time string
-  \sa dateToString(), timeToString().
-*/
-KCALUTILS_EXPORT QString dateTimeToString(const QDateTime &date, bool dateOnly = false, bool shortfmt = true);
 }
 }

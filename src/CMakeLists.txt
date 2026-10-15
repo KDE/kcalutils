@@ -7,6 +7,7 @@ add_library(KPim6::CalendarUtils ALIAS KPim6CalendarUtils)
 target_sources(
     KPim6CalendarUtils
     PRIVATE
+        dummy.cpp
         incidenceformatter.cpp
         stringify.cpp
         stringify.h
@@ -43,14 +44,7 @@ target_include_directories(
         "$<BUILD_INTERFACE:${KCalUtils_SOURCE_DIR}/src;${KCalUtils_BINARY_DIR}/src>"
 )
 
-target_link_libraries(
-    KPim6CalendarUtils
-    PUBLIC
-        KF6::CalendarCore
-    PRIVATE
-        KF6::CoreAddons
-        KF6::I18n
-)
+target_link_libraries(KPim6CalendarUtils PUBLIC KF6::CalendarCore PRIVATE KF6::I18n)
 
 set_target_properties(
     KPim6CalendarUtils

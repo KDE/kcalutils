@@ -33,11 +33,6 @@
 #include <KCalendarCore/Visitor>
 using namespace KCalendarCore;
 
-#include <ktexttohtml.h>
-
-#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(6, 31, 0)
-#include <KFormat>
-#endif
 #include <KLocalizedString>
 
 #include <QBitArray>
@@ -459,17 +454,3 @@ QString IncidenceFormatter::recurrenceString(const Incidence::Ptr &incidence)
     return recurStr;
 }
 #endif
-
-QString IncidenceFormatter::dateTimeToString(const QDateTime &date, bool dateOnly, bool shortfmt)
-{
-    if (dateOnly) {
-        return QLocale().toString(date.toLocalTime().date(), shortfmt ? QLocale::ShortFormat : QLocale::LongFormat);
-    }
-
-#if KCOREADDONS_VERSION < QT_VERSION_CHECK(6, 31, 0)
-    return QLocale().toString(date.toLocalTime(), (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat));
-#else
-    const KFormat format;
-    return format.formatDateTime(date.toLocalTime(), (shortfmt ? QLocale::ShortFormat : QLocale::LongFormat), KFormat::AddTimezoneAbbreviationIfNeeded);
-#endif
-}

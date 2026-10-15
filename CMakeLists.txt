@@ -113,7 +113,6 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KCALUTILS
 )
 
 ########### Find packages ###########
-find_package(KF6CoreAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF6I18n ${KF_MIN_VERSION} CONFIG REQUIRED)
 
 find_package(KF6CalendarCore ${KF_MIN_VERSION} CONFIG REQUIRED)
