@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcalutils\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-07 00:49+0000\n"
+"POT-Creation-Date: 2026-10-16 00:48+0000\n"
 "PO-Revision-Date: 2012-07-11 10:24+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -19,575 +19,339 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 "X-Language: km-KH\n"
 
-#: src/grantleetemplatemanager.cpp:70
-#, kde-format
-msgid "Template"
-msgstr ""
-
-#: src/grantleetemplatemanager.cpp:70
-#, kde-format
-msgid "Error message"
-msgstr ""
-
-#: src/grantleetemplatemanager.cpp:88
-#, kde-format
-msgid "Template parsing error"
-msgstr ""
-
-#: src/incidenceformatter.cpp:262
-#, kde-format
-msgid "Show mail"
-msgstr "បង្ហាញ​សំបុត្រ"
-
-#: src/incidenceformatter.cpp:526
-#, kde-format
-msgctxt "hours part of duration"
-msgid "1 hour "
-msgid_plural "%1 hours "
-msgstr[0] "%1 ម៉ោង"
-
-#: src/incidenceformatter.cpp:530
-#, kde-format
-msgctxt "minutes part duration"
-msgid "1 minute "
-msgid_plural "%1 minutes "
-msgstr[0] "%1 នាទី"
-
-#: src/incidenceformatter.cpp:534
-#, kde-format
-msgctxt "seconds part of duration"
-msgid "1 second"
-msgid_plural "%1 seconds"
-msgstr[0] "%1 វិនាទី"
-
-#: src/incidenceformatter.cpp:696
-#, kde-format
-msgctxt "Event start"
-msgid "<i>From:</i> %1"
-msgstr "<i>ពី ៖</i> %1"
-
-#: src/incidenceformatter.cpp:698
-#, kde-format
-msgctxt "Event end"
-msgid "<i>To:</i> %1"
-msgstr "<i>ដល់ ៖</i> %1"
-
-#: src/incidenceformatter.cpp:700
-#, fuzzy, kde-format
-#| msgid "<i>Date:</i> %1"
-msgctxt "datetime range for event"
-msgid "<i>Date:</i> %1 - %2"
-msgstr "<i>កាលបរិច្ឆេទ ៖</i> %1"
-
-#: src/incidenceformatter.cpp:703 src/incidenceformatter.cpp:781
-#, kde-format
-msgid "<i>Date:</i> %1"
-msgstr "<i>កាលបរិច្ឆេទ ៖</i> %1"
-
-#: src/incidenceformatter.cpp:709
-#, kde-format
-msgctxt "time for event"
-msgid "<i>Time:</i> %1"
-msgstr "<i>ពេលវេលា ៖</i> %1"
-
-#: src/incidenceformatter.cpp:711
-#, kde-format
-msgctxt "time range for event"
-msgid "<i>Time:</i> %1 - %2"
-msgstr "<i>ពេលវេលា ៖</i> %1 - %2"
-
-#: src/incidenceformatter.cpp:744
-#, fuzzy, kde-format
-#| msgid "<i>Start:</i> %1"
-msgctxt "To-do's start date"
-msgid "<i>Start:</i> %1"
-msgstr "<i>ចាប់ផ្ដើម ៖</i> %1"
-
-#: src/incidenceformatter.cpp:747
-#, fuzzy, kde-format
-#| msgid "<i>Due:</i> %1"
-msgctxt "To-do's due date"
-msgid "<i>Due:</i> %1"
-msgstr "<i>ដល់កំណត់ ៖</i> %1"
-
-#: src/incidenceformatter.cpp:754
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
-msgctxt "To-do's priority number"
-msgid "<i>Priority:</i> %1"
-msgstr "<i>អំឡុង​ពេល​ចាប់ផ្ដើម ៖</i> %1"
-
-#: src/incidenceformatter.cpp:759
-#, fuzzy, kde-format
-#| msgid "<i>Date:</i> %1"
-msgctxt "To-do's completed date"
-msgid "<i>Completed:</i> %1"
-msgstr "<i>កាលបរិច្ឆេទ ៖</i> %1"
-
-#: src/incidenceformatter.cpp:770
-#, fuzzy, kde-format
-#| msgid "Percent Done:"
-msgctxt "To-do's percent complete:"
-msgid "<i>Percent Done:</i> %1%"
-msgstr "ភាគរយ​ដែល​ធ្វើ​រួច ៖"
-
-#: src/incidenceformatter.cpp:789
-#, kde-format
-msgid "<i>Period start:</i> %1"
-msgstr "<i>អំឡុង​ពេល​ចាប់ផ្ដើម ៖</i> %1"
-
-#: src/incidenceformatter.cpp:790
-#, fuzzy, kde-format
-#| msgid "<i>Period start:</i> %1"
-msgid "<i>Period end:</i> %1"
-msgstr "<i>អំឡុង​ពេល​ចាប់ផ្ដើម ៖</i> %1"
-
-#: src/incidenceformatter.cpp:815 src/templates/freebusy.html:5
-#, kde-format
-msgid "Free/Busy information for %1"
-msgstr "ព័ត៌មាន​ទំនេរ/រវល់​សម្រាប់ %1"
-
-#: src/incidenceformatter.cpp:836 src/incidenceformatter.cpp:838
-#, kde-format
-msgctxt "attendee name (attendee status)"
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
-
-#: src/incidenceformatter.cpp:841
-#, kde-format
-msgid "%1"
-msgstr "%1"
-
-#: src/incidenceformatter.cpp:867 src/incidenceformatter.cpp:1004
-#: src/incidenceformatter.cpp:1478
-#, fuzzy, kde-format
-#| msgctxt "elipsis"
-#| msgid "..."
-msgctxt "ellipsis"
-msgid "..."
-msgstr "..."
-
-#: src/incidenceformatter.cpp:887
-#, kde-format
-msgid " (delegated by %1)"
-msgstr " (បាន​ផ្ទេរ​ដោយ %1)"
-
-#: src/incidenceformatter.cpp:890
-#, kde-format
-msgid " (delegated to %1)"
-msgstr " (បាន​ផ្ទេរ​ទៅកាន់ %1)"
-
-#: src/incidenceformatter.cpp:910 src/templates/event.html:112
-#: src/templates/todo.html:93
-#, kde-format
-msgid "Organizer:"
-msgstr "កម្មវិធី​រៀបចំ ៖"
-
-#: src/incidenceformatter.cpp:921 src/templates/event.html:124
-#: src/templates/todo.html:105
-#, kde-format
-msgid "Chair:"
-msgstr "ប្រធាន ៖"
-
-#: src/incidenceformatter.cpp:928 src/templates/event.html:137
-#: src/templates/todo.html:118
-#, kde-format
-msgid "Required Participants:"
-msgstr "អ្នក​ចូលរួម​ចាំបាច់ ៖"
-
-#: src/incidenceformatter.cpp:935
-#, kde-format
-msgid "Optional Participants:"
-msgstr "អ្នក​ចូលរួម​ស្រេចចិត្ត ៖"
-
-#: src/incidenceformatter.cpp:942 src/templates/event.html:163
-#: src/templates/todo.html:144
-#, kde-format
-msgid "Observers:"
-msgstr "អ្នក​សង្កេតការណ៍ ៖"
-
-#: src/incidenceformatter.cpp:964 src/templates/event.html:13
-#: src/templates/journal.html:14 src/templates/todo.html:14
-#, kde-format
-msgid "Calendar:"
-msgstr "ប្រតិទិន ៖"
-
-#: src/incidenceformatter.cpp:972 src/templates/event.html:21
-#: src/templates/todo.html:22
-#, kde-format
-msgid "Location:"
-msgstr "ទីតាំង ៖"
-
-#: src/incidenceformatter.cpp:979 src/templates/event.html:60
-#: src/templates/todo.html:54
-#, kde-format
-msgid "Duration:"
-msgstr "ថិរវេលា ៖"
-
-#: src/incidenceformatter.cpp:985 src/incidenceformatter.cpp:995
-#: src/templates/event.html:68 src/templates/todo.html:62
-#, kde-format
-msgid "Recurrence:"
-msgstr "ការ​កើតឡើង​វិញ ៖"
-
-#: src/incidenceformatter.cpp:996 src/templates/todo.html:64
-#, kde-format
-msgid "Exception"
-msgstr ""
-
-#: src/incidenceformatter.cpp:1012 src/templates/event.html:96
-#: src/templates/journal.html:30 src/templates/todo.html:74
-#, kde-format
-msgid "Description:"
-msgstr "សេចក្ដី​ពិពណ៌នា ៖"
-
-#: src/incidenceformatter.cpp:1026 src/templates/event.html:104
-#: src/templates/todo.html:85
-#, kde-format
-msgid "Reminder:"
-msgid_plural "Reminders:"
-msgstr[0] "កម្មវិធី​រំលឹក ៖"
-
-#: src/incidenceformatter.cpp:1054 src/templates/event.html:176
-#: src/templates/journal.html:38 src/templates/todo.html:157
-#, kde-format
-msgid "Tag:"
-msgid_plural "Tags:"
-msgstr[0] ""
-
-#: src/incidenceformatter.cpp:1104 src/incidenceformatter.cpp:1178
+#: src/incidenceformatter.cpp:80 src/incidenceformatter.cpp:154
 #, kde-format
 msgid "No recurrence"
 msgstr "គ្មាន​ការ​កើតឡើងវិញ"
 
-#: src/incidenceformatter.cpp:1108
+#: src/incidenceformatter.cpp:84
 #, kde-format
 msgid "31st Last"
 msgstr "ទី ៣១ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1109
+#: src/incidenceformatter.cpp:85
 #, kde-format
 msgid "30th Last"
 msgstr "ទី ៣០ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1110
+#: src/incidenceformatter.cpp:86
 #, kde-format
 msgid "29th Last"
 msgstr "ទី ២៩ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1111
+#: src/incidenceformatter.cpp:87
 #, kde-format
 msgid "28th Last"
 msgstr "ទី ២៨ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1112
+#: src/incidenceformatter.cpp:88
 #, kde-format
 msgid "27th Last"
 msgstr "ទី ២៧ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1113
+#: src/incidenceformatter.cpp:89
 #, kde-format
 msgid "26th Last"
 msgstr "ទី ២៦ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1114
+#: src/incidenceformatter.cpp:90
 #, kde-format
 msgid "25th Last"
 msgstr "ទី ២៥ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1115
+#: src/incidenceformatter.cpp:91
 #, kde-format
 msgid "24th Last"
 msgstr "ទី ២៤ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1116
+#: src/incidenceformatter.cpp:92
 #, kde-format
 msgid "23rd Last"
 msgstr "ទី ២៣ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1117
+#: src/incidenceformatter.cpp:93
 #, kde-format
 msgid "22nd Last"
 msgstr "ទី ២២ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1118
+#: src/incidenceformatter.cpp:94
 #, kde-format
 msgid "21st Last"
 msgstr "ទី ២១ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1119
+#: src/incidenceformatter.cpp:95
 #, kde-format
 msgid "20th Last"
 msgstr "ទី ២០ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1120
+#: src/incidenceformatter.cpp:96
 #, kde-format
 msgid "19th Last"
 msgstr "ទី ១៩ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1121
+#: src/incidenceformatter.cpp:97
 #, kde-format
 msgid "18th Last"
 msgstr "ទី ១៨ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1122
+#: src/incidenceformatter.cpp:98
 #, kde-format
 msgid "17th Last"
 msgstr "ទី ១៧ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1123
+#: src/incidenceformatter.cpp:99
 #, kde-format
 msgid "16th Last"
 msgstr "ទី ១៦ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1124
+#: src/incidenceformatter.cpp:100
 #, kde-format
 msgid "15th Last"
 msgstr "ទី ១៥ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1125
+#: src/incidenceformatter.cpp:101
 #, kde-format
 msgid "14th Last"
 msgstr "ទី ១៤ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1126
+#: src/incidenceformatter.cpp:102
 #, kde-format
 msgid "13th Last"
 msgstr "ទី ១៣ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1127
+#: src/incidenceformatter.cpp:103
 #, kde-format
 msgid "12th Last"
 msgstr "ទី ១២ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1128
+#: src/incidenceformatter.cpp:104
 #, kde-format
 msgid "11th Last"
 msgstr "ទី ១១ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1129
+#: src/incidenceformatter.cpp:105
 #, kde-format
 msgid "10th Last"
 msgstr "ទី ១០ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1130
+#: src/incidenceformatter.cpp:106
 #, kde-format
 msgid "9th Last"
 msgstr "ទី ៩ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1131
+#: src/incidenceformatter.cpp:107
 #, kde-format
 msgid "8th Last"
 msgstr "ទី ៨ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1132
+#: src/incidenceformatter.cpp:108
 #, kde-format
 msgid "7th Last"
 msgstr "ទី ៧ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1133
+#: src/incidenceformatter.cpp:109
 #, kde-format
 msgid "6th Last"
 msgstr "ទី ៦ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1134
+#: src/incidenceformatter.cpp:110
 #, kde-format
 msgid "5th Last"
 msgstr "ទី ៥ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1135
+#: src/incidenceformatter.cpp:111
 #, kde-format
 msgid "4th Last"
 msgstr "ទី ៤ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1136
+#: src/incidenceformatter.cpp:112
 #, kde-format
 msgid "3rd Last"
 msgstr "ទី ៣ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1137
+#: src/incidenceformatter.cpp:113
 #, kde-format
 msgid "2nd Last"
 msgstr "ទី ២ ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1138
+#: src/incidenceformatter.cpp:114
 #, kde-format
 msgctxt "last day of the month"
 msgid "Last"
 msgstr "ចុងក្រោយ"
 
-#: src/incidenceformatter.cpp:1139
+#: src/incidenceformatter.cpp:115
 #, kde-format
 msgctxt "unknown day of the month"
 msgid "unknown"
 msgstr "មិន​ស្គាល់"
 
-#: src/incidenceformatter.cpp:1140
+#: src/incidenceformatter.cpp:116
 #, kde-format
 msgid "1st"
 msgstr "ទី ១"
 
-#: src/incidenceformatter.cpp:1141
+#: src/incidenceformatter.cpp:117
 #, kde-format
 msgid "2nd"
 msgstr "ទី ២"
 
-#: src/incidenceformatter.cpp:1142
+#: src/incidenceformatter.cpp:118
 #, kde-format
 msgid "3rd"
 msgstr "ទី ៣"
 
-#: src/incidenceformatter.cpp:1143
+#: src/incidenceformatter.cpp:119
 #, kde-format
 msgid "4th"
 msgstr "ទី ៤"
 
-#: src/incidenceformatter.cpp:1144
+#: src/incidenceformatter.cpp:120
 #, kde-format
 msgid "5th"
 msgstr "ទី ៥"
 
-#: src/incidenceformatter.cpp:1145
+#: src/incidenceformatter.cpp:121
 #, kde-format
 msgid "6th"
 msgstr "ទី ៦"
 
-#: src/incidenceformatter.cpp:1146
+#: src/incidenceformatter.cpp:122
 #, kde-format
 msgid "7th"
 msgstr "ទី ៧"
 
-#: src/incidenceformatter.cpp:1147
+#: src/incidenceformatter.cpp:123
 #, kde-format
 msgid "8th"
 msgstr "ទី ៨"
 
-#: src/incidenceformatter.cpp:1148
+#: src/incidenceformatter.cpp:124
 #, kde-format
 msgid "9th"
 msgstr "ទី ៩"
 
-#: src/incidenceformatter.cpp:1149
+#: src/incidenceformatter.cpp:125
 #, kde-format
 msgid "10th"
 msgstr "ទី ១០"
 
-#: src/incidenceformatter.cpp:1150
+#: src/incidenceformatter.cpp:126
 #, kde-format
 msgid "11th"
 msgstr "ទី ១១"
 
-#: src/incidenceformatter.cpp:1151
+#: src/incidenceformatter.cpp:127
 #, kde-format
 msgid "12th"
 msgstr "ទី ១២"
 
-#: src/incidenceformatter.cpp:1152
+#: src/incidenceformatter.cpp:128
 #, kde-format
 msgid "13th"
 msgstr "ទី ១៣"
 
-#: src/incidenceformatter.cpp:1153
+#: src/incidenceformatter.cpp:129
 #, kde-format
 msgid "14th"
 msgstr "ទី ១៤"
 
-#: src/incidenceformatter.cpp:1154
+#: src/incidenceformatter.cpp:130
 #, kde-format
 msgid "15th"
 msgstr "ទី ១៥"
 
-#: src/incidenceformatter.cpp:1155
+#: src/incidenceformatter.cpp:131
 #, kde-format
 msgid "16th"
 msgstr "ទី ១៦"
 
-#: src/incidenceformatter.cpp:1156
+#: src/incidenceformatter.cpp:132
 #, kde-format
 msgid "17th"
 msgstr "ទី ១៧"
 
-#: src/incidenceformatter.cpp:1157
+#: src/incidenceformatter.cpp:133
 #, kde-format
 msgid "18th"
 msgstr "ទី ១៨"
 
-#: src/incidenceformatter.cpp:1158
+#: src/incidenceformatter.cpp:134
 #, kde-format
 msgid "19th"
 msgstr "ទី ១៩"
 
-#: src/incidenceformatter.cpp:1159
+#: src/incidenceformatter.cpp:135
 #, kde-format
 msgid "20th"
 msgstr "ទី ២០"
 
-#: src/incidenceformatter.cpp:1160
+#: src/incidenceformatter.cpp:136
 #, kde-format
 msgid "21st"
 msgstr "ទី ២១"
 
-#: src/incidenceformatter.cpp:1161
+#: src/incidenceformatter.cpp:137
 #, kde-format
 msgid "22nd"
 msgstr "ទី ២២"
 
-#: src/incidenceformatter.cpp:1162
+#: src/incidenceformatter.cpp:138
 #, kde-format
 msgid "23rd"
 msgstr "ទី ២៣"
 
-#: src/incidenceformatter.cpp:1163
+#: src/incidenceformatter.cpp:139
 #, kde-format
 msgid "24th"
 msgstr "ទី ២៤"
 
-#: src/incidenceformatter.cpp:1164
+#: src/incidenceformatter.cpp:140
 #, kde-format
 msgid "25th"
 msgstr "ទី ២៥"
 
-#: src/incidenceformatter.cpp:1165
+#: src/incidenceformatter.cpp:141
 #, kde-format
 msgid "26th"
 msgstr "ទី ២៦"
 
-#: src/incidenceformatter.cpp:1166
+#: src/incidenceformatter.cpp:142
 #, kde-format
 msgid "27th"
 msgstr "ទី ២៧"
 
-#: src/incidenceformatter.cpp:1167
+#: src/incidenceformatter.cpp:143
 #, kde-format
 msgid "28th"
 msgstr "ទី ២៨"
 
-#: src/incidenceformatter.cpp:1168
+#: src/incidenceformatter.cpp:144
 #, kde-format
 msgid "29th"
 msgstr "ទី ២៩"
 
-#: src/incidenceformatter.cpp:1169
+#: src/incidenceformatter.cpp:145
 #, kde-format
 msgid "30th"
 msgstr "ទី ៣០"
 
-#: src/incidenceformatter.cpp:1170
+#: src/incidenceformatter.cpp:146
 #, kde-format
 msgid "31st"
 msgstr "ទី ៣១"
 
-#: src/incidenceformatter.cpp:1185
+#: src/incidenceformatter.cpp:161
 #, kde-format
 msgid "Recurs every minute until %2"
 msgid_plural "Recurs every %1 minutes until %2"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 នាទី រហូតដល់ %2"
 
-#: src/incidenceformatter.cpp:1187 src/incidenceformatter.cpp:1198
-#: src/incidenceformatter.cpp:1209 src/incidenceformatter.cpp:1239
-#: src/incidenceformatter.cpp:1260 src/incidenceformatter.cpp:1283
-#: src/incidenceformatter.cpp:1307 src/incidenceformatter.cpp:1344
-#: src/incidenceformatter.cpp:1372
+#: src/incidenceformatter.cpp:163 src/incidenceformatter.cpp:174
+#: src/incidenceformatter.cpp:185 src/incidenceformatter.cpp:215
+#: src/incidenceformatter.cpp:236 src/incidenceformatter.cpp:259
+#: src/incidenceformatter.cpp:283 src/incidenceformatter.cpp:320
+#: src/incidenceformatter.cpp:348
 #, fuzzy, kde-format, kde-kuit-format
 #| msgctxt "number of occurrences"
 #| msgid " (<numid>%1</numid> occurrences)"
@@ -595,49 +359,49 @@ msgctxt "number of occurrences"
 msgid " (%1 occurrences)"
 msgstr " (ការ​កើតឡើងវិញ<numid>%1</numid>)"
 
-#: src/incidenceformatter.cpp:1190
+#: src/incidenceformatter.cpp:166
 #, kde-format
 msgid "Recurs every minute"
 msgid_plural "Recurs every %1 minutes"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 នាទី"
 
-#: src/incidenceformatter.cpp:1196
+#: src/incidenceformatter.cpp:172
 #, kde-format
 msgid "Recurs hourly until %2"
 msgid_plural "Recurs every %1 hours until %2"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ម៉ោង​រហូតដល់ %2"
 
-#: src/incidenceformatter.cpp:1201
+#: src/incidenceformatter.cpp:177
 #, kde-format
 msgid "Recurs hourly"
 msgid_plural "Recurs every %1 hours"
 msgstr[0] "កើតឡើងវិញរៀងរាល់ %1 ម៉ោង"
 
-#: src/incidenceformatter.cpp:1207
+#: src/incidenceformatter.cpp:183
 #, kde-format
 msgid "Recurs daily until %2"
 msgid_plural "Recurs every %1 days until %2"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ថ្ងៃ​រហូតដល់ %2"
 
-#: src/incidenceformatter.cpp:1212
+#: src/incidenceformatter.cpp:188
 #, kde-format
 msgid "Recurs daily"
 msgid_plural "Recurs every %1 days"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ថ្ងៃ"
 
-#: src/incidenceformatter.cpp:1222
+#: src/incidenceformatter.cpp:198
 #, kde-format
 msgctxt "separator for list of days"
 msgid ", "
 msgstr ", "
 
-#: src/incidenceformatter.cpp:1229
+#: src/incidenceformatter.cpp:205
 #, kde-format
 msgctxt "Recurs weekly on no days"
 msgid "no days"
 msgstr "គ្មាន​ថ្ងៃ"
 
-#: src/incidenceformatter.cpp:1233
+#: src/incidenceformatter.cpp:209
 #, fuzzy, kde-format
 #| msgctxt "Recurs weekly on [list of days] until end-date"
 #| msgid "Recurs weekly on %2 until %3"
@@ -647,7 +411,7 @@ msgid "Recurs weekly on %2 until %3"
 msgid_plural "Recurs every %1 weeks on %2 until %3"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ <numid>%1</numid> សប្ដាហ៍​នៅថ្ងៃ %2 រហូតដល់ %3"
 
-#: src/incidenceformatter.cpp:1242
+#: src/incidenceformatter.cpp:218
 #, fuzzy, kde-format
 #| msgctxt "Recurs weekly on [list of days]"
 #| msgid "Recurs weekly on %2"
@@ -657,7 +421,7 @@ msgid "Recurs weekly on %2"
 msgid_plural "Recurs every %1 weeks on %2"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ <numid>%1</numid> សប្ដាហ៍​នៅថ្ងៃ %2"
 
-#: src/incidenceformatter.cpp:1253
+#: src/incidenceformatter.cpp:229
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Recurs every N months on the [2nd|3rd|...] weekdayname until end-date"
@@ -668,21 +432,21 @@ msgid "Recurs every month on the %2 %3 until %4"
 msgid_plural "Recurs every %1 months on the %2 %3 until %4"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ <numid>%1</numid> ខែ​នៅ​ថ្ងៃ %2 %3 រហូតដល់ %4"
 
-#: src/incidenceformatter.cpp:1264
+#: src/incidenceformatter.cpp:240
 #, kde-format
 msgctxt "Recurs every N months on the [2nd|3rd|...] weekdayname"
 msgid "Recurs every month on the %2 %3"
 msgid_plural "Recurs every %1 months on the %2 %3"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ខែ​នៅថ្ងៃ %2 %3"
 
-#: src/incidenceformatter.cpp:1277
+#: src/incidenceformatter.cpp:253
 #, kde-format
 msgctxt "Recurs monthly on the [1st|2nd|...] day until end-date"
 msgid "Recurs monthly on the %2 day until %3"
 msgid_plural "Recurs every %1 months on the %2 day until %3"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ខែ​នៅ​ថ្ងៃ %2 រហូតដល់ %3"
 
-#: src/incidenceformatter.cpp:1287
+#: src/incidenceformatter.cpp:263
 #, fuzzy, kde-format
 #| msgctxt "Recurs monthly on the [1st|2nd|...] day"
 #| msgid "Recurs monthly on the %2 day"
@@ -692,27 +456,27 @@ msgid "Recurs monthly on the %2 day"
 msgid_plural "Recurs every %1 month on the %2 day"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ <numid>%1</numid> ខែ​នៅ​ថ្ងៃ %2"
 
-#: src/incidenceformatter.cpp:1300
+#: src/incidenceformatter.cpp:276
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...] until end-date"
 msgid "Recurs yearly on %2 %3 until %4"
 msgid_plural "Recurs every %1 years on %2 %3 until %4"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ឆ្នាំ​នៅថ្ងៃ %2 %3 រហូតដល់ %4"
 
-#: src/incidenceformatter.cpp:1313
+#: src/incidenceformatter.cpp:289
 #, kde-format
 msgctxt "Recurs Every N years on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %2 %3"
 msgid_plural "Recurs every %1 years on %2 %3"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ %1 ឆ្នាំ​នៅ​ថ្ងៃ %2 %3"
 
-#: src/incidenceformatter.cpp:1321 src/incidenceformatter.cpp:1326
+#: src/incidenceformatter.cpp:297 src/incidenceformatter.cpp:302
 #, kde-format
 msgctxt "Recurs Every year on month-name [1st|2nd|...]"
 msgid "Recurs yearly on %1 %2"
 msgstr "កើតឡើងវិញ​រៀងរាល់​ឆ្នាំ​នៅ​ថ្ងៃ %1 %2"
 
-#: src/incidenceformatter.cpp:1337
+#: src/incidenceformatter.cpp:313
 #, fuzzy, kde-format
 #| msgctxt "Recurs every N years on day N until end-date"
 #| msgid "Recurs every year on day <numid>%2</numid> until %3"
@@ -724,7 +488,7 @@ msgid_plural "Recurs every %1 years on day %2 until %3"
 msgstr[0] ""
 "កើតឡើងវិញ​រៀងរាល់ <numid>%1</numid> ឆ្នាំ​នៅថ្ងៃ <numid>%2</numid> រហូតដល់ %3"
 
-#: src/incidenceformatter.cpp:1348
+#: src/incidenceformatter.cpp:324
 #, fuzzy, kde-format
 #| msgctxt "Recurs every N YEAR[S] on day N"
 #| msgid "Recurs every year on day <numid>%2</numid>"
@@ -734,7 +498,7 @@ msgid "Recurs every year on day %2"
 msgid_plural "Recurs every %1 years on day %2"
 msgstr[0] "កើតឡើងវិញ​រៀងរាល់ <numid>%1</numid> ឆ្នាំ​នៅ​ថ្ងៃ <numid>%2</numid>"
 
-#: src/incidenceformatter.cpp:1363
+#: src/incidenceformatter.cpp:339
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Every N years on the [2nd|3rd|...] weekdayname of monthname until end-date"
@@ -746,7 +510,7 @@ msgid "Every year on the %2 %3 of %4 until %5"
 msgid_plural "Every %1 years on the %2 %3 of %4 until %5"
 msgstr[0] "រៀងរាល់ <numid>%1</numid> ឆ្នាំ​នៅ​ថ្ងៃ %2 %3 នៃ %4 រហូតដល់ %5"
 
-#: src/incidenceformatter.cpp:1378
+#: src/incidenceformatter.cpp:354
 #, fuzzy, kde-kuit-format
 #| msgctxt "Every N years on the [2nd|3rd|...] weekdayname of monthname"
 #| msgid "Every year on the %2 %3 of %4"
@@ -756,124 +520,34 @@ msgid "Every year on the %2 %3 of %4"
 msgid_plural "Every %1 years on the %2 %3 of %4"
 msgstr[0] "រៀងរាល់ <numid>%1</numid> ឆ្នាំ​នៅ​ថ្ងៃ %2 %3 នៃ %4"
 
-#: src/incidenceformatter.cpp:1392
+#: src/incidenceformatter.cpp:368
 #, kde-format
 msgid "Incidence recurs"
 msgstr "ការ​កើតឡើងវិញ"
 
-#: src/incidenceformatter.cpp:1405
+#: src/incidenceformatter.cpp:381
 #, kde-format
 msgid "minute %1"
 msgstr " %1 នាទី"
 
-#: src/incidenceformatter.cpp:1447 src/incidenceformatter.cpp:1506
-#: src/incidenceformatter.cpp:1532 src/incidenceformatter.cpp:1544
+#: src/incidenceformatter.cpp:423
 #, kde-format
 msgid "1 day"
 msgid_plural "%1 days"
 msgstr[0] "%1 ថ្ងៃ"
 
-#: src/incidenceformatter.cpp:1480
+#: src/incidenceformatter.cpp:454
+#, fuzzy, kde-format
+#| msgctxt "elipsis"
+#| msgid "..."
+msgctxt "ellipsis"
+msgid "..."
+msgstr "..."
+
+#: src/incidenceformatter.cpp:456
 #, kde-format
 msgid "%1 (excluding %2)"
 msgstr "%1 (មិនរួមបញ្ចូល %2)"
-
-#: src/incidenceformatter.cpp:1512
-#, kde-format
-msgid "1 hour"
-msgid_plural "%1 hours"
-msgstr[0] "%1 ម៉ោង"
-
-#: src/incidenceformatter.cpp:1518
-#, kde-format
-msgid "1 minute"
-msgid_plural "%1 minutes"
-msgstr[0] "%1 នាទី"
-
-#: src/incidenceformatter.cpp:1535
-#, kde-format
-msgid "forever"
-msgstr "រៀងរហូត"
-
-#: src/incidenceformatter.cpp:1577
-#, kde-format
-msgctxt "N days/hours/minutes before the start datetime"
-msgid "%1 before the start"
-msgstr "%1 មុន​កាលបរិច្ឆេទ​ចាប់ផ្ដើម"
-
-#: src/incidenceformatter.cpp:1579
-#, kde-format
-msgctxt "N days/hours/minutes after the start datetime"
-msgid "%1 after the start"
-msgstr "%1 ក្រោយ​កាលបរិច្ឆេទ​ចាប់ផ្ដើម"
-
-#: src/incidenceformatter.cpp:1590
-#, kde-format
-msgctxt "N days/hours/minutes before the due datetime"
-msgid "%1 before the to-do is due"
-msgstr "%1 មុន​កិច្ចការ​ត្រូវ​ធ្វើ​ដល់​កំណត់"
-
-#: src/incidenceformatter.cpp:1592
-#, kde-format
-msgctxt "N days/hours/minutes before the end datetime"
-msgid "%1 before the end"
-msgstr "%1 មុន​កាលបរិច្ឆេទ​បញ្ចប់"
-
-#: src/incidenceformatter.cpp:1596
-#, kde-format
-msgctxt "N days/hours/minutes after the due datetime"
-msgid "%1 after the to-do is due"
-msgstr "%1 ក្រោយ​កិច្ចការ​ត្រូវ​ធ្វើ​ដល់​កំណត់"
-
-#: src/incidenceformatter.cpp:1598
-#, kde-format
-msgctxt "N days/hours/minutes after the end datetime"
-msgid "%1 after the end"
-msgstr "%1 ក្រោយ​កាលបរិច្ឆេទ​បញ្ចប់"
-
-#: src/incidenceformatter.cpp:1616
-#, kde-format
-msgctxt "reminder occurs at datetime"
-msgid "at %1"
-msgstr "នៅ %1"
-
-#: src/incidenceformatter.cpp:1623
-#, kde-format
-msgid "repeats once"
-msgid_plural "repeats %1 times"
-msgstr[0] "កើតឡើងវិញ %1 ដង"
-
-#: src/incidenceformatter.cpp:1624
-#, kde-format
-msgctxt "interval is N days/hours/minutes"
-msgid "interval is %1"
-msgstr "ចន្លោះ​ពេល​គឺ %1"
-
-#: src/incidenceformatter.cpp:1625
-#, kde-format
-msgctxt "(repeat string, interval string)"
-msgid "(%1, %2)"
-msgstr "(%1, %2)"
-
-#: src/incidenceformatter.cpp:1630
-#, kde-format
-msgctxt "alarm is disabled"
-msgid "disabled"
-msgstr ""
-
-#: src/incidenceformatter.cpp:1634
-#, kde-format
-msgctxt "alarm will play a sound"
-msgid "audio"
-msgstr ""
-
-#: src/incidenceformatter.cpp:1637
-#, fuzzy, kde-format
-#| msgctxt "attendee name (attendee status)"
-#| msgid "%1 (%2)"
-msgctxt "the reminder string with its types list"
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
 
 #: src/stringify.cpp:39
 #, kde-format
@@ -1145,238 +819,367 @@ msgctxt "@item"
 msgid "message does not contain ICAL_METHOD_PROPERTY"
 msgstr "សារ​មិន​មាន​ ICAL_METHOD_PROPERTY"
 
-#: src/templates/attendee_row.html:17
-msgid "organizer"
-msgstr "អ្នក​រៀបចំ"
+#~ msgid "Show mail"
+#~ msgstr "បង្ហាញ​សំបុត្រ"
 
-#: src/templates/attendee_row.html:21
-msgid "myself"
-msgstr "ខ្លួនខ្ញុំ"
+#~ msgctxt "hours part of duration"
+#~ msgid "1 hour "
+#~ msgid_plural "%1 hours "
+#~ msgstr[0] "%1 ម៉ោង"
 
-#: src/templates/attendee_row.html:25
-#, fuzzy, kde-format
-#| msgid " (delegated by %1)"
-msgid "delegated by %1)"
-msgstr " (បាន​ផ្ទេរ​ដោយ %1)"
+#~ msgctxt "minutes part duration"
+#~ msgid "1 minute "
+#~ msgid_plural "%1 minutes "
+#~ msgstr[0] "%1 នាទី"
 
-#: src/templates/attendee_row.html:29
-#, fuzzy, kde-format
-#| msgid " (delegated to %1)"
-msgid "delegated to %1)"
-msgstr " (បាន​ផ្ទេរ​ទៅកាន់ %1)"
+#~ msgctxt "seconds part of duration"
+#~ msgid "1 second"
+#~ msgid_plural "%1 seconds"
+#~ msgstr[0] "%1 វិនាទី"
 
-#: src/templates/attendee_row.html:36
+#~ msgctxt "Event start"
+#~ msgid "<i>From:</i> %1"
+#~ msgstr "<i>ពី ៖</i> %1"
+
+#~ msgctxt "Event end"
+#~ msgid "<i>To:</i> %1"
+#~ msgstr "<i>ដល់ ៖</i> %1"
+
 #, fuzzy
-#| msgid "Show mail"
-msgid "Send email"
-msgstr "បង្ហាញ​សំបុត្រ"
+#~| msgid "<i>Date:</i> %1"
+#~ msgctxt "datetime range for event"
+#~ msgid "<i>Date:</i> %1 - %2"
+#~ msgstr "<i>កាលបរិច្ឆេទ ៖</i> %1"
 
-#: src/templates/event.html:5
+#~ msgid "<i>Date:</i> %1"
+#~ msgstr "<i>កាលបរិច្ឆេទ ៖</i> %1"
+
+#~ msgctxt "time for event"
+#~ msgid "<i>Time:</i> %1"
+#~ msgstr "<i>ពេលវេលា ៖</i> %1"
+
+#~ msgctxt "time range for event"
+#~ msgid "<i>Time:</i> %1 - %2"
+#~ msgstr "<i>ពេលវេលា ៖</i> %1 - %2"
+
 #, fuzzy
-#| msgctxt "@title:column event description"
-#| msgid "Event"
-msgid "Event"
-msgstr "ព្រឹត្តិការណ៍"
+#~| msgid "<i>Start:</i> %1"
+#~ msgctxt "To-do's start date"
+#~ msgid "<i>Start:</i> %1"
+#~ msgstr "<i>ចាប់ផ្ដើម ៖</i> %1"
 
-#: src/templates/event.html:30 src/templates/event.html:33
-#: src/templates/event.html:40 src/templates/event.html:43
-#: src/templates/journal.html:22
-msgid "Date:"
-msgstr "កាលបរិច្ឆេទ ៖"
-
-#: src/templates/event.html:31
-#, fuzzy, kde-format
-#| msgctxt "<beginTime> - <endTime>"
-#| msgid "%1 - %2"
-msgctxt "<beginDate> - <endDate>"
-msgid "%1 - %2"
-msgstr "%1 - %2"
-
-#: src/templates/event.html:34 src/templates/event.html:44
-#, fuzzy, kde-format
-#| msgid "%1"
-msgctxt "Date as string"
-msgid "%1"
-msgstr "%1"
-
-#: src/templates/event.html:41
-#, fuzzy, kde-format
-#| msgctxt "<beginTime> - <endTime>"
-#| msgid "%1 - %2"
-msgctxt "<beginDateTime> - <endDateTime>"
-msgid "%1 - %2"
-msgstr "%1 - %2"
-
-#: src/templates/event.html:47
-msgid "Time:"
-msgstr "ពេលវេលា ៖"
-
-#: src/templates/event.html:49
-#, kde-format
-msgctxt "<beginTime> - <endTime>"
-msgid "%1 - %2"
-msgstr "%1 - %2"
-
-#: src/templates/event.html:51
-#, fuzzy, kde-format
-#| msgid "%1"
-msgctxt "Time as string"
-msgid "%1"
-msgstr "%1"
-
-#: src/templates/event.html:70
-msgctxt "Exception in event recurrence"
-msgid "Exception"
-msgstr ""
-
-#: src/templates/event.html:80
-msgid "Birthday:"
-msgstr "ថ្ងៃខែ​ឆ្នាំ​កំណើត ៖"
-
-#: src/templates/event.html:88
-msgid "Anniversary:"
-msgstr "ខួប ៖"
-
-#: src/templates/event.html:150 src/templates/todo.html:131
 #, fuzzy
-#| msgid "Optional Participants:"
-msgid "Optional participants:"
-msgstr "អ្នក​ចូលរួម​ស្រេចចិត្ត ៖"
+#~| msgid "<i>Due:</i> %1"
+#~ msgctxt "To-do's due date"
+#~ msgid "<i>Due:</i> %1"
+#~ msgstr "<i>ដល់កំណត់ ៖</i> %1"
 
-#: src/templates/event.html:184 src/templates/todo.html:186
-msgid "Attachment:"
-msgid_plural "Attachments:"
-msgstr[0] "ឯកសារ​ភ្ជាប់ ៖"
-
-#: src/templates/event.html:197 src/templates/journal.html:47
-#: src/templates/todo.html:200
-#, fuzzy, kde-format
-#| msgid "Creation date: %1"
-msgid "Created: %1"
-msgstr "កាលបរិច្ឆេទ​បង្កើត ៖ %1"
-
-#: src/templates/event.html:198 src/templates/journal.html:48
-#: src/templates/todo.html:201
-#, kde-format
-msgid "Modified: %1"
-msgstr ""
-
-#: src/templates/event.html:199 src/templates/journal.html:49
-#: src/templates/todo.html:202
-#, fuzzy, kde-format
-#| msgid "Recurs: %1\n"
-msgid "Revision: %1"
-msgstr "កើតឡើងវិញ ៖ %1\n"
-
-#: src/templates/freebusy.html:6
-#, kde-format
-msgid "Busy times in date range %1 - %2:"
-msgstr "ពេលវេលា​រវល់​នៅ​ក្នុង​ជួរ​កាលបរិច្ឆេទ %1 - %2 ៖"
-
-#: src/templates/freebusy.html:9
 #, fuzzy
-#| msgctxt "tag for busy periods list"
-#| msgid "Busy:"
-msgctxt "tag for busy period list"
-msgid "Busy:"
-msgstr "រវល់ ៖"
+#~| msgid "<i>Period start:</i> %1"
+#~ msgctxt "To-do's priority number"
+#~ msgid "<i>Priority:</i> %1"
+#~ msgstr "<i>អំឡុង​ពេល​ចាប់ផ្ដើម ៖</i> %1"
 
-#: src/templates/freebusy.html:13
-#, kde-format
-msgctxt "startDate for duration"
-msgid "%1 for %2"
-msgstr "%1 សម្រាប់ %2"
-
-#: src/templates/freebusy.html:16
-#, fuzzy, kde-format
-#| msgctxt "date, fromTime - toTime "
-#| msgid "%1, %2 - %3"
-msgctxt "date, fromTime - toTime"
-msgid "%1, %2 - %3"
-msgstr "%1, %2 - %3"
-
-#: src/templates/freebusy.html:18
-#, fuzzy, kde-format
-#| msgctxt "<beginTime> - <endTime>"
-#| msgid "%1 - %2"
-msgctxt "fromDateTime - endDateTime"
-msgid "%1 - %2"
-msgstr "%1 - %2"
-
-#: src/templates/incidence_header.html:10
 #, fuzzy
-#| msgid "Recurrence:"
-msgid "Recurring incidence"
-msgstr "ការ​កើតឡើង​វិញ ៖"
+#~| msgid "<i>Date:</i> %1"
+#~ msgctxt "To-do's completed date"
+#~ msgid "<i>Completed:</i> %1"
+#~ msgstr "<i>កាលបរិច្ឆេទ ៖</i> %1"
 
-#: src/templates/incidence_header.html:14
 #, fuzzy
-#| msgid "Incidence recurs"
-msgid "Incidence with a reminder"
-msgstr "ការ​កើតឡើងវិញ"
+#~| msgid "Percent Done:"
+#~ msgctxt "To-do's percent complete:"
+#~ msgid "<i>Percent Done:</i> %1%"
+#~ msgstr "ភាគរយ​ដែល​ធ្វើ​រួច ៖"
 
-#: src/templates/incidence_header.html:18
+#~ msgid "<i>Period start:</i> %1"
+#~ msgstr "<i>អំឡុង​ពេល​ចាប់ផ្ដើម ៖</i> %1"
+
 #, fuzzy
-#| msgid "Incidence recurs"
-msgid "Incidence is read only"
-msgstr "ការ​កើតឡើងវិញ"
+#~| msgid "<i>Period start:</i> %1"
+#~ msgid "<i>Period end:</i> %1"
+#~ msgstr "<i>អំឡុង​ពេល​ចាប់ផ្ដើម ៖</i> %1"
 
-#: src/templates/itip.html:80
+#~ msgid "Free/Busy information for %1"
+#~ msgstr "ព័ត៌មាន​ទំនេរ/រវល់​សម្រាប់ %1"
+
+#~ msgctxt "attendee name (attendee status)"
+#~ msgid "%1 (%2)"
+#~ msgstr "%1 (%2)"
+
+#~ msgid "%1"
+#~ msgstr "%1"
+
+#~ msgid " (delegated by %1)"
+#~ msgstr " (បាន​ផ្ទេរ​ដោយ %1)"
+
+#~ msgid " (delegated to %1)"
+#~ msgstr " (បាន​ផ្ទេរ​ទៅកាន់ %1)"
+
+#~ msgid "Organizer:"
+#~ msgstr "កម្មវិធី​រៀបចំ ៖"
+
+#~ msgid "Chair:"
+#~ msgstr "ប្រធាន ៖"
+
+#~ msgid "Required Participants:"
+#~ msgstr "អ្នក​ចូលរួម​ចាំបាច់ ៖"
+
+#~ msgid "Optional Participants:"
+#~ msgstr "អ្នក​ចូលរួម​ស្រេចចិត្ត ៖"
+
+#~ msgid "Observers:"
+#~ msgstr "អ្នក​សង្កេតការណ៍ ៖"
+
+#~ msgid "Calendar:"
+#~ msgstr "ប្រតិទិន ៖"
+
+#~ msgid "Location:"
+#~ msgstr "ទីតាំង ៖"
+
+#~ msgid "Duration:"
+#~ msgstr "ថិរវេលា ៖"
+
+#~ msgid "Recurrence:"
+#~ msgstr "ការ​កើតឡើង​វិញ ៖"
+
+#~ msgid "Description:"
+#~ msgstr "សេចក្ដី​ពិពណ៌នា ៖"
+
+#~ msgid "Reminder:"
+#~ msgid_plural "Reminders:"
+#~ msgstr[0] "កម្មវិធី​រំលឹក ៖"
+
+#~ msgid "1 hour"
+#~ msgid_plural "%1 hours"
+#~ msgstr[0] "%1 ម៉ោង"
+
+#~ msgid "1 minute"
+#~ msgid_plural "%1 minutes"
+#~ msgstr[0] "%1 នាទី"
+
+#~ msgid "forever"
+#~ msgstr "រៀងរហូត"
+
+#~ msgctxt "N days/hours/minutes before the start datetime"
+#~ msgid "%1 before the start"
+#~ msgstr "%1 មុន​កាលបរិច្ឆេទ​ចាប់ផ្ដើម"
+
+#~ msgctxt "N days/hours/minutes after the start datetime"
+#~ msgid "%1 after the start"
+#~ msgstr "%1 ក្រោយ​កាលបរិច្ឆេទ​ចាប់ផ្ដើម"
+
+#~ msgctxt "N days/hours/minutes before the due datetime"
+#~ msgid "%1 before the to-do is due"
+#~ msgstr "%1 មុន​កិច្ចការ​ត្រូវ​ធ្វើ​ដល់​កំណត់"
+
+#~ msgctxt "N days/hours/minutes before the end datetime"
+#~ msgid "%1 before the end"
+#~ msgstr "%1 មុន​កាលបរិច្ឆេទ​បញ្ចប់"
+
+#~ msgctxt "N days/hours/minutes after the due datetime"
+#~ msgid "%1 after the to-do is due"
+#~ msgstr "%1 ក្រោយ​កិច្ចការ​ត្រូវ​ធ្វើ​ដល់​កំណត់"
+
+#~ msgctxt "N days/hours/minutes after the end datetime"
+#~ msgid "%1 after the end"
+#~ msgstr "%1 ក្រោយ​កាលបរិច្ឆេទ​បញ្ចប់"
+
+#~ msgctxt "reminder occurs at datetime"
+#~ msgid "at %1"
+#~ msgstr "នៅ %1"
+
+#~ msgid "repeats once"
+#~ msgid_plural "repeats %1 times"
+#~ msgstr[0] "កើតឡើងវិញ %1 ដង"
+
+#~ msgctxt "interval is N days/hours/minutes"
+#~ msgid "interval is %1"
+#~ msgstr "ចន្លោះ​ពេល​គឺ %1"
+
+#~ msgctxt "(repeat string, interval string)"
+#~ msgid "(%1, %2)"
+#~ msgstr "(%1, %2)"
+
 #, fuzzy
-#| msgid "Comments:"
-msgid "Comment:"
-msgstr "សេចក្ដី​អធិប្បាយ ៖"
+#~| msgctxt "attendee name (attendee status)"
+#~| msgid "%1 (%2)"
+#~ msgctxt "the reminder string with its types list"
+#~ msgid "%1 (%2)"
+#~ msgstr "%1 (%2)"
 
-#: src/templates/itip.html:83
-msgid "Comments:"
-msgstr "សេចក្ដី​អធិប្បាយ ៖"
+#~ msgid "organizer"
+#~ msgstr "អ្នក​រៀបចំ"
 
-#: src/templates/itip.html:122
+#~ msgid "myself"
+#~ msgstr "ខ្លួនខ្ញុំ"
+
 #, fuzzy
-#| msgid "Attachment:"
-#| msgid_plural "Attachments:"
-msgid "Attachments:"
-msgstr "ឯកសារ​ភ្ជាប់ ៖"
+#~| msgid " (delegated by %1)"
+#~ msgid "delegated by %1)"
+#~ msgstr " (បាន​ផ្ទេរ​ដោយ %1)"
 
-#: src/templates/journal.html:5
 #, fuzzy
-#| msgid "Journals"
-msgid "Journal"
-msgstr "ទិនានុប្បវត្តិ"
+#~| msgid " (delegated to %1)"
+#~ msgid "delegated to %1)"
+#~ msgstr " (បាន​ផ្ទេរ​ទៅកាន់ %1)"
 
-#: src/templates/todo.html:5
-msgid "Todo"
-msgstr ""
-
-#: src/templates/todo.html:30
-msgctxt "to-do start date/time"
-msgid "Start:"
-msgstr "ចាប់ផ្ដើម ៖"
-
-#: src/templates/todo.html:42
-msgctxt "to-do due date/time"
-msgid "Due:"
-msgstr "ដល់​ពេល​កំណត់ ៖"
-
-#: src/templates/todo.html:165
-msgid "Priority:"
-msgstr "អាទិភាព ៖"
-
-#: src/templates/todo.html:173
-msgctxt "Completed: date"
-msgid "Completed:"
-msgstr "បាន​បញ្ចប់ ៖"
-
-#: src/templates/todo.html:178
 #, fuzzy
-#| msgid "Percent Done:"
-msgid "Percent done:"
-msgstr "ភាគរយ​ដែល​ធ្វើ​រួច ៖"
+#~| msgid "Show mail"
+#~ msgid "Send email"
+#~ msgstr "បង្ហាញ​សំបុត្រ"
 
-#: src/templates/todo.html:179
-#, kde-format
-msgid "%1%"
-msgstr "%1%"
+#, fuzzy
+#~| msgctxt "@title:column event description"
+#~| msgid "Event"
+#~ msgid "Event"
+#~ msgstr "ព្រឹត្តិការណ៍"
+
+#~ msgid "Date:"
+#~ msgstr "កាលបរិច្ឆេទ ៖"
+
+#, fuzzy
+#~| msgctxt "<beginTime> - <endTime>"
+#~| msgid "%1 - %2"
+#~ msgctxt "<beginDate> - <endDate>"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#, fuzzy
+#~| msgid "%1"
+#~ msgctxt "Date as string"
+#~ msgid "%1"
+#~ msgstr "%1"
+
+#, fuzzy
+#~| msgctxt "<beginTime> - <endTime>"
+#~| msgid "%1 - %2"
+#~ msgctxt "<beginDateTime> - <endDateTime>"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgid "Time:"
+#~ msgstr "ពេលវេលា ៖"
+
+#~ msgctxt "<beginTime> - <endTime>"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#, fuzzy
+#~| msgid "%1"
+#~ msgctxt "Time as string"
+#~ msgid "%1"
+#~ msgstr "%1"
+
+#~ msgid "Birthday:"
+#~ msgstr "ថ្ងៃខែ​ឆ្នាំ​កំណើត ៖"
+
+#~ msgid "Anniversary:"
+#~ msgstr "ខួប ៖"
+
+#, fuzzy
+#~| msgid "Optional Participants:"
+#~ msgid "Optional participants:"
+#~ msgstr "អ្នក​ចូលរួម​ស្រេចចិត្ត ៖"
+
+#~ msgid "Attachment:"
+#~ msgid_plural "Attachments:"
+#~ msgstr[0] "ឯកសារ​ភ្ជាប់ ៖"
+
+#, fuzzy
+#~| msgid "Creation date: %1"
+#~ msgid "Created: %1"
+#~ msgstr "កាលបរិច្ឆេទ​បង្កើត ៖ %1"
+
+#, fuzzy
+#~| msgid "Recurs: %1\n"
+#~ msgid "Revision: %1"
+#~ msgstr "កើតឡើងវិញ ៖ %1\n"
+
+#~ msgid "Busy times in date range %1 - %2:"
+#~ msgstr "ពេលវេលា​រវល់​នៅ​ក្នុង​ជួរ​កាលបរិច្ឆេទ %1 - %2 ៖"
+
+#, fuzzy
+#~| msgctxt "tag for busy periods list"
+#~| msgid "Busy:"
+#~ msgctxt "tag for busy period list"
+#~ msgid "Busy:"
+#~ msgstr "រវល់ ៖"
+
+#~ msgctxt "startDate for duration"
+#~ msgid "%1 for %2"
+#~ msgstr "%1 សម្រាប់ %2"
+
+#, fuzzy
+#~| msgctxt "date, fromTime - toTime "
+#~| msgid "%1, %2 - %3"
+#~ msgctxt "date, fromTime - toTime"
+#~ msgid "%1, %2 - %3"
+#~ msgstr "%1, %2 - %3"
+
+#, fuzzy
+#~| msgctxt "<beginTime> - <endTime>"
+#~| msgid "%1 - %2"
+#~ msgctxt "fromDateTime - endDateTime"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#, fuzzy
+#~| msgid "Recurrence:"
+#~ msgid "Recurring incidence"
+#~ msgstr "ការ​កើតឡើង​វិញ ៖"
+
+#, fuzzy
+#~| msgid "Incidence recurs"
+#~ msgid "Incidence with a reminder"
+#~ msgstr "ការ​កើតឡើងវិញ"
+
+#, fuzzy
+#~| msgid "Incidence recurs"
+#~ msgid "Incidence is read only"
+#~ msgstr "ការ​កើតឡើងវិញ"
+
+#, fuzzy
+#~| msgid "Comments:"
+#~ msgid "Comment:"
+#~ msgstr "សេចក្ដី​អធិប្បាយ ៖"
+
+#~ msgid "Comments:"
+#~ msgstr "សេចក្ដី​អធិប្បាយ ៖"
+
+#, fuzzy
+#~| msgid "Attachment:"
+#~| msgid_plural "Attachments:"
+#~ msgid "Attachments:"
+#~ msgstr "ឯកសារ​ភ្ជាប់ ៖"
+
+#, fuzzy
+#~| msgid "Journals"
+#~ msgid "Journal"
+#~ msgstr "ទិនានុប្បវត្តិ"
+
+#~ msgctxt "to-do start date/time"
+#~ msgid "Start:"
+#~ msgstr "ចាប់ផ្ដើម ៖"
+
+#~ msgctxt "to-do due date/time"
+#~ msgid "Due:"
+#~ msgstr "ដល់​ពេល​កំណត់ ៖"
+
+#~ msgid "Priority:"
+#~ msgstr "អាទិភាព ៖"
+
+#~ msgctxt "Completed: date"
+#~ msgid "Completed:"
+#~ msgstr "បាន​បញ្ចប់ ៖"
+
+#, fuzzy
+#~| msgid "Percent Done:"
+#~ msgid "Percent done:"
+#~ msgstr "ភាគរយ​ដែល​ធ្វើ​រួច ៖"
+
+#~ msgid "%1%"
+#~ msgstr "%1%"
 
 #~ msgid "Organizer Unknown"
 #~ msgstr "មិន​ស្គាល់​អ្នក​រៀបចំ"
