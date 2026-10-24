@@ -805,18 +805,3 @@ msgstr ""
 msgctxt "@item"
 msgid "message does not contain ICAL_METHOD_PROPERTY"
 msgstr ""
-
-#~ msgid "Template"
-#~ msgstr "Málle"
-
-#~ msgid "Location:"
-#~ msgstr "Báiki:"
-
-#~ msgid "forever"
-#~ msgstr "Agibeaivái"
-
-#~ msgid "Event"
-#~ msgstr "Dáhpáhus"
-
-#~ msgid "Journal"
-#~ msgstr "Journála"
