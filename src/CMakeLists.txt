@@ -97,4 +97,4 @@ ecm_installed_library_check_include_strings(KPim6CalendarUtils
 )
 
 ecm_qt_install_logging_categories(EXPORT KCALUTILS FILE kcalutils.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-ecm_generate_qdoc(KPim6CalendarUtils kcalutils.qdocconf)
+ecm_generate_qdoc(KPim6CalendarUtils calendarutils.qdocconf)

@@ -18,7 +18,7 @@ navigation.landingpage = "CalendarUtils"
 
 qhp.projects            = CalendarUtils
 
-qhp.CalendarUtils.file                = kcalutils.qhp
+qhp.CalendarUtils.file                = calendarutils.qhp
 qhp.CalendarUtils.namespace           = org.kde.kcalutils.$QT_VERSION_TAG
 qhp.CalendarUtils.virtualFolder       = kcalutils
 qhp.CalendarUtils.indexTitle          = CalendarUtils
@@ -30,4 +30,4 @@ qhp.CalendarUtils.subprojects.classes.indexTitle = CalendarUtils C++ Classes
 qhp.CalendarUtils.subprojects.classes.selectors = class fake:headerfile
 qhp.CalendarUtils.subprojects.classes.sortPages = true
 
-tagfile = kcalutils.tags
+tagfile = calendarutils.tags
