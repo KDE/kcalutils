@@ -1685,9 +1685,7 @@ msgid "Event"
 msgstr "Evento"
 
 #: src/stringify.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "To-do"
+#, kde-format
 msgctxt "@item incidence type is To-do/Task (capitalized)"
 msgid "To-do"
 msgstr "Tarefa"
